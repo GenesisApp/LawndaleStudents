@@ -1,0 +1,255 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /chats/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /chat_messages/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /resource_videos/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /prayer_requests/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if resource.data.user == /databases/$(database)/documents/users/$(request.auth.uid);
+    }
+
+    match /messages/{document} {
+      allow create: if request.auth != null;
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+      allow delete: if resource.data.user == /databases/$(database)/documents/users/$(request.auth.uid);
+    }
+
+    match /messageChats/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if /databases/$(database)/documents/users/$(request.auth.uid) in resource.data.users;
+    }
+
+    match /dailyPracticeVideos/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /personalJournals/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if resource.data.journalUser == /databases/$(database)/documents/users/$(request.auth.uid);
+    }
+
+    match /friendRequests/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if resource.data.requestSender == /databases/$(database)/documents/users/$(request.auth.uid);
+    }
+
+    match /personalJournals/{parent}/journalReplies/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if request.auth != null;
+    }
+
+    match /{path=**}/journalReplies/{document} {
+      allow read: if true;
+    }
+
+
+    match /Seasons/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /badges/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /admin_data/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /liveServices/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /profile_tags/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /chatPoll/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /chatEvent/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /Catechism/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /coreQuestions/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /groups/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /events/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /guides/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /givingTab/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if false;
+      allow delete: if false;
+    }
+
+    match /heartCheck/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /groups/{parent}/attendance/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /{path=**}/attendance/{document} {
+      allow read: if true;
+    }
+
+
+    match /globalGroupsData/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /groups/{parent}/groupRatings/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /{path=**}/groupRatings/{document} {
+      allow read: if true;
+    }
+
+
+    match /groupsCategories/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /globalGroupRatings/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /reportedConcerns/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /churchLocations/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if request.auth != null;
+      allow delete: if false;
+    }
+
+    match /videoSeries/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if false;
+    }
+
+    match /ff_user_push_notifications/{id} {
+      allow read, update, delete: if false;
+      allow create: if /databases/$(database)/documents/users/$(request.auth.uid) == request.resource.data.sender;
+    }
+  }
+}

@@ -1,0 +1,858 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "friendRequests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "requestAnswered",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "requestReceiver",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeofRequest",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messageChats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "archived",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "userswithIndicator",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "lastMessageTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messageChats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "archived",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "users",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messageChats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "archived",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "users",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "lastMessageTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "prayer_requests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "public",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeUploaded",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "dailyPracticeVideos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "worshipPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeToLaunch",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "dailyPracticeVideos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "scripturePractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeToLaunch",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "dailyPracticeVideos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "prayerPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeToLaunch",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "resource_videos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "featuredMessage",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeEdited",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "groups",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "featuredMessage",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "time_uploaded",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "prayer_requests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "user",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeUploaded",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chatReference",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeSent",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chatPoll",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chatReference",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeCreated",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chatEvent",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chatReference",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeCreated",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "pastoralCare",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "display_name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messageChats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "pastoralRequest",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "lastMessageTime",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "completed_1",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "completed_2",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "complete_3",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "display_name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messageChats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "pastoralRequest",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "lastMessageTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chatReference",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "pin",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeSent",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalOne",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalOne",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalOne",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalOne",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalRepliesNum",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalTwo",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalTwo",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalTwo",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalTwo",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalRepliesNum",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalThree",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalThree",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalThree",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "journalThree",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalRepliesNum",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "messageJournal",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "messageJournal",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "messageJournal",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "messageJournal",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalRepliesNum",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "tags",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "display_name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "messageChats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "archived",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "otherUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "users",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "lastMessageTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "eventsConfirmed",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "display_name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "eventsDeclined",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "display_name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "eventsMaybe",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "display_name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "dailyPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDayDate",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "dailyPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDayDate",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "dailyPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDayDate",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Catechism",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "part1",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "questionNumber",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Catechism",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "part2",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "questionNumber",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Catechism",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "part3",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "questionNumber",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "groups",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "featuredMessage",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "members",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "groups",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "targetAge",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "meetingTime",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "meetingDay",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "groupCategory",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "targetGender",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "members",
+          "arrayConfig": "CONTAINS"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "inaGroup",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "display_name",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "heartCheck",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "userSubmittedby",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeSubmitted",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "resource_videos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "seriesVideoIsAPartOf",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeofRecording",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "fcm_tokens",
+      "fieldPath": "fcm_token",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
+        }
+      ]
+    }
+  ]
+}
