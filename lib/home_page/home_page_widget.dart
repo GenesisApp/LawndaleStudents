@@ -716,6 +716,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
         await showModalBottomSheet(
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
+          barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
+          isDismissible: false,
           context: context,
           builder: (context) {
             return WebViewAware(
