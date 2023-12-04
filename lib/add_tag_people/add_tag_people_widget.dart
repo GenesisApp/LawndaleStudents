@@ -151,7 +151,7 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
             await showModalBottomSheet(
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
-              barrierColor: Color(0x3338383A),
+              barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
               isDismissible: false,
               enableDrag: false,
               context: context,

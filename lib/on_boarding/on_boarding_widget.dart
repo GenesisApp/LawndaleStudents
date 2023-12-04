@@ -618,7 +618,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.14,
-                                                  lineWidth: 7.0,
+                                                  lineWidth: 6.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,
                                                   progressColor:
@@ -737,7 +737,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                       MediaQuery.sizeOf(context)
                                                               .width *
                                                           0.14,
-                                                  lineWidth: 7.0,
+                                                  lineWidth: 6.0,
                                                   animation: true,
                                                   animateFromLastPercent: true,
                                                   progressColor:
@@ -912,7 +912,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                 context)
                                                             .width *
                                                         0.14,
-                                                    lineWidth: 7.0,
+                                                    lineWidth: 6.0,
                                                     animation: true,
                                                     animateFromLastPercent:
                                                         true,
