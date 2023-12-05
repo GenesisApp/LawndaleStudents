@@ -7284,7 +7284,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     '81bhq1km': {
       'en':
-          'In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user\'s location.',
+          'In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user location.',
       'es': '',
     },
     'gait77qy': {
