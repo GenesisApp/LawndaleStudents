@@ -1179,7 +1179,6 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                           onChanged: (val) => setState(() =>
                                               _model.dropDownValue1 = val),
                                           width: 150.0,
-                                          height: 50.0,
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
                                               .bodyMedium
@@ -1222,7 +1221,6 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                           onChanged: (val) => setState(() =>
                                               _model.dropDownValue2 = val),
                                           width: 150.0,
-                                          height: 50.0,
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
                                               .bodyMedium
