@@ -59,7 +59,7 @@
 	<true/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user&#39;s location.</string>
+    <string>In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user location.</string>
 	<key>NSCameraUsageDescription</key>
     <string>In order to upload a profile and background picture, this app requires permission to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
