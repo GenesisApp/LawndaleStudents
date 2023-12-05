@@ -124,6 +124,48 @@ class _HomePageWidgetState extends State<HomePageWidget>
         ),
       ],
     ),
+    'progressBarOnPageLoadAnimation1': AnimationInfo(
+      loop: true,
+      reverse: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: 0.3,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'progressBarOnPageLoadAnimation2': AnimationInfo(
+      loop: true,
+      reverse: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: 0.3,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'progressBarOnPageLoadAnimation3': AnimationInfo(
+      loop: true,
+      reverse: true,
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: 0.3,
+          end: 1.0,
+        ),
+      ],
+    ),
     'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
@@ -2738,35 +2780,69 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                               ],
                                             ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: AuthUserStreamWidget(
-                                                builder: (context) =>
-                                                    CircularPercentIndicator(
-                                                  percent: valueOrDefault(
-                                                          currentUserDocument
-                                                              ?.percentageCompleted1,
-                                                          0)
-                                                      .toDouble(),
-                                                  radius:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.145,
-                                                  lineWidth: 6.0,
-                                                  animation: true,
-                                                  animateFromLastPercent: true,
-                                                  progressColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .worshipRing,
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .systemGray5,
+                                            if (valueOrDefault<bool>(
+                                                currentUserDocument?.completed1,
+                                                false))
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      CircularPercentIndicator(
+                                                    percent: valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.percentageCompleted1,
+                                                            0)
+                                                        .toDouble(),
+                                                    radius: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.145,
+                                                    lineWidth: 6.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .worshipRing,
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .systemGray5,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
+                                            if (!valueOrDefault<bool>(
+                                                currentUserDocument?.completed1,
+                                                false))
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      CircularPercentIndicator(
+                                                    percent: 1.0,
+                                                    radius: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.145,
+                                                    lineWidth: 6.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .worshipRing,
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .systemGray5,
+                                                  ).animateOnPageLoad(animationsMap[
+                                                          'progressBarOnPageLoadAnimation1']!),
+                                                ),
+                                              ),
                                           ],
                                         );
                                       },
@@ -2833,35 +2909,39 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 ),
                                               ),
                                             ),
-                                            Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
-                                              child: AuthUserStreamWidget(
-                                                builder: (context) =>
-                                                    CircularPercentIndicator(
-                                                  percent: valueOrDefault(
-                                                          currentUserDocument
-                                                              ?.percentageCompleted2,
-                                                          0)
-                                                      .toDouble(),
-                                                  radius:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.145,
-                                                  lineWidth: 6.0,
-                                                  animation: true,
-                                                  animateFromLastPercent: true,
-                                                  progressColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .scriptureRing,
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .systemGray5,
+                                            if (valueOrDefault<bool>(
+                                                currentUserDocument?.completed2,
+                                                false))
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      CircularPercentIndicator(
+                                                    percent: valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.percentageCompleted2,
+                                                            0)
+                                                        .toDouble(),
+                                                    radius: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.145,
+                                                    lineWidth: 6.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .scriptureRing,
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .systemGray5,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
                                             Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -2961,6 +3041,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                               ],
                                             ),
+                                            if (!valueOrDefault<bool>(
+                                                currentUserDocument?.completed2,
+                                                false))
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      CircularPercentIndicator(
+                                                    percent: 1.0,
+                                                    radius: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.145,
+                                                    lineWidth: 6.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .scriptureRing,
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .systemGray5,
+                                                  ).animateOnPageLoad(animationsMap[
+                                                          'progressBarOnPageLoadAnimation2']!),
+                                                ),
+                                              ),
                                           ],
                                         );
                                       },
@@ -3034,36 +3144,41 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                                 ),
                                               ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: AuthUserStreamWidget(
-                                                  builder: (context) =>
-                                                      CircularPercentIndicator(
-                                                    percent: valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.percentageCompleted3,
-                                                            0)
-                                                        .toDouble(),
-                                                    radius: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.145,
-                                                    lineWidth: 6.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .prayerRing,
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .systemGray5,
+                                              if (valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.complete3,
+                                                  false))
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.00, 0.00),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) =>
+                                                        CircularPercentIndicator(
+                                                      percent: valueOrDefault(
+                                                              currentUserDocument
+                                                                  ?.percentageCompleted3,
+                                                              0)
+                                                          .toDouble(),
+                                                      radius: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.145,
+                                                      lineWidth: 6.0,
+                                                      animation: true,
+                                                      animateFromLastPercent:
+                                                          true,
+                                                      progressColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .prayerRing,
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .systemGray5,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -3178,6 +3293,39 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                 ],
                                               ),
+                                              if (!valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.complete3,
+                                                  false))
+                                                Align(
+                                                  alignment:
+                                                      AlignmentDirectional(
+                                                          0.00, 0.00),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) =>
+                                                        CircularPercentIndicator(
+                                                      percent: 1.0,
+                                                      radius: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.145,
+                                                      lineWidth: 6.0,
+                                                      animation: true,
+                                                      animateFromLastPercent:
+                                                          true,
+                                                      progressColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .prayerRing,
+                                                      backgroundColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .systemGray5,
+                                                    ).animateOnPageLoad(
+                                                            animationsMap[
+                                                                'progressBarOnPageLoadAnimation3']!),
+                                                  ),
+                                                ),
                                             ],
                                           );
                                         },
