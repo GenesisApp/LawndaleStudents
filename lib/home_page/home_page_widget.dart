@@ -750,7 +750,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
           ));
         }
       }
-      if (!valueOrDefault<bool>(currentUserDocument?.seenPrayer, false)) {
+      if (!valueOrDefault<bool>(currentUserDocument?.seenPrayer, false) &&
+          ((currentUserDocument?.prayedforRequests?.toList() ?? []).length >
+              0)) {
         await currentUserReference!.update(createUsersRecordData(
           completedprayer: true,
           showPrayer: true,
