@@ -7286,7 +7286,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'In order to dictate messages, this app requires permission to access the microphone.',
       'es': '',
     },
-    'vb9t8ft3': {
+    'ugvh7mzp': {
       'en':
           'In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user location.',
       'es': '',
