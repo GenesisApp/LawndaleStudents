@@ -868,6 +868,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                             List<MessagesRecord> columnMessagesRecordList =
                                 snapshot.data!;
                             return SingleChildScrollView(
+                              reverse: true,
+                              physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment: MainAxisAlignment.end,
