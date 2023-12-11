@@ -2378,9 +2378,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Inter',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .label,
+                                                                color: Colors
+                                                                    .white,
                                                                 fontSize: 12.0,
                                                                 fontWeight:
                                                                     FontWeight

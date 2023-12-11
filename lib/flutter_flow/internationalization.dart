@@ -415,10 +415,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'People',
       'es': 'Gente',
     },
-    'gwjzi2gf': {
-      'en': 'Showing all messages from the past thirty days.',
-      'es': '',
-    },
     '5solkni7': {
       'en': ' at ',
       'es': 'en',
@@ -7286,7 +7282,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'In order to dictate messages, this app requires permission to access the microphone.',
       'es': '',
     },
-    'ugvh7mzp': {
+    'ntzrpe2v': {
       'en':
           'In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user location.',
       'es': '',
