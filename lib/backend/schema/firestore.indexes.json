@@ -47,20 +47,6 @@
         {
           "fieldPath": "users",
           "arrayConfig": "CONTAINS"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "messageChats",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "archived",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "users",
-          "arrayConfig": "CONTAINS"
         },
         {
           "fieldPath": "lastMessageTime",
@@ -286,7 +272,7 @@
         },
         {
           "fieldPath": "timeSent",
-          "order": "DESCENDING"
+          "order": "ASCENDING"
         }
       ]
     },

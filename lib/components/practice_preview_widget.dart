@@ -52,25 +52,6 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
           begin: 0.0,
           end: 1.0,
         ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: Offset(0.0, 100.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
       ],
     ),
     'iconOnPageLoadAnimation1': AnimationInfo(
@@ -177,7 +158,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
+    'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         VisibilityEffect(duration: 1.ms),
@@ -287,8 +268,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                         ],
                       ),
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation1']!),
+                  ),
                 if (widget.practiceChosenDoc?.scripturePractice ?? true)
                   Container(
                     width: 30.0,
@@ -336,7 +316,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                       ),
                     ),
                   ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation2']!),
+                      animationsMap['containerOnPageLoadAnimation1']!),
                 if (widget.practiceChosenDoc?.prayerPractice ?? true)
                   wrapWithModel(
                     model: _model.prayerRingSmallModel,
@@ -989,7 +969,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                               ),
                             ),
                           ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation3']!),
+                              animationsMap['containerOnPageLoadAnimation2']!),
                         ),
                       ],
                     ),

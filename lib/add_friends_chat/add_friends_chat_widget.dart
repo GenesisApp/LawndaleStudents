@@ -115,7 +115,7 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
             await showModalBottomSheet(
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
-              barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
+              barrierColor: Color(0x80000000),
               context: context,
               builder: (context) {
                 return WebViewAware(

@@ -19,6 +19,7 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/instant_timer.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
@@ -94,17 +95,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
     'rowOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1.ms),
+        VisibilityEffect(duration: 200.ms),
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
+          delay: 200.ms,
           duration: 800.ms,
           begin: 0.0,
           end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
+          delay: 200.ms,
           duration: 800.ms,
           begin: Offset(-30.0, 0.0),
           end: Offset(0.0, 0.0),
@@ -120,48 +121,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
           delay: 0.ms,
           duration: 600.ms,
           begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'progressBarOnPageLoadAnimation1': AnimationInfo(
-      loop: true,
-      reverse: true,
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.3,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'progressBarOnPageLoadAnimation2': AnimationInfo(
-      loop: true,
-      reverse: true,
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.3,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'progressBarOnPageLoadAnimation3': AnimationInfo(
-      loop: true,
-      reverse: true,
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.3,
           end: 1.0,
         ),
       ],
@@ -751,7 +710,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.lockOrientation();
+      unawaited(
+        () async {
+          await actions.lockOrientation();
+        }(),
+      );
       if ((valueOrDefault(currentUserDocument?.distanceFromChurch, 0.0) <=
               .055) &&
           (currentUserDocument?.dateNoticeSeen != functions.getDayDate())) {
@@ -759,7 +722,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
           barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
-          isDismissible: false,
           context: context,
           builder: (context) {
             return WebViewAware(
@@ -784,11 +746,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
             .checkYesterdayDate(currentUserDocument?.dateofCompletion)!) {
           await currentUserReference!.update(createUsersRecordData(
             dailyStreak: 0,
+            dateofCompletion: functions.getYesterdayDate(),
           ));
         }
       }
-      if ((valueOrDefault(currentUserDocument?.dailyStreak, 0) >= 1) &&
-          !valueOrDefault<bool>(currentUserDocument?.seenPrayer, false)) {
+      if (!valueOrDefault<bool>(currentUserDocument?.seenPrayer, false)) {
         await currentUserReference!.update(createUsersRecordData(
           completedprayer: true,
           showPrayer: true,
@@ -1933,6 +1895,88 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         topRight: Radius.circular(0.0),
                       ),
                     ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        if (functions.checkIfMorning() == 'morning')
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
+                            ),
+                            child: CachedNetworkImage(
+                              fadeInDuration: Duration(milliseconds: 300),
+                              fadeOutDuration: Duration(milliseconds: 300),
+                              imageUrl:
+                                  'https://images.unsplash.com/photo-1567510534272-07e0f621b6d3?q=80&w=3465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              fit: BoxFit.cover,
+                              alignment: Alignment(0.00, -1.00),
+                            ),
+                          ),
+                        if ((functions.checkIfMorning() == 'midday') ||
+                            (functions.checkIfMorning() == 'afternoon'))
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
+                            ),
+                            child: CachedNetworkImage(
+                              fadeInDuration: Duration(milliseconds: 300),
+                              fadeOutDuration: Duration(milliseconds: 300),
+                              imageUrl:
+                                  'https://images.unsplash.com/photo-1558895035-256342677f83?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              fit: BoxFit.cover,
+                              alignment: Alignment(0.00, -1.00),
+                            ),
+                          ),
+                        if (functions.checkIfMorning() == 'evening')
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
+                            ),
+                            child: CachedNetworkImage(
+                              fadeInDuration: Duration(milliseconds: 300),
+                              fadeOutDuration: Duration(milliseconds: 300),
+                              imageUrl:
+                                  'https://images.unsplash.com/photo-1543007299-5925cf759ee4?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              fit: BoxFit.cover,
+                              alignment: Alignment(0.00, -1.00),
+                            ),
+                          ),
+                        if (functions.checkIfMorning() == 'nighttime')
+                          ClipRRect(
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(20.0),
+                              bottomRight: Radius.circular(20.0),
+                              topLeft: Radius.circular(0.0),
+                              topRight: Radius.circular(0.0),
+                            ),
+                            child: CachedNetworkImage(
+                              fadeInDuration: Duration(milliseconds: 300),
+                              fadeOutDuration: Duration(milliseconds: 300),
+                              imageUrl:
+                                  'https://images.unsplash.com/photo-1579707812346-7ad7a0997f8e?q=80&w=3368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              fit: BoxFit.cover,
+                              alignment: Alignment(0.00, -1.00),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
                 SingleChildScrollView(
@@ -2021,9 +2065,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Container(
+                                      width: 40.0,
+                                      height: 40.0,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        shape: BoxShape.circle,
                                       ),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -2036,8 +2081,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
+                                            shape: BoxShape.circle,
                                           ),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -2047,59 +2091,47 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               if (Theme.of(context)
                                                       .brightness ==
                                                   Brightness.dark)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          6.0, 6.0, 6.0, 6.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      setDarkModeSetting(
-                                                          context,
-                                                          ThemeMode.light);
-                                                    },
-                                                    child: SvgPicture.asset(
-                                                      'assets/images/sun-dim-fill_(1).svg',
-                                                      width: 35.0,
-                                                      height: 35.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setDarkModeSetting(context,
+                                                        ThemeMode.light);
+                                                  },
+                                                  child: SvgPicture.asset(
+                                                    'assets/images/sun-dim-fill_(black).svg',
+                                                    width: 35.0,
+                                                    height: 35.0,
+                                                    fit: BoxFit.cover,
                                                   ),
                                                 ),
                                               if (Theme.of(context)
                                                       .brightness ==
                                                   Brightness.light)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      setDarkModeSetting(
-                                                          context,
-                                                          ThemeMode.dark);
-                                                    },
-                                                    child: SvgPicture.asset(
-                                                      'assets/images/moon-fill_(1).svg',
-                                                      width: 30.0,
-                                                      height: 30.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
+                                                InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    setDarkModeSetting(context,
+                                                        ThemeMode.dark);
+                                                  },
+                                                  child: SvgPicture.asset(
+                                                    'assets/images/moon-fill_(white).svg',
+                                                    width: 30.0,
+                                                    height: 30.0,
+                                                    fit: BoxFit.cover,
                                                   ),
                                                 ),
                                             ],
@@ -2348,7 +2380,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .quaternaryLabel,
+                                                                    .label,
                                                                 fontSize: 12.0,
                                                                 fontWeight:
                                                                     FontWeight
@@ -2477,9 +2509,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       },
                                     ),
                                     Container(
+                                      width: 40.0,
+                                      height: 40.0,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
+                                        shape: BoxShape.circle,
                                       ),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
@@ -2492,8 +2525,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         },
                                         child: Container(
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
+                                            shape: BoxShape.circle,
                                           ),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
@@ -2503,30 +2535,20 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               if (Theme.of(context)
                                                       .brightness ==
                                                   Brightness.dark)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          6.0, 6.0, 6.0, 6.0),
-                                                  child: SvgPicture.asset(
-                                                    'assets/images/user-circle-gear-fill.svg',
-                                                    width: 35.0,
-                                                    height: 35.0,
-                                                    fit: BoxFit.cover,
-                                                  ),
+                                                SvgPicture.asset(
+                                                  'assets/images/user-circle-gear-fill_(black).svg',
+                                                  width: 35.0,
+                                                  height: 35.0,
+                                                  fit: BoxFit.cover,
                                                 ),
-                                              if (!(Theme.of(context)
+                                              if (Theme.of(context)
                                                       .brightness ==
-                                                  Brightness.dark))
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          6.0, 6.0, 6.0, 6.0),
-                                                  child: SvgPicture.asset(
-                                                    'assets/images/user-circle-gear-fill_(1).svg',
-                                                    width: 35.0,
-                                                    height: 35.0,
-                                                    fit: BoxFit.cover,
-                                                  ),
+                                                  Brightness.light)
+                                                SvgPicture.asset(
+                                                  'assets/images/user-circle-gear-fill_(white).svg',
+                                                  width: 35.0,
+                                                  height: 35.0,
+                                                  fit: BoxFit.cover,
                                                 ),
                                             ],
                                           ),
@@ -2553,17 +2575,37 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'drstqp7s' /* Hello, */,
+                                    AutoSizeText(
+                                      valueOrDefault<String>(
+                                        () {
+                                          if (functions.checkIfMorning() ==
+                                              'morning') {
+                                            return 'Good morning,';
+                                          } else if (functions
+                                                  .checkIfMorning() ==
+                                              'midday') {
+                                            return 'Hello,';
+                                          } else if (functions
+                                                  .checkIfMorning() ==
+                                              'afternoon') {
+                                            return 'Good afternoon,';
+                                          } else if (functions
+                                                  .checkIfMorning() ==
+                                              'evening') {
+                                            return 'Good evening,';
+                                          } else {
+                                            return 'Hello,';
+                                          }
+                                        }(),
+                                        'Hello,',
                                       ),
                                       textAlign: TextAlign.center,
+                                      maxLines: 1,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryLabel,
+                                            color: Colors.white,
                                             fontSize: 20.0,
                                             fontWeight: FontWeight.w300,
                                           ),
@@ -2572,15 +2614,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           10.0, 0.0, 0.0, 0.0),
                                       child: AuthUserStreamWidget(
-                                        builder: (context) => Text(
-                                          currentUserDisplayName,
+                                        builder: (context) => AutoSizeText(
+                                          currentUserDisplayName
+                                              .maybeHandleOverflow(
+                                            maxChars: 18,
+                                            replacement: '…',
+                                          ),
+                                          maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .headlineMedium
                                               .override(
                                                 fontFamily: 'Montserrat',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .label,
+                                                color: Colors.white,
                                                 useGoogleFonts: false,
                                               ),
                                         ),
@@ -2601,8 +2646,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondaryLabel,
+                                        color: Colors.white,
                                       ),
                                 ),
                               ),
@@ -2780,69 +2824,35 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                               ],
                                             ),
-                                            if (valueOrDefault<bool>(
-                                                currentUserDocument?.completed1,
-                                                false))
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: AuthUserStreamWidget(
-                                                  builder: (context) =>
-                                                      CircularPercentIndicator(
-                                                    percent: valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.percentageCompleted1,
-                                                            0)
-                                                        .toDouble(),
-                                                    radius: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.145,
-                                                    lineWidth: 6.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .worshipRing,
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .systemGray5,
-                                                  ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.00, 0.00),
+                                              child: AuthUserStreamWidget(
+                                                builder: (context) =>
+                                                    CircularPercentIndicator(
+                                                  percent: valueOrDefault(
+                                                          currentUserDocument
+                                                              ?.percentageCompleted1,
+                                                          0)
+                                                      .toDouble(),
+                                                  radius:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.145,
+                                                  lineWidth: 5.0,
+                                                  animation: true,
+                                                  animateFromLastPercent: true,
+                                                  progressColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .worshipRing,
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .systemGray5,
                                                 ),
                                               ),
-                                            if (!valueOrDefault<bool>(
-                                                currentUserDocument?.completed1,
-                                                false))
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: AuthUserStreamWidget(
-                                                  builder: (context) =>
-                                                      CircularPercentIndicator(
-                                                    percent: 1.0,
-                                                    radius: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.145,
-                                                    lineWidth: 6.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .worshipRing,
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .systemGray5,
-                                                  ).animateOnPageLoad(animationsMap[
-                                                          'progressBarOnPageLoadAnimation1']!),
-                                                ),
-                                              ),
+                                            ),
                                           ],
                                         );
                                       },
@@ -2909,39 +2919,35 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 ),
                                               ),
                                             ),
-                                            if (valueOrDefault<bool>(
-                                                currentUserDocument?.completed2,
-                                                false))
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: AuthUserStreamWidget(
-                                                  builder: (context) =>
-                                                      CircularPercentIndicator(
-                                                    percent: valueOrDefault(
-                                                            currentUserDocument
-                                                                ?.percentageCompleted2,
-                                                            0)
-                                                        .toDouble(),
-                                                    radius: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.145,
-                                                    lineWidth: 6.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .scriptureRing,
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .systemGray5,
-                                                  ),
+                                            Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.00, 0.00),
+                                              child: AuthUserStreamWidget(
+                                                builder: (context) =>
+                                                    CircularPercentIndicator(
+                                                  percent: valueOrDefault(
+                                                          currentUserDocument
+                                                              ?.percentageCompleted2,
+                                                          0)
+                                                      .toDouble(),
+                                                  radius:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.145,
+                                                  lineWidth: 5.0,
+                                                  animation: true,
+                                                  animateFromLastPercent: true,
+                                                  progressColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .scriptureRing,
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .systemGray5,
                                                 ),
                                               ),
+                                            ),
                                             Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -3041,36 +3047,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                               ],
                                             ),
-                                            if (!valueOrDefault<bool>(
-                                                currentUserDocument?.completed2,
-                                                false))
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
-                                                child: AuthUserStreamWidget(
-                                                  builder: (context) =>
-                                                      CircularPercentIndicator(
-                                                    percent: 1.0,
-                                                    radius: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.145,
-                                                    lineWidth: 6.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .scriptureRing,
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .systemGray5,
-                                                  ).animateOnPageLoad(animationsMap[
-                                                          'progressBarOnPageLoadAnimation2']!),
-                                                ),
-                                              ),
                                           ],
                                         );
                                       },
@@ -3144,41 +3120,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                                 ),
                                               ),
-                                              if (valueOrDefault<bool>(
-                                                  currentUserDocument
-                                                      ?.complete3,
-                                                  false))
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: AuthUserStreamWidget(
-                                                    builder: (context) =>
-                                                        CircularPercentIndicator(
-                                                      percent: valueOrDefault(
-                                                              currentUserDocument
-                                                                  ?.percentageCompleted3,
-                                                              0)
-                                                          .toDouble(),
-                                                      radius: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          0.145,
-                                                      lineWidth: 6.0,
-                                                      animation: true,
-                                                      animateFromLastPercent:
-                                                          true,
-                                                      progressColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .prayerRing,
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .systemGray5,
-                                                    ),
+                                              Align(
+                                                alignment: AlignmentDirectional(
+                                                    0.00, 0.00),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      CircularPercentIndicator(
+                                                    percent: valueOrDefault(
+                                                            currentUserDocument
+                                                                ?.percentageCompleted3,
+                                                            0)
+                                                        .toDouble(),
+                                                    radius: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        0.145,
+                                                    lineWidth: 5.0,
+                                                    animation: true,
+                                                    animateFromLastPercent:
+                                                        true,
+                                                    progressColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .prayerRing,
+                                                    backgroundColor:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .systemGray5,
                                                   ),
                                                 ),
+                                              ),
                                               Column(
                                                 mainAxisSize: MainAxisSize.max,
                                                 children: [
@@ -3293,39 +3264,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                 ],
                                               ),
-                                              if (!valueOrDefault<bool>(
-                                                  currentUserDocument
-                                                      ?.complete3,
-                                                  false))
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.00, 0.00),
-                                                  child: AuthUserStreamWidget(
-                                                    builder: (context) =>
-                                                        CircularPercentIndicator(
-                                                      percent: 1.0,
-                                                      radius: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          0.145,
-                                                      lineWidth: 6.0,
-                                                      animation: true,
-                                                      animateFromLastPercent:
-                                                          true,
-                                                      progressColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .prayerRing,
-                                                      backgroundColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .systemGray5,
-                                                    ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'progressBarOnPageLoadAnimation3']!),
-                                                  ),
-                                                ),
                                             ],
                                           );
                                         },
@@ -3751,20 +3689,28 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                             MessageChatsRecord>>(
                                                       stream:
                                                           queryMessageChatsRecord(
-                                                        queryBuilder:
-                                                            (messageChatsRecord) =>
-                                                                messageChatsRecord
-                                                                    .where(
-                                                                      'users',
-                                                                      arrayContains:
-                                                                          currentUserReference,
-                                                                    )
-                                                                    .where(
-                                                                      'archived',
-                                                                      isEqualTo:
-                                                                          false,
-                                                                    ),
-                                                        limit: 1,
+                                                        queryBuilder: (messageChatsRecord) =>
+                                                            messageChatsRecord
+                                                                .where(
+                                                                  'users',
+                                                                  arrayContains:
+                                                                      currentUserReference,
+                                                                )
+                                                                .where(
+                                                                  'archived',
+                                                                  isEqualTo:
+                                                                      false,
+                                                                )
+                                                                .where(
+                                                                  'lastMessageTime',
+                                                                  isLessThan:
+                                                                      getCurrentTimestamp,
+                                                                )
+                                                                .orderBy(
+                                                                    'lastMessageTime',
+                                                                    descending:
+                                                                        true),
+                                                        singleRecord: true,
                                                       ),
                                                       builder:
                                                           (context, snapshot) {
@@ -3784,8 +3730,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           );
                                                         }
                                                         List<MessageChatsRecord>
-                                                            containerMessageChatsRecordList =
+                                                            container1MessageChatsRecordList =
                                                             snapshot.data!;
+                                                        final container1MessageChatsRecord =
+                                                            container1MessageChatsRecordList
+                                                                    .isNotEmpty
+                                                                ? container1MessageChatsRecordList
+                                                                    .first
+                                                                : null;
                                                         return Container(
                                                           decoration:
                                                               BoxDecoration(),
@@ -3805,296 +3757,258 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   MainAxisAlignment
                                                                       .center,
                                                               children: [
-                                                                if (valueOrDefault<
-                                                                    bool>(
-                                                                  containerMessageChatsRecordList
-                                                                          .length >=
-                                                                      1,
-                                                                  false,
-                                                                ))
+                                                                if (container1MessageChatsRecord !=
+                                                                    null)
                                                                   Expanded(
-                                                                    child: StreamBuilder<
-                                                                        List<
-                                                                            MessageChatsRecord>>(
-                                                                      stream:
-                                                                          queryMessageChatsRecord(
-                                                                        queryBuilder: (messageChatsRecord) => messageChatsRecord
-                                                                            .where(
-                                                                              'users',
-                                                                              arrayContains: currentUserReference,
-                                                                            )
-                                                                            .where(
-                                                                              'archived',
-                                                                              isEqualTo: false,
-                                                                            )
-                                                                            .orderBy('lastMessageTime', descending: true),
-                                                                        limit:
-                                                                            1,
+                                                                    child:
+                                                                        Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          1.0,
+                                                                      height: MediaQuery.sizeOf(context)
+                                                                              .height *
+                                                                          0.08,
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(12.0),
                                                                       ),
-                                                                      builder:
-                                                                          (context,
-                                                                              snapshot) {
-                                                                        // Customize what your widget looks like when it's loading.
-                                                                        if (!snapshot
-                                                                            .hasData) {
-                                                                          return Center(
-                                                                            child:
-                                                                                SizedBox(
-                                                                              width: 75.0,
-                                                                              height: 75.0,
-                                                                              child: SpinKitRipple(
-                                                                                color: Color(0xFF7F95AD),
-                                                                                size: 75.0,
+                                                                      child: StreamBuilder<
+                                                                          UsersRecord>(
+                                                                        stream:
+                                                                            UsersRecord.getDocument(container1MessageChatsRecord!.lastMessageSentBy!),
+                                                                        builder:
+                                                                            (context,
+                                                                                snapshot) {
+                                                                          // Customize what your widget looks like when it's loading.
+                                                                          if (!snapshot
+                                                                              .hasData) {
+                                                                            return Center(
+                                                                              child: SizedBox(
+                                                                                width: 75.0,
+                                                                                height: 75.0,
+                                                                                child: SpinKitRipple(
+                                                                                  color: Color(0xFF7F95AD),
+                                                                                  size: 75.0,
+                                                                                ),
+                                                                              ),
+                                                                            );
+                                                                          }
+                                                                          final container3UsersRecord =
+                                                                              snapshot.data!;
+                                                                          return Container(
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 1.0,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: FlutterFlowTheme.of(context).secondarySystemBackground,
+                                                                              borderRadius: BorderRadius.circular(12.0),
+                                                                              border: Border.all(
+                                                                                color: container1MessageChatsRecord!.pastoralRequest ? FlutterFlowTheme.of(context).worshipRing : Color(0x00000000),
+                                                                                width: 3.0,
                                                                               ),
                                                                             ),
-                                                                          );
-                                                                        }
-                                                                        List<MessageChatsRecord>
-                                                                            containerMessageChatsRecordList =
-                                                                            snapshot.data!;
-                                                                        return Container(
-                                                                          width:
-                                                                              MediaQuery.sizeOf(context).width * 1.0,
-                                                                          height:
-                                                                              MediaQuery.sizeOf(context).height * 0.08,
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(12.0),
-                                                                          ),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(containerMessageChatsRecordList.first.otherUser!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 75.0,
-                                                                                    height: 75.0,
-                                                                                    child: SpinKitRipple(
-                                                                                      color: Color(0xFF7F95AD),
-                                                                                      size: 75.0,
+                                                                            child:
+                                                                                InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                context.pushNamed(
+                                                                                  'ChatPage',
+                                                                                  queryParameters: {
+                                                                                    'chatChosen': serializeParam(
+                                                                                      container1MessageChatsRecord,
+                                                                                      ParamType.Document,
                                                                                     ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-                                                                              final containerUsersRecord = snapshot.data!;
-                                                                              return Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 1.0,
-                                                                                decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).secondarySystemBackground,
-                                                                                  borderRadius: BorderRadius.circular(12.0),
-                                                                                  border: Border.all(
-                                                                                    color: containerMessageChatsRecordList.first.pastoralRequest ? FlutterFlowTheme.of(context).worshipRing : Color(0x00000000),
-                                                                                    width: 3.0,
-                                                                                  ),
-                                                                                ),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    context.pushNamed(
-                                                                                      'ChatPage',
-                                                                                      queryParameters: {
-                                                                                        'chatChosen': serializeParam(
-                                                                                          containerMessageChatsRecordList.first,
-                                                                                          ParamType.Document,
-                                                                                        ),
-                                                                                        'otherUserRef': serializeParam(
-                                                                                          containerMessageChatsRecordList.first.otherUser,
-                                                                                          ParamType.DocumentReference,
-                                                                                        ),
-                                                                                        'otherUserDoc': serializeParam(
-                                                                                          containerUsersRecord,
-                                                                                          ParamType.Document,
-                                                                                        ),
-                                                                                      }.withoutNulls,
-                                                                                      extra: <String, dynamic>{
-                                                                                        'chatChosen': containerMessageChatsRecordList.first,
-                                                                                        'otherUserDoc': containerUsersRecord,
-                                                                                      },
-                                                                                    );
-
-                                                                                    await containerMessageChatsRecordList.first.reference.update({
-                                                                                      ...mapToFirestore(
-                                                                                        {
-                                                                                          'userswithIndicator': FieldValue.arrayRemove([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                        },
-                                                                                      ),
-                                                                                    });
+                                                                                    'otherUserRef': serializeParam(
+                                                                                      container1MessageChatsRecord?.otherUser,
+                                                                                      ParamType.DocumentReference,
+                                                                                    ),
+                                                                                    'otherUserDoc': serializeParam(
+                                                                                      container3UsersRecord,
+                                                                                      ParamType.Document,
+                                                                                    ),
+                                                                                  }.withoutNulls,
+                                                                                  extra: <String, dynamic>{
+                                                                                    'chatChosen': container1MessageChatsRecord,
+                                                                                    'otherUserDoc': container3UsersRecord,
                                                                                   },
-                                                                                  child: Row(
+                                                                                );
+
+                                                                                await container1MessageChatsRecord!.reference.update({
+                                                                                  ...mapToFirestore(
+                                                                                    {
+                                                                                      'userswithIndicator': FieldValue.arrayRemove([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                    },
+                                                                                  ),
+                                                                                });
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Row(
                                                                                     mainAxisSize: MainAxisSize.max,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.center,
                                                                                     children: [
-                                                                                      Row(
+                                                                                      Column(
                                                                                         mainAxisSize: MainAxisSize.max,
-                                                                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                                                                        mainAxisAlignment: MainAxisAlignment.center,
                                                                                         children: [
-                                                                                          Column(
-                                                                                            mainAxisSize: MainAxisSize.max,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            children: [
-                                                                                              if (containerMessageChatsRecordList.first.users.length <= 2)
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
-                                                                                                  child: AuthUserStreamWidget(
-                                                                                                    builder: (context) => Container(
-                                                                                                      width: 35.0,
-                                                                                                      height: 35.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        color: Colors.transparent,
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: CachedNetworkImageProvider(
-                                                                                                            valueOrDefault<String>(
-                                                                                                              containerMessageChatsRecordList.first.groupBackground != null && containerMessageChatsRecordList.first.groupBackground != '' ? containerMessageChatsRecordList.first.groupBackground : (containerMessageChatsRecordList.first.lastMessageSentBy == currentUserReference ? currentUserPhoto : containerUsersRecord.photoUrl),
-                                                                                                              'https://www.chocolatebayou.org/wp-content/uploads/No-Image-Person-2048x2048.jpeg',
-                                                                                                            ),
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                        border: Border.all(
-                                                                                                          color: Colors.transparent,
+                                                                                          if (container1MessageChatsRecord!.users.length <= 2)
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                                                                                              child: AuthUserStreamWidget(
+                                                                                                builder: (context) => Container(
+                                                                                                  width: 35.0,
+                                                                                                  height: 35.0,
+                                                                                                  decoration: BoxDecoration(
+                                                                                                    color: Colors.transparent,
+                                                                                                    image: DecorationImage(
+                                                                                                      fit: BoxFit.cover,
+                                                                                                      image: CachedNetworkImageProvider(
+                                                                                                        valueOrDefault<String>(
+                                                                                                          container3UsersRecord.photoUrl != null && container3UsersRecord.photoUrl != '' ? container3UsersRecord.photoUrl : (container3UsersRecord.reference == currentUserReference ? currentUserPhoto : container3UsersRecord.photoUrl),
+                                                                                                          'https://www.chocolatebayou.org/wp-content/uploads/No-Image-Person-2048x2048.jpeg',
                                                                                                         ),
                                                                                                       ),
                                                                                                     ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              if (containerMessageChatsRecordList.first.users.length >= 3)
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Container(
-                                                                                                    width: 40.0,
-                                                                                                    height: 40.0,
-                                                                                                    decoration: BoxDecoration(
+                                                                                                    shape: BoxShape.circle,
+                                                                                                    border: Border.all(
                                                                                                       color: Colors.transparent,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.cover,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          valueOrDefault<String>(
-                                                                                                            containerMessageChatsRecordList.first.groupBackground,
-                                                                                                            'https://images.unsplash.com/photo-1502810365585-56ffa361fdde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-                                                                                                          ),
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      borderRadius: BorderRadius.circular(6.0),
-                                                                                                      shape: BoxShape.rectangle,
-                                                                                                      border: Border.all(
-                                                                                                        color: Colors.transparent,
-                                                                                                      ),
                                                                                                     ),
                                                                                                   ),
                                                                                                 ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
-                                                                                        child: Column(
-                                                                                          mainAxisSize: MainAxisSize.max,
-                                                                                          mainAxisAlignment: MainAxisAlignment.center,
-                                                                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                          children: [
-                                                                                            if (containerMessageChatsRecordList.first.users.length <= 2)
-                                                                                              Text(
-                                                                                                valueOrDefault<String>(
-                                                                                                  containerMessageChatsRecordList.first.groupName != null && containerMessageChatsRecordList.first.groupName != '' ? containerMessageChatsRecordList.first.groupName : containerMessageChatsRecordList.first.lastMessageSentByName,
-                                                                                                  'Guest User',
-                                                                                                ).maybeHandleOverflow(
-                                                                                                  maxChars: 25,
-                                                                                                  replacement: '…',
-                                                                                                ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Inter',
-                                                                                                      color: FlutterFlowTheme.of(context).label,
-                                                                                                      fontSize: 15.0,
-                                                                                                      fontWeight: FontWeight.normal,
-                                                                                                    ),
                                                                                               ),
-                                                                                            if (containerMessageChatsRecordList.first.users.length >= 3)
-                                                                                              Text(
-                                                                                                valueOrDefault<String>(
-                                                                                                  containerMessageChatsRecordList.first.groupName,
-                                                                                                  'Group Chat',
-                                                                                                ).maybeHandleOverflow(
-                                                                                                  maxChars: 25,
-                                                                                                  replacement: '…',
-                                                                                                ),
-                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                      fontFamily: 'Inter',
-                                                                                                      color: FlutterFlowTheme.of(context).label,
-                                                                                                      fontSize: 15.0,
-                                                                                                      fontWeight: FontWeight.normal,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            Row(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              children: [
-                                                                                                Text(
-                                                                                                  FFLocalizations.of(context).getText(
-                                                                                                    'uwgbneg7' /* New message: */,
-                                                                                                  ),
-                                                                                                  style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                        fontFamily: 'Inter',
-                                                                                                        color: FlutterFlowTheme.of(context).placeholderText,
-                                                                                                        fontSize: 12.0,
-                                                                                                      ),
-                                                                                                ),
-                                                                                                Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    containerMessageChatsRecordList.first.lastMessage.maybeHandleOverflow(
-                                                                                                      maxChars: 20,
-                                                                                                      replacement: '…',
-                                                                                                    ),
-                                                                                                    maxLines: 1,
-                                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                          fontFamily: 'Inter',
-                                                                                                          color: FlutterFlowTheme.of(context).placeholderText,
-                                                                                                          fontSize: 12.0,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ],
                                                                                             ),
-                                                                                          ],
-                                                                                        ),
-                                                                                      ),
-                                                                                      Expanded(
-                                                                                        child: Container(
-                                                                                          width: 100.0,
-                                                                                          height: 100.0,
-                                                                                          decoration: BoxDecoration(
-                                                                                            color: Colors.transparent,
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                      Icon(
-                                                                                        Icons.keyboard_arrow_right,
-                                                                                        color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                        size: 30.0,
+                                                                                          if (container1MessageChatsRecord!.users.length >= 3)
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(14.0, 0.0, 0.0, 0.0),
+                                                                                              child: Container(
+                                                                                                width: 40.0,
+                                                                                                height: 40.0,
+                                                                                                decoration: BoxDecoration(
+                                                                                                  color: Colors.transparent,
+                                                                                                  image: DecorationImage(
+                                                                                                    fit: BoxFit.cover,
+                                                                                                    image: CachedNetworkImageProvider(
+                                                                                                      container1MessageChatsRecord!.groupBackground,
+                                                                                                    ),
+                                                                                                  ),
+                                                                                                  borderRadius: BorderRadius.circular(6.0),
+                                                                                                  shape: BoxShape.rectangle,
+                                                                                                  border: Border.all(
+                                                                                                    color: Colors.transparent,
+                                                                                                  ),
+                                                                                                ),
+                                                                                              ),
+                                                                                            ),
+                                                                                        ],
                                                                                       ),
                                                                                     ],
                                                                                   ),
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        );
-                                                                      },
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
+                                                                                    child: Column(
+                                                                                      mainAxisSize: MainAxisSize.max,
+                                                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                      children: [
+                                                                                        if (container1MessageChatsRecord!.users.length <= 2)
+                                                                                          Text(
+                                                                                            valueOrDefault<String>(
+                                                                                              container1MessageChatsRecord?.groupName != null && container1MessageChatsRecord?.groupName != '' ? container1MessageChatsRecord?.groupName : container3UsersRecord.displayName,
+                                                                                              'Guest User',
+                                                                                            ).maybeHandleOverflow(
+                                                                                              maxChars: 25,
+                                                                                              replacement: '…',
+                                                                                            ),
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Inter',
+                                                                                                  color: FlutterFlowTheme.of(context).label,
+                                                                                                  fontSize: 15.0,
+                                                                                                  fontWeight: FontWeight.normal,
+                                                                                                ),
+                                                                                          ),
+                                                                                        if (container1MessageChatsRecord!.users.length >= 3)
+                                                                                          Text(
+                                                                                            valueOrDefault<String>(
+                                                                                              container1MessageChatsRecord?.groupName,
+                                                                                              'Group Chat',
+                                                                                            ).maybeHandleOverflow(
+                                                                                              maxChars: 25,
+                                                                                              replacement: '…',
+                                                                                            ),
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                  fontFamily: 'Inter',
+                                                                                                  color: FlutterFlowTheme.of(context).label,
+                                                                                                  fontSize: 15.0,
+                                                                                                  fontWeight: FontWeight.normal,
+                                                                                                ),
+                                                                                          ),
+                                                                                        Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            Text(
+                                                                                              FFLocalizations.of(context).getText(
+                                                                                                'uwgbneg7' /* New message: */,
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Inter',
+                                                                                                    color: FlutterFlowTheme.of(context).placeholderText,
+                                                                                                    fontSize: 12.0,
+                                                                                                  ),
+                                                                                            ),
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                              child: Text(
+                                                                                                valueOrDefault<String>(
+                                                                                                  container1MessageChatsRecord?.lastMessage,
+                                                                                                  'text message...',
+                                                                                                ).maybeHandleOverflow(
+                                                                                                  maxChars: 20,
+                                                                                                  replacement: '…',
+                                                                                                ),
+                                                                                                maxLines: 1,
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: FlutterFlowTheme.of(context).placeholderText,
+                                                                                                      fontSize: 12.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ],
+                                                                                    ),
+                                                                                  ),
+                                                                                  Expanded(
+                                                                                    child: Container(
+                                                                                      width: 100.0,
+                                                                                      height: 100.0,
+                                                                                      decoration: BoxDecoration(
+                                                                                        color: Colors.transparent,
+                                                                                      ),
+                                                                                    ),
+                                                                                  ),
+                                                                                  Icon(
+                                                                                    Icons.keyboard_arrow_right,
+                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                    size: 30.0,
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                if (containerMessageChatsRecordList
-                                                                        .length ==
-                                                                    0)
+                                                                if (!(container1MessageChatsRecord !=
+                                                                    null))
                                                                   Expanded(
                                                                     child:
                                                                         Container(

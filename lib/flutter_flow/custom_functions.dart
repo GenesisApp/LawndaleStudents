@@ -199,3 +199,19 @@ int? sumOfNumbers(List<int>? numberGiven) {
   }
   return sum;
 }
+
+String? checkIfMorning() {
+  // check to see if the current time is morning, midday, afternoon, evening, or nighttime.
+  final now = DateTime.now();
+  if (now.hour >= 5 && now.hour < 10) {
+    return 'morning';
+  } else if (now.hour >= 10 && now.hour < 14) {
+    return 'midday';
+  } else if (now.hour >= 14 && now.hour < 16) {
+    return 'afternoon';
+  } else if (now.hour >= 16 && now.hour < 20) {
+    return 'evening';
+  } else {
+    return 'nighttime';
+  }
+}

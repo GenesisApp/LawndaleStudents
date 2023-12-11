@@ -129,6 +129,7 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 8.0, 12.0, 0.0),
                 child: Text(
                   widget.currentPoll!.pollDescription,
+                  textAlign: TextAlign.center,
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
                         fontFamily: 'Inter',
                         color: FlutterFlowTheme.of(context).lightSecondaryText,
