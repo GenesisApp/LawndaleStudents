@@ -128,26 +128,6 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
         backgroundColor: FlutterFlowTheme.of(context).primary,
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await widget.tagChosenRef!.update({
-              ...mapToFirestore(
-                {
-                  'usersWithTag': () {
-                    if (_model.checkboxListTileCheckedItems1.length >= 1) {
-                      return _model.checkboxListTileCheckedItems1
-                          .map((e) => e.reference)
-                          .toList();
-                    } else if (_model.checkboxListTileCheckedItems2.length >=
-                        1) {
-                      return _model.checkboxListTileCheckedItems2
-                          .map((e) => e.reference)
-                          .toList();
-                    } else {
-                      return widget.tagChosen?.usersWithTag;
-                    }
-                  }(),
-                },
-              ),
-            });
             await showModalBottomSheet(
               isScrollControlled: true,
               backgroundColor: Colors.transparent,
@@ -599,6 +579,33 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                                                 _model.checkboxListTileValueMap1[
                                                         listViewUsersRecord] =
                                                     newValue!);
+                                            if (newValue!) {
+                                              await widget.tagChosenRef!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'usersWithTag':
+                                                        FieldValue.arrayUnion([
+                                                      listViewUsersRecord
+                                                          .reference
+                                                    ]),
+                                                  },
+                                                ),
+                                              });
+                                            } else {
+                                              await widget.tagChosenRef!
+                                                  .update({
+                                                ...mapToFirestore(
+                                                  {
+                                                    'usersWithTag':
+                                                        FieldValue.arrayRemove([
+                                                      listViewUsersRecord
+                                                          .reference
+                                                    ]),
+                                                  },
+                                                ),
+                                              });
+                                            }
                                           },
                                           title: Text(
                                             listViewUsersRecord.displayName,
@@ -758,6 +765,33 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                                               setState(() => _model
                                                       .checkboxListTileValueMap2[
                                                   searchResultsItem] = newValue!);
+                                              if (newValue!) {
+                                                await widget.tagChosenRef!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'usersWithTag': FieldValue
+                                                          .arrayUnion([
+                                                        searchResultsItem
+                                                            .reference
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+                                              } else {
+                                                await widget.tagChosenRef!
+                                                    .update({
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'usersWithTag': FieldValue
+                                                          .arrayRemove([
+                                                        searchResultsItem
+                                                            .reference
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+                                              }
                                             },
                                             title: Text(
                                               searchResultsItem.displayName,

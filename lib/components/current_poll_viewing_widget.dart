@@ -1377,7 +1377,8 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                       await showModalBottomSheet(
                         isScrollControlled: true,
                         backgroundColor: Colors.transparent,
-                        barrierColor: Color(0x80000000),
+                        barrierColor:
+                            FlutterFlowTheme.of(context).opagueSeparator,
                         context: context,
                         builder: (context) {
                           return WebViewAware(

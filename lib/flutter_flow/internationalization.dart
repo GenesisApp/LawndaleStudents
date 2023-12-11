@@ -415,6 +415,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'People',
       'es': 'Gente',
     },
+    'gwjzi2gf': {
+      'en': 'Showing all messages from the past thirty days.',
+      'es': '',
+    },
     '5solkni7': {
       'en': ' at ',
       'es': 'en',
@@ -640,7 +644,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Young Adult',
       'es': '',
     },
-    'sx9tpwtu': {
+    '3petw9bq': {
       'en': 'Adult',
       'es': '',
     },
@@ -789,35 +793,39 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Pinned Messages',
       'es': 'Mensajes fijados',
     },
-    'xsua9ogw': {
+    'otlag311': {
+      'en': ' at ',
+      'es': 'en',
+    },
+    'd7ceo1sh': {
       'en': 'PDF File',
       'es': 'Archivo PDF',
     },
-    'bg5ortxu': {
+    '1v5q5kcz': {
       'en': 'Click to View',
       'es': 'Click para ver',
     },
-    'kj5zt4ih': {
+    '5jqc923a': {
       'en': '(edited)',
       'es': '(editado)',
     },
-    've1s1nay': {
+    'z5al8kaz': {
       'en': '(edited)',
       'es': '(editado)',
     },
-    'pq5y405e': {
+    'o2h444xh': {
       'en': 'PDF File',
       'es': 'Archivo PDF',
     },
-    'koktxlnw': {
+    '7vgx1cdj': {
       'en': 'Click to View',
       'es': 'Click para ver',
     },
-    'cdzmtbzi': {
+    '6xc666io': {
       'en': '(edited)',
       'es': '(editado)',
     },
-    'popwm4vp': {
+    'xwth7m6v': {
       'en': '(edited)',
       'es': '(editado)',
     },
@@ -949,7 +957,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Young Adult',
       'es': '',
     },
-    'a2uqap04': {
+    'obeuvu90': {
       'en': 'Adult',
       'es': '',
     },
@@ -2374,10 +2382,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '7co1dlgi': {
       'en': 'Click here to join.',
       'es': 'Haga clic aquí para unirse.',
-    },
-    'drstqp7s': {
-      'en': 'Hello,',
-      'es': 'Hola,',
     },
     'gy0bu9tu': {
       'en': 'Here\'s your resources for today!',
@@ -7282,7 +7286,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
           'In order to dictate messages, this app requires permission to access the microphone.',
       'es': '',
     },
-    '81bhq1km': {
+    'vb9t8ft3': {
       'en':
           'In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user location.',
       'es': '',

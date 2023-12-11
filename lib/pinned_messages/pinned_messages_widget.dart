@@ -1,5 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/push_notifications/push_notifications_util.dart';
+import '/components/community_prayer_request_chat_widget.dart';
 import '/components/edit_message_widget.dart';
 import '/components/p_d_f_viewer_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
@@ -7,13 +9,16 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -266,56 +271,119 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).primary,
                   ),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                    child: StreamBuilder<List<MessagesRecord>>(
-                      stream: queryMessagesRecord(
-                        queryBuilder: (messagesRecord) => messagesRecord
-                            .where(
-                              'chatReference',
-                              isEqualTo: widget.chatChosen?.reference,
-                            )
-                            .where(
-                              'pin',
-                              isEqualTo: true,
-                            )
-                            .orderBy('timeSent', descending: true),
-                        limit: 100,
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 75.0,
-                              height: 75.0,
-                              child: SpinKitRipple(
-                                color: Color(0xFF7F95AD),
-                                size: 75.0,
-                              ),
+                  child: StreamBuilder<List<MessagesRecord>>(
+                    stream: queryMessagesRecord(
+                      queryBuilder: (messagesRecord) => messagesRecord
+                          .where(
+                            'chatReference',
+                            isEqualTo: widget.chatChosen?.reference,
+                          )
+                          .where(
+                            'pin',
+                            isEqualTo: true,
+                          )
+                          .orderBy('timeSent'),
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 75.0,
+                            height: 75.0,
+                            child: SpinKitRipple(
+                              color: Color(0xFF7F95AD),
+                              size: 75.0,
                             ),
-                          );
-                        }
-                        List<MessagesRecord> listViewMessagesRecordList =
-                            snapshot.data!;
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: listViewMessagesRecordList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewMessagesRecord =
-                                listViewMessagesRecordList[listViewIndex];
+                          ),
+                        );
+                      }
+                      List<MessagesRecord> columnMessagesRecordList =
+                          snapshot.data!;
+                      return SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: List.generate(
+                              columnMessagesRecordList.length, (columnIndex) {
+                            final columnMessagesRecord =
+                                columnMessagesRecordList[columnIndex];
                             return Column(
                               mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.end,
                               children: [
-                                if (listViewMessagesRecord.user !=
+                                if (columnMessagesRecord.dateResetMessage)
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 16.0, 0.0, 8.0),
+                                    child: RichText(
+                                      textScaleFactor: MediaQuery.of(context)
+                                          .textScaleFactor,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: dateTimeFormat(
+                                              'relative',
+                                              columnMessagesRecord.timeSent!,
+                                              locale: FFLocalizations.of(
+                                                          context)
+                                                      .languageShortCode ??
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ),
+                                            style: GoogleFonts.getFont(
+                                              'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .lightSecondaryText,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 11.0,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'otlag311' /*  at  */,
+                                            ),
+                                            style: GoogleFonts.getFont(
+                                              'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .lightSecondaryText,
+                                              fontWeight: FontWeight.w300,
+                                              fontSize: 11.0,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: dateTimeFormat(
+                                              'jm',
+                                              columnMessagesRecord.timeSent!,
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            ),
+                                            style: GoogleFonts.getFont(
+                                              'Inter',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .lightSecondaryText,
+                                              fontWeight: FontWeight.normal,
+                                              fontSize: 11.0,
+                                            ),
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ),
+                                  ),
+                                if (columnMessagesRecord.user !=
                                     currentUserReference)
                                   Align(
                                     alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 15.0),
+                                          0.0, 0.0, 0.0, 8.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -337,7 +405,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                               child: FutureBuilder<UsersRecord>(
                                                 future:
                                                     UsersRecord.getDocumentOnce(
-                                                        listViewMessagesRecord
+                                                        columnMessagesRecord
                                                             .user!),
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
@@ -435,7 +503,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                 0.0, 6.0),
                                                     child: Text(
                                                       valueOrDefault<String>(
-                                                        listViewMessagesRecord
+                                                        columnMessagesRecord
                                                             .userName,
                                                         'Guest User',
                                                       ),
@@ -453,10 +521,146 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                               ),
                                                     ),
                                                   ),
-                                                if (listViewMessagesRecord
+                                                if (columnMessagesRecord
+                                                    .hasReply)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 8.0),
+                                                    child: FutureBuilder<
+                                                        MessagesRecord>(
+                                                      future: MessagesRecord
+                                                          .getDocumentOnce(
+                                                              columnMessagesRecord
+                                                                  .messageReplyingto!),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 75.0,
+                                                              height: 75.0,
+                                                              child:
+                                                                  SpinKitRipple(
+                                                                color: Color(
+                                                                    0xFF7F95AD),
+                                                                size: 75.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        final containerMessagesRecord =
+                                                            snapshot.data!;
+                                                        return Container(
+                                                          constraints:
+                                                              BoxConstraints(
+                                                            maxWidth: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.75,
+                                                          ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondarySystemBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        12.0),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        5.0,
+                                                                        8.0,
+                                                                        5.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SvgPicture
+                                                                    .asset(
+                                                                  'assets/images/arrow-bend-up-right.svg',
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        containerMessagesRecord
+                                                                            .userName,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              fontSize: 12.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        containerMessagesRecord
+                                                                            .messageText
+                                                                            .maybeHandleOverflow(
+                                                                          maxChars:
+                                                                              30,
+                                                                          replacement:
+                                                                              '…',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                              fontSize: 12.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                if (columnMessagesRecord
                                                             .textImagePath !=
                                                         null &&
-                                                    listViewMessagesRecord
+                                                    columnMessagesRecord
                                                             .textImagePath !=
                                                         '')
                                                   Padding(
@@ -493,14 +697,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         milliseconds:
                                                                             500),
                                                                 imageUrl:
-                                                                    listViewMessagesRecord
+                                                                    columnMessagesRecord
                                                                         .textImagePath,
                                                                 fit: BoxFit
                                                                     .contain,
                                                               ),
                                                               allowRotation:
                                                                   false,
-                                                              tag: listViewMessagesRecord
+                                                              tag: columnMessagesRecord
                                                                   .textImagePath,
                                                               useHeroAnimation:
                                                                   true,
@@ -510,7 +714,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                       },
                                                       child: Hero(
                                                         tag:
-                                                            listViewMessagesRecord
+                                                            columnMessagesRecord
                                                                 .textImagePath,
                                                         transitionOnUserGestures:
                                                             true,
@@ -530,7 +734,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     milliseconds:
                                                                         500),
                                                             imageUrl:
-                                                                listViewMessagesRecord
+                                                                columnMessagesRecord
                                                                     .textImagePath,
                                                             width: MediaQuery
                                                                         .sizeOf(
@@ -548,10 +752,27 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                if (listViewMessagesRecord
+                                                if (columnMessagesRecord.link !=
+                                                        null &&
+                                                    columnMessagesRecord.link !=
+                                                        '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 8.0),
+                                                    child: custom_widgets
+                                                        .LinkPreviewWidget(
+                                                      width: 250.0,
+                                                      height: 250.0,
+                                                      link: columnMessagesRecord
+                                                          .link,
+                                                    ),
+                                                  ),
+                                                if (columnMessagesRecord
                                                             .pdfImage !=
                                                         null &&
-                                                    listViewMessagesRecord
+                                                    columnMessagesRecord
                                                             .pdfImage !=
                                                         '')
                                                   Padding(
@@ -605,9 +826,9 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   child:
                                                                       PDFViewerWidget(
                                                                     pdfImageSelected:
-                                                                        listViewMessagesRecord,
+                                                                        columnMessagesRecord,
                                                                     pdfImageSelectedRef:
-                                                                        listViewMessagesRecord
+                                                                        columnMessagesRecord
                                                                             .reference,
                                                                   ),
                                                                 ),
@@ -628,16 +849,11 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .textBoxBackground,
+                                                              .secondarySystemBackground,
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
                                                                       8.0),
-                                                          border: Border.all(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondary,
-                                                          ),
                                                         ),
                                                         child: Column(
                                                           mainAxisSize:
@@ -658,7 +874,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   FFLocalizations.of(
                                                                           context)
                                                                       .getText(
-                                                                    'xsua9ogw' /* PDF File */,
+                                                                    'd7ceo1sh' /* PDF File */,
                                                                   ),
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
@@ -667,7 +883,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         fontFamily:
                                                                             'Inter',
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .tertiary,
+                                                                            .label,
                                                                         fontSize:
                                                                             16.0,
                                                                       ),
@@ -694,7 +910,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'bg5ortxu' /* Click to View */,
+                                                                      '1v5q5kcz' /* Click to View */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -724,12 +940,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                       ),
                                                     ),
                                                   ),
-                                                if (!listViewMessagesRecord
-                                                        .reactionsVisible &&
-                                                    (listViewMessagesRecord
+                                                if (!columnMessagesRecord
+                                                        .personReactingList
+                                                        .contains(
+                                                            currentUserReference) &&
+                                                    (columnMessagesRecord
                                                                 .messageText !=
                                                             null &&
-                                                        listViewMessagesRecord
+                                                        columnMessagesRecord
                                                                 .messageText !=
                                                             ''))
                                                   Padding(
@@ -792,13 +1010,33 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  await listViewMessagesRecord
+                                                                  await columnMessagesRecord
                                                                       .reference
+                                                                      .update({
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'personReactingList':
+                                                                            FieldValue.arrayUnion([
+                                                                          currentUserReference
+                                                                        ]),
+                                                                      },
+                                                                    ),
+                                                                  });
+                                                                },
+                                                                onLongPress:
+                                                                    () async {
+                                                                  await currentUserReference!
                                                                       .update(
-                                                                          createMessagesRecordData(
-                                                                    reactionsVisible:
-                                                                        true,
+                                                                          createUsersRecordData(
+                                                                    messageReplyingTo:
+                                                                        columnMessagesRecord
+                                                                            .reference,
                                                                   ));
+                                                                  setState(() {
+                                                                    FFAppState()
+                                                                            .replying =
+                                                                        true;
+                                                                  });
                                                                 },
                                                                 child:
                                                                     Container(
@@ -828,59 +1066,68 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
-                                                                    child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        await listViewMessagesRecord
-                                                                            .reference
-                                                                            .update(createMessagesRecordData(
-                                                                          reactionsVisible:
-                                                                              true,
-                                                                        ));
-                                                                      },
-                                                                      child:
-                                                                          Text(
-                                                                        listViewMessagesRecord
-                                                                            .messageText,
-                                                                        textAlign:
-                                                                            TextAlign.start,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).label,
-                                                                              fontSize: 14.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
+                                                                            10.0,
+                                                                            10.0,
+                                                                            10.0,
+                                                                            10.0),
+                                                                    child: Text(
+                                                                      columnMessagesRecord
+                                                                          .messageText,
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      style: GoogleFonts
+                                                                          .getFont(
+                                                                        'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .label,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontSize:
+                                                                            15.5,
+                                                                        height:
+                                                                            1.35,
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
-                                                            if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                (listViewMessagesRecord
+                                                            if (columnMessagesRecord
+                                                                .edited)
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    '5jqc923a' /* (edited) */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                        fontSize:
+                                                                            10.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
+                                                                (columnMessagesRecord
                                                                         .messageCriedBy
                                                                         .length >
                                                                     0) ||
-                                                                (listViewMessagesRecord
+                                                                (columnMessagesRecord
                                                                         .messageLikedBy
                                                                         .length >
                                                                     0))
@@ -897,6 +1144,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   height: 25.0,
                                                                   decoration:
                                                                       BoxDecoration(
+                                                                    color: Colors
+                                                                        .transparent,
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             8.0),
@@ -909,7 +1158,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         MainAxisAlignment
                                                                             .center,
                                                                     children: [
-                                                                      if (listViewMessagesRecord
+                                                                      if (columnMessagesRecord
                                                                               .messageLikedBy
                                                                               .length >
                                                                           0)
@@ -921,14 +1170,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               0.0),
                                                                           child:
                                                                               FaIcon(
-                                                                            FontAwesomeIcons.solidThumbsUp,
+                                                                            FontAwesomeIcons.solidHeart,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).worshipRing,
                                                                             size:
                                                                                 18.0,
                                                                           ),
                                                                         ),
-                                                                      if (listViewMessagesRecord
+                                                                      if (columnMessagesRecord
                                                                               .messageCriedBy
                                                                               .length >
                                                                           0)
@@ -947,7 +1196,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 18.0,
                                                                           ),
                                                                         ),
-                                                                      if (listViewMessagesRecord
+                                                                      if (columnMessagesRecord
                                                                               .messageLaughedBy
                                                                               .length >
                                                                           0)
@@ -981,7 +1230,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                if (listViewMessagesRecord
+                                                                if (columnMessagesRecord
                                                                     .pin)
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -1001,34 +1250,6 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           18.0,
                                                                     ),
                                                                   ),
-                                                                if (listViewMessagesRecord
-                                                                    .edited)
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'kj5zt4ih' /* (edited) */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize:
-                                                                                10.0,
-                                                                          ),
-                                                                    ),
-                                                                  ),
                                                               ],
                                                             ),
                                                           ],
@@ -1036,12 +1257,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                       ],
                                                     ),
                                                   ),
-                                                if (listViewMessagesRecord
-                                                        .reactionsVisible &&
-                                                    (listViewMessagesRecord
+                                                if (columnMessagesRecord
+                                                        .personReactingList
+                                                        .contains(
+                                                            currentUserReference) &&
+                                                    (columnMessagesRecord
                                                                 .messageText !=
                                                             null &&
-                                                        listViewMessagesRecord
+                                                        columnMessagesRecord
                                                                 .messageText !=
                                                             ''))
                                                   Padding(
@@ -1104,13 +1327,33 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  await listViewMessagesRecord
+                                                                  await columnMessagesRecord
                                                                       .reference
+                                                                      .update({
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'personReactingList':
+                                                                            FieldValue.arrayRemove([
+                                                                          currentUserReference
+                                                                        ]),
+                                                                      },
+                                                                    ),
+                                                                  });
+                                                                },
+                                                                onLongPress:
+                                                                    () async {
+                                                                  await currentUserReference!
                                                                       .update(
-                                                                          createMessagesRecordData(
-                                                                    reactionsVisible:
-                                                                        false,
+                                                                          createUsersRecordData(
+                                                                    messageReplyingTo:
+                                                                        columnMessagesRecord
+                                                                            .reference,
                                                                   ));
+                                                                  setState(() {
+                                                                    FFAppState()
+                                                                            .replying =
+                                                                        true;
+                                                                  });
                                                                 },
                                                                 child:
                                                                     Container(
@@ -1140,59 +1383,68 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0,
-                                                                            8.0),
-                                                                    child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        await listViewMessagesRecord
-                                                                            .reference
-                                                                            .update(createMessagesRecordData(
-                                                                          reactionsVisible:
-                                                                              false,
-                                                                        ));
-                                                                      },
-                                                                      child:
-                                                                          Text(
-                                                                        listViewMessagesRecord
-                                                                            .messageText,
-                                                                        textAlign:
-                                                                            TextAlign.start,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).label,
-                                                                              fontSize: 14.0,
-                                                                              fontWeight: FontWeight.normal,
-                                                                            ),
+                                                                            10.0,
+                                                                            10.0,
+                                                                            10.0,
+                                                                            10.0),
+                                                                    child: Text(
+                                                                      columnMessagesRecord
+                                                                          .messageText,
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      style: GoogleFonts
+                                                                          .getFont(
+                                                                        'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .label,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontSize:
+                                                                            15.5,
+                                                                        height:
+                                                                            1.35,
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
-                                                            if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                (listViewMessagesRecord
+                                                            if (columnMessagesRecord
+                                                                .edited)
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'z5al8kaz' /* (edited) */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                        fontSize:
+                                                                            10.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
+                                                                (columnMessagesRecord
                                                                         .messageCriedBy
                                                                         .length >
                                                                     0) ||
-                                                                (listViewMessagesRecord
+                                                                (columnMessagesRecord
                                                                         .messageLikedBy
                                                                         .length >
                                                                     0))
@@ -1214,6 +1466,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         25.0,
                                                                     decoration:
                                                                         BoxDecoration(
+                                                                      color: Colors
+                                                                          .transparent,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
                                                                               8.0),
@@ -1226,7 +1480,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           MainAxisAlignment
                                                                               .center,
                                                                       children: [
-                                                                        if (listViewMessagesRecord.messageLikedBy.length >
+                                                                        if (columnMessagesRecord.messageLikedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1236,12 +1490,12 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 0.0),
                                                                             child:
                                                                                 FaIcon(
-                                                                              FontAwesomeIcons.solidThumbsUp,
+                                                                              FontAwesomeIcons.solidHeart,
                                                                               color: FlutterFlowTheme.of(context).worshipRing,
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (listViewMessagesRecord.messageCriedBy.length >
+                                                                        if (columnMessagesRecord.messageCriedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1256,7 +1510,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (listViewMessagesRecord.messageLaughedBy.length >
+                                                                        if (columnMessagesRecord.messageLaughedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1287,7 +1541,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                if (listViewMessagesRecord
+                                                                if (columnMessagesRecord
                                                                     .pin)
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -1307,34 +1561,6 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           18.0,
                                                                     ),
                                                                   ),
-                                                                if (listViewMessagesRecord
-                                                                    .edited)
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        've1s1nay' /* (edited) */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize:
-                                                                                10.0,
-                                                                          ),
-                                                                    ),
-                                                                  ),
                                                               ],
                                                             ),
                                                           ],
@@ -1342,9 +1568,10 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                       ],
                                                     ),
                                                   ),
-                                                if (listViewMessagesRecord
-                                                        .reactionsVisible ==
-                                                    true)
+                                                if (columnMessagesRecord
+                                                    .personReactingList
+                                                    .contains(
+                                                        currentUserReference))
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1428,7 +1655,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                             mainAxisSize:
                                                                                 MainAxisSize.max,
                                                                             children: [
-                                                                              if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference))
+                                                                              if (columnMessagesRecord.messageLikedBy.contains(currentUserReference))
                                                                                 Padding(
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
                                                                                   child: InkWell(
@@ -1438,11 +1665,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     highlightColor: Colors.transparent,
                                                                                     onTap: () async {
                                                                                       HapticFeedback.lightImpact();
-                                                                                      if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
-                                                                                        await listViewMessagesRecord.reference.update({
+                                                                                      if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                        await columnMessagesRecord.reference.update({
                                                                                           ...mapToFirestore(
                                                                                             {
                                                                                               'messageLikedBy': FieldValue.arrayRemove([
+                                                                                                currentUserReference
+                                                                                              ]),
+                                                                                              'personReactingList': FieldValue.arrayRemove([
                                                                                                 currentUserReference
                                                                                               ]),
                                                                                             },
@@ -1455,14 +1685,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                                                       children: [
                                                                                         FaIcon(
-                                                                                          FontAwesomeIcons.solidThumbsUp,
+                                                                                          FontAwesomeIcons.solidHeart,
                                                                                           color: FlutterFlowTheme.of(context).worshipRing,
                                                                                           size: 22.0,
                                                                                         ),
                                                                                         Padding(
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                           child: Text(
-                                                                                            listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                            columnMessagesRecord.messageLikedBy.length.toString(),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -1473,7 +1703,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     ),
                                                                                   ),
                                                                                 ),
-                                                                              if (!listViewMessagesRecord.messageLikedBy.contains(currentUserReference))
+                                                                              if (!columnMessagesRecord.messageLikedBy.contains(currentUserReference))
                                                                                 Padding(
                                                                                   padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
                                                                                   child: InkWell(
@@ -1483,33 +1713,55 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     highlightColor: Colors.transparent,
                                                                                     onTap: () async {
                                                                                       HapticFeedback.lightImpact();
-                                                                                      if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                      if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
                                                                                         return;
                                                                                       }
 
-                                                                                      await listViewMessagesRecord.reference.update({
+                                                                                      await columnMessagesRecord.reference.update({
                                                                                         ...mapToFirestore(
                                                                                           {
                                                                                             'messageLikedBy': FieldValue.arrayUnion([
                                                                                               currentUserReference
                                                                                             ]),
+                                                                                            'personReactingList': FieldValue.arrayRemove([
+                                                                                              currentUserReference
+                                                                                            ]),
                                                                                           },
                                                                                         ),
                                                                                       });
+                                                                                      triggerPushNotification(
+                                                                                        notificationTitle: 'New Message',
+                                                                                        notificationText: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
+                                                                                        notificationImageUrl: currentUserPhoto,
+                                                                                        userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                        initialPageName: 'ChatPage',
+                                                                                        parameterData: {
+                                                                                          'chatChosen': widget.chatChosen,
+                                                                                          'chatUsers': widget.chatUsers,
+                                                                                          'otherUserDoc': widget.otherUserDoc,
+                                                                                          'otherUserRef': widget.otherUserRef,
+                                                                                        },
+                                                                                      );
+
+                                                                                      await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                        lastMessage: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
+                                                                                        lastMessageTime: getCurrentTimestamp,
+                                                                                        lastMessageSentBy: currentUserReference,
+                                                                                      ));
                                                                                     },
                                                                                     child: Row(
                                                                                       mainAxisSize: MainAxisSize.max,
                                                                                       mainAxisAlignment: MainAxisAlignment.center,
                                                                                       children: [
                                                                                         FaIcon(
-                                                                                          FontAwesomeIcons.thumbsUp,
+                                                                                          FontAwesomeIcons.heart,
                                                                                           color: FlutterFlowTheme.of(context).worshipRing,
                                                                                           size: 22.0,
                                                                                         ),
                                                                                         Padding(
                                                                                           padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                           child: Text(
-                                                                                            listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                            columnMessagesRecord.messageLikedBy.length.toString(),
                                                                                             style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                   fontFamily: 'Inter',
                                                                                                   color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -1543,7 +1795,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
-                                                                            if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference))
+                                                                            if (columnMessagesRecord.messageCriedBy.contains(currentUserReference))
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
                                                                                 child: InkWell(
@@ -1553,11 +1805,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                   highlightColor: Colors.transparent,
                                                                                   onTap: () async {
                                                                                     HapticFeedback.lightImpact();
-                                                                                    if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
-                                                                                      await listViewMessagesRecord.reference.update({
+                                                                                    if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                      await columnMessagesRecord.reference.update({
                                                                                         ...mapToFirestore(
                                                                                           {
                                                                                             'messageCriedBy': FieldValue.arrayRemove([
+                                                                                              currentUserReference
+                                                                                            ]),
+                                                                                            'personReactingList': FieldValue.arrayRemove([
                                                                                               currentUserReference
                                                                                             ]),
                                                                                           },
@@ -1577,7 +1832,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                       Padding(
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                         child: Text(
-                                                                                          listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                          columnMessagesRecord.messageCriedBy.length.toString(),
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -1588,7 +1843,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                   ),
                                                                                 ),
                                                                               ),
-                                                                            if (!listViewMessagesRecord.messageCriedBy.contains(currentUserReference))
+                                                                            if (!columnMessagesRecord.messageCriedBy.contains(currentUserReference))
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
                                                                                 child: InkWell(
@@ -1598,19 +1853,41 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                   highlightColor: Colors.transparent,
                                                                                   onTap: () async {
                                                                                     HapticFeedback.lightImpact();
-                                                                                    if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                    if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
                                                                                       return;
                                                                                     }
 
-                                                                                    await listViewMessagesRecord.reference.update({
+                                                                                    await columnMessagesRecord.reference.update({
                                                                                       ...mapToFirestore(
                                                                                         {
                                                                                           'messageCriedBy': FieldValue.arrayUnion([
                                                                                             currentUserReference
                                                                                           ]),
+                                                                                          'personReactingList': FieldValue.arrayRemove([
+                                                                                            currentUserReference
+                                                                                          ]),
                                                                                         },
                                                                                       ),
                                                                                     });
+                                                                                    triggerPushNotification(
+                                                                                      notificationTitle: 'New Message',
+                                                                                      notificationText: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
+                                                                                      notificationImageUrl: currentUserPhoto,
+                                                                                      userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                      initialPageName: 'ChatPage',
+                                                                                      parameterData: {
+                                                                                        'chatChosen': widget.chatChosen,
+                                                                                        'chatUsers': widget.chatUsers,
+                                                                                        'otherUserDoc': widget.otherUserDoc,
+                                                                                        'otherUserRef': widget.otherUserRef,
+                                                                                      },
+                                                                                    );
+
+                                                                                    await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                      lastMessage: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
+                                                                                      lastMessageTime: getCurrentTimestamp,
+                                                                                      lastMessageSentBy: currentUserReference,
+                                                                                    ));
                                                                                   },
                                                                                   child: Row(
                                                                                     mainAxisSize: MainAxisSize.max,
@@ -1624,7 +1901,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                       Padding(
                                                                                         padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                         child: Text(
-                                                                                          listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                          columnMessagesRecord.messageCriedBy.length.toString(),
                                                                                           style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                 fontFamily: 'Inter',
                                                                                                 color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -1651,7 +1928,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children: [
-                                                                          if (listViewMessagesRecord
+                                                                          if (columnMessagesRecord
                                                                               .messageLaughedBy
                                                                               .contains(currentUserReference))
                                                                             Padding(
@@ -1663,11 +1940,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
                                                                                   HapticFeedback.lightImpact();
-                                                                                  if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
-                                                                                    await listViewMessagesRecord.reference.update({
+                                                                                  if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                    await columnMessagesRecord.reference.update({
                                                                                       ...mapToFirestore(
                                                                                         {
                                                                                           'messageLaughedBy': FieldValue.arrayRemove([
+                                                                                            currentUserReference
+                                                                                          ]),
+                                                                                          'personReactingList': FieldValue.arrayRemove([
                                                                                             currentUserReference
                                                                                           ]),
                                                                                         },
@@ -1687,7 +1967,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
-                                                                                        listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                        columnMessagesRecord.messageLaughedBy.length.toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -1698,7 +1978,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 ),
                                                                               ),
                                                                             ),
-                                                                          if (!listViewMessagesRecord
+                                                                          if (!columnMessagesRecord
                                                                               .messageLaughedBy
                                                                               .contains(currentUserReference))
                                                                             Padding(
@@ -1710,19 +1990,41 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
                                                                                   HapticFeedback.lightImpact();
-                                                                                  if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                  if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
                                                                                     return;
                                                                                   }
 
-                                                                                  await listViewMessagesRecord.reference.update({
+                                                                                  await columnMessagesRecord.reference.update({
                                                                                     ...mapToFirestore(
                                                                                       {
                                                                                         'messageLaughedBy': FieldValue.arrayUnion([
                                                                                           currentUserReference
                                                                                         ]),
+                                                                                        'personReactingList': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
                                                                                       },
                                                                                     ),
                                                                                   });
+                                                                                  triggerPushNotification(
+                                                                                    notificationTitle: 'New Message',
+                                                                                    notificationText: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
+                                                                                    notificationImageUrl: currentUserPhoto,
+                                                                                    userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                    initialPageName: 'ChatPage',
+                                                                                    parameterData: {
+                                                                                      'chatChosen': widget.chatChosen,
+                                                                                      'chatUsers': widget.chatUsers,
+                                                                                      'otherUserDoc': widget.otherUserDoc,
+                                                                                      'otherUserRef': widget.otherUserRef,
+                                                                                    },
+                                                                                  );
+
+                                                                                  await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                    lastMessage: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
+                                                                                    lastMessageTime: getCurrentTimestamp,
+                                                                                    lastMessageSentBy: currentUserReference,
+                                                                                  ));
                                                                                 },
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
@@ -1736,7 +2038,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
-                                                                                        listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                        columnMessagesRecord.messageLaughedBy.length.toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -1761,17 +2063,19 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                       ],
                                                     ),
                                                   ),
-                                                if (listViewMessagesRecord
-                                                    .reactionsVisible)
+                                                if (columnMessagesRecord
+                                                    .personReactingList
+                                                    .contains(
+                                                        currentUserReference))
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 2.0,
+                                                            .fromSTEB(10.0, 6.0,
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       dateTimeFormat(
                                                         'relative',
-                                                        listViewMessagesRecord
+                                                        columnMessagesRecord
                                                             .timeSent!,
                                                         locale:
                                                             FFLocalizations.of(
@@ -1792,6 +2096,61 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                               ),
                                                     ),
                                                   ),
+                                                if (columnMessagesRecord
+                                                        .prayerRequest !=
+                                                    null)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: StreamBuilder<
+                                                        PrayerRequestsRecord>(
+                                                      stream: PrayerRequestsRecord
+                                                          .getDocument(
+                                                              columnMessagesRecord
+                                                                  .prayerRequest!),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 75.0,
+                                                              height: 75.0,
+                                                              child:
+                                                                  SpinKitRipple(
+                                                                color: Color(
+                                                                    0xFF7F95AD),
+                                                                size: 75.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        final containerPrayerRequestsRecord =
+                                                            snapshot.data!;
+                                                        return Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  0.8,
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child:
+                                                              CommunityPrayerRequestChatWidget(
+                                                            key: Key(
+                                                                'Keydbc_${columnIndex}_of_${columnMessagesRecordList.length}'),
+                                                            chosenPrayerRequestDoc:
+                                                                containerPrayerRequestsRecord,
+                                                            chosenPrayerRequestRef:
+                                                                columnMessagesRecord
+                                                                    .prayerRequest!,
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
                                               ],
                                             ),
                                           ],
@@ -1799,13 +2158,13 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                       ),
                                     ),
                                   ),
-                                if (listViewMessagesRecord.user ==
+                                if (columnMessagesRecord.user ==
                                     currentUserReference)
                                   Align(
                                     alignment: AlignmentDirectional(0.00, 0.00),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 10.0),
+                                          0.0, 0.0, 0.0, 8.0),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -1847,7 +2206,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   6.0),
                                                       child: Text(
                                                         valueOrDefault<String>(
-                                                          listViewMessagesRecord
+                                                          columnMessagesRecord
                                                               .userName,
                                                           'Guest User',
                                                         ),
@@ -1866,10 +2225,151 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                 ),
                                                       ),
                                                     ),
-                                                  if (listViewMessagesRecord
+                                                  if (columnMessagesRecord
+                                                      .hasReply)
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  8.0),
+                                                      child: FutureBuilder<
+                                                          MessagesRecord>(
+                                                        future: MessagesRecord
+                                                            .getDocumentOnce(
+                                                                columnMessagesRecord
+                                                                    .messageReplyingto!),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 75.0,
+                                                                height: 75.0,
+                                                                child:
+                                                                    SpinKitRipple(
+                                                                  color: Color(
+                                                                      0xFF7F95AD),
+                                                                  size: 75.0,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          final containerMessagesRecord =
+                                                              snapshot.data!;
+                                                          return Container(
+                                                            constraints:
+                                                                BoxConstraints(
+                                                              maxWidth: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  0.75,
+                                                            ),
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .secondarySystemBackground,
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          16.0),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          5.0,
+                                                                          8.0,
+                                                                          5.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  SvgPicture
+                                                                      .asset(
+                                                                    'assets/images/arrow-bend-up-right.svg',
+                                                                    width: 30.0,
+                                                                    height:
+                                                                        30.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                  Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          containerMessagesRecord
+                                                                              .userName,
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                color: FlutterFlowTheme.of(context).secondary,
+                                                                                fontSize: 12.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Text(
+                                                                          containerMessagesRecord
+                                                                              .messageText
+                                                                              .maybeHandleOverflow(
+                                                                            maxChars:
+                                                                                30,
+                                                                            replacement:
+                                                                                '…',
+                                                                          ),
+                                                                          style: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .override(
+                                                                                fontFamily: 'Inter',
+                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                fontSize: 12.0,
+                                                                              ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
+                                                  if (columnMessagesRecord
                                                               .textImagePath !=
                                                           null &&
-                                                      listViewMessagesRecord
+                                                      columnMessagesRecord
                                                               .textImagePath !=
                                                           '')
                                                     Padding(
@@ -1909,14 +2409,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           milliseconds:
                                                                               500),
                                                                   imageUrl:
-                                                                      listViewMessagesRecord
+                                                                      columnMessagesRecord
                                                                           .textImagePath,
                                                                   fit: BoxFit
                                                                       .contain,
                                                                 ),
                                                                 allowRotation:
                                                                     false,
-                                                                tag: listViewMessagesRecord
+                                                                tag: columnMessagesRecord
                                                                     .textImagePath,
                                                                 useHeroAnimation:
                                                                     true,
@@ -1925,7 +2425,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                           );
                                                         },
                                                         child: Hero(
-                                                          tag: listViewMessagesRecord
+                                                          tag: columnMessagesRecord
                                                               .textImagePath,
                                                           transitionOnUserGestures:
                                                               true,
@@ -1945,7 +2445,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                       milliseconds:
                                                                           500),
                                                               imageUrl:
-                                                                  listViewMessagesRecord
+                                                                  columnMessagesRecord
                                                                       .textImagePath,
                                                               width: MediaQuery
                                                                           .sizeOf(
@@ -1963,10 +2463,33 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                  if (listViewMessagesRecord
+                                                  if (columnMessagesRecord
+                                                              .link !=
+                                                          null &&
+                                                      columnMessagesRecord
+                                                              .link !=
+                                                          '')
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  8.0),
+                                                      child: custom_widgets
+                                                          .LinkPreviewWidget(
+                                                        width: 250.0,
+                                                        height: 250.0,
+                                                        link:
+                                                            columnMessagesRecord
+                                                                .link,
+                                                      ),
+                                                    ),
+                                                  if (columnMessagesRecord
                                                               .pdfImage !=
                                                           null &&
-                                                      listViewMessagesRecord
+                                                      columnMessagesRecord
                                                               .pdfImage !=
                                                           '')
                                                     Padding(
@@ -2022,9 +2545,9 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     child:
                                                                         PDFViewerWidget(
                                                                       pdfImageSelected:
-                                                                          listViewMessagesRecord,
+                                                                          columnMessagesRecord,
                                                                       pdfImageSelectedRef:
-                                                                          listViewMessagesRecord
+                                                                          columnMessagesRecord
                                                                               .reference,
                                                                     ),
                                                                   ),
@@ -2045,16 +2568,11 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .textBoxBackground,
+                                                                .secondarySystemBackground,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
                                                                         8.0),
-                                                            border: Border.all(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondary,
-                                                            ),
                                                           ),
                                                           child: Column(
                                                             mainAxisSize:
@@ -2076,7 +2594,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      'pq5y405e' /* PDF File */,
+                                                                      'o2h444xh' /* PDF File */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -2085,7 +2603,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           fontFamily:
                                                                               'Inter',
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).tertiary,
+                                                                              FlutterFlowTheme.of(context).label,
                                                                           fontSize:
                                                                               16.0,
                                                                         ),
@@ -2112,7 +2630,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                       FFLocalizations.of(
                                                                               context)
                                                                           .getText(
-                                                                        'koktxlnw' /* Click to View */,
+                                                                        '7vgx1cdj' /* Click to View */,
                                                                       ),
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
@@ -2143,12 +2661,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                         ),
                                                       ),
                                                     ),
-                                                  if (!listViewMessagesRecord
-                                                          .reactionsVisible &&
-                                                      (listViewMessagesRecord
+                                                  if (!columnMessagesRecord
+                                                          .personReactingList
+                                                          .contains(
+                                                              currentUserReference) &&
+                                                      (columnMessagesRecord
                                                                   .messageText !=
                                                               null &&
-                                                          listViewMessagesRecord
+                                                          columnMessagesRecord
                                                                   .messageText !=
                                                               ''))
                                                     Padding(
@@ -2179,30 +2699,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  if (listViewMessagesRecord
-                                                                      .edited)
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'cdzmtbzi' /* (edited) */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              fontSize: 10.0,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  if (listViewMessagesRecord
+                                                                  if (columnMessagesRecord
                                                                       .pin)
                                                                     Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -2274,13 +2771,18 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
-                                                                    await listViewMessagesRecord
+                                                                    await columnMessagesRecord
                                                                         .reference
-                                                                        .update(
-                                                                            createMessagesRecordData(
-                                                                      reactionsVisible:
-                                                                          true,
-                                                                    ));
+                                                                        .update({
+                                                                      ...mapToFirestore(
+                                                                        {
+                                                                          'personReactingList':
+                                                                              FieldValue.arrayUnion([
+                                                                            currentUserReference
+                                                                          ]),
+                                                                        },
+                                                                      ),
+                                                                    });
                                                                   },
                                                                   onLongPress:
                                                                       () async {
@@ -2308,12 +2810,10 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                             padding:
                                                                                 MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                Container(
-                                                                              height: 125.0,
-                                                                              child: EditMessageWidget(
-                                                                                usersMessage: listViewMessagesRecord.reference,
-                                                                                usersMessageDoc: listViewMessagesRecord,
-                                                                              ),
+                                                                                EditMessageWidget(
+                                                                              usersMessage: columnMessagesRecord.reference,
+                                                                              usersMessageDoc: columnMessagesRecord,
+                                                                              messageChat: widget.chatChosen?.reference,
                                                                             ),
                                                                           ),
                                                                         ));
@@ -2345,55 +2845,67 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0),
+                                                                          10.0,
+                                                                          10.0,
+                                                                          10.0,
+                                                                          10.0),
                                                                       child:
-                                                                          InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          await listViewMessagesRecord
-                                                                              .reference
-                                                                              .update(createMessagesRecordData(
-                                                                            reactionsVisible:
-                                                                                true,
-                                                                          ));
-                                                                        },
-                                                                        child:
-                                                                            Text(
-                                                                          listViewMessagesRecord
-                                                                              .messageText,
-                                                                          textAlign:
-                                                                              TextAlign.end,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Inter',
-                                                                                color: FlutterFlowTheme.of(context).label,
-                                                                                fontSize: 14.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
+                                                                          Text(
+                                                                        columnMessagesRecord
+                                                                            .messageText,
+                                                                        textAlign:
+                                                                            TextAlign.start,
+                                                                        style: GoogleFonts
+                                                                            .getFont(
+                                                                          'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).label,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontSize:
+                                                                              15.5,
+                                                                          height:
+                                                                              1.35,
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                              if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                  (listViewMessagesRecord
+                                                              if (columnMessagesRecord
+                                                                  .edited)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      '6xc666io' /* (edited) */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          fontSize:
+                                                                              10.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
+                                                                  (columnMessagesRecord
                                                                           .messageCriedBy
                                                                           .length >
                                                                       0) ||
-                                                                  (listViewMessagesRecord
+                                                                  (columnMessagesRecord
                                                                           .messageLikedBy
                                                                           .length >
                                                                       0))
@@ -2410,6 +2922,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         25.0,
                                                                     decoration:
                                                                         BoxDecoration(
+                                                                      color: Colors
+                                                                          .transparent,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
                                                                               8.0),
@@ -2422,7 +2936,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           MainAxisAlignment
                                                                               .center,
                                                                       children: [
-                                                                        if (listViewMessagesRecord.messageLikedBy.length >
+                                                                        if (columnMessagesRecord.messageLikedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2432,12 +2946,12 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 0.0),
                                                                             child:
                                                                                 FaIcon(
-                                                                              FontAwesomeIcons.solidThumbsUp,
+                                                                              FontAwesomeIcons.solidHeart,
                                                                               color: FlutterFlowTheme.of(context).worshipRing,
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (listViewMessagesRecord.messageCriedBy.length >
+                                                                        if (columnMessagesRecord.messageCriedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2452,7 +2966,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (listViewMessagesRecord.messageLaughedBy.length >
+                                                                        if (columnMessagesRecord.messageLaughedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2476,12 +2990,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                         ],
                                                       ),
                                                     ),
-                                                  if (listViewMessagesRecord
-                                                          .reactionsVisible &&
-                                                      (listViewMessagesRecord
+                                                  if (columnMessagesRecord
+                                                          .personReactingList
+                                                          .contains(
+                                                              currentUserReference) &&
+                                                      (columnMessagesRecord
                                                                   .messageText !=
                                                               null &&
-                                                          listViewMessagesRecord
+                                                          columnMessagesRecord
                                                                   .messageText !=
                                                               ''))
                                                     Padding(
@@ -2512,30 +3028,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
-                                                                  if (listViewMessagesRecord
-                                                                      .edited)
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'popwm4vp' /* (edited) */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              fontSize: 10.0,
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  if (listViewMessagesRecord
+                                                                  if (columnMessagesRecord
                                                                       .pin)
                                                                     Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -2607,13 +3100,18 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           .transparent,
                                                                   onTap:
                                                                       () async {
-                                                                    await listViewMessagesRecord
+                                                                    await columnMessagesRecord
                                                                         .reference
-                                                                        .update(
-                                                                            createMessagesRecordData(
-                                                                      reactionsVisible:
-                                                                          false,
-                                                                    ));
+                                                                        .update({
+                                                                      ...mapToFirestore(
+                                                                        {
+                                                                          'personReactingList':
+                                                                              FieldValue.arrayRemove([
+                                                                            currentUserReference
+                                                                          ]),
+                                                                        },
+                                                                      ),
+                                                                    });
                                                                   },
                                                                   onLongPress:
                                                                       () async {
@@ -2641,12 +3139,10 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                             padding:
                                                                                 MediaQuery.viewInsetsOf(context),
                                                                             child:
-                                                                                Container(
-                                                                              height: 125.0,
-                                                                              child: EditMessageWidget(
-                                                                                usersMessage: listViewMessagesRecord.reference,
-                                                                                usersMessageDoc: listViewMessagesRecord,
-                                                                              ),
+                                                                                EditMessageWidget(
+                                                                              usersMessage: columnMessagesRecord.reference,
+                                                                              usersMessageDoc: columnMessagesRecord,
+                                                                              messageChat: widget.chatChosen?.reference,
                                                                             ),
                                                                           ),
                                                                         ));
@@ -2678,55 +3174,67 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0),
+                                                                          10.0,
+                                                                          10.0,
+                                                                          10.0,
+                                                                          10.0),
                                                                       child:
-                                                                          InkWell(
-                                                                        splashColor:
-                                                                            Colors.transparent,
-                                                                        focusColor:
-                                                                            Colors.transparent,
-                                                                        hoverColor:
-                                                                            Colors.transparent,
-                                                                        highlightColor:
-                                                                            Colors.transparent,
-                                                                        onTap:
-                                                                            () async {
-                                                                          await listViewMessagesRecord
-                                                                              .reference
-                                                                              .update(createMessagesRecordData(
-                                                                            reactionsVisible:
-                                                                                false,
-                                                                          ));
-                                                                        },
-                                                                        child:
-                                                                            Text(
-                                                                          listViewMessagesRecord
-                                                                              .messageText,
-                                                                          textAlign:
-                                                                              TextAlign.end,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Inter',
-                                                                                color: FlutterFlowTheme.of(context).label,
-                                                                                fontSize: 14.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
+                                                                          Text(
+                                                                        columnMessagesRecord
+                                                                            .messageText,
+                                                                        textAlign:
+                                                                            TextAlign.start,
+                                                                        style: GoogleFonts
+                                                                            .getFont(
+                                                                          'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).label,
+                                                                          fontWeight:
+                                                                              FontWeight.normal,
+                                                                          fontSize:
+                                                                              15.5,
+                                                                          height:
+                                                                              1.35,
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                              if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                  (listViewMessagesRecord
+                                                              if (columnMessagesRecord
+                                                                  .edited)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'xwth7m6v' /* (edited) */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          fontSize:
+                                                                              10.0,
+                                                                        ),
+                                                                  ),
+                                                                ),
+                                                              if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
+                                                                  (columnMessagesRecord
                                                                           .messageCriedBy
                                                                           .length >
                                                                       0) ||
-                                                                  (listViewMessagesRecord
+                                                                  (columnMessagesRecord
                                                                           .messageLikedBy
                                                                           .length >
                                                                       0))
@@ -2743,6 +3251,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         25.0,
                                                                     decoration:
                                                                         BoxDecoration(
+                                                                      color: Colors
+                                                                          .transparent,
                                                                       borderRadius:
                                                                           BorderRadius.circular(
                                                                               8.0),
@@ -2755,7 +3265,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           MainAxisAlignment
                                                                               .center,
                                                                       children: [
-                                                                        if (listViewMessagesRecord.messageLikedBy.length >
+                                                                        if (columnMessagesRecord.messageLikedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2765,12 +3275,12 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 0.0),
                                                                             child:
                                                                                 FaIcon(
-                                                                              FontAwesomeIcons.solidThumbsUp,
+                                                                              FontAwesomeIcons.solidHeart,
                                                                               color: FlutterFlowTheme.of(context).worshipRing,
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (listViewMessagesRecord.messageCriedBy.length >
+                                                                        if (columnMessagesRecord.messageCriedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2785,7 +3295,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (listViewMessagesRecord.messageLaughedBy.length >
+                                                                        if (columnMessagesRecord.messageLaughedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2809,9 +3319,10 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                         ],
                                                       ),
                                                     ),
-                                                  if (listViewMessagesRecord
-                                                          .reactionsVisible ==
-                                                      true)
+                                                  if (columnMessagesRecord
+                                                      .personReactingList
+                                                      .contains(
+                                                          currentUserReference))
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -2881,7 +3392,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
-                                                                            if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference))
+                                                                            if (columnMessagesRecord.messageLikedBy.contains(currentUserReference))
                                                                               InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
@@ -2889,11 +3400,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
                                                                                   HapticFeedback.lightImpact();
-                                                                                  if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
-                                                                                    await listViewMessagesRecord.reference.update({
+                                                                                  if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                    await columnMessagesRecord.reference.update({
                                                                                       ...mapToFirestore(
                                                                                         {
                                                                                           'messageLikedBy': FieldValue.arrayRemove([
+                                                                                            currentUserReference
+                                                                                          ]),
+                                                                                          'personReactingList': FieldValue.arrayRemove([
                                                                                             currentUserReference
                                                                                           ]),
                                                                                         },
@@ -2913,7 +3427,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
-                                                                                        listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                        columnMessagesRecord.messageLikedBy.length.toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -2923,7 +3437,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                   ],
                                                                                 ),
                                                                               ),
-                                                                            if (!listViewMessagesRecord.messageLikedBy.contains(currentUserReference))
+                                                                            if (!columnMessagesRecord.messageLikedBy.contains(currentUserReference))
                                                                               InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
@@ -2931,19 +3445,41 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
                                                                                   HapticFeedback.lightImpact();
-                                                                                  if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                  if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
                                                                                     return;
                                                                                   }
 
-                                                                                  await listViewMessagesRecord.reference.update({
+                                                                                  await columnMessagesRecord.reference.update({
                                                                                     ...mapToFirestore(
                                                                                       {
                                                                                         'messageLikedBy': FieldValue.arrayUnion([
                                                                                           currentUserReference
                                                                                         ]),
+                                                                                        'personReactingList': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
                                                                                       },
                                                                                     ),
                                                                                   });
+                                                                                  triggerPushNotification(
+                                                                                    notificationTitle: 'New Message',
+                                                                                    notificationText: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
+                                                                                    notificationImageUrl: currentUserPhoto,
+                                                                                    userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                    initialPageName: 'ChatPage',
+                                                                                    parameterData: {
+                                                                                      'chatChosen': widget.chatChosen,
+                                                                                      'chatUsers': widget.chatUsers,
+                                                                                      'otherUserDoc': widget.otherUserDoc,
+                                                                                      'otherUserRef': widget.otherUserRef,
+                                                                                    },
+                                                                                  );
+
+                                                                                  await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                    lastMessage: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
+                                                                                    lastMessageTime: getCurrentTimestamp,
+                                                                                    lastMessageSentBy: currentUserReference,
+                                                                                  ));
                                                                                 },
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
@@ -2957,7 +3493,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
-                                                                                        listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                        columnMessagesRecord.messageLikedBy.length.toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -2991,7 +3527,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           mainAxisSize:
                                                                               MainAxisSize.max,
                                                                           children: [
-                                                                            if (!listViewMessagesRecord.messageCriedBy.contains(currentUserReference))
+                                                                            if (!columnMessagesRecord.messageCriedBy.contains(currentUserReference))
                                                                               InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
@@ -2999,19 +3535,41 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
                                                                                   HapticFeedback.lightImpact();
-                                                                                  if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                  if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
                                                                                     return;
                                                                                   }
 
-                                                                                  await listViewMessagesRecord.reference.update({
+                                                                                  await columnMessagesRecord.reference.update({
                                                                                     ...mapToFirestore(
                                                                                       {
                                                                                         'messageCriedBy': FieldValue.arrayUnion([
                                                                                           currentUserReference
                                                                                         ]),
+                                                                                        'personReactingList': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
                                                                                       },
                                                                                     ),
                                                                                   });
+                                                                                  triggerPushNotification(
+                                                                                    notificationTitle: 'New Message',
+                                                                                    notificationText: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
+                                                                                    notificationImageUrl: currentUserPhoto,
+                                                                                    userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                    initialPageName: 'ChatPage',
+                                                                                    parameterData: {
+                                                                                      'chatChosen': widget.chatChosen,
+                                                                                      'chatUsers': widget.chatUsers,
+                                                                                      'otherUserDoc': widget.otherUserDoc,
+                                                                                      'otherUserRef': widget.otherUserRef,
+                                                                                    },
+                                                                                  );
+
+                                                                                  await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                    lastMessage: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
+                                                                                    lastMessageTime: getCurrentTimestamp,
+                                                                                    lastMessageSentBy: currentUserReference,
+                                                                                  ));
                                                                                 },
                                                                                 child: Row(
                                                                                   mainAxisSize: MainAxisSize.max,
@@ -3025,7 +3583,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
-                                                                                        listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                        columnMessagesRecord.messageCriedBy.length.toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -3035,7 +3593,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                   ],
                                                                                 ),
                                                                               ),
-                                                                            if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference))
+                                                                            if (columnMessagesRecord.messageCriedBy.contains(currentUserReference))
                                                                               InkWell(
                                                                                 splashColor: Colors.transparent,
                                                                                 focusColor: Colors.transparent,
@@ -3043,11 +3601,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 highlightColor: Colors.transparent,
                                                                                 onTap: () async {
                                                                                   HapticFeedback.lightImpact();
-                                                                                  if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
-                                                                                    await listViewMessagesRecord.reference.update({
+                                                                                  if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                    await columnMessagesRecord.reference.update({
                                                                                       ...mapToFirestore(
                                                                                         {
                                                                                           'messageCriedBy': FieldValue.arrayRemove([
+                                                                                            currentUserReference
+                                                                                          ]),
+                                                                                          'personReactingList': FieldValue.arrayRemove([
                                                                                             currentUserReference
                                                                                           ]),
                                                                                         },
@@ -3067,7 +3628,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                     Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                       child: Text(
-                                                                                        listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                        columnMessagesRecord.messageCriedBy.length.toString(),
                                                                                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                               fontFamily: 'Inter',
                                                                                               color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -3094,7 +3655,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                         mainAxisSize:
                                                                             MainAxisSize.max,
                                                                         children: [
-                                                                          if (!listViewMessagesRecord
+                                                                          if (!columnMessagesRecord
                                                                               .messageLaughedBy
                                                                               .contains(currentUserReference))
                                                                             InkWell(
@@ -3104,19 +3665,41 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
                                                                                 HapticFeedback.lightImpact();
-                                                                                if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
                                                                                   return;
                                                                                 }
 
-                                                                                await listViewMessagesRecord.reference.update({
+                                                                                await columnMessagesRecord.reference.update({
                                                                                   ...mapToFirestore(
                                                                                     {
                                                                                       'messageLaughedBy': FieldValue.arrayUnion([
                                                                                         currentUserReference
                                                                                       ]),
+                                                                                      'personReactingList': FieldValue.arrayRemove([
+                                                                                        currentUserReference
+                                                                                      ]),
                                                                                     },
                                                                                   ),
                                                                                 });
+                                                                                triggerPushNotification(
+                                                                                  notificationTitle: 'New Message',
+                                                                                  notificationText: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
+                                                                                  notificationImageUrl: currentUserPhoto,
+                                                                                  userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                  initialPageName: 'ChatPage',
+                                                                                  parameterData: {
+                                                                                    'chatChosen': widget.chatChosen,
+                                                                                    'chatUsers': widget.chatUsers,
+                                                                                    'otherUserDoc': widget.otherUserDoc,
+                                                                                    'otherUserRef': widget.otherUserRef,
+                                                                                  },
+                                                                                );
+
+                                                                                await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                  lastMessage: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
+                                                                                  lastMessageTime: getCurrentTimestamp,
+                                                                                  lastMessageSentBy: currentUserReference,
+                                                                                ));
                                                                               },
                                                                               child: Row(
                                                                                 mainAxisSize: MainAxisSize.max,
@@ -3130,7 +3713,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                   Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                     child: Text(
-                                                                                      listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                      columnMessagesRecord.messageLaughedBy.length.toString(),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -3140,7 +3723,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 ],
                                                                               ),
                                                                             ),
-                                                                          if (listViewMessagesRecord
+                                                                          if (columnMessagesRecord
                                                                               .messageLaughedBy
                                                                               .contains(currentUserReference))
                                                                             InkWell(
@@ -3150,11 +3733,14 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               highlightColor: Colors.transparent,
                                                                               onTap: () async {
                                                                                 HapticFeedback.lightImpact();
-                                                                                if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
-                                                                                  await listViewMessagesRecord.reference.update({
+                                                                                if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                  await columnMessagesRecord.reference.update({
                                                                                     ...mapToFirestore(
                                                                                       {
                                                                                         'messageLaughedBy': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
+                                                                                        'personReactingList': FieldValue.arrayRemove([
                                                                                           currentUserReference
                                                                                         ]),
                                                                                       },
@@ -3174,7 +3760,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                   Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                                                                                     child: Text(
-                                                                                      listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                      columnMessagesRecord.messageLaughedBy.length.toString(),
                                                                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                             fontFamily: 'Inter',
                                                                                             color: FlutterFlowTheme.of(context).lightSecondaryText,
@@ -3197,20 +3783,22 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                         ],
                                                       ),
                                                     ),
-                                                  if (listViewMessagesRecord
-                                                      .reactionsVisible)
+                                                  if (columnMessagesRecord
+                                                      .personReactingList
+                                                      .contains(
+                                                          currentUserReference))
                                                     Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
-                                                                  2.0,
+                                                                  6.0,
                                                                   10.0,
                                                                   0.0),
                                                       child: Text(
                                                         dateTimeFormat(
                                                           'relative',
-                                                          listViewMessagesRecord
+                                                          columnMessagesRecord
                                                               .timeSent!,
                                                           locale:
                                                               FFLocalizations.of(
@@ -3232,6 +3820,65 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                 ),
                                                       ),
                                                     ),
+                                                  if (columnMessagesRecord
+                                                          .prayerRequest !=
+                                                      null)
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: StreamBuilder<
+                                                          PrayerRequestsRecord>(
+                                                        stream: PrayerRequestsRecord
+                                                            .getDocument(
+                                                                columnMessagesRecord
+                                                                    .prayerRequest!),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 75.0,
+                                                                height: 75.0,
+                                                                child:
+                                                                    SpinKitRipple(
+                                                                  color: Color(
+                                                                      0xFF7F95AD),
+                                                                  size: 75.0,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          final containerPrayerRequestsRecord =
+                                                              snapshot.data!;
+                                                          return Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.8,
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                            child:
+                                                                CommunityPrayerRequestChatWidget(
+                                                              key: Key(
+                                                                  'Keydkw_${columnIndex}_of_${columnMessagesRecordList.length}'),
+                                                              chosenPrayerRequestDoc:
+                                                                  containerPrayerRequestsRecord,
+                                                              chosenPrayerRequestRef:
+                                                                  columnMessagesRecord
+                                                                      .prayerRequest!,
+                                                            ),
+                                                          );
+                                                        },
+                                                      ),
+                                                    ),
                                                 ],
                                               ),
                                             ),
@@ -3242,10 +3889,10 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                   ),
                               ],
                             );
-                          },
-                        );
-                      },
-                    ),
+                          }),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

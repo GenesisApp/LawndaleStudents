@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:async';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
@@ -179,21 +180,15 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await actions.lockOrientation();
-      if (dateTimeFormat(
-                'yMMMd',
-                currentUserDocument?.dateofCompletion,
-                locale: FFLocalizations.of(context).languageCode,
-              ) ==
-              null ||
-          dateTimeFormat(
-                'yMMMd',
-                currentUserDocument?.dateofCompletion,
-                locale: FFLocalizations.of(context).languageCode,
-              ) ==
-              '') {
+      unawaited(
+        () async {
+          await actions.lockOrientation();
+        }(),
+      );
+      if ((valueOrDefault(currentUserDocument?.dailyStreak, 0) == 0) ||
+          (valueOrDefault(currentUserDocument?.dailyStreak, 0) == null)) {
         await currentUserReference!.update(createUsersRecordData(
-          dateofCompletion: functions.getYesterdayDate(),
+          dateofCompletion: getCurrentTimestamp,
         ));
       }
       if (valueOrDefault<bool>(currentUserDocument?.completed1, false) ==
@@ -268,11 +263,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
           heartCheckActive: false,
         ));
       }
-
-      _model.timerController1.onStartTimer();
-      _model.timerController2.onStartTimer();
-      _model.timerController3.onStartTimer();
-      _model.timerController4.onStartTimer();
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -656,126 +646,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-1.00, -1.00),
-                          child: FlutterFlowTimer(
-                            initialTime: _model.timerMilliseconds1,
-                            getDisplayTime: (value) =>
-                                StopWatchTimer.getDisplayTime(
-                              value,
-                              hours: false,
-                              milliSecond: false,
-                            ),
-                            controller: _model.timerController1,
-                            updateStateInterval: Duration(milliseconds: 1050),
-                            onChanged: (value, displayTime, shouldUpdate) {
-                              _model.timerMilliseconds1 = value;
-                              _model.timerValue1 = displayTime;
-                              if (shouldUpdate) setState(() {});
-                            },
-                            onEnded: () async {
-                              HapticFeedback.lightImpact();
-                            },
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.transparent,
-                                  useGoogleFonts: false,
-                                ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-1.00, -1.00),
-                          child: FlutterFlowTimer(
-                            initialTime: _model.timerMilliseconds2,
-                            getDisplayTime: (value) =>
-                                StopWatchTimer.getDisplayTime(
-                              value,
-                              hours: false,
-                              milliSecond: false,
-                            ),
-                            controller: _model.timerController2,
-                            updateStateInterval: Duration(milliseconds: 1500),
-                            onChanged: (value, displayTime, shouldUpdate) {
-                              _model.timerMilliseconds2 = value;
-                              _model.timerValue2 = displayTime;
-                              if (shouldUpdate) setState(() {});
-                            },
-                            onEnded: () async {
-                              HapticFeedback.lightImpact();
-                            },
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.transparent,
-                                  useGoogleFonts: false,
-                                ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-1.00, -1.00),
-                          child: FlutterFlowTimer(
-                            initialTime: _model.timerMilliseconds3,
-                            getDisplayTime: (value) =>
-                                StopWatchTimer.getDisplayTime(
-                              value,
-                              hours: false,
-                              milliSecond: false,
-                            ),
-                            controller: _model.timerController3,
-                            updateStateInterval: Duration(milliseconds: 3000),
-                            onChanged: (value, displayTime, shouldUpdate) {
-                              _model.timerMilliseconds3 = value;
-                              _model.timerValue3 = displayTime;
-                              if (shouldUpdate) setState(() {});
-                            },
-                            onEnded: () async {
-                              HapticFeedback.mediumImpact();
-                            },
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.transparent,
-                                  useGoogleFonts: false,
-                                ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-1.00, -1.00),
-                          child: FlutterFlowTimer(
-                            initialTime: _model.timerMilliseconds4,
-                            getDisplayTime: (value) =>
-                                StopWatchTimer.getDisplayTime(
-                              value,
-                              hours: false,
-                              milliSecond: false,
-                            ),
-                            controller: _model.timerController4,
-                            updateStateInterval: Duration(milliseconds: 2600),
-                            onChanged: (value, displayTime, shouldUpdate) {
-                              _model.timerMilliseconds4 = value;
-                              _model.timerValue4 = displayTime;
-                              if (shouldUpdate) setState(() {});
-                            },
-                            onEnded: () async {
-                              HapticFeedback.mediumImpact();
-                            },
-                            textAlign: TextAlign.start,
-                            style: FlutterFlowTheme.of(context)
-                                .headlineSmall
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.transparent,
-                                  useGoogleFonts: false,
-                                ),
                           ),
                         ),
                         Align(

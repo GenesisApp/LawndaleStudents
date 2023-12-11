@@ -1141,7 +1141,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                               ),
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'sx9tpwtu' /* Adult */,
+                                                '3petw9bq' /* Adult */,
                                               )
                                             ],
                                             onChanged: (val) => setState(() =>
