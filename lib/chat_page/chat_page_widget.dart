@@ -3908,7 +3908,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                     children: [
                                                                                       FaIcon(
-                                                                                        FontAwesomeIcons.solidThumbsUp,
+                                                                                        FontAwesomeIcons.solidHeart,
                                                                                         color: Color(0xFF619B99),
                                                                                         size: 22.0,
                                                                                       ),
@@ -3974,7 +3974,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                                                     children: [
                                                                                       FaIcon(
-                                                                                        FontAwesomeIcons.thumbsUp,
+                                                                                        FontAwesomeIcons.heart,
                                                                                         color: FlutterFlowTheme.of(context).worshipRing,
                                                                                         size: 22.0,
                                                                                       ),
