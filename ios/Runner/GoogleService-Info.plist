@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>339432910546-pellgm5vsf9f72i1q5bcnto48kh4go79.apps.googleusercontent.com</string>
+	<string>536088823618-1p2835oq1gq7ugqohpap4cdn6vt670a5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.339432910546-pellgm5vsf9f72i1q5bcnto48kh4go79</string>
+	<string>com.googleusercontent.apps.536088823618-1p2835oq1gq7ugqohpap4cdn6vt670a5</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>339432910546-1p7go7tsg3b48c8h839nil60avl080e5.apps.googleusercontent.com</string>
+	<string>536088823618-6ui40m1hnui5v7ambmom69kok5f0o2tu.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDtsLXGL3EiOIEGUCgVxzFqJ2yWyHc8NeA</string>
+	<string>AIzaSyB2nazaw0KPWyn-xceTqhTSU6IIgcP7mpQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>339432910546</string>
+	<string>536088823618</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.definitionyouth.genesis</string>
+	<string>com.lawndalestudents.genesis</string>
 	<key>PROJECT_ID</key>
-	<string>definition-youth</string>
+	<string>lawndale-students-jaiw48</string>
 	<key>STORAGE_BUCKET</key>
-	<string>definition-youth.appspot.com</string>
+	<string>lawndale-students-jaiw48.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:339432910546:ios:93cf62f9b549693d28470b</string>
+	<string>1:536088823618:ios:e273d745ac515acb34eadb</string>
 </dict>
 </plist>

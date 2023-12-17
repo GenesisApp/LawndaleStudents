@@ -511,7 +511,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 await Share.share(
-                                  'Check out this group: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
+                                  'Check out this group: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
                                   sharePositionOrigin:
                                       getWidgetBoundingBox(context),
                                 );

@@ -1653,7 +1653,7 @@ class _PracticeJournalPreviewWidgetState
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     await Share.share(
-                                                      'Checkout this journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
+                                                      'Checkout this journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
                                                       sharePositionOrigin:
                                                           getWidgetBoundingBox(
                                                               context),

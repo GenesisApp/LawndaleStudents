@@ -1,48 +1,48 @@
 {
   "project_info": {
-    "project_number": "339432910546",
-    "project_id": "definition-youth",
-    "storage_bucket": "definition-youth.appspot.com"
+    "project_number": "536088823618",
+    "project_id": "lawndale-students-jaiw48",
+    "storage_bucket": "lawndale-students-jaiw48.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:339432910546:android:f702df41b7ce2e2828470b",
+        "mobilesdk_app_id": "1:536088823618:android:c1905032ad14097a34eadb",
         "android_client_info": {
-          "package_name": "com.definitionyouth.genesis"
+          "package_name": "com.lawndalestudents.genesis"
         }
       },
       "oauth_client": [
         {
-          "client_id": "339432910546-1p7go7tsg3b48c8h839nil60avl080e5.apps.googleusercontent.com",
+          "client_id": "536088823618-6ui40m1hnui5v7ambmom69kok5f0o2tu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.definitionyouth.genesis",
+            "package_name": "com.lawndalestudents.genesis",
             "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
           }
         },
         {
-          "client_id": "339432910546-4kluneefr4bo71hls7mg68jhjiggncse.apps.googleusercontent.com",
+          "client_id": "536088823618-tbgs82adat33m582e5lcol1btd6mhfmn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC5RuDPCMOjlP55fmYDPegXSiwXKQlhgiA"
+          "current_key": "AIzaSyDDnWHARwQjKhF9jlaG-O_6pAO-jBQJwVg"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "339432910546-4kluneefr4bo71hls7mg68jhjiggncse.apps.googleusercontent.com",
+              "client_id": "536088823618-tbgs82adat33m582e5lcol1btd6mhfmn.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "339432910546-pellgm5vsf9f72i1q5bcnto48kh4go79.apps.googleusercontent.com",
+              "client_id": "536088823618-1p2835oq1gq7ugqohpap4cdn6vt670a5.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.definitionyouth.genesis"
+                "bundle_id": "com.lawndalestudents.genesis"
               }
             }
           ]

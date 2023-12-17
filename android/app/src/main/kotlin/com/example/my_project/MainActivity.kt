@@ -1,4 +1,4 @@
-package com.definitionyouth.genesis
+package com.lawndalestudents.genesis
 
 import io.flutter.embedding.android.FlutterActivity
 
