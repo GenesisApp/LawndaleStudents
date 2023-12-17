@@ -228,7 +228,7 @@ class _PrayingPageWidgetState extends State<PrayingPageWidget>
                     url:
                         valueOrDefault(currentUserDocument?.prayerVideoURL, ''),
                     height: 50.0,
-                    autoPlay: false,
+                    autoPlay: true,
                     looping: true,
                     mute: false,
                     showControls: false,
