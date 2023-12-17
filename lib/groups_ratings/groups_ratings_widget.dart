@@ -199,7 +199,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
           width: MediaQuery.sizeOf(context).width * 1.0,
           decoration: BoxDecoration(),
           child: Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Stack(
               alignment: AlignmentDirectional(0.0, 0.0),
               children: [
@@ -236,8 +236,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                         ],
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            20.0, 20.0, 20.0, 20.0),
+                        padding: EdgeInsets.all(20.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -279,9 +278,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                       if (Theme.of(context).brightness ==
                                           Brightness.dark)
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 8.0, 8.0, 8.0),
+                                          padding: EdgeInsets.all(8.0),
                                           child: SvgPicture.asset(
                                             'assets/images/leaf-fill_(4).svg',
                                             width: double.infinity,
@@ -292,9 +289,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                       if (!(Theme.of(context).brightness ==
                                           Brightness.dark))
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 8.0, 8.0, 8.0),
+                                          padding: EdgeInsets.all(8.0),
                                           child: SvgPicture.asset(
                                             'assets/images/leaf-fill_(5).svg',
                                             width: double.infinity,
@@ -478,7 +473,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -536,12 +531,10 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                                                       .circle,
                                                                 ),
                                                                 child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          1.0,
-                                                                          1.0,
-                                                                          1.0,
-                                                                          1.0),
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              1.0),
                                                                   child:
                                                                       Container(
                                                                     width:
@@ -818,8 +811,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Text(
                                                                 'Average Rating: ${functions.percentagefromListCopy(container1GroupRatingsRecordList.map((e) => e.groupRatingNumber).toList(), container1GroupRatingsRecordList.map((e) => e.reference).toList(), container1GroupRatingsRecordList.toList()).toString()}%',
                                                                 style: FlutterFlowTheme.of(

@@ -379,8 +379,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                 if (Theme.of(context).brightness ==
                                     Brightness.dark)
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: SvgPicture.asset(
                                       'assets/images/leaf-fill_(4).svg',
                                       width: double.infinity,
@@ -391,8 +390,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                 if (!(Theme.of(context).brightness ==
                                     Brightness.dark))
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: SvgPicture.asset(
                                       'assets/images/leaf-fill_(5).svg',
                                       width: double.infinity,
@@ -665,7 +663,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -961,7 +959,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                         Align(
                                                                       alignment: AlignmentDirectional(
                                                                           -0.98,
-                                                                          0.00),
+                                                                          0.0),
                                                                       child:
                                                                           Container(
                                                                         width:
@@ -993,8 +991,8 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                           ),
                                                                         ),
                                                                         alignment: AlignmentDirectional(
-                                                                            -0.80,
-                                                                            0.00),
+                                                                            -0.8,
+                                                                            0.0),
                                                                       ).animateOnPageLoad(
                                                                               animationsMap['containerOnPageLoadAnimation1']!),
                                                                     ),
@@ -1046,7 +1044,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                         Align(
                                                                       alignment: AlignmentDirectional(
                                                                           -0.98,
-                                                                          0.00),
+                                                                          0.0),
                                                                       child:
                                                                           Container(
                                                                         width:
@@ -1078,8 +1076,8 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                           ),
                                                                         ),
                                                                         alignment: AlignmentDirectional(
-                                                                            -0.80,
-                                                                            0.00),
+                                                                            -0.8,
+                                                                            0.0),
                                                                       ).animateOnPageLoad(
                                                                               animationsMap['containerOnPageLoadAnimation2']!),
                                                                     ),
@@ -1131,7 +1129,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                         Align(
                                                                       alignment: AlignmentDirectional(
                                                                           -0.98,
-                                                                          0.00),
+                                                                          0.0),
                                                                       child:
                                                                           Container(
                                                                         width:
@@ -1163,8 +1161,8 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                           ),
                                                                         ),
                                                                         alignment: AlignmentDirectional(
-                                                                            -0.80,
-                                                                            0.00),
+                                                                            -0.8,
+                                                                            0.0),
                                                                       ).animateOnPageLoad(
                                                                               animationsMap['containerOnPageLoadAnimation3']!),
                                                                     ),
@@ -1217,7 +1215,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                   alignment:
                                                                       AlignmentDirectional(
                                                                           -0.98,
-                                                                          0.00),
+                                                                          0.0),
                                                                   child:
                                                                       Container(
                                                                     width: 20.0,
@@ -1283,7 +1281,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Text(
                                                             FFLocalizations.of(
                                                                     context)
@@ -1309,7 +1307,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Text(
                                                               FFLocalizations.of(
                                                                       context)
@@ -1335,7 +1333,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Text(
                                                               valueOrDefault<
                                                                   String>(
@@ -1361,7 +1359,7 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -1775,15 +1773,13 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -0.30,
-                                                                            0.00),
+                                                                            -0.3,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          1.0,
-                                                                          1.0,
-                                                                          1.0,
-                                                                          1.0),
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              1.0),
                                                                       child:
                                                                           Hero(
                                                                         tag: valueOrDefault<

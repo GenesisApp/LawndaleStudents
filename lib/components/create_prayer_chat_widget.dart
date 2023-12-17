@@ -125,11 +125,9 @@ class _CreatePrayerChatWidgetState extends State<CreatePrayerChatWidget> {
                                     borderRadius: BorderRadius.circular(100.0),
                                   ),
                                   child: Align(
-                                    alignment:
-                                        AlignmentDirectional(-0.30, 0.00),
+                                    alignment: AlignmentDirectional(-0.3, 0.0),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          2.0, 2.0, 2.0, 2.0),
+                                      padding: EdgeInsets.all(2.0),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => Hero(
                                           tag: valueOrDefault<String>(
@@ -160,7 +158,7 @@ class _CreatePrayerChatWidgetState extends State<CreatePrayerChatWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: 30.0,
                                     height: 30.0,
@@ -300,7 +298,7 @@ class _CreatePrayerChatWidgetState extends State<CreatePrayerChatWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '6w2111a7' /* Cancel */,
@@ -376,7 +374,7 @@ class _CreatePrayerChatWidgetState extends State<CreatePrayerChatWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '462nqqqb' /* Submit */,

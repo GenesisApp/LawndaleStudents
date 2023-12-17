@@ -230,7 +230,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'tht74mgg' /* Update */,
@@ -417,7 +417,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'vqo3low7' /* Update */,
@@ -604,7 +604,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'bxtu67qf' /* Update */,
@@ -791,7 +791,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'bd6nykuv' /* Update */,
@@ -1029,7 +1029,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -1333,7 +1333,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'c4vl7vzp' /* Update */,

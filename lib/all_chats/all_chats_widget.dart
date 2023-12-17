@@ -261,7 +261,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                 child: Stack(
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, -1.00),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: Container(
                         width: double.infinity,
                         height: MediaQuery.sizeOf(context).height * 0.3,
@@ -278,19 +278,28 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                       ),
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, -1.00),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       child: SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Container(
-                              width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.06,
-                              decoration: BoxDecoration(),
-                            ),
+                            if (MediaQuery.sizeOf(context).height > 700.0)
+                              Container(
+                                width: double.infinity,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.06,
+                                decoration: BoxDecoration(),
+                              ),
+                            if (MediaQuery.sizeOf(context).height < 700.0)
+                              Container(
+                                width: double.infinity,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.02,
+                                decoration: BoxDecoration(),
+                              ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 5.0, 20.0, 20.0),
+                                  20.0, 5.0, 20.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -415,9 +424,14 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                 ],
                               ),
                             ),
+                            Container(
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.03,
+                              decoration: BoxDecoration(),
+                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 10.0, 20.0, 0.0),
+                                  20.0, 0.0, 20.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -449,7 +463,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: TextFormField(
                                                     controller:
                                                         _model.textController,
@@ -821,8 +835,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        -1.00),
+                                                                        0.0,
+                                                                        -1.0),
                                                                 child:
                                                                     Container(
                                                                   width: 80.0,
@@ -850,11 +864,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            1.0,
-                                                                            1.0,
-                                                                            1.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             1.0),
                                                                     child:
                                                                         InkWell(
@@ -955,8 +966,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               currentUserReference))
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               InkWell(
                                                                             splashColor:
@@ -1049,8 +1060,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               currentUserReference))
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Icon(
                                                                             Icons.check_circle_rounded,
@@ -1075,7 +1086,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
+                                                                            0.0,
                                                                             0.85),
                                                                     child: Text(
                                                                       listViewUsersRecord
@@ -1194,8 +1205,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        -1.00),
+                                                                        0.0,
+                                                                        -1.0),
                                                                 child:
                                                                     Container(
                                                                   width: 80.0,
@@ -1223,11 +1234,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            1.0,
-                                                                            1.0,
-                                                                            1.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             1.0),
                                                                     child:
                                                                         InkWell(
@@ -1328,8 +1336,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               currentUserReference))
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               InkWell(
                                                                             splashColor:
@@ -1422,8 +1430,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               currentUserReference))
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Icon(
                                                                             Icons.check_circle_rounded,
@@ -1440,7 +1448,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
+                                                                        0.0,
                                                                         0.85),
                                                                 child: Row(
                                                                   mainAxisSize:
@@ -1576,7 +1584,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -2646,7 +2654,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                         ? MediaQuery.viewInsetsOf(context).bottom > 0
                         : _isKeyboardVisible))
                       Align(
-                        alignment: AlignmentDirectional(0.00, 1.00),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           height: MediaQuery.sizeOf(context).height * 0.125,

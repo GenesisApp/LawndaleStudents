@@ -87,7 +87,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primary,
       body: Align(
-        alignment: AlignmentDirectional(0.00, 0.00),
+        alignment: AlignmentDirectional(0.0, 0.0),
         child: Stack(
           alignment: AlignmentDirectional(0.0, 0.0),
           children: [
@@ -179,8 +179,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                   if (!(Theme.of(context).brightness ==
                                       Brightness.dark))
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          6.0, 6.0, 6.0, 6.0),
+                                      padding: EdgeInsets.all(6.0),
                                       child: SvgPicture.asset(
                                         'assets/images/note-pencil-fill_(1).svg',
                                         width: 28.0,
@@ -197,8 +196,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),
+                    padding: EdgeInsets.all(15.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -238,7 +236,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'on28ffl7' /* Community */,
@@ -284,7 +282,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                               ),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'pgkk3279' /* Personal */,
@@ -376,7 +374,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 0.125,

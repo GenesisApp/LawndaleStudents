@@ -131,7 +131,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
               alignment: AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.00, -1.00),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 0.4,
@@ -168,7 +168,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, -1.00),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 1.0,
@@ -188,7 +188,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.00, -1.00),
+                                alignment: AlignmentDirectional(0.0, -1.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 60.0, 20.0, 0.0),
@@ -206,7 +206,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -250,7 +250,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
                                               await Share.share(
-                                                'Check out this series called ${seriesOverviewVideoSeriesRecord.seriesName}: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                                'Check out this series called ${seriesOverviewVideoSeriesRecord.seriesName}: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
                                                 sharePositionOrigin:
                                                     getWidgetBoundingBox(
                                                         context),
@@ -267,7 +267,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: FaIcon(
                                                   FontAwesomeIcons.share,
                                                   color: Colors.white,
@@ -328,7 +328,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -703,8 +703,8 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -761,9 +761,10 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                                                     ),
                                                                     child:
                                                                         Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons

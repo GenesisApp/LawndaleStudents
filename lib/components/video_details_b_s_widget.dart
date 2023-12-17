@@ -160,7 +160,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
           alignment: AlignmentDirectional(0.0, 0.0),
           children: [
             Align(
-              alignment: AlignmentDirectional(0.00, -1.00),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
                 height: MediaQuery.sizeOf(context).height * 0.3,
@@ -170,7 +170,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, -1.00),
+              alignment: AlignmentDirectional(0.0, -1.0),
               child: Container(
                 width: double.infinity,
                 height: MediaQuery.sizeOf(context).height * 1.0,
@@ -204,7 +204,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                               width: MediaQuery.sizeOf(context).width * 1.0,
                               decoration: BoxDecoration(),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: FlutterFlowYoutubePlayer(
                                   url: widget.videoChosenDoc!.videoURL,
                                   autoPlay: false,
@@ -235,7 +235,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, -1.00),
+                                  alignment: AlignmentDirectional(0.0, -1.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         22.0, 12.0, 22.0, 20.0),
@@ -262,7 +262,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -353,7 +353,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Icon(
                                                         Icons
                                                             .drive_folder_upload_rounded,
@@ -380,7 +380,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   await Share.share(
-                                                    'Check out this message from ${widget.videoChosenDoc?.speaker}: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                                    'Check out this message from ${widget.videoChosenDoc?.speaker}: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
                                                     sharePositionOrigin:
                                                         getWidgetBoundingBox(
                                                             context),
@@ -401,7 +401,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: FaIcon(
                                                       FontAwesomeIcons.share,
                                                       color:
@@ -480,7 +480,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -596,8 +596,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                             BorderRadius.circular(12.0),
                                       ),
                                       child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 8.0),
+                                        padding: EdgeInsets.all(8.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -643,7 +642,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                                  -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -716,7 +715,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -1.00, 0.00),
+                                                                  -1.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -795,7 +794,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                   rowUsersRecordList[rowIndex];
                                               return Align(
                                                 alignment: AlignmentDirectional(
-                                                    -0.98, 0.00),
+                                                    -0.98, 0.0),
                                                 child: Container(
                                                   width: 25.0,
                                                   height: 25.0,
@@ -819,7 +818,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                   ),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -0.80, 0.00),
+                                                          -0.8, 0.0),
                                                 ).animateOnPageLoad(animationsMap[
                                                     'containerOnPageLoadAnimation2']!),
                                               );
@@ -829,7 +828,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-0.50, 0.00),
+                                            AlignmentDirectional(-0.5, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -885,7 +884,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -912,7 +911,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -944,7 +943,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                           4)
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             valueOrDefault<String>(
                                               (widget.videoChosenDoc!
@@ -965,7 +964,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                         ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'f76pj7pj' /*  have watched! */,
@@ -986,7 +985,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                               ],
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 1.00),
+                              alignment: AlignmentDirectional(0.0, 1.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     22.0, 0.0, 22.0, 75.0),

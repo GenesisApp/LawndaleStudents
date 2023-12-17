@@ -317,7 +317,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                                 alignment:
                                                                     AlignmentDirectional(
                                                                         -0.98,
-                                                                        0.00),
+                                                                        0.0),
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -358,8 +358,8 @@ class _CommunityPrayerRequestChatWidgetState
                                                                     ),
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -0.80,
-                                                                            0.00),
+                                                                            -0.8,
+                                                                            0.0),
                                                                   ),
                                                                 ),
                                                               );
@@ -374,7 +374,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -0.50, 0.00),
+                                                                -0.5, 0.0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -404,8 +404,8 @@ class _CommunityPrayerRequestChatWidgetState
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -426,8 +426,8 @@ class _CommunityPrayerRequestChatWidgetState
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     valueOrDefault<
                                                                         String>(
@@ -661,7 +661,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                               alignment:
                                                                   AlignmentDirectional(
                                                                       -0.98,
-                                                                      0.00),
+                                                                      0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
@@ -703,8 +703,8 @@ class _CommunityPrayerRequestChatWidgetState
                                                                   ),
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          -0.80,
-                                                                          0.00),
+                                                                          -0.8,
+                                                                          0.0),
                                                                 ),
                                                               ),
                                                             );
@@ -719,7 +719,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -0.50, 0.00),
+                                                              -0.5, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -748,8 +748,8 @@ class _CommunityPrayerRequestChatWidgetState
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   FFLocalizations.of(
                                                                           context)
@@ -770,8 +770,8 @@ class _CommunityPrayerRequestChatWidgetState
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   valueOrDefault<
                                                                       String>(
@@ -911,7 +911,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -1247,7 +1247,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Text(
                                                             FFLocalizations.of(
                                                                     context)
@@ -1333,7 +1333,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -1454,8 +1454,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
@@ -1545,8 +1544,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
@@ -1662,7 +1660,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)

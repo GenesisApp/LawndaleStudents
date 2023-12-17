@@ -89,7 +89,7 @@ class _EditPracticeResponse3WidgetState
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Align(
-            alignment: AlignmentDirectional(0.00, 1.00),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: Container(
               width: MediaQuery.sizeOf(context).width * 1.0,
               decoration: BoxDecoration(
@@ -335,8 +335,8 @@ class _EditPracticeResponse3WidgetState
                                             MainAxisAlignment.center,
                                         children: [
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.cancel_rounded,
                                               color:
@@ -383,7 +383,7 @@ class _EditPracticeResponse3WidgetState
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.arrowCircleUp,
                                                 color:
@@ -429,7 +429,7 @@ class _EditPracticeResponse3WidgetState
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: FaIcon(
                                                 FontAwesomeIcons.arrowCircleUp,
                                                 color:

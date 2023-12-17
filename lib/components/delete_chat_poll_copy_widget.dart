@@ -174,7 +174,7 @@ class _DeleteChatPollCopyWidgetState extends State<DeleteChatPollCopyWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'g9tdsyzp' /* No */,
@@ -227,7 +227,7 @@ class _DeleteChatPollCopyWidgetState extends State<DeleteChatPollCopyWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'dbvysm9y' /* Yes */,

@@ -291,11 +291,14 @@ class FirebaseAuthManager extends AuthManager
       }
       return userCredential == null
           ? null
-          : LawndaleStudentsFirebaseUser.fromUserCredential(userCredential);
+          : LawndaleStudents2FirebaseUser.fromUserCredential(userCredential);
     } on FirebaseAuthException catch (e) {
+      final errorMsg = e.message?.contains('auth/email-already-in-use') ?? false
+          ? 'The email is already in use by a different account'
+          : 'Error: ${e.message!}';
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: ${e.message!}')),
+        SnackBar(content: Text(errorMsg)),
       );
       return null;
     }

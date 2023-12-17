@@ -456,7 +456,7 @@ class _PersonalPrayerRequestWidgetState
                                                                   alignment:
                                                                       AlignmentDirectional(
                                                                           -0.98,
-                                                                          0.00),
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -495,9 +495,10 @@ class _PersonalPrayerRequestWidgetState
                                                                               1.0,
                                                                         ),
                                                                       ),
-                                                                      alignment: AlignmentDirectional(
-                                                                          -0.80,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              -0.8,
+                                                                              0.0),
                                                                     ),
                                                                   ),
                                                                 );
@@ -509,7 +510,7 @@ class _PersonalPrayerRequestWidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                -0.50, 0.00),
+                                                                -0.5, 0.0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -542,8 +543,8 @@ class _PersonalPrayerRequestWidgetState
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       FFLocalizations.of(
                                                                               context)
@@ -567,8 +568,8 @@ class _PersonalPrayerRequestWidgetState
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
@@ -814,7 +815,7 @@ class _PersonalPrayerRequestWidgetState
                                                                 alignment:
                                                                     AlignmentDirectional(
                                                                         -0.98,
-                                                                        0.00),
+                                                                        0.0),
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -855,8 +856,8 @@ class _PersonalPrayerRequestWidgetState
                                                                     ),
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -0.80,
-                                                                            0.00),
+                                                                            -0.8,
+                                                                            0.0),
                                                                   ),
                                                                 ),
                                                               );
@@ -868,7 +869,7 @@ class _PersonalPrayerRequestWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -0.50, 0.00),
+                                                              -0.5, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -900,8 +901,8 @@ class _PersonalPrayerRequestWidgetState
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     FFLocalizations.of(
                                                                             context)
@@ -925,8 +926,8 @@ class _PersonalPrayerRequestWidgetState
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Text(
                                                                     valueOrDefault<
                                                                         String>(
@@ -1070,7 +1071,7 @@ class _PersonalPrayerRequestWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)
@@ -1189,8 +1190,7 @@ class _PersonalPrayerRequestWidgetState
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
@@ -1280,8 +1280,7 @@ class _PersonalPrayerRequestWidgetState
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
@@ -1400,7 +1399,7 @@ class _PersonalPrayerRequestWidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Padding(
                                                           padding:
                                                               EdgeInsetsDirectional

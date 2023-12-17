@@ -172,7 +172,7 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                   decoration: BoxDecoration(),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: FlutterFlowYoutubePlayer(
                     url: widget.dailyPractice!.dailyPracticeVideoURL,
                     width: MediaQuery.sizeOf(context).width * 1.0,
@@ -696,8 +696,8 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                                 BorderRadius.circular(8.0),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.menu_book_rounded,
                                               color:
@@ -945,7 +945,7 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
             desktop: false,
           ))
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -980,7 +980,7 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, 1.02),
+                    alignment: AlignmentDirectional(0.0, 1.02),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(
@@ -1320,8 +1320,7 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .arrowCircleUp,
@@ -1392,8 +1391,8 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: FaIcon(
                                                                   FontAwesomeIcons
                                                                       .arrowCircleUp,
@@ -1466,7 +1465,7 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                 height: double.infinity,
                 decoration: BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(0.70, -0.48),
+                  alignment: AlignmentDirectional(0.7, -0.48),
                   child: Container(
                     width: 140.0,
                     decoration: BoxDecoration(
@@ -1521,8 +1520,8 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1575,8 +1574,8 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(

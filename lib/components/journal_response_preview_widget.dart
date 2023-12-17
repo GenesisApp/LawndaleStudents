@@ -440,7 +440,7 @@ class _JournalResponsePreviewWidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 height: 25.0,
                                 decoration: BoxDecoration(
@@ -521,7 +521,7 @@ class _JournalResponsePreviewWidgetState
                                 (widget.journalInListDoc?.journalUser ==
                                     currentUserReference))
                               Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),
@@ -746,7 +746,7 @@ class _JournalResponsePreviewWidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Container(
                                 height: 25.0,
                                 decoration: BoxDecoration(
@@ -863,7 +863,7 @@ class _JournalResponsePreviewWidgetState
                                 (widget.journalInListDoc?.journalUser ==
                                     currentUserReference))
                               Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 0.0, 0.0),

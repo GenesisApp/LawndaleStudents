@@ -173,8 +173,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                     final columnFriendRequestsRecord =
                         columnFriendRequestsRecordList[columnIndex];
                     return Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          25.0, 25.0, 25.0, 25.0),
+                      padding: EdgeInsets.all(25.0),
                       child: FutureBuilder<UsersRecord>(
                         future: UsersRecord.getDocumentOnce(
                             columnFriendRequestsRecord.requestSender!),
@@ -208,8 +207,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
@@ -294,11 +292,8 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                               ),
                                                               child: Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            2.0,
-                                                                            2.0,
-                                                                            2.0,
+                                                                    EdgeInsets
+                                                                        .all(
                                                                             2.0),
                                                                 child: InkWell(
                                                                   splashColor:
@@ -494,7 +489,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -662,7 +657,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Container(
                                                       decoration:
                                                           BoxDecoration(),
@@ -808,8 +803,8 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: SvgPicture
                                                                         .asset(
                                                                       'assets/images/arrow-bend-up-right.svg',
@@ -906,7 +901,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'iegel6is' /* Done */,

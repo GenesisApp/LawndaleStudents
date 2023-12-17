@@ -172,7 +172,7 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
@@ -741,8 +741,7 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'aipuddbh' /* Cancel */,
@@ -850,8 +849,7 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'og1mjihs' /* Submit */,

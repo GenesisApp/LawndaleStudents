@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>L.S.M.</string>
+	<string>Youth</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>LawndaleStudents</string>
+	<string>LawndaleStudents2</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleLocalizations</key>
@@ -33,7 +33,7 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.536088823618-1p2835oq1gq7ugqohpap4cdn6vt670a5</string>
+                <string>com.googleusercontent.apps.339432910546-pellgm5vsf9f72i1q5bcnto48kh4go79</string>
                 
             </array>
         </dict>
@@ -42,10 +42,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>lawndalestudents.com</string>
+        <string>lawndalestudents2.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>lawndalestudents</string>
+        <string>lawndalestudents2</string>
         </array>
         </dict>
     </array>
@@ -59,11 +59,11 @@
 	<true/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user location.</string>
+    <string>In order to search nearby, this app requires access to your current location.</string>
 	<key>NSCameraUsageDescription</key>
-    <string>In order to upload a profile and background picture, this app requires permission to access the camera.</string>
+    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload a profile and background picture, this app requires permission to access the photo library.</string>
+    <string>In order to upload data, this app requires permission to access the photo library.</string>
 
     <key>UIBackgroundModes</key>
     <array>

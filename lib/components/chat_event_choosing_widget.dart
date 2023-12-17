@@ -160,8 +160,7 @@ class _ChatEventChoosingWidgetState extends State<ChatEventChoosingWidget>
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
+                          padding: EdgeInsets.all(10.0),
                           child: Icon(
                             Icons.event_rounded,
                             color: FlutterFlowTheme.of(context).systemGray,
@@ -825,7 +824,7 @@ class _ChatEventChoosingWidgetState extends State<ChatEventChoosingWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '0p8kez57' /* Cancel */,
@@ -923,7 +922,7 @@ class _ChatEventChoosingWidgetState extends State<ChatEventChoosingWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'uow6awi0' /* Submit */,

@@ -65,7 +65,7 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
       body: Stack(
         children: [
           Align(
-            alignment: AlignmentDirectional(0.00, 1.00),
+            alignment: AlignmentDirectional(0.0, 1.0),
             child: FlutterFlowPdfViewer(
               networkPath: widget.chosenResourceGuide!.messageNotes,
               width: double.infinity,
@@ -129,7 +129,7 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: FaIcon(
                                   FontAwesomeIcons.ellipsisV,
                                   color: FlutterFlowTheme.of(context).primary,
@@ -206,7 +206,7 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: FaIcon(
                                     FontAwesomeIcons.ellipsisV,
                                     color:
@@ -226,7 +226,7 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             await Share.share(
-                              'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}',
+                              'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}',
                               sharePositionOrigin:
                                   getWidgetBoundingBox(context),
                             );
@@ -240,7 +240,7 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: FaIcon(
                                 FontAwesomeIcons.share,
                                 color: FlutterFlowTheme.of(context).secondary,

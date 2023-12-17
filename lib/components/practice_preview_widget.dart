@@ -244,8 +244,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                         children: [
                           if (Theme.of(context).brightness == Brightness.dark)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  6.0, 6.0, 6.0, 6.0),
+                              padding: EdgeInsets.all(6.0),
                               child: SvgPicture.asset(
                                 'assets/images/flame-fill.svg',
                                 width: double.infinity,
@@ -256,8 +255,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                           if (!(Theme.of(context).brightness ==
                               Brightness.dark))
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 5.0, 5.0, 5.0),
+                              padding: EdgeInsets.all(5.0),
                               child: SvgPicture.asset(
                                 'assets/images/flame-fill_(2).svg',
                                 width: double.infinity,
@@ -291,8 +289,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                         children: [
                           if (Theme.of(context).brightness == Brightness.dark)
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 5.0, 5.0, 5.0),
+                              padding: EdgeInsets.all(5.0),
                               child: SvgPicture.asset(
                                 'assets/images/bookmarks-simple-fill_(4).svg',
                                 width: double.infinity,
@@ -303,8 +300,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                           if (!(Theme.of(context).brightness ==
                               Brightness.dark))
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  5.0, 5.0, 5.0, 5.0),
+                              padding: EdgeInsets.all(5.0),
                               child: SvgPicture.asset(
                                 'assets/images/bookmarks-simple-fill_(2).svg',
                                 width: double.infinity,
@@ -365,7 +361,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 60.0),
@@ -441,7 +437,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 80.0),
@@ -732,9 +728,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Container(
                                                     width: 40.0,
                                                     height: 40.0,
@@ -820,9 +814,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Container(
                                                     width: 40.0,
                                                     height: 40.0,
@@ -898,9 +890,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Container(
                                                     width: 40.0,
                                                     height: 40.0,
@@ -1005,7 +995,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1050,7 +1040,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1091,7 +1081,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1106,7 +1096,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1121,7 +1111,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1179,7 +1169,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1224,7 +1214,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1265,7 +1255,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1280,7 +1270,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1295,7 +1285,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1559,9 +1549,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Container(
                                                     width: 40.0,
                                                     height: 40.0,
@@ -1637,9 +1625,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Container(
                                                     width: 40.0,
                                                     height: 40.0,
@@ -1725,9 +1711,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                           12.0),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          8.0, 8.0, 8.0, 8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: Container(
                                                     width: 40.0,
                                                     height: 40.0,
@@ -1900,7 +1884,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)
@@ -2083,7 +2067,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)

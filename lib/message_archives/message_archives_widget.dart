@@ -300,8 +300,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                                   if (Theme.of(context).brightness ==
                                       Brightness.dark)
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
+                                      padding: EdgeInsets.all(5.0),
                                       child: SvgPicture.asset(
                                         'assets/images/leaf-fill.svg',
                                         width: double.infinity,
@@ -312,8 +311,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                                   if (!(Theme.of(context).brightness ==
                                       Brightness.dark))
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
+                                      padding: EdgeInsets.all(5.0),
                                       child: SvgPicture.asset(
                                         'assets/images/leaf-fill_(1).svg',
                                         width: double.infinity,

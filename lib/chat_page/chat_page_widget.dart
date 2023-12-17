@@ -642,7 +642,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -693,7 +693,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                       if (widget.chatChosen!.users.length > 2)
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
@@ -922,8 +922,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                   if (columnMessagesRecord.user !=
                                       currentUserReference)
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 8.0),
@@ -1635,11 +1634,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              10.0),
                                                                       child:
                                                                           Text(
                                                                         columnMessagesRecord
@@ -1939,11 +1936,9 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              10.0),
                                                                       child:
                                                                           Text(
                                                                         columnMessagesRecord
@@ -2007,8 +2002,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2145,12 +2140,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0),
+                                                                  EdgeInsets
+                                                                      .all(2.0),
                                                               child: Container(
                                                                 decoration:
                                                                     BoxDecoration(
@@ -2176,8 +2167,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                     children: [
                                                                       Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -2704,8 +2695,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                   if (columnMessagesRecord.user ==
                                       currentUserReference)
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 8.0),
@@ -3369,11 +3359,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            10.0,
-                                                                            10.0,
-                                                                            10.0,
-                                                                            10.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(10.0),
                                                                         child:
                                                                             Text(
                                                                           columnMessagesRecord
@@ -3677,11 +3664,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                       ),
                                                                       child:
                                                                           Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            10.0,
-                                                                            10.0,
-                                                                            10.0,
-                                                                            10.0),
+                                                                        padding:
+                                                                            EdgeInsets.all(10.0),
                                                                         child:
                                                                             Text(
                                                                           columnMessagesRecord
@@ -3830,12 +3814,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0),
+                                                                  EdgeInsets
+                                                                      .all(2.0),
                                                               child: Container(
                                                                 decoration:
                                                                     BoxDecoration(
@@ -4375,7 +4355,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   decoration: BoxDecoration(
@@ -4600,7 +4580,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.95, 0.00),
+                                                              0.95, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -4623,7 +4603,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.93, 0.00),
+                                                              0.93, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -4646,7 +4626,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -4766,7 +4746,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.98, 0.00),
+                                                            0.98, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -4789,7 +4769,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: InkWell(
                                                             splashColor: Colors
                                                                 .transparent,
@@ -5029,8 +5009,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                       child:
                                                                           Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            1.00,
-                                                                            -1.00),
+                                                                            1.0,
+                                                                            -1.0),
                                                                         child:
                                                                             InkWell(
                                                                           splashColor:
@@ -5098,11 +5078,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                               .messageOptionsVisible)
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
+                                                                  EdgeInsets
+                                                                      .all(
                                                                           10.0),
                                                               child: InkWell(
                                                                 splashColor: Colors
@@ -5138,13 +5115,13 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                   ),
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Icon(
                                                                       Icons
                                                                           .add_rounded,
@@ -5162,11 +5139,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                               .messageOptionsVisible)
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
+                                                                  EdgeInsets
+                                                                      .all(
                                                                           10.0),
                                                               child: InkWell(
                                                                 splashColor: Colors
@@ -5202,13 +5176,13 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                   ),
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child: Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         FaIcon(
                                                                       FontAwesomeIcons
@@ -5411,8 +5385,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .arrowCircleUp,
@@ -6289,8 +6262,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: FaIcon(
                                                                   FontAwesomeIcons
                                                                       .arrowCircleUp,
@@ -6343,8 +6316,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 10.0, 10.0, 10.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: Container(
                                   width: 45.0,
                                   height: 45.0,
@@ -6449,9 +6421,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -6565,8 +6535,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                     'containerOnPageLoadAnimation7']!),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 10.0, 10.0, 10.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: Container(
                                   width: 45.0,
                                   height: 45.0,
@@ -6659,9 +6628,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 10.0, 10.0, 10.0),
+                                            padding: EdgeInsets.all(10.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
                                               focusColor: Colors.transparent,
@@ -6754,8 +6721,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                               Stack(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -6822,9 +6788,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                 MainAxisAlignment.spaceEvenly,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 10.0, 10.0, 10.0),
+                                                padding: EdgeInsets.all(10.0),
                                                 child: Icon(
                                                   Icons.event_rounded,
                                                   color: FlutterFlowTheme.of(
@@ -6885,9 +6849,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                       return Container(
                                         decoration: BoxDecoration(),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 10.0, 10.0, 10.0),
+                                          padding: EdgeInsets.all(10.0),
                                           child: StreamBuilder<
                                               List<ChatEventRecord>>(
                                             stream: queryChatEventRecord(
@@ -7059,8 +7021,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                               Stack(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -7131,7 +7092,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                             children: [
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: FaIcon(
                                                   FontAwesomeIcons.poll,
                                                   color: FlutterFlowTheme.of(
@@ -7191,9 +7152,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                       return Container(
                                         decoration: BoxDecoration(),
                                         child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 10.0, 10.0, 10.0),
+                                          padding: EdgeInsets.all(10.0),
                                           child: StreamBuilder<
                                               List<ChatPollRecord>>(
                                             stream: queryChatPollRecord(
@@ -7365,8 +7324,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                               Stack(
                                 children: [
                                   Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        10.0, 10.0, 10.0, 10.0),
+                                    padding: EdgeInsets.all(10.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,

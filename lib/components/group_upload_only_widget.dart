@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/featured_notification_groups_widget.dart';
+import '/components/group_leaders_set_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
@@ -398,7 +399,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                           children: [
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Icon(
                                                 Icons.add_photo_alternate,
                                                 color:
@@ -438,8 +439,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
@@ -613,8 +613,8 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        -1.00),
+                                                                        0.0,
+                                                                        -1.0),
                                                                 child:
                                                                     Container(
                                                                   width: 68.0,
@@ -642,11 +642,8 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            1.0,
-                                                                            1.0,
-                                                                            1.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             1.0),
                                                                     child:
                                                                         InkWell(
@@ -727,7 +724,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
+                                                                            0.0,
                                                                             1.05),
                                                                     child: Text(
                                                                       listViewUsersRecord
@@ -1115,9 +1112,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 BorderRadius.circular(20.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1251,7 +1246,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1378,7 +1373,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -1515,9 +1510,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 BorderRadius.circular(20.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1571,7 +1564,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, 0.00),
+                                                          -1.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1714,9 +1707,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 BorderRadius.circular(20.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -1770,7 +1761,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, 0.00),
+                                                          -1.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1893,9 +1884,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 BorderRadius.circular(20.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -2029,7 +2018,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -2163,7 +2152,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            -1.00, 0.00),
+                                                            -1.0, 0.0),
                                                     child: Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
@@ -2285,9 +2274,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 BorderRadius.circular(20.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
@@ -2341,7 +2328,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, 0.00),
+                                                          -1.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -2580,7 +2567,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Text(
                                                   FFLocalizations.of(context)
                                                       .getText(
@@ -2655,262 +2642,294 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                       FirebaseFirestore.instance
                                                           .batch();
                                                   try {
-                                                    if (_model.formKey
-                                                                .currentState ==
-                                                            null ||
-                                                        !_model.formKey
-                                                            .currentState!
-                                                            .validate()) {
-                                                      return;
-                                                    }
-                                                    if (_model.uploadedFileUrl1 ==
-                                                            null ||
-                                                        _model.uploadedFileUrl1
-                                                            .isEmpty) {
-                                                      return;
-                                                    }
+                                                    if (FFAppState()
+                                                        .groupLeaders
+                                                        .isNotEmpty) {
+                                                      if (_model.formKey
+                                                                  .currentState ==
+                                                              null ||
+                                                          !_model.formKey
+                                                              .currentState!
+                                                              .validate()) {
+                                                        return;
+                                                      }
+                                                      if (_model.uploadedFileUrl1 ==
+                                                              null ||
+                                                          _model
+                                                              .uploadedFileUrl1
+                                                              .isEmpty) {
+                                                        return;
+                                                      }
 
-                                                    var groupsRecordReference =
-                                                        GroupsRecord.collection
-                                                            .doc();
-                                                    firestoreBatch.set(
-                                                        groupsRecordReference, {
-                                                      ...createGroupsRecordData(
-                                                        videoName: _model
-                                                            .textController1
-                                                            .text,
-                                                        messageDescription:
-                                                            _model
-                                                                .textController2
-                                                                .text,
-                                                        timeUploaded:
-                                                            getCurrentTimestamp,
-                                                        imageThumbnail: _model
-                                                            .uploadedFileUrl1,
-                                                        featuredMessage: _model
-                                                            .switchListTileValue,
-                                                        messageNotes: _model
-                                                            .uploadedFileUrl2,
-                                                        timeEdited:
-                                                            getCurrentTimestamp,
-                                                        group: true,
-                                                        groups: true,
-                                                        openGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            false,
-                                                        closedGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            true,
-                                                        active: true,
-                                                        inactive: false,
-                                                        targetAge: () {
-                                                          if (_model.ageRangeChipsAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsAllValue;
-                                                          } else if (_model
-                                                                      .ageRangeChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                        meetingDay: _model
-                                                            .dayoftheWeekChipsValue,
-                                                        meetingTime: _model
-                                                            .toDChipsValue,
-                                                        targetGender: _model
-                                                            .radioButtonValue,
-                                                        groupCategory: () {
-                                                          if (_model.categoryChipsAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsAllValue;
-                                                          } else if (_model
-                                                                      .categoryChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                      ),
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'groupLeaders':
-                                                              FFAppState()
-                                                                  .groupLeaders,
-                                                        },
-                                                      ),
-                                                    });
-                                                    _model.newResource3 =
-                                                        GroupsRecord
-                                                            .getDocumentFromData({
-                                                      ...createGroupsRecordData(
-                                                        videoName: _model
-                                                            .textController1
-                                                            .text,
-                                                        messageDescription:
-                                                            _model
-                                                                .textController2
-                                                                .text,
-                                                        timeUploaded:
-                                                            getCurrentTimestamp,
-                                                        imageThumbnail: _model
-                                                            .uploadedFileUrl1,
-                                                        featuredMessage: _model
-                                                            .switchListTileValue,
-                                                        messageNotes: _model
-                                                            .uploadedFileUrl2,
-                                                        timeEdited:
-                                                            getCurrentTimestamp,
-                                                        group: true,
-                                                        groups: true,
-                                                        openGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            false,
-                                                        closedGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            true,
-                                                        active: true,
-                                                        inactive: false,
-                                                        targetAge: () {
-                                                          if (_model.ageRangeChipsAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsAllValue;
-                                                          } else if (_model
-                                                                      .ageRangeChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                        meetingDay: _model
-                                                            .dayoftheWeekChipsValue,
-                                                        meetingTime: _model
-                                                            .toDChipsValue,
-                                                        targetGender: _model
-                                                            .radioButtonValue,
-                                                        groupCategory: () {
-                                                          if (_model.categoryChipsAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsAllValue;
-                                                          } else if (_model
-                                                                      .categoryChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                      ),
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'groupLeaders':
-                                                              FFAppState()
-                                                                  .groupLeaders,
-                                                        },
-                                                      ),
-                                                    }, groupsRecordReference);
-
-                                                    firestoreBatch.update(
-                                                        FFAppState()
-                                                            .groupLeaders
-                                                            .first,
-                                                        {
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'groups': FieldValue
-                                                                  .arrayUnion([
-                                                                _model
-                                                                    .newResource3
-                                                                    ?.reference
-                                                              ]),
-                                                            },
-                                                          ),
-                                                        });
-
-                                                    firestoreBatch.update(
-                                                        FFAppState()
-                                                            .groupLeaders
-                                                            .last,
-                                                        {
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'groups': FieldValue
-                                                                  .arrayUnion([
-                                                                _model
-                                                                    .newResource3
-                                                                    ?.reference
-                                                              ]),
-                                                            },
-                                                          ),
-                                                        });
-                                                    if (_model
-                                                        .groupPrivateSelectorValue!) {
-                                                      firestoreBatch.update(
-                                                          containerGlobalGroupsDataRecord!
-                                                              .reference,
+                                                      var groupsRecordReference =
+                                                          GroupsRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          groupsRecordReference,
                                                           {
+                                                            ...createGroupsRecordData(
+                                                              videoName: _model
+                                                                  .textController1
+                                                                  .text,
+                                                              messageDescription:
+                                                                  _model
+                                                                      .textController2
+                                                                      .text,
+                                                              timeUploaded:
+                                                                  getCurrentTimestamp,
+                                                              imageThumbnail: _model
+                                                                  .uploadedFileUrl1,
+                                                              featuredMessage:
+                                                                  _model
+                                                                      .switchListTileValue,
+                                                              messageNotes: _model
+                                                                  .uploadedFileUrl2,
+                                                              timeEdited:
+                                                                  getCurrentTimestamp,
+                                                              group: true,
+                                                              groups: true,
+                                                              openGroup: _model
+                                                                      .groupPrivateSelectorValue ==
+                                                                  false,
+                                                              closedGroup: _model
+                                                                      .groupPrivateSelectorValue ==
+                                                                  true,
+                                                              active: true,
+                                                              inactive: false,
+                                                              targetAge: () {
+                                                                if (_model.ageRangeChipsAllValue !=
+                                                                        null &&
+                                                                    _model.ageRangeChipsAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .ageRangeChipsAllValue;
+                                                                } else if (_model
+                                                                            .ageRangeChipsNotAllValue !=
+                                                                        null &&
+                                                                    _model.ageRangeChipsNotAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .ageRangeChipsNotAllValue;
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                              meetingDay: _model
+                                                                  .dayoftheWeekChipsValue,
+                                                              meetingTime: _model
+                                                                  .toDChipsValue,
+                                                              targetGender: _model
+                                                                  .radioButtonValue,
+                                                              groupCategory:
+                                                                  () {
+                                                                if (_model.categoryChipsAllValue !=
+                                                                        null &&
+                                                                    _model.categoryChipsAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .categoryChipsAllValue;
+                                                                } else if (_model
+                                                                            .categoryChipsNotAllValue !=
+                                                                        null &&
+                                                                    _model.categoryChipsNotAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .categoryChipsNotAllValue;
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                            ),
                                                             ...mapToFirestore(
                                                               {
-                                                                'closedGroups':
-                                                                    FieldValue
-                                                                        .increment(
-                                                                            1),
+                                                                'groupLeaders':
+                                                                    FFAppState()
+                                                                        .groupLeaders,
                                                               },
                                                             ),
                                                           });
+                                                      _model.newResource3 =
+                                                          GroupsRecord
+                                                              .getDocumentFromData({
+                                                        ...createGroupsRecordData(
+                                                          videoName: _model
+                                                              .textController1
+                                                              .text,
+                                                          messageDescription:
+                                                              _model
+                                                                  .textController2
+                                                                  .text,
+                                                          timeUploaded:
+                                                              getCurrentTimestamp,
+                                                          imageThumbnail: _model
+                                                              .uploadedFileUrl1,
+                                                          featuredMessage: _model
+                                                              .switchListTileValue,
+                                                          messageNotes: _model
+                                                              .uploadedFileUrl2,
+                                                          timeEdited:
+                                                              getCurrentTimestamp,
+                                                          group: true,
+                                                          groups: true,
+                                                          openGroup: _model
+                                                                  .groupPrivateSelectorValue ==
+                                                              false,
+                                                          closedGroup: _model
+                                                                  .groupPrivateSelectorValue ==
+                                                              true,
+                                                          active: true,
+                                                          inactive: false,
+                                                          targetAge: () {
+                                                            if (_model.ageRangeChipsAllValue !=
+                                                                    null &&
+                                                                _model.ageRangeChipsAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .ageRangeChipsAllValue;
+                                                            } else if (_model
+                                                                        .ageRangeChipsNotAllValue !=
+                                                                    null &&
+                                                                _model.ageRangeChipsNotAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .ageRangeChipsNotAllValue;
+                                                            } else {
+                                                              return '';
+                                                            }
+                                                          }(),
+                                                          meetingDay: _model
+                                                              .dayoftheWeekChipsValue,
+                                                          meetingTime: _model
+                                                              .toDChipsValue,
+                                                          targetGender: _model
+                                                              .radioButtonValue,
+                                                          groupCategory: () {
+                                                            if (_model.categoryChipsAllValue !=
+                                                                    null &&
+                                                                _model.categoryChipsAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .categoryChipsAllValue;
+                                                            } else if (_model
+                                                                        .categoryChipsNotAllValue !=
+                                                                    null &&
+                                                                _model.categoryChipsNotAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .categoryChipsNotAllValue;
+                                                            } else {
+                                                              return '';
+                                                            }
+                                                          }(),
+                                                        ),
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'groupLeaders':
+                                                                FFAppState()
+                                                                    .groupLeaders,
+                                                          },
+                                                        ),
+                                                      }, groupsRecordReference);
+
+                                                      firestoreBatch.update(
+                                                          FFAppState()
+                                                              .groupLeaders
+                                                              .first,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayUnion([
+                                                                  _model
+                                                                      .newResource3
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+
+                                                      firestoreBatch.update(
+                                                          FFAppState()
+                                                              .groupLeaders
+                                                              .last,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayUnion([
+                                                                  _model
+                                                                      .newResource3
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+                                                      if (_model
+                                                          .groupPrivateSelectorValue!) {
+                                                        firestoreBatch.update(
+                                                            containerGlobalGroupsDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'closedGroups':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      } else {
+                                                        firestoreBatch.update(
+                                                            containerGlobalGroupsDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'openGroups':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      }
+
+                                                      HapticFeedback
+                                                          .lightImpact();
+                                                      _model.updatePage(() {
+                                                        FFAppState()
+                                                            .groupLeaders = [];
+                                                      });
+                                                      _model
+                                                          .timerSecondPageController
+                                                          .onStartTimer();
+                                                      Navigator.pop(context);
                                                     } else {
-                                                      firestoreBatch.update(
-                                                          containerGlobalGroupsDataRecord!
-                                                              .reference,
-                                                          {
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'openGroups':
-                                                                    FieldValue
-                                                                        .increment(
-                                                                            1),
-                                                              },
-                                                            ),
-                                                          });
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                GroupLeadersSetWidget(),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
                                                     }
-
-                                                    HapticFeedback
-                                                        .lightImpact();
-                                                    _model.updatePage(() {
-                                                      FFAppState()
-                                                          .groupLeaders = [];
-                                                    });
-                                                    _model
-                                                        .timerSecondPageController
-                                                        .onStartTimer();
-                                                    Navigator.pop(context);
                                                   } finally {
                                                     await firestoreBatch
                                                         .commit();
@@ -2932,7 +2951,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: Text(
                                                       FFLocalizations.of(
                                                               context)

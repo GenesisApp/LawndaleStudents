@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/delete_group_widget.dart';
 import '/components/featured_notification_groups_widget.dart';
+import '/components/group_leaders_set_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
@@ -378,7 +379,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Icon(
                                     Icons.add_photo_alternate,
                                     color:
@@ -414,8 +415,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 8.0, 8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -558,7 +558,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, -1.00),
+                                                                  0.0, -1.0),
                                                           child: Container(
                                                             width: 68.0,
                                                             height: 68.0,
@@ -588,12 +588,8 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                             ),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          1.0,
-                                                                          1.0,
-                                                                          1.0,
-                                                                          1.0),
+                                                                  EdgeInsets
+                                                                      .all(1.0),
                                                               child: InkWell(
                                                                 splashColor: Colors
                                                                     .transparent,
@@ -678,7 +674,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
+                                                                      0.0,
                                                                       1.05),
                                                               child: Text(
                                                                 listViewUsersRecord
@@ -1028,8 +1024,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1132,7 +1127,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     if (_model.categoryAll)
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1245,7 +1240,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     if (!_model.categoryAll)
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1372,8 +1367,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1414,7 +1408,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 12.0, 0.0, 0.0),
@@ -1528,8 +1522,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1569,7 +1562,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 12.0, 0.0, 0.0),
@@ -1669,8 +1662,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -1773,7 +1765,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     if (!_model.ageAll)
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1863,7 +1855,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     if (_model.ageAll)
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-1.00, 0.00),
+                                            AlignmentDirectional(-1.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -1985,8 +1977,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -2017,7 +2008,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     ),
                                     Align(
                                       alignment:
-                                          AlignmentDirectional(-1.00, 0.00),
+                                          AlignmentDirectional(-1.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 12.0, 0.0, 0.0),
@@ -2329,7 +2320,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'q8umnzh1' /* Cancel */,
@@ -2389,123 +2380,149 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      HapticFeedback.lightImpact();
-
-                                      await widget.chosenGroup!.reference
-                                          .update({
-                                        ...createGroupsRecordData(
-                                          imageThumbnail:
-                                              _model.uploadedFileUrl1 != null &&
-                                                      _model.uploadedFileUrl1 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl1
-                                                  : widget.chosenGroup
-                                                      ?.imageThumbnail,
-                                          videoName: _model.textController1
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController1.text !=
-                                                      ''
-                                              ? _model.textController1.text
-                                              : widget.chosenGroup?.videoName,
-                                          messageDescription: _model
-                                                          .textController2
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController2.text !=
-                                                      ''
-                                              ? _model.textController2.text
-                                              : widget.chosenGroup
-                                                  ?.messageDescription,
-                                          messageNotes:
-                                              _model.uploadedFileUrl2 != null &&
-                                                      _model.uploadedFileUrl2 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl2
-                                                  : widget.chosenGroup
-                                                      ?.messageNotes,
-                                          meetingDay:
-                                              _model.dayoftheWeekChipsValue,
-                                          meetingTime: _model.toDChipsValue,
-                                          targetGender: _model.radioButtonValue,
-                                          targetAge: () {
-                                            if (_model.ageRangeChipsAllValue !=
-                                                    null &&
-                                                _model.ageRangeChipsAllValue !=
-                                                    '') {
-                                              return _model
-                                                  .ageRangeChipsAllValue;
-                                            } else if (_model
-                                                        .ageRangeChipsNotAllValue !=
-                                                    null &&
-                                                _model.ageRangeChipsNotAllValue !=
-                                                    '') {
-                                              return _model
-                                                  .ageRangeChipsNotAllValue;
-                                            } else {
-                                              return '';
-                                            }
-                                          }(),
-                                          groupCategory: () {
-                                            if (_model.categoryChipsAllValue !=
-                                                    null &&
-                                                _model.categoryChipsAllValue !=
-                                                    '') {
-                                              return _model
-                                                  .categoryChipsAllValue;
-                                            } else if (_model
-                                                        .categoryChipsNotAllValue !=
-                                                    null &&
-                                                _model.categoryChipsNotAllValue !=
-                                                    '') {
-                                              return _model
-                                                  .categoryChipsNotAllValue;
-                                            } else {
-                                              return '';
-                                            }
-                                          }(),
-                                          featuredMessage:
-                                              _model.switchListTileValue,
-                                        ),
-                                        ...mapToFirestore(
-                                          {
-                                            'groupLeaders':
-                                                FFAppState().groupLeaders,
-                                          },
-                                        ),
-                                      });
-
-                                      await FFAppState()
+                                      if (FFAppState()
                                           .groupLeaders
-                                          .first
-                                          .update({
-                                        ...mapToFirestore(
-                                          {
-                                            'groups': FieldValue.arrayUnion([
-                                              widget.chosenGroup?.reference
-                                            ]),
-                                          },
-                                        ),
-                                      });
+                                          .isNotEmpty) {
+                                        HapticFeedback.lightImpact();
 
-                                      await FFAppState()
-                                          .groupLeaders
-                                          .last
-                                          .update({
-                                        ...mapToFirestore(
-                                          {
-                                            'groups': FieldValue.arrayUnion([
-                                              widget.chosenGroup?.reference
-                                            ]),
+                                        await widget.chosenGroup!.reference
+                                            .update({
+                                          ...createGroupsRecordData(
+                                            imageThumbnail: _model
+                                                            .uploadedFileUrl1 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl1 !=
+                                                        ''
+                                                ? _model.uploadedFileUrl1
+                                                : widget.chosenGroup
+                                                    ?.imageThumbnail,
+                                            videoName: _model.textController1
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController1
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController1.text
+                                                : widget.chosenGroup?.videoName,
+                                            messageDescription: _model
+                                                            .textController2
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController2
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController2.text
+                                                : widget.chosenGroup
+                                                    ?.messageDescription,
+                                            messageNotes: _model
+                                                            .uploadedFileUrl2 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl2 !=
+                                                        ''
+                                                ? _model.uploadedFileUrl2
+                                                : widget
+                                                    .chosenGroup?.messageNotes,
+                                            meetingDay:
+                                                _model.dayoftheWeekChipsValue,
+                                            meetingTime: _model.toDChipsValue,
+                                            targetGender:
+                                                _model.radioButtonValue,
+                                            targetAge: () {
+                                              if (_model.ageRangeChipsAllValue !=
+                                                      null &&
+                                                  _model.ageRangeChipsAllValue !=
+                                                      '') {
+                                                return _model
+                                                    .ageRangeChipsAllValue;
+                                              } else if (_model
+                                                          .ageRangeChipsNotAllValue !=
+                                                      null &&
+                                                  _model.ageRangeChipsNotAllValue !=
+                                                      '') {
+                                                return _model
+                                                    .ageRangeChipsNotAllValue;
+                                              } else {
+                                                return '';
+                                              }
+                                            }(),
+                                            groupCategory: () {
+                                              if (_model.categoryChipsAllValue !=
+                                                      null &&
+                                                  _model.categoryChipsAllValue !=
+                                                      '') {
+                                                return _model
+                                                    .categoryChipsAllValue;
+                                              } else if (_model
+                                                          .categoryChipsNotAllValue !=
+                                                      null &&
+                                                  _model.categoryChipsNotAllValue !=
+                                                      '') {
+                                                return _model
+                                                    .categoryChipsNotAllValue;
+                                              } else {
+                                                return '';
+                                              }
+                                            }(),
+                                            featuredMessage:
+                                                _model.switchListTileValue,
+                                          ),
+                                          ...mapToFirestore(
+                                            {
+                                              'groupLeaders':
+                                                  FFAppState().groupLeaders,
+                                            },
+                                          ),
+                                        });
+
+                                        await FFAppState()
+                                            .groupLeaders
+                                            .first
+                                            .update({
+                                          ...mapToFirestore(
+                                            {
+                                              'groups': FieldValue.arrayUnion([
+                                                widget.chosenGroup?.reference
+                                              ]),
+                                            },
+                                          ),
+                                        });
+
+                                        await FFAppState()
+                                            .groupLeaders
+                                            .last
+                                            .update({
+                                          ...mapToFirestore(
+                                            {
+                                              'groups': FieldValue.arrayUnion([
+                                                widget.chosenGroup?.reference
+                                              ]),
+                                            },
+                                          ),
+                                        });
+                                        _model.updatePage(() {
+                                          FFAppState().groupLeaders = [];
+                                        });
+                                        _model.timerSecondPageController
+                                            .onStartTimer();
+                                        Navigator.pop(context);
+                                      } else {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          barrierColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .opagueSeparator,
+                                          context: context,
+                                          builder: (context) {
+                                            return WebViewAware(
+                                                child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: GroupLeadersSetWidget(),
+                                            ));
                                           },
-                                        ),
-                                      });
-                                      _model.updatePage(() {
-                                        FFAppState().groupLeaders = [];
-                                      });
-                                      _model.timerSecondPageController
-                                          .onStartTimer();
-                                      Navigator.pop(context);
+                                        ).then((value) => safeSetState(() {}));
+                                      }
                                     },
                                     child: Container(
                                       width: 40.0,
@@ -2518,7 +2535,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             '6pdsrwvp' /* Submit */,

@@ -223,7 +223,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                               height: 100.0,
                               decoration: BoxDecoration(),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: TextFormField(
                                   controller: _model.textController,
                                   focusNode: _model.textFieldFocusNode,
@@ -551,8 +551,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -625,8 +625,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -711,8 +711,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -785,8 +785,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -949,8 +949,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                         ),
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               CircularPercentIndicator(
                                                                             percent:
@@ -989,7 +989,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                   children: [
                                                                                     if (Theme.of(context).brightness == Brightness.dark)
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                                         child: SvgPicture.asset(
                                                                                           'assets/images/flame-fill_(3).svg',
                                                                                           width: 20.0,
@@ -999,7 +999,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                       ),
                                                                                     if (!(Theme.of(context).brightness == Brightness.dark))
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                                         child: SvgPicture.asset(
                                                                                           'assets/images/flame-fill_(1).svg',
                                                                                           width: 20.0,
@@ -1018,7 +1018,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                   color: Colors.transparent,
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: SvgPicture.asset(
                                                                                     'assets/images/flame-fill_(4).svg',
                                                                                     width: 20.0,
@@ -1062,7 +1062,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                           ),
                                                                           Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 CircularPercentIndicator(
                                                                               percent: valueOrDefault<double>(
@@ -1094,7 +1094,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                     children: [
                                                                                       if (Theme.of(context).brightness == Brightness.dark)
                                                                                         Align(
-                                                                                          alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: SvgPicture.asset(
                                                                                             'assets/images/bookmarks-simple-fill_(1).svg',
                                                                                             width: 20.0,
@@ -1104,7 +1104,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                         ),
                                                                                       if (!(Theme.of(context).brightness == Brightness.dark))
                                                                                         Align(
-                                                                                          alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: SvgPicture.asset(
                                                                                             'assets/images/bookmarks-simple-fill.svg',
                                                                                             width: 20.0,
@@ -1123,7 +1123,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                     color: Colors.transparent,
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                                                     child: SvgPicture.asset(
                                                                                       'assets/images/bookmarks-simple-fill_(5).svg',
                                                                                       width: 20.0,
@@ -1170,7 +1170,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                           ),
                                                                           Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 CircularPercentIndicator(
                                                                               percent: valueOrDefault<double>(
@@ -1202,7 +1202,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                     children: [
                                                                                       if (Theme.of(context).brightness == Brightness.dark)
                                                                                         Align(
-                                                                                          alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: SvgPicture.asset(
                                                                                             'assets/images/hands-clapping-fill_(6).svg',
                                                                                             width: 20.0,
@@ -1212,7 +1212,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                         ),
                                                                                       if (!(Theme.of(context).brightness == Brightness.dark))
                                                                                         Align(
-                                                                                          alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: SvgPicture.asset(
                                                                                             'assets/images/hands-clapping-fill_(5).svg',
                                                                                             width: 20.0,
@@ -1231,7 +1231,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                     color: Colors.transparent,
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                                                     child: SvgPicture.asset(
                                                                                       'assets/images/hands-clapping-fill_(7).svg',
                                                                                       width: 20.0,
@@ -1309,8 +1309,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1383,8 +1383,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1469,8 +1469,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1543,8 +1543,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1715,7 +1715,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                           ),
                                                                           Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
+                                                                                AlignmentDirectional(0.0, 0.0),
                                                                             child:
                                                                                 CircularPercentIndicator(
                                                                               percent: valueOrDefault<double>(
@@ -1747,7 +1747,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                     children: [
                                                                                       if (Theme.of(context).brightness == Brightness.dark)
                                                                                         Align(
-                                                                                          alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: SvgPicture.asset(
                                                                                             'assets/images/flame-fill_(3).svg',
                                                                                             width: 20.0,
@@ -1813,7 +1813,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                               ),
                                                                             ),
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
+                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                               child: CircularPercentIndicator(
                                                                                 percent: valueOrDefault<double>(
                                                                                   columnUsersRecord.percentageCompleted2.toDouble(),
@@ -1843,7 +1843,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                       children: [
                                                                                         if (Theme.of(context).brightness == Brightness.dark)
                                                                                           Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: SvgPicture.asset(
                                                                                               'assets/images/bookmarks-simple-fill_(1).svg',
                                                                                               width: 20.0,
@@ -1909,7 +1909,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                               ),
                                                                             ),
                                                                             Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
+                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                               child: CircularPercentIndicator(
                                                                                 percent: valueOrDefault<double>(
                                                                                   columnUsersRecord.percentageCompleted3.toDouble(),
@@ -2153,8 +2153,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2225,8 +2225,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2307,8 +2307,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2379,8 +2379,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2544,8 +2544,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                       ),
                                                                       Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             CircularPercentIndicator(
                                                                           percent: searchResultsItem
@@ -2583,7 +2583,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                 children: [
                                                                                   if (Theme.of(context).brightness == Brightness.dark)
                                                                                     Align(
-                                                                                      alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: SvgPicture.asset(
                                                                                         'assets/images/flame-fill_(3).svg',
                                                                                         width: 20.0,
@@ -2593,7 +2593,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                     ),
                                                                                   if (!(Theme.of(context).brightness == Brightness.dark))
                                                                                     Align(
-                                                                                      alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: SvgPicture.asset(
                                                                                         'assets/images/flame-fill_(1).svg',
                                                                                         width: 20.0,
@@ -2613,7 +2613,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                 color: Colors.transparent,
                                                                               ),
                                                                               child: Align(
-                                                                                alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                alignment: AlignmentDirectional(0.0, 0.0),
                                                                                 child: SvgPicture.asset(
                                                                                   'assets/images/flame-fill_(4).svg',
                                                                                   width: 20.0,
@@ -2666,8 +2666,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                         ),
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               CircularPercentIndicator(
                                                                             percent:
@@ -2704,7 +2704,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                   children: [
                                                                                     if (Theme.of(context).brightness == Brightness.dark)
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                                         child: SvgPicture.asset(
                                                                                           'assets/images/bookmarks-simple-fill_(1).svg',
                                                                                           width: 20.0,
@@ -2714,7 +2714,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                       ),
                                                                                     if (!(Theme.of(context).brightness == Brightness.dark))
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                                         child: SvgPicture.asset(
                                                                                           'assets/images/bookmarks-simple-fill.svg',
                                                                                           width: 20.0,
@@ -2734,7 +2734,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                   color: Colors.transparent,
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: SvgPicture.asset(
                                                                                     'assets/images/bookmarks-simple-fill_(5).svg',
                                                                                     width: 20.0,
@@ -2786,8 +2786,8 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                         ),
                                                                         Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               CircularPercentIndicator(
                                                                             percent:
@@ -2824,7 +2824,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                   children: [
                                                                                     if (Theme.of(context).brightness == Brightness.dark)
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                                         child: SvgPicture.asset(
                                                                                           'assets/images/hands-clapping-fill_(6).svg',
                                                                                           width: 20.0,
@@ -2834,7 +2834,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                       ),
                                                                                     if (!(Theme.of(context).brightness == Brightness.dark))
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                                         child: SvgPicture.asset(
                                                                                           'assets/images/hands-clapping-fill_(5).svg',
                                                                                           width: 20.0,
@@ -2854,7 +2854,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                                                   color: Colors.transparent,
                                                                                 ),
                                                                                 child: Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: SvgPicture.asset(
                                                                                     'assets/images/hands-clapping-fill_(7).svg',
                                                                                     width: 20.0,

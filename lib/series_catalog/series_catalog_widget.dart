@@ -178,12 +178,12 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
           height: MediaQuery.sizeOf(context).height * 1.0,
           decoration: BoxDecoration(),
           child: Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Stack(
               alignment: AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -197,7 +197,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 2.0, 0.0),
@@ -302,7 +302,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                             decoration: BoxDecoration(),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: TextFormField(
                                                 controller:
                                                     _model.textController,
@@ -731,7 +731,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Icon(
                                                               Icons
                                                                   .add_circle_outlined,
@@ -937,7 +937,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Icon(
                                                               Icons
                                                                   .add_circle_outlined,
@@ -1020,7 +1020,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                     ? MediaQuery.viewInsetsOf(context).bottom > 0
                     : _isKeyboardVisible))
                   Align(
-                    alignment: AlignmentDirectional(0.00, 1.00),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       height: MediaQuery.sizeOf(context).height * 0.125,

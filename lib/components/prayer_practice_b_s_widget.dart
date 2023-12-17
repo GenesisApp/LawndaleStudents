@@ -171,7 +171,7 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                   decoration: BoxDecoration(),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: FlutterFlowYoutubePlayer(
                     url: widget.dailyPractice!.dailyPracticeVideoURL,
                     width: MediaQuery.sizeOf(context).width * 1.0,
@@ -701,7 +701,7 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Icon(
                                                   Icons.menu_book_rounded,
                                                   color: FlutterFlowTheme.of(
@@ -950,7 +950,7 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
             tabletLandscape: false,
           ))
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -987,7 +987,7 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, 1.02),
+                    alignment: AlignmentDirectional(0.0, 1.02),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(
@@ -1327,8 +1327,7 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .arrowCircleUp,
@@ -1399,8 +1398,8 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: FaIcon(
                                                                   FontAwesomeIcons
                                                                       .arrowCircleUp,
@@ -1473,7 +1472,7 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                 height: double.infinity,
                 decoration: BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(0.70, -0.48),
+                  alignment: AlignmentDirectional(0.7, -0.48),
                   child: Container(
                     width: 140.0,
                     decoration: BoxDecoration(
@@ -1528,8 +1527,8 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1582,8 +1581,8 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(

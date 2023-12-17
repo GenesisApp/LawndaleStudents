@@ -178,7 +178,7 @@ class _ChatExistsCopyCopyWidgetState extends State<ChatExistsCopyCopyWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'x7w4kg0b' /* Done */,

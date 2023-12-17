@@ -170,7 +170,7 @@ class _PercentageCompleted1WidgetState
                               ],
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => CircularPercentIndicator(
                                   percent: valueOrDefault(
@@ -245,7 +245,7 @@ class _PercentageCompleted1WidgetState
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'ymxsvyqg' /* Done */,

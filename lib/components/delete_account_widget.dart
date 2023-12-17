@@ -172,7 +172,7 @@ class _DeleteAccountWidgetState extends State<DeleteAccountWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     '9dz860xd' /* No */,
@@ -238,7 +238,7 @@ class _DeleteAccountWidgetState extends State<DeleteAccountWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'vn1m2ymf' /* Yes */,

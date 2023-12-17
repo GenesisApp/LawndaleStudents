@@ -212,8 +212,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 10.0, 10.0, 10.0),
+                          padding: EdgeInsets.all(10.0),
                           child: FaIcon(
                             FontAwesomeIcons.poll,
                             color: FlutterFlowTheme.of(context).secondary,
@@ -273,7 +272,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 0.92,
                       decoration: BoxDecoration(
@@ -363,7 +362,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -0.98, 0.00),
+                                                          -0.98, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -394,7 +393,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                       ),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -0.80, 0.00),
+                                                              -0.8, 0.0),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'containerOnPageLoadAnimation1']!),
@@ -469,7 +468,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
@@ -557,7 +556,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -0.98, 0.00),
+                                                          -0.98, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -588,7 +587,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                       ),
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -0.80, 0.00),
+                                                              -0.8, 0.0),
                                                     ).animateOnPageLoad(
                                                         animationsMap[
                                                             'containerOnPageLoadAnimation2']!),
@@ -663,7 +662,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
@@ -763,7 +762,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -0.98, 0.00),
+                                                              -0.98, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -800,7 +799,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                           ),
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -0.80, 0.00),
+                                                                  -0.8, 0.0),
                                                         ).animateOnPageLoad(
                                                             animationsMap[
                                                                 'containerOnPageLoadAnimation3']!),
@@ -883,7 +882,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
@@ -983,7 +982,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -0.98, 0.00),
+                                                              -0.98, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -1020,7 +1019,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                           ),
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -0.80, 0.00),
+                                                                  -0.8, 0.0),
                                                         ).animateOnPageLoad(
                                                             animationsMap[
                                                                 'containerOnPageLoadAnimation4']!),
@@ -1103,7 +1102,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: EdgeInsets.all(8.0),
                     child: Container(
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -1204,7 +1203,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              -0.98, 0.00),
+                                                              -0.98, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -1241,7 +1240,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                                           ),
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  -0.80, 0.00),
+                                                                  -0.8, 0.0),
                                                         ).animateOnPageLoad(
                                                             animationsMap[
                                                                 'containerOnPageLoadAnimation5']!),
@@ -1432,7 +1431,7 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             '48312wxt' /* Done */,

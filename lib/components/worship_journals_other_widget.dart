@@ -340,8 +340,7 @@ class _WorshipJournalsOtherWidgetState extends State<WorshipJournalsOtherWidget>
                                     if (!(Theme.of(context).brightness ==
                                         Brightness.dark))
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 5.0, 5.0, 5.0),
+                                        padding: EdgeInsets.all(5.0),
                                         child: SvgPicture.asset(
                                           'assets/images/flame-fill_(2).svg',
                                           width: double.infinity,

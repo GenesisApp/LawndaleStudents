@@ -547,7 +547,7 @@ class _GuidesEditWidgetState extends State<GuidesEditWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 1.00),
+                            alignment: AlignmentDirectional(0.0, 1.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 0.0),
@@ -864,7 +864,7 @@ class _GuidesEditWidgetState extends State<GuidesEditWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'ewx7t09e' /* Cancel */,
@@ -952,7 +952,7 @@ class _GuidesEditWidgetState extends State<GuidesEditWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'zi78fu7w' /* Submit */,

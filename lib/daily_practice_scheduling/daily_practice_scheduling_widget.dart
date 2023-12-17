@@ -504,9 +504,7 @@ class _DailyPracticeSchedulingWidgetState
                                         if (!(Theme.of(context).brightness ==
                                             Brightness.dark))
                                           Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    6.0, 6.0, 6.0, 6.0),
+                                            padding: EdgeInsets.all(6.0),
                                             child: SvgPicture.asset(
                                               'assets/images/note-pencil-fill_(1).svg',
                                               width: 28.0,
@@ -632,9 +630,7 @@ class _DailyPracticeSchedulingWidgetState
                                                     Brightness.dark))
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 5.0,
-                                                                5.0, 5.0),
+                                                        EdgeInsets.all(5.0),
                                                     child: SvgPicture.asset(
                                                       'assets/images/flame-fill_(2).svg',
                                                       width: double.infinity,
@@ -756,9 +752,7 @@ class _DailyPracticeSchedulingWidgetState
                                                     Brightness.dark))
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 5.0,
-                                                                5.0, 5.0),
+                                                        EdgeInsets.all(5.0),
                                                     child: SvgPicture.asset(
                                                       'assets/images/flame-fill_(2).svg',
                                                       width: double.infinity,
@@ -872,9 +866,7 @@ class _DailyPracticeSchedulingWidgetState
                                                       .brightness ==
                                                   Brightness.dark)
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 5.0, 5.0, 5.0),
+                                                  padding: EdgeInsets.all(5.0),
                                                   child: SvgPicture.asset(
                                                     'assets/images/bookmarks-simple-fill_(4).svg',
                                                     width: double.infinity,
@@ -886,9 +878,7 @@ class _DailyPracticeSchedulingWidgetState
                                                       .brightness ==
                                                   Brightness.dark))
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 5.0, 5.0, 5.0),
+                                                  padding: EdgeInsets.all(5.0),
                                                   child: SvgPicture.asset(
                                                     'assets/images/bookmarks-simple-fill_(2).svg',
                                                     width: double.infinity,
@@ -979,9 +969,7 @@ class _DailyPracticeSchedulingWidgetState
                                             if (Theme.of(context).brightness ==
                                                 Brightness.dark)
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 5.0, 5.0, 5.0),
+                                                padding: EdgeInsets.all(5.0),
                                                 child: SvgPicture.asset(
                                                   'assets/images/bookmarks-simple-fill_(4).svg',
                                                   width: double.infinity,
@@ -993,9 +981,7 @@ class _DailyPracticeSchedulingWidgetState
                                                     .brightness ==
                                                 Brightness.dark))
                                               Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 5.0, 5.0, 5.0),
+                                                padding: EdgeInsets.all(5.0),
                                                 child: SvgPicture.asset(
                                                   'assets/images/bookmarks-simple-fill_(2).svg',
                                                   width: double.infinity,
@@ -1195,46 +1181,148 @@ class _DailyPracticeSchedulingWidgetState
                             PageController(initialPage: 0),
                         scrollDirection: Axis.horizontal,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 50.0, 16.0, 0.0),
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(),
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 20.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'ho0dtglv' /* Future Practices */,
+                          Visibility(
+                            visible: FFAppState().WorshipUpdateFuture,
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 50.0, 16.0, 0.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                decoration: BoxDecoration(),
+                                child: SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 20.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ho0dtglv' /* Future Practices */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .systemGray,
+                                                        fontSize: 14.0,
+                                                      ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation2']!),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 20.0),
+                                            child: StreamBuilder<
+                                                List<
+                                                    DailyPracticeVideosRecord>>(
+                                              stream:
+                                                  queryDailyPracticeVideosRecord(
+                                                queryBuilder:
+                                                    (dailyPracticeVideosRecord) =>
+                                                        dailyPracticeVideosRecord
+                                                            .where(
+                                                              'worshipPractice',
+                                                              isEqualTo: true,
+                                                            )
+                                                            .where(
+                                                              'timeToLaunch',
+                                                              isGreaterThanOrEqualTo:
+                                                                  functions
+                                                                      .getDayDate(),
+                                                            )
+                                                            .orderBy(
+                                                                'timeToLaunch',
+                                                                descending:
+                                                                    true),
+                                                limit: 25,
+                                              ),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 75.0,
+                                                      height: 75.0,
+                                                      child: SpinKitRipple(
+                                                        color:
+                                                            Color(0xFF7F95AD),
+                                                        size: 75.0,
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                List<DailyPracticeVideosRecord>
+                                                    columnDailyPracticeVideosRecordList =
+                                                    snapshot.data!;
+                                                return Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: List.generate(
+                                                      columnDailyPracticeVideosRecordList
+                                                          .length,
+                                                      (columnIndex) {
+                                                    final columnDailyPracticeVideosRecord =
+                                                        columnDailyPracticeVideosRecordList[
+                                                            columnIndex];
+                                                    return PracticePreviewWidget(
+                                                      key: Key(
+                                                          'Keypwa_${columnIndex}_of_${columnDailyPracticeVideosRecordList.length}'),
+                                                      practiceChosenDoc:
+                                                          columnDailyPracticeVideosRecord,
+                                                      practiceChosenRef:
+                                                          columnDailyPracticeVideosRecord
+                                                              .reference,
+                                                    );
+                                                  }),
+                                                );
+                                              },
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .systemGray,
-                                                  fontSize: 14.0,
-                                                ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation2']!),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 20.0),
-                                          child: StreamBuilder<
+                                          ),
+                                        ],
+                                      ),
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 20.0, 0.0, 20.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'kme1tp0x' /* Past Practices */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .systemGray,
+                                                      ),
+                                            ).animateOnPageLoad(animationsMap[
+                                                'textOnPageLoadAnimation3']!),
+                                          ),
+                                          StreamBuilder<
                                               List<DailyPracticeVideosRecord>>(
                                             stream:
                                                 queryDailyPracticeVideosRecord(
@@ -1247,9 +1335,8 @@ class _DailyPracticeSchedulingWidgetState
                                                           )
                                                           .where(
                                                             'timeToLaunch',
-                                                            isGreaterThanOrEqualTo:
-                                                                functions
-                                                                    .getDayDate(),
+                                                            isLessThan: functions
+                                                                .getDayDate(),
                                                           )
                                                           .orderBy(
                                                               'timeToLaunch',
@@ -1283,7 +1370,7 @@ class _DailyPracticeSchedulingWidgetState
                                                           columnIndex];
                                                   return PracticePreviewWidget(
                                                     key: Key(
-                                                        'Keypwa_${columnIndex}_of_${columnDailyPracticeVideosRecordList.length}'),
+                                                        'Keyr9o_${columnIndex}_of_${columnDailyPracticeVideosRecordList.length}'),
                                                     practiceChosenDoc:
                                                         columnDailyPracticeVideosRecord,
                                                     practiceChosenRef:
@@ -1294,94 +1381,10 @@ class _DailyPracticeSchedulingWidgetState
                                               );
                                             },
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 20.0, 0.0, 20.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'kme1tp0x' /* Past Practices */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Inter',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .systemGray,
-                                                ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'textOnPageLoadAnimation3']!),
-                                        ),
-                                        StreamBuilder<
-                                            List<DailyPracticeVideosRecord>>(
-                                          stream:
-                                              queryDailyPracticeVideosRecord(
-                                            queryBuilder:
-                                                (dailyPracticeVideosRecord) =>
-                                                    dailyPracticeVideosRecord
-                                                        .where(
-                                                          'worshipPractice',
-                                                          isEqualTo: true,
-                                                        )
-                                                        .where(
-                                                          'timeToLaunch',
-                                                          isLessThan: functions
-                                                              .getDayDate(),
-                                                        )
-                                                        .orderBy('timeToLaunch',
-                                                            descending: true),
-                                            limit: 25,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 75.0,
-                                                  height: 75.0,
-                                                  child: SpinKitRipple(
-                                                    color: Color(0xFF7F95AD),
-                                                    size: 75.0,
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<DailyPracticeVideosRecord>
-                                                columnDailyPracticeVideosRecordList =
-                                                snapshot.data!;
-                                            return Column(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: List.generate(
-                                                  columnDailyPracticeVideosRecordList
-                                                      .length, (columnIndex) {
-                                                final columnDailyPracticeVideosRecord =
-                                                    columnDailyPracticeVideosRecordList[
-                                                        columnIndex];
-                                                return PracticePreviewWidget(
-                                                  key: Key(
-                                                      'Keyr9o_${columnIndex}_of_${columnDailyPracticeVideosRecordList.length}'),
-                                                  practiceChosenDoc:
-                                                      columnDailyPracticeVideosRecord,
-                                                  practiceChosenRef:
-                                                      columnDailyPracticeVideosRecord
-                                                          .reference,
-                                                );
-                                              }),
-                                            );
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ].addToEnd(SizedBox(height: 100.0)),
+                                        ],
+                                      ),
+                                    ].addToEnd(SizedBox(height: 100.0)),
+                                  ),
                                 ),
                               ),
                             ),
@@ -1397,6 +1400,8 @@ class _DailyPracticeSchedulingWidgetState
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Column(
                                         mainAxisSize: MainAxisSize.max,
@@ -1602,6 +1607,8 @@ class _DailyPracticeSchedulingWidgetState
                                 child: SingleChildScrollView(
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Column(
                                         mainAxisSize: MainAxisSize.max,

@@ -78,7 +78,7 @@ class _EditMessageWidgetState extends State<EditMessageWidget> {
           ),
         ),
         Align(
-          alignment: AlignmentDirectional(0.00, 1.00),
+          alignment: AlignmentDirectional(0.0, 1.0),
           child: Container(
             width: MediaQuery.sizeOf(context).width * 1.0,
             decoration: BoxDecoration(
@@ -242,7 +242,7 @@ class _EditMessageWidgetState extends State<EditMessageWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
                                           FontAwesomeIcons.arrowCircleUp,
                                           color: FlutterFlowTheme.of(context)
@@ -284,7 +284,7 @@ class _EditMessageWidgetState extends State<EditMessageWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: FaIcon(
                                           FontAwesomeIcons.arrowCircleUp,
                                           color: FlutterFlowTheme.of(context)
@@ -350,7 +350,7 @@ class _EditMessageWidgetState extends State<EditMessageWidget> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Icon(
                                     Icons.cancel_rounded,
                                     color:
@@ -422,8 +422,7 @@ class _EditMessageWidgetState extends State<EditMessageWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.thumbtack,
                                         color: FlutterFlowTheme.of(context)
@@ -461,8 +460,7 @@ class _EditMessageWidgetState extends State<EditMessageWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.thumbtack,
                                         color: FlutterFlowTheme.of(context)

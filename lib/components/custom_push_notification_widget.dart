@@ -105,8 +105,7 @@ class _CustomPushNotificationWidgetState
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
+                            padding: EdgeInsets.all(10.0),
                             child: Icon(
                               Icons.edit_notifications_rounded,
                               color: FlutterFlowTheme.of(context).tertiary,
@@ -233,7 +232,7 @@ class _CustomPushNotificationWidgetState
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Icon(
                               Icons.add_photo_alternate,
                               color: FlutterFlowTheme.of(context).secondary,
@@ -416,7 +415,7 @@ class _CustomPushNotificationWidgetState
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       '2uzqrjwf' /* Cancel */,
@@ -485,7 +484,7 @@ class _CustomPushNotificationWidgetState
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'mo0pysyi' /* Send */,

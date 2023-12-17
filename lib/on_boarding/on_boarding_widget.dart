@@ -611,7 +611,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: CircularPercentIndicator(
                                                   percent: 1.0,
                                                   radius:
@@ -730,7 +730,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: CircularPercentIndicator(
                                                   percent: 1.0,
                                                   radius:
@@ -904,7 +904,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child:
                                                       CircularPercentIndicator(
                                                     percent: 1.0,
@@ -1081,8 +1081,8 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1170,7 +1170,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, -1.00),
+                                                            0.0, -1.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1197,7 +1197,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.85, 0.40),
+                                                            0.85, 0.4),
                                                     child: Container(
                                                       width: 25.0,
                                                       height: 25.0,
@@ -1218,7 +1218,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Icon(
                                                               Icons
                                                                   .add_circle_outline_outlined,
@@ -1242,7 +1242,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 1.05),
+                                                                0.0, 1.05),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -1289,7 +1289,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, -1.00),
+                                                            0.0, -1.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1316,7 +1316,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.85, 0.40),
+                                                            0.85, 0.4),
                                                     child: Container(
                                                       width: 25.0,
                                                       height: 25.0,
@@ -1337,7 +1337,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Icon(
                                                               Icons
                                                                   .add_circle_outline_outlined,
@@ -1361,7 +1361,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 1.05),
+                                                                0.0, 1.05),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -1408,7 +1408,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, -1.00),
+                                                            0.0, -1.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1435,7 +1435,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.85, 0.40),
+                                                            0.85, 0.4),
                                                     child: Container(
                                                       width: 25.0,
                                                       height: 25.0,
@@ -1456,7 +1456,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Icon(
                                                               Icons
                                                                   .add_circle_outline_outlined,
@@ -1480,7 +1480,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 1.05),
+                                                                0.0, 1.05),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -1527,7 +1527,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, -1.00),
+                                                            0.0, -1.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1554,7 +1554,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.85, 0.40),
+                                                            0.85, 0.4),
                                                     child: Container(
                                                       width: 25.0,
                                                       height: 25.0,
@@ -1575,7 +1575,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Icon(
                                                               Icons
                                                                   .add_circle_outline_outlined,
@@ -1599,7 +1599,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 1.05),
+                                                                0.0, 1.05),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -1646,7 +1646,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, -1.00),
+                                                            0.0, -1.0),
                                                     child: ClipRRect(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -1673,7 +1673,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                   Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.85, 0.40),
+                                                            0.85, 0.4),
                                                     child: Container(
                                                       width: 25.0,
                                                       height: 25.0,
@@ -1694,7 +1694,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Icon(
                                                               Icons
                                                                   .add_circle_outline_outlined,
@@ -1718,7 +1718,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 1.05),
+                                                                0.0, 1.05),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -2289,8 +2289,8 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -2630,7 +2630,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                                 scrollDirection: Axis.horizontal,
                                                                                 children: [
                                                                                   Align(
-                                                                                    alignment: AlignmentDirectional(-0.98, 0.00),
+                                                                                    alignment: AlignmentDirectional(-0.98, 0.0),
                                                                                     child: Padding(
                                                                                       padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 1.0, 0.0),
                                                                                       child: Container(
@@ -2649,7 +2649,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                                             width: 1.0,
                                                                                           ),
                                                                                         ),
-                                                                                        alignment: AlignmentDirectional(-0.80, 0.00),
+                                                                                        alignment: AlignmentDirectional(-0.8, 0.0),
                                                                                       ),
                                                                                     ),
                                                                                   ),
@@ -2834,7 +2834,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                               scrollDirection: Axis.horizontal,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(-0.98, 0.00),
+                                                                                  alignment: AlignmentDirectional(-0.98, 0.0),
                                                                                   child: Padding(
                                                                                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 1.0, 0.0),
                                                                                     child: Container(
@@ -2853,7 +2853,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                                           width: 1.0,
                                                                                         ),
                                                                                       ),
-                                                                                      alignment: AlignmentDirectional(-0.80, 0.00),
+                                                                                      alignment: AlignmentDirectional(-0.8, 0.0),
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -2927,7 +2927,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                                     size: 16.0,
                                                                                   ),
                                                                                   Align(
-                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                                                     child: Text(
                                                                                       FFLocalizations.of(context).getText(
                                                                                         '9wb6ueag' /* Pray */,
@@ -2959,7 +2959,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                                     size: 16.0,
                                                                                   ),
                                                                                   Align(
-                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                                                     child: Text(
                                                                                       FFLocalizations.of(context).getText(
                                                                                         'npixh41c' /* Message */,
@@ -2991,7 +2991,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                                     size: 16.0,
                                                                                   ),
                                                                                   Align(
-                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                                                     child: Text(
                                                                                       FFLocalizations.of(context).getText(
                                                                                         'kwdjz1su' /* Share */,
@@ -3121,7 +3121,7 @@ Together... */
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -3149,7 +3149,7 @@ Together... */
                         ],
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.85, 0.70),
+                        alignment: AlignmentDirectional(0.85, 0.7),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 10.0),

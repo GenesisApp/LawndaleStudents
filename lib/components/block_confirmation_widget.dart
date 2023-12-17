@@ -177,7 +177,7 @@ class _BlockConfirmationWidgetState extends State<BlockConfirmationWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'uo3rwdnh' /* No */,
@@ -249,7 +249,7 @@ class _BlockConfirmationWidgetState extends State<BlockConfirmationWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     '4o47tnrp' /* Yes */,

@@ -124,7 +124,7 @@ class _AddTagWidgetState extends State<AddTagWidget> {
                             backgroundColor: Color(0x00FEFDEC),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -215,7 +215,7 @@ class _AddTagWidgetState extends State<AddTagWidget> {
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
@@ -418,7 +418,7 @@ class _AddTagWidgetState extends State<AddTagWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 '4qo0byc8' /* Cancel */,
@@ -460,7 +460,7 @@ class _AddTagWidgetState extends State<AddTagWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'tbzeboqs' /* Submit */,

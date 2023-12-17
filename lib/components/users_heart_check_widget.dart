@@ -1037,7 +1037,7 @@ class _UsersHeartCheckWidgetState extends State<UsersHeartCheckWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               '8izp9uum' /* Back */,

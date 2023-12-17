@@ -314,8 +314,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                     if (!(Theme.of(context).brightness ==
                                         Brightness.dark))
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            6.0, 6.0, 6.0, 6.0),
+                                        padding: EdgeInsets.all(6.0),
                                         child: SvgPicture.asset(
                                           'assets/images/note-pencil-fill_(1).svg',
                                           width: 28.0,
@@ -375,7 +374,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                           height: 100.0,
                           decoration: BoxDecoration(),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController,
                               focusNode: _model.textFieldFocusNode,

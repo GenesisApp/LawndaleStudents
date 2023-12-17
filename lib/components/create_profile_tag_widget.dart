@@ -135,7 +135,7 @@ class _CreateProfileTagWidgetState extends State<CreateProfileTagWidget> {
                               backgroundColor: Color(0x00FEFDEC),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
@@ -327,7 +327,7 @@ class _CreateProfileTagWidgetState extends State<CreateProfileTagWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   'yubmw8gn' /* Cancel */,
@@ -376,7 +376,7 @@ class _CreateProfileTagWidgetState extends State<CreateProfileTagWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Text(
                                 FFLocalizations.of(context).getText(
                                   '6sh7negb' /* Submit */,
