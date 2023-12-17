@@ -1701,7 +1701,7 @@ class _CommunityPrayerRequestWidgetState
                                                           Colors.transparent,
                                                       onTap: () async {
                                                         await Share.share(
-                                                          'Click here to view a prayer request from ${containerUsersRecord.displayName}: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
+                                                          'Click here to view a prayer request from ${containerUsersRecord.displayName}: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
                                                           sharePositionOrigin:
                                                               getWidgetBoundingBox(
                                                                   context),

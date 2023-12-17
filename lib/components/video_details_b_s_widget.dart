@@ -380,7 +380,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                     Colors.transparent,
                                                 onTap: () async {
                                                   await Share.share(
-                                                    'Check out this message from ${widget.videoChosenDoc?.speaker}: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
+                                                    'Check out this message from ${widget.videoChosenDoc?.speaker}: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
                                                     sharePositionOrigin:
                                                         getWidgetBoundingBox(
                                                             context),

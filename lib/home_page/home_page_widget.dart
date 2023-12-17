@@ -6112,7 +6112,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                         highlightColor: Colors.transparent,
                                                                                         onTap: () async {
                                                                                           await Share.share(
-                                                                                            'Checkout today\'s worship journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
+                                                                                            'Checkout today\'s worship journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
                                                                                             sharePositionOrigin: getWidgetBoundingBox(context),
                                                                                           );
                                                                                         },
@@ -7563,7 +7563,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                           highlightColor: Colors.transparent,
                                                                                           onTap: () async {
                                                                                             await Share.share(
-                                                                                              'Checkout today\'s scripture journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
+                                                                                              'Checkout today\'s scripture journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
                                                                                               sharePositionOrigin: getWidgetBoundingBox(context),
                                                                                             );
                                                                                           },
@@ -8946,7 +8946,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                           highlightColor: Colors.transparent,
                                                                                           onTap: () async {
                                                                                             await Share.share(
-                                                                                              'Checkout today\'s prayer journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
+                                                                                              'Checkout today\'s prayer journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
                                                                                               sharePositionOrigin: getWidgetBoundingBox(context),
                                                                                             );
                                                                                           },
