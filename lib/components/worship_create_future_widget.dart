@@ -129,7 +129,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                             backgroundColor: Color(0x00FEFDEC),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -178,7 +178,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                       child: Stack(
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -247,7 +247,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                             backgroundColor: Color(0x00FEFDEC),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -940,7 +940,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '3o48kopk' /* Cancel */,
@@ -1093,7 +1093,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '345z5lm5' /* Submit */,

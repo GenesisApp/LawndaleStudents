@@ -340,7 +340,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Container(
                                       width: 100.0,
                                       height: 40.0,
@@ -775,7 +775,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'nfhv2wil' /* Login */,
@@ -964,7 +964,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     'buttonOnPageLoadAnimation2']!),
                               ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
@@ -974,7 +974,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         HapticFeedback.mediumImpact();
@@ -1061,8 +1061,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment:
-                                        AlignmentDirectional(-0.83, 0.00),
+                                    alignment: AlignmentDirectional(-0.83, 0.0),
                                     child: Container(
                                       width: 22.0,
                                       height: 22.0,

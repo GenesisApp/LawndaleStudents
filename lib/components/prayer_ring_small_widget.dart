@@ -62,7 +62,7 @@ class _PrayerRingSmallWidgetState extends State<PrayerRingSmallWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Align(
-              alignment: AlignmentDirectional(0.00, 0.00),
+              alignment: AlignmentDirectional(0.0, 0.0),
               child: SvgPicture.asset(
                 Theme.of(context).brightness == Brightness.dark
                     ? 'assets/images/handsclapping(dark_mode).svg'

@@ -214,8 +214,7 @@ class _PracticeJournalPreviewWidgetState
                           children: [
                             if (Theme.of(context).brightness == Brightness.dark)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    6.0, 6.0, 6.0, 6.0),
+                                padding: EdgeInsets.all(6.0),
                                 child: SvgPicture.asset(
                                   'assets/images/flame-fill.svg',
                                   width: double.infinity,
@@ -226,8 +225,7 @@ class _PracticeJournalPreviewWidgetState
                             if (!(Theme.of(context).brightness ==
                                 Brightness.dark))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 5.0, 5.0),
+                                padding: EdgeInsets.all(5.0),
                                 child: SvgPicture.asset(
                                   'assets/images/flame-fill_(2).svg',
                                   width: double.infinity,
@@ -278,8 +276,7 @@ class _PracticeJournalPreviewWidgetState
                           children: [
                             if (Theme.of(context).brightness == Brightness.dark)
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 5.0, 5.0),
+                                padding: EdgeInsets.all(5.0),
                                 child: SvgPicture.asset(
                                   'assets/images/bookmarks-simple-fill_(4).svg',
                                   width: double.infinity,
@@ -290,8 +287,7 @@ class _PracticeJournalPreviewWidgetState
                             if (!(Theme.of(context).brightness ==
                                 Brightness.dark))
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 5.0, 5.0, 5.0),
+                                padding: EdgeInsets.all(5.0),
                                 child: SvgPicture.asset(
                                   'assets/images/bookmarks-simple-fill_(2).svg',
                                   width: double.infinity,
@@ -368,8 +364,7 @@ class _PracticeJournalPreviewWidgetState
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   children: [
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 60.0),
@@ -448,8 +443,7 @@ class _PracticeJournalPreviewWidgetState
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 80.0),
@@ -735,7 +729,7 @@ class _PracticeJournalPreviewWidgetState
                                                 child: Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Icon(
                                                     Icons.play_arrow_rounded,
                                                     color: FlutterFlowTheme.of(
@@ -797,7 +791,7 @@ class _PracticeJournalPreviewWidgetState
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -846,7 +840,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -890,7 +884,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -906,7 +900,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -922,7 +916,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -984,7 +978,7 @@ class _PracticeJournalPreviewWidgetState
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1033,7 +1027,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1077,7 +1071,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1093,7 +1087,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1109,7 +1103,7 @@ class _PracticeJournalPreviewWidgetState
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1611,7 +1605,7 @@ class _PracticeJournalPreviewWidgetState
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Text(
                                                         FFLocalizations.of(
                                                                 context)
@@ -1659,7 +1653,7 @@ class _PracticeJournalPreviewWidgetState
                                                       Colors.transparent,
                                                   onTap: () async {
                                                     await Share.share(
-                                                      'Checkout this journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                                      'Checkout this journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
                                                       sharePositionOrigin:
                                                           getWidgetBoundingBox(
                                                               context),
@@ -1683,7 +1677,7 @@ class _PracticeJournalPreviewWidgetState
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)

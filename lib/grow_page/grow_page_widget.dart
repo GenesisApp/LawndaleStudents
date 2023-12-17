@@ -716,8 +716,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
                                         Icons.file_upload_outlined,
                                         color: FlutterFlowTheme.of(context)
@@ -787,8 +786,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
                                         Icons.file_upload_outlined,
                                         color: FlutterFlowTheme.of(context)
@@ -987,8 +985,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                 child: Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       TextFormField(
                                                                     controller:
@@ -1498,8 +1496,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: InkWell(
                                                                   splashColor:
                                                                       Colors
@@ -1587,9 +1585,10 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                     ),
                                                                     child:
                                                                         Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Icon(
                                                                         Icons
@@ -1646,8 +1645,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    -1.00,
-                                                                    0.00),
+                                                                    -1.0, 0.0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
@@ -1745,7 +1743,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                         return Align(
                                                                           alignment: AlignmentDirectional(
                                                                               -0.98,
-                                                                              0.00),
+                                                                              0.0),
                                                                           child:
                                                                               Container(
                                                                             width:
@@ -1770,7 +1768,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                               ),
                                                                             ),
                                                                             alignment:
-                                                                                AlignmentDirectional(-0.80, 0.00),
+                                                                                AlignmentDirectional(-0.8, 0.0),
                                                                           ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation2']!),
                                                                         );
                                                                       }),
@@ -1784,8 +1782,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            -0.50,
-                                                                            0.00),
+                                                                            -0.5,
+                                                                            0.0),
                                                                     child:
                                                                         Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -1842,7 +1840,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                               mainAxisSize: MainAxisSize.max,
                                                                               children: [
                                                                                 Align(
-                                                                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                  alignment: AlignmentDirectional(0.0, 0.0),
                                                                                   child: Text(
                                                                                     FFLocalizations.of(context).getText(
                                                                                       'tn8j0a9y' /* + */,
@@ -1855,7 +1853,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                                 ),
                                                                                 if (container1ResourceVideosRecord!.usersWatched.length <= 4)
                                                                                   Align(
-                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                    alignment: AlignmentDirectional(0.0, 0.0),
                                                                                     child: Text(
                                                                                       FFLocalizations.of(context).getText(
                                                                                         '26yvv7q8' /* 0 */,
@@ -1881,8 +1879,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                   Align(
                                                                     alignment:
                                                                         AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
@@ -1905,8 +1903,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                 Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                          0.0,
+                                                                          0.0),
                                                                   child:
                                                                       Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -2131,7 +2129,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, 1.00),
+                                                          -1.0, 1.0),
                                                   child: Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -2207,8 +2205,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                   child: Visibility(
                                     visible: !FFAppState().showFullList,
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 12.0, 12.0),
+                                      padding: EdgeInsets.all(12.0),
                                       child: Builder(
                                         builder: (context) {
                                           final searchResultsStaggered = _model
@@ -2929,12 +2926,12 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                                 Colors.transparent,
                                                                           ),
                                                                           alignment: AlignmentDirectional(
-                                                                              1.00,
-                                                                              1.00),
+                                                                              1.0,
+                                                                              1.0),
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                AlignmentDirectional(-0.98, 0.00),
+                                                                                AlignmentDirectional(-0.98, 0.0),
                                                                             child:
                                                                                 Container(
                                                                               width: 20.0,
@@ -2955,7 +2952,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                                   width: 1.0,
                                                                                 ),
                                                                               ),
-                                                                              alignment: AlignmentDirectional(-0.80, 0.00),
+                                                                              alignment: AlignmentDirectional(-0.8, 0.0),
                                                                             ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation4']!),
                                                                           ),
                                                                         );
@@ -2989,9 +2986,10 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                           .start,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Text(
                                                                         FFLocalizations.of(context)
@@ -3012,8 +3010,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                         4)
                                                                       Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           FFLocalizations.of(context)
@@ -3034,8 +3032,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                         4)
                                                                       Align(
                                                                         alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                         child:
                                                                             Text(
                                                                           valueOrDefault<
@@ -3052,9 +3050,10 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                         ),
                                                                       ),
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -3516,9 +3515,9 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                                     borderRadius: BorderRadius.circular(100.0),
                                                                                   ),
                                                                                   child: Align(
-                                                                                    alignment: AlignmentDirectional(-0.30, 0.00),
+                                                                                    alignment: AlignmentDirectional(-0.3, 0.0),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                                                                                      padding: EdgeInsets.all(1.0),
                                                                                       child: Hero(
                                                                                         tag: valueOrDefault<String>(
                                                                                           cardUsersRecord.photoUrl,
@@ -3700,7 +3699,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -3743,7 +3742,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: TextFormField(
                                                           controller: _model
                                                               .textController2,
@@ -4061,12 +4060,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        12.0,
-                                                                        12.0,
-                                                                        12.0),
+                                                                EdgeInsets.all(
+                                                                    12.0),
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
@@ -4584,7 +4579,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                 animationsMap['columnOnPageLoadAnimation4']!),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: SingleChildScrollView(
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
@@ -4628,7 +4623,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: TextFormField(
                                                           controller: _model
                                                               .textController3,
@@ -4950,12 +4945,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        12.0,
-                                                                        12.0,
-                                                                        12.0,
-                                                                        12.0),
+                                                                EdgeInsets.all(
+                                                                    12.0),
                                                             child: Container(
                                                               width: double
                                                                   .infinity,
@@ -5016,11 +5007,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             12.0),
                                                                     child:
                                                                         FlutterFlowPdfViewer(
@@ -5245,11 +5233,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            12.0,
-                                                                            12.0,
-                                                                            12.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             12.0),
                                                                     child:
                                                                         FlutterFlowPdfViewer(
@@ -5346,7 +5331,7 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                   ? MediaQuery.viewInsetsOf(context).bottom > 0
                   : _isKeyboardVisible))
                 Align(
-                  alignment: AlignmentDirectional(0.00, 1.00),
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: MediaQuery.sizeOf(context).height * 0.125,

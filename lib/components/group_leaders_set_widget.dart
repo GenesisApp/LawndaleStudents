@@ -6,18 +6,18 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-import 'person_blocked_model.dart';
-export 'person_blocked_model.dart';
+import 'group_leaders_set_model.dart';
+export 'group_leaders_set_model.dart';
 
-class PersonBlockedWidget extends StatefulWidget {
-  const PersonBlockedWidget({Key? key}) : super(key: key);
+class GroupLeadersSetWidget extends StatefulWidget {
+  const GroupLeadersSetWidget({Key? key}) : super(key: key);
 
   @override
-  _PersonBlockedWidgetState createState() => _PersonBlockedWidgetState();
+  _GroupLeadersSetWidgetState createState() => _GroupLeadersSetWidgetState();
 }
 
-class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
-  late PersonBlockedModel _model;
+class _GroupLeadersSetWidgetState extends State<GroupLeadersSetWidget> {
+  late GroupLeadersSetModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -28,7 +28,7 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PersonBlockedModel());
+    _model = createModel(context, () => GroupLeadersSetModel());
   }
 
   @override
@@ -115,10 +115,10 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              50.0, 20.0, 50.0, 10.0),
+                              25.0, 20.0, 25.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'i7g0yyyk' /* This person is now blocked. Yo... */,
+                              '5kq0lugy' /* You must set the group leaders... */,
                             ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
@@ -151,16 +151,7 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed(
-                                'AllChats',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                  ),
-                                },
-                              );
+                              Navigator.pop(context);
                             },
                             child: Container(
                               width: 40.0,
@@ -174,7 +165,7 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '2sntt6ni' /* Done */,
+                                    'jebhkc3o' /* Done */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

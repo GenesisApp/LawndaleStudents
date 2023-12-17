@@ -99,8 +99,7 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 10.0, 10.0, 10.0),
+                              padding: EdgeInsets.all(10.0),
                               child: FaIcon(
                                 FontAwesomeIcons.poll,
                                 color: FlutterFlowTheme.of(context).systemGray,
@@ -451,7 +450,7 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'y8oet0m7' /* Cancel */,
@@ -530,7 +529,7 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Text(
                               FFLocalizations.of(context).getText(
                                 'grof09z8' /* Submit */,

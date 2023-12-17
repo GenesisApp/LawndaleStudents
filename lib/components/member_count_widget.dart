@@ -160,7 +160,7 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                         List.generate(rowUsersRecordList.length, (rowIndex) {
                       final rowUsersRecord = rowUsersRecordList[rowIndex];
                       return Align(
-                        alignment: AlignmentDirectional(-0.98, 0.00),
+                        alignment: AlignmentDirectional(-0.98, 0.0),
                         child: Container(
                           width: 30.0,
                           height: 30.0,
@@ -180,7 +180,7 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                               width: 1.0,
                             ),
                           ),
-                          alignment: AlignmentDirectional(-0.80, 0.00),
+                          alignment: AlignmentDirectional(-0.8, 0.0),
                         ).animateOnPageLoad(
                             animationsMap['containerOnPageLoadAnimation1']!),
                       );
@@ -231,7 +231,7 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Text(
                           FFLocalizations.of(context).getText(
                             'otpnly38' /* + */,
@@ -246,7 +246,7 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                       ),
                       if (containerUsersRecordList.length <= 4)
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'x99y25lb' /* 0 */,
@@ -261,7 +261,7 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                         ),
                       if (containerUsersRecordList.length > 6)
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             valueOrDefault<String>(
                               (containerUsersRecordList.length - 6).toString(),
@@ -277,7 +277,7 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                         ),
                       if (widget.parameter2! >= 1)
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 0.0, 0.0),

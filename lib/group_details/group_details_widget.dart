@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/group_edit_widget.dart';
 import '/components/group_rating_widget.dart';
+import '/components/more_members_needed_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -179,7 +180,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
             alignment: AlignmentDirectional(0.0, 0.0),
             children: [
               Align(
-                alignment: AlignmentDirectional(0.00, -1.00),
+                alignment: AlignmentDirectional(0.0, -1.0),
                 child: Container(
                   width: double.infinity,
                   height: MediaQuery.sizeOf(context).height * 0.28,
@@ -196,7 +197,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.00, 0.00),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -217,7 +218,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                               shape: BoxShape.circle,
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 2.0, 0.0),
@@ -289,8 +290,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                       shape: BoxShape.circle,
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
                                         Icons.star_rate_outlined,
                                         color: Colors.white,
@@ -340,7 +340,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                     shape: BoxShape.circle,
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Icon(
                                       Icons.edit_note_rounded,
                                       color: Colors.white,
@@ -435,7 +435,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Icon(
                                             Icons.person_add_rounded,
                                             color: Colors.white,
@@ -492,8 +492,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                       shape: BoxShape.circle,
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: FaIcon(
                                         FontAwesomeIcons.ellipsisV,
                                         color: Colors.white,
@@ -512,7 +511,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 await Share.share(
-                                  'Check out this group: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                  'Check out this group: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
                                   sharePositionOrigin:
                                       getWidgetBoundingBox(context),
                                 );
@@ -526,7 +525,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Icon(
                                     Icons.ios_share,
                                     color: Colors.white,
@@ -580,8 +579,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                     shape: BoxShape.circle,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        2.0, 2.0, 2.0, 2.0),
+                                    padding: EdgeInsets.all(2.0),
                                     child: Container(
                                       width: 80.0,
                                       height: 80.0,
@@ -647,8 +645,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                       shape: BoxShape.circle,
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          2.0, 2.0, 2.0, 2.0),
+                                      padding: EdgeInsets.all(2.0),
                                       child: Container(
                                         width: 80.0,
                                         height: 80.0,
@@ -739,8 +736,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -776,7 +772,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                             decoration: BoxDecoration(),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  -1.00, 0.00),
+                                                  -1.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -861,7 +857,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                             decoration: BoxDecoration(),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  -1.00, 0.00),
+                                                  -1.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -936,7 +932,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                     ),
                                     child: Align(
                                       alignment:
-                                          AlignmentDirectional(-0.98, 0.00),
+                                          AlignmentDirectional(-0.98, 0.0),
                                       child: Container(
                                         width: 30.0,
                                         height: 30.0,
@@ -983,8 +979,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                 children: [
                                   if (widget.chosenGroup!.members.length > 6)
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           '3hi93yhl' /* + */,
@@ -1001,8 +996,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                     ),
                                   if (widget.chosenGroup!.members.length > 6)
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         valueOrDefault<String>(
                                           (widget.chosenGroup!.members.length -
@@ -1021,7 +1015,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                       ),
                                     ),
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
@@ -1055,7 +1049,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                             .contains(currentUserReference))
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 1.00),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 12.0),
@@ -1103,87 +1097,110 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      if (containerMessageChatsRecord != null) {
-                                        await containerMessageChatsRecord!
-                                            .reference
-                                            .update(
-                                                createMessageChatsRecordData(
-                                          authenticatedUser:
-                                              currentUserReference,
-                                          otherUser: widget
-                                              .chosenGroup?.groupLeaders?.first,
-                                        ));
+                                      if (widget.chosenGroup!.members.length >=
+                                          2) {
+                                        if (containerMessageChatsRecord !=
+                                            null) {
+                                          await containerMessageChatsRecord!
+                                              .reference
+                                              .update(
+                                                  createMessageChatsRecordData(
+                                            authenticatedUser:
+                                                currentUserReference,
+                                            otherUser: widget.chosenGroup
+                                                ?.groupLeaders?.first,
+                                          ));
 
-                                        context.pushNamed(
-                                          'ChatPage',
-                                          queryParameters: {
-                                            'chatChosen': serializeParam(
-                                              containerMessageChatsRecord,
-                                              ParamType.Document,
-                                            ),
-                                          }.withoutNulls,
-                                          extra: <String, dynamic>{
-                                            'chatChosen':
+                                          context.pushNamed(
+                                            'ChatPage',
+                                            queryParameters: {
+                                              'chatChosen': serializeParam(
                                                 containerMessageChatsRecord,
-                                          },
-                                        );
-                                      } else {
-                                        var messageChatsRecordReference =
-                                            MessageChatsRecord.collection.doc();
-                                        await messageChatsRecordReference.set({
-                                          ...createMessageChatsRecordData(
-                                            authenticatedUser:
-                                                currentUserReference,
-                                            archived: false,
-                                            sgChatRef:
-                                                widget.chosenGroup?.reference,
-                                            otherUser: widget.chosenGroup
-                                                ?.groupLeaders?.first,
-                                          ),
-                                          ...mapToFirestore(
-                                            {
-                                              'users':
-                                                  widget.chosenGroup?.members,
-                                              'userswithNotificationsOn':
-                                                  widget.chosenGroup?.members,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'chatChosen':
+                                                  containerMessageChatsRecord,
                                             },
-                                          ),
-                                        });
-                                        _model.newGroup4 = MessageChatsRecord
-                                            .getDocumentFromData({
-                                          ...createMessageChatsRecordData(
-                                            authenticatedUser:
-                                                currentUserReference,
-                                            archived: false,
-                                            sgChatRef:
-                                                widget.chosenGroup?.reference,
-                                            otherUser: widget.chosenGroup
-                                                ?.groupLeaders?.first,
-                                          ),
-                                          ...mapToFirestore(
-                                            {
-                                              'users':
-                                                  widget.chosenGroup?.members,
-                                              'userswithNotificationsOn':
-                                                  widget.chosenGroup?.members,
-                                            },
-                                          ),
-                                        }, messageChatsRecordReference);
-                                        if (Navigator.of(context).canPop()) {
-                                          context.pop();
-                                        }
-                                        context.pushNamed(
-                                          'ChatPage',
-                                          queryParameters: {
-                                            'chatChosen': serializeParam(
-                                              _model.newGroup4,
-                                              ParamType.Document,
+                                          );
+                                        } else {
+                                          var messageChatsRecordReference =
+                                              MessageChatsRecord.collection
+                                                  .doc();
+                                          await messageChatsRecordReference
+                                              .set({
+                                            ...createMessageChatsRecordData(
+                                              authenticatedUser:
+                                                  currentUserReference,
+                                              archived: false,
+                                              sgChatRef:
+                                                  widget.chosenGroup?.reference,
+                                              otherUser: widget.chosenGroup
+                                                  ?.groupLeaders?.first,
                                             ),
-                                          }.withoutNulls,
-                                          extra: <String, dynamic>{
-                                            'chatChosen': _model.newGroup4,
+                                            ...mapToFirestore(
+                                              {
+                                                'users':
+                                                    widget.chosenGroup?.members,
+                                                'userswithNotificationsOn':
+                                                    widget.chosenGroup?.members,
+                                              },
+                                            ),
+                                          });
+                                          _model.newGroup4 = MessageChatsRecord
+                                              .getDocumentFromData({
+                                            ...createMessageChatsRecordData(
+                                              authenticatedUser:
+                                                  currentUserReference,
+                                              archived: false,
+                                              sgChatRef:
+                                                  widget.chosenGroup?.reference,
+                                              otherUser: widget.chosenGroup
+                                                  ?.groupLeaders?.first,
+                                            ),
+                                            ...mapToFirestore(
+                                              {
+                                                'users':
+                                                    widget.chosenGroup?.members,
+                                                'userswithNotificationsOn':
+                                                    widget.chosenGroup?.members,
+                                              },
+                                            ),
+                                          }, messageChatsRecordReference);
+                                          if (Navigator.of(context).canPop()) {
+                                            context.pop();
+                                          }
+                                          context.pushNamed(
+                                            'ChatPage',
+                                            queryParameters: {
+                                              'chatChosen': serializeParam(
+                                                _model.newGroup4,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'chatChosen': _model.newGroup4,
+                                            },
+                                          );
+                                        }
+                                      } else {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          barrierColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .opagueSeparator,
+                                          context: context,
+                                          builder: (context) {
+                                            return WebViewAware(
+                                                child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: MoreMembersNeededWidget(),
+                                            ));
                                           },
-                                        );
+                                        ).then((value) => safeSetState(() {}));
                                       }
 
                                       setState(() {});
@@ -1220,7 +1237,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                             .contains(currentUserReference))
                       Expanded(
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 1.00),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 20.0, 20.0, 12.0),

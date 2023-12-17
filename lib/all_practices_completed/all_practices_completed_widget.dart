@@ -148,7 +148,7 @@ class _AllPracticesCompletedWidgetState
                                   height: 100.0,
                                   decoration: BoxDecoration(),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,

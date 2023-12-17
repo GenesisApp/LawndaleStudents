@@ -201,7 +201,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -250,7 +250,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -307,7 +307,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -356,7 +356,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                         ),
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -465,7 +465,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: CircularPercentIndicator(
                                                   percent: widget.userInListDoc!
                                                       .percentageCompleted1
@@ -518,8 +518,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: SvgPicture
                                                                   .asset(
                                                                 'assets/images/flame-fill_(3).svg',
@@ -536,8 +535,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: SvgPicture
                                                                   .asset(
                                                                 'assets/images/flame-fill_(1).svg',
@@ -568,7 +566,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: SvgPicture.asset(
                                                           'assets/images/flame-fill_(4).svg',
                                                           width: 20.0,
@@ -613,7 +611,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child:
                                                       CircularPercentIndicator(
                                                     percent: widget
@@ -673,8 +671,8 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child:
                                                                     SvgPicture
                                                                         .asset(
@@ -693,8 +691,8 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child:
                                                                     SvgPicture
                                                                         .asset(
@@ -729,7 +727,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child:
                                                               SvgPicture.asset(
                                                             'assets/images/bookmarks-simple-fill_(5).svg',
@@ -779,7 +777,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child:
                                                       CircularPercentIndicator(
                                                     percent: widget
@@ -841,8 +839,8 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child:
                                                                     SvgPicture
                                                                         .asset(
@@ -861,8 +859,8 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child:
                                                                     SvgPicture
                                                                         .asset(
@@ -897,7 +895,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child:
                                                               SvgPicture.asset(
                                                             'assets/images/hands-clapping-fill_(7).svg',

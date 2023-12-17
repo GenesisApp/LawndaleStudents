@@ -84,7 +84,7 @@ class _GroupRatingDisplayWidgetState extends State<GroupRatingDisplayWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
+              padding: EdgeInsets.all(4.0),
               child: Container(
                 width: double.infinity,
                 child: TextFormField(

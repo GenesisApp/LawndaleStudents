@@ -458,8 +458,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 8.0, 8.0, 8.0),
+                                    padding: EdgeInsets.all(8.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
                                       focusColor: Colors.transparent,
@@ -629,8 +628,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                       ),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
@@ -656,7 +654,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                               },
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: CircularPercentIndicator(
                                 percent: 1.0,
                                 radius:
@@ -724,8 +722,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                       ),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
@@ -751,7 +748,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                               },
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.00, 0.00),
+                              alignment: AlignmentDirectional(0.0, 0.0),
                               child: CircularPercentIndicator(
                                 percent: 1.0,
                                 radius:
@@ -822,7 +819,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                       ),
                                       child: Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -849,7 +846,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 },
                               ),
                               Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: CircularPercentIndicator(
                                   percent: 1.0,
                                   radius:
@@ -1873,8 +1870,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -1997,8 +1993,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                             borderRadius: BorderRadius.circular(12.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -2138,8 +2133,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 8.0, 8.0, 8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [

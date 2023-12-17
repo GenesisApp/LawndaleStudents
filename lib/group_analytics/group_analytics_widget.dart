@@ -431,8 +431,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -1055,9 +1054,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 16.0, 16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: Container(
                                             width: 350.0,
                                             height: 300.0,
@@ -1155,7 +1152,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, -1.00),
+                                                          -1.0, -1.0),
                                                   child:
                                                       FlutterFlowChartLegendWidget(
                                                     entries: [
@@ -1270,9 +1267,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 16.0, 16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: Container(
                                             width: 350.0,
                                             height: 300.0,
@@ -1370,7 +1365,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, -1.00),
+                                                          -1.0, -1.0),
                                                   child:
                                                       FlutterFlowChartLegendWidget(
                                                     entries: [
@@ -1485,9 +1480,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 16.0, 16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: Container(
                                             width: 350.0,
                                             height: 300.0,
@@ -1585,7 +1578,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, -1.00),
+                                                          -1.0, -1.0),
                                                   child:
                                                       FlutterFlowChartLegendWidget(
                                                     entries: [
@@ -1700,9 +1693,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                           MainAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 16.0, 16.0, 16.0),
+                                          padding: EdgeInsets.all(16.0),
                                           child: Container(
                                             width: 350.0,
                                             height: 300.0,
@@ -1800,7 +1791,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                                 Align(
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -1.00, -1.00),
+                                                          -1.0, -1.0),
                                                   child:
                                                       FlutterFlowChartLegendWidget(
                                                     entries: [

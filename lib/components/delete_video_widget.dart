@@ -170,7 +170,7 @@ class _DeleteVideoWidgetState extends State<DeleteVideoWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     '525f07j2' /* No */,
@@ -214,7 +214,7 @@ class _DeleteVideoWidgetState extends State<DeleteVideoWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'biw5w0hc' /* Yes */,

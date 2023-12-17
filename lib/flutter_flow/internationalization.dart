@@ -7265,26 +7265,43 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Actualizar',
     },
   },
+  // GroupLeadersSet
+  {
+    '5kq0lugy': {
+      'en':
+          'You must set the group leaders before creating or editing a group.',
+      'es':
+          'Debe aceptar nuestros términos y condiciones antes de crear una cuenta.',
+    },
+    'jebhkc3o': {
+      'en': 'Done',
+      'es': 'Hecho',
+    },
+  },
+  // MoreMembersNeeded
+  {
+    'ilv717ki': {
+      'en': 'This group needs more than one member to start a chat.',
+      'es':
+          'Debe aceptar nuestros términos y condiciones antes de crear una cuenta.',
+    },
+    'ee8prv17': {
+      'en': 'Done',
+      'es': 'Hecho',
+    },
+  },
   // Miscellaneous
   {
     '9on1ycgr': {
-      'en':
-          'In order to upload a profile and background picture, this app requires permission to access the camera.',
+      'en': '',
       'es': '',
     },
     'te724s3i': {
-      'en':
-          'In order to upload a profile and background picture, this app requires permission to access the photo library.',
+      'en': '',
       'es': '',
     },
     'xfdyz49j': {
-      'en':
-          'In order to dictate messages, this app requires permission to access the microphone.',
-      'es': '',
-    },
-    'ntzrpe2v': {
-      'en':
-          'In order to show the welcome screen upon arrival to the church location, this app requres permission to access the user location.',
+      'en': '',
       'es': '',
     },
     'gait77qy': {

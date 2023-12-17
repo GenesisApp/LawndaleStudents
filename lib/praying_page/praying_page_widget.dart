@@ -222,7 +222,7 @@ class _PrayingPageWidgetState extends State<PrayingPageWidget>
           child: Stack(
             children: [
               Align(
-                alignment: AlignmentDirectional(0.00, 1.50),
+                alignment: AlignmentDirectional(0.0, 1.5),
                 child: AuthUserStreamWidget(
                   builder: (context) => FlutterFlowYoutubePlayer(
                     url:
@@ -406,7 +406,7 @@ for thi... */
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 2.0, 0.0),
@@ -422,7 +422,7 @@ for thi... */
                 ),
               if (_model.urlVisible ?? true)
                 Align(
-                  alignment: AlignmentDirectional(0.00, -0.90),
+                  alignment: AlignmentDirectional(0.0, -0.9),
                   child: InkWell(
                     splashColor: Colors.transparent,
                     focusColor: Colors.transparent,
@@ -440,7 +440,7 @@ for thi... */
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 0.0),

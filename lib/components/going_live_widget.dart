@@ -191,7 +191,7 @@ class _GoingLiveWidgetState extends State<GoingLiveWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '2ehbar9h' /* No */,
@@ -243,7 +243,7 @@ class _GoingLiveWidgetState extends State<GoingLiveWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '7agwvp2k' /* Yes */,

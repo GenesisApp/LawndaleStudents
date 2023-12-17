@@ -96,7 +96,7 @@ class _LanguageSelectorBSWidgetState extends State<LanguageSelectorBSWidget> {
                                     ),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.globeAmericas,
                                       color:
@@ -182,7 +182,7 @@ class _LanguageSelectorBSWidgetState extends State<LanguageSelectorBSWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'epp1lfnv' /* Done */,

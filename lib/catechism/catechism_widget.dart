@@ -341,7 +341,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 0.0, 0.0),
@@ -847,9 +847,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -968,8 +966,8 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .menu_book_rounded,
@@ -1031,7 +1029,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -1129,9 +1127,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1189,7 +1185,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -1363,9 +1359,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1481,8 +1475,8 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .menu_book_rounded,
@@ -1544,7 +1538,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -1642,9 +1636,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1702,7 +1694,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -1876,9 +1868,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -1994,8 +1984,8 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .menu_book_rounded,
@@ -2057,7 +2047,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -2155,9 +2145,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2215,7 +2203,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -2389,9 +2377,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2510,8 +2496,8 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                               child: Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Icon(
                                                                   Icons
                                                                       .menu_book_rounded,
@@ -2573,7 +2559,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(
@@ -2671,9 +2657,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                 BorderRadius.circular(16.0),
                                           ),
                                           child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    8.0, 8.0, 8.0, 8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -2731,7 +2715,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Container(
                                                           width:
                                                               MediaQuery.sizeOf(

@@ -1015,7 +1015,7 @@ class _HeartCheckWidgetState extends State<HeartCheckWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'jyavb4wf' /* Cancel */,
@@ -1110,7 +1110,7 @@ class _HeartCheckWidgetState extends State<HeartCheckWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               '9w8jkied' /* Submit */,

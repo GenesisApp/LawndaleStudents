@@ -92,8 +92,7 @@ class _NotificationSentWidgetState extends State<NotificationSentWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 10.0, 10.0, 10.0),
+                                      padding: EdgeInsets.all(10.0),
                                       child: Icon(
                                         Icons.edit_notifications_rounded,
                                         color: FlutterFlowTheme.of(context)
@@ -176,7 +175,7 @@ class _NotificationSentWidgetState extends State<NotificationSentWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'rvh7sxeo' /* Done */,

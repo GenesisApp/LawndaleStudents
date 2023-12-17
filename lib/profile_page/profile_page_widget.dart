@@ -558,9 +558,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          1.0, 1.0, 1.0, 1.0),
+                                                  padding: EdgeInsets.all(1.0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -667,7 +665,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 false))
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 1.00),
+                                                    0.0, 1.0),
                                                 child: AuthUserStreamWidget(
                                                   builder: (context) => FaIcon(
                                                     FontAwesomeIcons.heartbeat,
@@ -723,7 +721,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -812,12 +810,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               ))
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0),
+                                                                  EdgeInsets
+                                                                      .all(2.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
@@ -855,12 +849,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                               ))
                                                             Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0,
-                                                                          2.0),
+                                                                  EdgeInsets
+                                                                      .all(2.0),
                                                               child: ClipRRect(
                                                                 borderRadius:
                                                                     BorderRadius
@@ -981,7 +971,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           ],
                         ),
                         Align(
-                          alignment: AlignmentDirectional(1.00, 0.00),
+                          alignment: AlignmentDirectional(1.0, 0.0),
                           child: StreamBuilder<List<FriendRequestsRecord>>(
                             stream: queryFriendRequestsRecord(
                               queryBuilder: (friendRequestsRecord) =>
@@ -1070,8 +1060,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Icon(
                                               Icons.error_outline,
                                               color:
@@ -1091,7 +1081,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, -1.00),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 30.0, 20.0, 0.0),
@@ -1123,8 +1113,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       shape: BoxShape.circle,
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             3.0, 0.0, 0.0, 0.0),
@@ -1600,7 +1589,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: FaIcon(
                                                       FontAwesomeIcons.lock,
                                                       color: FlutterFlowTheme
@@ -1793,7 +1782,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: FaIcon(
                                                       FontAwesomeIcons.lock,
                                                       color: FlutterFlowTheme
@@ -2002,7 +1991,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: FaIcon(
                                                         FontAwesomeIcons.lock,
                                                         color: FlutterFlowTheme
@@ -2207,7 +2196,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: FaIcon(
                                                         FontAwesomeIcons.lock,
                                                         color: FlutterFlowTheme
@@ -2412,7 +2401,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: FaIcon(
                                                         FontAwesomeIcons.lock,
                                                         color: FlutterFlowTheme
@@ -2617,7 +2606,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                     child: Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: FaIcon(
                                                         FontAwesomeIcons.lock,
                                                         color: FlutterFlowTheme
@@ -2842,7 +2831,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -2948,7 +2937,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -3078,7 +3067,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: FaIcon(
                                                   FontAwesomeIcons.heartbeat,
                                                   color: FlutterFlowTheme.of(
@@ -3233,7 +3222,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   child: Align(
                                                     alignment:
                                                         AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: FaIcon(
                                                       FontAwesomeIcons
                                                           .handHoldingHeart,
@@ -3303,7 +3292,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 height: MediaQuery.sizeOf(context).height * 0.125,

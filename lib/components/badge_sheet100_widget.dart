@@ -216,7 +216,7 @@ class _BadgeSheet100WidgetState extends State<BadgeSheet100Widget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         '79skgj7p' /* Done */,

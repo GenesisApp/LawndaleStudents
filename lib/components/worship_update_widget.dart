@@ -170,7 +170,7 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
@@ -739,8 +739,7 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           'it34pd1m' /* Cancel */,
@@ -848,8 +847,7 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           '9mszrby6' /* Submit */,

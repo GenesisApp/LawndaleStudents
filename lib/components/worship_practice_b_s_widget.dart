@@ -172,7 +172,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                   decoration: BoxDecoration(),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: FlutterFlowYoutubePlayer(
                     url: widget.dailyPractice!.dailyPracticeVideoURL,
                     width: MediaQuery.sizeOf(context).width * 1.0,
@@ -699,7 +699,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                               ),
                                               child: Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Icon(
                                                   Icons.menu_book_rounded,
                                                   color: FlutterFlowTheme.of(
@@ -957,7 +957,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
             desktop: false,
           ))
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -994,7 +994,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(0.00, 1.00),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(),
@@ -1328,8 +1328,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .arrowCircleUp,
@@ -1400,8 +1399,8 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: FaIcon(
                                                                   FontAwesomeIcons
                                                                       .arrowCircleUp,
@@ -1474,7 +1473,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                 height: double.infinity,
                 decoration: BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(0.70, -0.48),
+                  alignment: AlignmentDirectional(0.7, -0.48),
                   child: Container(
                     width: 140.0,
                     decoration: BoxDecoration(
@@ -1529,8 +1528,8 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -1583,8 +1582,8 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             ),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(

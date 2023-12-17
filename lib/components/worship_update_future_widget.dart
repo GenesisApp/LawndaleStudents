@@ -131,7 +131,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                           backgroundColor: Color(0x00FEFDEC),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -759,7 +759,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'ofjbchb6' /* Cancel */,
@@ -853,7 +853,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'sabmtdlk' /* Submit */,

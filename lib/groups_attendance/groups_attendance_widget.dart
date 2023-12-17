@@ -413,7 +413,7 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Icon(
                             Icons.edit_note_rounded,
                             color: FlutterFlowTheme.of(context).secondary,

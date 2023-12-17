@@ -375,7 +375,7 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Icon(
                                           Icons.add_photo_alternate,
                                           color: FlutterFlowTheme.of(context)
@@ -859,7 +859,7 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'wxxhh1ag' /* Cancel */,
@@ -951,7 +951,7 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'n10azk23' /* Submit */,

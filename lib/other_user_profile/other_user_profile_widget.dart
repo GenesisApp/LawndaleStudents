@@ -497,9 +497,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                 ),
                                               ),
                                               child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        1.0, 1.0, 1.0, 1.0),
+                                                padding: EdgeInsets.all(1.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -600,7 +598,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                 true)
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 1.00),
+                                                    0.0, 1.0),
                                                 child: FaIcon(
                                                   FontAwesomeIcons.heartbeat,
                                                   color: FlutterFlowTheme.of(
@@ -647,7 +645,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -731,12 +729,8 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                             ))
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0),
+                                                                EdgeInsets.all(
+                                                                    2.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
@@ -774,12 +768,8 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                             ))
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0),
+                                                                EdgeInsets.all(
+                                                                    2.0),
                                                             child: ClipRRect(
                                                               borderRadius:
                                                                   BorderRadius
@@ -985,7 +975,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                       ],
                     ),
                     Align(
-                      alignment: AlignmentDirectional(0.00, -0.43),
+                      alignment: AlignmentDirectional(0.0, -0.43),
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
@@ -1026,7 +1016,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                       children: [
                                         Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1622,7 +1612,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons.lock,
                                                           color: FlutterFlowTheme
@@ -1828,7 +1818,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons.lock,
                                                           color: FlutterFlowTheme
@@ -2036,7 +2026,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons.lock,
                                                           color: FlutterFlowTheme
@@ -2244,7 +2234,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons.lock,
                                                           color: FlutterFlowTheme
@@ -2452,7 +2442,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons.lock,
                                                           color: FlutterFlowTheme
@@ -2660,7 +2650,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: FaIcon(
                                                           FontAwesomeIcons.lock,
                                                           color: FlutterFlowTheme
@@ -3186,8 +3176,8 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                             ),
                                           ),
                                           Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -3344,7 +3334,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                     Align(
                                                       alignment:
                                                           AlignmentDirectional(
-                                                              0.00, 0.00),
+                                                              0.0, 0.0),
                                                       child: Padding(
                                                         padding:
                                                             EdgeInsetsDirectional
@@ -3589,7 +3579,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
@@ -3705,7 +3695,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                         Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -3840,12 +3830,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       Brightness.dark)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0),
+                                                          EdgeInsets.all(6.0),
                                                       child: SvgPicture.asset(
                                                         'assets/images/flame-fill.svg',
                                                         width: double.infinity,
@@ -3858,12 +3843,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       Brightness.dark))
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0),
+                                                          EdgeInsets.all(5.0),
                                                       child: SvgPicture.asset(
                                                         'assets/images/flame-fill_(2).svg',
                                                         width: double.infinity,
@@ -3998,12 +3978,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       Brightness.dark)
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0),
+                                                          EdgeInsets.all(5.0),
                                                       child: SvgPicture.asset(
                                                         'assets/images/bookmarks-simple-fill_(4).svg',
                                                         width: double.infinity,
@@ -4016,12 +3991,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       Brightness.dark))
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0,
-                                                                  5.0),
+                                                          EdgeInsets.all(5.0),
                                                       child: SvgPicture.asset(
                                                         'assets/images/bookmarks-simple-fill_(2).svg',
                                                         width: double.infinity,
@@ -4268,12 +4238,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                         Brightness.dark)
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    5.0,
-                                                                    5.0,
-                                                                    5.0,
-                                                                    5.0),
+                                                            EdgeInsets.all(5.0),
                                                         child: SvgPicture.asset(
                                                           'assets/images/leaf-fill_(1).svg',
                                                           width:
@@ -4287,12 +4252,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                         Brightness.dark))
                                                       Padding(
                                                         padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    5.0,
-                                                                    5.0,
-                                                                    5.0,
-                                                                    5.0),
+                                                            EdgeInsets.all(5.0),
                                                         child: SvgPicture.asset(
                                                           'assets/images/leaf-fill.svg',
                                                           width:

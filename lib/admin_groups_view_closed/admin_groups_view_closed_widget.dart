@@ -143,12 +143,12 @@ class _AdminGroupsViewClosedWidgetState
           width: MediaQuery.sizeOf(context).width * 1.0,
           decoration: BoxDecoration(),
           child: Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Stack(
               alignment: AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
@@ -648,9 +648,9 @@ class _AdminGroupsViewClosedWidgetState
                                                                                 borderRadius: BorderRadius.circular(100.0),
                                                                               ),
                                                                               child: Align(
-                                                                                alignment: AlignmentDirectional(-0.30, 0.00),
+                                                                                alignment: AlignmentDirectional(-0.3, 0.0),
                                                                                 child: Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(1.0, 1.0, 1.0, 1.0),
+                                                                                  padding: EdgeInsets.all(1.0),
                                                                                   child: Hero(
                                                                                     tag: valueOrDefault<String>(
                                                                                       cardUsersRecord.photoUrl,
@@ -864,15 +864,11 @@ class _AdminGroupsViewClosedWidgetState
                                                         child: Align(
                                                           alignment:
                                                               AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        8.0,
-                                                                        8.0,
-                                                                        8.0,
-                                                                        8.0),
+                                                                EdgeInsets.all(
+                                                                    8.0),
                                                             child: Text(
                                                               'Meeting time: ${gridViewGroupsRecord.videoLength}',
                                                               style: FlutterFlowTheme
@@ -931,15 +927,11 @@ class _AdminGroupsViewClosedWidgetState
                                                           child: Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Padding(
                                                               padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0,
-                                                                          8.0),
+                                                                  EdgeInsets
+                                                                      .all(8.0),
                                                               child: Text(
                                                                 FFLocalizations.of(
                                                                         context)

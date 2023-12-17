@@ -333,9 +333,7 @@ class _ScriptureArchivesWidgetState extends State<ScriptureArchivesWidget>
                                       if (Theme.of(context).brightness ==
                                           Brightness.dark)
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 5.0, 5.0, 5.0),
+                                          padding: EdgeInsets.all(5.0),
                                           child: SvgPicture.asset(
                                             'assets/images/bookmarks-simple-fill_(4).svg',
                                             width: double.infinity,
@@ -346,9 +344,7 @@ class _ScriptureArchivesWidgetState extends State<ScriptureArchivesWidget>
                                       if (!(Theme.of(context).brightness ==
                                           Brightness.dark))
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  5.0, 5.0, 5.0, 5.0),
+                                          padding: EdgeInsets.all(5.0),
                                           child: SvgPicture.asset(
                                             'assets/images/bookmarks-simple-fill_(2).svg',
                                             width: double.infinity,

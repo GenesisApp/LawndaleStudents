@@ -90,7 +90,7 @@ class _JournalPreviewWidgetState extends State<JournalPreviewWidget> {
                 borderRadius: BorderRadius.circular(16.0),
               ),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                padding: EdgeInsets.all(8.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -410,7 +410,7 @@ class _JournalPreviewWidgetState extends State<JournalPreviewWidget> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Container(
                               height: 25.0,
                               decoration: BoxDecoration(

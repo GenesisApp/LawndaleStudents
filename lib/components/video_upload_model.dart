@@ -4,6 +4,7 @@ import '/backend/firebase_storage/storage.dart';
 import '/components/featured_notification_events_widget.dart';
 import '/components/featured_notification_groups_widget.dart';
 import '/components/featured_notification_videos_widget.dart';
+import '/components/group_leaders_set_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';

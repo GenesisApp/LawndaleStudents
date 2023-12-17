@@ -219,7 +219,7 @@ class _ChatExistsWidgetState extends State<ChatExistsWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'wa2497o1' /* No */,
@@ -294,7 +294,7 @@ class _ChatExistsWidgetState extends State<ChatExistsWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
                                         'yfcvfbnf' /* Yes */,

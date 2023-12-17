@@ -207,9 +207,9 @@ String? checkIfMorning() {
     return 'morning';
   } else if (now.hour >= 10 && now.hour < 14) {
     return 'midday';
-  } else if (now.hour >= 14 && now.hour < 16) {
+  } else if (now.hour >= 14 && now.hour < 17) {
     return 'afternoon';
-  } else if (now.hour >= 16 && now.hour < 20) {
+  } else if (now.hour >= 17 && now.hour < 20) {
     return 'evening';
   } else {
     return 'nighttime';

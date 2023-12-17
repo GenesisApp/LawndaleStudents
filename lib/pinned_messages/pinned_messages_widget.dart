@@ -180,7 +180,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
+                      alignment: AlignmentDirectional(0.0, 0.0),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             0.0, 20.0, 0.0, 12.0),
@@ -190,14 +190,13 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                             alignment: AlignmentDirectional(0.0, 0.0),
                             children: [
                               Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
                                           '9syw2ig5' /* Pinned Messages */,
@@ -218,7 +217,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.00, 0.00),
+                                alignment: AlignmentDirectional(-1.0, 0.0),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 10.0, 0.0),
@@ -240,7 +239,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                 ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(1.00, 0.00),
+                                alignment: AlignmentDirectional(1.0, 0.0),
                                 child: Container(
                                   width: 45.0,
                                   height: 45.0,
@@ -380,7 +379,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                 if (columnMessagesRecord.user !=
                                     currentUserReference)
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 8.0),
@@ -1064,11 +1063,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            10.0,
-                                                                            10.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             10.0),
                                                                     child: Text(
                                                                       columnMessagesRecord
@@ -1381,11 +1377,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                   ),
                                                                   child:
                                                                       Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            10.0,
-                                                                            10.0,
-                                                                            10.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             10.0),
                                                                     child: Text(
                                                                       columnMessagesRecord
@@ -1451,8 +1444,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                               Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -1602,12 +1595,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                           ),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0),
+                                                                EdgeInsets.all(
+                                                                    2.0),
                                                             child: Container(
                                                               decoration:
                                                                   BoxDecoration(
@@ -1633,9 +1622,10 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                           .spaceEvenly,
                                                                   children: [
                                                                     Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          0.00,
-                                                                          0.00),
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
                                                                       child:
                                                                           Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -2161,7 +2151,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                 if (columnMessagesRecord.user ==
                                     currentUserReference)
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 8.0),
@@ -2844,11 +2834,9 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              10.0),
                                                                       child:
                                                                           Text(
                                                                         columnMessagesRecord
@@ -3173,11 +3161,9 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                     ),
                                                                     child:
                                                                         Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0,
-                                                                          10.0),
+                                                                      padding:
+                                                                          EdgeInsets.all(
+                                                                              10.0),
                                                                       child:
                                                                           Text(
                                                                         columnMessagesRecord
@@ -3343,12 +3329,8 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0,
-                                                                        2.0),
+                                                                EdgeInsets.all(
+                                                                    2.0),
                                                             child: Container(
                                                               decoration:
                                                                   BoxDecoration(

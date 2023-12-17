@@ -132,7 +132,7 @@ class _PrayerUpdateFutureWidgetState extends State<PrayerUpdateFutureWidget> {
                           backgroundColor: Color(0x00FEFDEC),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -758,7 +758,7 @@ class _PrayerUpdateFutureWidgetState extends State<PrayerUpdateFutureWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'u2fdv7qj' /* Cancel */,
@@ -852,7 +852,7 @@ class _PrayerUpdateFutureWidgetState extends State<PrayerUpdateFutureWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'c26bryy2' /* Submit */,

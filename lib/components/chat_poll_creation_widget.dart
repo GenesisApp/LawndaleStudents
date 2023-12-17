@@ -115,8 +115,7 @@ class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
+                            padding: EdgeInsets.all(10.0),
                             child: FaIcon(
                               FontAwesomeIcons.poll,
                               color: FlutterFlowTheme.of(context).systemGray,
@@ -845,8 +844,7 @@ class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                8.0, 8.0, 8.0, 8.0),
+                            padding: EdgeInsets.all(8.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -964,7 +962,7 @@ class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       '2kirdntn' /* Cancel */,
@@ -1158,7 +1156,7 @@ class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'evv418ul' /* Submit */,

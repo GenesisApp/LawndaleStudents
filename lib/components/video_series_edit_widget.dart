@@ -347,8 +347,7 @@ class _VideoSeriesEditWidgetState extends State<VideoSeriesEditWidget>
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
+                                      alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Icon(
                                         Icons.add_photo_alternate,
                                         color: FlutterFlowTheme.of(context)
@@ -755,8 +754,8 @@ class _VideoSeriesEditWidgetState extends State<VideoSeriesEditWidget>
                                                 BorderRadius.circular(8.0),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
@@ -835,8 +834,8 @@ class _VideoSeriesEditWidgetState extends State<VideoSeriesEditWidget>
                                                 BorderRadius.circular(8.0),
                                           ),
                                           child: Align(
-                                            alignment: AlignmentDirectional(
-                                                0.00, 0.00),
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(

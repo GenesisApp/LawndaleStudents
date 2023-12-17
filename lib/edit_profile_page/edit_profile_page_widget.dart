@@ -403,7 +403,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.camera,
                                       color: FlutterFlowTheme.of(context)
@@ -444,8 +444,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                     shape: BoxShape.circle,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        2.0, 2.0, 2.0, 2.0),
+                                    padding: EdgeInsets.all(2.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => ClipRRect(
                                         borderRadius:
@@ -476,7 +475,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: 40.0,
                                     height: 40.0,
@@ -578,7 +577,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.camera,
                                             color: FlutterFlowTheme.of(context)
@@ -1240,7 +1239,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-1.00, 0.00),
+                                  alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         50.0, 20.0, 16.0, 0.0),
@@ -1351,7 +1350,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
@@ -1435,7 +1434,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(

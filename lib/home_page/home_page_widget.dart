@@ -1079,8 +1079,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               shape: BoxShape.circle,
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(2.0, 2.0, 2.0, 2.0),
+                                              padding: EdgeInsets.all(2.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) => ClipRRect(
                                                   borderRadius:
@@ -1878,15 +1877,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
             )),
           ),
           body: Align(
-            alignment: AlignmentDirectional(0.00, 0.00),
+            alignment: AlignmentDirectional(0.0, 0.0),
             child: Stack(
               alignment: AlignmentDirectional(0.0, 0.0),
               children: [
                 Align(
-                  alignment: AlignmentDirectional(0.00, -1.00),
+                  alignment: AlignmentDirectional(0.0, -1.0),
                   child: Container(
                     width: double.infinity,
-                    height: MediaQuery.sizeOf(context).height * 0.3,
+                    height: MediaQuery.sizeOf(context).height * 0.28,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context)
                           .secondarySystemBackground,
@@ -1912,11 +1911,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               fadeInDuration: Duration(milliseconds: 300),
                               fadeOutDuration: Duration(milliseconds: 300),
                               imageUrl:
-                                  'https://images.unsplash.com/photo-1567510534272-07e0f621b6d3?q=80&w=3465&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                                  'https://images.unsplash.com/photo-1533387520709-752d83de3630?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              height: MediaQuery.sizeOf(context).height * 0.28,
                               fit: BoxFit.cover,
-                              alignment: Alignment(0.00, -1.00),
+                              alignment: Alignment(0.0, 0.0),
                             ),
                           ),
                         if ((functions.checkIfMorning() == 'midday') ||
@@ -1934,9 +1933,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               imageUrl:
                                   'https://images.unsplash.com/photo-1558895035-256342677f83?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              height: MediaQuery.sizeOf(context).height * 0.28,
                               fit: BoxFit.cover,
-                              alignment: Alignment(0.00, -1.00),
+                              alignment: Alignment(0.0, -1.0),
                             ),
                           ),
                         if (functions.checkIfMorning() == 'evening')
@@ -1953,9 +1952,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               imageUrl:
                                   'https://images.unsplash.com/photo-1543007299-5925cf759ee4?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              height: MediaQuery.sizeOf(context).height * 0.28,
                               fit: BoxFit.cover,
-                              alignment: Alignment(0.00, -1.00),
+                              alignment: Alignment(0.0, -1.0),
                             ),
                           ),
                         if (functions.checkIfMorning() == 'nighttime')
@@ -1972,9 +1971,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               imageUrl:
                                   'https://images.unsplash.com/photo-1579707812346-7ad7a0997f8e?q=80&w=3368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                               width: double.infinity,
-                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              height: MediaQuery.sizeOf(context).height * 0.28,
                               fit: BoxFit.cover,
-                              alignment: Alignment(0.00, -1.00),
+                              alignment: Alignment(0.0, -1.0),
                             ),
                           ),
                       ],
@@ -1995,72 +1994,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                width: double.infinity,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.06,
-                                decoration: BoxDecoration(),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Align(
-                                      alignment:
-                                          AlignmentDirectional(0.00, 0.00),
-                                      child: FlutterFlowTimer(
-                                        initialTime: _model.timerMilliseconds,
-                                        getDisplayTime: (value) =>
-                                            StopWatchTimer.getDisplayTime(
-                                          value,
-                                          hours: false,
-                                          milliSecond: false,
-                                        ),
-                                        controller: _model.timerController,
-                                        updateStateInterval:
-                                            Duration(milliseconds: 500),
-                                        onChanged:
-                                            (value, displayTime, shouldUpdate) {
-                                          _model.timerMilliseconds = value;
-                                          _model.timerValue = displayTime;
-                                          if (shouldUpdate) setState(() {});
-                                        },
-                                        onEnded: () async {
-                                          await currentUserReference!
-                                              .update(createUsersRecordData(
-                                            notificationCount:
-                                                homePageMessageChatsRecordList
-                                                    .length,
-                                          ));
-                                          await Future.delayed(const Duration(
-                                              milliseconds: 1000));
-                                          _model.badgeCount =
-                                              await actions.appBadge(
-                                            valueOrDefault(
-                                                currentUserDocument
-                                                    ?.notificationCount,
-                                                0),
-                                          );
-
-                                          setState(() {});
-                                        },
-                                        textAlign: TextAlign.start,
-                                        style: FlutterFlowTheme.of(context)
-                                            .headlineSmall
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              color: Colors.transparent,
-                                              fontSize: 12.0,
-                                              useGoogleFonts: false,
-                                            ),
-                                      ),
-                                    ),
-                                  ],
+                              if (MediaQuery.sizeOf(context).height > 700.0)
+                                Container(
+                                  width: double.infinity,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.06,
+                                  decoration: BoxDecoration(),
                                 ),
-                              ),
+                              if (MediaQuery.sizeOf(context).height < 700.0)
+                                Container(
+                                  width: double.infinity,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.02,
+                                  decoration: BoxDecoration(),
+                                ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 5.0, 20.0, 15.0),
+                                    20.0, 5.0, 20.0, 16.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
@@ -2177,7 +2127,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 false)
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: Container(
                                                   width: 200.0,
                                                   height: 30.0,
@@ -2264,11 +2214,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           .languageCode,
                                                                     ))
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            2.0,
-                                                                            2.0,
-                                                                            2.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -2304,11 +2251,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           .languageCode,
                                                                     ))
                                                                   Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            2.0,
-                                                                            2.0,
-                                                                            2.0,
+                                                                    padding:
+                                                                        EdgeInsets.all(
                                                                             2.0),
                                                                     child:
                                                                         ClipRRect(
@@ -2398,7 +2342,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                 true)
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -2569,6 +2513,62 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                     color: Colors.transparent,
                                   ),
                                 ),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: FlutterFlowTimer(
+                                        initialTime: _model.timerMilliseconds,
+                                        getDisplayTime: (value) =>
+                                            StopWatchTimer.getDisplayTime(
+                                          value,
+                                          hours: false,
+                                          milliSecond: false,
+                                        ),
+                                        controller: _model.timerController,
+                                        updateStateInterval:
+                                            Duration(milliseconds: 500),
+                                        onChanged:
+                                            (value, displayTime, shouldUpdate) {
+                                          _model.timerMilliseconds = value;
+                                          _model.timerValue = displayTime;
+                                          if (shouldUpdate) setState(() {});
+                                        },
+                                        onEnded: () async {
+                                          await currentUserReference!
+                                              .update(createUsersRecordData(
+                                            notificationCount:
+                                                homePageMessageChatsRecordList
+                                                    .length,
+                                          ));
+                                          await Future.delayed(const Duration(
+                                              milliseconds: 1000));
+                                          _model.badgeCount =
+                                              await actions.appBadge(
+                                            valueOrDefault(
+                                                currentUserDocument
+                                                    ?.notificationCount,
+                                                0),
+                                          );
+
+                                          setState(() {});
+                                        },
+                                        textAlign: TextAlign.start,
+                                        style: FlutterFlowTheme.of(context)
+                                            .headlineSmall
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              color: Colors.transparent,
+                                              fontSize: 12.0,
+                                              useGoogleFonts: false,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -2650,12 +2650,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         color: Colors.white,
                                       ),
                                 ),
-                              ),
-                              Container(
-                                width: double.infinity,
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.01,
-                                decoration: BoxDecoration(),
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
@@ -2827,7 +2821,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     CircularPercentIndicator(
@@ -2922,7 +2916,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             ),
                                             Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: AuthUserStreamWidget(
                                                 builder: (context) =>
                                                     CircularPercentIndicator(
@@ -3123,7 +3117,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: AuthUserStreamWidget(
                                                   builder: (context) =>
                                                       CircularPercentIndicator(
@@ -3333,7 +3327,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   rowUsersRecordList[rowIndex];
                                               return Align(
                                                 alignment: AlignmentDirectional(
-                                                    -0.98, 0.00),
+                                                    -0.98, 0.0),
                                                 child: Container(
                                                   width: 30.0,
                                                   height: 30.0,
@@ -3357,7 +3351,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   ),
                                                   alignment:
                                                       AlignmentDirectional(
-                                                          -0.80, 0.00),
+                                                          -0.8, 0.0),
                                                 ).animateOnPageLoad(animationsMap[
                                                     'containerOnPageLoadAnimation2']!),
                                               );
@@ -3367,7 +3361,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(-0.50, 0.00),
+                                            AlignmentDirectional(-0.5, 0.0),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -3431,7 +3425,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -3456,7 +3450,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           FFLocalizations.of(
                                                                   context)
@@ -3481,7 +3475,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
-                                                                0.00, 0.00),
+                                                                0.0, 0.0),
                                                         child: Text(
                                                           valueOrDefault<
                                                               String>(
@@ -3513,7 +3507,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.35),
+                                            AlignmentDirectional(0.0, 0.35),
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
@@ -3744,12 +3738,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               BoxDecoration(),
                                                           child: Padding(
                                                             padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        6.0,
-                                                                        6.0,
-                                                                        6.0,
-                                                                        6.0),
+                                                                EdgeInsets.all(
+                                                                    6.0),
                                                             child: Column(
                                                               mainAxisSize:
                                                                   MainAxisSize
@@ -4040,8 +4030,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         child:
                                                                             Align(
                                                                           alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
+                                                                              0.0,
+                                                                              0.0),
                                                                           child:
                                                                               Text(
                                                                             FFLocalizations.of(context).getText(
@@ -4064,12 +4054,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0),
+                                                          EdgeInsets.all(6.0),
                                                       child: Container(
                                                         width:
                                                             MediaQuery.sizeOf(
@@ -4338,12 +4323,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0,
-                                                                  6.0),
+                                                          EdgeInsets.all(6.0),
                                                       child: FutureBuilder<
                                                           List<
                                                               PrayerRequestsRecord>>(
@@ -4621,7 +4601,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(
-                                                    0.00, 1.50),
+                                                    0.0, 1.5),
                                                 child: Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -4686,7 +4666,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 10.0, 16.0, 0.0),
+                                    20.0, 10.0, 20.0, 0.0),
                                 child: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
                                   decoration: BoxDecoration(),
@@ -4791,11 +4771,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 Brightness.dark)
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            6.0,
-                                                                            6.0,
-                                                                            6.0,
+                                                                    EdgeInsets
+                                                                        .all(
                                                                             6.0),
                                                                 child:
                                                                     SvgPicture
@@ -4815,11 +4792,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     .dark))
                                                               Padding(
                                                                 padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5.0,
-                                                                            5.0,
-                                                                            5.0,
+                                                                    EdgeInsets
+                                                                        .all(
                                                                             5.0),
                                                                 child:
                                                                     SvgPicture
@@ -4880,69 +4854,45 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    8.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                Container(
-                                                                  width: 30.0,
-                                                                  height: 82.0,
-                                                                  child: Stack(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    children: [
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              Container(
+                                                                width: 30.0,
+                                                                height: 82.0,
+                                                                child: Stack(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  children: [
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
                                                                               0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              60.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.completed1, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation1']!),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             0.0,
-                                                                            20.0),
+                                                                            60.0),
                                                                         child:
                                                                             AuthUserStreamWidget(
                                                                           builder: (context) =>
@@ -4953,89 +4903,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                             size:
                                                                                 3.0,
-                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation2']!),
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation1']!),
                                                                         ),
                                                                       ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            20.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            AuthUserStreamWidget(
-                                                                          builder: (context) =>
-                                                                              FaIcon(
-                                                                            FontAwesomeIcons.solidCircle,
-                                                                            color: valueOrDefault<bool>(currentUserDocument?.completed1, false)
-                                                                                ? FlutterFlowTheme.of(context).tertiary
-                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                            size:
-                                                                                3.0,
-                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation3']!),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            60.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            AuthUserStreamWidget(
-                                                                          builder: (context) =>
-                                                                              FaIcon(
-                                                                            FontAwesomeIcons.solidCircle,
-                                                                            color: valueOrDefault<bool>(currentUserDocument?.completed1, false)
-                                                                                ? FlutterFlowTheme.of(context).tertiary
-                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                            size:
-                                                                                3.0,
-                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation4']!),
-                                                                        ),
-                                                                      ),
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              80.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.completed1, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation5']!),
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            40.0),
-                                                                        child:
-                                                                            AuthUserStreamWidget(
-                                                                          builder: (context) =>
-                                                                              FaIcon(
-                                                                            FontAwesomeIcons.solidCircle,
-                                                                            color: valueOrDefault<bool>(currentUserDocument?.completed1, false)
-                                                                                ? FlutterFlowTheme.of(context).tertiary
-                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                            size:
-                                                                                3.0,
-                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation6']!),
-                                                                        ),
-                                                                      ),
-                                                                      AuthUserStreamWidget(
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          20.0),
+                                                                      child:
+                                                                          AuthUserStreamWidget(
                                                                         builder:
                                                                             (context) =>
                                                                                 FaIcon(
@@ -5046,14 +4925,63 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                           size:
                                                                               3.0,
-                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation7']!),
+                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation2']!),
                                                                       ),
-                                                                      Padding(
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          20.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          AuthUserStreamWidget(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color: valueOrDefault<bool>(currentUserDocument?.completed1, false)
+                                                                              ? FlutterFlowTheme.of(context).tertiary
+                                                                              : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation3']!),
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          60.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          AuthUserStreamWidget(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color: valueOrDefault<bool>(currentUserDocument?.completed1, false)
+                                                                              ? FlutterFlowTheme.of(context).tertiary
+                                                                              : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation4']!),
+                                                                      ),
+                                                                    ),
+                                                                    Align(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      child:
+                                                                          Padding(
                                                                         padding: EdgeInsetsDirectional.fromSTEB(
                                                                             0.0,
-                                                                            40.0,
                                                                             0.0,
-                                                                            0.0),
+                                                                            0.0,
+                                                                            80.0),
                                                                         child:
                                                                             AuthUserStreamWidget(
                                                                           builder: (context) =>
@@ -5064,15 +4992,73 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                             size:
                                                                                 3.0,
-                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation8']!),
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation5']!),
                                                                         ),
                                                                       ),
-                                                                    ],
-                                                                  ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          40.0),
+                                                                      child:
+                                                                          AuthUserStreamWidget(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color: valueOrDefault<bool>(currentUserDocument?.completed1, false)
+                                                                              ? FlutterFlowTheme.of(context).tertiary
+                                                                              : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation6']!),
+                                                                      ),
+                                                                    ),
+                                                                    AuthUserStreamWidget(
+                                                                      builder: (context) =>
+                                                                          FaIcon(
+                                                                        FontAwesomeIcons
+                                                                            .solidCircle,
+                                                                        color: valueOrDefault<bool>(currentUserDocument?.completed1,
+                                                                                false)
+                                                                            ? FlutterFlowTheme.of(context).tertiary
+                                                                            : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                        size:
+                                                                            3.0,
+                                                                      ).animateOnPageLoad(
+                                                                              animationsMap['iconOnPageLoadAnimation7']!),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          40.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          AuthUserStreamWidget(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color: valueOrDefault<bool>(currentUserDocument?.completed1, false)
+                                                                              ? FlutterFlowTheme.of(context).tertiary
+                                                                              : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation8']!),
+                                                                      ),
+                                                                    ),
+                                                                  ],
                                                                 ),
-                                                              ],
-                                                            ),
-                                                            Padding(
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Expanded(
+                                                            child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -5137,116 +5123,119 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           crossAxisAlignment:
                                                                               CrossAxisAlignment.center,
                                                                           children: [
-                                                                            Container(
-                                                                              width: MediaQuery.sizeOf(context).width * 0.49,
-                                                                              decoration: BoxDecoration(
-                                                                                color: Colors.transparent,
-                                                                              ),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 25.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: AutoSizeText(
-                                                                                      expandableDailyPracticeVideosRecord!.practiceName,
-                                                                                      maxLines: 1,
-                                                                                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            fontFamily: 'Inter',
-                                                                                            color: FlutterFlowTheme.of(context).label,
-                                                                                          ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 18.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.headphonesAlt,
-                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                          size: 14.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                          child: AutoSizeText(
-                                                                                            valueOrDefault<String>(
-                                                                                              expandableDailyPracticeVideosRecord?.practiceDescription,
-                                                                                              'Worship Video',
-                                                                                            ).maybeHandleOverflow(
-                                                                                              maxChars: 25,
-                                                                                              replacement: '…',
+                                                                            Flexible(
+                                                                              child: Container(
+                                                                                decoration: BoxDecoration(
+                                                                                  color: Colors.transparent,
+                                                                                ),
+                                                                                child: Column(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                  children: [
+                                                                                    Container(
+                                                                                      width: double.infinity,
+                                                                                      height: 25.0,
+                                                                                      decoration: BoxDecoration(),
+                                                                                      child: AutoSizeText(
+                                                                                        expandableDailyPracticeVideosRecord!.practiceName,
+                                                                                        maxLines: 1,
+                                                                                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                              fontFamily: 'Inter',
+                                                                                              color: FlutterFlowTheme.of(context).label,
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  fontSize: 12.0,
-                                                                                                ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 18.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.clock,
-                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                          size: 14.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                          child: AutoSizeText(
-                                                                                            valueOrDefault<String>(
-                                                                                              expandableDailyPracticeVideosRecord?.practiceLength,
-                                                                                              '5 minutes',
-                                                                                            ).maybeHandleOverflow(
-                                                                                              maxChars: 25,
-                                                                                              replacement: '…',
+                                                                                    Container(
+                                                                                      width: double.infinity,
+                                                                                      height: 18.0,
+                                                                                      decoration: BoxDecoration(),
+                                                                                      child: Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          FaIcon(
+                                                                                            FontAwesomeIcons.headphonesAlt,
+                                                                                            color: FlutterFlowTheme.of(context).secondary,
+                                                                                            size: 14.0,
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                            child: AutoSizeText(
+                                                                                              valueOrDefault<String>(
+                                                                                                expandableDailyPracticeVideosRecord?.practiceDescription,
+                                                                                                'Worship Video',
+                                                                                              ).maybeHandleOverflow(
+                                                                                                maxChars: 25,
+                                                                                                replacement: '…',
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Inter',
+                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                    fontSize: 12.0,
+                                                                                                  ),
                                                                                             ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  fontSize: 12.0,
-                                                                                                ),
                                                                                           ),
-                                                                                        ),
-                                                                                      ],
+                                                                                        ],
+                                                                                      ),
                                                                                     ),
-                                                                                  ),
-                                                                                ],
+                                                                                    Container(
+                                                                                      width: double.infinity,
+                                                                                      height: 18.0,
+                                                                                      decoration: BoxDecoration(),
+                                                                                      child: Row(
+                                                                                        mainAxisSize: MainAxisSize.max,
+                                                                                        children: [
+                                                                                          FaIcon(
+                                                                                            FontAwesomeIcons.clock,
+                                                                                            color: FlutterFlowTheme.of(context).secondary,
+                                                                                            size: 14.0,
+                                                                                          ),
+                                                                                          Padding(
+                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                            child: AutoSizeText(
+                                                                                              valueOrDefault<String>(
+                                                                                                expandableDailyPracticeVideosRecord?.practiceLength,
+                                                                                                '5 minutes',
+                                                                                              ).maybeHandleOverflow(
+                                                                                                maxChars: 25,
+                                                                                                replacement: '…',
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: 'Inter',
+                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                    fontSize: 12.0,
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ),
+                                                                                        ],
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
-                                                                              child: Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.2,
-                                                                                height: MediaQuery.sizeOf(context).height * 0.06,
-                                                                                decoration: BoxDecoration(
-                                                                                  borderRadius: BorderRadius.circular(12.0),
-                                                                                ),
+                                                                            Flexible(
+                                                                              child: Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                 child: Container(
-                                                                                  width: 100.0,
+                                                                                  width: 75.0,
+                                                                                  height: 50.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).tertiarySystemBackground,
                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                   ),
-                                                                                  child: Align(
-                                                                                    alignment: AlignmentDirectional(0.00, 0.00),
-                                                                                    child: Icon(
-                                                                                      Icons.play_arrow_rounded,
-                                                                                      color: FlutterFlowTheme.of(context).secondary,
-                                                                                      size: 40.0,
+                                                                                  child: Container(
+                                                                                    width: 100.0,
+                                                                                    decoration: BoxDecoration(
+                                                                                      color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                      borderRadius: BorderRadius.circular(12.0),
+                                                                                    ),
+                                                                                    child: Align(
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                                                                      child: Icon(
+                                                                                        Icons.play_arrow_rounded,
+                                                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                                                        size: 40.0,
+                                                                                      ),
                                                                                     ),
                                                                                   ),
                                                                                 ),
@@ -5270,8 +5259,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   animationsMap[
                                                                       'containerOnPageLoadAnimation5']!),
                                                             ),
-                                                          ],
-                                                        ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
@@ -5287,70 +5276,54 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         CrossAxisAlignment
                                                             .start,
                                                     children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    8.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceBetween,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .start,
-                                                              children: [
-                                                                if (!valueOrDefault<
-                                                                        bool>(
-                                                                    currentUserDocument
-                                                                        ?.completed1,
-                                                                    false))
-                                                                  AuthUserStreamWidget(
-                                                                    builder:
-                                                                        (context) =>
-                                                                            Container(
-                                                                      width:
-                                                                          30.0,
-                                                                      height:
-                                                                          142.0,
-                                                                      child:
-                                                                          Stack(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
+                                                      Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              if (!valueOrDefault<
+                                                                      bool>(
+                                                                  currentUserDocument
+                                                                      ?.completed1,
+                                                                  false))
+                                                                AuthUserStreamWidget(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          Container(
+                                                                    width: 30.0,
+                                                                    height:
+                                                                        142.0,
+                                                                    child:
+                                                                        Stack(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      children: [
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
-                                                                                20.0),
+                                                                                60.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5358,71 +5331,63 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                20.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              size: 3.0,
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                120.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              size: 3.0,
-                                                                            ),
-                                                                          ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                40.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              size: 3.0,
-                                                                            ),
-                                                                          ),
-                                                                          FaIcon(
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              20.0),
+                                                                          child:
+                                                                              FaIcon(
                                                                             FontAwesomeIcons.solidCircle,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                             size:
                                                                                 3.0,
                                                                           ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              20.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              120.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                40.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                140.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5430,51 +5395,56 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              40.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
+                                                                        ),
+                                                                        FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              40.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                60.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                80.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5482,12 +5452,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                80.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                100.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5495,12 +5471,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                100.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                120.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5508,48 +5490,86 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                        ],
-                                                                      ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              60.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              80.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              100.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                      ],
                                                                     ),
                                                                   ),
-                                                                if (valueOrDefault<
-                                                                        bool>(
-                                                                    currentUserDocument
-                                                                        ?.completed1,
-                                                                    false))
-                                                                  AuthUserStreamWidget(
-                                                                    builder:
-                                                                        (context) =>
-                                                                            Container(
-                                                                      width:
-                                                                          30.0,
-                                                                      height:
-                                                                          142.0,
-                                                                      child:
-                                                                          Stack(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        children: [
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
+                                                                ),
+                                                              if (valueOrDefault<
+                                                                      bool>(
+                                                                  currentUserDocument
+                                                                      ?.completed1,
+                                                                  false))
+                                                                AuthUserStreamWidget(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          Container(
+                                                                    width: 30.0,
+                                                                    height:
+                                                                        142.0,
+                                                                    child:
+                                                                        Stack(
+                                                                      alignment:
+                                                                          AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                      children: [
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
                                                                                 0.0,
                                                                                 0.0,
-                                                                                20.0),
+                                                                                60.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5557,71 +5577,63 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                20.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: FlutterFlowTheme.of(context).tertiary,
-                                                                              size: 3.0,
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                120.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: FlutterFlowTheme.of(context).tertiary,
-                                                                              size: 3.0,
-                                                                            ),
-                                                                          ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                40.0),
-                                                                            child:
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: FlutterFlowTheme.of(context).tertiary,
-                                                                              size: 3.0,
-                                                                            ),
-                                                                          ),
-                                                                          FaIcon(
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              20.0),
+                                                                          child:
+                                                                              FaIcon(
                                                                             FontAwesomeIcons.solidCircle,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).tertiary,
                                                                             size:
                                                                                 3.0,
                                                                           ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              20.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              120.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                40.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                140.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5629,51 +5641,56 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              0.0,
+                                                                              0.0,
+                                                                              40.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
+                                                                        ),
+                                                                        FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).tertiary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              40.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
                                                                           ),
-                                                                          Align(
-                                                                            alignment:
-                                                                                AlignmentDirectional(0.00, 0.00),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                60.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                80.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5681,12 +5698,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                80.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                100.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5694,12 +5717,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                          Padding(
+                                                                        ),
+                                                                        Align(
+                                                                          alignment: AlignmentDirectional(
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 0.0,
-                                                                                100.0,
                                                                                 0.0,
-                                                                                0.0),
+                                                                                0.0,
+                                                                                120.0),
                                                                             child:
                                                                                 FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
@@ -5707,13 +5736,60 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               size: 3.0,
                                                                             ),
                                                                           ),
-                                                                        ],
-                                                                      ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              60.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              80.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              0.0,
+                                                                              100.0,
+                                                                              0.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                        ),
+                                                                      ],
                                                                     ),
                                                                   ),
-                                                              ],
-                                                            ),
-                                                            Padding(
+                                                                ),
+                                                            ],
+                                                          ),
+                                                          Expanded(
+                                                            child: Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
@@ -5726,10 +5802,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             context)
                                                                         .width *
                                                                     0.78,
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    0.16,
+                                                                height: 125.0,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius:
@@ -5879,8 +5952,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             Padding(
                                                                               padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                               child: Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.2,
-                                                                                height: MediaQuery.sizeOf(context).height * 0.06,
+                                                                                width: 75.0,
+                                                                                height: 50.0,
                                                                                 decoration: BoxDecoration(
                                                                                   borderRadius: BorderRadius.circular(12.0),
                                                                                 ),
@@ -5892,7 +5965,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                   ),
                                                                                   child: Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                    padding: EdgeInsets.all(8.0),
                                                                                     child: Container(
                                                                                       width: 40.0,
                                                                                       height: 40.0,
@@ -5965,8 +6038,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 MainAxisAlignment.spaceEvenly,
                                                                             children: [
                                                                               Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.32,
-                                                                                height: MediaQuery.sizeOf(context).height * 0.048,
+                                                                                width: 120.0,
+                                                                                height: 38.0,
                                                                                 decoration: BoxDecoration(
                                                                                   color: FlutterFlowTheme.of(context).tertiarySystemBackground,
                                                                                   borderRadius: BorderRadius.circular(8.0),
@@ -6006,7 +6079,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                         size: 28.0,
                                                                                       ),
                                                                                       Align(
-                                                                                        alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                        alignment: AlignmentDirectional(0.0, 0.0),
                                                                                         child: Text(
                                                                                           FFLocalizations.of(context).getText(
                                                                                             'v5201155' /* START */,
@@ -6025,8 +6098,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               if (!valueOrDefault<bool>(currentUserDocument?.admin, false))
                                                                                 AuthUserStreamWidget(
                                                                                   builder: (context) => Container(
-                                                                                    width: MediaQuery.sizeOf(context).width * 0.32,
-                                                                                    height: MediaQuery.sizeOf(context).height * 0.048,
+                                                                                    width: 120.0,
+                                                                                    height: 38.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).tertiarySystemBackground,
                                                                                       borderRadius: BorderRadius.circular(8.0),
@@ -6039,7 +6112,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                         highlightColor: Colors.transparent,
                                                                                         onTap: () async {
                                                                                           await Share.share(
-                                                                                            'Checkout today\'s worship journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                                                                            'Checkout today\'s worship journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
                                                                                             sharePositionOrigin: getWidgetBoundingBox(context),
                                                                                           );
                                                                                         },
@@ -6053,7 +6126,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                               size: 16.0,
                                                                                             ),
                                                                                             Align(
-                                                                                              alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                                               child: Text(
                                                                                                 FFLocalizations.of(context).getText(
                                                                                                   'pd2tuzi3' /* SHARE */,
@@ -6074,8 +6147,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               if (valueOrDefault<bool>(currentUserDocument?.admin, false))
                                                                                 AuthUserStreamWidget(
                                                                                   builder: (context) => Container(
-                                                                                    width: MediaQuery.sizeOf(context).width * 0.32,
-                                                                                    height: MediaQuery.sizeOf(context).height * 0.048,
+                                                                                    width: 120.0,
+                                                                                    height: 38.0,
                                                                                     decoration: BoxDecoration(
                                                                                       color: FlutterFlowTheme.of(context).tertiarySystemBackground,
                                                                                       borderRadius: BorderRadius.circular(8.0),
@@ -6115,7 +6188,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                             size: 20.0,
                                                                                           ),
                                                                                           Align(
-                                                                                            alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                            alignment: AlignmentDirectional(0.0, 0.0),
                                                                                             child: Text(
                                                                                               FFLocalizations.of(context).getText(
                                                                                                 'j2kzeiw9' /* UPDATE */,
@@ -6141,8 +6214,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 ),
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
+                                                          ),
+                                                        ],
                                                       ),
                                                     ],
                                                   ),
@@ -6263,12 +6336,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   Brightness
                                                                       .dark)
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          5.0,
-                                                                          5.0,
-                                                                          5.0),
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              5.0),
                                                                   child:
                                                                       SvgPicture
                                                                           .asset(
@@ -6287,12 +6358,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   Brightness
                                                                       .dark))
                                                                 Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5.0,
-                                                                          5.0,
-                                                                          5.0,
-                                                                          5.0),
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              5.0),
                                                                   child:
                                                                       SvgPicture
                                                                           .asset(
@@ -6352,71 +6421,44 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Container(
-                                                                    width: 30.0,
-                                                                    height:
-                                                                        82.0,
-                                                                    child:
-                                                                        Stack(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      children: [
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                60.0),
-                                                                            child:
-                                                                                AuthUserStreamWidget(
-                                                                              builder: (context) => FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: valueOrDefault<bool>(currentUserDocument?.completed2, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                                size: 3.0,
-                                                                              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation9']!),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Container(
+                                                                  width: 30.0,
+                                                                  height: 82.0,
+                                                                  child: Stack(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    children: [
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
-                                                                              20.0),
+                                                                              60.0),
                                                                           child:
                                                                               AuthUserStreamWidget(
                                                                             builder: (context) =>
@@ -6424,79 +6466,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: valueOrDefault<bool>(currentUserDocument?.completed2, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                               size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation10']!),
+                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation9']!),
                                                                           ),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              20.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.completed2, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation11']!),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              60.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.completed2, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation12']!),
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                80.0),
-                                                                            child:
-                                                                                AuthUserStreamWidget(
-                                                                              builder: (context) => FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: valueOrDefault<bool>(currentUserDocument?.completed2, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                                size: 3.0,
-                                                                              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation13']!),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              40.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.completed2, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation14']!),
-                                                                          ),
-                                                                        ),
-                                                                        AuthUserStreamWidget(
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            20.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
                                                                           builder: (context) =>
                                                                               FaIcon(
                                                                             FontAwesomeIcons.solidCircle,
@@ -6505,14 +6486,58 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                             size:
                                                                                 3.0,
-                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation15']!),
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation10']!),
                                                                         ),
-                                                                        Padding(
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.completed2, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation11']!),
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            60.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.completed2, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation12']!),
+                                                                        ),
+                                                                      ),
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
-                                                                              40.0,
                                                                               0.0,
-                                                                              0.0),
+                                                                              0.0,
+                                                                              80.0),
                                                                           child:
                                                                               AuthUserStreamWidget(
                                                                             builder: (context) =>
@@ -6520,15 +6545,68 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: valueOrDefault<bool>(currentUserDocument?.completed2, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                               size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation16']!),
+                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation13']!),
                                                                           ),
                                                                         ),
-                                                                      ],
-                                                                    ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            40.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.completed2, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation14']!),
+                                                                        ),
+                                                                      ),
+                                                                      AuthUserStreamWidget(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color: valueOrDefault<bool>(currentUserDocument?.completed2, false)
+                                                                              ? FlutterFlowTheme.of(context).tertiary
+                                                                              : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation15']!),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            40.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.completed2, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation16']!),
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                ],
-                                                              ),
-                                                              Padding(
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Expanded(
+                                                              child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
@@ -6594,103 +6672,104 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
-                                                                              Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.49,
-                                                                                decoration: BoxDecoration(
-                                                                                  color: Colors.transparent,
-                                                                                ),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      width: double.infinity,
-                                                                                      height: 25.0,
-                                                                                      decoration: BoxDecoration(),
-                                                                                      child: AutoSizeText(
-                                                                                        expandableDailyPracticeVideosRecord!.practiceName,
-                                                                                        maxLines: 1,
-                                                                                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).label,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Container(
-                                                                                      width: double.infinity,
-                                                                                      height: 18.0,
-                                                                                      decoration: BoxDecoration(),
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          FaIcon(
-                                                                                            FontAwesomeIcons.headphonesAlt,
-                                                                                            color: FlutterFlowTheme.of(context).secondary,
-                                                                                            size: 14.0,
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                            child: AutoSizeText(
-                                                                                              valueOrDefault<String>(
-                                                                                                expandableDailyPracticeVideosRecord?.practiceDescription,
-                                                                                                'Scripture Video',
-                                                                                              ).maybeHandleOverflow(
-                                                                                                maxChars: 25,
-                                                                                                replacement: '…',
+                                                                              Flexible(
+                                                                                child: Container(
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: Colors.transparent,
+                                                                                  ),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Container(
+                                                                                        width: double.infinity,
+                                                                                        height: 25.0,
+                                                                                        decoration: BoxDecoration(),
+                                                                                        child: AutoSizeText(
+                                                                                          expandableDailyPracticeVideosRecord!.practiceName,
+                                                                                          maxLines: 1,
+                                                                                          style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).label,
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                    fontSize: 12.0,
-                                                                                                  ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      Container(
+                                                                                        width: double.infinity,
+                                                                                        height: 18.0,
+                                                                                        decoration: BoxDecoration(),
+                                                                                        child: Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            FaIcon(
+                                                                                              FontAwesomeIcons.headphonesAlt,
+                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                              size: 14.0,
                                                                                             ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ),
-                                                                                    Container(
-                                                                                      width: double.infinity,
-                                                                                      height: 18.0,
-                                                                                      decoration: BoxDecoration(
-                                                                                        color: Colors.transparent,
-                                                                                      ),
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          FaIcon(
-                                                                                            FontAwesomeIcons.clock,
-                                                                                            color: FlutterFlowTheme.of(context).secondary,
-                                                                                            size: 14.0,
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                            child: AutoSizeText(
-                                                                                              valueOrDefault<String>(
-                                                                                                expandableDailyPracticeVideosRecord?.practiceLength,
-                                                                                                '5 minutes',
-                                                                                              ).maybeHandleOverflow(
-                                                                                                maxChars: 25,
-                                                                                                replacement: '…',
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                              child: AutoSizeText(
+                                                                                                valueOrDefault<String>(
+                                                                                                  expandableDailyPracticeVideosRecord?.practiceDescription,
+                                                                                                  'Scripture Video',
+                                                                                                ).maybeHandleOverflow(
+                                                                                                  maxChars: 25,
+                                                                                                  replacement: '…',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                      fontSize: 12.0,
+                                                                                                    ),
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                    fontSize: 12.0,
-                                                                                                  ),
                                                                                             ),
-                                                                                          ),
-                                                                                        ],
+                                                                                          ],
+                                                                                        ),
                                                                                       ),
-                                                                                    ),
-                                                                                  ],
+                                                                                      Container(
+                                                                                        width: double.infinity,
+                                                                                        height: 18.0,
+                                                                                        decoration: BoxDecoration(
+                                                                                          color: Colors.transparent,
+                                                                                        ),
+                                                                                        child: Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            FaIcon(
+                                                                                              FontAwesomeIcons.clock,
+                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                              size: 14.0,
+                                                                                            ),
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                              child: AutoSizeText(
+                                                                                                valueOrDefault<String>(
+                                                                                                  expandableDailyPracticeVideosRecord?.practiceLength,
+                                                                                                  '5 minutes',
+                                                                                                ).maybeHandleOverflow(
+                                                                                                  maxChars: 25,
+                                                                                                  replacement: '…',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                      fontSize: 12.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                 child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.2,
-                                                                                  height: MediaQuery.sizeOf(context).height * 0.06,
+                                                                                  width: 75.0,
+                                                                                  height: 50.0,
                                                                                   decoration: BoxDecoration(
                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                   ),
@@ -6702,7 +6781,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                       borderRadius: BorderRadius.circular(12.0),
                                                                                     ),
                                                                                     child: Align(
-                                                                                      alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Icon(
                                                                                         Icons.play_arrow_rounded,
                                                                                         color: FlutterFlowTheme.of(context).secondary,
@@ -6730,8 +6809,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         animationsMap[
                                                                             'containerOnPageLoadAnimation7']!),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ],
                                                     ),
@@ -6748,330 +6827,426 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  if (!valueOrDefault<
-                                                                          bool>(
-                                                                      currentUserDocument
-                                                                          ?.completed2,
-                                                                      false))
-                                                                    AuthUserStreamWidget(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              Container(
-                                                                        width:
-                                                                            30.0,
-                                                                        height:
-                                                                            142.0,
-                                                                        child:
-                                                                            Stack(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          children: [
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                if (!valueOrDefault<
+                                                                        bool>(
+                                                                    currentUserDocument
+                                                                        ?.completed2,
+                                                                    false))
+                                                                  AuthUserStreamWidget(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Container(
+                                                                      width:
+                                                                          30.0,
+                                                                      height:
+                                                                          142.0,
+                                                                      child:
+                                                                          Stack(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 120.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            FaIcon(
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                20.0),
+                                                                            child:
+                                                                                FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: FlutterFlowTheme.of(context).secondary,
                                                                               size: 3.0,
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                20.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                120.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                40.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                40.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                          ],
-                                                                        ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                60.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                80.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                100.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                        ],
                                                                       ),
                                                                     ),
-                                                                  if (valueOrDefault<
-                                                                          bool>(
-                                                                      currentUserDocument
-                                                                          ?.completed2,
-                                                                      false))
-                                                                    AuthUserStreamWidget(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              Container(
-                                                                        width:
-                                                                            30.0,
-                                                                        height:
-                                                                            142.0,
-                                                                        child:
-                                                                            Stack(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          children: [
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                                                                  ),
+                                                                if (valueOrDefault<
+                                                                        bool>(
+                                                                    currentUserDocument
+                                                                        ?.completed2,
+                                                                    false))
+                                                                  AuthUserStreamWidget(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Container(
+                                                                      width:
+                                                                          30.0,
+                                                                      height:
+                                                                          142.0,
+                                                                      child:
+                                                                          Stack(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 120.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            FaIcon(
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                20.0),
+                                                                            child:
+                                                                                FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: FlutterFlowTheme.of(context).tertiary,
                                                                               size: 3.0,
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                20.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                120.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                40.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                40.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                          ],
-                                                                        ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                60.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                80.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                100.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                        ],
                                                                       ),
                                                                     ),
-                                                                ],
-                                                              ),
-                                                              Padding(
+                                                                  ),
+                                                              ],
+                                                            ),
+                                                            Expanded(
+                                                              child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
@@ -7085,10 +7260,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               context)
                                                                           .width *
                                                                       0.78,
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      0.16,
+                                                                  height: 125.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     borderRadius:
@@ -7234,8 +7406,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                 child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.2,
-                                                                                  height: MediaQuery.sizeOf(context).height * 0.06,
+                                                                                  width: 75.0,
+                                                                                  height: 50.0,
                                                                                   decoration: BoxDecoration(
                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                   ),
@@ -7247,7 +7419,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                       borderRadius: BorderRadius.circular(12.0),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                      padding: EdgeInsets.all(8.0),
                                                                                       child: Container(
                                                                                         width: 40.0,
                                                                                         height: 40.0,
@@ -7358,7 +7530,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                           size: 28.0,
                                                                                         ),
                                                                                         Align(
-                                                                                          alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             FFLocalizations.of(context).getText(
                                                                                               '1vct4loq' /* START */,
@@ -7391,7 +7563,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                           highlightColor: Colors.transparent,
                                                                                           onTap: () async {
                                                                                             await Share.share(
-                                                                                              'Checkout today\'s scripture journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                                                                              'Checkout today\'s scripture journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
                                                                                               sharePositionOrigin: getWidgetBoundingBox(context),
                                                                                             );
                                                                                           },
@@ -7405,7 +7577,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                                 size: 16.0,
                                                                                               ),
                                                                                               Align(
-                                                                                                alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   FFLocalizations.of(context).getText(
                                                                                                     '25pzst71' /* SHARE */,
@@ -7467,7 +7639,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                               size: 20.0,
                                                                                             ),
                                                                                             Align(
-                                                                                              alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                                               child: Text(
                                                                                                 FFLocalizations.of(context).getText(
                                                                                                   'vgf7hsev' /* UPDATE */,
@@ -7493,8 +7665,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ],
                                                     ),
@@ -7631,71 +7803,44 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Container(
-                                                                    width: 30.0,
-                                                                    height:
-                                                                        90.0,
-                                                                    child:
-                                                                        Stack(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                      children: [
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                60.0),
-                                                                            child:
-                                                                                AuthUserStreamWidget(
-                                                                              builder: (context) => FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: valueOrDefault<bool>(currentUserDocument?.complete3, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                                size: 3.0,
-                                                                              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation17']!),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                Container(
+                                                                  width: 30.0,
+                                                                  height: 90.0,
+                                                                  child: Stack(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    children: [
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
                                                                               0.0,
                                                                               0.0,
-                                                                              20.0),
+                                                                              60.0),
                                                                           child:
                                                                               AuthUserStreamWidget(
                                                                             builder: (context) =>
@@ -7703,79 +7848,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: valueOrDefault<bool>(currentUserDocument?.complete3, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                               size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation18']!),
+                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation17']!),
                                                                           ),
                                                                         ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              20.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.complete3, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation19']!),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              60.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.complete3, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation20']!),
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.00,
-                                                                              0.00),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                80.0),
-                                                                            child:
-                                                                                AuthUserStreamWidget(
-                                                                              builder: (context) => FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: valueOrDefault<bool>(currentUserDocument?.complete3, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                                size: 3.0,
-                                                                              ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation21']!),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              40.0),
-                                                                          child:
-                                                                              AuthUserStreamWidget(
-                                                                            builder: (context) =>
-                                                                                FaIcon(
-                                                                              FontAwesomeIcons.solidCircle,
-                                                                              color: valueOrDefault<bool>(currentUserDocument?.complete3, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
-                                                                              size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation22']!),
-                                                                          ),
-                                                                        ),
-                                                                        AuthUserStreamWidget(
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            20.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
                                                                           builder: (context) =>
                                                                               FaIcon(
                                                                             FontAwesomeIcons.solidCircle,
@@ -7784,14 +7868,58 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                             size:
                                                                                 3.0,
-                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation23']!),
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation18']!),
                                                                         ),
-                                                                        Padding(
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            20.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.complete3, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation19']!),
+                                                                        ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            60.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.complete3, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation20']!),
+                                                                        ),
+                                                                      ),
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Padding(
                                                                           padding: EdgeInsetsDirectional.fromSTEB(
                                                                               0.0,
-                                                                              40.0,
                                                                               0.0,
-                                                                              0.0),
+                                                                              0.0,
+                                                                              80.0),
                                                                           child:
                                                                               AuthUserStreamWidget(
                                                                             builder: (context) =>
@@ -7799,15 +7927,68 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: valueOrDefault<bool>(currentUserDocument?.complete3, false) ? FlutterFlowTheme.of(context).tertiary : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                               size: 3.0,
-                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation24']!),
+                                                                            ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation21']!),
                                                                           ),
                                                                         ),
-                                                                      ],
-                                                                    ),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            40.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.complete3, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation22']!),
+                                                                        ),
+                                                                      ),
+                                                                      AuthUserStreamWidget(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                FaIcon(
+                                                                          FontAwesomeIcons
+                                                                              .solidCircle,
+                                                                          color: valueOrDefault<bool>(currentUserDocument?.complete3, false)
+                                                                              ? FlutterFlowTheme.of(context).tertiary
+                                                                              : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                          size:
+                                                                              3.0,
+                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation23']!),
+                                                                      ),
+                                                                      Padding(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                                            0.0,
+                                                                            40.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            AuthUserStreamWidget(
+                                                                          builder: (context) =>
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color: valueOrDefault<bool>(currentUserDocument?.complete3, false)
+                                                                                ? FlutterFlowTheme.of(context).tertiary
+                                                                                : FlutterFlowTheme.of(context).textFieldColorSecondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation24']!),
+                                                                        ),
+                                                                      ),
+                                                                    ],
                                                                   ),
-                                                                ],
-                                                              ),
-                                                              Padding(
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Expanded(
+                                                              child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
@@ -7873,101 +8054,102 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             crossAxisAlignment:
                                                                                 CrossAxisAlignment.center,
                                                                             children: [
-                                                                              Container(
-                                                                                width: MediaQuery.sizeOf(context).width * 0.49,
-                                                                                decoration: BoxDecoration(
-                                                                                  color: Colors.transparent,
-                                                                                ),
-                                                                                child: Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    Container(
-                                                                                      width: double.infinity,
-                                                                                      height: 25.0,
-                                                                                      decoration: BoxDecoration(),
-                                                                                      child: AutoSizeText(
-                                                                                        expandableDailyPracticeVideosRecord!.practiceName,
-                                                                                        maxLines: 1,
-                                                                                        style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).label,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Container(
-                                                                                      width: double.infinity,
-                                                                                      height: 18.0,
-                                                                                      decoration: BoxDecoration(),
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          FaIcon(
-                                                                                            FontAwesomeIcons.headphonesAlt,
-                                                                                            color: FlutterFlowTheme.of(context).secondary,
-                                                                                            size: 14.0,
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                            child: AutoSizeText(
-                                                                                              valueOrDefault<String>(
-                                                                                                expandableDailyPracticeVideosRecord?.practiceDescription,
-                                                                                                'Guided Prayer',
-                                                                                              ).maybeHandleOverflow(
-                                                                                                maxChars: 25,
-                                                                                                replacement: '…',
+                                                                              Flexible(
+                                                                                child: Container(
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: Colors.transparent,
+                                                                                  ),
+                                                                                  child: Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                                                    children: [
+                                                                                      Container(
+                                                                                        width: double.infinity,
+                                                                                        height: 25.0,
+                                                                                        decoration: BoxDecoration(),
+                                                                                        child: AutoSizeText(
+                                                                                          expandableDailyPracticeVideosRecord!.practiceName,
+                                                                                          maxLines: 1,
+                                                                                          style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).label,
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                    fontSize: 12.0,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
+                                                                                        ),
                                                                                       ),
-                                                                                    ),
-                                                                                    Container(
-                                                                                      width: double.infinity,
-                                                                                      height: 18.0,
-                                                                                      decoration: BoxDecoration(),
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        children: [
-                                                                                          FaIcon(
-                                                                                            FontAwesomeIcons.clock,
-                                                                                            color: FlutterFlowTheme.of(context).secondary,
-                                                                                            size: 14.0,
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                            child: AutoSizeText(
-                                                                                              valueOrDefault<String>(
-                                                                                                expandableDailyPracticeVideosRecord?.practiceLength,
-                                                                                                '5 minutes',
-                                                                                              ).maybeHandleOverflow(
-                                                                                                maxChars: 25,
-                                                                                                replacement: '…',
+                                                                                      Container(
+                                                                                        width: double.infinity,
+                                                                                        height: 18.0,
+                                                                                        decoration: BoxDecoration(),
+                                                                                        child: Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            FaIcon(
+                                                                                              FontAwesomeIcons.headphonesAlt,
+                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                              size: 14.0,
+                                                                                            ),
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                              child: AutoSizeText(
+                                                                                                valueOrDefault<String>(
+                                                                                                  expandableDailyPracticeVideosRecord?.practiceDescription,
+                                                                                                  'Guided Prayer',
+                                                                                                ).maybeHandleOverflow(
+                                                                                                  maxChars: 25,
+                                                                                                  replacement: '…',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                      fontSize: 12.0,
+                                                                                                    ),
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                    fontSize: 12.0,
-                                                                                                  ),
                                                                                             ),
-                                                                                          ),
-                                                                                        ],
+                                                                                          ],
+                                                                                        ),
                                                                                       ),
-                                                                                    ),
-                                                                                  ],
+                                                                                      Container(
+                                                                                        width: double.infinity,
+                                                                                        height: 18.0,
+                                                                                        decoration: BoxDecoration(),
+                                                                                        child: Row(
+                                                                                          mainAxisSize: MainAxisSize.max,
+                                                                                          children: [
+                                                                                            FaIcon(
+                                                                                              FontAwesomeIcons.clock,
+                                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                                              size: 14.0,
+                                                                                            ),
+                                                                                            Padding(
+                                                                                              padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                              child: AutoSizeText(
+                                                                                                valueOrDefault<String>(
+                                                                                                  expandableDailyPracticeVideosRecord?.practiceLength,
+                                                                                                  '5 minutes',
+                                                                                                ).maybeHandleOverflow(
+                                                                                                  maxChars: 25,
+                                                                                                  replacement: '…',
+                                                                                                ),
+                                                                                                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                      fontFamily: 'Inter',
+                                                                                                      color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                      fontSize: 12.0,
+                                                                                                    ),
+                                                                                              ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
                                                                                 ),
                                                                               ),
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                 child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.2,
-                                                                                  height: MediaQuery.sizeOf(context).height * 0.06,
+                                                                                  width: 75.0,
+                                                                                  height: 50.0,
                                                                                   decoration: BoxDecoration(
                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                   ),
@@ -7979,7 +8161,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                       borderRadius: BorderRadius.circular(12.0),
                                                                                     ),
                                                                                     child: Align(
-                                                                                      alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                      alignment: AlignmentDirectional(0.0, 0.0),
                                                                                       child: Icon(
                                                                                         Icons.play_arrow_rounded,
                                                                                         color: FlutterFlowTheme.of(context).secondary,
@@ -8007,8 +8189,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         animationsMap[
                                                                             'containerOnPageLoadAnimation8']!),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ],
                                                     ),
@@ -8025,330 +8207,426 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           CrossAxisAlignment
                                                               .start,
                                                       children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceBetween,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  if (!valueOrDefault<
-                                                                          bool>(
-                                                                      currentUserDocument
-                                                                          ?.complete3,
-                                                                      false))
-                                                                    AuthUserStreamWidget(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              Container(
-                                                                        width:
-                                                                            30.0,
-                                                                        height:
-                                                                            150.0,
-                                                                        child:
-                                                                            Stack(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          children: [
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                                                        Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                if (!valueOrDefault<
+                                                                        bool>(
+                                                                    currentUserDocument
+                                                                        ?.complete3,
+                                                                    false))
+                                                                  AuthUserStreamWidget(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Container(
+                                                                      width:
+                                                                          30.0,
+                                                                      height:
+                                                                          150.0,
+                                                                      child:
+                                                                          Stack(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 120.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            FaIcon(
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                20.0),
+                                                                            child:
+                                                                                FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: FlutterFlowTheme.of(context).secondary,
                                                                               size: 3.0,
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                20.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                120.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                40.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                40.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).secondary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                          ],
-                                                                        ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                60.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                80.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                100.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                        ],
                                                                       ),
                                                                     ),
-                                                                  if (valueOrDefault<
-                                                                          bool>(
-                                                                      currentUserDocument
-                                                                          ?.complete3,
-                                                                      false))
-                                                                    AuthUserStreamWidget(
-                                                                      builder:
-                                                                          (context) =>
-                                                                              Container(
-                                                                        width:
-                                                                            30.0,
-                                                                        height:
-                                                                            150.0,
-                                                                        child:
-                                                                            Stack(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          children: [
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                                                                  ),
+                                                                if (valueOrDefault<
+                                                                        bool>(
+                                                                    currentUserDocument
+                                                                        ?.complete3,
+                                                                    false))
+                                                                  AuthUserStreamWidget(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            Container(
+                                                                      width:
+                                                                          30.0,
+                                                                      height:
+                                                                          150.0,
+                                                                      child:
+                                                                          Stack(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 60.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 120.0, 0.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 40.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidCircle,
-                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                size: 3.0,
-                                                                              ),
-                                                                            ),
-                                                                            FaIcon(
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                20.0),
+                                                                            child:
+                                                                                FaIcon(
                                                                               FontAwesomeIcons.solidCircle,
                                                                               color: FlutterFlowTheme.of(context).tertiary,
                                                                               size: 3.0,
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                20.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                120.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 140.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                40.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
+                                                                          ),
+                                                                          FaIcon(
+                                                                            FontAwesomeIcons.solidCircle,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).tertiary,
+                                                                            size:
+                                                                                3.0,
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                40.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
                                                                             ),
-                                                                            Align(
-                                                                              alignment: AlignmentDirectional(0.00, 0.00),
-                                                                              child: Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
-                                                                                child: FaIcon(
-                                                                                  FontAwesomeIcons.solidCircle,
-                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                  size: 3.0,
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 80.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 80.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                                                                          ),
+                                                                          Align(
+                                                                            alignment:
+                                                                                AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 120.0),
                                                                               child: FaIcon(
                                                                                 FontAwesomeIcons.solidCircle,
                                                                                 color: FlutterFlowTheme.of(context).tertiary,
                                                                                 size: 3.0,
                                                                               ),
                                                                             ),
-                                                                          ],
-                                                                        ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                60.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                80.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                0.0,
+                                                                                100.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidCircle,
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              size: 3.0,
+                                                                            ),
+                                                                          ),
+                                                                        ],
                                                                       ),
                                                                     ),
-                                                                ],
-                                                              ),
-                                                              Padding(
+                                                                  ),
+                                                              ],
+                                                            ),
+                                                            Expanded(
+                                                              child: Padding(
                                                                 padding:
                                                                     EdgeInsetsDirectional
                                                                         .fromSTEB(
@@ -8362,10 +8640,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               context)
                                                                           .width *
                                                                       0.78,
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      0.16,
+                                                                  height: 125.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     borderRadius:
@@ -8514,8 +8789,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               Padding(
                                                                                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                                                                                 child: Container(
-                                                                                  width: MediaQuery.sizeOf(context).width * 0.2,
-                                                                                  height: MediaQuery.sizeOf(context).height * 0.06,
+                                                                                  width: 75.0,
+                                                                                  height: 50.0,
                                                                                   decoration: BoxDecoration(
                                                                                     borderRadius: BorderRadius.circular(12.0),
                                                                                   ),
@@ -8527,7 +8802,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                       borderRadius: BorderRadius.circular(12.0),
                                                                                     ),
                                                                                     child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                                                                                      padding: EdgeInsets.all(8.0),
                                                                                       child: Container(
                                                                                         width: 40.0,
                                                                                         height: 40.0,
@@ -8638,7 +8913,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                           size: 28.0,
                                                                                         ),
                                                                                         Align(
-                                                                                          alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                          alignment: AlignmentDirectional(0.0, 0.0),
                                                                                           child: Text(
                                                                                             FFLocalizations.of(context).getText(
                                                                                               'r5ahwu4x' /* START */,
@@ -8671,7 +8946,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                           highlightColor: Colors.transparent,
                                                                                           onTap: () async {
                                                                                             await Share.share(
-                                                                                              'Checkout today\'s prayer journal: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                                                                              'Checkout today\'s prayer journal: ${'lawndalestudents2://lawndalestudents2.com${GoRouter.of(context).location}'}',
                                                                                               sharePositionOrigin: getWidgetBoundingBox(context),
                                                                                             );
                                                                                           },
@@ -8685,7 +8960,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                                 size: 16.0,
                                                                                               ),
                                                                                               Align(
-                                                                                                alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                                alignment: AlignmentDirectional(0.0, 0.0),
                                                                                                 child: Text(
                                                                                                   FFLocalizations.of(context).getText(
                                                                                                     'aafwupfx' /* SHARE */,
@@ -8747,7 +9022,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                               size: 20.0,
                                                                                             ),
                                                                                             Align(
-                                                                                              alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                                               child: Text(
                                                                                                 FFLocalizations.of(context).getText(
                                                                                                   'lox936tl' /* UPDATE */,
@@ -8773,8 +9048,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ],
-                                                          ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ],
                                                     ),
@@ -8812,7 +9087,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 1.00),
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   child: Material(
                     color: Colors.transparent,
                     elevation: 2.0,

@@ -189,7 +189,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(0.00, 0.00),
+                        alignment: AlignmentDirectional(0.0, 0.0),
                         child: FlutterFlowYoutubePlayer(
                           url: widget.journalChosenDoc!.videoURL,
                           width: MediaQuery.sizeOf(context).width * 1.0,
@@ -1174,7 +1174,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                                                         children: [
                                                                                           if (valueOrDefault<bool>(currentUserDocument?.admin, false) || (columnJournalRepliesRecord.personReplying == currentUserReference))
                                                                                             Align(
-                                                                                              alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                                               child: Container(
                                                                                                 height: 25.0,
                                                                                                 decoration: BoxDecoration(
@@ -1226,7 +1226,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                                                             ),
                                                                                           if (valueOrDefault<bool>(currentUserDocument?.admin, false) || (columnJournalRepliesRecord.personReplying == currentUserReference))
                                                                                             Align(
-                                                                                              alignment: AlignmentDirectional(0.00, 0.00),
+                                                                                              alignment: AlignmentDirectional(0.0, 0.0),
                                                                                               child: Padding(
                                                                                                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                                                                                                 child: InkWell(
@@ -1396,7 +1396,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                   tabletLandscape: false,
                 ))
                   Align(
-                    alignment: AlignmentDirectional(0.00, 1.00),
+                    alignment: AlignmentDirectional(0.0, 1.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -1433,7 +1433,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                             ),
                           ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 1.00),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 1.0,
                             decoration: BoxDecoration(
@@ -1675,7 +1675,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                           Align(
                                                             alignment:
                                                                 AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: FaIcon(
                                                               FontAwesomeIcons
                                                                   .arrowCircleUp,
@@ -1838,8 +1838,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                             Align(
                                                               alignment:
                                                                   AlignmentDirectional(
-                                                                      0.00,
-                                                                      0.00),
+                                                                      0.0, 0.0),
                                                               child: FaIcon(
                                                                 FontAwesomeIcons
                                                                     .arrowCircleUp,

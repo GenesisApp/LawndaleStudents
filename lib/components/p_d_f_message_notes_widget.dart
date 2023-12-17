@@ -120,7 +120,7 @@ class _PDFMessageNotesWidgetState extends State<PDFMessageNotesWidget> {
             ),
           ),
           Align(
-            alignment: AlignmentDirectional(0.00, -1.00),
+            alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: double.infinity,
               height: MediaQuery.sizeOf(context).height * 0.62,

@@ -173,7 +173,7 @@ class _DeleteJournalWidgetState extends State<DeleteJournalWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'fjlnye9o' /* No */,
@@ -226,7 +226,7 @@ class _DeleteJournalWidgetState extends State<DeleteJournalWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'xt12jqik' /* Yes */,

@@ -386,7 +386,7 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            AlignmentDirectional(0.00, 0.00),
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: Icon(
                                           Icons.add_photo_alternate,
                                           color: FlutterFlowTheme.of(context)
@@ -1311,7 +1311,7 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'mekqhtts' /* Cancel */,
@@ -1458,7 +1458,7 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Text(
                                             FFLocalizations.of(context).getText(
                                               'u50re3lg' /* Submit */,

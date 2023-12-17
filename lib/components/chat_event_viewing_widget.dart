@@ -165,8 +165,7 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 10.0, 10.0, 10.0),
+                            padding: EdgeInsets.all(10.0),
                             child: Icon(
                               Icons.event_rounded,
                               color: FlutterFlowTheme.of(context).secondary,
@@ -1425,7 +1424,7 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'wwv5j3cr' /* Done */,

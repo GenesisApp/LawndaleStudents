@@ -170,7 +170,7 @@ class _DeleteNotesWidgetState extends State<DeleteNotesWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     '3lozhiz5' /* No */,
@@ -214,7 +214,7 @@ class _DeleteNotesWidgetState extends State<DeleteNotesWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Align(
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     '6hgev7a9' /* Yes */,

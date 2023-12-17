@@ -429,7 +429,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FaIcon(
                                       FontAwesomeIcons.camera,
                                       color: FlutterFlowTheme.of(context)
@@ -474,8 +474,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                       shape: BoxShape.circle,
                                     ),
                                     child: Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          2.0, 2.0, 2.0, 2.0),
+                                      padding: EdgeInsets.all(2.0),
                                       child: AuthUserStreamWidget(
                                         builder: (context) => Hero(
                                           tag: currentUserPhoto,
@@ -512,8 +511,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                     shape: BoxShape.circle,
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        2.0, 2.0, 2.0, 2.0),
+                                    padding: EdgeInsets.all(2.0),
                                     child: ClipRRect(
                                       borderRadius:
                                           BorderRadius.circular(100.0),
@@ -538,7 +536,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Container(
                                     width: 40.0,
                                     height: 40.0,
@@ -640,7 +638,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                         ),
                                         child: Align(
                                           alignment:
-                                              AlignmentDirectional(0.00, 0.00),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: FaIcon(
                                             FontAwesomeIcons.camera,
                                             color: FlutterFlowTheme.of(context)
@@ -1398,7 +1396,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                             ),
                                             child: Align(
                                               alignment: AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(

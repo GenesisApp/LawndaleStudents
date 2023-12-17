@@ -868,7 +868,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       '1v925rj4' /* Sign Up */,
@@ -1014,7 +1014,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                     'buttonOnPageLoadAnimation']!),
                               ),
                         Align(
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 12.0, 0.0, 0.0),
@@ -1024,7 +1024,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                               child: Stack(
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(0.00, 0.00),
+                                    alignment: AlignmentDirectional(0.0, 0.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
                                         HapticFeedback.mediumImpact();
@@ -1111,8 +1111,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment:
-                                        AlignmentDirectional(-0.83, 0.00),
+                                    alignment: AlignmentDirectional(-0.83, 0.0),
                                     child: Container(
                                       width: 22.0,
                                       height: 22.0,

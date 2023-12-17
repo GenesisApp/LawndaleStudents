@@ -154,7 +154,7 @@ class _ReadScriptureWidgetState extends State<ReadScriptureWidget> {
                                   backgroundColor: Color(0x00FEFDEC),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -329,7 +329,7 @@ class _ReadScriptureWidgetState extends State<ReadScriptureWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
                                       'v18v4e19' /* Done */,
