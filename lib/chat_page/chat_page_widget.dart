@@ -1225,91 +1225,154 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  10.0,
+                                                                  0.0,
                                                                   0.0,
                                                                   0.0,
                                                                   8.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await Navigator.push(
-                                                            context,
-                                                            PageTransition(
-                                                              type:
-                                                                  PageTransitionType
-                                                                      .fade,
-                                                              child:
-                                                                  FlutterFlowExpandedImageView(
-                                                                image:
-                                                                    CachedNetworkImage(
-                                                                  fadeInDuration:
-                                                                      Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  fadeOutDuration:
-                                                                      Duration(
-                                                                          milliseconds:
-                                                                              500),
-                                                                  imageUrl:
-                                                                      columnMessagesRecord
+                                                      child: Row(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        10.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                await Navigator
+                                                                    .push(
+                                                                  context,
+                                                                  PageTransition(
+                                                                    type: PageTransitionType
+                                                                        .fade,
+                                                                    child:
+                                                                        FlutterFlowExpandedImageView(
+                                                                      image:
+                                                                          CachedNetworkImage(
+                                                                        fadeInDuration:
+                                                                            Duration(milliseconds: 500),
+                                                                        fadeOutDuration:
+                                                                            Duration(milliseconds: 500),
+                                                                        imageUrl:
+                                                                            columnMessagesRecord.textImagePath,
+                                                                        fit: BoxFit
+                                                                            .contain,
+                                                                      ),
+                                                                      allowRotation:
+                                                                          false,
+                                                                      tag: columnMessagesRecord
                                                                           .textImagePath,
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                                allowRotation:
-                                                                    false,
+                                                                      useHeroAnimation:
+                                                                          true,
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                              child: Hero(
                                                                 tag: columnMessagesRecord
                                                                     .textImagePath,
-                                                                useHeroAnimation:
+                                                                transitionOnUserGestures:
                                                                     true,
+                                                                child:
+                                                                    ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              12.0),
+                                                                  child:
+                                                                      CachedNetworkImage(
+                                                                    fadeInDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                500),
+                                                                    fadeOutDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                500),
+                                                                    imageUrl:
+                                                                        columnMessagesRecord
+                                                                            .textImagePath,
+                                                                    width: MediaQuery.sizeOf(context)
+                                                                            .width *
+                                                                        0.5,
+                                                                    height:
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            0.2,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
-                                                          );
-                                                        },
-                                                        child: Hero(
-                                                          tag: columnMessagesRecord
-                                                              .textImagePath,
-                                                          transitionOnUserGestures:
-                                                              true,
-                                                          child: ClipRRect(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                            child:
-                                                                CachedNetworkImage(
-                                                              fadeInDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              fadeOutDuration:
-                                                                  Duration(
-                                                                      milliseconds:
-                                                                          500),
-                                                              imageUrl:
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        6.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                await actions
+                                                                    .downloadImage(
                                                                   columnMessagesRecord
                                                                       .textImagePath,
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  0.5,
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.2,
-                                                              fit: BoxFit.cover,
+                                                                );
+                                                              },
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondarySystemBackground,
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child: Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              4.0),
+                                                                  child: Icon(
+                                                                    Icons
+                                                                        .file_download_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .worshipRing,
+                                                                    size: 24.0,
+                                                                  ),
+                                                                ),
+                                                              ),
                                                             ),
                                                           ),
-                                                        ),
+                                                        ],
                                                       ),
                                                     ),
                                                   if (columnMessagesRecord
@@ -2905,89 +2968,150 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
-                                                                    10.0,
+                                                                    0.0,
                                                                     8.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            await Navigator
-                                                                .push(
-                                                              context,
-                                                              PageTransition(
-                                                                type:
-                                                                    PageTransitionType
-                                                                        .fade,
-                                                                child:
-                                                                    FlutterFlowExpandedImageView(
-                                                                  image:
-                                                                      CachedNetworkImage(
-                                                                    fadeInDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                500),
-                                                                    fadeOutDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                500),
-                                                                    imageUrl:
-                                                                        columnMessagesRecord
-                                                                            .textImagePath,
-                                                                    fit: BoxFit
-                                                                        .contain,
-                                                                  ),
-                                                                  allowRotation:
-                                                                      false,
-                                                                  tag: columnMessagesRecord
-                                                                      .textImagePath,
-                                                                  useHeroAnimation:
-                                                                      true,
-                                                                ),
-                                                              ),
-                                                            );
-                                                          },
-                                                          child: Hero(
-                                                            tag: columnMessagesRecord
-                                                                .textImagePath,
-                                                            transitionOnUserGestures:
-                                                                true,
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                              child:
-                                                                  CachedNetworkImage(
-                                                                fadeInDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            500),
-                                                                fadeOutDuration:
-                                                                    Duration(
-                                                                        milliseconds:
-                                                                            500),
-                                                                imageUrl:
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          6.0,
+                                                                          0.0),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  await actions
+                                                                      .downloadImage(
                                                                     columnMessagesRecord
                                                                         .textImagePath,
-                                                                width: MediaQuery.sizeOf(
+                                                                  );
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .width *
-                                                                    0.5,
-                                                                height: MediaQuery.sizeOf(
-                                                                            context)
-                                                                        .height *
-                                                                    0.2,
-                                                                fit: BoxFit
-                                                                    .cover,
+                                                                        .secondarySystemBackground,
+                                                                    shape: BoxShape
+                                                                        .circle,
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            4.0),
+                                                                    child: Icon(
+                                                                      Icons
+                                                                          .file_download_rounded,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .worshipRing,
+                                                                      size:
+                                                                          24.0,
+                                                                    ),
+                                                                  ),
+                                                                ),
                                                               ),
                                                             ),
-                                                          ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          10.0,
+                                                                          0.0),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  await Navigator
+                                                                      .push(
+                                                                    context,
+                                                                    PageTransition(
+                                                                      type: PageTransitionType
+                                                                          .fade,
+                                                                      child:
+                                                                          FlutterFlowExpandedImageView(
+                                                                        image:
+                                                                            CachedNetworkImage(
+                                                                          fadeInDuration:
+                                                                              Duration(milliseconds: 500),
+                                                                          fadeOutDuration:
+                                                                              Duration(milliseconds: 500),
+                                                                          imageUrl:
+                                                                              columnMessagesRecord.textImagePath,
+                                                                          fit: BoxFit
+                                                                              .contain,
+                                                                        ),
+                                                                        allowRotation:
+                                                                            false,
+                                                                        tag: columnMessagesRecord
+                                                                            .textImagePath,
+                                                                        useHeroAnimation:
+                                                                            true,
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },
+                                                                child: Hero(
+                                                                  tag: columnMessagesRecord
+                                                                      .textImagePath,
+                                                                  transitionOnUserGestures:
+                                                                      true,
+                                                                  child:
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            12.0),
+                                                                    child:
+                                                                        CachedNetworkImage(
+                                                                      fadeInDuration:
+                                                                          Duration(
+                                                                              milliseconds: 500),
+                                                                      fadeOutDuration:
+                                                                          Duration(
+                                                                              milliseconds: 500),
+                                                                      imageUrl:
+                                                                          columnMessagesRecord
+                                                                              .textImagePath,
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.5,
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              0.2,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
                                                         ),
                                                       ),
                                                     if (columnMessagesRecord
