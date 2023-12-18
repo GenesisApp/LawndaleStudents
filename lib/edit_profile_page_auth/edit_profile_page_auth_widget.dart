@@ -11,7 +11,7 @@ import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -1033,23 +1033,33 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    final _datePickedDate =
-                                        await showDatePicker(
-                                      context: context,
-                                      initialDate: getCurrentTimestamp,
-                                      firstDate: DateTime(1900),
-                                      lastDate: getCurrentTimestamp,
-                                    );
-
-                                    if (_datePickedDate != null) {
-                                      safeSetState(() {
-                                        _model.datePicked = DateTime(
-                                          _datePickedDate.year,
-                                          _datePickedDate.month,
-                                          _datePickedDate.day,
-                                        );
-                                      });
-                                    }
+                                    await showModalBottomSheet<bool>(
+                                        context: context,
+                                        builder: (context) {
+                                          return Container(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                3,
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            child: CupertinoDatePicker(
+                                              mode:
+                                                  CupertinoDatePickerMode.date,
+                                              minimumDate: DateTime(1900),
+                                              initialDateTime:
+                                                  getCurrentTimestamp,
+                                              maximumDate: getCurrentTimestamp,
+                                              use24hFormat: false,
+                                              onDateTimeChanged:
+                                                  (newDateTime) =>
+                                                      safeSetState(() {
+                                                _model.datePicked = newDateTime;
+                                              }),
+                                            ),
+                                          );
+                                        });
                                   },
                                   child: Container(
                                     width:

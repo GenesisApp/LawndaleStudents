@@ -8,7 +8,7 @@ import '/flutter_flow/upload_data.dart';
 import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -532,23 +532,34 @@ class _VideoSeriesEditWidgetState extends State<VideoSeriesEditWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      final _datePicked1Date =
-                                          await showDatePicker(
-                                        context: context,
-                                        initialDate: getCurrentTimestamp,
-                                        firstDate: getCurrentTimestamp,
-                                        lastDate: DateTime(2050),
-                                      );
-
-                                      if (_datePicked1Date != null) {
-                                        safeSetState(() {
-                                          _model.datePicked1 = DateTime(
-                                            _datePicked1Date.year,
-                                            _datePicked1Date.month,
-                                            _datePicked1Date.day,
-                                          );
-                                        });
-                                      }
+                                      await showModalBottomSheet<bool>(
+                                          context: context,
+                                          builder: (context) {
+                                            return Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  3,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              child: CupertinoDatePicker(
+                                                mode: CupertinoDatePickerMode
+                                                    .date,
+                                                minimumDate: DateTime(1900),
+                                                initialDateTime:
+                                                    getCurrentTimestamp,
+                                                maximumDate: DateTime(2050),
+                                                use24hFormat: false,
+                                                onDateTimeChanged:
+                                                    (newDateTime) =>
+                                                        safeSetState(() {
+                                                  _model.datePicked1 =
+                                                      newDateTime;
+                                                }),
+                                              ),
+                                            );
+                                          });
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
@@ -626,23 +637,34 @@ class _VideoSeriesEditWidgetState extends State<VideoSeriesEditWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      final _datePicked2Date =
-                                          await showDatePicker(
-                                        context: context,
-                                        initialDate: getCurrentTimestamp,
-                                        firstDate: getCurrentTimestamp,
-                                        lastDate: DateTime(2050),
-                                      );
-
-                                      if (_datePicked2Date != null) {
-                                        safeSetState(() {
-                                          _model.datePicked2 = DateTime(
-                                            _datePicked2Date.year,
-                                            _datePicked2Date.month,
-                                            _datePicked2Date.day,
-                                          );
-                                        });
-                                      }
+                                      await showModalBottomSheet<bool>(
+                                          context: context,
+                                          builder: (context) {
+                                            return Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height /
+                                                  3,
+                                              width: MediaQuery.of(context)
+                                                  .size
+                                                  .width,
+                                              child: CupertinoDatePicker(
+                                                mode: CupertinoDatePickerMode
+                                                    .date,
+                                                minimumDate: DateTime(1900),
+                                                initialDateTime:
+                                                    getCurrentTimestamp,
+                                                maximumDate: DateTime(2050),
+                                                use24hFormat: false,
+                                                onDateTimeChanged:
+                                                    (newDateTime) =>
+                                                        safeSetState(() {
+                                                  _model.datePicked2 =
+                                                      newDateTime;
+                                                }),
+                                              ),
+                                            );
+                                          });
                                     },
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *

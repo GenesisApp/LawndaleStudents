@@ -679,6 +679,9 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    setState(() {
+                                      FFAppState().series = false;
+                                    });
                                     await showModalBottomSheet(
                                       isScrollControlled: true,
                                       backgroundColor: Colors.transparent,

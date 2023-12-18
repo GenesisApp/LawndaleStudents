@@ -188,16 +188,18 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
     _model.textController16 ??= TextEditingController();
     _model.textFieldFocusNode16 ??= FocusNode();
 
-    _model.textController17 ??= TextEditingController();
-    _model.textFieldFocusNode17 ??= FocusNode();
-
-    _model.textController18 ??= TextEditingController();
-    _model.textFieldFocusNode18 ??= FocusNode();
-
-    _model.textController19 ??= TextEditingController();
-    _model.textFieldFocusNode19 ??= FocusNode();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+          _model.textController5?.text = dateTimeFormat(
+            'yMd',
+            getCurrentTimestamp,
+            locale: FFLocalizations.of(context).languageCode,
+          );
+          _model.textController13?.text = dateTimeFormat(
+            'yMd',
+            getCurrentTimestamp,
+            locale: FFLocalizations.of(context).languageCode,
+          );
+        }));
   }
 
   @override
@@ -341,6 +343,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                       onChanged: (val) async {
                         setState(() => _model.choiceChipsValue = val?.first);
                         if (_model.choiceChipsValue == 'Videos') {
+                          setState(() {
+                            FFAppState().series = false;
+                          });
                           await _model.pageViewController?.animateToPage(
                             0,
                             duration: Duration(milliseconds: 500),
@@ -444,45 +449,40 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                       .secondarySystemBackground,
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 4.0, 0.0, 4.0),
-                                  child: SwitchListTile(
-                                    value: _model.switchListTileValue1 ??=
-                                        false,
-                                    onChanged: (newValue) async {
-                                      setState(() => _model
-                                          .switchListTileValue1 = newValue!);
-                                      if (newValue!) {
-                                        setState(() {
-                                          FFAppState().series = true;
-                                        });
-                                      } else {
-                                        setState(() {
-                                          FFAppState().series = false;
-                                        });
-                                      }
-                                    },
-                                    title: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'nzlqgfrm' /* Select if creating a new serie... */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .headlineSmall
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.normal,
-                                          ),
+                                child: SwitchListTile(
+                                  value: _model.switchListTileValue1 ??= false,
+                                  onChanged: (newValue) async {
+                                    setState(() => _model.switchListTileValue1 =
+                                        newValue!);
+                                    if (newValue!) {
+                                      setState(() {
+                                        FFAppState().series = true;
+                                      });
+                                    } else {
+                                      setState(() {
+                                        FFAppState().series = false;
+                                      });
+                                    }
+                                  },
+                                  title: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'nzlqgfrm' /* Select if creating a new serie... */,
                                     ),
-                                    activeColor:
-                                        FlutterFlowTheme.of(context).prayerRing,
-                                    dense: true,
-                                    controlAffinity:
-                                        ListTileControlAffinity.trailing,
+                                    style: FlutterFlowTheme.of(context)
+                                        .headlineSmall
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.normal,
+                                        ),
                                   ),
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).prayerRing,
+                                  dense: true,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
                                 ),
                               ),
                             ),
@@ -1382,12 +1382,72 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 20.0, 0.0, 0.0),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color: FlutterFlowTheme.of(
+                                                        context)
+                                                    .secondarySystemBackground,
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(20.0),
+                                                  bottomRight:
+                                                      Radius.circular(20.0),
+                                                  topLeft:
+                                                      Radius.circular(20.0),
+                                                  topRight:
+                                                      Radius.circular(20.0),
+                                                ),
+                                              ),
+                                              child: SwitchListTile(
+                                                value: _model
+                                                        .switchListTileValue2 ??=
+                                                    false,
+                                                onChanged: (newValue) async {
+                                                  setState(() => _model
+                                                          .switchListTileValue2 =
+                                                      newValue!);
+                                                },
+                                                title: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'np3uk2nb' /* Make this video featured? */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                                ),
+                                                activeColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .prayerRing,
+                                                dense: true,
+                                                controlAffinity:
+                                                    ListTileControlAffinity
+                                                        .trailing,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 20.0, 0.0, 20.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 FlutterFlowDropDown<String>(
                                                   controller: _model
@@ -1453,269 +1513,269 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                   isSearchable: false,
                                                   isMultiSelect: false,
                                                 ),
-                                                InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    final selectedFiles =
-                                                        await selectFiles(
-                                                      allowedExtensions: [
-                                                        'pdf'
-                                                      ],
-                                                      multiFile: false,
-                                                    );
-                                                    if (selectedFiles != null) {
-                                                      setState(() => _model
-                                                              .isDataUploading2 =
-                                                          true);
-                                                      var selectedUploadedFiles =
-                                                          <FFUploadedFile>[];
-
-                                                      var downloadUrls =
-                                                          <String>[];
-                                                      try {
-                                                        showUploadMessage(
-                                                          context,
-                                                          'Uploading file...',
-                                                          showLoading: true,
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        final selectedFiles =
+                                                            await selectFiles(
+                                                          allowedExtensions: [
+                                                            'pdf'
+                                                          ],
+                                                          multiFile: false,
                                                         );
-                                                        selectedUploadedFiles =
-                                                            selectedFiles
-                                                                .map((m) =>
-                                                                    FFUploadedFile(
-                                                                      name: m
-                                                                          .storagePath
-                                                                          .split(
-                                                                              '/')
-                                                                          .last,
-                                                                      bytes: m
-                                                                          .bytes,
-                                                                    ))
-                                                                .toList();
+                                                        if (selectedFiles !=
+                                                            null) {
+                                                          setState(() => _model
+                                                                  .isDataUploading2 =
+                                                              true);
+                                                          var selectedUploadedFiles =
+                                                              <FFUploadedFile>[];
 
-                                                        downloadUrls =
-                                                            (await Future.wait(
-                                                          selectedFiles.map(
-                                                            (f) async =>
-                                                                await uploadData(
-                                                                    f.storagePath,
-                                                                    f.bytes),
-                                                          ),
-                                                        ))
-                                                                .where((u) =>
-                                                                    u != null)
-                                                                .map((u) => u!)
-                                                                .toList();
-                                                      } finally {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .hideCurrentSnackBar();
-                                                        _model.isDataUploading2 =
-                                                            false;
-                                                      }
-                                                      if (selectedUploadedFiles
-                                                                  .length ==
-                                                              selectedFiles
-                                                                  .length &&
-                                                          downloadUrls.length ==
-                                                              selectedFiles
-                                                                  .length) {
-                                                        setState(() {
-                                                          _model.uploadedLocalFile2 =
-                                                              selectedUploadedFiles
-                                                                  .first;
-                                                          _model.uploadedFileUrl2 =
+                                                          var downloadUrls =
+                                                              <String>[];
+                                                          try {
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Uploading file...',
+                                                              showLoading: true,
+                                                            );
+                                                            selectedUploadedFiles =
+                                                                selectedFiles
+                                                                    .map((m) =>
+                                                                        FFUploadedFile(
+                                                                          name: m
+                                                                              .storagePath
+                                                                              .split('/')
+                                                                              .last,
+                                                                          bytes:
+                                                                              m.bytes,
+                                                                        ))
+                                                                    .toList();
+
+                                                            downloadUrls =
+                                                                (await Future
+                                                                        .wait(
+                                                              selectedFiles.map(
+                                                                (f) async =>
+                                                                    await uploadData(
+                                                                        f.storagePath,
+                                                                        f.bytes),
+                                                              ),
+                                                            ))
+                                                                    .where((u) =>
+                                                                        u !=
+                                                                        null)
+                                                                    .map((u) =>
+                                                                        u!)
+                                                                    .toList();
+                                                          } finally {
+                                                            ScaffoldMessenger
+                                                                    .of(context)
+                                                                .hideCurrentSnackBar();
+                                                            _model.isDataUploading2 =
+                                                                false;
+                                                          }
+                                                          if (selectedUploadedFiles
+                                                                      .length ==
+                                                                  selectedFiles
+                                                                      .length &&
                                                               downloadUrls
-                                                                  .first;
-                                                        });
-                                                        showUploadMessage(
-                                                          context,
-                                                          'Success!',
-                                                        );
-                                                      } else {
-                                                        setState(() {});
-                                                        showUploadMessage(
-                                                          context,
-                                                          'Failed to upload file',
-                                                        );
-                                                        return;
-                                                      }
-                                                    }
-                                                  },
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.35,
-                                                    height: 52.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondarySystemBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20.0),
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        Row(
+                                                                      .length ==
+                                                                  selectedFiles
+                                                                      .length) {
+                                                            setState(() {
+                                                              _model.uploadedLocalFile2 =
+                                                                  selectedUploadedFiles
+                                                                      .first;
+                                                              _model.uploadedFileUrl2 =
+                                                                  downloadUrls
+                                                                      .first;
+                                                            });
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Success!',
+                                                            );
+                                                          } else {
+                                                            setState(() {});
+                                                            showUploadMessage(
+                                                              context,
+                                                              'Failed to upload file',
+                                                            );
+                                                            return;
+                                                          }
+                                                        }
+                                                      },
+                                                      child: Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.35,
+                                                        height: 52.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondarySystemBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20.0),
+                                                        ),
+                                                        child: Column(
                                                           mainAxisSize:
                                                               MainAxisSize.max,
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
                                                                   .center,
                                                           children: [
-                                                            Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'vyvkvngp' /* Message Notes */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'vyvkvngp' /* Message Notes */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            if (_model.uploadedFileUrl2 ==
+                                                                    null ||
+                                                                _model.uploadedFileUrl2 ==
+                                                                    '')
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      '3crfpu6s' /* Upload */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                          fontSize:
+                                                                              14.0,
+                                                                        ),
+                                                                  ),
+                                                                  Icon(
+                                                                    Icons
+                                                                        .upload_rounded,
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .secondary,
-                                                                    fontSize:
-                                                                        16.0,
+                                                                        .lightSecondaryText,
+                                                                    size: 20.0,
                                                                   ),
-                                                            ),
+                                                                ],
+                                                              ),
+                                                            if (_model.uploadedFileUrl2 !=
+                                                                    null &&
+                                                                _model.uploadedFileUrl2 !=
+                                                                    '')
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'l8xnudgq' /* Upload Complete! */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                          fontSize:
+                                                                              14.0,
+                                                                        ),
+                                                                  ),
+                                                                ],
+                                                              ),
                                                           ],
                                                         ),
-                                                        if (_model.uploadedFileUrl2 ==
-                                                                null ||
-                                                            _model.uploadedFileUrl2 ==
-                                                                '')
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceEvenly,
-                                                            children: [
-                                                              Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  '3crfpu6s' /* Upload */,
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Inter',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .lightSecondaryText,
-                                                                      fontSize:
-                                                                          14.0,
-                                                                    ),
-                                                              ),
-                                                              Icon(
-                                                                Icons
-                                                                    .upload_rounded,
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .lightSecondaryText,
-                                                                size: 20.0,
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        if (_model.uploadedFileUrl2 !=
-                                                                null &&
-                                                            _model.uploadedFileUrl2 !=
-                                                                '')
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceEvenly,
-                                                            children: [
-                                                              Text(
-                                                                FFLocalizations.of(
-                                                                        context)
-                                                                    .getText(
-                                                                  'l8xnudgq' /* Upload Complete! */,
-                                                                ),
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Inter',
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .lightSecondaryText,
-                                                                      fontSize:
-                                                                          14.0,
-                                                                    ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                      ],
+                                                      ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  8.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          'ydjicmez' /* *PDF format only. */,
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .pastorChatOutline,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: SwitchListTile(
-                                              value: _model
-                                                      .switchListTileValue2 ??=
-                                                  false,
-                                              onChanged: (newValue) async {
-                                                setState(() => _model
-                                                        .switchListTileValue2 =
-                                                    newValue!);
-                                              },
-                                              title: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'np3uk2nb' /* Make this video featured? */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmall
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .tertiary,
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                              ),
-                                              activeColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .prayerRing,
-                                              dense: true,
-                                              controlAffinity:
-                                                  ListTileControlAffinity
-                                                      .trailing,
                                             ),
                                           ),
                                           if (!(isWeb
@@ -1726,7 +1786,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
-                                                      0.0, 30.0, 0.0, 50.0),
+                                                      0.0, 0.0, 0.0, 50.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -5882,96 +5942,6 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                           controller: _model.textController13,
                                           focusNode:
                                               _model.textFieldFocusNode13,
-                                          textCapitalization:
-                                              TextCapitalization.sentences,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'safsmq4j' /* Event Description */,
-                                            ),
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Inter',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'i4wkrgp5' /* type here... */,
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            filled: true,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondarySystemBackground,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                              ),
-                                          keyboardType: TextInputType.multiline,
-                                          validator: _model
-                                              .textController13Validator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          controller: _model.textController14,
-                                          focusNode:
-                                              _model.textFieldFocusNode14,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             labelText:
@@ -6046,10 +6016,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                               ),
                                           keyboardType: TextInputType.datetime,
                                           validator: _model
-                                              .textController14Validator
+                                              .textController13Validator
                                               .asValidator(context),
                                           inputFormatters: [
-                                            _model.textFieldMask14
+                                            _model.textFieldMask13
                                           ],
                                         ),
                                       ),
@@ -6060,12 +6030,12 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                       child: Container(
                                         width: double.infinity,
                                         child: TextFormField(
-                                          controller: _model.textController15,
+                                          controller: _model.textController14,
                                           focusNode:
-                                              _model.textFieldFocusNode15,
+                                              _model.textFieldFocusNode14,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.textController15',
+                                            '_model.textController14',
                                             Duration(milliseconds: 200),
                                             () => setState(() {}),
                                           ),
@@ -6142,7 +6112,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         .tertiary,
                                               ),
                                           validator: _model
-                                              .textController15Validator
+                                              .textController14Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -6337,8 +6307,6 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                           createEventsRecordData(
                                                     videoName: _model
                                                         .textController12.text,
-                                                    messageDescription: _model
-                                                        .textController13.text,
                                                     timeUploaded:
                                                         getCurrentTimestamp,
                                                     imageThumbnail:
@@ -6346,11 +6314,11 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                     featuredMessage: _model
                                                         .switchListTileValue4,
                                                     timeofRecording: _model
-                                                        .textController14.text,
+                                                        .textController13.text,
                                                     timeEdited:
                                                         getCurrentTimestamp,
                                                     registrationLink: _model
-                                                        .textController15.text,
+                                                        .textController14.text,
                                                     group:
                                                         _model.choiceChipsValue ==
                                                                 'Groups'
@@ -6374,10 +6342,6 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                             videoName: _model
                                                                 .textController12
                                                                 .text,
-                                                            messageDescription:
-                                                                _model
-                                                                    .textController13
-                                                                    .text,
                                                             timeUploaded:
                                                                 getCurrentTimestamp,
                                                             imageThumbnail: _model
@@ -6385,12 +6349,12 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                             featuredMessage: _model
                                                                 .switchListTileValue4,
                                                             timeofRecording: _model
-                                                                .textController14
+                                                                .textController13
                                                                 .text,
                                                             timeEdited:
                                                                 getCurrentTimestamp,
                                                             registrationLink: _model
-                                                                .textController15
+                                                                .textController14
                                                                 .text,
                                                             group:
                                                                 _model.choiceChipsValue ==
@@ -6751,9 +6715,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                       child: Container(
                                         width: double.infinity,
                                         child: TextFormField(
-                                          controller: _model.textController16,
+                                          controller: _model.textController15,
                                           focusNode:
-                                              _model.textFieldFocusNode16,
+                                              _model.textFieldFocusNode15,
                                           textCapitalization:
                                               TextCapitalization.sentences,
                                           obscureText: false,
@@ -6829,7 +6793,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         .tertiary,
                                               ),
                                           validator: _model
-                                              .textController16Validator
+                                              .textController15Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -6840,99 +6804,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                       child: Container(
                                         width: double.infinity,
                                         child: TextFormField(
-                                          controller: _model.textController17,
+                                          controller: _model.textController16,
                                           focusNode:
-                                              _model.textFieldFocusNode17,
-                                          textCapitalization:
-                                              TextCapitalization.sentences,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              '8huchlej' /* Description */,
-                                            ),
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Inter',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              '9j7jfi8x' /* type here... */,
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            filled: true,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondarySystemBackground,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                              ),
-                                          keyboardType: TextInputType.multiline,
-                                          validator: _model
-                                              .textController17Validator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          controller: _model.textController18,
-                                          focusNode:
-                                              _model.textFieldFocusNode18,
+                                              _model.textFieldFocusNode16,
                                           textCapitalization:
                                               TextCapitalization.words,
                                           obscureText: false,
@@ -7008,100 +6882,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         .tertiary,
                                               ),
                                           validator: _model
-                                              .textController18Validator
-                                              .asValidator(context),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          controller: _model.textController19,
-                                          focusNode:
-                                              _model.textFieldFocusNode19,
-                                          onChanged: (_) =>
-                                              EasyDebounce.debounce(
-                                            '_model.textController19',
-                                            Duration(milliseconds: 200),
-                                            () => setState(() {}),
-                                          ),
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'w8ymhuz3' /* Website Link */,
-                                            ),
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Inter',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'z6fghyay' /* type here... */,
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            filled: true,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondarySystemBackground,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                              ),
-                                          validator: _model
-                                              .textController19Validator
+                                              .textController16Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -7211,17 +6992,13 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                       .set(
                                                           createGuidesRecordData(
                                                     videoName: _model
-                                                        .textController16.text,
-                                                    messageDescription: _model
-                                                        .textController17.text,
+                                                        .textController15.text,
                                                     speaker: _model
-                                                        .textController18.text,
+                                                        .textController16.text,
                                                     timeUploaded:
                                                         getCurrentTimestamp,
                                                     timeEdited:
                                                         getCurrentTimestamp,
-                                                    registrationLink: _model
-                                                        .textController19.text,
                                                     group:
                                                         _model.choiceChipsValue ==
                                                                 'Groups'
@@ -7244,22 +7021,15 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                       .getDocumentFromData(
                                                           createGuidesRecordData(
                                                             videoName: _model
-                                                                .textController16
+                                                                .textController15
                                                                 .text,
-                                                            messageDescription:
-                                                                _model
-                                                                    .textController17
-                                                                    .text,
                                                             speaker: _model
-                                                                .textController18
+                                                                .textController16
                                                                 .text,
                                                             timeUploaded:
                                                                 getCurrentTimestamp,
                                                             timeEdited:
                                                                 getCurrentTimestamp,
-                                                            registrationLink: _model
-                                                                .textController19
-                                                                .text,
                                                             group:
                                                                 _model.choiceChipsValue ==
                                                                         'Groups'

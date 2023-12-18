@@ -160,6 +160,8 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   FocusNode? textFieldFocusNode7;
   TextEditingController? textController7;
   String? Function(BuildContext, String?)? textController7Validator;
+  // State field(s) for SwitchListTile widget.
+  bool? switchListTileValue2;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -168,8 +170,6 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue2;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   ResourceVideosRecord? newResource;
   // State field(s) for Timer widget.
@@ -310,23 +310,9 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode13;
   TextEditingController? textController13;
+  final textFieldMask13 = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)? textController13Validator;
   String? _textController13Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'bti2875z' /* Field is required */,
-      );
-    }
-
-    return null;
-  }
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode14;
-  TextEditingController? textController14;
-  final textFieldMask14 = MaskTextInputFormatter(mask: '##/##/####');
-  String? Function(BuildContext, String?)? textController14Validator;
-  String? _textController14Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'ez954kia' /* Field is required */,
@@ -337,10 +323,10 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   }
 
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode15;
-  TextEditingController? textController15;
-  String? Function(BuildContext, String?)? textController15Validator;
-  String? _textController15Validator(BuildContext context, String? val) {
+  FocusNode? textFieldFocusNode14;
+  TextEditingController? textController14;
+  String? Function(BuildContext, String?)? textController14Validator;
+  String? _textController14Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'g8y7xbq9' /* Field is required */,
@@ -370,10 +356,10 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   String uploadedFileUrl7 = '';
 
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode16;
-  TextEditingController? textController16;
-  String? Function(BuildContext, String?)? textController16Validator;
-  String? _textController16Validator(BuildContext context, String? val) {
+  FocusNode? textFieldFocusNode15;
+  TextEditingController? textController15;
+  String? Function(BuildContext, String?)? textController15Validator;
+  String? _textController15Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'izbemqmo' /* Field is required */,
@@ -384,24 +370,10 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   }
 
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode17;
-  TextEditingController? textController17;
-  String? Function(BuildContext, String?)? textController17Validator;
-  String? _textController17Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'tki8bzka' /* Field is required */,
-      );
-    }
-
-    return null;
-  }
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode18;
-  TextEditingController? textController18;
-  String? Function(BuildContext, String?)? textController18Validator;
-  String? _textController18Validator(BuildContext context, String? val) {
+  FocusNode? textFieldFocusNode16;
+  TextEditingController? textController16;
+  String? Function(BuildContext, String?)? textController16Validator;
+  String? _textController16Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'ysu2uepa' /* Field is required */,
@@ -411,10 +383,6 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
     return null;
   }
 
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode19;
-  TextEditingController? textController19;
-  String? Function(BuildContext, String?)? textController19Validator;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   GuidesRecord? newResource11;
 
@@ -436,8 +404,6 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
     textController14Validator = _textController14Validator;
     textController15Validator = _textController15Validator;
     textController16Validator = _textController16Validator;
-    textController17Validator = _textController17Validator;
-    textController18Validator = _textController18Validator;
   }
 
   void dispose() {
@@ -485,21 +451,12 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
     textFieldFocusNode14?.dispose();
     textController14?.dispose();
 
+    timerSecondPageController2.dispose();
     textFieldFocusNode15?.dispose();
     textController15?.dispose();
 
-    timerSecondPageController2.dispose();
     textFieldFocusNode16?.dispose();
     textController16?.dispose();
-
-    textFieldFocusNode17?.dispose();
-    textController17?.dispose();
-
-    textFieldFocusNode18?.dispose();
-    textController18?.dispose();
-
-    textFieldFocusNode19?.dispose();
-    textController19?.dispose();
   }
 
   /// Action blocks are added here.

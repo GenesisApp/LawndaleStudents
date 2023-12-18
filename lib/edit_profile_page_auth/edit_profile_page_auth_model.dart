@@ -12,7 +12,7 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'edit_profile_page_auth_widget.dart' show EditProfilePageAuthWidget;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';

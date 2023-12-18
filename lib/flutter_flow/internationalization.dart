@@ -645,7 +645,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'emmzw0jx': {
-      'en': 'Age Group (Optional)',
+      'en': 'Age (Optional)',
       'es': 'Grado (opcional)',
     },
     'ypg3dv27': {
@@ -3067,6 +3067,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'type here...',
       'es': 'escriba aquí...',
     },
+    'np3uk2nb': {
+      'en': 'Make this video featured?',
+      'es': '¿Hacer que este video sea destacado?',
+    },
     '2jd7yolm': {
       'en': 'Recent Messages',
       'es': 'Mensajes recientes',
@@ -3099,9 +3103,9 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Upload Complete!',
       'es': 'Subir',
     },
-    'np3uk2nb': {
-      'en': 'Make this video featured?',
-      'es': '¿Hacer que este video sea destacado?',
+    'ydjicmez': {
+      'en': '*PDF format only.',
+      'es': 'Subir',
     },
     'k2gxr8aw': {
       'en': 'Cancel',
@@ -3483,14 +3487,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'type here...',
       'es': 'escriba aquí...',
     },
-    'safsmq4j': {
-      'en': 'Event Description',
-      'es': 'descripción del evento',
-    },
-    'i4wkrgp5': {
-      'en': 'type here...',
-      'es': 'escriba aquí...',
-    },
     'cjcgud76': {
       'en': 'Date',
       'es': 'Fecha',
@@ -3575,27 +3571,11 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'type here...',
       'es': 'escriba aquí...',
     },
-    '8huchlej': {
-      'en': 'Description',
-      'es': 'Descripción',
-    },
-    '9j7jfi8x': {
-      'en': 'type here...',
-      'es': 'escriba aquí...',
-    },
     'ghauulrn': {
       'en': 'Creator',
       'es': 'Creador',
     },
     'g4e5nl4y': {
-      'en': 'type here...',
-      'es': 'escriba aquí...',
-    },
-    'w8ymhuz3': {
-      'en': 'Website Link',
-      'es': 'Enlace de página web',
-    },
-    'z6fghyay': {
       'en': 'type here...',
       'es': 'escriba aquí...',
     },
