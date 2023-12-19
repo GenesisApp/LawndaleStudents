@@ -3974,6 +3974,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Message Notes',
       'es': 'Notas del mensaje',
     },
+    '8h00v86s': {
+      'en': 'No mesaage notes have been \nuploaded for this video.',
+      'es': '',
+    },
   },
   // BadgeSheet
   {
