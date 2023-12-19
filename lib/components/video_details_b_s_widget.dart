@@ -997,58 +997,73 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                         FlutterFlowTheme.of(context).secondary,
                                     borderRadius: BorderRadius.circular(12.0),
                                   ),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        barrierColor:
-                                            FlutterFlowTheme.of(context)
-                                                .opagueSeparator,
-                                        context: context,
-                                        builder: (context) {
-                                          return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  0.75,
-                                              child: PDFMessageNotesWidget(
-                                                pdfImageSelected:
-                                                    widget.videoChosenDoc,
-                                                pdfImageSelectedRef:
-                                                    widget.videoChosenRef,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              barrierColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .opagueSeparator,
+                                              context: context,
+                                              builder: (context) {
+                                                return WebViewAware(
+                                                    child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.85,
+                                                    child:
+                                                        PDFMessageNotesWidget(
+                                                      pdfImageSelected:
+                                                          widget.videoChosenDoc,
+                                                      pdfImageSelectedRef:
+                                                          widget.videoChosenRef,
+                                                    ),
+                                                  ),
+                                                ));
+                                              },
+                                            ).then(
+                                                (value) => safeSetState(() {}));
+                                          },
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '9s09u7y6' /* Message Notes */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: Colors.white,
+                                                          fontSize: 16.0,
+                                                        ),
                                               ),
-                                            ),
-                                          ));
-                                        },
-                                      ).then((value) => safeSetState(() {}));
-                                    },
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            '9s09u7y6' /* Message Notes */,
+                                            ],
                                           ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color: Colors.white,
-                                                fontSize: 16.0,
-                                              ),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),

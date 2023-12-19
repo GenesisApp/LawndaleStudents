@@ -123,16 +123,41 @@ class _PDFMessageNotesWidgetState extends State<PDFMessageNotesWidget> {
             alignment: AlignmentDirectional(0.0, -1.0),
             child: Container(
               width: double.infinity,
-              height: MediaQuery.sizeOf(context).height * 0.62,
+              height: MediaQuery.sizeOf(context).height * 0.75,
               decoration: BoxDecoration(),
-              child: FlutterFlowPdfViewer(
-                networkPath: widget.pdfImageSelected!.messageNotes,
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 1.0,
-                horizontalScroll: false,
+              child: Align(
+                alignment: AlignmentDirectional(0.0, -1.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+                  child: Text(
+                    FFLocalizations.of(context).getText(
+                      '8h00v86s' /* No mesaage notes have been 
+up... */
+                      ,
+                    ),
+                    textAlign: TextAlign.center,
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ),
               ),
             ),
           ),
+          if (widget.pdfImageSelected?.messageNotes != null &&
+              widget.pdfImageSelected?.messageNotes != '')
+            Align(
+              alignment: AlignmentDirectional(0.0, -1.0),
+              child: Container(
+                width: double.infinity,
+                height: MediaQuery.sizeOf(context).height * 0.75,
+                decoration: BoxDecoration(),
+                child: FlutterFlowPdfViewer(
+                  networkPath: widget.pdfImageSelected!.messageNotes,
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1.0,
+                  horizontalScroll: false,
+                ),
+              ),
+            ),
         ],
       ),
     );
