@@ -1,15 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/featured_notification_videos_widget.dart';
 import '/components/group_rating_display_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +18,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'groups_ratings_model.dart';
 export 'groups_ratings_model.dart';
 
@@ -164,8 +160,6 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
           !anim.applyInitialState),
       this,
     );
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -330,55 +324,6 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                       ),
                                 ).animateOnPageLoad(
                                     animationsMap['textOnPageLoadAnimation1']!),
-                                FlutterFlowTimer(
-                                  initialTime: _model.timerMilliseconds,
-                                  getDisplayTime: (value) =>
-                                      StopWatchTimer.getDisplayTime(value,
-                                          milliSecond: false),
-                                  controller: _model.timerController,
-                                  updateStateInterval:
-                                      Duration(milliseconds: 1000),
-                                  onChanged:
-                                      (value, displayTime, shouldUpdate) {
-                                    _model.timerMilliseconds = value;
-                                    _model.timerValue = displayTime;
-                                    if (shouldUpdate) setState(() {});
-                                  },
-                                  onEnded: () async {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: Color(0x00000000),
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                            child: GestureDetector(
-                                          onTap: () => _model
-                                                  .unfocusNode.canRequestFocus
-                                              ? FocusScope.of(context)
-                                                  .requestFocus(
-                                                      _model.unfocusNode)
-                                              : FocusScope.of(context)
-                                                  .unfocus(),
-                                          child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child:
-                                                FeaturedNotificationVideosWidget(),
-                                          ),
-                                        ));
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  },
-                                  textAlign: TextAlign.start,
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: Colors.transparent,
-                                      ),
-                                ),
                               ],
                             ),
                           ),

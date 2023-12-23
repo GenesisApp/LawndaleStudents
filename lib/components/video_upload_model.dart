@@ -346,6 +346,8 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   FlutterFlowTimerController timerSecondPageController2 =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  DateTime? datePicked3;
+  DateTime? datePicked4;
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue4;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.

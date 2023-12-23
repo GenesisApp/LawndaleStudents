@@ -439,7 +439,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               fontFamily: 'Lexend Deca',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .worshipRing,
+                                                      .pastorChatOutline,
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.normal,
                                             ),
@@ -538,7 +538,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                               fontFamily: 'Lexend Deca',
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .worshipRing,
+                                                      .pastorChatOutline,
                                               fontSize: 14.0,
                                               fontWeight: FontWeight.normal,
                                             ),

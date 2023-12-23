@@ -14,7 +14,7 @@ export 'featured_notification_events_model.dart';
 class FeaturedNotificationEventsWidget extends StatefulWidget {
   const FeaturedNotificationEventsWidget({
     Key? key,
-    this.chosenResource,
+    required this.chosenResource,
   }) : super(key: key);
 
   final EventsRecord? chosenResource;

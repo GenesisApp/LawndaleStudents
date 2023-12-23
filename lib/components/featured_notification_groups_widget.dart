@@ -14,7 +14,7 @@ export 'featured_notification_groups_model.dart';
 class FeaturedNotificationGroupsWidget extends StatefulWidget {
   const FeaturedNotificationGroupsWidget({
     Key? key,
-    this.chosenResource,
+    required this.chosenResource,
   }) : super(key: key);
 
   final GroupsRecord? chosenResource;

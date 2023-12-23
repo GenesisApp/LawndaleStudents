@@ -1257,7 +1257,7 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: FeaturedNotificationVideosWidget(
                                         chosenResource:
-                                            widget.chosenResourceVideo,
+                                            widget.chosenResourceVideo!,
                                       ),
                                     ));
                                   },

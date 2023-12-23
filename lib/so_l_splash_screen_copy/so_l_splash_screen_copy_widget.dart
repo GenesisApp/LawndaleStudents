@@ -659,7 +659,7 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                               milliSecond: false,
                             ),
                             controller: _model.timer5Controller,
-                            updateStateInterval: Duration(milliseconds: 5000),
+                            updateStateInterval: Duration(milliseconds: 4000),
                             onChanged: (value, displayTime, shouldUpdate) {
                               _model.timer5Milliseconds = value;
                               _model.timer5Value = displayTime;

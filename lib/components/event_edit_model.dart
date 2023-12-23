@@ -14,6 +14,7 @@ import 'event_edit_widget.dart' show EventEditWidget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -59,6 +60,8 @@ class EventEditModel extends FlutterFlowModel<EventEditWidget> {
   FlutterFlowTimerController timerSecondPageController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  DateTime? datePicked1;
+  DateTime? datePicked2;
   // State field(s) for SwitchListTile widget.
   bool? switchListTileValue;
 

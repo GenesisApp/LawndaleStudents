@@ -2119,7 +2119,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                   child:
                                                       FeaturedNotificationVideosWidget(
                                                     chosenResource:
-                                                        _model.newResource,
+                                                        _model.newResource!,
                                                   ),
                                                 ));
                                               },
@@ -5092,7 +5092,8 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                               MediaQuery.viewInsetsOf(context),
                                           child:
                                               FeaturedNotificationGroupsWidget(
-                                            chosenResource: _model.newResource3,
+                                            chosenResource:
+                                                _model.newResource3!,
                                           ),
                                         ));
                                       },
@@ -6155,7 +6156,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                 child:
                                                     FeaturedNotificationEventsWidget(
                                                   chosenResource:
-                                                      _model.newResource2,
+                                                      _model.newResource2!,
                                                 ),
                                               ));
                                             },
@@ -6173,33 +6174,258 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                             color: Colors.transparent,
                                           ),
                                     ),
-                                    SwitchListTile(
-                                      value: _model.switchListTileValue4 ??=
-                                          false,
-                                      onChanged: (newValue) async {
-                                        setState(() => _model
-                                            .switchListTileValue4 = newValue!);
-                                      },
-                                      title: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'ru5n1ke4' /* Make this event featured? */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .headlineSmall
-                                            .override(
-                                              fontFamily: 'Inter',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiary,
-                                              fontSize: 14.0,
-                                              fontWeight: FontWeight.normal,
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            final _datePicked3Date =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate: getCurrentTimestamp,
+                                              firstDate: getCurrentTimestamp,
+                                              lastDate: DateTime(2050),
+                                            );
+
+                                            if (_datePicked3Date != null) {
+                                              safeSetState(() {
+                                                _model.datePicked3 = DateTime(
+                                                  _datePicked3Date.year,
+                                                  _datePicked3Date.month,
+                                                  _datePicked3Date.day,
+                                                );
+                                              });
+                                            }
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.4,
+                                            height: 50.0,
+                                            decoration: BoxDecoration(
+                                              color: FlutterFlowTheme.of(
+                                                      context)
+                                                  .secondarySystemBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
                                             ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'jhbf4fyc' /* Start Date */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                              ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        (_model.datePicked3 !=
+                                                                    null
+                                                                ? true
+                                                                : false)
+                                                            ? dateTimeFormat(
+                                                                'yMd',
+                                                                _model
+                                                                    .datePicked3,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )
+                                                            : 'N/A',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            final _datePicked4Date =
+                                                await showDatePicker(
+                                              context: context,
+                                              initialDate: getCurrentTimestamp,
+                                              firstDate: getCurrentTimestamp,
+                                              lastDate: DateTime(2050),
+                                            );
+
+                                            if (_datePicked4Date != null) {
+                                              safeSetState(() {
+                                                _model.datePicked4 = DateTime(
+                                                  _datePicked4Date.year,
+                                                  _datePicked4Date.month,
+                                                  _datePicked4Date.day,
+                                                );
+                                              });
+                                            }
+                                          },
+                                          child: Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.4,
+                                            height: 50.0,
+                                            decoration: BoxDecoration(
+                                              color: FlutterFlowTheme.of(
+                                                      context)
+                                                  .secondarySystemBackground,
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '7vm1hgci' /* End Date */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                              ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  4.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        (_model.datePicked4 !=
+                                                                    null
+                                                                ? true
+                                                                : false)
+                                                            ? dateTimeFormat(
+                                                                'yMd',
+                                                                _model
+                                                                    .datePicked4,
+                                                                locale: FFLocalizations.of(
+                                                                        context)
+                                                                    .languageCode,
+                                                              )
+                                                            : 'N/A',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 8.0, 0.0, 0.0),
+                                      child: SwitchListTile(
+                                        value: _model.switchListTileValue4 ??=
+                                            false,
+                                        onChanged: (newValue) async {
+                                          setState(() =>
+                                              _model.switchListTileValue4 =
+                                                  newValue!);
+                                        },
+                                        title: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'ru5n1ke4' /* Make this event featured? */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                fontSize: 14.0,
+                                                fontWeight: FontWeight.normal,
+                                              ),
+                                        ),
+                                        activeColor:
+                                            FlutterFlowTheme.of(context)
+                                                .prayerRing,
+                                        dense: true,
+                                        controlAffinity:
+                                            ListTileControlAffinity.trailing,
                                       ),
-                                      activeColor: FlutterFlowTheme.of(context)
-                                          .prayerRing,
-                                      dense: true,
-                                      controlAffinity:
-                                          ListTileControlAffinity.trailing,
                                     ),
                                     if (!(isWeb
                                         ? MediaQuery.viewInsetsOf(context)
@@ -6335,6 +6561,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                             ? true
                                                             : false,
                                                     pDFs: true,
+                                                    startTime:
+                                                        _model.datePicked3,
+                                                    timeCompleted:
+                                                        _model.datePicked4,
                                                   ));
                                                   _model.newResource2 = EventsRecord
                                                       .getDocumentFromData(
@@ -6372,6 +6602,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                                     ? true
                                                                     : false,
                                                             pDFs: true,
+                                                            startTime: _model
+                                                                .datePicked3,
+                                                            timeCompleted: _model
+                                                                .datePicked4,
                                                           ),
                                                           eventsRecordReference);
                                                   await actions.hapticFeedback(

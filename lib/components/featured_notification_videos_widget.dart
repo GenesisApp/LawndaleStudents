@@ -14,7 +14,7 @@ export 'featured_notification_videos_model.dart';
 class FeaturedNotificationVideosWidget extends StatefulWidget {
   const FeaturedNotificationVideosWidget({
     Key? key,
-    this.chosenResource,
+    required this.chosenResource,
   }) : super(key: key);
 
   final ResourceVideosRecord? chosenResource;

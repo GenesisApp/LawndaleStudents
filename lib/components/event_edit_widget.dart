@@ -13,6 +13,7 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
@@ -722,7 +723,7 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                         child: Padding(
                                       padding: MediaQuery.viewInsetsOf(context),
                                       child: FeaturedNotificationEventsWidget(
-                                        chosenResource: widget.chosenEvent,
+                                        chosenResource: widget.chosenEvent!,
                                       ),
                                     ));
                                   },
@@ -739,30 +740,246 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                   color: Colors.transparent,
                                 ),
                           ),
-                          SwitchListTile(
-                            value: _model.switchListTileValue ??= false,
-                            onChanged: (newValue) async {
-                              setState(
-                                  () => _model.switchListTileValue = newValue!);
-                            },
-                            title: Text(
-                              FFLocalizations.of(context).getText(
-                                't0uo4l3e' /* Make this event featured? */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color:
-                                        FlutterFlowTheme.of(context).tertiary,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  final _datePicked1Date = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: getCurrentTimestamp,
+                                    lastDate: DateTime(2050),
+                                  );
+
+                                  if (_datePicked1Date != null) {
+                                    safeSetState(() {
+                                      _model.datePicked1 = DateTime(
+                                        _datePicked1Date.year,
+                                        _datePicked1Date.month,
+                                        _datePicked1Date.day,
+                                      );
+                                    });
+                                  }
+                                },
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.4,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondarySystemBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'bicuhaa1' /* Start Date */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary,
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 0.0, 0.0),
+                                            child: Text(
+                                              () {
+                                                if (widget.chosenEvent
+                                                        ?.startTime !=
+                                                    null) {
+                                                  return dateTimeFormat(
+                                                    'M/d h:mm a',
+                                                    widget.chosenEvent!
+                                                        .startTime!,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  );
+                                                } else if (_model.datePicked1 !=
+                                                        null
+                                                    ? true
+                                                    : false) {
+                                                  return dateTimeFormat(
+                                                    'yMd',
+                                                    _model.datePicked1,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  );
+                                                } else {
+                                                  return 'N/A';
+                                                }
+                                              }(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  final _datePicked2Date = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: getCurrentTimestamp,
+                                    lastDate: DateTime(2050),
+                                  );
+
+                                  if (_datePicked2Date != null) {
+                                    safeSetState(() {
+                                      _model.datePicked2 = DateTime(
+                                        _datePicked2Date.year,
+                                        _datePicked2Date.month,
+                                        _datePicked2Date.day,
+                                      );
+                                    });
+                                  }
+                                },
+                                child: Container(
+                                  width: MediaQuery.sizeOf(context).width * 0.4,
+                                  height: 50.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondarySystemBackground,
+                                    borderRadius: BorderRadius.circular(20.0),
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'hqbr015i' /* End Date */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .tertiary,
+                                                ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 4.0, 0.0, 0.0),
+                                            child: Text(
+                                              () {
+                                                if (widget
+                                                        .chosenEvent?.endTime !=
+                                                    null) {
+                                                  return dateTimeFormat(
+                                                    'M/d h:mm a',
+                                                    widget
+                                                        .chosenEvent!.endTime!,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  );
+                                                } else if (_model.datePicked2 !=
+                                                        null
+                                                    ? true
+                                                    : false) {
+                                                  return dateTimeFormat(
+                                                    'yMd',
+                                                    _model.datePicked2,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  );
+                                                } else {
+                                                  return 'N/A';
+                                                }
+                                              }(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: SwitchListTile(
+                              value: _model.switchListTileValue ??= false,
+                              onChanged: (newValue) async {
+                                setState(() =>
+                                    _model.switchListTileValue = newValue!);
+                              },
+                              title: Text(
+                                FFLocalizations.of(context).getText(
+                                  't0uo4l3e' /* Make this event featured? */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .headlineSmall
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                              ),
+                              activeColor:
+                                  FlutterFlowTheme.of(context).prayerRing,
+                              dense: true,
+                              controlAffinity: ListTileControlAffinity.trailing,
                             ),
-                            activeColor:
-                                FlutterFlowTheme.of(context).prayerRing,
-                            dense: true,
-                            controlAffinity: ListTileControlAffinity.trailing,
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -935,6 +1152,12 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                                   ? _model.uploadedFileUrl
                                                   : widget.chosenEvent
                                                       ?.imageThumbnail,
+                                          startTime: _model.datePicked1 != null
+                                              ? _model.datePicked1
+                                              : widget.chosenEvent?.startTime,
+                                          endTime: _model.datePicked2 != null
+                                              ? _model.datePicked2
+                                              : widget.chosenEvent?.endTime,
                                         ));
                                         _model.timerSecondPageController
                                             .onStartTimer();
