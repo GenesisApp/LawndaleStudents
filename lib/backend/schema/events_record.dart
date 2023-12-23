@@ -136,6 +136,16 @@ class EventsRecord extends FirestoreRecord {
   bool get pDFs => _pDFs ?? false;
   bool hasPDFs() => _pDFs != null;
 
+  // "startTime" field.
+  DateTime? _startTime;
+  DateTime? get startTime => _startTime;
+  bool hasStartTime() => _startTime != null;
+
+  // "endTime" field.
+  DateTime? _endTime;
+  DateTime? get endTime => _endTime;
+  bool hasEndTime() => _endTime != null;
+
   void _initializeFields() {
     _timeCompleted = snapshotData['time_completed'] as DateTime?;
     _timeUploaded = snapshotData['time_uploaded'] as DateTime?;
@@ -161,6 +171,8 @@ class EventsRecord extends FirestoreRecord {
     _guide = snapshotData['guide'] as bool?;
     _groups = snapshotData['Groups'] as bool?;
     _pDFs = snapshotData['PDFs'] as bool?;
+    _startTime = snapshotData['startTime'] as DateTime?;
+    _endTime = snapshotData['endTime'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -220,6 +232,8 @@ Map<String, dynamic> createEventsRecordData({
   bool? guide,
   bool? groups,
   bool? pDFs,
+  DateTime? startTime,
+  DateTime? endTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -246,6 +260,8 @@ Map<String, dynamic> createEventsRecordData({
       'guide': guide,
       'Groups': groups,
       'PDFs': pDFs,
+      'startTime': startTime,
+      'endTime': endTime,
     }.withoutNulls,
   );
 
@@ -281,7 +297,9 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e1?.event == e2?.event &&
         e1?.guide == e2?.guide &&
         e1?.groups == e2?.groups &&
-        e1?.pDFs == e2?.pDFs;
+        e1?.pDFs == e2?.pDFs &&
+        e1?.startTime == e2?.startTime &&
+        e1?.endTime == e2?.endTime;
   }
 
   @override
@@ -309,7 +327,9 @@ class EventsRecordDocumentEquality implements Equality<EventsRecord> {
         e?.event,
         e?.guide,
         e?.groups,
-        e?.pDFs
+        e?.pDFs,
+        e?.startTime,
+        e?.endTime
       ]);
 
   @override

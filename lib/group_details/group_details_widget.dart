@@ -301,151 +301,159 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                 ),
                               ),
                             ),
-                          if (widget.chosenGroup?.groupLeaders
-                                  ?.contains(currentUserReference) ??
-                              true)
+                          if (widget.chosenGroup!.groupLeaders
+                                  .contains(currentUserReference) ||
+                              valueOrDefault<bool>(
+                                  currentUserDocument?.admin, false))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed(
-                                    'groupsAttendance',
-                                    queryParameters: {
-                                      'groupChosen': serializeParam(
-                                        widget.chosenGroup,
-                                        ParamType.Document,
+                              child: AuthUserStreamWidget(
+                                builder: (context) => InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'groupsAttendance',
+                                      queryParameters: {
+                                        'groupChosen': serializeParam(
+                                          widget.chosenGroup,
+                                          ParamType.Document,
+                                        ),
+                                        'groupUsers': serializeParam(
+                                          widget.chosenGroup?.members,
+                                          ParamType.DocumentReference,
+                                          true,
+                                        ),
+                                      }.withoutNulls,
+                                      extra: <String, dynamic>{
+                                        'groupChosen': widget.chosenGroup,
+                                      },
+                                    );
+                                  },
+                                  child: Container(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .opagueSeparator,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: Align(
+                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      child: Icon(
+                                        Icons.edit_note_rounded,
+                                        color: Colors.white,
+                                        size: 28.0,
                                       ),
-                                      'groupUsers': serializeParam(
-                                        widget.chosenGroup?.members,
-                                        ParamType.DocumentReference,
-                                        true,
-                                      ),
-                                    }.withoutNulls,
-                                    extra: <String, dynamic>{
-                                      'groupChosen': widget.chosenGroup,
-                                    },
-                                  );
-                                },
-                                child: Container(
-                                  width: 40.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .opagueSeparator,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Icon(
-                                      Icons.edit_note_rounded,
-                                      color: Colors.white,
-                                      size: 28.0,
                                     ),
                                   ),
                                 ),
                               ),
                             ),
-                          if (widget.chosenGroup?.groupLeaders
-                                  ?.contains(currentUserReference) ??
-                              true)
+                          if (widget.chosenGroup!.groupLeaders
+                                  .contains(currentUserReference) ||
+                              valueOrDefault<bool>(
+                                  currentUserDocument?.admin, false))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
-                              child: StreamBuilder<List<MessageChatsRecord>>(
-                                stream: queryMessageChatsRecord(
-                                  queryBuilder: (messageChatsRecord) =>
-                                      messageChatsRecord.where(
-                                    'sgChatRef',
-                                    isEqualTo: widget.chosenGroup?.reference,
+                              child: AuthUserStreamWidget(
+                                builder: (context) =>
+                                    StreamBuilder<List<MessageChatsRecord>>(
+                                  stream: queryMessageChatsRecord(
+                                    queryBuilder: (messageChatsRecord) =>
+                                        messageChatsRecord.where(
+                                      'sgChatRef',
+                                      isEqualTo: widget.chosenGroup?.reference,
+                                    ),
+                                    singleRecord: true,
                                   ),
-                                  singleRecord: true,
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 75.0,
-                                        height: 75.0,
-                                        child: SpinKitRipple(
-                                          color: Color(0xFF7F95AD),
-                                          size: 75.0,
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 75.0,
+                                          height: 75.0,
+                                          child: SpinKitRipple(
+                                            color: Color(0xFF7F95AD),
+                                            size: 75.0,
+                                          ),
                                         ),
-                                      ),
-                                    );
-                                  }
-                                  List<MessageChatsRecord>
-                                      containerMessageChatsRecordList =
-                                      snapshot.data!;
-                                  final containerMessageChatsRecord =
-                                      containerMessageChatsRecordList.isNotEmpty
-                                          ? containerMessageChatsRecordList
-                                              .first
-                                          : null;
-                                  return Container(
-                                    width: 40.0,
-                                    height: 40.0,
-                                    decoration: BoxDecoration(),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        context.pushNamed(
-                                          'AddGroupPeople',
-                                          queryParameters: {
-                                            'groupChosen': serializeParam(
-                                              widget.chosenGroup,
-                                              ParamType.Document,
-                                            ),
-                                            'groupChosenRef': serializeParam(
-                                              widget.chosenGroup?.reference,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'sgChat': serializeParam(
-                                              containerMessageChatsRecord
-                                                  ?.reference,
-                                              ParamType.DocumentReference,
-                                            ),
-                                            'sgChatDoc': serializeParam(
-                                              containerMessageChatsRecord,
-                                              ParamType.Document,
-                                            ),
-                                          }.withoutNulls,
-                                          extra: <String, dynamic>{
-                                            'groupChosen': widget.chosenGroup,
-                                            'sgChatDoc':
+                                      );
+                                    }
+                                    List<MessageChatsRecord>
+                                        containerMessageChatsRecordList =
+                                        snapshot.data!;
+                                    final containerMessageChatsRecord =
+                                        containerMessageChatsRecordList
+                                                .isNotEmpty
+                                            ? containerMessageChatsRecordList
+                                                .first
+                                            : null;
+                                    return Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          context.pushNamed(
+                                            'AddGroupPeople',
+                                            queryParameters: {
+                                              'groupChosen': serializeParam(
+                                                widget.chosenGroup,
+                                                ParamType.Document,
+                                              ),
+                                              'groupChosenRef': serializeParam(
+                                                widget.chosenGroup?.reference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                              'sgChat': serializeParam(
+                                                containerMessageChatsRecord
+                                                    ?.reference,
+                                                ParamType.DocumentReference,
+                                              ),
+                                              'sgChatDoc': serializeParam(
                                                 containerMessageChatsRecord,
-                                          },
-                                        );
-                                      },
-                                      child: Container(
-                                        width: 40.0,
-                                        height: 40.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .opagueSeparator,
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Align(
-                                          alignment:
-                                              AlignmentDirectional(0.0, 0.0),
-                                          child: Icon(
-                                            Icons.person_add_rounded,
-                                            color: Colors.white,
-                                            size: 24.0,
+                                                ParamType.Document,
+                                              ),
+                                            }.withoutNulls,
+                                            extra: <String, dynamic>{
+                                              'groupChosen': widget.chosenGroup,
+                                              'sgChatDoc':
+                                                  containerMessageChatsRecord,
+                                            },
+                                          );
+                                        },
+                                        child: Container(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .opagueSeparator,
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Icon(
+                                              Icons.person_add_rounded,
+                                              color: Colors.white,
+                                              size: 24.0,
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  );
-                                },
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                           if (valueOrDefault<bool>(

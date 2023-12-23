@@ -2508,7 +2508,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                             child:
                                                 FeaturedNotificationGroupsWidget(
                                               chosenResource:
-                                                  _model.newResource3,
+                                                  _model.newResource3!,
                                             ),
                                           ));
                                         },

@@ -1,14 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/featured_notification_videos_widget.dart';
 import '/components/group_filter_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -262,8 +259,6 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
         FFAppState().showFullList = true;
       });
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -494,56 +489,6 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation2']!),
-                                    FlutterFlowTimer(
-                                      initialTime: _model.timerMilliseconds,
-                                      getDisplayTime: (value) =>
-                                          StopWatchTimer.getDisplayTime(value,
-                                              milliSecond: false),
-                                      controller: _model.timerController,
-                                      updateStateInterval:
-                                          Duration(milliseconds: 1000),
-                                      onChanged:
-                                          (value, displayTime, shouldUpdate) {
-                                        _model.timerMilliseconds = value;
-                                        _model.timerValue = displayTime;
-                                        if (shouldUpdate) setState(() {});
-                                      },
-                                      onEnded: () async {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          barrierColor: Color(0x00000000),
-                                          enableDrag: false,
-                                          context: context,
-                                          builder: (context) {
-                                            return WebViewAware(
-                                                child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    FeaturedNotificationVideosWidget(),
-                                              ),
-                                            ));
-                                          },
-                                        ).then((value) => safeSetState(() {}));
-                                      },
-                                      textAlign: TextAlign.start,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: Colors.transparent,
-                                          ),
-                                    ),
                                   ],
                                 ),
                               ),

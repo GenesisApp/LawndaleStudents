@@ -677,22 +677,6 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                                                               .batch();
                                                       try {
                                                         firestoreBatch.update(
-                                                            widget.sgChatDoc!
-                                                                .reference,
-                                                            {
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'users':
-                                                                      FieldValue
-                                                                          .arrayUnion([
-                                                                    listViewUsersRecord
-                                                                        .reference
-                                                                  ]),
-                                                                },
-                                                              ),
-                                                            });
-
-                                                        firestoreBatch.update(
                                                             listViewUsersRecord
                                                                 .reference,
                                                             {
@@ -710,6 +694,22 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                                                                     widget
                                                                         .sgChatDoc
                                                                         ?.reference
+                                                                  ]),
+                                                                },
+                                                              ),
+                                                            });
+
+                                                        firestoreBatch.update(
+                                                            widget.sgChatDoc!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'users':
+                                                                      FieldValue
+                                                                          .arrayUnion([
+                                                                    listViewUsersRecord
+                                                                        .reference
                                                                   ]),
                                                                 },
                                                               ),
@@ -1122,8 +1122,7 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                                                                       FieldValue
                                                                           .arrayUnion([
                                                                     widget
-                                                                        .groupChosen
-                                                                        ?.reference
+                                                                        .groupChosenRef
                                                                   ]),
                                                                   'messageChats':
                                                                       FieldValue

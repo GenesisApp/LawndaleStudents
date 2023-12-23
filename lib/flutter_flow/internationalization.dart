@@ -234,7 +234,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Recursos',
     },
     'n65zqtwt': {
-      'en': 'Videos',
+      'en': 'Events',
       'es': 'Vídeos',
     },
     'k7ebize0': {
@@ -242,35 +242,43 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Grupos',
     },
     'u97q7kq6': {
-      'en': 'Events',
+      'en': 'Notes',
       'es': 'Eventos',
     },
     'cjugnasg': {
-      'en': 'Notes',
+      'en': 'Videos',
       'es': 'Notas',
     },
     '9ncgoyi8': {
-      'en': 'Videos',
+      'en': 'Events',
       'es': 'Vídeos',
     },
-    'mrs4xdjx': {
-      'en': 'Search recent...',
+    'n8usumdj': {
+      'en': 'Search...',
       'es': 'Buscar...',
     },
-    '8nrvwa8i': {
+    'b4b7aa27': {
       'en': 'Featured',
       'es': 'Presentado',
     },
-    'tn8j0a9y': {
-      'en': '+',
-      'es': '+',
+    'dwhh9akl': {
+      'en': '-',
+      'es': '',
     },
-    '26yvv7q8': {
-      'en': '0',
-      'es': '0',
+    '3iwdvh1h': {
+      'en': 'All Events',
+      'es': 'Todos los eventos',
     },
-    'r6j1omlj': {
-      'en': 'watched so far!',
+    'k0ne5g16': {
+      'en': '-',
+      'es': '',
+    },
+    'c0qrfghj': {
+      'en': 'Results',
+      'es': 'Resultados',
+    },
+    '0293rb7e': {
+      'en': '-',
       'es': '',
     },
     'sfuajext': {
@@ -301,18 +309,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Reset Filter',
       'es': 'Restablecer filtro',
     },
-    'n8usumdj': {
-      'en': 'Search...',
-      'es': 'Buscar...',
-    },
-    '3iwdvh1h': {
-      'en': 'All Events',
-      'es': 'Todos los eventos',
-    },
-    'c0qrfghj': {
-      'en': 'Results',
-      'es': 'Resultados',
-    },
     'j53v2ein': {
       'en': 'Search...',
       'es': 'Buscar...',
@@ -324,6 +320,26 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'n2y8cq8v': {
       'en': 'Results',
       'es': 'Resultados',
+    },
+    'mrs4xdjx': {
+      'en': 'Search recent...',
+      'es': 'Buscar...',
+    },
+    '8nrvwa8i': {
+      'en': 'Featured',
+      'es': 'Presentado',
+    },
+    'tn8j0a9y': {
+      'en': '+',
+      'es': '+',
+    },
+    '26yvv7q8': {
+      'en': '0',
+      'es': '0',
+    },
+    'r6j1omlj': {
+      'en': 'watched so far!',
+      'es': '',
     },
     'ngrcsik5': {
       'en': 'Home',
@@ -3503,6 +3519,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'type here...',
       'es': 'escriba aquí...',
     },
+    'jhbf4fyc': {
+      'en': 'Start Date',
+      'es': 'Fecha de inicio',
+    },
+    '7vm1hgci': {
+      'en': 'End Date',
+      'es': 'Fecha final',
+    },
     'ru5n1ke4': {
       'en': 'Make this event featured?',
       'es': '¿Hacer que este evento sea destacado?',
@@ -5447,6 +5471,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '6ixubr1c': {
       'en': 'type here...',
       'es': 'escriba aquí...',
+    },
+    'bicuhaa1': {
+      'en': 'Start Date',
+      'es': 'Fecha de inicio',
+    },
+    'hqbr015i': {
+      'en': 'End Date',
+      'es': 'Fecha final',
     },
     't0uo4l3e': {
       'en': 'Make this event featured?',

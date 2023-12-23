@@ -2269,7 +2269,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                   child: Padding(
                                 padding: MediaQuery.viewInsetsOf(context),
                                 child: FeaturedNotificationGroupsWidget(
-                                  chosenResource: widget.chosenGroup,
+                                  chosenResource: widget.chosenGroup!,
                                 ),
                               ));
                             },

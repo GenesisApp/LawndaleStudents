@@ -226,7 +226,7 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             await Share.share(
-                              'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}',
+                              widget.chosenResourceGuide!.messageNotes,
                               sharePositionOrigin:
                                   getWidgetBoundingBox(context),
                             );

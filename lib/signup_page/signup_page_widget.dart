@@ -430,7 +430,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
-                                            .worshipRing,
+                                            .pastorChatOutline,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -524,7 +524,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
-                                            .worshipRing,
+                                            .pastorChatOutline,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.normal,
                                       ),
@@ -632,7 +632,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                       .override(
                                         fontFamily: 'Lexend Deca',
                                         color: FlutterFlowTheme.of(context)
-                                            .worshipRing,
+                                            .pastorChatOutline,
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.normal,
                                       ),

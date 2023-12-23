@@ -26,9 +26,9 @@ class SoLSplashScreenCopyModel
 
   final unfocusNode = FocusNode();
   // State field(s) for Timer5 widget.
-  int timer5Milliseconds = 2600;
+  int timer5Milliseconds = 5000;
   String timer5Value = StopWatchTimer.getDisplayTime(
-    2600,
+    5000,
     hours: false,
     milliSecond: false,
   );

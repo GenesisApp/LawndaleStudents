@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/chat_tab_icon_unselected_widget.dart';
 import '/components/event_edit_widget.dart';
-import '/components/featured_notification_videos_widget.dart';
 import '/components/group_filter_widget.dart';
 import '/components/group_upload_only_widget.dart';
 import '/components/profile_tab_icon_unselected_widget.dart';
@@ -58,33 +57,27 @@ class GrowPageModel extends FlutterFlowModel<GrowPageWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode1;
+  TextEditingController? textController1;
+  String? Function(BuildContext, String?)? textController1Validator;
+  List<EventsRecord> simpleSearchResults1 = [];
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
+  List<GuidesRecord> simpleSearchResults2 = [];
   // State field(s) for TextFieldPage1 widget.
   FocusNode? textFieldPage1FocusNode;
   TextEditingController? textFieldPage1Controller;
   String? Function(BuildContext, String?)? textFieldPage1ControllerValidator;
-  List<ResourceVideosRecord> simpleSearchResults1 = [];
+  List<ResourceVideosRecord> simpleSearchResults3 = [];
   // State field(s) for Timer widget.
-  int timerMilliseconds1 = 200;
-  String timerValue1 = StopWatchTimer.getDisplayTime(200, milliSecond: false);
-  FlutterFlowTimerController timerController1 =
+  int timerMilliseconds = 200;
+  String timerValue = StopWatchTimer.getDisplayTime(200, milliSecond: false);
+  FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
-  // State field(s) for Timer widget.
-  int timerMilliseconds2 = 200;
-  String timerValue2 = StopWatchTimer.getDisplayTime(200, milliSecond: false);
-  FlutterFlowTimerController timerController2 =
-      FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  List<EventsRecord> simpleSearchResults2 = [];
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController3;
-  String? Function(BuildContext, String?)? textController3Validator;
-  List<GuidesRecord> simpleSearchResults3 = [];
   // Model for chatTabIconUnselected component.
   late ChatTabIconUnselectedModel chatTabIconUnselectedModel;
   // Model for profileTabIconUnselected component.
@@ -101,17 +94,16 @@ class GrowPageModel extends FlutterFlowModel<GrowPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode1?.dispose();
+    textController1?.dispose();
+
+    textFieldFocusNode2?.dispose();
+    textController2?.dispose();
+
     textFieldPage1FocusNode?.dispose();
     textFieldPage1Controller?.dispose();
 
-    timerController1.dispose();
-    timerController2.dispose();
-    textFieldFocusNode1?.dispose();
-    textController2?.dispose();
-
-    textFieldFocusNode2?.dispose();
-    textController3?.dispose();
-
+    timerController.dispose();
     chatTabIconUnselectedModel.dispose();
     profileTabIconUnselectedModel.dispose();
   }
