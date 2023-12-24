@@ -24,6 +24,10 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _pollLiveState = prefs.getBool('ff_pollLiveState') ?? _pollLiveState;
     });
+    _safeInit(() {
+      _resourceTabSelector =
+          prefs.getInt('ff_resourceTabSelector') ?? _resourceTabSelector;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -230,6 +234,13 @@ class FFAppState extends ChangeNotifier {
   bool get timerStarted => _timerStarted;
   set timerStarted(bool _value) {
     _timerStarted = _value;
+  }
+
+  int _resourceTabSelector = 0;
+  int get resourceTabSelector => _resourceTabSelector;
+  set resourceTabSelector(int _value) {
+    _resourceTabSelector = _value;
+    prefs.setInt('ff_resourceTabSelector', _value);
   }
 }
 

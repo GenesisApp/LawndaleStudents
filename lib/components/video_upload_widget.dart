@@ -6524,6 +6524,14 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                           .isEmpty) {
                                                     return;
                                                   }
+                                                  if (_model.datePicked3 ==
+                                                      null) {
+                                                    return;
+                                                  }
+                                                  if (_model.datePicked4 ==
+                                                      null) {
+                                                    return;
+                                                  }
 
                                                   var eventsRecordReference =
                                                       EventsRecord.collection
