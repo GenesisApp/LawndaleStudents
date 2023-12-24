@@ -111,7 +111,7 @@
       ]
     },
     {
-      "collectionGroup": "events",
+      "collectionGroup": "resource_videos",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -119,8 +119,8 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "timeofRecording",
-          "order": "ASCENDING"
+          "fieldPath": "timeEdited",
+          "order": "DESCENDING"
         }
       ]
     },
@@ -139,7 +139,7 @@
       ]
     },
     {
-      "collectionGroup": "resource_videos",
+      "collectionGroup": "events",
       "queryScope": "COLLECTION",
       "fields": [
         {
@@ -147,8 +147,8 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "timeEdited",
-          "order": "DESCENDING"
+          "fieldPath": "timeofRecording",
+          "order": "ASCENDING"
         }
       ]
     },

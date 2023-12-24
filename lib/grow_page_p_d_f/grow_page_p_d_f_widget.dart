@@ -218,6 +218,41 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
                             ),
                           ),
                         ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await launchURL(
+                                widget.chosenResourceGuide!.messageNotes);
+                          },
+                          child: Container(
+                            width: 40.0,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondarySystemBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 2.0, 0.0, 0.0),
+                                child: Icon(
+                                  Icons.download_rounded,
+                                  color: FlutterFlowTheme.of(context).secondary,
+                                  size: 26.0,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       Builder(
                         builder: (context) => InkWell(
                           splashColor: Colors.transparent,

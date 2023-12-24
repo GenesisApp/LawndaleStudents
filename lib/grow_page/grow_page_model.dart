@@ -57,27 +57,27 @@ class GrowPageModel extends FlutterFlowModel<GrowPageWidget> {
           pageViewController!.page != null
       ? pageViewController!.page!.round()
       : 0;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode1;
-  TextEditingController? textController1;
-  String? Function(BuildContext, String?)? textController1Validator;
-  List<EventsRecord> simpleSearchResults1 = [];
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode2;
-  TextEditingController? textController2;
-  String? Function(BuildContext, String?)? textController2Validator;
-  List<GuidesRecord> simpleSearchResults2 = [];
   // State field(s) for TextFieldPage1 widget.
   FocusNode? textFieldPage1FocusNode;
   TextEditingController? textFieldPage1Controller;
   String? Function(BuildContext, String?)? textFieldPage1ControllerValidator;
-  List<ResourceVideosRecord> simpleSearchResults3 = [];
+  List<ResourceVideosRecord> simpleSearchResults1 = [];
   // State field(s) for Timer widget.
   int timerMilliseconds = 200;
   String timerValue = StopWatchTimer.getDisplayTime(200, milliSecond: false);
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode1;
+  TextEditingController? textController2;
+  String? Function(BuildContext, String?)? textController2Validator;
+  List<EventsRecord> simpleSearchResults2 = [];
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode2;
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
+  List<GuidesRecord> simpleSearchResults3 = [];
   // Model for chatTabIconUnselected component.
   late ChatTabIconUnselectedModel chatTabIconUnselectedModel;
   // Model for profileTabIconUnselected component.
@@ -94,16 +94,16 @@ class GrowPageModel extends FlutterFlowModel<GrowPageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
-    textFieldFocusNode1?.dispose();
-    textController1?.dispose();
-
-    textFieldFocusNode2?.dispose();
-    textController2?.dispose();
-
     textFieldPage1FocusNode?.dispose();
     textFieldPage1Controller?.dispose();
 
     timerController.dispose();
+    textFieldFocusNode1?.dispose();
+    textController2?.dispose();
+
+    textFieldFocusNode2?.dispose();
+    textController3?.dispose();
+
     chatTabIconUnselectedModel.dispose();
     profileTabIconUnselectedModel.dispose();
   }

@@ -234,7 +234,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Recursos',
     },
     'n65zqtwt': {
-      'en': 'Events',
+      'en': 'Videos',
       'es': 'Vídeos',
     },
     'k7ebize0': {
@@ -242,16 +242,60 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Grupos',
     },
     'u97q7kq6': {
-      'en': 'Notes',
+      'en': 'Events',
       'es': 'Eventos',
     },
     'cjugnasg': {
-      'en': 'Videos',
+      'en': 'Notes',
       'es': 'Notas',
     },
-    '9ncgoyi8': {
-      'en': 'Events',
-      'es': 'Vídeos',
+    'mrs4xdjx': {
+      'en': 'Search recent...',
+      'es': 'Buscar...',
+    },
+    '8nrvwa8i': {
+      'en': 'Featured',
+      'es': 'Presentado',
+    },
+    'tn8j0a9y': {
+      'en': '+',
+      'es': '+',
+    },
+    '26yvv7q8': {
+      'en': '0',
+      'es': '0',
+    },
+    'r6j1omlj': {
+      'en': 'watched so far!',
+      'es': '',
+    },
+    'scsykgbu': {
+      'en': 'Featured',
+      'es': 'Presentado',
+    },
+    '5bx6jfdj': {
+      'en': '+',
+      'es': '+',
+    },
+    '2jdq42j7': {
+      'en': '0',
+      'es': '0',
+    },
+    'e25fls7v': {
+      'en': 'members',
+      'es': 'miembros',
+    },
+    'ywudscui': {
+      'en': 'All Groups',
+      'es': 'Todos los grupos',
+    },
+    'e5t1fb0k': {
+      'en': 'Filter',
+      'es': 'Filtrar',
+    },
+    '5wicson1': {
+      'en': 'Reset Filter',
+      'es': 'Restablecer filtro',
     },
     'n8usumdj': {
       'en': 'Search...',
@@ -281,34 +325,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '-',
       'es': '',
     },
-    'sfuajext': {
-      'en': 'Featured',
-      'es': 'Presentado',
-    },
-    '368fzea0': {
-      'en': '+',
-      'es': '+',
-    },
-    'l4j6rzl3': {
-      'en': '0',
-      'es': '0',
-    },
-    'v6cxgm3j': {
-      'en': 'members',
-      'es': 'miembros',
-    },
-    'ywudscui': {
-      'en': 'All Groups',
-      'es': 'Todos los grupos',
-    },
-    'e5t1fb0k': {
-      'en': 'Filter',
-      'es': 'Filtrar',
-    },
-    '5wicson1': {
-      'en': 'Reset Filter',
-      'es': 'Restablecer filtro',
-    },
     'j53v2ein': {
       'en': 'Search...',
       'es': 'Buscar...',
@@ -320,26 +336,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'n2y8cq8v': {
       'en': 'Results',
       'es': 'Resultados',
-    },
-    'mrs4xdjx': {
-      'en': 'Search recent...',
-      'es': 'Buscar...',
-    },
-    '8nrvwa8i': {
-      'en': 'Featured',
-      'es': 'Presentado',
-    },
-    'tn8j0a9y': {
-      'en': '+',
-      'es': '+',
-    },
-    '26yvv7q8': {
-      'en': '0',
-      'es': '0',
-    },
-    'r6j1omlj': {
-      'en': 'watched so far!',
-      'es': '',
     },
     'ngrcsik5': {
       'en': 'Home',
@@ -3544,14 +3540,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Se requiere campo',
     },
     'dvy9frzm': {
-      'en': 'Please choose an option from the dropdown',
-      'es': 'Por favor elija una opción del menú desplegable',
-    },
-    'bti2875z': {
-      'en': 'Field is required',
-      'es': 'Se requiere campo',
-    },
-    'rhp4nygn': {
       'en': 'Please choose an option from the dropdown',
       'es': 'Por favor elija una opción del menú desplegable',
     },
