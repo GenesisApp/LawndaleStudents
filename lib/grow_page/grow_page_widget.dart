@@ -953,13 +953,16 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                               FormFieldController<List<String>>(
                             [
                               () {
-                                if (_model.pageViewCurrentIndex == 0) {
+                                if (FFAppState().resourceTabSelector == 0) {
                                   return 'Videos';
-                                } else if (_model.pageViewCurrentIndex == 1) {
+                                } else if (FFAppState().resourceTabSelector ==
+                                    1) {
                                   return 'Groups';
-                                } else if (_model.pageViewCurrentIndex == 2) {
+                                } else if (FFAppState().resourceTabSelector ==
+                                    2) {
                                   return 'Events';
-                                } else if (_model.pageViewCurrentIndex == 3) {
+                                } else if (FFAppState().resourceTabSelector ==
+                                    3) {
                                   return 'Notes';
                                 } else {
                                   return 'Vidoes';
