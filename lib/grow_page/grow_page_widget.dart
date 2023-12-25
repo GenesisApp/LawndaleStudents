@@ -1405,13 +1405,6 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                                           : null;
                                                   return Container(
                                                     width: double.infinity,
-                                                    constraints: BoxConstraints(
-                                                      maxHeight:
-                                                          MediaQuery.sizeOf(
-                                                                      context)
-                                                                  .height *
-                                                              0.45,
-                                                    ),
                                                     decoration: BoxDecoration(),
                                                     child: Padding(
                                                       padding:
