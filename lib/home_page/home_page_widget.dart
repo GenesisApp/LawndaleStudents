@@ -715,6 +715,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
           await actions.lockOrientation();
         }(),
       );
+      if (!(functions
+              .checkYesterdayDate(currentUserDocument?.dateofCompletion)! ||
+          functions.checkTodayDate(currentUserDocument?.dateofCompletion)!)) {
+        await currentUserReference!.update(createUsersRecordData(
+          dailyStreak: 0,
+        ));
+      }
       if ((valueOrDefault(currentUserDocument?.distanceFromChurch, 0.0) <=
               .055) &&
           (currentUserDocument?.dateNoticeSeen != functions.getDayDate())) {
