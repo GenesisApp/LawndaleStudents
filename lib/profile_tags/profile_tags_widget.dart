@@ -576,19 +576,15 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                               highlightColor: Colors.transparent,
                               onTap: () async {
                                 context.pushNamed(
-                                  'AddTagPeople',
+                                  'AllProfilesWithTag',
                                   queryParameters: {
-                                    'tagChosen': serializeParam(
+                                    'tagSelected': serializeParam(
                                       gridViewProfileTagsRecord,
                                       ParamType.Document,
                                     ),
-                                    'tagChosenRef': serializeParam(
-                                      gridViewProfileTagsRecord.reference,
-                                      ParamType.DocumentReference,
-                                    ),
                                   }.withoutNulls,
                                   extra: <String, dynamic>{
-                                    'tagChosen': gridViewProfileTagsRecord,
+                                    'tagSelected': gridViewProfileTagsRecord,
                                   },
                                 );
                               },
@@ -627,7 +623,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      18.0, 0.0, 0.0, 0.0),
+                                      12.0, 0.0, 6.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -653,7 +649,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                         ),
                                       ),
                                       if (gridViewProfileTagsRecord
-                                              .usersWithTag.length <=
+                                              .usersWithTag.length ==
                                           1)
                                         Text(
                                           '${gridViewProfileTagsRecord.usersWithTag.length.toString()} Person',
@@ -666,9 +662,12 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                                         .secondary,
                                               ),
                                         ),
-                                      if (gridViewProfileTagsRecord
-                                              .usersWithTag.length >
-                                          1)
+                                      if ((gridViewProfileTagsRecord
+                                                  .usersWithTag.length >
+                                              1) ||
+                                          (gridViewProfileTagsRecord
+                                                  .usersWithTag.length ==
+                                              0))
                                         Text(
                                           '${gridViewProfileTagsRecord.usersWithTag.length.toString()} People',
                                           style: FlutterFlowTheme.of(context)
@@ -772,7 +771,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      18.0, 0.0, 0.0, 0.0),
+                                      12.0, 0.0, 6.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -811,9 +810,12 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                                         .secondary,
                                               ),
                                         ),
-                                      if (searchResultsItem
-                                              .usersWithTag.length >
-                                          1)
+                                      if ((searchResultsItem
+                                                  .usersWithTag.length >
+                                              1) ||
+                                          (searchResultsItem
+                                                  .usersWithTag.length ==
+                                              0))
                                         Text(
                                           '${searchResultsItem.usersWithTag.length.toString()} People',
                                           style: FlutterFlowTheme.of(context)

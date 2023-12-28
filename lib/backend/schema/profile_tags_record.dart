@@ -21,11 +21,6 @@ class ProfileTagsRecord extends FirestoreRecord {
   String get tagName => _tagName ?? '';
   bool hasTagName() => _tagName != null;
 
-  // "dateGiven" field.
-  DateTime? _dateGiven;
-  DateTime? get dateGiven => _dateGiven;
-  bool hasDateGiven() => _dateGiven != null;
-
   // "usersWithTag" field.
   List<DocumentReference>? _usersWithTag;
   List<DocumentReference> get usersWithTag => _usersWithTag ?? const [];
@@ -36,11 +31,16 @@ class ProfileTagsRecord extends FirestoreRecord {
   String get tagDescription => _tagDescription ?? '';
   bool hasTagDescription() => _tagDescription != null;
 
+  // "dateCreated" field.
+  DateTime? _dateCreated;
+  DateTime? get dateCreated => _dateCreated;
+  bool hasDateCreated() => _dateCreated != null;
+
   void _initializeFields() {
     _tagName = snapshotData['tagName'] as String?;
-    _dateGiven = snapshotData['dateGiven'] as DateTime?;
     _usersWithTag = getDataList(snapshotData['usersWithTag']);
     _tagDescription = snapshotData['tagDescription'] as String?;
+    _dateCreated = snapshotData['dateCreated'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -79,14 +79,14 @@ class ProfileTagsRecord extends FirestoreRecord {
 
 Map<String, dynamic> createProfileTagsRecordData({
   String? tagName,
-  DateTime? dateGiven,
   String? tagDescription,
+  DateTime? dateCreated,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'tagName': tagName,
-      'dateGiven': dateGiven,
       'tagDescription': tagDescription,
+      'dateCreated': dateCreated,
     }.withoutNulls,
   );
 
@@ -100,14 +100,14 @@ class ProfileTagsRecordDocumentEquality implements Equality<ProfileTagsRecord> {
   bool equals(ProfileTagsRecord? e1, ProfileTagsRecord? e2) {
     const listEquality = ListEquality();
     return e1?.tagName == e2?.tagName &&
-        e1?.dateGiven == e2?.dateGiven &&
         listEquality.equals(e1?.usersWithTag, e2?.usersWithTag) &&
-        e1?.tagDescription == e2?.tagDescription;
+        e1?.tagDescription == e2?.tagDescription &&
+        e1?.dateCreated == e2?.dateCreated;
   }
 
   @override
   int hash(ProfileTagsRecord? e) => const ListEquality()
-      .hash([e?.tagName, e?.dateGiven, e?.usersWithTag, e?.tagDescription]);
+      .hash([e?.tagName, e?.usersWithTag, e?.tagDescription, e?.dateCreated]);
 
   @override
   bool isValidKey(Object? o) => o is ProfileTagsRecord;

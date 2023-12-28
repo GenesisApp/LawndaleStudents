@@ -186,7 +186,7 @@ class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
                           ),
                           child: Icon(
                             Icons.group_add,
-                            color: FlutterFlowTheme.of(context).secondaryText,
+                            color: FlutterFlowTheme.of(context).secondary,
                             size: 26.0,
                           ),
                         ),

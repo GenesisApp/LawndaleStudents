@@ -526,7 +526,7 @@ class _NotificationsSelectionWidgetState
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      18.0, 0.0, 0.0, 0.0),
+                                      12.0, 0.0, 6.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -684,7 +684,7 @@ class _NotificationsSelectionWidgetState
                                 ),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      18.0, 0.0, 0.0, 0.0),
+                                      12.0, 0.0, 6.0, 0.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
