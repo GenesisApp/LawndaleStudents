@@ -2064,7 +2064,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         ThemeMode.light);
                                                   },
                                                   child: SvgPicture.asset(
-                                                    'assets/images/sun-dim-fill_(black).svg',
+                                                    'assets/images/sun-dim-fill_(systemBackgroundB).svg',
                                                     width: 35.0,
                                                     height: 35.0,
                                                     fit: BoxFit.cover,
@@ -2087,7 +2087,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         ThemeMode.dark);
                                                   },
                                                   child: SvgPicture.asset(
-                                                    'assets/images/moon-fill_(white).svg',
+                                                    'assets/images/moon-fill_(systemBackgroundW).svg',
                                                     width: 30.0,
                                                     height: 30.0,
                                                     fit: BoxFit.cover,
@@ -2488,7 +2488,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .brightness ==
                                                   Brightness.dark)
                                                 SvgPicture.asset(
-                                                  'assets/images/user-circle-gear-fill_(black).svg',
+                                                  'assets/images/user-circle-gear-fill_(systemBackgroundB).svg',
                                                   width: 35.0,
                                                   height: 35.0,
                                                   fit: BoxFit.cover,
@@ -2497,7 +2497,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .brightness ==
                                                   Brightness.light)
                                                 SvgPicture.asset(
-                                                  'assets/images/user-circle-gear-fill_(white).svg',
+                                                  'assets/images/user-circle-gear-fill_(systemBackgroundW).svg',
                                                   width: 35.0,
                                                   height: 35.0,
                                                   fit: BoxFit.cover,

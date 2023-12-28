@@ -62,7 +62,7 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
       ? pageViewController!.page!.round()
       : 0;
   // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue1;
+  bool? switchListTileValue;
   bool isDataUploading1 = false;
   FFUploadedFile uploadedLocalFile1 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -160,8 +160,8 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   FocusNode? textFieldFocusNode7;
   TextEditingController? textController7;
   String? Function(BuildContext, String?)? textController7Validator;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue2;
+  // State field(s) for featuredVideo widget.
+  bool? featuredVideoValue;
   // State field(s) for DropDown widget.
   String? dropDownValue;
   FormFieldController<String>? dropDownValueController;
@@ -172,6 +172,8 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
 
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   ResourceVideosRecord? newResource;
+  // Stores action output result for [Backend Call - Create Document] action in Container widget.
+  ResourceVideosRecord? newResourceAlt;
   // State field(s) for Timer widget.
   int timerMilliseconds = 10;
   String timerValue = StopWatchTimer.getDisplayTime(10, milliSecond: false);
@@ -273,8 +275,8 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   FormFieldController<List<String>>? ageRangeChipsNotAllValueController;
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue3;
+  // State field(s) for featuredGroup widget.
+  bool? featuredGroupValue;
   // State field(s) for GroupPrivateSelector widget.
   bool? groupPrivateSelectorValue;
   // State field(s) for TimerSecondPage widget.
@@ -288,6 +290,10 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   GroupsRecord? newResource3;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   MessageChatsRecord? newGroup;
+  // Stores action output result for [Backend Call - Create Document] action in Container widget.
+  GroupsRecord? newResource3Alt;
+  // Stores action output result for [Backend Call - Create Document] action in Container widget.
+  MessageChatsRecord? newGroupAlt;
   bool isDataUploading6 = false;
   FFUploadedFile uploadedLocalFile6 =
       FFUploadedFile(bytes: Uint8List.fromList([]));
@@ -348,10 +354,12 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
 
   DateTime? datePicked3;
   DateTime? datePicked4;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue4;
+  // State field(s) for FeaturedEvent widget.
+  bool? featuredEventValue;
   // Stores action output result for [Backend Call - Create Document] action in Container widget.
   EventsRecord? newResource2;
+  // Stores action output result for [Backend Call - Create Document] action in Container widget.
+  EventsRecord? newResource2Alt;
   bool isDataUploading7 = false;
   FFUploadedFile uploadedLocalFile7 =
       FFUploadedFile(bytes: Uint8List.fromList([]));

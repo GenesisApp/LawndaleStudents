@@ -450,10 +450,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 child: SwitchListTile(
-                                  value: _model.switchListTileValue1 ??= false,
+                                  value: _model.switchListTileValue ??= false,
                                   onChanged: (newValue) async {
-                                    setState(() => _model.switchListTileValue1 =
-                                        newValue!);
+                                    setState(() =>
+                                        _model.switchListTileValue = newValue!);
                                     if (newValue!) {
                                       setState(() {
                                         FFAppState().series = true;
@@ -1401,11 +1401,11 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                               ),
                                               child: SwitchListTile(
                                                 value: _model
-                                                        .switchListTileValue2 ??=
+                                                        .featuredVideoValue ??=
                                                     false,
                                                 onChanged: (newValue) async {
                                                   setState(() => _model
-                                                          .switchListTileValue2 =
+                                                          .featuredVideoValue =
                                                       newValue!);
                                                 },
                                                 title: Text(
@@ -1874,6 +1874,8 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                       highlightColor:
                                                           Colors.transparent,
                                                       onTap: () async {
+                                                        HapticFeedback
+                                                            .lightImpact();
                                                         if (_model.formKey1
                                                                     .currentState ==
                                                                 null ||
@@ -1889,152 +1891,288 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                                 .isEmpty) {
                                                           return;
                                                         }
-
-                                                        var resourceVideosRecordReference =
-                                                            ResourceVideosRecord
-                                                                .collection
-                                                                .doc();
-                                                        await resourceVideosRecordReference
-                                                            .set(
-                                                                createResourceVideosRecordData(
-                                                          videoName: _model
-                                                              .textController1
-                                                              .text,
-                                                          videoURL: _model
-                                                              .textController2
-                                                              .text,
-                                                          messageDescription:
-                                                              _model
-                                                                  .textController3
-                                                                  .text,
-                                                          speaker: _model
-                                                              .textController4
-                                                              .text,
-                                                          timeUploaded:
-                                                              getCurrentTimestamp,
-                                                          imageThumbnail: _model
-                                                              .uploadedFileUrl1,
-                                                          recommendedTalk: _model
-                                                                      .dropDownValue ==
-                                                                  'Recent Messages'
-                                                              ? true
-                                                              : false,
-                                                          recommendedDevotional:
-                                                              _model.dropDownValue ==
-                                                                      'Resources'
-                                                                  ? true
-                                                                  : false,
-                                                          featuredMessage: _model
-                                                              .switchListTileValue2,
-                                                          announcements: _model
-                                                                      .dropDownValue ==
-                                                                  'Announcements'
-                                                              ? true
-                                                              : false,
-                                                          messageNotes: _model
-                                                              .uploadedFileUrl2,
-                                                          timeofRecording: _model
-                                                              .textController5
-                                                              .text,
-                                                          timeEdited:
-                                                              getCurrentTimestamp,
-                                                          videoLength: _model
-                                                              .textController6
-                                                              .text,
-                                                          registrationLink: _model
-                                                              .textController7
-                                                              .text,
-                                                          group:
-                                                              _model.choiceChipsValue ==
-                                                                      'Groups'
-                                                                  ? true
-                                                                  : false,
-                                                          event:
-                                                              _model.choiceChipsValue ==
-                                                                      'Events'
-                                                                  ? true
-                                                                  : false,
-                                                          guide:
-                                                              _model.choiceChipsValue ==
-                                                                      'Guides'
-                                                                  ? true
-                                                                  : false,
-                                                          videoUrlString: _model
-                                                              .textController2
-                                                              .text,
-                                                        ));
-                                                        _model.newResource =
-                                                            ResourceVideosRecord
-                                                                .getDocumentFromData(
-                                                                    createResourceVideosRecordData(
-                                                                      videoName: _model
-                                                                          .textController1
-                                                                          .text,
-                                                                      videoURL: _model
-                                                                          .textController2
-                                                                          .text,
-                                                                      messageDescription: _model
-                                                                          .textController3
-                                                                          .text,
-                                                                      speaker: _model
-                                                                          .textController4
-                                                                          .text,
-                                                                      timeUploaded:
-                                                                          getCurrentTimestamp,
-                                                                      imageThumbnail:
-                                                                          _model
-                                                                              .uploadedFileUrl1,
-                                                                      recommendedTalk: _model.dropDownValue ==
-                                                                              'Recent Messages'
-                                                                          ? true
-                                                                          : false,
-                                                                      recommendedDevotional: _model.dropDownValue ==
-                                                                              'Resources'
-                                                                          ? true
-                                                                          : false,
-                                                                      featuredMessage:
-                                                                          _model
-                                                                              .switchListTileValue2,
-                                                                      announcements: _model.dropDownValue ==
-                                                                              'Announcements'
-                                                                          ? true
-                                                                          : false,
-                                                                      messageNotes:
-                                                                          _model
-                                                                              .uploadedFileUrl2,
-                                                                      timeofRecording: _model
-                                                                          .textController5
-                                                                          .text,
-                                                                      timeEdited:
-                                                                          getCurrentTimestamp,
-                                                                      videoLength: _model
-                                                                          .textController6
-                                                                          .text,
-                                                                      registrationLink: _model
-                                                                          .textController7
-                                                                          .text,
-                                                                      group: _model.choiceChipsValue ==
-                                                                              'Groups'
-                                                                          ? true
-                                                                          : false,
-                                                                      event: _model.choiceChipsValue ==
-                                                                              'Events'
-                                                                          ? true
-                                                                          : false,
-                                                                      guide: _model.choiceChipsValue ==
-                                                                              'Guides'
-                                                                          ? true
-                                                                          : false,
-                                                                      videoUrlString: _model
-                                                                          .textController2
-                                                                          .text,
-                                                                    ),
-                                                                    resourceVideosRecordReference);
-                                                        HapticFeedback
-                                                            .lightImpact();
-                                                        _model.timerController
-                                                            .onStartTimer();
-                                                        Navigator.pop(context);
+                                                        if (_model
+                                                            .featuredVideoValue!) {
+                                                          var resourceVideosRecordReference1 =
+                                                              ResourceVideosRecord
+                                                                  .collection
+                                                                  .doc();
+                                                          await resourceVideosRecordReference1
+                                                              .set(
+                                                                  createResourceVideosRecordData(
+                                                            videoName: _model
+                                                                .textController1
+                                                                .text,
+                                                            videoURL: _model
+                                                                .textController2
+                                                                .text,
+                                                            messageDescription:
+                                                                _model
+                                                                    .textController3
+                                                                    .text,
+                                                            speaker: _model
+                                                                .textController4
+                                                                .text,
+                                                            timeUploaded:
+                                                                getCurrentTimestamp,
+                                                            imageThumbnail: _model
+                                                                .uploadedFileUrl1,
+                                                            recommendedTalk:
+                                                                _model.dropDownValue ==
+                                                                        'Recent Messages'
+                                                                    ? true
+                                                                    : false,
+                                                            recommendedDevotional:
+                                                                _model.dropDownValue ==
+                                                                        'Resources'
+                                                                    ? true
+                                                                    : false,
+                                                            featuredMessage: _model
+                                                                .featuredVideoValue,
+                                                            announcements: _model
+                                                                        .dropDownValue ==
+                                                                    'Announcements'
+                                                                ? true
+                                                                : false,
+                                                            messageNotes: _model
+                                                                .uploadedFileUrl2,
+                                                            timeofRecording: _model
+                                                                .textController5
+                                                                .text,
+                                                            timeEdited:
+                                                                getCurrentTimestamp,
+                                                            videoLength: _model
+                                                                .textController6
+                                                                .text,
+                                                            registrationLink: _model
+                                                                .textController7
+                                                                .text,
+                                                            group:
+                                                                _model.choiceChipsValue ==
+                                                                        'Groups'
+                                                                    ? true
+                                                                    : false,
+                                                            event:
+                                                                _model.choiceChipsValue ==
+                                                                        'Events'
+                                                                    ? true
+                                                                    : false,
+                                                            guide:
+                                                                _model.choiceChipsValue ==
+                                                                        'Guides'
+                                                                    ? true
+                                                                    : false,
+                                                            videoUrlString: _model
+                                                                .textController2
+                                                                .text,
+                                                          ));
+                                                          _model.newResource =
+                                                              ResourceVideosRecord
+                                                                  .getDocumentFromData(
+                                                                      createResourceVideosRecordData(
+                                                                        videoName: _model
+                                                                            .textController1
+                                                                            .text,
+                                                                        videoURL: _model
+                                                                            .textController2
+                                                                            .text,
+                                                                        messageDescription: _model
+                                                                            .textController3
+                                                                            .text,
+                                                                        speaker: _model
+                                                                            .textController4
+                                                                            .text,
+                                                                        timeUploaded:
+                                                                            getCurrentTimestamp,
+                                                                        imageThumbnail:
+                                                                            _model.uploadedFileUrl1,
+                                                                        recommendedTalk: _model.dropDownValue ==
+                                                                                'Recent Messages'
+                                                                            ? true
+                                                                            : false,
+                                                                        recommendedDevotional: _model.dropDownValue ==
+                                                                                'Resources'
+                                                                            ? true
+                                                                            : false,
+                                                                        featuredMessage:
+                                                                            _model.featuredVideoValue,
+                                                                        announcements: _model.dropDownValue ==
+                                                                                'Announcements'
+                                                                            ? true
+                                                                            : false,
+                                                                        messageNotes:
+                                                                            _model.uploadedFileUrl2,
+                                                                        timeofRecording: _model
+                                                                            .textController5
+                                                                            .text,
+                                                                        timeEdited:
+                                                                            getCurrentTimestamp,
+                                                                        videoLength: _model
+                                                                            .textController6
+                                                                            .text,
+                                                                        registrationLink: _model
+                                                                            .textController7
+                                                                            .text,
+                                                                        group: _model.choiceChipsValue ==
+                                                                                'Groups'
+                                                                            ? true
+                                                                            : false,
+                                                                        event: _model.choiceChipsValue ==
+                                                                                'Events'
+                                                                            ? true
+                                                                            : false,
+                                                                        guide: _model.choiceChipsValue ==
+                                                                                'Guides'
+                                                                            ? true
+                                                                            : false,
+                                                                        videoUrlString: _model
+                                                                            .textController2
+                                                                            .text,
+                                                                      ),
+                                                                      resourceVideosRecordReference1);
+                                                          _model.timerController
+                                                              .onStartTimer();
+                                                        } else {
+                                                          var resourceVideosRecordReference2 =
+                                                              ResourceVideosRecord
+                                                                  .collection
+                                                                  .doc();
+                                                          await resourceVideosRecordReference2
+                                                              .set(
+                                                                  createResourceVideosRecordData(
+                                                            videoName: _model
+                                                                .textController1
+                                                                .text,
+                                                            videoURL: _model
+                                                                .textController2
+                                                                .text,
+                                                            messageDescription:
+                                                                _model
+                                                                    .textController3
+                                                                    .text,
+                                                            speaker: _model
+                                                                .textController4
+                                                                .text,
+                                                            timeUploaded:
+                                                                getCurrentTimestamp,
+                                                            imageThumbnail: _model
+                                                                .uploadedFileUrl1,
+                                                            recommendedTalk:
+                                                                _model.dropDownValue ==
+                                                                        'Recent Messages'
+                                                                    ? true
+                                                                    : false,
+                                                            recommendedDevotional:
+                                                                _model.dropDownValue ==
+                                                                        'Resources'
+                                                                    ? true
+                                                                    : false,
+                                                            featuredMessage: _model
+                                                                .featuredVideoValue,
+                                                            announcements: _model
+                                                                        .dropDownValue ==
+                                                                    'Announcements'
+                                                                ? true
+                                                                : false,
+                                                            messageNotes: _model
+                                                                .uploadedFileUrl2,
+                                                            timeofRecording: _model
+                                                                .textController5
+                                                                .text,
+                                                            timeEdited:
+                                                                getCurrentTimestamp,
+                                                            videoLength: _model
+                                                                .textController6
+                                                                .text,
+                                                            registrationLink: _model
+                                                                .textController7
+                                                                .text,
+                                                            group:
+                                                                _model.choiceChipsValue ==
+                                                                        'Groups'
+                                                                    ? true
+                                                                    : false,
+                                                            event:
+                                                                _model.choiceChipsValue ==
+                                                                        'Events'
+                                                                    ? true
+                                                                    : false,
+                                                            guide:
+                                                                _model.choiceChipsValue ==
+                                                                        'Guides'
+                                                                    ? true
+                                                                    : false,
+                                                            videoUrlString: _model
+                                                                .textController2
+                                                                .text,
+                                                          ));
+                                                          _model.newResourceAlt =
+                                                              ResourceVideosRecord
+                                                                  .getDocumentFromData(
+                                                                      createResourceVideosRecordData(
+                                                                        videoName: _model
+                                                                            .textController1
+                                                                            .text,
+                                                                        videoURL: _model
+                                                                            .textController2
+                                                                            .text,
+                                                                        messageDescription: _model
+                                                                            .textController3
+                                                                            .text,
+                                                                        speaker: _model
+                                                                            .textController4
+                                                                            .text,
+                                                                        timeUploaded:
+                                                                            getCurrentTimestamp,
+                                                                        imageThumbnail:
+                                                                            _model.uploadedFileUrl1,
+                                                                        recommendedTalk: _model.dropDownValue ==
+                                                                                'Recent Messages'
+                                                                            ? true
+                                                                            : false,
+                                                                        recommendedDevotional: _model.dropDownValue ==
+                                                                                'Resources'
+                                                                            ? true
+                                                                            : false,
+                                                                        featuredMessage:
+                                                                            _model.featuredVideoValue,
+                                                                        announcements: _model.dropDownValue ==
+                                                                                'Announcements'
+                                                                            ? true
+                                                                            : false,
+                                                                        messageNotes:
+                                                                            _model.uploadedFileUrl2,
+                                                                        timeofRecording: _model
+                                                                            .textController5
+                                                                            .text,
+                                                                        timeEdited:
+                                                                            getCurrentTimestamp,
+                                                                        videoLength: _model
+                                                                            .textController6
+                                                                            .text,
+                                                                        registrationLink: _model
+                                                                            .textController7
+                                                                            .text,
+                                                                        group: _model.choiceChipsValue ==
+                                                                                'Groups'
+                                                                            ? true
+                                                                            : false,
+                                                                        event: _model.choiceChipsValue ==
+                                                                                'Events'
+                                                                            ? true
+                                                                            : false,
+                                                                        guide: _model.choiceChipsValue ==
+                                                                                'Guides'
+                                                                            ? true
+                                                                            : false,
+                                                                        videoUrlString: _model
+                                                                            .textController2
+                                                                            .text,
+                                                                      ),
+                                                                      resourceVideosRecordReference2);
+                                                          Navigator.pop(
+                                                              context);
+                                                        }
 
                                                         setState(() {});
                                                       },
@@ -2099,35 +2237,30 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                           if (shouldUpdate) setState(() {});
                                         },
                                         onEnded: () async {
-                                          if (_model.switchListTileValue2!) {
-                                            await showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              backgroundColor:
-                                                  Colors.transparent,
-                                              barrierColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .opagueSeparator,
-                                              isDismissible: false,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (context) {
-                                                return WebViewAware(
-                                                    child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child:
-                                                      FeaturedNotificationVideosWidget(
-                                                    chosenResource:
-                                                        _model.newResource!,
-                                                  ),
-                                                ));
-                                              },
-                                            ).then(
-                                                (value) => safeSetState(() {}));
-                                          } else {
-                                            Navigator.pop(context);
-                                          }
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .opagueSeparator,
+                                            isDismissible: false,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                  child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    FeaturedNotificationVideosWidget(
+                                                  chosenResource:
+                                                      _model.newResource!,
+                                                ),
+                                              ));
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
                                         },
                                         textAlign: TextAlign.start,
                                         style: FlutterFlowTheme.of(context)
@@ -5006,10 +5139,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
                                 child: SwitchListTile(
-                                  value: _model.switchListTileValue3 ??= false,
+                                  value: _model.featuredGroupValue ??= false,
                                   onChanged: (newValue) async {
-                                    setState(() => _model.switchListTileValue3 =
-                                        newValue!);
+                                    setState(() =>
+                                        _model.featuredGroupValue = newValue!);
                                   },
                                   title: Text(
                                     FFLocalizations.of(context).getText(
@@ -5076,31 +5209,25 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                   if (shouldUpdate) setState(() {});
                                 },
                                 onEnded: () async {
-                                  if (_model.switchListTileValue3!) {
-                                    await showModalBottomSheet(
-                                      isScrollControlled: true,
-                                      backgroundColor: Colors.transparent,
-                                      barrierColor: FlutterFlowTheme.of(context)
-                                          .opagueSeparator,
-                                      isDismissible: false,
-                                      enableDrag: false,
-                                      context: context,
-                                      builder: (context) {
-                                        return WebViewAware(
-                                            child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              FeaturedNotificationGroupsWidget(
-                                            chosenResource:
-                                                _model.newResource3!,
-                                          ),
-                                        ));
-                                      },
-                                    ).then((value) => safeSetState(() {}));
-                                  } else {
-                                    Navigator.pop(context);
-                                  }
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: FlutterFlowTheme.of(context)
+                                        .opagueSeparator,
+                                    isDismissible: false,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return WebViewAware(
+                                          child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: FeaturedNotificationGroupsWidget(
+                                          chosenResource: _model.newResource3!,
+                                        ),
+                                      ));
+                                    },
+                                  ).then((value) => safeSetState(() {}));
                                 },
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
@@ -5224,396 +5351,801 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                     FirebaseFirestore.instance
                                                         .batch();
                                                 try {
-                                                  if (FFAppState()
-                                                      .groupLeaders
-                                                      .isNotEmpty) {
-                                                    if (_model.formKey2
-                                                                .currentState ==
-                                                            null ||
-                                                        !_model.formKey2
-                                                            .currentState!
-                                                            .validate()) {
-                                                      return;
-                                                    }
-                                                    if (_model.uploadedFileUrl4 ==
-                                                            null ||
-                                                        _model.uploadedFileUrl4
-                                                            .isEmpty) {
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(
-                                                        SnackBar(
-                                                          content: Text(
-                                                            'Please upload a photo for the group.',
-                                                            style: TextStyle(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primaryText,
+                                                  if (_model
+                                                      .featuredGroupValue!) {
+                                                    if (FFAppState()
+                                                        .groupLeaders
+                                                        .isNotEmpty) {
+                                                      if (_model.formKey2
+                                                                  .currentState ==
+                                                              null ||
+                                                          !_model.formKey2
+                                                              .currentState!
+                                                              .validate()) {
+                                                        return;
+                                                      }
+                                                      if (_model.uploadedFileUrl4 ==
+                                                              null ||
+                                                          _model
+                                                              .uploadedFileUrl4
+                                                              .isEmpty) {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Please upload a photo for the group.',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
                                                             ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
                                                           ),
-                                                          duration: Duration(
-                                                              milliseconds:
-                                                                  4000),
-                                                          backgroundColor:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .secondary,
-                                                        ),
-                                                      );
-                                                      return;
-                                                    }
+                                                        );
+                                                        return;
+                                                      }
 
-                                                    var groupsRecordReference =
-                                                        GroupsRecord.collection
-                                                            .doc();
-                                                    firestoreBatch.set(
-                                                        groupsRecordReference, {
-                                                      ...createGroupsRecordData(
-                                                        videoName: _model
-                                                            .textController10
-                                                            .text,
-                                                        messageDescription:
-                                                            _model
-                                                                .textController11
-                                                                .text,
-                                                        timeUploaded:
-                                                            getCurrentTimestamp,
-                                                        imageThumbnail: _model
-                                                            .uploadedFileUrl4,
-                                                        featuredMessage: _model
-                                                            .switchListTileValue3,
-                                                        messageNotes: _model
-                                                            .uploadedFileUrl5,
-                                                        timeEdited:
-                                                            getCurrentTimestamp,
-                                                        group:
-                                                            _model.choiceChipsValue ==
-                                                                    'Groups'
-                                                                ? true
-                                                                : false,
-                                                        event:
-                                                            _model.choiceChipsValue ==
-                                                                    'Events'
-                                                                ? true
-                                                                : false,
-                                                        guide:
-                                                            _model.choiceChipsValue ==
-                                                                    'Guides'
-                                                                ? true
-                                                                : false,
-                                                        groups: true,
-                                                        openGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            false,
-                                                        closedGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            true,
-                                                        active: true,
-                                                        inactive: false,
-                                                        targetAge: () {
-                                                          if (_model.ageRangeChipsAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsAllValue;
-                                                          } else if (_model
-                                                                      .ageRangeChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                        meetingDay: _model
-                                                            .dayoftheWeekChipsValue,
-                                                        meetingTime: _model
-                                                            .toDChipsValue,
-                                                        targetGender: _model
-                                                            .radioButtonValue,
-                                                        groupCategory: () {
-                                                          if (_model.categoryChipsAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsAllValue;
-                                                          } else if (_model
-                                                                      .categoryChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                      ),
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'members':
-                                                              FFAppState()
-                                                                  .groupLeaders,
-                                                          'groupLeaders':
-                                                              FFAppState()
-                                                                  .groupLeaders,
-                                                        },
-                                                      ),
-                                                    });
-                                                    _model.newResource3 =
-                                                        GroupsRecord
-                                                            .getDocumentFromData({
-                                                      ...createGroupsRecordData(
-                                                        videoName: _model
-                                                            .textController10
-                                                            .text,
-                                                        messageDescription:
-                                                            _model
-                                                                .textController11
-                                                                .text,
-                                                        timeUploaded:
-                                                            getCurrentTimestamp,
-                                                        imageThumbnail: _model
-                                                            .uploadedFileUrl4,
-                                                        featuredMessage: _model
-                                                            .switchListTileValue3,
-                                                        messageNotes: _model
-                                                            .uploadedFileUrl5,
-                                                        timeEdited:
-                                                            getCurrentTimestamp,
-                                                        group:
-                                                            _model.choiceChipsValue ==
-                                                                    'Groups'
-                                                                ? true
-                                                                : false,
-                                                        event:
-                                                            _model.choiceChipsValue ==
-                                                                    'Events'
-                                                                ? true
-                                                                : false,
-                                                        guide:
-                                                            _model.choiceChipsValue ==
-                                                                    'Guides'
-                                                                ? true
-                                                                : false,
-                                                        groups: true,
-                                                        openGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            false,
-                                                        closedGroup: _model
-                                                                .groupPrivateSelectorValue ==
-                                                            true,
-                                                        active: true,
-                                                        inactive: false,
-                                                        targetAge: () {
-                                                          if (_model.ageRangeChipsAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsAllValue;
-                                                          } else if (_model
-                                                                      .ageRangeChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.ageRangeChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .ageRangeChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                        meetingDay: _model
-                                                            .dayoftheWeekChipsValue,
-                                                        meetingTime: _model
-                                                            .toDChipsValue,
-                                                        targetGender: _model
-                                                            .radioButtonValue,
-                                                        groupCategory: () {
-                                                          if (_model.categoryChipsAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsAllValue;
-                                                          } else if (_model
-                                                                      .categoryChipsNotAllValue !=
-                                                                  null &&
-                                                              _model.categoryChipsNotAllValue !=
-                                                                  '') {
-                                                            return _model
-                                                                .categoryChipsNotAllValue;
-                                                          } else {
-                                                            return '';
-                                                          }
-                                                        }(),
-                                                      ),
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'members':
-                                                              FFAppState()
-                                                                  .groupLeaders,
-                                                          'groupLeaders':
-                                                              FFAppState()
-                                                                  .groupLeaders,
-                                                        },
-                                                      ),
-                                                    }, groupsRecordReference);
-
-                                                    firestoreBatch.update(
-                                                        FFAppState()
-                                                            .groupLeaders
-                                                            .first,
-                                                        {
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'groups': FieldValue
-                                                                  .arrayUnion([
-                                                                _model
-                                                                    .newResource3
-                                                                    ?.reference
-                                                              ]),
-                                                            },
-                                                          ),
-                                                        });
-
-                                                    firestoreBatch.update(
-                                                        FFAppState()
-                                                            .groupLeaders
-                                                            .last,
-                                                        {
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'groups': FieldValue
-                                                                  .arrayUnion([
-                                                                _model
-                                                                    .newResource3
-                                                                    ?.reference
-                                                              ]),
-                                                            },
-                                                          ),
-                                                        });
-                                                    if (_model
-                                                        .groupPrivateSelectorValue!) {
-                                                      firestoreBatch.update(
-                                                          containerGlobalGroupsDataRecord!
-                                                              .reference,
+                                                      var groupsRecordReference1 =
+                                                          GroupsRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          groupsRecordReference1,
                                                           {
+                                                            ...createGroupsRecordData(
+                                                              videoName: _model
+                                                                  .textController10
+                                                                  .text,
+                                                              messageDescription:
+                                                                  _model
+                                                                      .textController11
+                                                                      .text,
+                                                              timeUploaded:
+                                                                  getCurrentTimestamp,
+                                                              imageThumbnail: _model
+                                                                  .uploadedFileUrl4,
+                                                              featuredMessage:
+                                                                  _model
+                                                                      .featuredGroupValue,
+                                                              messageNotes: _model
+                                                                  .uploadedFileUrl5,
+                                                              timeEdited:
+                                                                  getCurrentTimestamp,
+                                                              group:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Groups'
+                                                                      ? true
+                                                                      : false,
+                                                              event:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Events'
+                                                                      ? true
+                                                                      : false,
+                                                              guide:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Guides'
+                                                                      ? true
+                                                                      : false,
+                                                              groups: true,
+                                                              openGroup: _model
+                                                                      .groupPrivateSelectorValue ==
+                                                                  false,
+                                                              closedGroup: _model
+                                                                      .groupPrivateSelectorValue ==
+                                                                  true,
+                                                              active: true,
+                                                              inactive: false,
+                                                              targetAge: () {
+                                                                if (_model.ageRangeChipsAllValue !=
+                                                                        null &&
+                                                                    _model.ageRangeChipsAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .ageRangeChipsAllValue;
+                                                                } else if (_model
+                                                                            .ageRangeChipsNotAllValue !=
+                                                                        null &&
+                                                                    _model.ageRangeChipsNotAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .ageRangeChipsNotAllValue;
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                              meetingDay: _model
+                                                                  .dayoftheWeekChipsValue,
+                                                              meetingTime: _model
+                                                                  .toDChipsValue,
+                                                              targetGender: _model
+                                                                  .radioButtonValue,
+                                                              groupCategory:
+                                                                  () {
+                                                                if (_model.categoryChipsAllValue !=
+                                                                        null &&
+                                                                    _model.categoryChipsAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .categoryChipsAllValue;
+                                                                } else if (_model
+                                                                            .categoryChipsNotAllValue !=
+                                                                        null &&
+                                                                    _model.categoryChipsNotAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .categoryChipsNotAllValue;
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                            ),
                                                             ...mapToFirestore(
                                                               {
-                                                                'closedGroups':
-                                                                    FieldValue
-                                                                        .increment(
-                                                                            1),
+                                                                'members':
+                                                                    FFAppState()
+                                                                        .groupLeaders,
+                                                                'groupLeaders':
+                                                                    FFAppState()
+                                                                        .groupLeaders,
                                                               },
                                                             ),
                                                           });
-                                                    } else {
-                                                      firestoreBatch.update(
-                                                          containerGlobalGroupsDataRecord!
-                                                              .reference,
-                                                          {
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'openGroups':
-                                                                    FieldValue
-                                                                        .increment(
-                                                                            1),
-                                                              },
-                                                            ),
-                                                          });
-                                                    }
-
-                                                    HapticFeedback
-                                                        .lightImpact();
-
-                                                    firestoreBatch.update(
-                                                        _model.newResource3!
-                                                            .reference,
-                                                        {
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'members': FieldValue
-                                                                  .arrayUnion([
-                                                                currentUserReference
-                                                              ]),
-                                                            },
-                                                          ),
-                                                        });
-
-                                                    var messageChatsRecordReference =
-                                                        MessageChatsRecord
-                                                            .collection
-                                                            .doc();
-                                                    firestoreBatch.set(
-                                                        messageChatsRecordReference,
-                                                        {
-                                                          ...createMessageChatsRecordData(
-                                                            archived: false,
-                                                            sgChatRef: _model
-                                                                .newResource3
-                                                                ?.reference,
-                                                          ),
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'userswithNotificationsOn': _model
-                                                                  .newResource3
-                                                                  ?.groupLeaders,
-                                                            },
-                                                          ),
-                                                        });
-                                                    _model.newGroup =
-                                                        MessageChatsRecord
-                                                            .getDocumentFromData({
-                                                      ...createMessageChatsRecordData(
-                                                        archived: false,
-                                                        sgChatRef: _model
-                                                            .newResource3
-                                                            ?.reference,
-                                                      ),
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'userswithNotificationsOn':
+                                                      _model.newResource3 =
+                                                          GroupsRecord
+                                                              .getDocumentFromData({
+                                                        ...createGroupsRecordData(
+                                                          videoName: _model
+                                                              .textController10
+                                                              .text,
+                                                          messageDescription:
                                                               _model
+                                                                  .textController11
+                                                                  .text,
+                                                          timeUploaded:
+                                                              getCurrentTimestamp,
+                                                          imageThumbnail: _model
+                                                              .uploadedFileUrl4,
+                                                          featuredMessage: _model
+                                                              .featuredGroupValue,
+                                                          messageNotes: _model
+                                                              .uploadedFileUrl5,
+                                                          timeEdited:
+                                                              getCurrentTimestamp,
+                                                          group:
+                                                              _model.choiceChipsValue ==
+                                                                      'Groups'
+                                                                  ? true
+                                                                  : false,
+                                                          event:
+                                                              _model.choiceChipsValue ==
+                                                                      'Events'
+                                                                  ? true
+                                                                  : false,
+                                                          guide:
+                                                              _model.choiceChipsValue ==
+                                                                      'Guides'
+                                                                  ? true
+                                                                  : false,
+                                                          groups: true,
+                                                          openGroup: _model
+                                                                  .groupPrivateSelectorValue ==
+                                                              false,
+                                                          closedGroup: _model
+                                                                  .groupPrivateSelectorValue ==
+                                                              true,
+                                                          active: true,
+                                                          inactive: false,
+                                                          targetAge: () {
+                                                            if (_model.ageRangeChipsAllValue !=
+                                                                    null &&
+                                                                _model.ageRangeChipsAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .ageRangeChipsAllValue;
+                                                            } else if (_model
+                                                                        .ageRangeChipsNotAllValue !=
+                                                                    null &&
+                                                                _model.ageRangeChipsNotAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .ageRangeChipsNotAllValue;
+                                                            } else {
+                                                              return '';
+                                                            }
+                                                          }(),
+                                                          meetingDay: _model
+                                                              .dayoftheWeekChipsValue,
+                                                          meetingTime: _model
+                                                              .toDChipsValue,
+                                                          targetGender: _model
+                                                              .radioButtonValue,
+                                                          groupCategory: () {
+                                                            if (_model.categoryChipsAllValue !=
+                                                                    null &&
+                                                                _model.categoryChipsAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .categoryChipsAllValue;
+                                                            } else if (_model
+                                                                        .categoryChipsNotAllValue !=
+                                                                    null &&
+                                                                _model.categoryChipsNotAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .categoryChipsNotAllValue;
+                                                            } else {
+                                                              return '';
+                                                            }
+                                                          }(),
+                                                        ),
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'members':
+                                                                FFAppState()
+                                                                    .groupLeaders,
+                                                            'groupLeaders':
+                                                                FFAppState()
+                                                                    .groupLeaders,
+                                                          },
+                                                        ),
+                                                      }, groupsRecordReference1);
+
+                                                      firestoreBatch.update(
+                                                          FFAppState()
+                                                              .groupLeaders
+                                                              .first,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayUnion([
+                                                                  _model
+                                                                      .newResource3
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+
+                                                      firestoreBatch.update(
+                                                          FFAppState()
+                                                              .groupLeaders
+                                                              .last,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayUnion([
+                                                                  _model
+                                                                      .newResource3
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+                                                      if (_model
+                                                          .groupPrivateSelectorValue!) {
+                                                        firestoreBatch.update(
+                                                            containerGlobalGroupsDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'closedGroups':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      } else {
+                                                        firestoreBatch.update(
+                                                            containerGlobalGroupsDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'openGroups':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      }
+
+                                                      HapticFeedback
+                                                          .lightImpact();
+
+                                                      firestoreBatch.update(
+                                                          _model.newResource3!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'members':
+                                                                    FieldValue
+                                                                        .arrayUnion([
+                                                                  currentUserReference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+
+                                                      var messageChatsRecordReference1 =
+                                                          MessageChatsRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          messageChatsRecordReference1,
+                                                          {
+                                                            ...createMessageChatsRecordData(
+                                                              archived: false,
+                                                              sgChatRef: _model
                                                                   .newResource3
-                                                                  ?.groupLeaders,
+                                                                  ?.reference,
+                                                            ),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'userswithNotificationsOn': _model
+                                                                    .newResource3
+                                                                    ?.groupLeaders,
+                                                              },
+                                                            ),
+                                                          });
+                                                      _model.newGroup =
+                                                          MessageChatsRecord
+                                                              .getDocumentFromData({
+                                                        ...createMessageChatsRecordData(
+                                                          archived: false,
+                                                          sgChatRef: _model
+                                                              .newResource3
+                                                              ?.reference,
+                                                        ),
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'userswithNotificationsOn':
+                                                                _model
+                                                                    .newResource3
+                                                                    ?.groupLeaders,
+                                                          },
+                                                        ),
+                                                      }, messageChatsRecordReference1);
+                                                      _model.updatePage(() {
+                                                        FFAppState()
+                                                            .groupLeaders = [];
+                                                      });
+                                                      _model
+                                                          .timerSecondPageController1
+                                                          .onStartTimer();
+                                                    } else {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                GroupLeadersSetWidget(),
+                                                          ));
                                                         },
-                                                      ),
-                                                    }, messageChatsRecordReference);
-                                                    _model.updatePage(() {
-                                                      FFAppState()
-                                                          .groupLeaders = [];
-                                                    });
-                                                    _model
-                                                        .timerSecondPageController1
-                                                        .onStartTimer();
-                                                    Navigator.pop(context);
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    }
                                                   } else {
-                                                    await showModalBottomSheet(
-                                                      isScrollControlled: true,
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      barrierColor:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .opagueSeparator,
-                                                      context: context,
-                                                      builder: (context) {
-                                                        return WebViewAware(
-                                                            child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child:
-                                                              GroupLeadersSetWidget(),
-                                                        ));
-                                                      },
-                                                    ).then((value) =>
-                                                        safeSetState(() {}));
+                                                    if (FFAppState()
+                                                        .groupLeaders
+                                                        .isNotEmpty) {
+                                                      if (_model.formKey2
+                                                                  .currentState ==
+                                                              null ||
+                                                          !_model.formKey2
+                                                              .currentState!
+                                                              .validate()) {
+                                                        return;
+                                                      }
+                                                      if (_model.uploadedFileUrl4 ==
+                                                              null ||
+                                                          _model
+                                                              .uploadedFileUrl4
+                                                              .isEmpty) {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Please upload a photo for the group.',
+                                                              style: TextStyle(
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                              ),
+                                                            ),
+                                                            duration: Duration(
+                                                                milliseconds:
+                                                                    4000),
+                                                            backgroundColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                          ),
+                                                        );
+                                                        return;
+                                                      }
+
+                                                      var groupsRecordReference2 =
+                                                          GroupsRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          groupsRecordReference2,
+                                                          {
+                                                            ...createGroupsRecordData(
+                                                              videoName: _model
+                                                                  .textController10
+                                                                  .text,
+                                                              messageDescription:
+                                                                  _model
+                                                                      .textController11
+                                                                      .text,
+                                                              timeUploaded:
+                                                                  getCurrentTimestamp,
+                                                              imageThumbnail: _model
+                                                                  .uploadedFileUrl4,
+                                                              featuredMessage:
+                                                                  _model
+                                                                      .featuredGroupValue,
+                                                              messageNotes: _model
+                                                                  .uploadedFileUrl5,
+                                                              timeEdited:
+                                                                  getCurrentTimestamp,
+                                                              group:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Groups'
+                                                                      ? true
+                                                                      : false,
+                                                              event:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Events'
+                                                                      ? true
+                                                                      : false,
+                                                              guide:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Guides'
+                                                                      ? true
+                                                                      : false,
+                                                              groups: true,
+                                                              openGroup: _model
+                                                                      .groupPrivateSelectorValue ==
+                                                                  false,
+                                                              closedGroup: _model
+                                                                      .groupPrivateSelectorValue ==
+                                                                  true,
+                                                              active: true,
+                                                              inactive: false,
+                                                              targetAge: () {
+                                                                if (_model.ageRangeChipsAllValue !=
+                                                                        null &&
+                                                                    _model.ageRangeChipsAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .ageRangeChipsAllValue;
+                                                                } else if (_model
+                                                                            .ageRangeChipsNotAllValue !=
+                                                                        null &&
+                                                                    _model.ageRangeChipsNotAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .ageRangeChipsNotAllValue;
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                              meetingDay: _model
+                                                                  .dayoftheWeekChipsValue,
+                                                              meetingTime: _model
+                                                                  .toDChipsValue,
+                                                              targetGender: _model
+                                                                  .radioButtonValue,
+                                                              groupCategory:
+                                                                  () {
+                                                                if (_model.categoryChipsAllValue !=
+                                                                        null &&
+                                                                    _model.categoryChipsAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .categoryChipsAllValue;
+                                                                } else if (_model
+                                                                            .categoryChipsNotAllValue !=
+                                                                        null &&
+                                                                    _model.categoryChipsNotAllValue !=
+                                                                        '') {
+                                                                  return _model
+                                                                      .categoryChipsNotAllValue;
+                                                                } else {
+                                                                  return '';
+                                                                }
+                                                              }(),
+                                                            ),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'members':
+                                                                    FFAppState()
+                                                                        .groupLeaders,
+                                                                'groupLeaders':
+                                                                    FFAppState()
+                                                                        .groupLeaders,
+                                                              },
+                                                            ),
+                                                          });
+                                                      _model.newResource3Alt =
+                                                          GroupsRecord
+                                                              .getDocumentFromData({
+                                                        ...createGroupsRecordData(
+                                                          videoName: _model
+                                                              .textController10
+                                                              .text,
+                                                          messageDescription:
+                                                              _model
+                                                                  .textController11
+                                                                  .text,
+                                                          timeUploaded:
+                                                              getCurrentTimestamp,
+                                                          imageThumbnail: _model
+                                                              .uploadedFileUrl4,
+                                                          featuredMessage: _model
+                                                              .featuredGroupValue,
+                                                          messageNotes: _model
+                                                              .uploadedFileUrl5,
+                                                          timeEdited:
+                                                              getCurrentTimestamp,
+                                                          group:
+                                                              _model.choiceChipsValue ==
+                                                                      'Groups'
+                                                                  ? true
+                                                                  : false,
+                                                          event:
+                                                              _model.choiceChipsValue ==
+                                                                      'Events'
+                                                                  ? true
+                                                                  : false,
+                                                          guide:
+                                                              _model.choiceChipsValue ==
+                                                                      'Guides'
+                                                                  ? true
+                                                                  : false,
+                                                          groups: true,
+                                                          openGroup: _model
+                                                                  .groupPrivateSelectorValue ==
+                                                              false,
+                                                          closedGroup: _model
+                                                                  .groupPrivateSelectorValue ==
+                                                              true,
+                                                          active: true,
+                                                          inactive: false,
+                                                          targetAge: () {
+                                                            if (_model.ageRangeChipsAllValue !=
+                                                                    null &&
+                                                                _model.ageRangeChipsAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .ageRangeChipsAllValue;
+                                                            } else if (_model
+                                                                        .ageRangeChipsNotAllValue !=
+                                                                    null &&
+                                                                _model.ageRangeChipsNotAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .ageRangeChipsNotAllValue;
+                                                            } else {
+                                                              return '';
+                                                            }
+                                                          }(),
+                                                          meetingDay: _model
+                                                              .dayoftheWeekChipsValue,
+                                                          meetingTime: _model
+                                                              .toDChipsValue,
+                                                          targetGender: _model
+                                                              .radioButtonValue,
+                                                          groupCategory: () {
+                                                            if (_model.categoryChipsAllValue !=
+                                                                    null &&
+                                                                _model.categoryChipsAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .categoryChipsAllValue;
+                                                            } else if (_model
+                                                                        .categoryChipsNotAllValue !=
+                                                                    null &&
+                                                                _model.categoryChipsNotAllValue !=
+                                                                    '') {
+                                                              return _model
+                                                                  .categoryChipsNotAllValue;
+                                                            } else {
+                                                              return '';
+                                                            }
+                                                          }(),
+                                                        ),
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'members':
+                                                                FFAppState()
+                                                                    .groupLeaders,
+                                                            'groupLeaders':
+                                                                FFAppState()
+                                                                    .groupLeaders,
+                                                          },
+                                                        ),
+                                                      }, groupsRecordReference2);
+
+                                                      firestoreBatch.update(
+                                                          FFAppState()
+                                                              .groupLeaders
+                                                              .first,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayUnion([
+                                                                  _model
+                                                                      .newResource3Alt
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+
+                                                      firestoreBatch.update(
+                                                          FFAppState()
+                                                              .groupLeaders
+                                                              .last,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayUnion([
+                                                                  _model
+                                                                      .newResource3Alt
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+                                                      if (_model
+                                                          .groupPrivateSelectorValue!) {
+                                                        firestoreBatch.update(
+                                                            containerGlobalGroupsDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'closedGroups':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      } else {
+                                                        firestoreBatch.update(
+                                                            containerGlobalGroupsDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'openGroups':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      }
+
+                                                      HapticFeedback
+                                                          .lightImpact();
+
+                                                      firestoreBatch.update(
+                                                          _model
+                                                              .newResource3Alt!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'members':
+                                                                    FieldValue
+                                                                        .arrayUnion([
+                                                                  currentUserReference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+
+                                                      var messageChatsRecordReference2 =
+                                                          MessageChatsRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          messageChatsRecordReference2,
+                                                          {
+                                                            ...createMessageChatsRecordData(
+                                                              archived: false,
+                                                              sgChatRef: _model
+                                                                  .newResource3Alt
+                                                                  ?.reference,
+                                                            ),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'userswithNotificationsOn': _model
+                                                                    .newResource3Alt
+                                                                    ?.groupLeaders,
+                                                              },
+                                                            ),
+                                                          });
+                                                      _model.newGroupAlt =
+                                                          MessageChatsRecord
+                                                              .getDocumentFromData({
+                                                        ...createMessageChatsRecordData(
+                                                          archived: false,
+                                                          sgChatRef: _model
+                                                              .newResource3Alt
+                                                              ?.reference,
+                                                        ),
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'userswithNotificationsOn': _model
+                                                                .newResource3Alt
+                                                                ?.groupLeaders,
+                                                          },
+                                                        ),
+                                                      }, messageChatsRecordReference2);
+                                                      _model.updatePage(() {
+                                                        FFAppState()
+                                                            .groupLeaders = [];
+                                                      });
+                                                      Navigator.pop(context);
+                                                    } else {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                GroupLeadersSetWidget(),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    }
                                                   }
                                                 } finally {
                                                   await firestoreBatch.commit();
@@ -6137,34 +6669,28 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                         if (shouldUpdate) setState(() {});
                                       },
                                       onEnded: () async {
-                                        if (_model.switchListTileValue3!) {
-                                          await showModalBottomSheet(
-                                            isScrollControlled: true,
-                                            backgroundColor: Colors.transparent,
-                                            barrierColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .opagueSeparator,
-                                            isDismissible: false,
-                                            enableDrag: false,
-                                            context: context,
-                                            builder: (context) {
-                                              return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    FeaturedNotificationEventsWidget(
-                                                  chosenResource:
-                                                      _model.newResource2!,
-                                                ),
-                                              ));
-                                            },
-                                          ).then(
-                                              (value) => safeSetState(() {}));
-                                        } else {
-                                          Navigator.pop(context);
-                                        }
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          barrierColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .opagueSeparator,
+                                          isDismissible: false,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return WebViewAware(
+                                                child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child:
+                                                  FeaturedNotificationEventsWidget(
+                                                chosenResource:
+                                                    _model.newResource2!,
+                                              ),
+                                            ));
+                                          },
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       textAlign: TextAlign.start,
                                       style: FlutterFlowTheme.of(context)
@@ -6397,12 +6923,11 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: SwitchListTile(
-                                        value: _model.switchListTileValue4 ??=
+                                        value: _model.featuredEventValue ??=
                                             false,
                                         onChanged: (newValue) async {
-                                          setState(() =>
-                                              _model.switchListTileValue4 =
-                                                  newValue!);
+                                          setState(() => _model
+                                              .featuredEventValue = newValue!);
                                         },
                                         title: Text(
                                           FFLocalizations.of(context).getText(
@@ -6510,119 +7035,242 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  if (_model.formKey3
-                                                              .currentState ==
-                                                          null ||
-                                                      !_model.formKey3
-                                                          .currentState!
-                                                          .validate()) {
-                                                    return;
-                                                  }
-                                                  if (_model.uploadedFileUrl6 ==
-                                                          null ||
-                                                      _model.uploadedFileUrl6
-                                                          .isEmpty) {
-                                                    return;
-                                                  }
-                                                  if (_model.datePicked3 ==
-                                                      null) {
-                                                    return;
-                                                  }
-                                                  if (_model.datePicked4 ==
-                                                      null) {
-                                                    return;
-                                                  }
+                                                  if (_model
+                                                      .featuredEventValue!) {
+                                                    if (_model.formKey3
+                                                                .currentState ==
+                                                            null ||
+                                                        !_model.formKey3
+                                                            .currentState!
+                                                            .validate()) {
+                                                      return;
+                                                    }
+                                                    if (_model.uploadedFileUrl6 ==
+                                                            null ||
+                                                        _model.uploadedFileUrl6
+                                                            .isEmpty) {
+                                                      return;
+                                                    }
+                                                    if (_model.datePicked3 ==
+                                                        null) {
+                                                      return;
+                                                    }
+                                                    if (_model.datePicked4 ==
+                                                        null) {
+                                                      return;
+                                                    }
 
-                                                  var eventsRecordReference =
-                                                      EventsRecord.collection
-                                                          .doc();
-                                                  await eventsRecordReference
-                                                      .set(
-                                                          createEventsRecordData(
-                                                    videoName: _model
-                                                        .textController12.text,
-                                                    timeUploaded:
-                                                        getCurrentTimestamp,
-                                                    imageThumbnail:
-                                                        _model.uploadedFileUrl6,
-                                                    featuredMessage: _model
-                                                        .switchListTileValue4,
-                                                    timeofRecording: _model
-                                                        .textController13.text,
-                                                    timeEdited:
-                                                        getCurrentTimestamp,
-                                                    registrationLink: _model
-                                                        .textController14.text,
-                                                    group:
-                                                        _model.choiceChipsValue ==
-                                                                'Groups'
-                                                            ? true
-                                                            : false,
-                                                    event:
-                                                        _model.choiceChipsValue ==
-                                                                'Events'
-                                                            ? true
-                                                            : false,
-                                                    guide:
-                                                        _model.choiceChipsValue ==
-                                                                'Guides'
-                                                            ? true
-                                                            : false,
-                                                    pDFs: true,
-                                                    startTime:
-                                                        _model.datePicked3,
-                                                    timeCompleted:
-                                                        _model.datePicked4,
-                                                  ));
-                                                  _model.newResource2 = EventsRecord
-                                                      .getDocumentFromData(
-                                                          createEventsRecordData(
-                                                            videoName: _model
-                                                                .textController12
-                                                                .text,
-                                                            timeUploaded:
-                                                                getCurrentTimestamp,
-                                                            imageThumbnail: _model
-                                                                .uploadedFileUrl6,
-                                                            featuredMessage: _model
-                                                                .switchListTileValue4,
-                                                            timeofRecording: _model
-                                                                .textController13
-                                                                .text,
-                                                            timeEdited:
-                                                                getCurrentTimestamp,
-                                                            registrationLink: _model
-                                                                .textController14
-                                                                .text,
-                                                            group:
-                                                                _model.choiceChipsValue ==
-                                                                        'Groups'
-                                                                    ? true
-                                                                    : false,
-                                                            event:
-                                                                _model.choiceChipsValue ==
-                                                                        'Events'
-                                                                    ? true
-                                                                    : false,
-                                                            guide:
-                                                                _model.choiceChipsValue ==
-                                                                        'Guides'
-                                                                    ? true
-                                                                    : false,
-                                                            pDFs: true,
-                                                            startTime: _model
-                                                                .datePicked3,
-                                                            timeCompleted: _model
-                                                                .datePicked4,
-                                                          ),
-                                                          eventsRecordReference);
-                                                  await actions.hapticFeedback(
-                                                    1,
-                                                  );
-                                                  _model
-                                                      .timerSecondPageController2
-                                                      .onStartTimer();
-                                                  Navigator.pop(context);
+                                                    var eventsRecordReference1 =
+                                                        EventsRecord.collection
+                                                            .doc();
+                                                    await eventsRecordReference1
+                                                        .set(
+                                                            createEventsRecordData(
+                                                      videoName: _model
+                                                          .textController12
+                                                          .text,
+                                                      timeUploaded:
+                                                          getCurrentTimestamp,
+                                                      imageThumbnail: _model
+                                                          .uploadedFileUrl6,
+                                                      featuredMessage: _model
+                                                          .featuredEventValue,
+                                                      timeofRecording: _model
+                                                          .textController13
+                                                          .text,
+                                                      timeEdited:
+                                                          getCurrentTimestamp,
+                                                      registrationLink: _model
+                                                          .textController14
+                                                          .text,
+                                                      group:
+                                                          _model.choiceChipsValue ==
+                                                                  'Groups'
+                                                              ? true
+                                                              : false,
+                                                      event:
+                                                          _model.choiceChipsValue ==
+                                                                  'Events'
+                                                              ? true
+                                                              : false,
+                                                      guide:
+                                                          _model.choiceChipsValue ==
+                                                                  'Guides'
+                                                              ? true
+                                                              : false,
+                                                      pDFs: true,
+                                                      startTime:
+                                                          _model.datePicked3,
+                                                      timeCompleted:
+                                                          _model.datePicked4,
+                                                    ));
+                                                    _model.newResource2 = EventsRecord
+                                                        .getDocumentFromData(
+                                                            createEventsRecordData(
+                                                              videoName: _model
+                                                                  .textController12
+                                                                  .text,
+                                                              timeUploaded:
+                                                                  getCurrentTimestamp,
+                                                              imageThumbnail: _model
+                                                                  .uploadedFileUrl6,
+                                                              featuredMessage:
+                                                                  _model
+                                                                      .featuredEventValue,
+                                                              timeofRecording:
+                                                                  _model
+                                                                      .textController13
+                                                                      .text,
+                                                              timeEdited:
+                                                                  getCurrentTimestamp,
+                                                              registrationLink:
+                                                                  _model
+                                                                      .textController14
+                                                                      .text,
+                                                              group:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Groups'
+                                                                      ? true
+                                                                      : false,
+                                                              event:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Events'
+                                                                      ? true
+                                                                      : false,
+                                                              guide:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Guides'
+                                                                      ? true
+                                                                      : false,
+                                                              pDFs: true,
+                                                              startTime: _model
+                                                                  .datePicked3,
+                                                              timeCompleted: _model
+                                                                  .datePicked4,
+                                                            ),
+                                                            eventsRecordReference1);
+                                                    HapticFeedback
+                                                        .lightImpact();
+                                                    _model
+                                                        .timerSecondPageController2
+                                                        .onStartTimer();
+                                                  } else {
+                                                    if (_model.formKey3
+                                                                .currentState ==
+                                                            null ||
+                                                        !_model.formKey3
+                                                            .currentState!
+                                                            .validate()) {
+                                                      return;
+                                                    }
+                                                    if (_model.uploadedFileUrl6 ==
+                                                            null ||
+                                                        _model.uploadedFileUrl6
+                                                            .isEmpty) {
+                                                      return;
+                                                    }
+                                                    if (_model.datePicked3 ==
+                                                        null) {
+                                                      return;
+                                                    }
+                                                    if (_model.datePicked4 ==
+                                                        null) {
+                                                      return;
+                                                    }
+
+                                                    var eventsRecordReference2 =
+                                                        EventsRecord.collection
+                                                            .doc();
+                                                    await eventsRecordReference2
+                                                        .set(
+                                                            createEventsRecordData(
+                                                      videoName: _model
+                                                          .textController12
+                                                          .text,
+                                                      timeUploaded:
+                                                          getCurrentTimestamp,
+                                                      imageThumbnail: _model
+                                                          .uploadedFileUrl6,
+                                                      featuredMessage: _model
+                                                          .featuredEventValue,
+                                                      timeofRecording: _model
+                                                          .textController13
+                                                          .text,
+                                                      timeEdited:
+                                                          getCurrentTimestamp,
+                                                      registrationLink: _model
+                                                          .textController14
+                                                          .text,
+                                                      group:
+                                                          _model.choiceChipsValue ==
+                                                                  'Groups'
+                                                              ? true
+                                                              : false,
+                                                      event:
+                                                          _model.choiceChipsValue ==
+                                                                  'Events'
+                                                              ? true
+                                                              : false,
+                                                      guide:
+                                                          _model.choiceChipsValue ==
+                                                                  'Guides'
+                                                              ? true
+                                                              : false,
+                                                      pDFs: true,
+                                                      startTime:
+                                                          _model.datePicked3,
+                                                      timeCompleted:
+                                                          _model.datePicked4,
+                                                    ));
+                                                    _model.newResource2Alt =
+                                                        EventsRecord.getDocumentFromData(
+                                                            createEventsRecordData(
+                                                              videoName: _model
+                                                                  .textController12
+                                                                  .text,
+                                                              timeUploaded:
+                                                                  getCurrentTimestamp,
+                                                              imageThumbnail: _model
+                                                                  .uploadedFileUrl6,
+                                                              featuredMessage:
+                                                                  _model
+                                                                      .featuredEventValue,
+                                                              timeofRecording:
+                                                                  _model
+                                                                      .textController13
+                                                                      .text,
+                                                              timeEdited:
+                                                                  getCurrentTimestamp,
+                                                              registrationLink:
+                                                                  _model
+                                                                      .textController14
+                                                                      .text,
+                                                              group:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Groups'
+                                                                      ? true
+                                                                      : false,
+                                                              event:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Events'
+                                                                      ? true
+                                                                      : false,
+                                                              guide:
+                                                                  _model.choiceChipsValue ==
+                                                                          'Guides'
+                                                                      ? true
+                                                                      : false,
+                                                              pDFs: true,
+                                                              startTime: _model
+                                                                  .datePicked3,
+                                                              timeCompleted: _model
+                                                                  .datePicked4,
+                                                            ),
+                                                            eventsRecordReference2);
+                                                    HapticFeedback
+                                                        .lightImpact();
+                                                    Navigator.pop(context);
+                                                  }
 
                                                   setState(() {});
                                                 },
