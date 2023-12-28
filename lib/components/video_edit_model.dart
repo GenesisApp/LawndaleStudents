@@ -73,8 +73,8 @@ class VideoEditModel extends FlutterFlowModel<VideoEditWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl2 = '';
 
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue;
+  // State field(s) for featuredVideo widget.
+  bool? featuredVideoValue;
   // State field(s) for Timer widget.
   int timerMilliseconds = 10;
   String timerValue = StopWatchTimer.getDisplayTime(10, milliSecond: false);

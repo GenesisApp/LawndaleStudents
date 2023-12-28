@@ -1147,11 +1147,11 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
                             child: SwitchListTile(
-                              value: _model.switchListTileValue ??=
+                              value: _model.featuredVideoValue ??=
                                   widget.chosenResourceVideo!.featuredMessage,
                               onChanged: (newValue) async {
                                 setState(() =>
-                                    _model.switchListTileValue = newValue!);
+                                    _model.featuredVideoValue = newValue!);
                               },
                               title: Text(
                                 FFLocalizations.of(context).getText(
@@ -1243,28 +1243,24 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                               if (shouldUpdate) setState(() {});
                             },
                             onEnded: () async {
-                              if (_model.switchListTileValue!) {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  barrierColor: FlutterFlowTheme.of(context)
-                                      .opagueSeparator,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: FeaturedNotificationVideosWidget(
-                                        chosenResource:
-                                            widget.chosenResourceVideo!,
-                                      ),
-                                    ));
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              } else {
-                                Navigator.pop(context);
-                              }
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                barrierColor: FlutterFlowTheme.of(context)
+                                    .opagueSeparator,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                      child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: FeaturedNotificationVideosWidget(
+                                      chosenResource:
+                                          widget.chosenResourceVideo!,
+                                    ),
+                                  ));
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
@@ -1342,110 +1338,237 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                                       hoverColor: Colors.transparent,
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
-                                        if (_model.formKey.currentState ==
-                                                null ||
-                                            !_model.formKey.currentState!
-                                                .validate()) {
-                                          return;
-                                        }
-                                        HapticFeedback.lightImpact();
+                                        if (_model.featuredVideoValue!) {
+                                          if (_model.formKey.currentState ==
+                                                  null ||
+                                              !_model.formKey.currentState!
+                                                  .validate()) {
+                                            return;
+                                          }
+                                          HapticFeedback.lightImpact();
 
-                                        await widget
-                                            .chosenResourceVideo!.reference
-                                            .update(
-                                                createResourceVideosRecordData(
-                                          imageThumbnail:
-                                              _model.uploadedFileUrl1 != null &&
-                                                      _model.uploadedFileUrl1 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl1
-                                                  : widget.chosenResourceVideo
-                                                      ?.imageThumbnail,
-                                          videoName: _model.textController1
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController1.text !=
-                                                      ''
-                                              ? _model.textController1.text
-                                              : widget.chosenResourceVideo
-                                                  ?.videoName,
-                                          videoURL: _model.textController2
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController2.text !=
-                                                      ''
-                                              ? _model.textController2.text
-                                              : widget.chosenResourceVideo
-                                                  ?.videoURL,
-                                          messageDescription: _model
-                                                          .textController3
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController3.text !=
-                                                      ''
-                                              ? _model.textController3.text
-                                              : widget.chosenResourceVideo
-                                                  ?.messageDescription,
-                                          speaker: _model.textController4
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController4.text !=
-                                                      ''
-                                              ? _model.textController4.text
-                                              : widget
-                                                  .chosenResourceVideo?.speaker,
-                                          recommendedTalk:
-                                              _model.dropDownValue ==
-                                                      'Recent Messages'
-                                                  ? true
-                                                  : false,
-                                          recommendedDevotional:
-                                              _model.dropDownValue ==
-                                                      'Resources'
-                                                  ? true
-                                                  : false,
-                                          announcements: _model.dropDownValue ==
-                                                  'Announcements'
-                                              ? true
-                                              : false,
-                                          messageNotes:
-                                              _model.uploadedFileUrl2 != null &&
-                                                      _model.uploadedFileUrl2 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl2
-                                                  : widget.chosenResourceVideo
-                                                      ?.messageNotes,
-                                          featuredMessage:
-                                              _model.switchListTileValue,
-                                          timeEdited: getCurrentTimestamp,
-                                          timeofRecording: _model
-                                                          .textController5
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController5.text !=
-                                                      ''
-                                              ? _model.textController5.text
-                                              : widget.chosenResourceVideo
-                                                  ?.timeofRecording,
-                                          videoLength: _model.textController6
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController6.text !=
-                                                      ''
-                                              ? _model.textController6.text
-                                              : widget.chosenResourceVideo
-                                                  ?.videoLength,
-                                          registrationLink: _model
-                                                          .textController7
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController7.text !=
-                                                      ''
-                                              ? _model.textController7.text
-                                              : widget.chosenResourceVideo
-                                                  ?.registrationLink,
-                                        ));
-                                        Navigator.pop(context);
+                                          await widget
+                                              .chosenResourceVideo!.reference
+                                              .update(
+                                                  createResourceVideosRecordData(
+                                            imageThumbnail: _model
+                                                            .uploadedFileUrl1 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl1 !=
+                                                        ''
+                                                ? _model.uploadedFileUrl1
+                                                : widget.chosenResourceVideo
+                                                    ?.imageThumbnail,
+                                            videoName: _model.textController1
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController1
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController1.text
+                                                : widget.chosenResourceVideo
+                                                    ?.videoName,
+                                            videoURL: _model.textController2
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController2
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController2.text
+                                                : widget.chosenResourceVideo
+                                                    ?.videoURL,
+                                            messageDescription: _model
+                                                            .textController3
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController3
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController3.text
+                                                : widget.chosenResourceVideo
+                                                    ?.messageDescription,
+                                            speaker: _model.textController4
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController4
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController4.text
+                                                : widget.chosenResourceVideo
+                                                    ?.speaker,
+                                            recommendedTalk:
+                                                _model.dropDownValue ==
+                                                        'Recent Messages'
+                                                    ? true
+                                                    : false,
+                                            recommendedDevotional:
+                                                _model.dropDownValue ==
+                                                        'Resources'
+                                                    ? true
+                                                    : false,
+                                            announcements:
+                                                _model.dropDownValue ==
+                                                        'Announcements'
+                                                    ? true
+                                                    : false,
+                                            messageNotes: _model
+                                                            .uploadedFileUrl2 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl2 !=
+                                                        ''
+                                                ? _model.uploadedFileUrl2
+                                                : widget.chosenResourceVideo
+                                                    ?.messageNotes,
+                                            featuredMessage:
+                                                _model.featuredVideoValue,
+                                            timeEdited: getCurrentTimestamp,
+                                            timeofRecording: _model
+                                                            .textController5
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController5
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController5.text
+                                                : widget.chosenResourceVideo
+                                                    ?.timeofRecording,
+                                            videoLength: _model.textController6
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController6
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController6.text
+                                                : widget.chosenResourceVideo
+                                                    ?.videoLength,
+                                            registrationLink: _model
+                                                            .textController7
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController7
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController7.text
+                                                : widget.chosenResourceVideo
+                                                    ?.registrationLink,
+                                          ));
+                                          _model.timerController.onStartTimer();
+                                        } else {
+                                          if (_model.formKey.currentState ==
+                                                  null ||
+                                              !_model.formKey.currentState!
+                                                  .validate()) {
+                                            return;
+                                          }
+                                          HapticFeedback.lightImpact();
+
+                                          await widget
+                                              .chosenResourceVideo!.reference
+                                              .update(
+                                                  createResourceVideosRecordData(
+                                            imageThumbnail: _model
+                                                            .uploadedFileUrl1 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl1 !=
+                                                        ''
+                                                ? _model.uploadedFileUrl1
+                                                : widget.chosenResourceVideo
+                                                    ?.imageThumbnail,
+                                            videoName: _model.textController1
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController1
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController1.text
+                                                : widget.chosenResourceVideo
+                                                    ?.videoName,
+                                            videoURL: _model.textController2
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController2
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController2.text
+                                                : widget.chosenResourceVideo
+                                                    ?.videoURL,
+                                            messageDescription: _model
+                                                            .textController3
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController3
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController3.text
+                                                : widget.chosenResourceVideo
+                                                    ?.messageDescription,
+                                            speaker: _model.textController4
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController4
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController4.text
+                                                : widget.chosenResourceVideo
+                                                    ?.speaker,
+                                            recommendedTalk:
+                                                _model.dropDownValue ==
+                                                        'Recent Messages'
+                                                    ? true
+                                                    : false,
+                                            recommendedDevotional:
+                                                _model.dropDownValue ==
+                                                        'Resources'
+                                                    ? true
+                                                    : false,
+                                            announcements:
+                                                _model.dropDownValue ==
+                                                        'Announcements'
+                                                    ? true
+                                                    : false,
+                                            messageNotes: _model
+                                                            .uploadedFileUrl2 !=
+                                                        null &&
+                                                    _model.uploadedFileUrl2 !=
+                                                        ''
+                                                ? _model.uploadedFileUrl2
+                                                : widget.chosenResourceVideo
+                                                    ?.messageNotes,
+                                            featuredMessage:
+                                                _model.featuredVideoValue,
+                                            timeEdited: getCurrentTimestamp,
+                                            timeofRecording: _model
+                                                            .textController5
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController5
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController5.text
+                                                : widget.chosenResourceVideo
+                                                    ?.timeofRecording,
+                                            videoLength: _model.textController6
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController6
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController6.text
+                                                : widget.chosenResourceVideo
+                                                    ?.videoLength,
+                                            registrationLink: _model
+                                                            .textController7
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController7
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController7.text
+                                                : widget.chosenResourceVideo
+                                                    ?.registrationLink,
+                                          ));
+                                          Navigator.pop(context);
+                                        }
                                       },
                                       child: Container(
                                         width: 40.0,

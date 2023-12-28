@@ -2255,28 +2255,24 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                         if (shouldUpdate) setState(() {});
                       },
                       onEnded: () async {
-                        if (_model.switchListTileValue!) {
-                          await showModalBottomSheet(
-                            isScrollControlled: true,
-                            backgroundColor: Colors.transparent,
-                            barrierColor:
-                                FlutterFlowTheme.of(context).opagueSeparator,
-                            isDismissible: false,
-                            enableDrag: false,
-                            context: context,
-                            builder: (context) {
-                              return WebViewAware(
-                                  child: Padding(
-                                padding: MediaQuery.viewInsetsOf(context),
-                                child: FeaturedNotificationGroupsWidget(
-                                  chosenResource: widget.chosenGroup!,
-                                ),
-                              ));
-                            },
-                          ).then((value) => safeSetState(() {}));
-                        } else {
-                          Navigator.pop(context);
-                        }
+                        await showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          barrierColor:
+                              FlutterFlowTheme.of(context).opagueSeparator,
+                          isDismissible: false,
+                          enableDrag: false,
+                          context: context,
+                          builder: (context) {
+                            return WebViewAware(
+                                child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: FeaturedNotificationGroupsWidget(
+                                chosenResource: widget.chosenGroup!,
+                              ),
+                            ));
+                          },
+                        ).then((value) => safeSetState(() {}));
                       },
                       textAlign: TextAlign.start,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -2380,148 +2376,304 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      if (FFAppState()
-                                          .groupLeaders
-                                          .isNotEmpty) {
-                                        HapticFeedback.lightImpact();
-
-                                        await widget.chosenGroup!.reference
-                                            .update({
-                                          ...createGroupsRecordData(
-                                            imageThumbnail: _model
-                                                            .uploadedFileUrl1 !=
-                                                        null &&
-                                                    _model.uploadedFileUrl1 !=
-                                                        ''
-                                                ? _model.uploadedFileUrl1
-                                                : widget.chosenGroup
-                                                    ?.imageThumbnail,
-                                            videoName: _model.textController1
-                                                            .text !=
-                                                        null &&
-                                                    _model.textController1
-                                                            .text !=
-                                                        ''
-                                                ? _model.textController1.text
-                                                : widget.chosenGroup?.videoName,
-                                            messageDescription: _model
-                                                            .textController2
-                                                            .text !=
-                                                        null &&
-                                                    _model.textController2
-                                                            .text !=
-                                                        ''
-                                                ? _model.textController2.text
-                                                : widget.chosenGroup
-                                                    ?.messageDescription,
-                                            messageNotes: _model
-                                                            .uploadedFileUrl2 !=
-                                                        null &&
-                                                    _model.uploadedFileUrl2 !=
-                                                        ''
-                                                ? _model.uploadedFileUrl2
-                                                : widget
-                                                    .chosenGroup?.messageNotes,
-                                            meetingDay:
-                                                _model.dayoftheWeekChipsValue,
-                                            meetingTime: _model.toDChipsValue,
-                                            targetGender:
-                                                _model.radioButtonValue,
-                                            targetAge: () {
-                                              if (_model.ageRangeChipsAllValue !=
-                                                      null &&
-                                                  _model.ageRangeChipsAllValue !=
-                                                      '') {
-                                                return _model
-                                                    .ageRangeChipsAllValue;
-                                              } else if (_model
-                                                          .ageRangeChipsNotAllValue !=
-                                                      null &&
-                                                  _model.ageRangeChipsNotAllValue !=
-                                                      '') {
-                                                return _model
-                                                    .ageRangeChipsNotAllValue;
-                                              } else {
-                                                return '';
-                                              }
-                                            }(),
-                                            groupCategory: () {
-                                              if (_model.categoryChipsAllValue !=
-                                                      null &&
-                                                  _model.categoryChipsAllValue !=
-                                                      '') {
-                                                return _model
-                                                    .categoryChipsAllValue;
-                                              } else if (_model
-                                                          .categoryChipsNotAllValue !=
-                                                      null &&
-                                                  _model.categoryChipsNotAllValue !=
-                                                      '') {
-                                                return _model
-                                                    .categoryChipsNotAllValue;
-                                              } else {
-                                                return '';
-                                              }
-                                            }(),
-                                            featuredMessage:
-                                                _model.switchListTileValue,
-                                          ),
-                                          ...mapToFirestore(
-                                            {
-                                              'groupLeaders':
-                                                  FFAppState().groupLeaders,
-                                            },
-                                          ),
-                                        });
-
-                                        await FFAppState()
+                                      if (_model.switchListTileValue!) {
+                                        if (FFAppState()
                                             .groupLeaders
-                                            .first
-                                            .update({
-                                          ...mapToFirestore(
-                                            {
-                                              'groups': FieldValue.arrayUnion([
-                                                widget.chosenGroup?.reference
-                                              ]),
-                                            },
-                                          ),
-                                        });
+                                            .isNotEmpty) {
+                                          HapticFeedback.lightImpact();
 
-                                        await FFAppState()
-                                            .groupLeaders
-                                            .last
-                                            .update({
-                                          ...mapToFirestore(
-                                            {
-                                              'groups': FieldValue.arrayUnion([
-                                                widget.chosenGroup?.reference
-                                              ]),
+                                          await widget.chosenGroup!.reference
+                                              .update({
+                                            ...createGroupsRecordData(
+                                              imageThumbnail: _model
+                                                              .uploadedFileUrl1 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl1 !=
+                                                          ''
+                                                  ? _model.uploadedFileUrl1
+                                                  : widget.chosenGroup
+                                                      ?.imageThumbnail,
+                                              videoName: _model.textController1
+                                                              .text !=
+                                                          null &&
+                                                      _model.textController1
+                                                              .text !=
+                                                          ''
+                                                  ? _model.textController1.text
+                                                  : widget
+                                                      .chosenGroup?.videoName,
+                                              messageDescription: _model
+                                                              .textController2
+                                                              .text !=
+                                                          null &&
+                                                      _model.textController2
+                                                              .text !=
+                                                          ''
+                                                  ? _model.textController2.text
+                                                  : widget.chosenGroup
+                                                      ?.messageDescription,
+                                              messageNotes: _model
+                                                              .uploadedFileUrl2 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl2 !=
+                                                          ''
+                                                  ? _model.uploadedFileUrl2
+                                                  : widget.chosenGroup
+                                                      ?.messageNotes,
+                                              meetingDay:
+                                                  _model.dayoftheWeekChipsValue,
+                                              meetingTime: _model.toDChipsValue,
+                                              targetGender:
+                                                  _model.radioButtonValue,
+                                              targetAge: () {
+                                                if (_model.ageRangeChipsAllValue !=
+                                                        null &&
+                                                    _model.ageRangeChipsAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .ageRangeChipsAllValue;
+                                                } else if (_model
+                                                            .ageRangeChipsNotAllValue !=
+                                                        null &&
+                                                    _model.ageRangeChipsNotAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .ageRangeChipsNotAllValue;
+                                                } else {
+                                                  return '';
+                                                }
+                                              }(),
+                                              groupCategory: () {
+                                                if (_model.categoryChipsAllValue !=
+                                                        null &&
+                                                    _model.categoryChipsAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .categoryChipsAllValue;
+                                                } else if (_model
+                                                            .categoryChipsNotAllValue !=
+                                                        null &&
+                                                    _model.categoryChipsNotAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .categoryChipsNotAllValue;
+                                                } else {
+                                                  return '';
+                                                }
+                                              }(),
+                                              featuredMessage:
+                                                  _model.switchListTileValue,
+                                            ),
+                                            ...mapToFirestore(
+                                              {
+                                                'groupLeaders':
+                                                    FFAppState().groupLeaders,
+                                              },
+                                            ),
+                                          });
+
+                                          await FFAppState()
+                                              .groupLeaders
+                                              .first
+                                              .update({
+                                            ...mapToFirestore(
+                                              {
+                                                'groups':
+                                                    FieldValue.arrayUnion([
+                                                  widget.chosenGroup?.reference
+                                                ]),
+                                              },
+                                            ),
+                                          });
+
+                                          await FFAppState()
+                                              .groupLeaders
+                                              .last
+                                              .update({
+                                            ...mapToFirestore(
+                                              {
+                                                'groups':
+                                                    FieldValue.arrayUnion([
+                                                  widget.chosenGroup?.reference
+                                                ]),
+                                              },
+                                            ),
+                                          });
+                                          _model.updatePage(() {
+                                            FFAppState().groupLeaders = [];
+                                          });
+                                          _model.timerSecondPageController
+                                              .onStartTimer();
+                                          Navigator.pop(context);
+                                        } else {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .opagueSeparator,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                  child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: GroupLeadersSetWidget(),
+                                              ));
                                             },
-                                          ),
-                                        });
-                                        _model.updatePage(() {
-                                          FFAppState().groupLeaders = [];
-                                        });
-                                        _model.timerSecondPageController
-                                            .onStartTimer();
-                                        Navigator.pop(context);
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        }
                                       } else {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          barrierColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .opagueSeparator,
-                                          context: context,
-                                          builder: (context) {
-                                            return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: GroupLeadersSetWidget(),
-                                            ));
-                                          },
-                                        ).then((value) => safeSetState(() {}));
+                                        if (FFAppState()
+                                            .groupLeaders
+                                            .isNotEmpty) {
+                                          HapticFeedback.lightImpact();
+
+                                          await widget.chosenGroup!.reference
+                                              .update({
+                                            ...createGroupsRecordData(
+                                              imageThumbnail: _model
+                                                              .uploadedFileUrl1 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl1 !=
+                                                          ''
+                                                  ? _model.uploadedFileUrl1
+                                                  : widget.chosenGroup
+                                                      ?.imageThumbnail,
+                                              videoName: _model.textController1
+                                                              .text !=
+                                                          null &&
+                                                      _model.textController1
+                                                              .text !=
+                                                          ''
+                                                  ? _model.textController1.text
+                                                  : widget
+                                                      .chosenGroup?.videoName,
+                                              messageDescription: _model
+                                                              .textController2
+                                                              .text !=
+                                                          null &&
+                                                      _model.textController2
+                                                              .text !=
+                                                          ''
+                                                  ? _model.textController2.text
+                                                  : widget.chosenGroup
+                                                      ?.messageDescription,
+                                              messageNotes: _model
+                                                              .uploadedFileUrl2 !=
+                                                          null &&
+                                                      _model.uploadedFileUrl2 !=
+                                                          ''
+                                                  ? _model.uploadedFileUrl2
+                                                  : widget.chosenGroup
+                                                      ?.messageNotes,
+                                              meetingDay:
+                                                  _model.dayoftheWeekChipsValue,
+                                              meetingTime: _model.toDChipsValue,
+                                              targetGender:
+                                                  _model.radioButtonValue,
+                                              targetAge: () {
+                                                if (_model.ageRangeChipsAllValue !=
+                                                        null &&
+                                                    _model.ageRangeChipsAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .ageRangeChipsAllValue;
+                                                } else if (_model
+                                                            .ageRangeChipsNotAllValue !=
+                                                        null &&
+                                                    _model.ageRangeChipsNotAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .ageRangeChipsNotAllValue;
+                                                } else {
+                                                  return '';
+                                                }
+                                              }(),
+                                              groupCategory: () {
+                                                if (_model.categoryChipsAllValue !=
+                                                        null &&
+                                                    _model.categoryChipsAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .categoryChipsAllValue;
+                                                } else if (_model
+                                                            .categoryChipsNotAllValue !=
+                                                        null &&
+                                                    _model.categoryChipsNotAllValue !=
+                                                        '') {
+                                                  return _model
+                                                      .categoryChipsNotAllValue;
+                                                } else {
+                                                  return '';
+                                                }
+                                              }(),
+                                              featuredMessage:
+                                                  _model.switchListTileValue,
+                                            ),
+                                            ...mapToFirestore(
+                                              {
+                                                'groupLeaders':
+                                                    FFAppState().groupLeaders,
+                                              },
+                                            ),
+                                          });
+
+                                          await FFAppState()
+                                              .groupLeaders
+                                              .first
+                                              .update({
+                                            ...mapToFirestore(
+                                              {
+                                                'groups':
+                                                    FieldValue.arrayUnion([
+                                                  widget.chosenGroup?.reference
+                                                ]),
+                                              },
+                                            ),
+                                          });
+
+                                          await FFAppState()
+                                              .groupLeaders
+                                              .last
+                                              .update({
+                                            ...mapToFirestore(
+                                              {
+                                                'groups':
+                                                    FieldValue.arrayUnion([
+                                                  widget.chosenGroup?.reference
+                                                ]),
+                                              },
+                                            ),
+                                          });
+                                          _model.updatePage(() {
+                                            FFAppState().groupLeaders = [];
+                                          });
+                                          _model.timerSecondPageController
+                                              .onStartTimer();
+                                          Navigator.pop(context);
+                                        } else {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .opagueSeparator,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                  child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: GroupLeadersSetWidget(),
+                                              ));
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        }
                                       }
                                     },
                                     child: Container(

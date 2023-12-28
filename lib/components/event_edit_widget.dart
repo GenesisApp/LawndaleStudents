@@ -709,28 +709,24 @@ class _EventEditWidgetState extends State<EventEditWidget>
                               if (shouldUpdate) setState(() {});
                             },
                             onEnded: () async {
-                              if (_model.switchListTileValue!) {
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  barrierColor: FlutterFlowTheme.of(context)
-                                      .opagueSeparator,
-                                  isDismissible: false,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: FeaturedNotificationEventsWidget(
-                                        chosenResource: widget.chosenEvent!,
-                                      ),
-                                    ));
-                                  },
-                                ).then((value) => safeSetState(() {}));
-                              } else {
-                                Navigator.pop(context);
-                              }
+                              await showModalBottomSheet(
+                                isScrollControlled: true,
+                                backgroundColor: Colors.transparent,
+                                barrierColor: FlutterFlowTheme.of(context)
+                                    .opagueSeparator,
+                                isDismissible: false,
+                                enableDrag: false,
+                                context: context,
+                                builder: (context) {
+                                  return WebViewAware(
+                                      child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: FeaturedNotificationEventsWidget(
+                                      chosenResource: widget.chosenEvent!,
+                                    ),
+                                  ));
+                                },
+                              ).then((value) => safeSetState(() {}));
                             },
                             textAlign: TextAlign.start,
                             style: FlutterFlowTheme.of(context)
@@ -803,24 +799,23 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Text(
                                               () {
-                                                if (widget.chosenEvent
+                                                if (_model.datePicked1 != null
+                                                    ? true
+                                                    : false) {
+                                                  return dateTimeFormat(
+                                                    'yMd',
+                                                    _model.datePicked1,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  );
+                                                } else if (widget.chosenEvent
                                                         ?.startTime !=
                                                     null) {
                                                   return dateTimeFormat(
                                                     'M/d h:mm a',
                                                     widget.chosenEvent!
                                                         .startTime!,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  );
-                                                } else if (_model.datePicked1 !=
-                                                        null
-                                                    ? true
-                                                    : false) {
-                                                  return dateTimeFormat(
-                                                    'yMd',
-                                                    _model.datePicked1,
                                                     locale: FFLocalizations.of(
                                                             context)
                                                         .languageCode,
@@ -906,24 +901,23 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Text(
                                               () {
-                                                if (widget
+                                                if (_model.datePicked2 != null
+                                                    ? true
+                                                    : false) {
+                                                  return dateTimeFormat(
+                                                    'yMd',
+                                                    _model.datePicked2,
+                                                    locale: FFLocalizations.of(
+                                                            context)
+                                                        .languageCode,
+                                                  );
+                                                } else if (widget
                                                         .chosenEvent?.endTime !=
                                                     null) {
                                                   return dateTimeFormat(
                                                     'M/d h:mm a',
                                                     widget
                                                         .chosenEvent!.endTime!,
-                                                    locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageCode,
-                                                  );
-                                                } else if (_model.datePicked2 !=
-                                                        null
-                                                    ? true
-                                                    : false) {
-                                                  return dateTimeFormat(
-                                                    'yMd',
-                                                    _model.datePicked2,
                                                     locale: FFLocalizations.of(
                                                             context)
                                                         .languageCode,
@@ -1108,60 +1102,122 @@ class _EventEditWidgetState extends State<EventEditWidget>
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         HapticFeedback.lightImpact();
-
-                                        await widget.chosenEvent!.reference
-                                            .update(createEventsRecordData(
-                                          videoName: _model.textController1
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController1.text !=
-                                                      ''
-                                              ? _model.textController1.text
-                                              : widget.chosenEvent?.videoName,
-                                          messageDescription: _model
-                                                          .textController2
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController2.text !=
-                                                      ''
-                                              ? _model.textController2.text
-                                              : widget.chosenEvent
-                                                  ?.messageDescription,
-                                          registrationLink: _model
-                                                          .textController4
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController4.text !=
-                                                      ''
-                                              ? _model.textController4.text
-                                              : widget.chosenEvent
-                                                  ?.registrationLink,
-                                          timeofRecording: _model
-                                                          .textController3
-                                                          .text !=
-                                                      null &&
-                                                  _model.textController3.text !=
-                                                      ''
-                                              ? _model.textController3.text
-                                              : widget
-                                                  .chosenEvent?.timeofRecording,
-                                          imageThumbnail:
-                                              _model.uploadedFileUrl != null &&
-                                                      _model.uploadedFileUrl !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl
-                                                  : widget.chosenEvent
-                                                      ?.imageThumbnail,
-                                          startTime: _model.datePicked1 != null
-                                              ? _model.datePicked1
-                                              : widget.chosenEvent?.startTime,
-                                          endTime: _model.datePicked2 != null
-                                              ? _model.datePicked2
-                                              : widget.chosenEvent?.endTime,
-                                        ));
-                                        _model.timerSecondPageController
-                                            .onStartTimer();
-                                        Navigator.pop(context);
+                                        if (_model.switchListTileValue!) {
+                                          await widget.chosenEvent!.reference
+                                              .update(createEventsRecordData(
+                                            videoName: _model.textController1
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController1
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController1.text
+                                                : widget.chosenEvent?.videoName,
+                                            messageDescription: _model
+                                                            .textController2
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController2
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController2.text
+                                                : widget.chosenEvent
+                                                    ?.messageDescription,
+                                            registrationLink: _model
+                                                            .textController4
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController4
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController4.text
+                                                : widget.chosenEvent
+                                                    ?.registrationLink,
+                                            timeofRecording: _model
+                                                            .textController3
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController3
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController3.text
+                                                : widget.chosenEvent
+                                                    ?.timeofRecording,
+                                            imageThumbnail: _model
+                                                            .uploadedFileUrl !=
+                                                        null &&
+                                                    _model.uploadedFileUrl != ''
+                                                ? _model.uploadedFileUrl
+                                                : widget.chosenEvent
+                                                    ?.imageThumbnail,
+                                            startTime: _model.datePicked1 !=
+                                                    null
+                                                ? _model.datePicked1
+                                                : widget.chosenEvent?.startTime,
+                                            endTime: _model.datePicked2 != null
+                                                ? _model.datePicked2
+                                                : widget.chosenEvent?.endTime,
+                                          ));
+                                          _model.timerSecondPageController
+                                              .onStartTimer();
+                                        } else {
+                                          await widget.chosenEvent!.reference
+                                              .update(createEventsRecordData(
+                                            videoName: _model.textController1
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController1
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController1.text
+                                                : widget.chosenEvent?.videoName,
+                                            messageDescription: _model
+                                                            .textController2
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController2
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController2.text
+                                                : widget.chosenEvent
+                                                    ?.messageDescription,
+                                            registrationLink: _model
+                                                            .textController4
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController4
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController4.text
+                                                : widget.chosenEvent
+                                                    ?.registrationLink,
+                                            timeofRecording: _model
+                                                            .textController3
+                                                            .text !=
+                                                        null &&
+                                                    _model.textController3
+                                                            .text !=
+                                                        ''
+                                                ? _model.textController3.text
+                                                : widget.chosenEvent
+                                                    ?.timeofRecording,
+                                            imageThumbnail: _model
+                                                            .uploadedFileUrl !=
+                                                        null &&
+                                                    _model.uploadedFileUrl != ''
+                                                ? _model.uploadedFileUrl
+                                                : widget.chosenEvent
+                                                    ?.imageThumbnail,
+                                            startTime: _model.datePicked1 !=
+                                                    null
+                                                ? _model.datePicked1
+                                                : widget.chosenEvent?.startTime,
+                                            endTime: _model.datePicked2 != null
+                                                ? _model.datePicked2
+                                                : widget.chosenEvent?.endTime,
+                                          ));
+                                          Navigator.pop(context);
+                                        }
                                       },
                                       child: Container(
                                         width: 40.0,
