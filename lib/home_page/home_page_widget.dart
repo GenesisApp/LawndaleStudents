@@ -2158,7 +2158,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               BoxDecoration(
                                                             color: FlutterFlowTheme
                                                                     .of(context)
-                                                                .systemGray5,
+                                                                .systemBackground,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -2366,7 +2366,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   },
                                                   child: Container(
                                                     width: 215.0,
-                                                    height: 40.0,
+                                                    height: 35.0,
                                                     decoration: BoxDecoration(
                                                       color:
                                                           FlutterFlowTheme.of(

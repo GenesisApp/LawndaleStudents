@@ -580,31 +580,75 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                                                         listViewUsersRecord] =
                                                     newValue!);
                                             if (newValue!) {
-                                              await widget.tagChosenRef!
-                                                  .update({
-                                                ...mapToFirestore(
-                                                  {
-                                                    'usersWithTag':
-                                                        FieldValue.arrayUnion([
-                                                      listViewUsersRecord
-                                                          .reference
-                                                    ]),
-                                                  },
-                                                ),
-                                              });
+                                              final firestoreBatch =
+                                                  FirebaseFirestore.instance
+                                                      .batch();
+                                              try {
+                                                firestoreBatch.update(
+                                                    widget.tagChosenRef!, {
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'usersWithTag': FieldValue
+                                                          .arrayUnion([
+                                                        listViewUsersRecord
+                                                            .reference
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+
+                                                firestoreBatch.update(
+                                                    listViewUsersRecord
+                                                        .reference,
+                                                    {
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'tags': FieldValue
+                                                              .arrayUnion([
+                                                            widget.tagChosen
+                                                                ?.reference
+                                                          ]),
+                                                        },
+                                                      ),
+                                                    });
+                                              } finally {
+                                                await firestoreBatch.commit();
+                                              }
                                             } else {
-                                              await widget.tagChosenRef!
-                                                  .update({
-                                                ...mapToFirestore(
-                                                  {
-                                                    'usersWithTag':
-                                                        FieldValue.arrayRemove([
-                                                      listViewUsersRecord
-                                                          .reference
-                                                    ]),
-                                                  },
-                                                ),
-                                              });
+                                              final firestoreBatch =
+                                                  FirebaseFirestore.instance
+                                                      .batch();
+                                              try {
+                                                firestoreBatch.update(
+                                                    widget.tagChosenRef!, {
+                                                  ...mapToFirestore(
+                                                    {
+                                                      'usersWithTag': FieldValue
+                                                          .arrayRemove([
+                                                        listViewUsersRecord
+                                                            .reference
+                                                      ]),
+                                                    },
+                                                  ),
+                                                });
+
+                                                firestoreBatch.update(
+                                                    listViewUsersRecord
+                                                        .reference,
+                                                    {
+                                                      ...mapToFirestore(
+                                                        {
+                                                          'tags': FieldValue
+                                                              .arrayRemove([
+                                                            widget.tagChosen
+                                                                ?.reference
+                                                          ]),
+                                                        },
+                                                      ),
+                                                    });
+                                              } finally {
+                                                await firestoreBatch.commit();
+                                              }
                                             }
                                           },
                                           title: Text(
@@ -766,31 +810,77 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                                                       .checkboxListTileValueMap2[
                                                   searchResultsItem] = newValue!);
                                               if (newValue!) {
-                                                await widget.tagChosenRef!
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'usersWithTag': FieldValue
-                                                          .arrayUnion([
-                                                        searchResultsItem
-                                                            .reference
-                                                      ]),
-                                                    },
-                                                  ),
-                                                });
+                                                final firestoreBatch =
+                                                    FirebaseFirestore.instance
+                                                        .batch();
+                                                try {
+                                                  firestoreBatch.update(
+                                                      widget.tagChosenRef!, {
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'usersWithTag':
+                                                            FieldValue
+                                                                .arrayUnion([
+                                                          searchResultsItem
+                                                              .reference
+                                                        ]),
+                                                      },
+                                                    ),
+                                                  });
+
+                                                  firestoreBatch.update(
+                                                      searchResultsItem
+                                                          .reference,
+                                                      {
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'tags': FieldValue
+                                                                .arrayUnion([
+                                                              widget.tagChosen
+                                                                  ?.reference
+                                                            ]),
+                                                          },
+                                                        ),
+                                                      });
+                                                } finally {
+                                                  await firestoreBatch.commit();
+                                                }
                                               } else {
-                                                await widget.tagChosenRef!
-                                                    .update({
-                                                  ...mapToFirestore(
-                                                    {
-                                                      'usersWithTag': FieldValue
-                                                          .arrayRemove([
-                                                        searchResultsItem
-                                                            .reference
-                                                      ]),
-                                                    },
-                                                  ),
-                                                });
+                                                final firestoreBatch =
+                                                    FirebaseFirestore.instance
+                                                        .batch();
+                                                try {
+                                                  firestoreBatch.update(
+                                                      widget.tagChosenRef!, {
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'usersWithTag':
+                                                            FieldValue
+                                                                .arrayRemove([
+                                                          searchResultsItem
+                                                              .reference
+                                                        ]),
+                                                      },
+                                                    ),
+                                                  });
+
+                                                  firestoreBatch.update(
+                                                      searchResultsItem
+                                                          .reference,
+                                                      {
+                                                        ...mapToFirestore(
+                                                          {
+                                                            'tags': FieldValue
+                                                                .arrayRemove([
+                                                              widget.tagChosen
+                                                                  ?.reference
+                                                            ]),
+                                                          },
+                                                        ),
+                                                      });
+                                                } finally {
+                                                  await firestoreBatch.commit();
+                                                }
                                               }
                                             },
                                             title: Text(

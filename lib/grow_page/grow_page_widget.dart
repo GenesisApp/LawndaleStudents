@@ -4334,7 +4334,8 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                                             stream: queryEventsRecord(
                                               queryBuilder: (eventsRecord) =>
                                                   eventsRecord.orderBy(
-                                                      'timeofRecording'),
+                                                      'startTime',
+                                                      descending: true),
                                             ),
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.

@@ -364,6 +364,7 @@ class _CreateProfileTagWidgetState extends State<CreateProfileTagWidget> {
                                 .set(createProfileTagsRecordData(
                                   tagName: _model.textController1.text,
                                   tagDescription: _model.textController2.text,
+                                  dateCreated: getCurrentTimestamp,
                                 ));
                             Navigator.pop(context);
                           },
