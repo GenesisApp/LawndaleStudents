@@ -6719,12 +6719,26 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                               lastDate: DateTime(2050),
                                             );
 
+                                            TimeOfDay? _datePicked3Time;
                                             if (_datePicked3Date != null) {
+                                              _datePicked3Time =
+                                                  await showTimePicker(
+                                                context: context,
+                                                initialTime:
+                                                    TimeOfDay.fromDateTime(
+                                                        getCurrentTimestamp),
+                                              );
+                                            }
+
+                                            if (_datePicked3Date != null &&
+                                                _datePicked3Time != null) {
                                               safeSetState(() {
                                                 _model.datePicked3 = DateTime(
                                                   _datePicked3Date.year,
                                                   _datePicked3Date.month,
                                                   _datePicked3Date.day,
+                                                  _datePicked3Time!.hour,
+                                                  _datePicked3Time.minute,
                                                 );
                                               });
                                             }
@@ -6825,12 +6839,26 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                               lastDate: DateTime(2050),
                                             );
 
+                                            TimeOfDay? _datePicked4Time;
                                             if (_datePicked4Date != null) {
+                                              _datePicked4Time =
+                                                  await showTimePicker(
+                                                context: context,
+                                                initialTime:
+                                                    TimeOfDay.fromDateTime(
+                                                        getCurrentTimestamp),
+                                              );
+                                            }
+
+                                            if (_datePicked4Date != null &&
+                                                _datePicked4Time != null) {
                                               safeSetState(() {
                                                 _model.datePicked4 = DateTime(
                                                   _datePicked4Date.year,
                                                   _datePicked4Date.month,
                                                   _datePicked4Date.day,
+                                                  _datePicked4Time!.hour,
+                                                  _datePicked4Time.minute,
                                                 );
                                               });
                                             }
