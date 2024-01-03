@@ -194,7 +194,10 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                               }
                             },
                             title: Text(
-                              widget.currentPoll!.optionA,
+                              widget.currentPoll!.optionA.maybeHandleOverflow(
+                                maxChars: 35,
+                                replacement: '…',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -245,7 +248,10 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                             }
                           },
                           title: Text(
-                            widget.currentPoll!.optionB,
+                            widget.currentPoll!.optionB.maybeHandleOverflow(
+                              maxChars: 35,
+                              replacement: '…',
+                            ),
                             style: FlutterFlowTheme.of(context)
                                 .headlineSmall
                                 .override(
@@ -297,7 +303,10 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                               }
                             },
                             title: Text(
-                              widget.currentPoll!.optionC,
+                              widget.currentPoll!.optionC.maybeHandleOverflow(
+                                maxChars: 35,
+                                replacement: '…',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -349,7 +358,10 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                               }
                             },
                             title: Text(
-                              widget.currentPoll!.optionD,
+                              widget.currentPoll!.optionD.maybeHandleOverflow(
+                                maxChars: 35,
+                                replacement: '…',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -401,7 +413,10 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                               }
                             },
                             title: Text(
-                              widget.currentPoll!.optionE,
+                              widget.currentPoll!.optionE.maybeHandleOverflow(
+                                maxChars: 35,
+                                replacement: '…',
+                              ),
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(

@@ -1352,16 +1352,19 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                                           ''
                                                   ? _model.uploadedFileUrl2
                                                   : currentUserPhoto,
-                                              backgroundPhotoURL: _model
-                                                              .uploadedFileUrl1 !=
-                                                          null &&
-                                                      _model.uploadedFileUrl1 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl1
-                                                  : valueOrDefault(
-                                                      currentUserDocument
-                                                          ?.backgroundPhotoURL,
-                                                      ''),
+                                              backgroundPhotoURL:
+                                                  valueOrDefault<String>(
+                                                _model.uploadedFileUrl1 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl1 !=
+                                                            ''
+                                                    ? _model.uploadedFileUrl1
+                                                    : valueOrDefault(
+                                                        currentUserDocument
+                                                            ?.backgroundPhotoURL,
+                                                        ''),
+                                                'https://images.unsplash.com/photo-1502810365585-56ffa361fdde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+                                              ),
                                               displayName: _model
                                                               .textController3
                                                               .text !=
