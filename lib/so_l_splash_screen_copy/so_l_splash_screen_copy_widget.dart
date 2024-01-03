@@ -128,13 +128,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
           begin: 0.0,
           end: 1.0,
         ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 300.ms,
-          duration: 750.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
         FadeEffect(
           curve: Curves.easeOut,
           delay: 750.ms,
@@ -154,13 +147,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
           duration: 750.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 750.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
         ),
         FadeEffect(
           curve: Curves.easeOut,

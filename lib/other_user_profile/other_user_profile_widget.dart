@@ -434,7 +434,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                           image: CachedNetworkImageProvider(
                             valueOrDefault<String>(
                               widget.selectedUser?.backgroundPhotoURL,
-                              'https://wi.wallpapertip.com/wsimgs/26-265415_windows-default-background-nature.jpg',
+                              'https://images.unsplash.com/photo-1502810365585-56ffa361fdde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
                             ),
                           ),
                         ),

@@ -177,11 +177,10 @@ class _ChatEventChoosingWidgetState extends State<ChatEventChoosingWidget>
                     widget.chatEvent!.eventName,
                     textAlign: TextAlign.center,
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
+                          fontFamily: 'Inter',
                           color: FlutterFlowTheme.of(context).tertiary,
                           fontSize: 18.0,
                           fontWeight: FontWeight.w500,
-                          useGoogleFonts: false,
                         ),
                   ),
                 ),

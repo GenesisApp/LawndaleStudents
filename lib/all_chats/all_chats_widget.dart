@@ -984,7 +984,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                                 await showModalBottomSheet(
                                                                                   isScrollControlled: true,
                                                                                   backgroundColor: Colors.transparent,
-                                                                                  barrierColor: Color(0x80000000),
+                                                                                  barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
                                                                                   enableDrag: false,
                                                                                   context: context,
                                                                                   builder: (context) {
@@ -1019,7 +1019,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                                 await showModalBottomSheet(
                                                                                   isScrollControlled: true,
                                                                                   backgroundColor: Colors.transparent,
-                                                                                  barrierColor: Color(0x80000000),
+                                                                                  barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
                                                                                   enableDrag: false,
                                                                                   context: context,
                                                                                   builder: (context) {
@@ -1354,7 +1354,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                                 await showModalBottomSheet(
                                                                                   isScrollControlled: true,
                                                                                   backgroundColor: Colors.transparent,
-                                                                                  barrierColor: Color(0x80000000),
+                                                                                  barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
                                                                                   enableDrag: false,
                                                                                   context: context,
                                                                                   builder: (context) {
@@ -1389,7 +1389,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                                 await showModalBottomSheet(
                                                                                   isScrollControlled: true,
                                                                                   backgroundColor: Colors.transparent,
-                                                                                  barrierColor: Color(0x80000000),
+                                                                                  barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
                                                                                   enableDrag: false,
                                                                                   context: context,
                                                                                   builder: (context) {

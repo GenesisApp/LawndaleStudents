@@ -297,7 +297,11 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 8.0, 0.0, 0.0),
                                   child: Text(
-                                    widget.currentPoll!.optionA,
+                                    widget.currentPoll!.optionA
+                                        .maybeHandleOverflow(
+                                      maxChars: 35,
+                                      replacement: '…',
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -491,7 +495,11 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 8.0, 0.0, 0.0),
                                   child: Text(
-                                    widget.currentPoll!.optionB,
+                                    widget.currentPoll!.optionB
+                                        .maybeHandleOverflow(
+                                      maxChars: 35,
+                                      replacement: '…',
+                                    ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
@@ -690,7 +698,11 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 8.0, 0.0, 0.0),
                                       child: Text(
-                                        widget.currentPoll!.optionC,
+                                        widget.currentPoll!.optionC
+                                            .maybeHandleOverflow(
+                                          maxChars: 35,
+                                          replacement: '…',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -910,7 +922,11 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        widget.currentPoll!.optionD,
+                                        widget.currentPoll!.optionD
+                                            .maybeHandleOverflow(
+                                          maxChars: 35,
+                                          replacement: '…',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1131,7 +1147,11 @@ class _CurrentPollViewingWidgetState extends State<CurrentPollViewingWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Text(
-                                        widget.currentPoll!.optionE,
+                                        widget.currentPoll!.optionE
+                                            .maybeHandleOverflow(
+                                          maxChars: 35,
+                                          replacement: '…',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(

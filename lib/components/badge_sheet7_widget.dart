@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/push_notifications/push_notifications_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -188,51 +189,95 @@ class _BadgeSheet7WidgetState extends State<BadgeSheet7Widget> {
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            Container(
-                              width: 100.0,
-                              height: 40.0,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  await currentUserReference!
-                                      .update(createUsersRecordData(
-                                    show7: false,
-                                    seen7: true,
-                                  ));
-                                  Navigator.pop(context);
-                                },
-                                child: Container(
-                                  width: 40.0,
-                                  height: 40.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondarySystemBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Align(
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'mdao8nhb' /* Done */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .tertiary,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
+                            FutureBuilder<List<UsersRecord>>(
+                              future: queryUsersRecordOnce(
+                                queryBuilder: (usersRecord) =>
+                                    usersRecord.where(
+                                  'notificationsON',
+                                  isNotEqualTo: false,
                                 ),
                               ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      child: SpinKitRipple(
+                                        color: Color(0xFF7F95AD),
+                                        size: 75.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<UsersRecord> containerUsersRecordList =
+                                    snapshot.data!;
+                                return Container(
+                                  width: 100.0,
+                                  height: 40.0,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await currentUserReference!
+                                          .update(createUsersRecordData(
+                                        show7: false,
+                                        seen7: true,
+                                      ));
+                                      triggerPushNotification(
+                                        notificationTitle: 'Check it out!',
+                                        notificationText:
+                                            '${currentUserDisplayName} just unlocked the ${containerBadgesRecord?.badgeName} badge!',
+                                        notificationImageUrl: currentUserPhoto,
+                                        userRefs: containerUsersRecordList
+                                            .map((e) => e.reference)
+                                            .toList(),
+                                        initialPageName: 'OtherUserProfile',
+                                        parameterData: {
+                                          'selectedUser': currentUserReference,
+                                          'selectedUserRef':
+                                              currentUserReference,
+                                        },
+                                      );
+                                      Navigator.pop(context);
+                                    },
+                                    child: Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondarySystemBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: Align(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        child: Text(
+                                          FFLocalizations.of(context).getText(
+                                            'mdao8nhb' /* Done */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),
