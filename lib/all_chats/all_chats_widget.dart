@@ -2051,15 +2051,31 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               .max,
                                                                       children: [
                                                                         Text(
-                                                                          '${valueOrDefault<String>(
+                                                                          valueOrDefault<
+                                                                              String>(
                                                                             allChatsVarItem.lastMessageSentByName,
                                                                             'Guest User',
-                                                                          )}:'
-                                                                              .maybeHandleOverflow(
+                                                                          ).maybeHandleOverflow(
                                                                             maxChars:
                                                                                 20,
                                                                             replacement:
                                                                                 '…',
+                                                                          ),
+                                                                          style:
+                                                                              GoogleFonts.getFont(
+                                                                            'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).placeholderText,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                            '6337hets' /*  : */,
                                                                           ),
                                                                           style:
                                                                               GoogleFonts.getFont(
@@ -2554,15 +2570,31 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               .max,
                                                                       children: [
                                                                         Text(
-                                                                          '${valueOrDefault<String>(
+                                                                          valueOrDefault<
+                                                                              String>(
                                                                             columnMessageChatsRecord.lastMessageSentByName,
                                                                             'Guest User',
-                                                                          )}:'
-                                                                              .maybeHandleOverflow(
+                                                                          ).maybeHandleOverflow(
                                                                             maxChars:
-                                                                                50,
+                                                                                20,
                                                                             replacement:
                                                                                 '…',
+                                                                          ),
+                                                                          style:
+                                                                              GoogleFonts.getFont(
+                                                                            'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).placeholderText,
+                                                                            fontWeight:
+                                                                                FontWeight.normal,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                          ),
+                                                                        ),
+                                                                        Text(
+                                                                          FFLocalizations.of(context)
+                                                                              .getText(
+                                                                            'bvigxnty' /*  : */,
                                                                           ),
                                                                           style:
                                                                               GoogleFonts.getFont(

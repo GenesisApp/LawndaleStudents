@@ -412,9 +412,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Pastoral Request',
       'es': 'Solicitud Pastoral',
     },
+    '6337hets': {
+      'en': ' :',
+      'es': '',
+    },
     'avh57c6x': {
       'en': 'Pastoral Request',
       'es': 'Solicitud Pastoral',
+    },
+    'bvigxnty': {
+      'en': ' :',
+      'es': '',
     },
     'bgoajgts': {
       'en': 'Chats',
