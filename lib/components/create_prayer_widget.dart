@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/push_notifications/push_notifications_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -335,58 +336,91 @@ class _CreatePrayerWidgetState extends State<CreatePrayerWidget> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 100.0,
-                      height: 40.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      child: InkWell(
-                        splashColor: Colors.transparent,
-                        focusColor: Colors.transparent,
-                        hoverColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        onTap: () async {
-                          HapticFeedback.lightImpact();
-                          if (_model.textController.text != null &&
-                              _model.textController.text != '') {
-                            await PrayerRequestsRecord.collection
-                                .doc()
-                                .set(createPrayerRequestsRecordData(
-                                  user: currentUserReference,
-                                  requestText: _model.textController.text,
-                                  timeUploaded: getCurrentTimestamp,
-                                  public: _model.switchListTileValue,
-                                  usersName: currentUserDisplayName,
-                                ));
-                          }
-                          Navigator.pop(context);
-                        },
-                        child: Container(
+                    FutureBuilder<List<UsersRecord>>(
+                      future: queryUsersRecordOnce(),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 75.0,
+                              height: 75.0,
+                              child: SpinKitRipple(
+                                color: Color(0xFF7F95AD),
+                                size: 75.0,
+                              ),
+                            ),
+                          );
+                        }
+                        List<UsersRecord> containerUsersRecordList =
+                            snapshot.data!;
+                        return Container(
                           width: 100.0,
-                          height: 100.0,
+                          height: 40.0,
                           decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondarySystemBackground,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                'ru5co3a4' /* Submit */,
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              HapticFeedback.lightImpact();
+                              if (_model.textController.text != null &&
+                                  _model.textController.text != '') {
+                                await PrayerRequestsRecord.collection
+                                    .doc()
+                                    .set(createPrayerRequestsRecordData(
+                                      user: currentUserReference,
+                                      requestText: _model.textController.text,
+                                      timeUploaded: getCurrentTimestamp,
+                                      public: _model.switchListTileValue,
+                                      usersName: currentUserDisplayName,
+                                    ));
+                                triggerPushNotification(
+                                  notificationTitle: 'New Prayer',
+                                  notificationText: '${valueOrDefault<String>(
+                                    currentUserDisplayName,
+                                    'Guest User',
+                                  )} has created a new prayer request!',
+                                  notificationImageUrl: currentUserPhoto,
+                                  userRefs: containerUsersRecordList
+                                      .map((e) => e.reference)
+                                      .toList(),
+                                  initialPageName: 'CommunityPrayerPage',
+                                  parameterData: {},
+                                );
+                              }
+                              Navigator.pop(context);
+                            },
+                            child: Container(
+                              width: 100.0,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color:
-                                        FlutterFlowTheme.of(context).tertiary,
+                              child: Align(
+                                alignment: AlignmentDirectional(0.0, 0.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'ru5co3a4' /* Submit */,
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .tertiary,
+                                      ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
+                        );
+                      },
                     ),
                   ],
                 ),

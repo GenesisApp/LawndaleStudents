@@ -27,11 +27,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'worship_practice_b_s_model.dart';
-export 'worship_practice_b_s_model.dart';
+import 'worship_practice_b_sall_model.dart';
+export 'worship_practice_b_sall_model.dart';
 
-class WorshipPracticeBSWidget extends StatefulWidget {
-  const WorshipPracticeBSWidget({
+class WorshipPracticeBSallWidget extends StatefulWidget {
+  const WorshipPracticeBSallWidget({
     Key? key,
     this.dailyPractice,
   }) : super(key: key);
@@ -39,13 +39,13 @@ class WorshipPracticeBSWidget extends StatefulWidget {
   final DailyPracticeVideosRecord? dailyPractice;
 
   @override
-  _WorshipPracticeBSWidgetState createState() =>
-      _WorshipPracticeBSWidgetState();
+  _WorshipPracticeBSallWidgetState createState() =>
+      _WorshipPracticeBSallWidgetState();
 }
 
-class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
+class _WorshipPracticeBSallWidgetState extends State<WorshipPracticeBSallWidget>
     with TickerProviderStateMixin {
-  late WorshipPracticeBSModel _model;
+  late WorshipPracticeBSallModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
@@ -101,7 +101,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WorshipPracticeBSModel());
+    _model = createModel(context, () => WorshipPracticeBSallModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -196,7 +196,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: FFLocalizations.of(context).getText(
-                          'an5s8fih' /* Worship Journal Prompt */,
+                          '6vy9l7db' /* Worship Journal Prompt */,
                         ),
                         labelStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
@@ -297,7 +297,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '7fvkrive' /* Responses */,
+                                          '61fjwuij' /* Responses */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
@@ -800,144 +800,119 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) =>
-                                  StreamBuilder<List<PersonalJournalsRecord>>(
-                                stream: queryPersonalJournalsRecord(
-                                  queryBuilder: (personalJournalsRecord) =>
-                                      personalJournalsRecord
-                                          .where(
-                                            'dailyPractice',
-                                            isEqualTo:
-                                                widget.dailyPractice?.reference,
-                                          )
-                                          .where(
-                                            'journalDayDate',
-                                            isEqualTo: functions.getDayDate(),
-                                          )
-                                          .whereNotIn(
-                                              'journalUser',
-                                              (currentUserDocument?.blockedBy
-                                                      ?.toList() ??
-                                                  []))
-                                          .orderBy('journalDate',
-                                              descending: true),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 75.0,
-                                        height: 75.0,
-                                        child: SpinKitRipple(
-                                          color: Color(0xFF7F95AD),
-                                          size: 75.0,
-                                        ),
+                            child: StreamBuilder<List<PersonalJournalsRecord>>(
+                              stream: queryPersonalJournalsRecord(
+                                queryBuilder: (personalJournalsRecord) =>
+                                    personalJournalsRecord
+                                        .where(
+                                          'dailyPractice',
+                                          isEqualTo:
+                                              widget.dailyPractice?.reference,
+                                        )
+                                        .orderBy('journalDate',
+                                            descending: true),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      child: SpinKitRipple(
+                                        color: Color(0xFF7F95AD),
+                                        size: 75.0,
                                       ),
-                                    );
-                                  }
-                                  List<PersonalJournalsRecord>
-                                      columnPersonalJournalsRecordList =
-                                      snapshot.data!;
-                                  if (columnPersonalJournalsRecordList
-                                      .isEmpty) {
-                                    return Center(
-                                      child: EmptyStateJournalsWidget(),
-                                    );
-                                  }
-                                  return SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: List.generate(
-                                          columnPersonalJournalsRecordList
-                                              .length, (columnIndex) {
-                                        final columnPersonalJournalsRecord =
-                                            columnPersonalJournalsRecordList[
-                                                columnIndex];
-                                        return JournalResponsePreviewWidget(
-                                          key: Key(
-                                              'Keycue_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                          journalInListRef:
-                                              columnPersonalJournalsRecord
-                                                  .reference,
-                                          journalInListDoc:
-                                              columnPersonalJournalsRecord,
-                                        );
-                                      }),
                                     ),
                                   );
-                                },
-                              ),
+                                }
+                                List<PersonalJournalsRecord>
+                                    columnPersonalJournalsRecordList =
+                                    snapshot.data!;
+                                if (columnPersonalJournalsRecordList.isEmpty) {
+                                  return Center(
+                                    child: EmptyStateJournalsWidget(),
+                                  );
+                                }
+                                return SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: List.generate(
+                                        columnPersonalJournalsRecordList.length,
+                                        (columnIndex) {
+                                      final columnPersonalJournalsRecord =
+                                          columnPersonalJournalsRecordList[
+                                              columnIndex];
+                                      return JournalResponsePreviewWidget(
+                                        key: Key(
+                                            'Keymh8_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                        journalInListRef:
+                                            columnPersonalJournalsRecord
+                                                .reference,
+                                        journalInListDoc:
+                                            columnPersonalJournalsRecord,
+                                      );
+                                    }),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                         if (!FFAppState().newestFirst)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 12.0, 16.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) =>
-                                  StreamBuilder<List<PersonalJournalsRecord>>(
-                                stream: queryPersonalJournalsRecord(
-                                  queryBuilder: (personalJournalsRecord) =>
-                                      personalJournalsRecord
-                                          .where(
-                                            'dailyPractice',
-                                            isEqualTo:
-                                                widget.dailyPractice?.reference,
-                                          )
-                                          .where(
-                                            'journalDayDate',
-                                            isEqualTo: functions.getDayDate(),
-                                          )
-                                          .whereNotIn(
-                                              'journalUser',
-                                              (currentUserDocument?.blockedBy
-                                                      ?.toList() ??
-                                                  []))
-                                          .orderBy('publicLikes',
-                                              descending: true),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 75.0,
-                                        height: 75.0,
-                                        child: SpinKitRipple(
-                                          color: Color(0xFF7F95AD),
-                                          size: 75.0,
-                                        ),
+                            child: StreamBuilder<List<PersonalJournalsRecord>>(
+                              stream: queryPersonalJournalsRecord(
+                                queryBuilder: (personalJournalsRecord) =>
+                                    personalJournalsRecord
+                                        .where(
+                                          'dailyPractice',
+                                          isEqualTo:
+                                              widget.dailyPractice?.reference,
+                                        )
+                                        .orderBy('publicLikes',
+                                            descending: true),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      child: SpinKitRipple(
+                                        color: Color(0xFF7F95AD),
+                                        size: 75.0,
                                       ),
-                                    );
-                                  }
-                                  List<PersonalJournalsRecord>
-                                      columnPersonalJournalsRecordList =
-                                      snapshot.data!;
-                                  return SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: List.generate(
-                                          columnPersonalJournalsRecordList
-                                              .length, (columnIndex) {
-                                        final columnPersonalJournalsRecord =
-                                            columnPersonalJournalsRecordList[
-                                                columnIndex];
-                                        return JournalResponsePreviewWidget(
-                                          key: Key(
-                                              'Keyq9v_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                          journalInListRef:
-                                              columnPersonalJournalsRecord
-                                                  .reference,
-                                          journalInListDoc:
-                                              columnPersonalJournalsRecord,
-                                        );
-                                      }),
                                     ),
                                   );
-                                },
-                              ),
+                                }
+                                List<PersonalJournalsRecord>
+                                    columnPersonalJournalsRecordList =
+                                    snapshot.data!;
+                                return SingleChildScrollView(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: List.generate(
+                                        columnPersonalJournalsRecordList.length,
+                                        (columnIndex) {
+                                      final columnPersonalJournalsRecord =
+                                          columnPersonalJournalsRecordList[
+                                              columnIndex];
+                                      return JournalResponsePreviewWidget(
+                                        key: Key(
+                                            'Key5fq_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                        journalInListRef:
+                                            columnPersonalJournalsRecord
+                                                .reference,
+                                        journalInListDoc:
+                                            columnPersonalJournalsRecord,
+                                      );
+                                    }),
+                                  ),
+                                );
+                              },
                             ),
                           ),
                       ],
@@ -1082,7 +1057,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'qx4hw8z2' /* Completed! */,
+                                                'qp1t3esn' /* Completed! */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1189,7 +1164,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'fnj1vf3v' /* Write your response here */,
+                                                          '0teeqv52' /* Write your response here */,
                                                         ),
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
@@ -1206,7 +1181,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'zc097da8' /* Typing... */,
+                                                          'fyxt5n4h' /* Typing... */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -1550,7 +1525,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'piuhzysy' /* Top comments */,
+                                                'daiw891o' /* Top comments */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1604,7 +1579,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'ist0r4wj' /* Newest first */,
+                                                'qfa1d968' /* Newest first */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)

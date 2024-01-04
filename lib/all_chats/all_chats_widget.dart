@@ -2057,7 +2057,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                           )}:'
                                                                               .maybeHandleOverflow(
                                                                             maxChars:
-                                                                                50,
+                                                                                20,
                                                                             replacement:
                                                                                 '…',
                                                                           ),

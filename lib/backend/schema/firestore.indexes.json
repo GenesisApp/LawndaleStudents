@@ -669,25 +669,11 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "journalDate",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "personalJournals",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "dailyPractice",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "journalDayDate",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "publicLikes",
           "order": "DESCENDING"
         }
       ]
@@ -839,6 +825,52 @@
         {
           "fieldPath": "timeofRecording",
           "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "dailyPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "dailyPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "personalJournals",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "dailyPractice",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "journalUser",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "publicLikes",
+          "order": "DESCENDING"
         }
       ]
     }
