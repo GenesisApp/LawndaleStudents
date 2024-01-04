@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/components/empty_state_journals_widget.dart';
 import '/components/journal_response_preview_widget.dart';
 import '/components/language_report_widget.dart';
-import '/components/percentage_completed1_widget.dart';
+import '/components/percentage_completed2_widget.dart';
 import '/components/read_scripture_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -27,11 +27,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'worship_practice_b_s_model.dart';
-export 'worship_practice_b_s_model.dart';
+import 'scripture_practice_b_sall_model.dart';
+export 'scripture_practice_b_sall_model.dart';
 
-class WorshipPracticeBSWidget extends StatefulWidget {
-  const WorshipPracticeBSWidget({
+class ScripturePracticeBSallWidget extends StatefulWidget {
+  const ScripturePracticeBSallWidget({
     Key? key,
     this.dailyPractice,
   }) : super(key: key);
@@ -39,13 +39,13 @@ class WorshipPracticeBSWidget extends StatefulWidget {
   final DailyPracticeVideosRecord? dailyPractice;
 
   @override
-  _WorshipPracticeBSWidgetState createState() =>
-      _WorshipPracticeBSWidgetState();
+  _ScripturePracticeBSallWidgetState createState() =>
+      _ScripturePracticeBSallWidgetState();
 }
 
-class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
-    with TickerProviderStateMixin {
-  late WorshipPracticeBSModel _model;
+class _ScripturePracticeBSallWidgetState
+    extends State<ScripturePracticeBSallWidget> with TickerProviderStateMixin {
+  late ScripturePracticeBSallModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
@@ -101,7 +101,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WorshipPracticeBSModel());
+    _model = createModel(context, () => ScripturePracticeBSallModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -120,15 +120,15 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
       });
     }
 
-    _model.textField1Controller ??= TextEditingController(
+    _model.textController1 ??= TextEditingController(
         text: valueOrDefault<String>(
       widget.dailyPractice?.practiceResponse,
       'What did God speak to you?',
     ));
-    _model.textField1FocusNode ??= FocusNode();
+    _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -162,7 +162,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
               color: FlutterFlowTheme.of(context).primary,
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -189,20 +189,20 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.95,
                     child: TextFormField(
-                      controller: _model.textField1Controller,
-                      focusNode: _model.textField1FocusNode,
+                      controller: _model.textController1,
+                      focusNode: _model.textFieldFocusNode1,
                       textCapitalization: TextCapitalization.sentences,
                       readOnly: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: FFLocalizations.of(context).getText(
-                          'an5s8fih' /* Worship Journal Prompt */,
+                          'd76tyx6v' /* Scripture Journal Prompt */,
                         ),
                         labelStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
                             .override(
                               fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).worshipRing,
+                              color: FlutterFlowTheme.of(context).scriptureRing,
                               fontSize: 16.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -246,8 +246,8 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                       textAlign: TextAlign.center,
                       maxLines: 3,
                       minLines: 1,
-                      validator: _model.textField1ControllerValidator
-                          .asValidator(context),
+                      validator:
+                          _model.textController1Validator.asValidator(context),
                     ),
                   ),
                 ),
@@ -256,62 +256,65 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        FutureBuilder<List<AdminDataRecord>>(
-                          future: queryAdminDataRecordOnce(
-                            queryBuilder: (adminDataRecord) => adminDataRecord
-                                .orderBy('day', descending: true),
-                            singleRecord: true,
-                          ),
-                          builder: (context, snapshot) {
-                            // Customize what your widget looks like when it's loading.
-                            if (!snapshot.hasData) {
-                              return Center(
-                                child: SizedBox(
-                                  width: 75.0,
-                                  height: 75.0,
-                                  child: SpinKitRipple(
-                                    color: Color(0xFF7F95AD),
-                                    size: 75.0,
+                        Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          decoration: BoxDecoration(),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 8.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 0.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'ufjid2ys' /* Responses */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          color: FlutterFlowTheme.of(context)
+                                              .lightSecondaryText,
+                                          useGoogleFonts: false,
+                                        ),
                                   ),
                                 ),
-                              );
-                            }
-                            List<AdminDataRecord> containerAdminDataRecordList =
-                                snapshot.data!;
-                            final containerAdminDataRecord =
-                                containerAdminDataRecordList.isNotEmpty
-                                    ? containerAdminDataRecordList.first
-                                    : null;
-                            return Container(
-                              width: MediaQuery.sizeOf(context).width * 1.0,
-                              decoration: BoxDecoration(),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 8.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '7fvkrive' /* Responses */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
-                                              fontFamily: 'Montserrat',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .lightSecondaryText,
-                                              useGoogleFonts: false,
-                                            ),
-                                      ),
+                                Expanded(
+                                  child: FutureBuilder<List<AdminDataRecord>>(
+                                    future: queryAdminDataRecordOnce(
+                                      queryBuilder: (adminDataRecord) =>
+                                          adminDataRecord.orderBy('day',
+                                              descending: true),
+                                      singleRecord: true,
                                     ),
-                                    Expanded(
-                                      child: Container(
+                                    builder: (context, snapshot) {
+                                      // Customize what your widget looks like when it's loading.
+                                      if (!snapshot.hasData) {
+                                        return Center(
+                                          child: SizedBox(
+                                            width: 75.0,
+                                            height: 75.0,
+                                            child: SpinKitRipple(
+                                              color: Color(0xFF7F95AD),
+                                              size: 75.0,
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                      List<AdminDataRecord>
+                                          containerAdminDataRecordList =
+                                          snapshot.data!;
+                                      final containerAdminDataRecord =
+                                          containerAdminDataRecordList
+                                                  .isNotEmpty
+                                              ? containerAdminDataRecordList
+                                                  .first
+                                              : null;
+                                      return Container(
                                         width: 100.0,
                                         decoration: BoxDecoration(),
                                         child: FlutterFlowTimer(
@@ -334,12 +337,12 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                     .batch();
                                             try {
                                               if (FFAppState().timerStarted) {
-                                                _model.scanResults =
+                                                _model.scanResults2 =
                                                     await actions.scanLanguage(
                                                   _model.textController2.text,
                                                 );
                                                 _shouldSetState = true;
-                                                if (_model.scanResults!) {
+                                                if (_model.scanResults2!) {
                                                   await showModalBottomSheet(
                                                     isScrollControlled: true,
                                                     backgroundColor:
@@ -376,7 +379,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                         journalText: _model
                                                             .textController2
                                                             .text,
-                                                        journalOne: true,
+                                                        journalTwo: true,
                                                         journalResponseQuestion:
                                                             widget.dailyPractice
                                                                 ?.practiceResponse,
@@ -401,7 +404,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                                 journalText: _model
                                                                     .textController2
                                                                     .text,
-                                                                journalOne:
+                                                                journalTwo:
                                                                     true,
                                                                 journalResponseQuestion: widget
                                                                     .dailyPractice
@@ -420,11 +423,11 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                   _shouldSetState = true;
                                                   if (valueOrDefault<bool>(
                                                           currentUserDocument
-                                                              ?.complete3,
+                                                              ?.completed1,
                                                           false) &&
                                                       valueOrDefault<bool>(
                                                           currentUserDocument
-                                                              ?.completed2,
+                                                              ?.complete3,
                                                           false)) {
                                                     if (functions.checkYesterdayDate(
                                                             currentUserDocument
@@ -496,9 +499,9 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                   firestoreBatch.update(
                                                       currentUserReference!, {
                                                     ...createUsersRecordData(
-                                                      completed1: true,
-                                                      percentageCompleted1: 1,
-                                                      completedtime1:
+                                                      completed2: true,
+                                                      percentageCompleted2: 1,
+                                                      completedtime2:
                                                           getCurrentTimestamp,
                                                     ),
                                                     ...mapToFirestore(
@@ -538,8 +541,8 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                                   ?.day,
                                                           currentDay:
                                                               getCurrentTimestamp,
-                                                          times1Completed: 1,
-                                                          times2Completed: 0,
+                                                          times1Completed: 0,
+                                                          times2Completed: 1,
                                                           times3Completed: 0,
                                                         ));
                                                     _model.newAdminData = AdminDataRecord
@@ -551,9 +554,9 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                               currentDay:
                                                                   getCurrentTimestamp,
                                                               times1Completed:
-                                                                  1,
-                                                              times2Completed:
                                                                   0,
+                                                              times2Completed:
+                                                                  1,
                                                               times3Completed:
                                                                   0,
                                                             ),
@@ -578,7 +581,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                         {
                                                           ...mapToFirestore(
                                                             {
-                                                              'times_1Completed':
+                                                              'times_2Completed':
                                                                   FieldValue
                                                                       .increment(
                                                                           1),
@@ -610,7 +613,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          PercentageCompleted1Widget(),
+                                                          PercentageCompleted2Widget(),
                                                     ));
                                                   },
                                                 ).then((value) =>
@@ -637,166 +640,211 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                         .primary,
                                               ),
                                         ),
-                                      ),
-                                    ),
-                                    if (widget.dailyPractice
-                                                ?.scriptureReference !=
-                                            null &&
-                                        widget.dailyPractice
-                                                ?.scriptureReference !=
-                                            '')
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 12.0, 0.0),
-                                        child: Container(
-                                          width: 40.0,
-                                          height: 40.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              await showModalBottomSheet(
-                                                isScrollControlled: true,
-                                                backgroundColor:
-                                                    Colors.transparent,
-                                                barrierColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .opagueSeparator,
-                                                context: context,
-                                                builder: (context) {
-                                                  return WebViewAware(
-                                                      child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: ReadScriptureWidget(
-                                                      pdfImageSelected:
-                                                          widget.dailyPractice,
-                                                      pdfImageSelectedRef:
-                                                          widget.dailyPractice
-                                                              ?.reference,
-                                                    ),
-                                                  ));
-                                                },
-                                              ).then((value) =>
-                                                  safeSetState(() {}));
-                                            },
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: FlutterFlowTheme.of(
-                                                        context)
-                                                    .secondarySystemBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              child: Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: Icon(
-                                                  Icons.menu_book_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 25.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 12.0, 0.0),
-                                      child: Container(
-                                        width: 40.0,
-                                        height: 40.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondarySystemBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              FFAppState().update(() {
-                                                FFAppState().showOptions = true;
-                                              });
-                                            },
-                                            child: Icon(
-                                              Icons.filter_list_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              size: 24.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 12.0, 0.0),
-                                      child: Container(
-                                        width: 40.0,
-                                        height: 40.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                        ),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondarySystemBackground,
-                                            borderRadius:
-                                                BorderRadius.circular(8.0),
-                                          ),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              Navigator.pop(context);
-                                            },
-                                            child: Icon(
-                                              Icons.close_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              size: 26.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
+                                      );
+                                    },
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
+                                if (widget.dailyPractice?.scriptureReference !=
+                                        null &&
+                                    widget.dailyPractice?.scriptureReference !=
+                                        '')
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 12.0, 0.0),
+                                    child: Container(
+                                      width: 40.0,
+                                      height: 40.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .opagueSeparator,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                  child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: ReadScriptureWidget(
+                                                  pdfImageSelected:
+                                                      widget.dailyPractice,
+                                                  pdfImageSelectedRef: widget
+                                                      .dailyPractice?.reference,
+                                                ),
+                                              ));
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondarySystemBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                          ),
+                                          child: Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: Icon(
+                                              Icons.menu_book_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                              size: 25.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 12.0, 0.0),
+                                  child: Container(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondarySystemBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          FFAppState().update(() {
+                                            FFAppState().showOptions = true;
+                                          });
+                                        },
+                                        child: Icon(
+                                          Icons.filter_list_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          size: 24.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 12.0, 0.0),
+                                  child: Container(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondarySystemBackground,
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                      ),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Icon(
+                                          Icons.close_rounded,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          size: 26.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
                         if (FFAppState().newestFirst)
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                16.0, 0.0, 16.0, 0.0),
+                            child: StreamBuilder<List<PersonalJournalsRecord>>(
+                              stream: queryPersonalJournalsRecord(
+                                queryBuilder: (personalJournalsRecord) =>
+                                    personalJournalsRecord
+                                        .where(
+                                          'dailyPractice',
+                                          isEqualTo:
+                                              widget.dailyPractice?.reference,
+                                        )
+                                        .orderBy('journalDate',
+                                            descending: true),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      child: SpinKitRipple(
+                                        color: Color(0xFF7F95AD),
+                                        size: 75.0,
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<PersonalJournalsRecord>
+                                    columnPersonalJournalsRecordList =
+                                    snapshot.data!;
+                                if (columnPersonalJournalsRecordList.isEmpty) {
+                                  return Center(
+                                    child: EmptyStateJournalsWidget(),
+                                  );
+                                }
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: List.generate(
+                                      columnPersonalJournalsRecordList.length,
+                                      (columnIndex) {
+                                    final columnPersonalJournalsRecord =
+                                        columnPersonalJournalsRecordList[
+                                            columnIndex];
+                                    return JournalResponsePreviewWidget(
+                                      key: Key(
+                                          'Keyz30_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                      journalInListRef:
+                                          columnPersonalJournalsRecord
+                                              .reference,
+                                      journalInListDoc:
+                                          columnPersonalJournalsRecord,
+                                    );
+                                  }),
+                                );
+                              },
+                            ),
+                          ),
+                        if (!FFAppState().newestFirst)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
@@ -810,85 +858,6 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             'dailyPractice',
                                             isEqualTo:
                                                 widget.dailyPractice?.reference,
-                                          )
-                                          .where(
-                                            'journalDayDate',
-                                            isEqualTo: functions.getDayDate(),
-                                          )
-                                          .whereNotIn(
-                                              'journalUser',
-                                              (currentUserDocument?.blockedBy
-                                                      ?.toList() ??
-                                                  []))
-                                          .orderBy('journalDate',
-                                              descending: true),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 75.0,
-                                        height: 75.0,
-                                        child: SpinKitRipple(
-                                          color: Color(0xFF7F95AD),
-                                          size: 75.0,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                  List<PersonalJournalsRecord>
-                                      columnPersonalJournalsRecordList =
-                                      snapshot.data!;
-                                  if (columnPersonalJournalsRecordList
-                                      .isEmpty) {
-                                    return Center(
-                                      child: EmptyStateJournalsWidget(),
-                                    );
-                                  }
-                                  return SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: List.generate(
-                                          columnPersonalJournalsRecordList
-                                              .length, (columnIndex) {
-                                        final columnPersonalJournalsRecord =
-                                            columnPersonalJournalsRecordList[
-                                                columnIndex];
-                                        return JournalResponsePreviewWidget(
-                                          key: Key(
-                                              'Keycue_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                          journalInListRef:
-                                              columnPersonalJournalsRecord
-                                                  .reference,
-                                          journalInListDoc:
-                                              columnPersonalJournalsRecord,
-                                        );
-                                      }),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                        if (!FFAppState().newestFirst)
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 12.0, 16.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) =>
-                                  StreamBuilder<List<PersonalJournalsRecord>>(
-                                stream: queryPersonalJournalsRecord(
-                                  queryBuilder: (personalJournalsRecord) =>
-                                      personalJournalsRecord
-                                          .where(
-                                            'dailyPractice',
-                                            isEqualTo:
-                                                widget.dailyPractice?.reference,
-                                          )
-                                          .where(
-                                            'journalDayDate',
-                                            isEqualTo: functions.getDayDate(),
                                           )
                                           .whereNotIn(
                                               'journalUser',
@@ -915,26 +884,24 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                   List<PersonalJournalsRecord>
                                       columnPersonalJournalsRecordList =
                                       snapshot.data!;
-                                  return SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: List.generate(
-                                          columnPersonalJournalsRecordList
-                                              .length, (columnIndex) {
-                                        final columnPersonalJournalsRecord =
-                                            columnPersonalJournalsRecordList[
-                                                columnIndex];
-                                        return JournalResponsePreviewWidget(
-                                          key: Key(
-                                              'Keyq9v_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                          journalInListRef:
-                                              columnPersonalJournalsRecord
-                                                  .reference,
-                                          journalInListDoc:
-                                              columnPersonalJournalsRecord,
-                                        );
-                                      }),
-                                    ),
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: List.generate(
+                                        columnPersonalJournalsRecordList.length,
+                                        (columnIndex) {
+                                      final columnPersonalJournalsRecord =
+                                          columnPersonalJournalsRecordList[
+                                              columnIndex];
+                                      return JournalResponsePreviewWidget(
+                                        key: Key(
+                                            'Keym7f_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                        journalInListRef:
+                                            columnPersonalJournalsRecord
+                                                .reference,
+                                        journalInListDoc:
+                                            columnPersonalJournalsRecord,
+                                      );
+                                    }),
                                   );
                                 },
                               ),
@@ -950,9 +917,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                   Container(
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 0.12,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
-                    ),
+                    decoration: BoxDecoration(),
                   ),
                 if (isWeb
                     ? MediaQuery.viewInsetsOf(context).bottom > 0
@@ -960,9 +925,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                   Container(
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 0.1,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
-                    ),
+                    decoration: BoxDecoration(),
                   ),
               ],
             ),
@@ -1002,8 +965,6 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                               sigmaY: 3.0,
                             ),
                             child: Container(
-                              width: 100.0,
-                              height: 100.0,
                               decoration: BoxDecoration(),
                             ),
                           ),
@@ -1011,22 +972,25 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.02),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: BoxDecoration(),
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                      ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           if ((dateTimeFormat(
                                     'yMMMd',
-                                    currentUserDocument?.completedtime1,
+                                    getCurrentTimestamp,
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
                                   ) ==
                                   dateTimeFormat(
                                     'yMMMd',
-                                    getCurrentTimestamp,
+                                    currentUserDocument?.completedtime2,
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
                                   )) &&
@@ -1039,8 +1003,8 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                 height:
                                     MediaQuery.sizeOf(context).height * 0.12,
                                 decoration: BoxDecoration(
-                                  color:
-                                      FlutterFlowTheme.of(context).worshipRing,
+                                  color: FlutterFlowTheme.of(context)
+                                      .scriptureRing,
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
@@ -1082,7 +1046,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'qx4hw8z2' /* Completed! */,
+                                                'lvy6ce3s' /* Completed! */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1104,7 +1068,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                             ),
                           if (dateTimeFormat(
                                 'yMMMd',
-                                currentUserDocument?.completedtime1,
+                                currentUserDocument?.completedtime2,
                                 locale:
                                     FFLocalizations.of(context).languageCode,
                               ) !=
@@ -1119,6 +1083,12 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(0.0),
+                                    bottomRight: Radius.circular(0.0),
+                                    topLeft: Radius.circular(12.0),
+                                    topRight: Radius.circular(12.0),
+                                  ),
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -1139,9 +1109,6 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                               BorderRadius.circular(20.0),
                                         ),
                                         child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.96,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondarySystemBackground,
@@ -1170,7 +1137,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                       controller: _model
                                                           .textController2,
                                                       focusNode: _model
-                                                          .textFieldFocusNode,
+                                                          .textFieldFocusNode2,
                                                       onChanged: (_) =>
                                                           EasyDebounce.debounce(
                                                         '_model.textController2',
@@ -1189,7 +1156,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'fnj1vf3v' /* Write your response here */,
+                                                          '4m5cwnl2' /* Write your response here */,
                                                         ),
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
@@ -1206,7 +1173,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'zc097da8' /* Typing... */,
+                                                          'id6uy7ce' /* Typing... */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -1423,7 +1390,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                                       .arrowCircleUp,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .worshipRing,
+                                                                      .scriptureRing,
                                                                   size: 26.0,
                                                                 ),
                                                               ),
@@ -1550,7 +1517,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'piuhzysy' /* Top comments */,
+                                                'cnvc6fwm' /* Top comments */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1604,7 +1571,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'ist0r4wj' /* Newest first */,
+                                                'lxf4f1qt' /* Newest first */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)

@@ -7294,6 +7294,99 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hecho',
     },
   },
+  // PrayerPracticeBSall
+  {
+    '5q6n86fi': {
+      'en': 'Prayer Journal Prompt',
+      'es': 'Aviso del diario de oración',
+    },
+    'ofuiybqx': {
+      'en': 'Responses',
+      'es': 'Respuestas',
+    },
+    '29def6pu': {
+      'en': 'Completed!',
+      'es': '¡Terminado!',
+    },
+    'ohgodgk6': {
+      'en': 'Write you response here',
+      'es': 'Escribe tu respuesta aquí',
+    },
+    'dxdu44g3': {
+      'en': 'Typing...',
+      'es': 'Mecanografía...',
+    },
+    'uwruqab4': {
+      'en': 'Top comments',
+      'es': 'Top Comentarios',
+    },
+    'tcc52ovj': {
+      'en': 'Newest first',
+      'es': 'El más reciente primero',
+    },
+  },
+  // WorshipPracticeBSall
+  {
+    '6vy9l7db': {
+      'en': 'Worship Journal Prompt',
+      'es': 'Aviso del diario de adoración',
+    },
+    '61fjwuij': {
+      'en': 'Responses',
+      'es': 'Respuestas',
+    },
+    'qp1t3esn': {
+      'en': 'Completed!',
+      'es': '¡Terminado!',
+    },
+    '0teeqv52': {
+      'en': 'Write your response here',
+      'es': 'Escribe tu respuesta aquí',
+    },
+    'fyxt5n4h': {
+      'en': 'Typing...',
+      'es': 'Mecanografía...',
+    },
+    'daiw891o': {
+      'en': 'Top comments',
+      'es': 'Top Comentarios',
+    },
+    'qfa1d968': {
+      'en': 'Newest first',
+      'es': 'El más reciente primero',
+    },
+  },
+  // ScripturePracticeBSall
+  {
+    'd76tyx6v': {
+      'en': 'Scripture Journal Prompt',
+      'es': 'Aviso del diario de las Escrituras',
+    },
+    'ufjid2ys': {
+      'en': 'Responses',
+      'es': 'Respuestas',
+    },
+    'lvy6ce3s': {
+      'en': 'Completed!',
+      'es': '¡Terminado!',
+    },
+    '4m5cwnl2': {
+      'en': 'Write your response here',
+      'es': 'Escribe tu respuesta aquí',
+    },
+    'id6uy7ce': {
+      'en': 'Typing...',
+      'es': 'Mecanografía...',
+    },
+    'cnvc6fwm': {
+      'en': 'Top comments',
+      'es': 'Top Comentarios',
+    },
+    'lxf4f1qt': {
+      'en': 'Newest first',
+      'es': 'El más reciente primero',
+    },
+  },
   // Miscellaneous
   {
     '9on1ycgr': {

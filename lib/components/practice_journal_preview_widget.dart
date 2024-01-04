@@ -1,7 +1,9 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/prayer_practice_b_s_widget.dart';
 import '/components/prayer_ring_small_widget.dart';
 import '/components/scripture_practice_b_s_widget.dart';
+import '/components/worship_practice_b_s_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -1559,33 +1561,96 @@ class _PracticeJournalPreviewWidgetState
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
-                                                  await showModalBottomSheet(
-                                                    isScrollControlled: true,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    context: context,
-                                                    builder: (context) {
-                                                      return WebViewAware(
-                                                          child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child: Container(
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .height *
-                                                                  1.0,
-                                                          child:
-                                                              ScripturePracticeBSWidget(
-                                                            dailyPractice: widget
-                                                                .dailyVideoDoc,
+                                                  if (widget.dailyVideoDoc!
+                                                      .worshipPractice) {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                            child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child: Container(
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                1.0,
+                                                            child:
+                                                                WorshipPracticeBSWidget(
+                                                              dailyPractice: widget
+                                                                  .dailyVideoDoc,
+                                                            ),
                                                           ),
-                                                        ),
-                                                      ));
-                                                    },
-                                                  ).then((value) =>
-                                                      safeSetState(() {}));
+                                                        ));
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  }
+                                                  if (widget.dailyVideoDoc!
+                                                      .scripturePractice) {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                            child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child: Container(
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                1.0,
+                                                            child:
+                                                                ScripturePracticeBSWidget(
+                                                              dailyPractice: widget
+                                                                  .dailyVideoDoc,
+                                                            ),
+                                                          ),
+                                                        ));
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  }
+                                                  if (widget.dailyVideoDoc!
+                                                      .prayerPractice) {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                            child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child: Container(
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                1.0,
+                                                            child:
+                                                                PrayerPracticeBSWidget(
+                                                              dailyPractice: widget
+                                                                  .dailyVideoDoc,
+                                                            ),
+                                                          ),
+                                                        ));
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  }
                                                 },
                                                 child: Row(
                                                   mainAxisSize:

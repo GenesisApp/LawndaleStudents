@@ -3,7 +3,7 @@ import '/backend/backend.dart';
 import '/components/empty_state_journals_widget.dart';
 import '/components/journal_response_preview_widget.dart';
 import '/components/language_report_widget.dart';
-import '/components/percentage_completed1_widget.dart';
+import '/components/percentage_completed3_widget.dart';
 import '/components/read_scripture_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -27,11 +27,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
-import 'worship_practice_b_s_model.dart';
-export 'worship_practice_b_s_model.dart';
+import 'prayer_practice_b_sall_model.dart';
+export 'prayer_practice_b_sall_model.dart';
 
-class WorshipPracticeBSWidget extends StatefulWidget {
-  const WorshipPracticeBSWidget({
+class PrayerPracticeBSallWidget extends StatefulWidget {
+  const PrayerPracticeBSallWidget({
     Key? key,
     this.dailyPractice,
   }) : super(key: key);
@@ -39,13 +39,13 @@ class WorshipPracticeBSWidget extends StatefulWidget {
   final DailyPracticeVideosRecord? dailyPractice;
 
   @override
-  _WorshipPracticeBSWidgetState createState() =>
-      _WorshipPracticeBSWidgetState();
+  _PrayerPracticeBSallWidgetState createState() =>
+      _PrayerPracticeBSallWidgetState();
 }
 
-class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
+class _PrayerPracticeBSallWidgetState extends State<PrayerPracticeBSallWidget>
     with TickerProviderStateMixin {
-  late WorshipPracticeBSModel _model;
+  late PrayerPracticeBSallModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
@@ -101,7 +101,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => WorshipPracticeBSModel());
+    _model = createModel(context, () => PrayerPracticeBSallModel());
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
@@ -120,15 +120,15 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
       });
     }
 
-    _model.textField1Controller ??= TextEditingController(
+    _model.textController1 ??= TextEditingController(
         text: valueOrDefault<String>(
       widget.dailyPractice?.practiceResponse,
       'What did God speak to you?',
     ));
-    _model.textField1FocusNode ??= FocusNode();
+    _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
+    _model.textFieldFocusNode2 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
@@ -162,7 +162,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
               color: FlutterFlowTheme.of(context).primary,
             ),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -189,20 +189,20 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.95,
                     child: TextFormField(
-                      controller: _model.textField1Controller,
-                      focusNode: _model.textField1FocusNode,
+                      controller: _model.textController1,
+                      focusNode: _model.textFieldFocusNode1,
                       textCapitalization: TextCapitalization.sentences,
                       readOnly: true,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText: FFLocalizations.of(context).getText(
-                          'an5s8fih' /* Worship Journal Prompt */,
+                          '5q6n86fi' /* Prayer Journal Prompt */,
                         ),
                         labelStyle: FlutterFlowTheme.of(context)
                             .bodyMedium
                             .override(
                               fontFamily: 'Inter',
-                              color: FlutterFlowTheme.of(context).worshipRing,
+                              color: FlutterFlowTheme.of(context).prayerRing,
                               fontSize: 16.0,
                               fontWeight: FontWeight.w500,
                             ),
@@ -246,8 +246,8 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                       textAlign: TextAlign.center,
                       maxLines: 3,
                       minLines: 1,
-                      validator: _model.textField1ControllerValidator
-                          .asValidator(context),
+                      validator:
+                          _model.textController1Validator.asValidator(context),
                     ),
                   ),
                 ),
@@ -297,7 +297,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          '7fvkrive' /* Responses */,
+                                          'ofuiybqx' /* Responses */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .titleMedium
@@ -334,12 +334,12 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                     .batch();
                                             try {
                                               if (FFAppState().timerStarted) {
-                                                _model.scanResults =
+                                                _model.scanResults3 =
                                                     await actions.scanLanguage(
-                                                  _model.textController2.text,
+                                                  _model.textController1.text,
                                                 );
                                                 _shouldSetState = true;
-                                                if (_model.scanResults!) {
+                                                if (_model.scanResults3!) {
                                                   await showModalBottomSheet(
                                                     isScrollControlled: true,
                                                     backgroundColor:
@@ -376,7 +376,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                         journalText: _model
                                                             .textController2
                                                             .text,
-                                                        journalOne: true,
+                                                        journalThree: true,
                                                         journalResponseQuestion:
                                                             widget.dailyPractice
                                                                 ?.practiceResponse,
@@ -401,7 +401,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                                 journalText: _model
                                                                     .textController2
                                                                     .text,
-                                                                journalOne:
+                                                                journalThree:
                                                                     true,
                                                                 journalResponseQuestion: widget
                                                                     .dailyPractice
@@ -420,7 +420,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                   _shouldSetState = true;
                                                   if (valueOrDefault<bool>(
                                                           currentUserDocument
-                                                              ?.complete3,
+                                                              ?.completed1,
                                                           false) &&
                                                       valueOrDefault<bool>(
                                                           currentUserDocument
@@ -474,6 +474,26 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                   });
 
                                                   firestoreBatch.update(
+                                                      currentUserReference!, {
+                                                    ...createUsersRecordData(
+                                                      complete3: true,
+                                                      percentageCompleted3: 1,
+                                                      completedtime3:
+                                                          getCurrentTimestamp,
+                                                    ),
+                                                    ...mapToFirestore(
+                                                      {
+                                                        'timesCompletedJournal':
+                                                            FieldValue
+                                                                .increment(1),
+                                                        'completionNumber':
+                                                            FieldValue
+                                                                .increment(1),
+                                                      },
+                                                    ),
+                                                  });
+
+                                                  firestoreBatch.update(
                                                       widget.dailyPractice!
                                                           .reference,
                                                       {
@@ -492,23 +512,6 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                           },
                                                         ),
                                                       });
-
-                                                  firestoreBatch.update(
-                                                      currentUserReference!, {
-                                                    ...createUsersRecordData(
-                                                      completed1: true,
-                                                      percentageCompleted1: 1,
-                                                      completedtime1:
-                                                          getCurrentTimestamp,
-                                                    ),
-                                                    ...mapToFirestore(
-                                                      {
-                                                        'timesCompletedJournal':
-                                                            FieldValue
-                                                                .increment(1),
-                                                      },
-                                                    ),
-                                                  });
                                                   if (dateTimeFormat(
                                                         'yMMMd',
                                                         getCurrentTimestamp,
@@ -538,9 +541,9 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                                   ?.day,
                                                           currentDay:
                                                               getCurrentTimestamp,
-                                                          times1Completed: 1,
+                                                          times1Completed: 0,
                                                           times2Completed: 0,
-                                                          times3Completed: 0,
+                                                          times3Completed: 1,
                                                         ));
                                                     _model.newAdminData = AdminDataRecord
                                                         .getDocumentFromData(
@@ -551,11 +554,11 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                               currentDay:
                                                                   getCurrentTimestamp,
                                                               times1Completed:
-                                                                  1,
+                                                                  0,
                                                               times2Completed:
                                                                   0,
                                                               times3Completed:
-                                                                  0,
+                                                                  1,
                                                             ),
                                                             adminDataRecordReference);
                                                     _shouldSetState = true;
@@ -578,7 +581,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                         {
                                                           ...mapToFirestore(
                                                             {
-                                                              'times_1Completed':
+                                                              'times_3Completed':
                                                                   FieldValue
                                                                       .increment(
                                                                           1),
@@ -610,7 +613,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                           .viewInsetsOf(
                                                               context),
                                                       child:
-                                                          PercentageCompleted1Widget(),
+                                                          PercentageCompleted3Widget(),
                                                     ));
                                                   },
                                                 ).then((value) =>
@@ -800,144 +803,115 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) =>
-                                  StreamBuilder<List<PersonalJournalsRecord>>(
-                                stream: queryPersonalJournalsRecord(
-                                  queryBuilder: (personalJournalsRecord) =>
-                                      personalJournalsRecord
-                                          .where(
-                                            'dailyPractice',
-                                            isEqualTo:
-                                                widget.dailyPractice?.reference,
-                                          )
-                                          .where(
-                                            'journalDayDate',
-                                            isEqualTo: functions.getDayDate(),
-                                          )
-                                          .whereNotIn(
-                                              'journalUser',
-                                              (currentUserDocument?.blockedBy
-                                                      ?.toList() ??
-                                                  []))
-                                          .orderBy('journalDate',
-                                              descending: true),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 75.0,
-                                        height: 75.0,
-                                        child: SpinKitRipple(
-                                          color: Color(0xFF7F95AD),
-                                          size: 75.0,
-                                        ),
+                            child: StreamBuilder<List<PersonalJournalsRecord>>(
+                              stream: queryPersonalJournalsRecord(
+                                queryBuilder: (personalJournalsRecord) =>
+                                    personalJournalsRecord
+                                        .where(
+                                          'dailyPractice',
+                                          isEqualTo:
+                                              widget.dailyPractice?.reference,
+                                        )
+                                        .orderBy('journalDate',
+                                            descending: true),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      child: SpinKitRipple(
+                                        color: Color(0xFF7F95AD),
+                                        size: 75.0,
                                       ),
-                                    );
-                                  }
-                                  List<PersonalJournalsRecord>
-                                      columnPersonalJournalsRecordList =
-                                      snapshot.data!;
-                                  if (columnPersonalJournalsRecordList
-                                      .isEmpty) {
-                                    return Center(
-                                      child: EmptyStateJournalsWidget(),
-                                    );
-                                  }
-                                  return SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: List.generate(
-                                          columnPersonalJournalsRecordList
-                                              .length, (columnIndex) {
-                                        final columnPersonalJournalsRecord =
-                                            columnPersonalJournalsRecordList[
-                                                columnIndex];
-                                        return JournalResponsePreviewWidget(
-                                          key: Key(
-                                              'Keycue_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                          journalInListRef:
-                                              columnPersonalJournalsRecord
-                                                  .reference,
-                                          journalInListDoc:
-                                              columnPersonalJournalsRecord,
-                                        );
-                                      }),
                                     ),
                                   );
-                                },
-                              ),
+                                }
+                                List<PersonalJournalsRecord>
+                                    columnPersonalJournalsRecordList =
+                                    snapshot.data!;
+                                if (columnPersonalJournalsRecordList.isEmpty) {
+                                  return Center(
+                                    child: EmptyStateJournalsWidget(),
+                                  );
+                                }
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: List.generate(
+                                      columnPersonalJournalsRecordList.length,
+                                      (columnIndex) {
+                                    final columnPersonalJournalsRecord =
+                                        columnPersonalJournalsRecordList[
+                                            columnIndex];
+                                    return JournalResponsePreviewWidget(
+                                      key: Key(
+                                          'Keyydt_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                      journalInListRef:
+                                          columnPersonalJournalsRecord
+                                              .reference,
+                                      journalInListDoc:
+                                          columnPersonalJournalsRecord,
+                                    );
+                                  }),
+                                );
+                              },
                             ),
                           ),
                         if (!FFAppState().newestFirst)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 12.0, 16.0, 0.0),
-                            child: AuthUserStreamWidget(
-                              builder: (context) =>
-                                  StreamBuilder<List<PersonalJournalsRecord>>(
-                                stream: queryPersonalJournalsRecord(
-                                  queryBuilder: (personalJournalsRecord) =>
-                                      personalJournalsRecord
-                                          .where(
-                                            'dailyPractice',
-                                            isEqualTo:
-                                                widget.dailyPractice?.reference,
-                                          )
-                                          .where(
-                                            'journalDayDate',
-                                            isEqualTo: functions.getDayDate(),
-                                          )
-                                          .whereNotIn(
-                                              'journalUser',
-                                              (currentUserDocument?.blockedBy
-                                                      ?.toList() ??
-                                                  []))
-                                          .orderBy('publicLikes',
-                                              descending: true),
-                                ),
-                                builder: (context, snapshot) {
-                                  // Customize what your widget looks like when it's loading.
-                                  if (!snapshot.hasData) {
-                                    return Center(
-                                      child: SizedBox(
-                                        width: 75.0,
-                                        height: 75.0,
-                                        child: SpinKitRipple(
-                                          color: Color(0xFF7F95AD),
-                                          size: 75.0,
-                                        ),
+                                16.0, 0.0, 16.0, 0.0),
+                            child: StreamBuilder<List<PersonalJournalsRecord>>(
+                              stream: queryPersonalJournalsRecord(
+                                queryBuilder: (personalJournalsRecord) =>
+                                    personalJournalsRecord
+                                        .where(
+                                          'dailyPractice',
+                                          isEqualTo:
+                                              widget.dailyPractice?.reference,
+                                        )
+                                        .orderBy('publicLikes',
+                                            descending: true),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 75.0,
+                                      height: 75.0,
+                                      child: SpinKitRipple(
+                                        color: Color(0xFF7F95AD),
+                                        size: 75.0,
                                       ),
-                                    );
-                                  }
-                                  List<PersonalJournalsRecord>
-                                      columnPersonalJournalsRecordList =
-                                      snapshot.data!;
-                                  return SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: List.generate(
-                                          columnPersonalJournalsRecordList
-                                              .length, (columnIndex) {
-                                        final columnPersonalJournalsRecord =
-                                            columnPersonalJournalsRecordList[
-                                                columnIndex];
-                                        return JournalResponsePreviewWidget(
-                                          key: Key(
-                                              'Keyq9v_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                          journalInListRef:
-                                              columnPersonalJournalsRecord
-                                                  .reference,
-                                          journalInListDoc:
-                                              columnPersonalJournalsRecord,
-                                        );
-                                      }),
                                     ),
                                   );
-                                },
-                              ),
+                                }
+                                List<PersonalJournalsRecord>
+                                    columnPersonalJournalsRecordList =
+                                    snapshot.data!;
+                                return Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: List.generate(
+                                      columnPersonalJournalsRecordList.length,
+                                      (columnIndex) {
+                                    final columnPersonalJournalsRecord =
+                                        columnPersonalJournalsRecordList[
+                                            columnIndex];
+                                    return JournalResponsePreviewWidget(
+                                      key: Key(
+                                          'Keykaj_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                      journalInListRef:
+                                          columnPersonalJournalsRecord
+                                              .reference,
+                                      journalInListDoc:
+                                          columnPersonalJournalsRecord,
+                                    );
+                                  }),
+                                );
+                              },
                             ),
                           ),
                       ],
@@ -950,9 +924,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                   Container(
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 0.12,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
-                    ),
+                    decoration: BoxDecoration(),
                   ),
                 if (isWeb
                     ? MediaQuery.viewInsetsOf(context).bottom > 0
@@ -960,9 +932,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                   Container(
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 0.1,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primary,
-                    ),
+                    decoration: BoxDecoration(),
                   ),
               ],
             ),
@@ -971,7 +941,6 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
             context: context,
             tablet: false,
             tabletLandscape: false,
-            desktop: false,
           ))
             Align(
               alignment: AlignmentDirectional(0.0, 1.0),
@@ -1011,16 +980,19 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                       ),
                     ),
                   Align(
-                    alignment: AlignmentDirectional(0.0, 1.0),
+                    alignment: AlignmentDirectional(0.0, 1.02),
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
-                      decoration: BoxDecoration(),
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                      ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           if ((dateTimeFormat(
                                     'yMMMd',
-                                    currentUserDocument?.completedtime1,
+                                    currentUserDocument?.completedtime3,
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
                                   ) ==
@@ -1040,7 +1012,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                     MediaQuery.sizeOf(context).height * 0.12,
                                 decoration: BoxDecoration(
                                   color:
-                                      FlutterFlowTheme.of(context).worshipRing,
+                                      FlutterFlowTheme.of(context).prayerRing,
                                   borderRadius: BorderRadius.only(
                                     bottomLeft: Radius.circular(0.0),
                                     bottomRight: Radius.circular(0.0),
@@ -1082,7 +1054,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'qx4hw8z2' /* Completed! */,
+                                                '29def6pu' /* Completed! */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1104,7 +1076,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                             ),
                           if (dateTimeFormat(
                                 'yMMMd',
-                                currentUserDocument?.completedtime1,
+                                currentUserDocument?.completedtime3,
                                 locale:
                                     FFLocalizations.of(context).languageCode,
                               ) !=
@@ -1119,6 +1091,12 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                 width: MediaQuery.sizeOf(context).width * 1.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context).primary,
+                                  borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(0.0),
+                                    bottomRight: Radius.circular(0.0),
+                                    topLeft: Radius.circular(12.0),
+                                    topRight: Radius.circular(12.0),
+                                  ),
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
@@ -1139,9 +1117,6 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                               BorderRadius.circular(20.0),
                                         ),
                                         child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  0.96,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondarySystemBackground,
@@ -1170,7 +1145,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                       controller: _model
                                                           .textController2,
                                                       focusNode: _model
-                                                          .textFieldFocusNode,
+                                                          .textFieldFocusNode2,
                                                       onChanged: (_) =>
                                                           EasyDebounce.debounce(
                                                         '_model.textController2',
@@ -1189,7 +1164,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'fnj1vf3v' /* Write your response here */,
+                                                          'ohgodgk6' /* Write you response here */,
                                                         ),
                                                         labelStyle:
                                                             FlutterFlowTheme.of(
@@ -1206,7 +1181,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                          'zc097da8' /* Typing... */,
+                                                          'dxdu44g3' /* Typing... */,
                                                         ),
                                                         hintStyle:
                                                             FlutterFlowTheme.of(
@@ -1423,7 +1398,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                                                       .arrowCircleUp,
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
-                                                                      .worshipRing,
+                                                                      .prayerRing,
                                                                   size: 26.0,
                                                                 ),
                                                               ),
@@ -1550,7 +1525,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'piuhzysy' /* Top comments */,
+                                                'uwruqab4' /* Top comments */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1604,7 +1579,7 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'ist0r4wj' /* Newest first */,
+                                                'tcc52ovj' /* Newest first */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)

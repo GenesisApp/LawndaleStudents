@@ -802,123 +802,140 @@ class _PrayerPracticeBSWidgetState extends State<PrayerPracticeBSWidget>
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            child: StreamBuilder<List<PersonalJournalsRecord>>(
-                              stream: queryPersonalJournalsRecord(
-                                queryBuilder: (personalJournalsRecord) =>
-                                    personalJournalsRecord
-                                        .where(
-                                          'dailyPractice',
-                                          isEqualTo:
-                                              widget.dailyPractice?.reference,
-                                        )
-                                        .where(
-                                          'journalDayDate',
-                                          isEqualTo: functions.getDayDate(),
-                                        )
-                                        .orderBy('journalDate',
-                                            descending: true),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 75.0,
-                                      height: 75.0,
-                                      child: SpinKitRipple(
-                                        color: Color(0xFF7F95AD),
-                                        size: 75.0,
+                            child: AuthUserStreamWidget(
+                              builder: (context) =>
+                                  StreamBuilder<List<PersonalJournalsRecord>>(
+                                stream: queryPersonalJournalsRecord(
+                                  queryBuilder: (personalJournalsRecord) =>
+                                      personalJournalsRecord
+                                          .where(
+                                            'dailyPractice',
+                                            isEqualTo:
+                                                widget.dailyPractice?.reference,
+                                          )
+                                          .where(
+                                            'journalDayDate',
+                                            isEqualTo: functions.getDayDate(),
+                                          )
+                                          .whereNotIn(
+                                              'journalUser',
+                                              (currentUserDocument?.blockedBy
+                                                      ?.toList() ??
+                                                  []))
+                                          .orderBy('journalDate',
+                                              descending: true),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 75.0,
+                                        height: 75.0,
+                                        child: SpinKitRipple(
+                                          color: Color(0xFF7F95AD),
+                                          size: 75.0,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                }
-                                List<PersonalJournalsRecord>
-                                    columnPersonalJournalsRecordList =
-                                    snapshot.data!;
-                                if (columnPersonalJournalsRecordList.isEmpty) {
-                                  return Center(
-                                    child: EmptyStateJournalsWidget(),
-                                  );
-                                }
-                                return Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: List.generate(
-                                      columnPersonalJournalsRecordList.length,
-                                      (columnIndex) {
-                                    final columnPersonalJournalsRecord =
-                                        columnPersonalJournalsRecordList[
-                                            columnIndex];
-                                    return JournalResponsePreviewWidget(
-                                      key: Key(
-                                          'Keynhh_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                      journalInListRef:
-                                          columnPersonalJournalsRecord
-                                              .reference,
-                                      journalInListDoc:
-                                          columnPersonalJournalsRecord,
                                     );
-                                  }),
-                                );
-                              },
+                                  }
+                                  List<PersonalJournalsRecord>
+                                      columnPersonalJournalsRecordList =
+                                      snapshot.data!;
+                                  if (columnPersonalJournalsRecordList
+                                      .isEmpty) {
+                                    return Center(
+                                      child: EmptyStateJournalsWidget(),
+                                    );
+                                  }
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: List.generate(
+                                        columnPersonalJournalsRecordList.length,
+                                        (columnIndex) {
+                                      final columnPersonalJournalsRecord =
+                                          columnPersonalJournalsRecordList[
+                                              columnIndex];
+                                      return JournalResponsePreviewWidget(
+                                        key: Key(
+                                            'Keynhh_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                        journalInListRef:
+                                            columnPersonalJournalsRecord
+                                                .reference,
+                                        journalInListDoc:
+                                            columnPersonalJournalsRecord,
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
                             ),
                           ),
                         if (!FFAppState().newestFirst)
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            child: StreamBuilder<List<PersonalJournalsRecord>>(
-                              stream: queryPersonalJournalsRecord(
-                                queryBuilder: (personalJournalsRecord) =>
-                                    personalJournalsRecord
-                                        .where(
-                                          'dailyPractice',
-                                          isEqualTo:
-                                              widget.dailyPractice?.reference,
-                                        )
-                                        .where(
-                                          'journalDayDate',
-                                          isEqualTo: functions.getDayDate(),
-                                        )
-                                        .orderBy('publicLikes',
-                                            descending: true),
-                              ),
-                              builder: (context, snapshot) {
-                                // Customize what your widget looks like when it's loading.
-                                if (!snapshot.hasData) {
-                                  return Center(
-                                    child: SizedBox(
-                                      width: 75.0,
-                                      height: 75.0,
-                                      child: SpinKitRipple(
-                                        color: Color(0xFF7F95AD),
-                                        size: 75.0,
+                            child: AuthUserStreamWidget(
+                              builder: (context) =>
+                                  StreamBuilder<List<PersonalJournalsRecord>>(
+                                stream: queryPersonalJournalsRecord(
+                                  queryBuilder: (personalJournalsRecord) =>
+                                      personalJournalsRecord
+                                          .where(
+                                            'dailyPractice',
+                                            isEqualTo:
+                                                widget.dailyPractice?.reference,
+                                          )
+                                          .where(
+                                            'journalDayDate',
+                                            isEqualTo: functions.getDayDate(),
+                                          )
+                                          .whereNotIn(
+                                              'journalUser',
+                                              (currentUserDocument?.blockedBy
+                                                      ?.toList() ??
+                                                  []))
+                                          .orderBy('publicLikes',
+                                              descending: true),
+                                ),
+                                builder: (context, snapshot) {
+                                  // Customize what your widget looks like when it's loading.
+                                  if (!snapshot.hasData) {
+                                    return Center(
+                                      child: SizedBox(
+                                        width: 75.0,
+                                        height: 75.0,
+                                        child: SpinKitRipple(
+                                          color: Color(0xFF7F95AD),
+                                          size: 75.0,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                }
-                                List<PersonalJournalsRecord>
-                                    columnPersonalJournalsRecordList =
-                                    snapshot.data!;
-                                return Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: List.generate(
-                                      columnPersonalJournalsRecordList.length,
-                                      (columnIndex) {
-                                    final columnPersonalJournalsRecord =
-                                        columnPersonalJournalsRecordList[
-                                            columnIndex];
-                                    return JournalResponsePreviewWidget(
-                                      key: Key(
-                                          'Keyii6_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
-                                      journalInListRef:
-                                          columnPersonalJournalsRecord
-                                              .reference,
-                                      journalInListDoc:
-                                          columnPersonalJournalsRecord,
                                     );
-                                  }),
-                                );
-                              },
+                                  }
+                                  List<PersonalJournalsRecord>
+                                      columnPersonalJournalsRecordList =
+                                      snapshot.data!;
+                                  return Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: List.generate(
+                                        columnPersonalJournalsRecordList.length,
+                                        (columnIndex) {
+                                      final columnPersonalJournalsRecord =
+                                          columnPersonalJournalsRecordList[
+                                              columnIndex];
+                                      return JournalResponsePreviewWidget(
+                                        key: Key(
+                                            'Keyii6_${columnIndex}_of_${columnPersonalJournalsRecordList.length}'),
+                                        journalInListRef:
+                                            columnPersonalJournalsRecord
+                                                .reference,
+                                        journalInListDoc:
+                                            columnPersonalJournalsRecord,
+                                      );
+                                    }),
+                                  );
+                                },
+                              ),
                             ),
                           ),
                       ],
