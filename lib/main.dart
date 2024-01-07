@@ -89,43 +89,29 @@ class _MyAppState extends State<MyApp> {
       });
 
   @override
-Widget build(BuildContext context) {
-  return Builder(
-    builder: (context) {
-      return MaterialApp.router(
-        title: 'LawndaleStudents',
-        localizationsDelegates: [
-          FFLocalizationsDelegate(),
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        locale: _locale,
-        supportedLocales: const [
-          Locale('en'),
-          Locale('es'),
-        ],
-        theme: ThemeData(
-          brightness: Brightness.light,
-          scrollbarTheme: ScrollbarThemeData(),
-        ),
-        darkTheme: ThemeData(
-          brightness: Brightness.dark,
-          scrollbarTheme: ScrollbarThemeData(),
-        ),
-        themeMode: _themeMode,
-        builder: (context, child) {
-          // Lock the textScaleFactor between 1.0 and 1.3
-          return MediaQuery(
-            data: MediaQuery.of(context).copyWith(
-              textScaleFactor: 1.0.clamp(1.0, 1.3),
-            ),
-            child: child!,
-          );
-        },
-        routerConfig: _router,
-      );
-    },
-  );
-}
-
+ Widget build(BuildContext context) {
+    return MaterialApp.router(
+      title: 'LawndaleStudents',
+      localizationsDelegates: [
+        FFLocalizationsDelegate(),
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      locale: _locale,
+      supportedLocales: const [
+        Locale('en'),
+        Locale('es'),
+      ],
+      theme: ThemeData(
+        brightness: Brightness.light,
+        scrollbarTheme: ScrollbarThemeData(),
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scrollbarTheme: ScrollbarThemeData(),
+      ),
+      themeMode: _themeMode,
+      routerConfig: _router,
+    );
+  }
