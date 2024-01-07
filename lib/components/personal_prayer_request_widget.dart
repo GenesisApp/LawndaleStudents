@@ -1135,22 +1135,26 @@ class _PersonalPrayerRequestWidgetState
                                                           if (!widget
                                                               .chosenPrayerRequestDoc!
                                                               .notificationSent) {
-                                                            triggerPushNotification(
-                                                              notificationTitle:
-                                                                  'Prayer Answered!',
-                                                              notificationText:
-                                                                  '${containerUsersRecord.displayName} just marked their prayer answered!',
-                                                              notificationImageUrl:
-                                                                  containerUsersRecord
-                                                                      .photoUrl,
-                                                              userRefs: widget
-                                                                  .chosenPrayerRequestDoc!
-                                                                  .prayedforByUsers
-                                                                  .toList(),
-                                                              initialPageName:
-                                                                  'CommunityPrayerPage',
-                                                              parameterData: {},
-                                                            );
+                                                            if (widget
+                                                                .chosenPrayerRequestDoc!
+                                                                .public) {
+                                                              triggerPushNotification(
+                                                                notificationTitle:
+                                                                    'Prayer Answered!',
+                                                                notificationText:
+                                                                    '${containerUsersRecord.displayName} just marked their prayer answered!',
+                                                                notificationImageUrl:
+                                                                    containerUsersRecord
+                                                                        .photoUrl,
+                                                                userRefs: widget
+                                                                    .chosenPrayerRequestDoc!
+                                                                    .prayedforByUsers
+                                                                    .toList(),
+                                                                initialPageName:
+                                                                    'CommunityPrayerPage',
+                                                                parameterData: {},
+                                                              );
+                                                            }
                                                           }
 
                                                           await widget
