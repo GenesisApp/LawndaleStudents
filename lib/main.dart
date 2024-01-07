@@ -128,3 +128,4 @@ class _MyAppState extends State<MyApp> {
       routerConfig: _router,
     );
   }
+}
