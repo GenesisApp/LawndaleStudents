@@ -454,7 +454,11 @@ class _CustomPushNotificationWidgetState
                                   notificationTitle:
                                       _model.textController1.text,
                                   notificationText: _model.textController2.text,
-                                  notificationImageUrl: _model.uploadedFileUrl,
+                                  notificationImageUrl:
+                                      _model.uploadedFileUrl != null &&
+                                              _model.uploadedFileUrl != ''
+                                          ? _model.uploadedFileUrl
+                                          : null,
                                   userRefs: widget.userGroupChosen!.toList(),
                                   initialPageName: 'HomePage',
                                   parameterData: {},
@@ -474,6 +478,8 @@ class _CustomPushNotificationWidgetState
                                     ));
                                   },
                                 ).then((value) => safeSetState(() {}));
+
+                                Navigator.pop(context);
                               },
                               child: Container(
                                 width: 40.0,

@@ -155,16 +155,7 @@ class _NotificationSentWidgetState extends State<NotificationSentWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed(
-                                'NotificationsSelection',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                  ),
-                                },
-                              );
+                              Navigator.pop(context);
                             },
                             child: Container(
                               width: 40.0,

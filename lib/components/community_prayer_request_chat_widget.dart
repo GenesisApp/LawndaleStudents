@@ -1412,7 +1412,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                                   .prayedforByUsers
                                                                   .toList(),
                                                               initialPageName:
-                                                                  'CommunityPrayerPage',
+                                                                  'PersonalPrayerPage',
                                                               parameterData: {},
                                                             );
                                                           }

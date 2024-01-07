@@ -7002,6 +7002,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Prayer Answered!',
       'es': '¡Oración respondida!',
     },
+    'yocfnn9z': {
+      'en': 'Pinned by Admin',
+      'es': '¡Oración respondida!',
+    },
     'uw2rfvve': {
       'en': '+',
       'es': '+',
@@ -7010,8 +7014,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'prayed so far',
       'es': 'orado hasta ahora',
     },
-    '5dmdgc1b': {
+    '0e8xaodr': {
       'en': 'Prayer Answered!',
+      'es': '¡Oración respondida!',
+    },
+    'g26jpszr': {
+      'en': 'Pinned by Admin',
       'es': '¡Oración respondida!',
     },
     'ffggpwgt': {
@@ -7043,6 +7051,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Compartir',
     },
     'nvwdvbuo': {
+      'en': 'Pin',
+      'es': 'Editar',
+    },
+    't6sq841g': {
       'en': 'Edit',
       'es': 'Editar',
     },

@@ -25,6 +25,8 @@ class CommunityPrayerPageModel
     extends FlutterFlowModel<CommunityPrayerPageWidget> {
   ///  State fields for stateful widgets in this page.
 
+  // Model for communityPrayerRequest component.
+  late CommunityPrayerRequestModel communityPrayerRequestModel1;
   // State field(s) for ListView widget.
 
   PagingController<DocumentSnapshot?, PrayerRequestsRecord>?
@@ -40,6 +42,8 @@ class CommunityPrayerPageModel
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    communityPrayerRequestModel1 =
+        createModel(context, () => CommunityPrayerRequestModel());
     chatTabIconUnselectedModel =
         createModel(context, () => ChatTabIconUnselectedModel());
     profileTabIconUnselectedModel =
@@ -47,6 +51,7 @@ class CommunityPrayerPageModel
   }
 
   void dispose() {
+    communityPrayerRequestModel1.dispose();
     listViewStreamSubscriptions.forEach((s) => s?.cancel());
     listViewPagingController?.dispose();
 
