@@ -1823,12 +1823,9 @@ class _CommunityPrayerRequestWidgetState
                                                   ),
                                                 ),
                                               ),
-                                            if ((currentUserReference ==
-                                                    containerUsersRecord
-                                                        .reference) ||
-                                                valueOrDefault<bool>(
-                                                    currentUserDocument?.admin,
-                                                    false))
+                                            if (valueOrDefault<bool>(
+                                                currentUserDocument?.admin,
+                                                false))
                                               AuthUserStreamWidget(
                                                 builder: (context) => Container(
                                                   width: 65.0,

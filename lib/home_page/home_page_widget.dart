@@ -2666,10 +2666,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
-                                                  0.29,
+                                                  0.3,
                                           height:
                                               MediaQuery.sizeOf(context).width *
-                                                  0.29,
+                                                  0.3,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
@@ -2846,10 +2846,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         Container(
                                           width:
                                               MediaQuery.sizeOf(context).width *
-                                                  0.29,
+                                                  0.3,
                                           height:
                                               MediaQuery.sizeOf(context).width *
-                                                  0.29,
+                                                  0.3,
                                           decoration: BoxDecoration(
                                             shape: BoxShape.circle,
                                           ),
@@ -3033,10 +3033,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           Container(
                                             width: MediaQuery.sizeOf(context)
                                                     .width *
-                                                0.29,
+                                                0.3,
                                             height: MediaQuery.sizeOf(context)
                                                     .width *
-                                                0.29,
+                                                0.3,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                             ),
