@@ -61,6 +61,16 @@ class PrayerRequestsRecord extends FirestoreRecord {
   DocumentReference? get messageRef => _messageRef;
   bool hasMessageRef() => _messageRef != null;
 
+  // "pinned" field.
+  bool? _pinned;
+  bool get pinned => _pinned ?? false;
+  bool hasPinned() => _pinned != null;
+
+  // "pinnedTime" field.
+  DateTime? _pinnedTime;
+  DateTime? get pinnedTime => _pinnedTime;
+  bool hasPinnedTime() => _pinnedTime != null;
+
   void _initializeFields() {
     _user = snapshotData['user'] as DocumentReference?;
     _requestText = snapshotData['requestText'] as String?;
@@ -71,6 +81,8 @@ class PrayerRequestsRecord extends FirestoreRecord {
     _usersName = snapshotData['usersName'] as String?;
     _notificationSent = snapshotData['notificationSent'] as bool?;
     _messageRef = snapshotData['messageRef'] as DocumentReference?;
+    _pinned = snapshotData['pinned'] as bool?;
+    _pinnedTime = snapshotData['pinnedTime'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -116,6 +128,8 @@ Map<String, dynamic> createPrayerRequestsRecordData({
   String? usersName,
   bool? notificationSent,
   DocumentReference? messageRef,
+  bool? pinned,
+  DateTime? pinnedTime,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -127,6 +141,8 @@ Map<String, dynamic> createPrayerRequestsRecordData({
       'usersName': usersName,
       'notificationSent': notificationSent,
       'messageRef': messageRef,
+      'pinned': pinned,
+      'pinnedTime': pinnedTime,
     }.withoutNulls,
   );
 
@@ -148,7 +164,9 @@ class PrayerRequestsRecordDocumentEquality
         e1?.public == e2?.public &&
         e1?.usersName == e2?.usersName &&
         e1?.notificationSent == e2?.notificationSent &&
-        e1?.messageRef == e2?.messageRef;
+        e1?.messageRef == e2?.messageRef &&
+        e1?.pinned == e2?.pinned &&
+        e1?.pinnedTime == e2?.pinnedTime;
   }
 
   @override
@@ -161,7 +179,9 @@ class PrayerRequestsRecordDocumentEquality
         e?.public,
         e?.usersName,
         e?.notificationSent,
-        e?.messageRef
+        e?.messageRef,
+        e?.pinned,
+        e?.pinnedTime
       ]);
 
   @override

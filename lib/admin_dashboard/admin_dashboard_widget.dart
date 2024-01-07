@@ -580,8 +580,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                         Stack(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           children: [
-                            FutureBuilder<List<PersonalJournalsRecord>>(
-                              future: queryPersonalJournalsRecordOnce(
+                            FutureBuilder<int>(
+                              future: queryPersonalJournalsRecordCount(
                                 queryBuilder: (personalJournalsRecord) =>
                                     personalJournalsRecord.where(
                                   'journalOne',
@@ -602,9 +602,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                     ),
                                   );
                                 }
-                                List<PersonalJournalsRecord>
-                                    containerPersonalJournalsRecordList =
-                                    snapshot.data!;
+                                int containerCount = snapshot.data!;
                                 return Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.275,
@@ -633,9 +631,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: AutoSizeText(
-                                          containerPersonalJournalsRecordList
-                                              .length
-                                              .toString(),
+                                          containerCount.toString(),
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -672,8 +668,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                         Stack(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           children: [
-                            FutureBuilder<List<PersonalJournalsRecord>>(
-                              future: queryPersonalJournalsRecordOnce(
+                            FutureBuilder<int>(
+                              future: queryPersonalJournalsRecordCount(
                                 queryBuilder: (personalJournalsRecord) =>
                                     personalJournalsRecord.where(
                                   'journalTwo',
@@ -694,9 +690,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                     ),
                                   );
                                 }
-                                List<PersonalJournalsRecord>
-                                    containerPersonalJournalsRecordList =
-                                    snapshot.data!;
+                                int containerCount = snapshot.data!;
                                 return Container(
                                   width:
                                       MediaQuery.sizeOf(context).width * 0.275,
@@ -727,9 +721,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
                                         child: AutoSizeText(
-                                          containerPersonalJournalsRecordList
-                                              .length
-                                              .toString(),
+                                          containerCount.toString(),
                                           maxLines: 1,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -768,8 +760,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                           child: Stack(
                             alignment: AlignmentDirectional(0.0, 0.0),
                             children: [
-                              FutureBuilder<List<PersonalJournalsRecord>>(
-                                future: queryPersonalJournalsRecordOnce(
+                              FutureBuilder<int>(
+                                future: queryPersonalJournalsRecordCount(
                                   queryBuilder: (personalJournalsRecord) =>
                                       personalJournalsRecord.where(
                                     'journalThree',
@@ -790,9 +782,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                       ),
                                     );
                                   }
-                                  List<PersonalJournalsRecord>
-                                      containerPersonalJournalsRecordList =
-                                      snapshot.data!;
+                                  int containerCount = snapshot.data!;
                                   return Container(
                                     width: MediaQuery.sizeOf(context).width *
                                         0.275,
@@ -825,9 +815,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 8.0, 0.0),
                                           child: AutoSizeText(
-                                            containerPersonalJournalsRecordList
-                                                .length
-                                                .toString(),
+                                            containerCount.toString(),
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -2492,8 +2480,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        FutureBuilder<List<PersonalJournalsRecord>>(
-                          future: queryPersonalJournalsRecordOnce(),
+                        FutureBuilder<int>(
+                          future: queryPersonalJournalsRecordCount(),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
@@ -2508,9 +2496,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 ),
                               );
                             }
-                            List<PersonalJournalsRecord>
-                                containerPersonalJournalsRecordList =
-                                snapshot.data!;
+                            int containerCount = snapshot.data!;
                             return Container(
                               width: MediaQuery.sizeOf(context).width * 0.42,
                               height: 75.0,
@@ -2570,9 +2556,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                           ],
                                         ),
                                         Text(
-                                          containerPersonalJournalsRecordList
-                                              .length
-                                              .toString(),
+                                          containerCount.toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

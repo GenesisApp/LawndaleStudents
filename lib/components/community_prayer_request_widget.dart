@@ -279,6 +279,7 @@ class _CommunityPrayerRequestWidgetState
                       children: [
                         Row(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             if (widget.chosenPrayerRequestDoc?.markedAnswered ??
                                 true)
@@ -295,6 +296,31 @@ class _CommunityPrayerRequestWidgetState
                                         fontFamily: 'Inter',
                                         color: FlutterFlowTheme.of(context)
                                             .prayerRing,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                            if (widget.chosenPrayerRequestDoc?.pinned ?? true)
+                              Icon(
+                                Icons.push_pin_rounded,
+                                color: FlutterFlowTheme.of(context).secondary,
+                                size: 18.0,
+                              ),
+                            if (widget.chosenPrayerRequestDoc?.pinned ?? true)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    3.0, 0.0, 3.0, 8.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'yocfnn9z' /* Pinned by Admin */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .systemGray,
+                                        fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
                                 ),
@@ -646,25 +672,56 @@ class _CommunityPrayerRequestWidgetState
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        if (widget.chosenPrayerRequestDoc?.markedAnswered ??
-                            true)
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                3.0, 0.0, 3.0, 8.0),
-                            child: Text(
-                              FFLocalizations.of(context).getText(
-                                '5dmdgc1b' /* Prayer Answered! */,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color:
-                                        FlutterFlowTheme.of(context).prayerRing,
-                                    fontWeight: FontWeight.w500,
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (widget.chosenPrayerRequestDoc?.markedAnswered ??
+                                true)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    3.0, 0.0, 3.0, 8.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    '0e8xaodr' /* Prayer Answered! */,
                                   ),
-                            ),
-                          ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .prayerRing,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                            if (widget.chosenPrayerRequestDoc?.pinned ?? true)
+                              Icon(
+                                Icons.push_pin_rounded,
+                                color: FlutterFlowTheme.of(context).secondary,
+                                size: 18.0,
+                              ),
+                            if (widget.chosenPrayerRequestDoc?.pinned ?? true)
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    3.0, 0.0, 3.0, 8.0),
+                                child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'g26jpszr' /* Pinned by Admin */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .systemGray,
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                ),
+                              ),
+                          ],
+                        ),
                         Container(
                           width: MediaQuery.sizeOf(context).width * 1.0,
                           decoration: BoxDecoration(
@@ -1100,187 +1157,68 @@ class _CommunityPrayerRequestWidgetState
                                                 ),
                                               ),
                                             ),
-                                            if (currentUserReference !=
-                                                containerUsersRecord.reference)
-                                              FutureBuilder<UsersRecord>(
-                                                future: UsersRecord
-                                                    .getDocumentOnce(widget
-                                                        .chosenPrayerRequestDoc!
-                                                        .user!),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 75.0,
-                                                        height: 75.0,
-                                                        child: SpinKitRipple(
-                                                          color:
-                                                              Color(0xFF7F95AD),
-                                                          size: 75.0,
+                                            if ((currentUserReference !=
+                                                    containerUsersRecord
+                                                        .reference) &&
+                                                !valueOrDefault<bool>(
+                                                    currentUserDocument?.admin,
+                                                    false))
+                                              AuthUserStreamWidget(
+                                                builder: (context) =>
+                                                    FutureBuilder<UsersRecord>(
+                                                  future: UsersRecord
+                                                      .getDocumentOnce(widget
+                                                          .chosenPrayerRequestDoc!
+                                                          .user!),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 75.0,
+                                                          height: 75.0,
+                                                          child: SpinKitRipple(
+                                                            color: Color(
+                                                                0xFF7F95AD),
+                                                            size: 75.0,
+                                                          ),
                                                         ),
+                                                      );
+                                                    }
+                                                    final container1UsersRecord =
+                                                        snapshot.data!;
+                                                    return Container(
+                                                      width: 100.0,
+                                                      height: 30.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .tertiarySystemBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
                                                       ),
-                                                    );
-                                                  }
-                                                  final container1UsersRecord =
-                                                      snapshot.data!;
-                                                  return Container(
-                                                    width: 100.0,
-                                                    height: 30.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .tertiarySystemBackground,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        if (!(!(currentUserDocument
-                                                                        ?.blockedBy
-                                                                        ?.toList() ??
-                                                                    [])
-                                                                .contains(
-                                                                    container1UsersRecord
-                                                                        .reference) &&
-                                                            !container1UsersRecord
-                                                                .blockedBy
-                                                                .contains(
-                                                                    currentUserReference))) {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            barrierColor:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .opagueSeparator,
-                                                            enableDrag: false,
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
-                                                                  child:
-                                                                      Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    PersonBlockedWidget(),
-                                                              ));
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-                                                        }
-                                                        if (functions.ageCheck(
-                                                                currentUserDocument
-                                                                    ?.birthday,
-                                                                currentUserReference)! ||
-                                                            functions.ageCheck(
-                                                                container1UsersRecord
-                                                                    .birthday,
-                                                                container1UsersRecord
-                                                                    .reference)!) {
-                                                          if (container1UsersRecord
-                                                                  .userFriends
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          if (!(!(currentUserDocument
+                                                                          ?.blockedBy
+                                                                          ?.toList() ??
+                                                                      [])
                                                                   .contains(
-                                                                      currentUserReference) ==
-                                                              true) {
-                                                            var messageChatsRecordReference1 =
-                                                                MessageChatsRecord
-                                                                    .collection
-                                                                    .doc();
-                                                            await messageChatsRecordReference1
-                                                                .set({
-                                                              ...createMessageChatsRecordData(
-                                                                authenticatedUser:
-                                                                    currentUserReference,
-                                                                otherUser:
-                                                                    container1UsersRecord
-                                                                        .reference,
-                                                                archived: false,
-                                                              ),
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'users': [
-                                                                    container1UsersRecord
-                                                                        .reference
-                                                                  ],
-                                                                },
-                                                              ),
-                                                            });
-                                                            _model.newGroup111 =
-                                                                MessageChatsRecord
-                                                                    .getDocumentFromData({
-                                                              ...createMessageChatsRecordData(
-                                                                authenticatedUser:
-                                                                    currentUserReference,
-                                                                otherUser:
-                                                                    container1UsersRecord
-                                                                        .reference,
-                                                                archived: false,
-                                                              ),
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'users': [
-                                                                    container1UsersRecord
-                                                                        .reference
-                                                                  ],
-                                                                },
-                                                              ),
-                                                            }, messageChatsRecordReference1);
-
-                                                            context.pushNamed(
-                                                              'ChatPage',
-                                                              queryParameters: {
-                                                                'chatUsers':
-                                                                    serializeParam(
-                                                                  container1UsersRecord
-                                                                      .reference,
-                                                                  ParamType
-                                                                      .DocumentReference,
-                                                                ),
-                                                                'chatChosen':
-                                                                    serializeParam(
-                                                                  _model
-                                                                      .newGroup111,
-                                                                  ParamType
-                                                                      .Document,
-                                                                ),
-                                                                'otherUserDoc':
-                                                                    serializeParam(
-                                                                  container1UsersRecord,
-                                                                  ParamType
-                                                                      .Document,
-                                                                ),
-                                                                'otherUserRef':
-                                                                    serializeParam(
-                                                                  container1UsersRecord
-                                                                      .reference,
-                                                                  ParamType
-                                                                      .DocumentReference,
-                                                                ),
-                                                              }.withoutNulls,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                'chatChosen': _model
-                                                                    .newGroup111,
-                                                                'otherUserDoc':
-                                                                    container1UsersRecord,
-                                                              },
-                                                            );
-                                                          } else {
+                                                                      container1UsersRecord
+                                                                          .reference) &&
+                                                              !container1UsersRecord
+                                                                  .blockedBy
+                                                                  .contains(
+                                                                      currentUserReference))) {
                                                             await showModalBottomSheet(
                                                               isScrollControlled:
                                                                   true,
@@ -1302,144 +1240,278 @@ class _CommunityPrayerRequestWidgetState
                                                                       .viewInsetsOf(
                                                                           context),
                                                                   child:
-                                                                      Under13Widget(),
+                                                                      PersonBlockedWidget(),
                                                                 ));
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(
                                                                     () {}));
                                                           }
-                                                        } else {
-                                                          var messageChatsRecordReference2 =
-                                                              MessageChatsRecord
-                                                                  .collection
-                                                                  .doc();
-                                                          await messageChatsRecordReference2
-                                                              .set({
-                                                            ...createMessageChatsRecordData(
-                                                              authenticatedUser:
-                                                                  currentUserReference,
-                                                              otherUser:
+                                                          if (functions.ageCheck(
+                                                                  currentUserDocument
+                                                                      ?.birthday,
+                                                                  currentUserReference)! ||
+                                                              functions.ageCheck(
                                                                   container1UsersRecord
-                                                                      .reference,
-                                                              archived: false,
-                                                            ),
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'users': [
+                                                                      .birthday,
                                                                   container1UsersRecord
-                                                                      .reference
-                                                                ],
-                                                              },
-                                                            ),
-                                                          });
-                                                          _model.newGroup =
-                                                              MessageChatsRecord
-                                                                  .getDocumentFromData({
-                                                            ...createMessageChatsRecordData(
-                                                              authenticatedUser:
-                                                                  currentUserReference,
-                                                              otherUser:
-                                                                  container1UsersRecord
-                                                                      .reference,
-                                                              archived: false,
-                                                            ),
-                                                            ...mapToFirestore(
-                                                              {
-                                                                'users': [
-                                                                  container1UsersRecord
-                                                                      .reference
-                                                                ],
-                                                              },
-                                                            ),
-                                                          }, messageChatsRecordReference2);
+                                                                      .reference)!) {
+                                                            if (container1UsersRecord
+                                                                    .userFriends
+                                                                    .contains(
+                                                                        currentUserReference) ==
+                                                                true) {
+                                                              var messageChatsRecordReference1 =
+                                                                  MessageChatsRecord
+                                                                      .collection
+                                                                      .doc();
+                                                              await messageChatsRecordReference1
+                                                                  .set({
+                                                                ...createMessageChatsRecordData(
+                                                                  authenticatedUser:
+                                                                      currentUserReference,
+                                                                  otherUser:
+                                                                      container1UsersRecord
+                                                                          .reference,
+                                                                  archived:
+                                                                      false,
+                                                                ),
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'users': [
+                                                                      container1UsersRecord
+                                                                          .reference
+                                                                    ],
+                                                                  },
+                                                                ),
+                                                              });
+                                                              _model.newGroup111 =
+                                                                  MessageChatsRecord
+                                                                      .getDocumentFromData({
+                                                                ...createMessageChatsRecordData(
+                                                                  authenticatedUser:
+                                                                      currentUserReference,
+                                                                  otherUser:
+                                                                      container1UsersRecord
+                                                                          .reference,
+                                                                  archived:
+                                                                      false,
+                                                                ),
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'users': [
+                                                                      container1UsersRecord
+                                                                          .reference
+                                                                    ],
+                                                                  },
+                                                                ),
+                                                              }, messageChatsRecordReference1);
 
-                                                          context.pushNamed(
-                                                            'ChatPage',
-                                                            queryParameters: {
-                                                              'chatUsers':
-                                                                  serializeParam(
-                                                                container1UsersRecord
-                                                                    .reference,
-                                                                ParamType
-                                                                    .DocumentReference,
+                                                              context.pushNamed(
+                                                                'ChatPage',
+                                                                queryParameters:
+                                                                    {
+                                                                  'chatUsers':
+                                                                      serializeParam(
+                                                                    container1UsersRecord
+                                                                        .reference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                  'chatChosen':
+                                                                      serializeParam(
+                                                                    _model
+                                                                        .newGroup111,
+                                                                    ParamType
+                                                                        .Document,
+                                                                  ),
+                                                                  'otherUserDoc':
+                                                                      serializeParam(
+                                                                    container1UsersRecord,
+                                                                    ParamType
+                                                                        .Document,
+                                                                  ),
+                                                                  'otherUserRef':
+                                                                      serializeParam(
+                                                                    container1UsersRecord
+                                                                        .reference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  'chatChosen':
+                                                                      _model
+                                                                          .newGroup111,
+                                                                  'otherUserDoc':
+                                                                      container1UsersRecord,
+                                                                },
+                                                              );
+                                                            } else {
+                                                              await showModalBottomSheet(
+                                                                isScrollControlled:
+                                                                    true,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                barrierColor:
+                                                                    FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .opagueSeparator,
+                                                                enableDrag:
+                                                                    false,
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (context) {
+                                                                  return WebViewAware(
+                                                                      child:
+                                                                          Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        Under13Widget(),
+                                                                  ));
+                                                                },
+                                                              ).then((value) =>
+                                                                  safeSetState(
+                                                                      () {}));
+                                                            }
+                                                          } else {
+                                                            var messageChatsRecordReference2 =
+                                                                MessageChatsRecord
+                                                                    .collection
+                                                                    .doc();
+                                                            await messageChatsRecordReference2
+                                                                .set({
+                                                              ...createMessageChatsRecordData(
+                                                                authenticatedUser:
+                                                                    currentUserReference,
+                                                                otherUser:
+                                                                    container1UsersRecord
+                                                                        .reference,
+                                                                archived: false,
                                                               ),
-                                                              'chatChosen':
-                                                                  serializeParam(
-                                                                _model.newGroup,
-                                                                ParamType
-                                                                    .Document,
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'users': [
+                                                                    container1UsersRecord
+                                                                        .reference
+                                                                  ],
+                                                                },
                                                               ),
-                                                              'otherUserDoc':
-                                                                  serializeParam(
-                                                                container1UsersRecord,
-                                                                ParamType
-                                                                    .Document,
+                                                            });
+                                                            _model.newGroup =
+                                                                MessageChatsRecord
+                                                                    .getDocumentFromData({
+                                                              ...createMessageChatsRecordData(
+                                                                authenticatedUser:
+                                                                    currentUserReference,
+                                                                otherUser:
+                                                                    container1UsersRecord
+                                                                        .reference,
+                                                                archived: false,
                                                               ),
-                                                              'otherUserRef':
-                                                                  serializeParam(
-                                                                container1UsersRecord
-                                                                    .reference,
-                                                                ParamType
-                                                                    .DocumentReference,
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'users': [
+                                                                    container1UsersRecord
+                                                                        .reference
+                                                                  ],
+                                                                },
                                                               ),
-                                                            }.withoutNulls,
-                                                            extra: <String,
-                                                                dynamic>{
-                                                              'chatChosen':
+                                                            }, messageChatsRecordReference2);
+
+                                                            context.pushNamed(
+                                                              'ChatPage',
+                                                              queryParameters: {
+                                                                'chatUsers':
+                                                                    serializeParam(
+                                                                  container1UsersRecord
+                                                                      .reference,
+                                                                  ParamType
+                                                                      .DocumentReference,
+                                                                ),
+                                                                'chatChosen':
+                                                                    serializeParam(
                                                                   _model
                                                                       .newGroup,
-                                                              'otherUserDoc':
+                                                                  ParamType
+                                                                      .Document,
+                                                                ),
+                                                                'otherUserDoc':
+                                                                    serializeParam(
                                                                   container1UsersRecord,
-                                                            },
-                                                          );
-                                                        }
+                                                                  ParamType
+                                                                      .Document,
+                                                                ),
+                                                                'otherUserRef':
+                                                                    serializeParam(
+                                                                  container1UsersRecord
+                                                                      .reference,
+                                                                  ParamType
+                                                                      .DocumentReference,
+                                                                ),
+                                                              }.withoutNulls,
+                                                              extra: <String,
+                                                                  dynamic>{
+                                                                'chatChosen':
+                                                                    _model
+                                                                        .newGroup,
+                                                                'otherUserDoc':
+                                                                    container1UsersRecord,
+                                                              },
+                                                            );
+                                                          }
 
-                                                        setState(() {});
-                                                      },
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        children: [
-                                                          Icon(
-                                                            Icons.chat,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .tertiary,
-                                                            size: 16.0,
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                '4uh0cl1r' /* Message */,
-                                                              ),
-                                                              style: FlutterFlowTheme
+                                                          setState(() {});
+                                                        },
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          children: [
+                                                            Icon(
+                                                              Icons.chat,
+                                                              color: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                    fontSize:
-                                                                        14.0,
-                                                                  ),
+                                                                  .tertiary,
+                                                              size: 16.0,
                                                             ),
-                                                          ),
-                                                        ],
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '4uh0cl1r' /* Message */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             if (currentUserReference ==
                                                 containerUsersRecord.reference)
@@ -1759,6 +1831,114 @@ class _CommunityPrayerRequestWidgetState
                                                     false))
                                               AuthUserStreamWidget(
                                                 builder: (context) => Container(
+                                                  width: 65.0,
+                                                  height: 30.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .tertiarySystemBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  0.75,
+                                                              child:
+                                                                  EditPrayerWidget(
+                                                                usersPrayer: widget
+                                                                    .chosenPrayerRequestRef,
+                                                                usersPrayerDoc:
+                                                                    widget
+                                                                        .chosenPrayerRequestDoc,
+                                                              ),
+                                                            ),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        Icon(
+                                                          Icons
+                                                              .push_pin_rounded,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
+                                                          size: 18.0,
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .getText(
+                                                              'nvwdvbuo' /* Pin */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Inter',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .tertiary,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            if ((currentUserReference ==
+                                                    containerUsersRecord
+                                                        .reference) ||
+                                                valueOrDefault<bool>(
+                                                    currentUserDocument?.admin,
+                                                    false))
+                                              AuthUserStreamWidget(
+                                                builder: (context) => Container(
                                                   width: 75.0,
                                                   height: 30.0,
                                                   decoration: BoxDecoration(
@@ -1837,7 +2017,7 @@ class _CommunityPrayerRequestWidgetState
                                                             FFLocalizations.of(
                                                                     context)
                                                                 .getText(
-                                                              'nvwdvbuo' /* Edit */,
+                                                              't6sq841g' /* Edit */,
                                                             ),
                                                             style: FlutterFlowTheme
                                                                     .of(context)

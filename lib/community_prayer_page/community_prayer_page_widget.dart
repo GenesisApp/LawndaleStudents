@@ -304,6 +304,60 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                       ],
                     ),
                   ),
+                  FutureBuilder<List<PrayerRequestsRecord>>(
+                    future: queryPrayerRequestsRecordOnce(
+                      queryBuilder: (prayerRequestsRecord) =>
+                          prayerRequestsRecord
+                              .where(
+                                'pinned',
+                                isEqualTo: true,
+                              )
+                              .orderBy('pinnedTime', descending: true),
+                      singleRecord: true,
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 75.0,
+                            height: 75.0,
+                            child: SpinKitRipple(
+                              color: Color(0xFF7F95AD),
+                              size: 75.0,
+                            ),
+                          ),
+                        );
+                      }
+                      List<PrayerRequestsRecord>
+                          containerPrayerRequestsRecordList = snapshot.data!;
+                      // Return an empty Container when the item does not exist.
+                      if (snapshot.data!.isEmpty) {
+                        return Container();
+                      }
+                      final containerPrayerRequestsRecord =
+                          containerPrayerRequestsRecordList.isNotEmpty
+                              ? containerPrayerRequestsRecordList.first
+                              : null;
+                      return Container(
+                        decoration: BoxDecoration(),
+                        child: Visibility(
+                          visible:
+                              containerPrayerRequestsRecord?.messageRef == null,
+                          child: wrapWithModel(
+                            model: _model.communityPrayerRequestModel1,
+                            updateCallback: () => setState(() {}),
+                            child: CommunityPrayerRequestWidget(
+                              chosenPrayerRequestDoc:
+                                  containerPrayerRequestsRecord!,
+                              chosenPrayerRequestRef:
+                                  containerPrayerRequestsRecord!.reference,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
                   Expanded(
                     child: Padding(
                       padding:
@@ -315,6 +369,10 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                               .where(
                                 'public',
                                 isEqualTo: true,
+                              )
+                              .where(
+                                'pinned',
+                                isEqualTo: false,
                               )
                               .orderBy('timeUploaded', descending: true),
                         ),
