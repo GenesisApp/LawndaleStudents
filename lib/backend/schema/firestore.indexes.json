@@ -171,24 +171,6 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "public",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "pinned",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "timeUploaded",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "prayer_requests",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
           "fieldPath": "user",
           "order": "ASCENDING"
         },

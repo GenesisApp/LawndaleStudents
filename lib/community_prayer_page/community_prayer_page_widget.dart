@@ -370,10 +370,6 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                 'public',
                                 isEqualTo: true,
                               )
-                              .where(
-                                'pinned',
-                                isEqualTo: false,
-                              )
                               .orderBy('timeUploaded', descending: true),
                         ),
                         padding: EdgeInsets.zero,
@@ -412,8 +408,9 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                 .itemList![listViewIndex];
                             return Visibility(
                               visible:
-                                  listViewPrayerRequestsRecord.messageRef ==
-                                      null,
+                                  (listViewPrayerRequestsRecord.messageRef ==
+                                          null) &&
+                                      !listViewPrayerRequestsRecord.pinned,
                               child: CommunityPrayerRequestWidget(
                                 key: Key(
                                     'Keyjf7_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
