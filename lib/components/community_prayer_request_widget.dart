@@ -1053,94 +1053,103 @@ class _CommunityPrayerRequestWidgetState
                                         width: double.infinity,
                                         height: 40.0,
                                         decoration: BoxDecoration(),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Container(
-                                              width: 75.0,
-                                              height: 30.0,
-                                              decoration: BoxDecoration(
-                                                color: FlutterFlowTheme.of(
-                                                        context)
-                                                    .tertiarySystemBackground,
-                                                borderRadius:
-                                                    BorderRadius.circular(8.0),
-                                              ),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    'PrayingPage',
-                                                    queryParameters: {
-                                                      'requestChosen':
-                                                          serializeParam(
-                                                        widget
-                                                            .chosenPrayerRequestRef,
-                                                        ParamType
-                                                            .DocumentReference,
-                                                      ),
-                                                      'requestChosenDoc':
-                                                          serializeParam(
-                                                        widget
-                                                            .chosenPrayerRequestDoc,
-                                                        ParamType.Document,
-                                                      ),
-                                                      'requestUser':
-                                                          serializeParam(
-                                                        containerUsersRecord,
-                                                        ParamType.Document,
-                                                      ),
-                                                    }.withoutNulls,
-                                                    extra: <String, dynamic>{
-                                                      'requestChosenDoc': widget
-                                                          .chosenPrayerRequestDoc,
-                                                      'requestUser':
-                                                          containerUsersRecord,
-                                                      kTransitionInfoKey:
-                                                          TransitionInfo(
-                                                        hasTransition: true,
-                                                        transitionType:
-                                                            PageTransitionType
-                                                                .bottomToTop,
-                                                      ),
+                                        child: SingleChildScrollView(
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        4.0, 0.0, 4.0, 0.0),
+                                                child: Container(
+                                                  width: 75.0,
+                                                  height: 30.0,
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .tertiarySystemBackground,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8.0),
+                                                  ),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      context.pushNamed(
+                                                        'PrayingPage',
+                                                        queryParameters: {
+                                                          'requestChosen':
+                                                              serializeParam(
+                                                            widget
+                                                                .chosenPrayerRequestRef,
+                                                            ParamType
+                                                                .DocumentReference,
+                                                          ),
+                                                          'requestChosenDoc':
+                                                              serializeParam(
+                                                            widget
+                                                                .chosenPrayerRequestDoc,
+                                                            ParamType.Document,
+                                                          ),
+                                                          'requestUser':
+                                                              serializeParam(
+                                                            containerUsersRecord,
+                                                            ParamType.Document,
+                                                          ),
+                                                        }.withoutNulls,
+                                                        extra: <String,
+                                                            dynamic>{
+                                                          'requestChosenDoc': widget
+                                                              .chosenPrayerRequestDoc,
+                                                          'requestUser':
+                                                              containerUsersRecord,
+                                                          kTransitionInfoKey:
+                                                              TransitionInfo(
+                                                            hasTransition: true,
+                                                            transitionType:
+                                                                PageTransitionType
+                                                                    .bottomToTop,
+                                                          ),
+                                                        },
+                                                      );
                                                     },
-                                                  );
-                                                },
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
-                                                  children: [
-                                                    FaIcon(
-                                                      FontAwesomeIcons
-                                                          .prayingHands,
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
+                                                      children: [
+                                                        FaIcon(
+                                                          FontAwesomeIcons
+                                                              .prayingHands,
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
                                                               .tertiary,
-                                                      size: 16.0,
-                                                    ),
-                                                    Align(
-                                                      alignment:
-                                                          AlignmentDirectional(
-                                                              0.0, 0.0),
-                                                      child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'xtpshi4v' /* Pray */,
+                                                          size: 16.0,
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
+                                                        Align(
+                                                          alignment:
+                                                              AlignmentDirectional(
+                                                                  0.0, 0.0),
+                                                          child: Text(
+                                                            FFLocalizations.of(
                                                                     context)
+                                                                .getText(
+                                                              'xtpshi4v' /* Pray */,
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
                                                                 .bodyMedium
                                                                 .override(
                                                                   fontFamily:
@@ -1151,204 +1160,81 @@ class _CommunityPrayerRequestWidgetState
                                                                   fontSize:
                                                                       14.0,
                                                                 ),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ),
-                                            if ((currentUserReference !=
-                                                    containerUsersRecord
-                                                        .reference) &&
-                                                !valueOrDefault<bool>(
-                                                    currentUserDocument?.admin,
-                                                    false))
-                                              AuthUserStreamWidget(
-                                                builder: (context) =>
-                                                    FutureBuilder<UsersRecord>(
-                                                  future: UsersRecord
-                                                      .getDocumentOnce(widget
-                                                          .chosenPrayerRequestDoc!
-                                                          .user!),
-                                                  builder: (context, snapshot) {
-                                                    // Customize what your widget looks like when it's loading.
-                                                    if (!snapshot.hasData) {
-                                                      return Center(
-                                                        child: SizedBox(
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          child: SpinKitRipple(
-                                                            color: Color(
-                                                                0xFF7F95AD),
-                                                            size: 75.0,
                                                           ),
                                                         ),
-                                                      );
-                                                    }
-                                                    final container1UsersRecord =
-                                                        snapshot.data!;
-                                                    return Container(
-                                                      width: 100.0,
-                                                      height: 30.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .tertiarySystemBackground,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(8.0),
-                                                      ),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          if (!(!(currentUserDocument
-                                                                          ?.blockedBy
-                                                                          ?.toList() ??
-                                                                      [])
-                                                                  .contains(
-                                                                      container1UsersRecord
-                                                                          .reference) &&
-                                                              !container1UsersRecord
-                                                                  .blockedBy
-                                                                  .contains(
-                                                                      currentUserReference))) {
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              barrierColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .opagueSeparator,
-                                                              enableDrag: false,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                    child:
-                                                                        Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      PersonBlockedWidget(),
-                                                                ));
-                                                              },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
-                                                          }
-                                                          if (functions.ageCheck(
-                                                                  currentUserDocument
-                                                                      ?.birthday,
-                                                                  currentUserReference)! ||
-                                                              functions.ageCheck(
-                                                                  container1UsersRecord
-                                                                      .birthday,
-                                                                  container1UsersRecord
-                                                                      .reference)!) {
-                                                            if (container1UsersRecord
-                                                                    .userFriends
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              if ((currentUserReference !=
+                                                      containerUsersRecord
+                                                          .reference) &&
+                                                  !valueOrDefault<bool>(
+                                                      currentUserDocument
+                                                          ?.admin,
+                                                      false))
+                                                AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      FutureBuilder<
+                                                          UsersRecord>(
+                                                    future: UsersRecord
+                                                        .getDocumentOnce(widget
+                                                            .chosenPrayerRequestDoc!
+                                                            .user!),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 75.0,
+                                                            height: 75.0,
+                                                            child:
+                                                                SpinKitRipple(
+                                                              color: Color(
+                                                                  0xFF7F95AD),
+                                                              size: 75.0,
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      final container1UsersRecord =
+                                                          snapshot.data!;
+                                                      return Container(
+                                                        width: 100.0,
+                                                        height: 30.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiarySystemBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            if (!(!(currentUserDocument
+                                                                            ?.blockedBy
+                                                                            ?.toList() ??
+                                                                        [])
                                                                     .contains(
-                                                                        currentUserReference) ==
-                                                                true) {
-                                                              var messageChatsRecordReference1 =
-                                                                  MessageChatsRecord
-                                                                      .collection
-                                                                      .doc();
-                                                              await messageChatsRecordReference1
-                                                                  .set({
-                                                                ...createMessageChatsRecordData(
-                                                                  authenticatedUser:
-                                                                      currentUserReference,
-                                                                  otherUser:
-                                                                      container1UsersRecord
-                                                                          .reference,
-                                                                  archived:
-                                                                      false,
-                                                                ),
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'users': [
-                                                                      container1UsersRecord
-                                                                          .reference
-                                                                    ],
-                                                                  },
-                                                                ),
-                                                              });
-                                                              _model.newGroup111 =
-                                                                  MessageChatsRecord
-                                                                      .getDocumentFromData({
-                                                                ...createMessageChatsRecordData(
-                                                                  authenticatedUser:
-                                                                      currentUserReference,
-                                                                  otherUser:
-                                                                      container1UsersRecord
-                                                                          .reference,
-                                                                  archived:
-                                                                      false,
-                                                                ),
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'users': [
-                                                                      container1UsersRecord
-                                                                          .reference
-                                                                    ],
-                                                                  },
-                                                                ),
-                                                              }, messageChatsRecordReference1);
-
-                                                              context.pushNamed(
-                                                                'ChatPage',
-                                                                queryParameters:
-                                                                    {
-                                                                  'chatUsers':
-                                                                      serializeParam(
-                                                                    container1UsersRecord
-                                                                        .reference,
-                                                                    ParamType
-                                                                        .DocumentReference,
-                                                                  ),
-                                                                  'chatChosen':
-                                                                      serializeParam(
-                                                                    _model
-                                                                        .newGroup111,
-                                                                    ParamType
-                                                                        .Document,
-                                                                  ),
-                                                                  'otherUserDoc':
-                                                                      serializeParam(
-                                                                    container1UsersRecord,
-                                                                    ParamType
-                                                                        .Document,
-                                                                  ),
-                                                                  'otherUserRef':
-                                                                      serializeParam(
-                                                                    container1UsersRecord
-                                                                        .reference,
-                                                                    ParamType
-                                                                        .DocumentReference,
-                                                                  ),
-                                                                }.withoutNulls,
-                                                                extra: <String,
-                                                                    dynamic>{
-                                                                  'chatChosen':
-                                                                      _model
-                                                                          .newGroup111,
-                                                                  'otherUserDoc':
-                                                                      container1UsersRecord,
-                                                                },
-                                                              );
-                                                            } else {
+                                                                        container1UsersRecord
+                                                                            .reference) &&
+                                                                !container1UsersRecord
+                                                                    .blockedBy
+                                                                    .contains(
+                                                                        currentUserReference))) {
                                                               await showModalBottomSheet(
                                                                 isScrollControlled:
                                                                     true,
@@ -1372,101 +1258,643 @@ class _CommunityPrayerRequestWidgetState
                                                                         .viewInsetsOf(
                                                                             context),
                                                                     child:
-                                                                        Under13Widget(),
+                                                                        PersonBlockedWidget(),
                                                                   ));
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
                                                                       () {}));
                                                             }
-                                                          } else {
-                                                            var messageChatsRecordReference2 =
-                                                                MessageChatsRecord
-                                                                    .collection
-                                                                    .doc();
-                                                            await messageChatsRecordReference2
-                                                                .set({
-                                                              ...createMessageChatsRecordData(
-                                                                authenticatedUser:
-                                                                    currentUserReference,
-                                                                otherUser:
+                                                            if (functions.ageCheck(
+                                                                    currentUserDocument
+                                                                        ?.birthday,
+                                                                    currentUserReference)! ||
+                                                                functions.ageCheck(
                                                                     container1UsersRecord
-                                                                        .reference,
-                                                                archived: false,
-                                                              ),
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'users': [
+                                                                        .birthday,
                                                                     container1UsersRecord
-                                                                        .reference
-                                                                  ],
-                                                                },
-                                                              ),
-                                                            });
-                                                            _model.newGroup =
-                                                                MessageChatsRecord
-                                                                    .getDocumentFromData({
-                                                              ...createMessageChatsRecordData(
-                                                                authenticatedUser:
-                                                                    currentUserReference,
-                                                                otherUser:
-                                                                    container1UsersRecord
-                                                                        .reference,
-                                                                archived: false,
-                                                              ),
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'users': [
-                                                                    container1UsersRecord
-                                                                        .reference
-                                                                  ],
-                                                                },
-                                                              ),
-                                                            }, messageChatsRecordReference2);
+                                                                        .reference)!) {
+                                                              if (container1UsersRecord
+                                                                      .userFriends
+                                                                      .contains(
+                                                                          currentUserReference) ==
+                                                                  true) {
+                                                                var messageChatsRecordReference1 =
+                                                                    MessageChatsRecord
+                                                                        .collection
+                                                                        .doc();
+                                                                await messageChatsRecordReference1
+                                                                    .set({
+                                                                  ...createMessageChatsRecordData(
+                                                                    authenticatedUser:
+                                                                        currentUserReference,
+                                                                    otherUser:
+                                                                        container1UsersRecord
+                                                                            .reference,
+                                                                    archived:
+                                                                        false,
+                                                                  ),
+                                                                  ...mapToFirestore(
+                                                                    {
+                                                                      'users': [
+                                                                        container1UsersRecord
+                                                                            .reference
+                                                                      ],
+                                                                    },
+                                                                  ),
+                                                                });
+                                                                _model.newGroup111 =
+                                                                    MessageChatsRecord
+                                                                        .getDocumentFromData({
+                                                                  ...createMessageChatsRecordData(
+                                                                    authenticatedUser:
+                                                                        currentUserReference,
+                                                                    otherUser:
+                                                                        container1UsersRecord
+                                                                            .reference,
+                                                                    archived:
+                                                                        false,
+                                                                  ),
+                                                                  ...mapToFirestore(
+                                                                    {
+                                                                      'users': [
+                                                                        container1UsersRecord
+                                                                            .reference
+                                                                      ],
+                                                                    },
+                                                                  ),
+                                                                }, messageChatsRecordReference1);
 
-                                                            context.pushNamed(
-                                                              'ChatPage',
-                                                              queryParameters: {
-                                                                'chatUsers':
-                                                                    serializeParam(
-                                                                  container1UsersRecord
-                                                                      .reference,
-                                                                  ParamType
-                                                                      .DocumentReference,
+                                                                context
+                                                                    .pushNamed(
+                                                                  'ChatPage',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'chatUsers':
+                                                                        serializeParam(
+                                                                      container1UsersRecord
+                                                                          .reference,
+                                                                      ParamType
+                                                                          .DocumentReference,
+                                                                    ),
+                                                                    'chatChosen':
+                                                                        serializeParam(
+                                                                      _model
+                                                                          .newGroup111,
+                                                                      ParamType
+                                                                          .Document,
+                                                                    ),
+                                                                    'otherUserDoc':
+                                                                        serializeParam(
+                                                                      container1UsersRecord,
+                                                                      ParamType
+                                                                          .Document,
+                                                                    ),
+                                                                    'otherUserRef':
+                                                                        serializeParam(
+                                                                      container1UsersRecord
+                                                                          .reference,
+                                                                      ParamType
+                                                                          .DocumentReference,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                  extra: <String,
+                                                                      dynamic>{
+                                                                    'chatChosen':
+                                                                        _model
+                                                                            .newGroup111,
+                                                                    'otherUserDoc':
+                                                                        container1UsersRecord,
+                                                                  },
+                                                                );
+                                                              } else {
+                                                                await showModalBottomSheet(
+                                                                  isScrollControlled:
+                                                                      true,
+                                                                  backgroundColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  barrierColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .opagueSeparator,
+                                                                  enableDrag:
+                                                                      false,
+                                                                  context:
+                                                                      context,
+                                                                  builder:
+                                                                      (context) {
+                                                                    return WebViewAware(
+                                                                        child:
+                                                                            Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          Under13Widget(),
+                                                                    ));
+                                                                  },
+                                                                ).then((value) =>
+                                                                    safeSetState(
+                                                                        () {}));
+                                                              }
+                                                            } else {
+                                                              var messageChatsRecordReference2 =
+                                                                  MessageChatsRecord
+                                                                      .collection
+                                                                      .doc();
+                                                              await messageChatsRecordReference2
+                                                                  .set({
+                                                                ...createMessageChatsRecordData(
+                                                                  authenticatedUser:
+                                                                      currentUserReference,
+                                                                  otherUser:
+                                                                      container1UsersRecord
+                                                                          .reference,
+                                                                  archived:
+                                                                      false,
                                                                 ),
-                                                                'chatChosen':
-                                                                    serializeParam(
-                                                                  _model
-                                                                      .newGroup,
-                                                                  ParamType
-                                                                      .Document,
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'users': [
+                                                                      container1UsersRecord
+                                                                          .reference
+                                                                    ],
+                                                                  },
                                                                 ),
-                                                                'otherUserDoc':
-                                                                    serializeParam(
-                                                                  container1UsersRecord,
-                                                                  ParamType
-                                                                      .Document,
+                                                              });
+                                                              _model.newGroup =
+                                                                  MessageChatsRecord
+                                                                      .getDocumentFromData({
+                                                                ...createMessageChatsRecordData(
+                                                                  authenticatedUser:
+                                                                      currentUserReference,
+                                                                  otherUser:
+                                                                      container1UsersRecord
+                                                                          .reference,
+                                                                  archived:
+                                                                      false,
                                                                 ),
-                                                                'otherUserRef':
-                                                                    serializeParam(
-                                                                  container1UsersRecord
-                                                                      .reference,
-                                                                  ParamType
-                                                                      .DocumentReference,
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'users': [
+                                                                      container1UsersRecord
+                                                                          .reference
+                                                                    ],
+                                                                  },
                                                                 ),
-                                                              }.withoutNulls,
-                                                              extra: <String,
-                                                                  dynamic>{
-                                                                'chatChosen':
+                                                              }, messageChatsRecordReference2);
+
+                                                              context.pushNamed(
+                                                                'ChatPage',
+                                                                queryParameters:
+                                                                    {
+                                                                  'chatUsers':
+                                                                      serializeParam(
+                                                                    container1UsersRecord
+                                                                        .reference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                  'chatChosen':
+                                                                      serializeParam(
                                                                     _model
                                                                         .newGroup,
-                                                                'otherUserDoc':
+                                                                    ParamType
+                                                                        .Document,
+                                                                  ),
+                                                                  'otherUserDoc':
+                                                                      serializeParam(
                                                                     container1UsersRecord,
-                                                              },
-                                                            );
-                                                          }
+                                                                    ParamType
+                                                                        .Document,
+                                                                  ),
+                                                                  'otherUserRef':
+                                                                      serializeParam(
+                                                                    container1UsersRecord
+                                                                        .reference,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                                extra: <String,
+                                                                    dynamic>{
+                                                                  'chatChosen':
+                                                                      _model
+                                                                          .newGroup,
+                                                                  'otherUserDoc':
+                                                                      container1UsersRecord,
+                                                                },
+                                                              );
+                                                            }
 
-                                                          setState(() {});
+                                                            setState(() {});
+                                                          },
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceEvenly,
+                                                            children: [
+                                                              Icon(
+                                                                Icons.chat,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                                size: 16.0,
+                                                              ),
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    '4uh0cl1r' /* Message */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .tertiary,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              if (currentUserReference ==
+                                                  containerUsersRecord
+                                                      .reference)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 4.0, 0.0),
+                                                  child: Container(
+                                                    height: 30.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .tertiarySystemBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8.0),
+                                                    ),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        if (!widget
+                                                            .chosenPrayerRequestDoc!
+                                                            .markedAnswered)
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        2.0,
+                                                                        0.0,
+                                                                        2.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                if (!widget
+                                                                    .chosenPrayerRequestDoc!
+                                                                    .notificationSent) {
+                                                                  triggerPushNotification(
+                                                                    notificationTitle:
+                                                                        'Prayer Answered!',
+                                                                    notificationText:
+                                                                        '${valueOrDefault<String>(
+                                                                      containerUsersRecord
+                                                                          .displayName,
+                                                                      'Guest User',
+                                                                    )} just marked their prayer answered!',
+                                                                    notificationImageUrl:
+                                                                        containerUsersRecord
+                                                                            .photoUrl,
+                                                                    userRefs: widget
+                                                                        .chosenPrayerRequestDoc!
+                                                                        .prayedforByUsers
+                                                                        .toList(),
+                                                                    initialPageName:
+                                                                        'CommunityPrayerPage',
+                                                                    parameterData: {},
+                                                                  );
+                                                                }
+
+                                                                await widget
+                                                                    .chosenPrayerRequestRef!
+                                                                    .update(
+                                                                        createPrayerRequestsRecordData(
+                                                                  markedAnswered:
+                                                                      true,
+                                                                  notificationSent:
+                                                                      true,
+                                                                ));
+                                                              },
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .check,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                      size:
+                                                                          14.0,
+                                                                    ),
+                                                                  ),
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          'al6v3w0u' /* Mark Answered */,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              fontSize: 14.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        if (widget
+                                                                .chosenPrayerRequestDoc
+                                                                ?.markedAnswered ??
+                                                            true)
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        2.0,
+                                                                        0.0,
+                                                                        2.0,
+                                                                        0.0),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                await widget
+                                                                    .chosenPrayerRequestRef!
+                                                                    .update(
+                                                                        createPrayerRequestsRecordData(
+                                                                  markedAnswered:
+                                                                      false,
+                                                                ));
+                                                              },
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            4.0,
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .check,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                      size:
+                                                                          14.0,
+                                                                    ),
+                                                                  ),
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        FFLocalizations.of(context)
+                                                                            .getText(
+                                                                          '6pw7z0j9' /* Unmark Answered */,
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).tertiary,
+                                                                              fontSize: 14.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (!valueOrDefault<bool>(
+                                                      currentUserDocument
+                                                          ?.admin,
+                                                      false) &&
+                                                  (currentUserReference !=
+                                                      containerUsersRecord
+                                                          .reference))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 4.0, 0.0),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) =>
+                                                        Container(
+                                                      width: 75.0,
+                                                      height: 30.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .tertiarySystemBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: Builder(
+                                                        builder: (context) =>
+                                                            InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await Share.share(
+                                                              'Click here to view a prayer request from ${containerUsersRecord.displayName}: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
+                                                              sharePositionOrigin:
+                                                                  getWidgetBoundingBox(
+                                                                      context),
+                                                            );
+                                                          },
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceEvenly,
+                                                            children: [
+                                                              Icon(
+                                                                Icons.ios_share,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                                size: 16.0,
+                                                              ),
+                                                              Align(
+                                                                alignment:
+                                                                    AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'own91fl6' /* Share */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .tertiary,
+                                                                        fontSize:
+                                                                            14.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (valueOrDefault<bool>(
+                                                  currentUserDocument?.admin,
+                                                  false))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 4.0, 0.0),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) =>
+                                                        Container(
+                                                      width: 65.0,
+                                                      height: 30.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .tertiarySystemBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await widget
+                                                              .chosenPrayerRequestRef!
+                                                              .update(
+                                                                  createPrayerRequestsRecordData(
+                                                            pinned: true,
+                                                            pinnedTime:
+                                                                getCurrentTimestamp,
+                                                          ));
                                                         },
                                                         child: Row(
                                                           mainAxisSize:
@@ -1476,11 +1904,12 @@ class _CommunityPrayerRequestWidgetState
                                                                   .spaceEvenly,
                                                           children: [
                                                             Icon(
-                                                              Icons.chat,
+                                                              Icons
+                                                                  .push_pin_rounded,
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .tertiary,
-                                                              size: 16.0,
+                                                              size: 18.0,
                                                             ),
                                                             Align(
                                                               alignment:
@@ -1490,7 +1919,7 @@ class _CommunityPrayerRequestWidgetState
                                                                 FFLocalizations.of(
                                                                         context)
                                                                     .getText(
-                                                                  '4uh0cl1r' /* Message */,
+                                                                  'nvwdvbuo' /* Pin */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
@@ -1509,506 +1938,130 @@ class _CommunityPrayerRequestWidgetState
                                                           ],
                                                         ),
                                                       ),
-                                                    );
-                                                  },
-                                                ),
-                                              ),
-                                            if (currentUserReference ==
-                                                containerUsersRecord.reference)
-                                              Container(
-                                                height: 30.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiarySystemBackground,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
-                                                ),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    if (!widget
-                                                        .chosenPrayerRequestDoc!
-                                                        .markedAnswered)
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    2.0,
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            if (!widget
-                                                                .chosenPrayerRequestDoc!
-                                                                .notificationSent) {
-                                                              triggerPushNotification(
-                                                                notificationTitle:
-                                                                    'Prayer Answered!',
-                                                                notificationText:
-                                                                    '${valueOrDefault<String>(
-                                                                  containerUsersRecord
-                                                                      .displayName,
-                                                                  'Guest User',
-                                                                )} just marked their prayer answered!',
-                                                                notificationImageUrl:
-                                                                    containerUsersRecord
-                                                                        .photoUrl,
-                                                                userRefs: widget
-                                                                    .chosenPrayerRequestDoc!
-                                                                    .prayedforByUsers
-                                                                    .toList(),
-                                                                initialPageName:
-                                                                    'CommunityPrayerPage',
-                                                                parameterData: {},
-                                                              );
-                                                            }
-
-                                                            await widget
-                                                                .chosenPrayerRequestRef!
-                                                                .update(
-                                                                    createPrayerRequestsRecordData(
-                                                              markedAnswered:
-                                                                  true,
-                                                              notificationSent:
-                                                                  true,
-                                                            ));
-                                                          },
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceEvenly,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0),
-                                                                child: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .check,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary,
-                                                                  size: 14.0,
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'al6v3w0u' /* Mark Answered */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).tertiary,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    if (widget
-                                                            .chosenPrayerRequestDoc
-                                                            ?.markedAnswered ??
-                                                        true)
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    2.0,
-                                                                    0.0,
-                                                                    2.0,
-                                                                    0.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            await widget
-                                                                .chosenPrayerRequestRef!
-                                                                .update(
-                                                                    createPrayerRequestsRecordData(
-                                                              markedAnswered:
-                                                                  false,
-                                                            ));
-                                                          },
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .spaceEvenly,
-                                                            children: [
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0),
-                                                                child: FaIcon(
-                                                                  FontAwesomeIcons
-                                                                      .check,
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary,
-                                                                  size: 14.0,
-                                                                ),
-                                                              ),
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      '6pw7z0j9' /* Unmark Answered */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).tertiary,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                  ],
-                                                ),
-                                              ),
-                                            if (!valueOrDefault<bool>(
-                                                    currentUserDocument?.admin,
-                                                    false) &&
-                                                (currentUserReference !=
-                                                    containerUsersRecord
-                                                        .reference))
-                                              AuthUserStreamWidget(
-                                                builder: (context) => Container(
-                                                  width: 75.0,
-                                                  height: 30.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .tertiarySystemBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
+                                                    ),
                                                   ),
-                                                  child: Builder(
+                                                ),
+                                              if ((currentUserReference ==
+                                                      containerUsersRecord
+                                                          .reference) ||
+                                                  valueOrDefault<bool>(
+                                                      currentUserDocument
+                                                          ?.admin,
+                                                      false))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 4.0, 0.0),
+                                                  child: AuthUserStreamWidget(
                                                     builder: (context) =>
-                                                        InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        await Share.share(
-                                                          'Click here to view a prayer request from ${containerUsersRecord.displayName}: ${'lawndalestudents://lawndalestudents.com${GoRouter.of(context).location}'}',
-                                                          sharePositionOrigin:
-                                                              getWidgetBoundingBox(
-                                                                  context),
-                                                        );
-                                                      },
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        children: [
-                                                          Icon(
-                                                            Icons.ios_share,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .tertiary,
-                                                            size: 16.0,
-                                                          ),
-                                                          Align(
-                                                            alignment:
-                                                                AlignmentDirectional(
-                                                                    0.0, 0.0),
-                                                            child: Text(
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .getText(
-                                                                'own91fl6' /* Share */,
-                                                              ),
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    fontFamily:
-                                                                        'Inter',
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .tertiary,
-                                                                    fontSize:
-                                                                        14.0,
+                                                        Container(
+                                                      width: 75.0,
+                                                      height: 30.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .tertiarySystemBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await showModalBottomSheet(
+                                                            isScrollControlled:
+                                                                true,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            barrierColor:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .opagueSeparator,
+                                                            context: context,
+                                                            builder: (context) {
+                                                              return WebViewAware(
+                                                                  child:
+                                                                      Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    Container(
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      0.75,
+                                                                  child:
+                                                                      EditPrayerWidget(
+                                                                    usersPrayer:
+                                                                        widget
+                                                                            .chosenPrayerRequestRef,
+                                                                    usersPrayerDoc:
+                                                                        widget
+                                                                            .chosenPrayerRequestDoc,
                                                                   ),
+                                                                ),
+                                                              ));
+                                                            },
+                                                          ).then((value) =>
+                                                              safeSetState(
+                                                                  () {}));
+                                                        },
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          children: [
+                                                            FaIcon(
+                                                              FontAwesomeIcons
+                                                                  .edit,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary,
+                                                              size: 16.0,
                                                             ),
-                                                          ),
-                                                        ],
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  't6sq841g' /* Edit */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                            if (valueOrDefault<bool>(
-                                                currentUserDocument?.admin,
-                                                false))
-                                              AuthUserStreamWidget(
-                                                builder: (context) => Container(
-                                                  width: 65.0,
-                                                  height: 30.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .tertiarySystemBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await widget
-                                                          .chosenPrayerRequestRef!
-                                                          .update(
-                                                              createPrayerRequestsRecordData(
-                                                        pinned: true,
-                                                        pinnedTime:
-                                                            getCurrentTimestamp,
-                                                      ));
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Icon(
-                                                          Icons
-                                                              .push_pin_rounded,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .tertiary,
-                                                          size: 18.0,
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              'nvwdvbuo' /* Pin */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            if ((currentUserReference ==
-                                                    containerUsersRecord
-                                                        .reference) ||
-                                                valueOrDefault<bool>(
-                                                    currentUserDocument?.admin,
-                                                    false))
-                                              AuthUserStreamWidget(
-                                                builder: (context) => Container(
-                                                  width: 75.0,
-                                                  height: 30.0,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .tertiarySystemBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                  ),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        barrierColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .opagueSeparator,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.75,
-                                                              child:
-                                                                  EditPrayerWidget(
-                                                                usersPrayer: widget
-                                                                    .chosenPrayerRequestRef,
-                                                                usersPrayerDoc:
-                                                                    widget
-                                                                        .chosenPrayerRequestDoc,
-                                                              ),
-                                                            ),
-                                                          ));
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        FaIcon(
-                                                          FontAwesomeIcons.edit,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .tertiary,
-                                                          size: 16.0,
-                                                        ),
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  0.0, 0.0),
-                                                          child: Text(
-                                                            FFLocalizations.of(
-                                                                    context)
-                                                                .getText(
-                                                              't6sq841g' /* Edit */,
-                                                            ),
-                                                            style: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary,
-                                                                  fontSize:
-                                                                      14.0,
-                                                                ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     ),
