@@ -6734,98 +6734,99 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         crossAxisAlignment:
                                                                             CrossAxisAlignment.center,
                                                                         children: [
-                                                                          Flexible(
+                                                                          Container(
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 0.49,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Colors.transparent,
+                                                                            ),
                                                                             child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
                                                                                 Container(
-                                                                              decoration: BoxDecoration(
-                                                                                color: Colors.transparent,
-                                                                              ),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 25.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: AutoSizeText(
-                                                                                      expandableDailyPracticeVideosRecord!.practiceName,
-                                                                                      maxLines: 1,
-                                                                                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            fontFamily: 'Inter',
-                                                                                            color: FlutterFlowTheme.of(context).label,
-                                                                                          ),
-                                                                                    ),
+                                                                                  width: double.infinity,
+                                                                                  height: 25.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: AutoSizeText(
+                                                                                    expandableDailyPracticeVideosRecord!.practiceName,
+                                                                                    maxLines: 1,
+                                                                                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                          fontFamily: 'Inter',
+                                                                                          color: FlutterFlowTheme.of(context).label,
+                                                                                        ),
                                                                                   ),
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 18.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.headphonesAlt,
-                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                          size: 14.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                          child: AutoSizeText(
-                                                                                            valueOrDefault<String>(
-                                                                                              expandableDailyPracticeVideosRecord?.practiceDescription,
-                                                                                              'Scripture Video',
-                                                                                            ).maybeHandleOverflow(
-                                                                                              maxChars: 25,
-                                                                                              replacement: '…',
-                                                                                            ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  fontSize: 12.0,
-                                                                                                ),
+                                                                                ),
+                                                                                Container(
+                                                                                  width: double.infinity,
+                                                                                  height: 18.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.headphonesAlt,
+                                                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                                                        size: 14.0,
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                        child: AutoSizeText(
+                                                                                          valueOrDefault<String>(
+                                                                                            expandableDailyPracticeVideosRecord?.practiceDescription,
+                                                                                            'Scripture Video',
+                                                                                          ).maybeHandleOverflow(
+                                                                                            maxChars: 25,
+                                                                                            replacement: '…',
                                                                                           ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                fontSize: 12.0,
+                                                                                              ),
                                                                                         ),
-                                                                                      ],
-                                                                                    ),
+                                                                                      ),
+                                                                                    ],
                                                                                   ),
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 18.0,
-                                                                                    decoration: BoxDecoration(
-                                                                                      color: Colors.transparent,
-                                                                                    ),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.clock,
-                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                          size: 14.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                          child: AutoSizeText(
-                                                                                            valueOrDefault<String>(
-                                                                                              expandableDailyPracticeVideosRecord?.practiceLength,
-                                                                                              '5 minutes',
-                                                                                            ).maybeHandleOverflow(
-                                                                                              maxChars: 25,
-                                                                                              replacement: '…',
-                                                                                            ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  fontSize: 12.0,
-                                                                                                ),
+                                                                                ),
+                                                                                Container(
+                                                                                  width: double.infinity,
+                                                                                  height: 18.0,
+                                                                                  decoration: BoxDecoration(
+                                                                                    color: Colors.transparent,
+                                                                                  ),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.clock,
+                                                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                                                        size: 14.0,
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                        child: AutoSizeText(
+                                                                                          valueOrDefault<String>(
+                                                                                            expandableDailyPracticeVideosRecord?.practiceLength,
+                                                                                            '5 minutes',
+                                                                                          ).maybeHandleOverflow(
+                                                                                            maxChars: 25,
+                                                                                            replacement: '…',
                                                                                           ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                fontSize: 12.0,
+                                                                                              ),
                                                                                         ),
-                                                                                      ],
-                                                                                    ),
+                                                                                      ),
+                                                                                    ],
                                                                                   ),
-                                                                                ],
-                                                                              ),
+                                                                                ),
+                                                                              ],
                                                                             ),
                                                                           ),
                                                                           Padding(
@@ -8286,96 +8287,97 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         crossAxisAlignment:
                                                                             CrossAxisAlignment.center,
                                                                         children: [
-                                                                          Flexible(
+                                                                          Container(
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 0.49,
+                                                                            decoration:
+                                                                                BoxDecoration(
+                                                                              color: Colors.transparent,
+                                                                            ),
                                                                             child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                                                              children: [
                                                                                 Container(
-                                                                              decoration: BoxDecoration(
-                                                                                color: Colors.transparent,
-                                                                              ),
-                                                                              child: Column(
-                                                                                mainAxisSize: MainAxisSize.max,
-                                                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                children: [
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 25.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: AutoSizeText(
-                                                                                      expandableDailyPracticeVideosRecord!.practiceName,
-                                                                                      maxLines: 1,
-                                                                                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                                                                                            fontFamily: 'Inter',
-                                                                                            color: FlutterFlowTheme.of(context).label,
-                                                                                          ),
-                                                                                    ),
+                                                                                  width: double.infinity,
+                                                                                  height: 25.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: AutoSizeText(
+                                                                                    expandableDailyPracticeVideosRecord!.practiceName,
+                                                                                    maxLines: 1,
+                                                                                    style: FlutterFlowTheme.of(context).titleSmall.override(
+                                                                                          fontFamily: 'Inter',
+                                                                                          color: FlutterFlowTheme.of(context).label,
+                                                                                        ),
                                                                                   ),
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 18.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.headphonesAlt,
-                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                          size: 14.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                          child: AutoSizeText(
-                                                                                            valueOrDefault<String>(
-                                                                                              expandableDailyPracticeVideosRecord?.practiceDescription,
-                                                                                              'Guided Prayer',
-                                                                                            ).maybeHandleOverflow(
-                                                                                              maxChars: 25,
-                                                                                              replacement: '…',
-                                                                                            ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  fontSize: 12.0,
-                                                                                                ),
+                                                                                ),
+                                                                                Container(
+                                                                                  width: double.infinity,
+                                                                                  height: 18.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.headphonesAlt,
+                                                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                                                        size: 14.0,
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                        child: AutoSizeText(
+                                                                                          valueOrDefault<String>(
+                                                                                            expandableDailyPracticeVideosRecord?.practiceDescription,
+                                                                                            'Guided Prayer',
+                                                                                          ).maybeHandleOverflow(
+                                                                                            maxChars: 25,
+                                                                                            replacement: '…',
                                                                                           ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                fontSize: 12.0,
+                                                                                              ),
                                                                                         ),
-                                                                                      ],
-                                                                                    ),
+                                                                                      ),
+                                                                                    ],
                                                                                   ),
-                                                                                  Container(
-                                                                                    width: double.infinity,
-                                                                                    height: 18.0,
-                                                                                    decoration: BoxDecoration(),
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.clock,
-                                                                                          color: FlutterFlowTheme.of(context).secondary,
-                                                                                          size: 14.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                                                                          child: AutoSizeText(
-                                                                                            valueOrDefault<String>(
-                                                                                              expandableDailyPracticeVideosRecord?.practiceLength,
-                                                                                              '5 minutes',
-                                                                                            ).maybeHandleOverflow(
-                                                                                              maxChars: 25,
-                                                                                              replacement: '…',
-                                                                                            ),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  fontSize: 12.0,
-                                                                                                ),
+                                                                                ),
+                                                                                Container(
+                                                                                  width: double.infinity,
+                                                                                  height: 18.0,
+                                                                                  decoration: BoxDecoration(),
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.clock,
+                                                                                        color: FlutterFlowTheme.of(context).secondary,
+                                                                                        size: 14.0,
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                                                                        child: AutoSizeText(
+                                                                                          valueOrDefault<String>(
+                                                                                            expandableDailyPracticeVideosRecord?.practiceLength,
+                                                                                            '5 minutes',
+                                                                                          ).maybeHandleOverflow(
+                                                                                            maxChars: 25,
+                                                                                            replacement: '…',
                                                                                           ),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                                fontSize: 12.0,
+                                                                                              ),
                                                                                         ),
-                                                                                      ],
-                                                                                    ),
+                                                                                      ),
+                                                                                    ],
                                                                                   ),
-                                                                                ],
-                                                                              ),
+                                                                                ),
+                                                                              ],
                                                                             ),
                                                                           ),
                                                                           Padding(
