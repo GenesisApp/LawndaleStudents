@@ -378,19 +378,21 @@ class _CreatePrayerWidgetState extends State<CreatePrayerWidget> {
                                       public: _model.switchListTileValue,
                                       usersName: currentUserDisplayName,
                                     ));
-                                triggerPushNotification(
-                                  notificationTitle: 'New Prayer',
-                                  notificationText: '${valueOrDefault<String>(
-                                    currentUserDisplayName,
-                                    'Guest User',
-                                  )} has created a new prayer request!',
-                                  notificationImageUrl: currentUserPhoto,
-                                  userRefs: containerUsersRecordList
-                                      .map((e) => e.reference)
-                                      .toList(),
-                                  initialPageName: 'CommunityPrayerPage',
-                                  parameterData: {},
-                                );
+                                if (_model.switchListTileValue!) {
+                                  triggerPushNotification(
+                                    notificationTitle: 'New Prayer',
+                                    notificationText: '${valueOrDefault<String>(
+                                      currentUserDisplayName,
+                                      'Guest User',
+                                    )} has created a new prayer request!',
+                                    notificationImageUrl: currentUserPhoto,
+                                    userRefs: containerUsersRecordList
+                                        .map((e) => e.reference)
+                                        .toList(),
+                                    initialPageName: 'CommunityPrayerPage',
+                                    parameterData: {},
+                                  );
+                                }
                               }
                               Navigator.pop(context);
                             },
