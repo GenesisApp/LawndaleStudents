@@ -29,11 +29,24 @@ void main() async {
   final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
-  runApp(ChangeNotifierProvider(
-    create: (context) => appState,
-    child: MyApp(),
-  ));
+  runApp(
+    Builder(
+      builder: (context) {
+        // Lock the textScaleFactor between 1.0 and 1.3
+        return ChangeNotifierProvider(
+          create: (context) => appState,
+          child: MediaQuery(
+            data: MediaQuery.of(context).copyWith(
+              textScaleFactor: 1.0.clamp(1.0, 1.3),
+            ),
+            child: MyApp(),
+          ),
+        );
+      },
+    ),
+  );
 }
+
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
