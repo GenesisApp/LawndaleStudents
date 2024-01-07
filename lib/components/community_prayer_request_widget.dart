@@ -1848,41 +1848,14 @@ class _CommunityPrayerRequestWidgetState
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      await showModalBottomSheet(
-                                                        isScrollControlled:
-                                                            true,
-                                                        backgroundColor:
-                                                            Colors.transparent,
-                                                        barrierColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .opagueSeparator,
-                                                        context: context,
-                                                        builder: (context) {
-                                                          return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.75,
-                                                              child:
-                                                                  EditPrayerWidget(
-                                                                usersPrayer: widget
-                                                                    .chosenPrayerRequestRef,
-                                                                usersPrayerDoc:
-                                                                    widget
-                                                                        .chosenPrayerRequestDoc,
-                                                              ),
-                                                            ),
-                                                          ));
-                                                        },
-                                                      ).then((value) =>
-                                                          safeSetState(() {}));
+                                                      await widget
+                                                          .chosenPrayerRequestRef!
+                                                          .update(
+                                                              createPrayerRequestsRecordData(
+                                                        pinned: true,
+                                                        pinnedTime:
+                                                            getCurrentTimestamp,
+                                                      ));
                                                     },
                                                     child: Row(
                                                       mainAxisSize:

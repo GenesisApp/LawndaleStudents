@@ -174,7 +174,10 @@ class _WorshipPracticeBSWidgetState extends State<WorshipPracticeBSWidget>
                 Align(
                   alignment: AlignmentDirectional(0.0, 0.0),
                   child: FlutterFlowYoutubePlayer(
-                    url: widget.dailyPractice!.dailyPracticeVideoURL,
+                    url: valueOrDefault<String>(
+                      widget.dailyPractice?.dailyPracticeVideoURL,
+                      'https://youtu.be/0RBELG1LPag?si=Kx66-kAvM9dY1--F',
+                    ),
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     autoPlay: false,
                     looping: false,
