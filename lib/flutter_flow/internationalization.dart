@@ -4303,7 +4303,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     'i7g0yyyk': {
       'en':
-          'This person is now blocked. You will not see any of their content, and they cannot contact you in any way.',
+          'This person is blocked. You will not see any of their content and cannot have contact with them.',
       'es':
           'Esta persona ahora está bloqueada. No verá nada de su contenido y no podrán comunicarse con usted de ninguna manera.',
     },
@@ -7424,6 +7424,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'lxf4f1qt': {
       'en': 'Newest first',
       'es': 'El más reciente primero',
+    },
+  },
+  // ageMissing
+  {
+    '3oigi1hv': {
+      'en':
+          'A member of this chat does not have a birthdate set. Birthdates are required due to our safety features for minors.',
+      'es':
+          'Esta persona ahora está bloqueada. No verá nada de su contenido y no podrán comunicarse con usted de ninguna manera.',
+    },
+    'doqdz68y': {
+      'en': 'Done',
+      'es': 'Hecho',
     },
   },
   // Miscellaneous

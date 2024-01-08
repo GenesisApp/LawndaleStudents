@@ -6,18 +6,18 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-import 'person_blocked_model.dart';
-export 'person_blocked_model.dart';
+import 'age_missing_model.dart';
+export 'age_missing_model.dart';
 
-class PersonBlockedWidget extends StatefulWidget {
-  const PersonBlockedWidget({Key? key}) : super(key: key);
+class AgeMissingWidget extends StatefulWidget {
+  const AgeMissingWidget({Key? key}) : super(key: key);
 
   @override
-  _PersonBlockedWidgetState createState() => _PersonBlockedWidgetState();
+  _AgeMissingWidgetState createState() => _AgeMissingWidgetState();
 }
 
-class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
-  late PersonBlockedModel _model;
+class _AgeMissingWidgetState extends State<AgeMissingWidget> {
+  late AgeMissingModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -28,7 +28,7 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PersonBlockedModel());
+    _model = createModel(context, () => AgeMissingModel());
   }
 
   @override
@@ -118,7 +118,7 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
                               20.0, 20.0, 20.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'i7g0yyyk' /* This person is blocked. You wi... */,
+                              '3oigi1hv' /* A member of this chat does not... */,
                             ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)
@@ -151,16 +151,7 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              context.goNamed(
-                                'AllChats',
-                                extra: <String, dynamic>{
-                                  kTransitionInfoKey: TransitionInfo(
-                                    hasTransition: true,
-                                    transitionType: PageTransitionType.fade,
-                                    duration: Duration(milliseconds: 0),
-                                  ),
-                                },
-                              );
+                              Navigator.pop(context);
                             },
                             child: Container(
                               width: 40.0,
@@ -174,7 +165,7 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
                                 alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
-                                    '2sntt6ni' /* Done */,
+                                    'doqdz68y' /* Done */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

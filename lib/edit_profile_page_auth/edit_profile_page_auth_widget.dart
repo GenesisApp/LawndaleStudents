@@ -1365,15 +1365,18 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                                         ''),
                                                 'https://images.unsplash.com/photo-1502810365585-56ffa361fdde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
                                               ),
-                                              displayName: _model
-                                                              .textController3
-                                                              .text !=
-                                                          null &&
-                                                      _model.textController3
-                                                              .text !=
-                                                          ''
-                                                  ? _model.textController3.text
-                                                  : currentUserDisplayName,
+                                              displayName:
+                                                  valueOrDefault<String>(
+                                                _model.textController3.text !=
+                                                            null &&
+                                                        _model.textController3
+                                                                .text !=
+                                                            ''
+                                                    ? _model
+                                                        .textController3.text
+                                                    : currentUserDisplayName,
+                                                'Guest User',
+                                              ),
                                               grade: _model.dropDownValue1,
                                               gender: _model.dropDownValue2,
                                               birthday: _model.datePicked,

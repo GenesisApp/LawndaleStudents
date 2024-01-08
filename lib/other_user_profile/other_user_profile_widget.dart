@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/add_tag_widget.dart';
+import '/components/age_missing_widget.dart';
 import '/components/badge_sheet_widget.dart';
 import '/components/block_confirmation_widget.dart';
 import '/components/friend_removed_widget.dart';
@@ -627,7 +628,11 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 12.0, 0.0, 0.0),
                                             child: Text(
-                                              widget.selectedUser!.displayName,
+                                              valueOrDefault<String>(
+                                                widget
+                                                    .selectedUser?.displayName,
+                                                'Guest User',
+                                              ),
                                               style: FlutterFlowTheme.of(
                                                       context)
                                                   .headlineSmall
@@ -2923,6 +2928,29 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    if (!((currentUserDocument?.birthday !=
+                                            null) &&
+                                        (otherUserProfileUsersRecord
+                                                ?.birthday !=
+                                            null))) {
+                                      await showModalBottomSheet(
+                                        isScrollControlled: true,
+                                        backgroundColor: Colors.transparent,
+                                        barrierColor:
+                                            FlutterFlowTheme.of(context)
+                                                .opagueSeparator,
+                                        enableDrag: false,
+                                        context: context,
+                                        builder: (context) {
+                                          return WebViewAware(
+                                              child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: AgeMissingWidget(),
+                                          ));
+                                        },
+                                      ).then((value) => safeSetState(() {}));
+                                    }
                                     if (!(!(currentUserDocument?.blockedBy
                                                     ?.toList() ??
                                                 [])
