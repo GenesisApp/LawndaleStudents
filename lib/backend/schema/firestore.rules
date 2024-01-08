@@ -251,7 +251,7 @@ service cloud.firestore {
       allow create: if true;
       allow read: if true;
       allow write: if true;
-      allow delete: if true;
+      allow delete: if false;
     }
 
     match /ff_user_push_notifications/{id} {

@@ -1169,17 +1169,15 @@ class _CommunityPrayerRequestWidgetState
                                                   ),
                                                 ),
                                               ),
-                                              if ((currentUserReference !=
-                                                      containerUsersRecord
-                                                          .reference) &&
-                                                  !valueOrDefault<bool>(
-                                                      currentUserDocument
-                                                          ?.admin,
-                                                      false))
-                                                AuthUserStreamWidget(
-                                                  builder: (context) =>
-                                                      FutureBuilder<
-                                                          UsersRecord>(
+                                              if (currentUserReference !=
+                                                  containerUsersRecord
+                                                      .reference)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 6.0, 0.0),
+                                                  child: FutureBuilder<
+                                                      UsersRecord>(
                                                     future: UsersRecord
                                                         .getDocumentOnce(widget
                                                             .chosenPrayerRequestDoc!
