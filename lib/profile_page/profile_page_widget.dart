@@ -209,14 +209,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         FadeEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 500.ms,
+          duration: 400.ms,
           begin: 0.0,
           end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 500.ms,
+          duration: 400.ms,
           begin: Offset(0.0, 50.0),
           end: Offset(0.0, 0.0),
         ),
@@ -229,14 +229,14 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         FadeEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 600.ms,
+          duration: 500.ms,
           begin: 0.0,
           end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 600.ms,
+          duration: 500.ms,
           begin: Offset(0.0, 50.0),
           end: Offset(0.0, 0.0),
         ),
@@ -249,6 +249,26 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         FadeEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation6': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
           duration: 700.ms,
           begin: 0.0,
           end: 1.0,
@@ -262,7 +282,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation6': AnimationInfo(
+    'containerOnPageLoadAnimation7': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         VisibilityEffect(duration: 1.ms),
@@ -282,7 +302,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation7': AnimationInfo(
+    'containerOnPageLoadAnimation8': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         VisibilityEffect(duration: 1.ms),
@@ -2801,7 +2821,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    context.pushNamed('Catechism');
+                                    context.pushNamed('MessageBoard');
                                   },
                                   child: Container(
                                     width:
@@ -2832,17 +2852,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             child: Align(
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        1.0, 0.0, 0.0, 0.0),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons.question,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .worshipRing,
-                                                  size: 18.0,
-                                                ),
+                                              child: Icon(
+                                                Icons
+                                                    .notifications_active_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .worshipRing,
+                                                size: 18.0,
                                               ),
                                             ),
                                           ),
@@ -2853,7 +2869,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             child: Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'tpx5jpyx' /* Core Questions */,
+                                                'tpx5jpyx' /* My Message Board */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -2890,6 +2906,112 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                 ),
                               ).animateOnPageLoad(animationsMap[
                                   'containerOnPageLoadAnimation4']!),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 8.0, 0.0, 8.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 50.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('Catechism');
+                                  },
+                                  child: Container(
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 1.0,
+                                    height: 50.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondarySystemBackground,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: 30.0,
+                                            height: 30.0,
+                                            decoration: BoxDecoration(
+                                              shape: BoxShape.circle,
+                                              border: Border.all(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .prayerRing,
+                                              ),
+                                            ),
+                                            child: Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        1.0, 0.0, 0.0, 0.0),
+                                                child: FaIcon(
+                                                  FontAwesomeIcons.question,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .prayerRing,
+                                                  size: 18.0,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    12.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '8vdw2nb4' /* Core Questions */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .label,
+                                                        fontSize: 14.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Container(
+                                              width: 100.0,
+                                              height: 20.0,
+                                              decoration: BoxDecoration(),
+                                            ),
+                                          ),
+                                          FaIcon(
+                                            FontAwesomeIcons.chevronRight,
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondary,
+                                            size: 12.0,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation5']!),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -2995,7 +3117,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                               ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation5']!),
+                                  'containerOnPageLoadAnimation6']!),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -3121,7 +3243,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   ),
                                 ),
                               ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation6']!),
+                                  'containerOnPageLoadAnimation7']!),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -3281,7 +3403,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                   },
                                 ),
                               ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation7']!),
+                                  'containerOnPageLoadAnimation8']!),
                             ),
                           ],
                         ),

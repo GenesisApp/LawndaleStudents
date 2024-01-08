@@ -79,3 +79,4 @@ export '/home_page/home_page_widget.dart' show HomePageWidget;
 export '/journal_reply_page/journal_reply_page_widget.dart'
     show JournalReplyPageWidget;
 export '/series_catalog/series_catalog_widget.dart' show SeriesCatalogWidget;
+export '/message_board/message_board_widget.dart' show MessageBoardWidget;

@@ -584,6 +584,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Preguntas centrales',
     },
     'tpx5jpyx': {
+      'en': 'My Message Board',
+      'es': 'Preguntas centrales',
+    },
+    '8vdw2nb4': {
       'en': 'Core Questions',
       'es': 'Preguntas centrales',
     },
@@ -2582,6 +2586,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Todos los mensajes',
     },
     'hq2jgqch': {
+      'en': 'Home',
+      'es': 'Hogar',
+    },
+  },
+  // MessageBoard
+  {
+    'ghrjgafu': {
+      'en': 'Hello,',
+      'es': 'Hola,',
+    },
+    'l8gfcnfh': {
+      'en': 'Here\'s the latest notifications from your admins!',
+      'es': '¡Bienvenido a las Preguntas principales presentadas por OneHope!',
+    },
+    'cguo8sg7': {
       'en': 'Home',
       'es': 'Hogar',
     },

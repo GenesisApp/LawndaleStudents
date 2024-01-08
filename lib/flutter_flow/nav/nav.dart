@@ -554,6 +554,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 videoChosenDoc:
                     params.getParam('videoChosenDoc', ParamType.Document),
               ),
+            ),
+            FFRoute(
+              name: 'MessageBoard',
+              path: 'messageBoard',
+              requireAuth: true,
+              builder: (context, params) => MessageBoardWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
