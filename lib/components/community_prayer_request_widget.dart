@@ -1053,17 +1053,19 @@ class _CommunityPrayerRequestWidgetState
                                         width: double.infinity,
                                         height: 40.0,
                                         decoration: BoxDecoration(),
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
                                         child: SingleChildScrollView(
                                           scrollDirection: Axis.horizontal,
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
+                                                MainAxisAlignment.center,
                                             children: [
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        4.0, 0.0, 4.0, 0.0),
+                                                        4.0, 0.0, 6.0, 0.0),
                                                 child: Container(
                                                   width: 75.0,
                                                   height: 30.0,
@@ -1542,7 +1544,7 @@ class _CommunityPrayerRequestWidgetState
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 4.0, 0.0),
+                                                          0.0, 0.0, 6.0, 0.0),
                                                   child: Container(
                                                     height: 30.0,
                                                     decoration: BoxDecoration(
@@ -1778,7 +1780,7 @@ class _CommunityPrayerRequestWidgetState
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 4.0, 0.0),
+                                                          0.0, 0.0, 6.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         Container(
@@ -1863,7 +1865,7 @@ class _CommunityPrayerRequestWidgetState
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 4.0, 0.0),
+                                                          0.0, 0.0, 6.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         Container(
@@ -1951,7 +1953,7 @@ class _CommunityPrayerRequestWidgetState
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 4.0, 0.0),
+                                                          0.0, 0.0, 6.0, 0.0),
                                                   child: AuthUserStreamWidget(
                                                     builder: (context) =>
                                                         Container(

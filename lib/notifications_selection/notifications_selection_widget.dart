@@ -485,6 +485,10 @@ class _NotificationsSelectionWidgetState
                                           userGroupChosen:
                                               gridViewProfileTagsRecord
                                                   .usersWithTag,
+                                          tagChosen: gridViewProfileTagsRecord
+                                              .reference,
+                                          tagChosenDoc:
+                                              gridViewProfileTagsRecord,
                                         ),
                                       ),
                                     ));
@@ -644,6 +648,9 @@ class _NotificationsSelectionWidgetState
                                         child: CustomPushNotificationWidget(
                                           userGroupChosen:
                                               searchResultsItem.usersWithTag,
+                                          tagChosen:
+                                              searchResultsItem.reference,
+                                          tagChosenDoc: searchResultsItem,
                                         ),
                                       ),
                                     ));

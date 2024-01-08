@@ -1,3 +1,5 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/notification_sent_widget.dart';
@@ -19,9 +21,13 @@ class CustomPushNotificationWidget extends StatefulWidget {
   const CustomPushNotificationWidget({
     Key? key,
     required this.userGroupChosen,
+    required this.tagChosen,
+    required this.tagChosenDoc,
   }) : super(key: key);
 
   final List<DocumentReference>? userGroupChosen;
+  final DocumentReference? tagChosen;
+  final ProfileTagsRecord? tagChosenDoc;
 
   @override
   _CustomPushNotificationWidgetState createState() =>
@@ -450,6 +456,16 @@ class _CustomPushNotificationWidgetState
                                   return;
                                 }
                                 HapticFeedback.lightImpact();
+
+                                await NotificationsRecord.collection
+                                    .doc()
+                                    .set(createNotificationsRecordData(
+                                      tagRef: widget.tagChosen,
+                                      notificationText:
+                                          _model.textController2.text,
+                                      createdTime: getCurrentTimestamp,
+                                      tagName: widget.tagChosenDoc?.tagName,
+                                    ));
                                 triggerPushNotification(
                                   notificationTitle:
                                       _model.textController1.text,

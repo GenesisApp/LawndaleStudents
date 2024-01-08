@@ -275,6 +275,7 @@ final parametersBuilderMap =
               data, 'videoChosenDoc', ResourceVideosRecord.fromSnapshot),
         },
       ),
+  'MessageBoard': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

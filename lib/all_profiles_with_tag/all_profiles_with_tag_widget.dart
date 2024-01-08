@@ -456,11 +456,15 @@ class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
                             (searchResultsIndex) {
                           final searchResultsItem =
                               searchResults[searchResultsIndex];
-                          return ProfileQuickviewWidget(
-                            key: Key(
-                                'Key6x6_${searchResultsIndex}_of_${searchResults.length}'),
-                            userInListRef: searchResultsItem.reference,
-                            userInListDoc: searchResultsItem,
+                          return Visibility(
+                            visible: searchResultsItem.tags
+                                .contains(widget.tagSelected?.reference),
+                            child: ProfileQuickviewWidget(
+                              key: Key(
+                                  'Key6x6_${searchResultsIndex}_of_${searchResults.length}'),
+                              userInListRef: searchResultsItem.reference,
+                              userInListDoc: searchResultsItem,
+                            ),
                           );
                         }),
                       ),
