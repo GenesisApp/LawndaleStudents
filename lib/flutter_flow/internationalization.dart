@@ -7073,6 +7073,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Pin',
       'es': 'Editar',
     },
+    'p2ig5ewk': {
+      'en': 'Unpin',
+      'es': 'Editar',
+    },
     't6sq841g': {
       'en': 'Edit',
       'es': 'Editar',
