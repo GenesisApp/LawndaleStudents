@@ -1858,8 +1858,12 @@ class _CommunityPrayerRequestWidgetState
                                                   ),
                                                 ),
                                               if (valueOrDefault<bool>(
-                                                  currentUserDocument?.admin,
-                                                  false))
+                                                      currentUserDocument
+                                                          ?.admin,
+                                                      false) &&
+                                                  !widget
+                                                      .chosenPrayerRequestDoc!
+                                                      .pinned)
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1920,6 +1924,91 @@ class _CommunityPrayerRequestWidgetState
                                                                         context)
                                                                     .getText(
                                                                   'nvwdvbuo' /* Pin */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .tertiary,
+                                                                      fontSize:
+                                                                          14.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (valueOrDefault<bool>(
+                                                      currentUserDocument
+                                                          ?.admin,
+                                                      false) &&
+                                                  widget.chosenPrayerRequestDoc!
+                                                      .pinned)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 6.0, 0.0),
+                                                  child: AuthUserStreamWidget(
+                                                    builder: (context) =>
+                                                        Container(
+                                                      width: 75.0,
+                                                      height: 30.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .tertiarySystemBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
+                                                        onTap: () async {
+                                                          await widget
+                                                              .chosenPrayerRequestRef!
+                                                              .update(
+                                                                  createPrayerRequestsRecordData(
+                                                            pinned: false,
+                                                          ));
+                                                        },
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceEvenly,
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .push_pin_outlined,
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary,
+                                                              size: 18.0,
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'p2ig5ewk' /* Unpin */,
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
