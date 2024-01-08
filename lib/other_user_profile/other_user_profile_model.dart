@@ -2,6 +2,7 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/add_tag_widget.dart';
+import '/components/age_missing_widget.dart';
 import '/components/badge_sheet_widget.dart';
 import '/components/block_confirmation_widget.dart';
 import '/components/friend_removed_widget.dart';

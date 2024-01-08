@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/age_missing_widget.dart';
 import '/components/person_blocked_widget.dart';
 import '/components/under13_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -545,6 +546,49 @@ class _CreateNewChatWidgetState extends State<CreateNewChatWidget> {
                                                 highlightColor:
                                                     Colors.transparent,
                                                 onTap: () async {
+                                                  if (!((currentUserDocument
+                                                              ?.birthday !=
+                                                          null) &&
+                                                      (listViewUsersRecord
+                                                              .birthday !=
+                                                          null))) {
+                                                    await showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      barrierColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .opagueSeparator,
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                AgeMissingWidget(),
+                                                          ),
+                                                        ));
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  }
                                                   if (!(!(currentUserDocument
                                                                   ?.blockedBy
                                                                   ?.toList() ??
@@ -1062,6 +1106,50 @@ class _CreateNewChatWidgetState extends State<CreateNewChatWidget> {
                                                   highlightColor:
                                                       Colors.transparent,
                                                   onTap: () async {
+                                                    if (!((currentUserDocument
+                                                                ?.birthday !=
+                                                            null) &&
+                                                        (searchResultsItem
+                                                                .birthday !=
+                                                            null))) {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  AgeMissingWidget(),
+                                                            ),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    }
                                                     if (!(!(currentUserDocument
                                                                     ?.blockedBy
                                                                     ?.toList() ??

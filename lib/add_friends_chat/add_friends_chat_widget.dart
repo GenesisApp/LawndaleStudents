@@ -1,6 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/age_missing_widget.dart';
 import '/components/people_added_widget.dart';
+import '/components/person_blocked_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -816,6 +818,100 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                                                               searchResultsItem] =
                                                           newValue!);
                                                   if (newValue!) {
+                                                    if (!((currentUserDocument
+                                                                ?.birthday !=
+                                                            null) &&
+                                                        (searchResultsItem
+                                                                .birthday !=
+                                                            null))) {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  AgeMissingWidget(),
+                                                            ),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    }
+                                                    if (!(!(currentUserDocument
+                                                                    ?.blockedBy
+                                                                    ?.toList() ??
+                                                                [])
+                                                            .contains(
+                                                                searchResultsItem
+                                                                    .reference) &&
+                                                        !searchResultsItem
+                                                            .blockedBy
+                                                            .contains(
+                                                                currentUserReference))) {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        enableDrag: false,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  PersonBlockedWidget(),
+                                                            ),
+                                                          ));
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    }
+
                                                     await searchResultsItem
                                                         .reference
                                                         .update({
@@ -843,6 +939,10 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                                                           ]),
                                                         },
                                                       ),
+                                                    });
+                                                    setState(() {
+                                                      FFAppState()
+                                                          .showFullList = true;
                                                     });
                                                   } else {
                                                     await searchResultsItem
