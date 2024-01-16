@@ -147,7 +147,6 @@ class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
                             fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).label,
                             fontSize: 22.0,
-                            useGoogleFonts: false,
                           ),
                     ),
                     Padding(

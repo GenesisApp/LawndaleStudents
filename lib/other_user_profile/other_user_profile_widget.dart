@@ -641,7 +641,6 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .label,
-                                                    useGoogleFonts: false,
                                                   ),
                                             ).animateOnPageLoad(animationsMap[
                                                 'textOnPageLoadAnimation1']!),
@@ -716,84 +715,29 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                       mainAxisSize:
                                                           MainAxisSize.min,
                                                       children: [
-                                                        if (dateTimeFormat(
-                                                              'yMMMd',
-                                                              widget
-                                                                  .selectedUser
-                                                                  ?.dateofCompletion,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ) !=
-                                                            dateTimeFormat(
-                                                              'yMMMd',
-                                                              getCurrentTimestamp,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ))
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    2.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child: SvgPicture
-                                                                  .asset(
-                                                                Theme.of(context)
-                                                                            .brightness ==
-                                                                        Brightness
-                                                                            .dark
-                                                                    ? 'assets/images/feather-duotone_(darkmode).svg'
-                                                                    : 'assets/images/feather-duotone_(lightmode).svg',
-                                                                width: 20.0,
-                                                                fit: BoxFit
-                                                                    .contain,
-                                                              ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  2.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        8.0),
+                                                            child: SvgPicture
+                                                                .asset(
+                                                              Theme.of(context)
+                                                                          .brightness ==
+                                                                      Brightness
+                                                                          .dark
+                                                                  ? 'assets/images/feather-duotone_(filled_-_darkmode).svg'
+                                                                  : 'assets/images/feather-duotone_(filled_-_lightmode).svg',
+                                                              width: 20.0,
+                                                              fit: BoxFit
+                                                                  .contain,
                                                             ),
                                                           ),
-                                                        if (dateTimeFormat(
-                                                              'yMMMd',
-                                                              widget
-                                                                  .selectedUser
-                                                                  ?.dateofCompletion,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ) ==
-                                                            dateTimeFormat(
-                                                              'yMMMd',
-                                                              getCurrentTimestamp,
-                                                              locale: FFLocalizations
-                                                                      .of(context)
-                                                                  .languageCode,
-                                                            ))
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    2.0),
-                                                            child: ClipRRect(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          8.0),
-                                                              child: SvgPicture
-                                                                  .asset(
-                                                                Theme.of(context)
-                                                                            .brightness ==
-                                                                        Brightness
-                                                                            .dark
-                                                                    ? 'assets/images/feather-duotone_(filled_-_darkmode).svg'
-                                                                    : 'assets/images/feather-duotone_(filled_-_lightmode).svg',
-                                                                width: 20.0,
-                                                                fit: BoxFit
-                                                                    .contain,
-                                                              ),
-                                                            ),
-                                                          ),
+                                                        ),
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -1254,7 +1198,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                       SvgPicture.asset(
                                         Theme.of(context).brightness ==
                                                 Brightness.dark
-                                            ? 'assets/images/Flame(fefdec).svg'
+                                            ? 'assets/images/flame-fill_darkmode.svg'
                                             : 'assets/images/flame-fill_(4).svg',
                                         width: 28.0,
                                         height: 28.0,
@@ -1322,8 +1266,8 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                       SvgPicture.asset(
                                         Theme.of(context).brightness ==
                                                 Brightness.dark
-                                            ? 'assets/images/hands-clapping-fill_(3).svg'
-                                            : 'assets/images/hands-clapping-fill_(7).svg',
+                                            ? 'assets/images/hands-clapping-fill_darkmode.svg'
+                                            : 'assets/images/hands-clapping-fill_lightmode.svg',
                                         width: 28.0,
                                         height: 28.0,
                                         fit: BoxFit.cover,
@@ -1389,7 +1333,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                       SvgPicture.asset(
                                         Theme.of(context).brightness ==
                                                 Brightness.dark
-                                            ? 'assets/images/users-fill.svg'
+                                            ? 'assets/images/users-fill_darkmode.svg'
                                             : 'assets/images/users-fill_(1).svg',
                                         width: 28.0,
                                         height: 28.0,
@@ -2764,7 +2708,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                     fontFamily: 'Inter',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .lightSecondaryText,
+                                                        .label,
                                                     fontSize: 14.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -2860,7 +2804,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                     fontFamily: 'Inter',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .lightSecondaryText,
+                                                        .label,
                                                     fontSize: 14.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -3219,7 +3163,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .lightSecondaryText,
+                                                              .label,
                                                           fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,
@@ -3385,7 +3329,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                                     'Inter',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .lightSecondaryText,
+                                                                    .label,
                                                                 fontSize: 14.0,
                                                                 fontWeight:
                                                                     FontWeight
@@ -3630,7 +3574,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                                           'Inter',
                                                                       color: FlutterFlowTheme.of(
                                                                               context)
-                                                                          .lightSecondaryText,
+                                                                          .label,
                                                                       fontSize:
                                                                           14.0,
                                                                       fontWeight:
@@ -3746,7 +3690,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                                         'Inter',
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .lightSecondaryText,
+                                                                        .label,
                                                                     fontSize:
                                                                         14.0,
                                                                     fontWeight:
@@ -3899,7 +3843,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                     fontFamily: 'Inter',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .lightSecondaryText,
+                                                        .label,
                                                     fontSize: 14.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -4047,7 +3991,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                     fontFamily: 'Inter',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .lightSecondaryText,
+                                                        .label,
                                                     fontSize: 14.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -4151,7 +4095,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                     fontFamily: 'Inter',
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .lightSecondaryText,
+                                                        .label,
                                                     fontSize: 14.0,
                                                     fontWeight: FontWeight.w500,
                                                   ),
@@ -4309,7 +4253,7 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget>
                                                           fontFamily: 'Inter',
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .lightSecondaryText,
+                                                              .label,
                                                           fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.w500,

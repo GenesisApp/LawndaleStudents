@@ -181,7 +181,6 @@ class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
                                         color:
                                             FlutterFlowTheme.of(context).label,
                                         fontSize: 22.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 Container(

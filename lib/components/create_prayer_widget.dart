@@ -377,6 +377,7 @@ class _CreatePrayerWidgetState extends State<CreatePrayerWidget> {
                                       timeUploaded: getCurrentTimestamp,
                                       public: _model.switchListTileValue,
                                       usersName: currentUserDisplayName,
+                                      pinned: false,
                                     ));
                                 if (_model.switchListTileValue!) {
                                   triggerPushNotification(

@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/account_waiting_widget.dart';
 import '/components/chat_tab_icon_unselected_widget.dart';
 import '/components/prayer_practice_b_s_widget.dart';
 import '/components/prayer_ring_small_widget.dart';
@@ -799,6 +800,23 @@ class _HomePageWidgetState extends State<HomePageWidget>
           completed365: true,
           show365: true,
         ));
+      }
+      if (valueOrDefault<bool>(currentUserDocument?.accountWaiting, false)) {
+        await showModalBottomSheet(
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
+          isDismissible: false,
+          enableDrag: false,
+          context: context,
+          builder: (context) {
+            return WebViewAware(
+                child: Padding(
+              padding: MediaQuery.viewInsetsOf(context),
+              child: AccountWaitingWidget(),
+            ));
+          },
+        ).then((value) => safeSetState(() {}));
       }
       _model.timerController.onStartTimer();
       _model.instantTimer = InstantTimer.periodic(
@@ -2182,84 +2200,30 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           mainAxisSize:
                                                               MainAxisSize.min,
                                                           children: [
-                                                            if (dateTimeFormat(
-                                                                  'yMMMd',
-                                                                  currentUserDocument
-                                                                      ?.dateofCompletion,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ) !=
-                                                                dateTimeFormat(
-                                                                  'yMMMd',
-                                                                  getCurrentTimestamp,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ))
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .all(
-                                                                            2.0),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(2.0),
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
                                                                 child:
-                                                                    ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                  child:
-                                                                      SvgPicture
-                                                                          .asset(
-                                                                    Theme.of(context).brightness ==
-                                                                            Brightness.dark
-                                                                        ? 'assets/images/feather-duotone_(darkmode).svg'
-                                                                        : 'assets/images/feather-duotone_(lightmode).svg',
-                                                                    width: 20.0,
-                                                                    fit: BoxFit
-                                                                        .contain,
-                                                                  ),
+                                                                    SvgPicture
+                                                                        .asset(
+                                                                  Theme.of(context)
+                                                                              .brightness ==
+                                                                          Brightness
+                                                                              .dark
+                                                                      ? 'assets/images/feather-duotone_(filled_-_darkmode).svg'
+                                                                      : 'assets/images/feather-duotone_(filled_-_lightmode).svg',
+                                                                  width: 20.0,
+                                                                  fit: BoxFit
+                                                                      .contain,
                                                                 ),
                                                               ),
-                                                            if (dateTimeFormat(
-                                                                  'yMMMd',
-                                                                  currentUserDocument
-                                                                      ?.dateofCompletion,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ) ==
-                                                                dateTimeFormat(
-                                                                  'yMMMd',
-                                                                  getCurrentTimestamp,
-                                                                  locale: FFLocalizations.of(
-                                                                          context)
-                                                                      .languageCode,
-                                                                ))
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsets
-                                                                        .all(
-                                                                            2.0),
-                                                                child:
-                                                                    ClipRRect(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8.0),
-                                                                  child:
-                                                                      SvgPicture
-                                                                          .asset(
-                                                                    Theme.of(context).brightness ==
-                                                                            Brightness.dark
-                                                                        ? 'assets/images/feather-duotone_(filled_-_darkmode).svg'
-                                                                        : 'assets/images/feather-duotone_(filled_-_lightmode).svg',
-                                                                    width: 20.0,
-                                                                    fit: BoxFit
-                                                                        .contain,
-                                                                  ),
-                                                                ),
-                                                              ),
+                                                            ),
                                                             Padding(
                                                               padding:
                                                                   EdgeInsetsDirectional
@@ -2536,7 +2500,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           fontFamily: 'Montserrat',
                                           color: Colors.transparent,
                                           fontSize: 12.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),
@@ -2597,7 +2560,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Colors.white,
-                                            useGoogleFonts: false,
                                           ),
                                     ),
                                   ),

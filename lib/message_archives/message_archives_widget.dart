@@ -264,7 +264,6 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                                       color: FlutterFlowTheme.of(context).label,
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.w500,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),

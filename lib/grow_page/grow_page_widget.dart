@@ -645,7 +645,6 @@ class _GrowPageWidgetState extends State<GrowPageWidget>
                               .override(
                                 fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).label,
-                                useGoogleFonts: false,
                               ),
                         ),
                         Expanded(

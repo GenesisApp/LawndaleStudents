@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/attendance_taken_widget.dart';
+import '/components/add_guest_widget.dart';
+import '/components/delete_guest_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -24,15 +25,30 @@ class GroupsAttendanceModel extends FlutterFlowModel<GroupsAttendanceWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for CheckboxListTile widget.
 
-  Map<UsersRecord, bool> checkboxListTileValueMap = {};
-  List<UsersRecord> get checkboxListTileCheckedItems =>
-      checkboxListTileValueMap.entries
+  Map<UsersRecord, bool> checkboxListTileValueMap1 = {};
+  List<UsersRecord> get checkboxListTileCheckedItems1 =>
+      checkboxListTileValueMap1.entries
           .where((e) => e.value)
           .map((e) => e.key)
           .toList();
 
-  // Stores action output result for [Backend Call - Create Document] action in Icon widget.
+  // Stores action output result for [Backend Call - Create Document] action in CheckboxListTile widget.
   GlobalGroupsDataRecord? newDay;
+  // Stores action output result for [Backend Call - Create Document] action in CheckboxListTile widget.
+  GlobalGroupsDataRecord? newDayCopy;
+  // State field(s) for CheckboxListTile widget.
+
+  Map<GuestsRecord, bool> checkboxListTileValueMap2 = {};
+  List<GuestsRecord> get checkboxListTileCheckedItems2 =>
+      checkboxListTileValueMap2.entries
+          .where((e) => e.value)
+          .map((e) => e.key)
+          .toList();
+
+  // Stores action output result for [Backend Call - Create Document] action in CheckboxListTile widget.
+  GlobalGroupsDataRecord? newDayCopy1;
+  // Stores action output result for [Backend Call - Create Document] action in CheckboxListTile widget.
+  GlobalGroupsDataRecord? newDayCopy2;
 
   /// Initialization and disposal methods.
 

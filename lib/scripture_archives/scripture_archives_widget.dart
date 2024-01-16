@@ -298,7 +298,6 @@ class _ScriptureArchivesWidgetState extends State<ScriptureArchivesWidget>
                                               .label,
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.w500,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

@@ -329,7 +329,6 @@ class _CatechismWidgetState extends State<CatechismWidget>
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).label,
-                                  useGoogleFonts: false,
                                 ),
                       ),
                     ),
@@ -1162,8 +1161,6 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                       'Montserrat',
                                                                   fontSize:
                                                                       16.0,
-                                                                  useGoogleFonts:
-                                                                      false,
                                                                 ),
                                                           ),
                                                         ),
@@ -1671,8 +1668,6 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                       'Montserrat',
                                                                   fontSize:
                                                                       16.0,
-                                                                  useGoogleFonts:
-                                                                      false,
                                                                 ),
                                                           ),
                                                         ),
@@ -2180,8 +2175,6 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                       'Montserrat',
                                                                   fontSize:
                                                                       16.0,
-                                                                  useGoogleFonts:
-                                                                      false,
                                                                 ),
                                                           ),
                                                         ),
@@ -2692,8 +2685,6 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                       'Montserrat',
                                                                   fontSize:
                                                                       16.0,
-                                                                  useGoogleFonts:
-                                                                      false,
                                                                 ),
                                                           ),
                                                         ),

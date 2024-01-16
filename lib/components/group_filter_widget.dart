@@ -932,13 +932,11 @@ class _GroupFilterWidgetState extends State<GroupFilterWidget> {
                               color: FlutterFlowTheme.of(context).systemGray,
                               fontSize: 14.0,
                               fontWeight: FontWeight.normal,
-                              useGoogleFonts: false,
                             ),
                     selectedTextStyle:
                         FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               color: FlutterFlowTheme.of(context).label,
-                              useGoogleFonts: false,
                             ),
                     buttonPosition: RadioButtonPosition.left,
                     direction: Axis.vertical,

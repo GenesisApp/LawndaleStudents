@@ -5091,7 +5091,6 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                           fontSize: 14.0,
                                                           fontWeight:
                                                               FontWeight.normal,
-                                                          useGoogleFonts: false,
                                                         ),
                                                     selectedTextStyle:
                                                         FlutterFlowTheme.of(
@@ -5103,8 +5102,6 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                               color: FlutterFlowTheme
                                                                       .of(context)
                                                                   .label,
-                                                              useGoogleFonts:
-                                                                  false,
                                                             ),
                                                     buttonPosition:
                                                         RadioButtonPosition

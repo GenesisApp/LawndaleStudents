@@ -16,7 +16,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'community_prayer_page_model.dart';
@@ -37,7 +36,19 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'listViewOnPageLoadAnimation': AnimationInfo(
+    'listViewOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'listViewOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -123,7 +134,6 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).label,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           Container(
@@ -305,128 +315,140 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                         ],
                       ),
                     ),
-                    StreamBuilder<List<PrayerRequestsRecord>>(
-                      stream: queryPrayerRequestsRecord(
-                        queryBuilder: (prayerRequestsRecord) =>
-                            prayerRequestsRecord
-                                .where(
-                                  'pinned',
-                                  isEqualTo: true,
-                                )
-                                .orderBy('pinnedTime', descending: true),
-                        singleRecord: true,
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
+                      child: StreamBuilder<List<PrayerRequestsRecord>>(
+                        stream: queryPrayerRequestsRecord(
+                          queryBuilder: (prayerRequestsRecord) =>
+                              prayerRequestsRecord
+                                  .where(
+                                    'public',
+                                    isEqualTo: true,
+                                  )
+                                  .where(
+                                    'pinned',
+                                    isEqualTo: true,
+                                  )
+                                  .where(
+                                    'messageRef',
+                                    isEqualTo: null,
+                                  )
+                                  .orderBy('pinnedTime', descending: true),
+                          singleRecord: true,
+                        ),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 75.0,
+                                height: 75.0,
+                                child: SpinKitRipple(
+                                  color: Color(0xFF7F95AD),
+                                  size: 75.0,
+                                ),
+                              ),
+                            );
+                          }
+                          List<PrayerRequestsRecord>
+                              listViewPrayerRequestsRecordList = snapshot.data!;
+                          // Return an empty Container when the item does not exist.
+                          if (snapshot.data!.isEmpty) {
+                            return Container();
+                          }
+                          final listViewPrayerRequestsRecord =
+                              listViewPrayerRequestsRecordList.isNotEmpty
+                                  ? listViewPrayerRequestsRecordList.first
+                                  : null;
+                          return ListView(
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              wrapWithModel(
+                                model: _model.communityPrayerRequestModel1,
+                                updateCallback: () => setState(() {}),
+                                child: CommunityPrayerRequestWidget(
+                                  chosenPrayerRequestDoc:
+                                      listViewPrayerRequestsRecord!,
+                                  chosenPrayerRequestRef:
+                                      listViewPrayerRequestsRecord!.reference,
+                                ),
+                              ),
+                            ],
+                          ).animateOnPageLoad(
+                              animationsMap['listViewOnPageLoadAnimation1']!);
+                        },
                       ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 75.0,
-                              height: 75.0,
-                              child: SpinKitRipple(
-                                color: Color(0xFF7F95AD),
-                                size: 75.0,
-                              ),
-                            ),
-                          );
-                        }
-                        List<PrayerRequestsRecord>
-                            containerPrayerRequestsRecordList = snapshot.data!;
-                        // Return an empty Container when the item does not exist.
-                        if (snapshot.data!.isEmpty) {
-                          return Container();
-                        }
-                        final containerPrayerRequestsRecord =
-                            containerPrayerRequestsRecordList.isNotEmpty
-                                ? containerPrayerRequestsRecordList.first
-                                : null;
-                        return Container(
-                          decoration: BoxDecoration(),
-                          child: Visibility(
-                            visible:
-                                containerPrayerRequestsRecord?.messageRef ==
-                                    null,
-                            child: wrapWithModel(
-                              model: _model.communityPrayerRequestModel1,
-                              updateCallback: () => setState(() {}),
-                              child: CommunityPrayerRequestWidget(
-                                chosenPrayerRequestDoc:
-                                    containerPrayerRequestsRecord!,
-                                chosenPrayerRequestRef:
-                                    containerPrayerRequestsRecord!.reference,
-                              ),
-                            ),
-                          ),
-                        );
-                      },
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                      child: PagedListView<DocumentSnapshot<Object?>?,
-                          PrayerRequestsRecord>(
-                        pagingController: _model.setListViewController(
-                          PrayerRequestsRecord.collection
-                              .where(
-                                'public',
-                                isEqualTo: true,
-                              )
-                              .orderBy('timeUploaded', descending: true),
+                      child: StreamBuilder<List<PrayerRequestsRecord>>(
+                        stream: queryPrayerRequestsRecord(
+                          queryBuilder: (prayerRequestsRecord) =>
+                              prayerRequestsRecord
+                                  .where(
+                                    'public',
+                                    isEqualTo: true,
+                                  )
+                                  .where(
+                                    'pinned',
+                                    isEqualTo: false,
+                                  )
+                                  .where(
+                                    'messageRef',
+                                    isEqualTo: null,
+                                  )
+                                  .orderBy('timeUploaded', descending: true),
+                          limit: 25,
                         ),
-                        padding: EdgeInsets.zero,
-                        primary: false,
-                        shrinkWrap: true,
-                        reverse: false,
-                        scrollDirection: Axis.vertical,
-                        builderDelegate:
-                            PagedChildBuilderDelegate<PrayerRequestsRecord>(
-                          // Customize what your widget looks like when it's loading the first page.
-                          firstPageProgressIndicatorBuilder: (_) => Center(
-                            child: SizedBox(
-                              width: 75.0,
-                              height: 75.0,
-                              child: SpinKitRipple(
-                                color: Color(0xFF7F95AD),
-                                size: 75.0,
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 75.0,
+                                height: 75.0,
+                                child: SpinKitRipple(
+                                  color: Color(0xFF7F95AD),
+                                  size: 75.0,
+                                ),
                               ),
-                            ),
-                          ),
-                          // Customize what your widget looks like when it's loading another page.
-                          newPageProgressIndicatorBuilder: (_) => Center(
-                            child: SizedBox(
-                              width: 75.0,
-                              height: 75.0,
-                              child: SpinKitRipple(
-                                color: Color(0xFF7F95AD),
-                                size: 75.0,
-                              ),
-                            ),
-                          ),
-                          noItemsFoundIndicatorBuilder: (_) => Center(
-                            child: EmptyStatePRWidget(),
-                          ),
-                          itemBuilder: (context, _, listViewIndex) {
-                            final listViewPrayerRequestsRecord = _model
-                                .listViewPagingController!
-                                .itemList![listViewIndex];
-                            return Visibility(
-                              visible:
-                                  (listViewPrayerRequestsRecord.messageRef ==
-                                          null) &&
-                                      !listViewPrayerRequestsRecord.pinned,
-                              child: CommunityPrayerRequestWidget(
+                            );
+                          }
+                          List<PrayerRequestsRecord>
+                              listViewPrayerRequestsRecordList = snapshot.data!;
+                          if (listViewPrayerRequestsRecordList.isEmpty) {
+                            return Center(
+                              child: EmptyStatePRWidget(),
+                            );
+                          }
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            primary: false,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewPrayerRequestsRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewPrayerRequestsRecord =
+                                  listViewPrayerRequestsRecordList[
+                                      listViewIndex];
+                              return CommunityPrayerRequestWidget(
                                 key: Key(
-                                    'Keyjf7_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
+                                    'Keyd6t_${listViewIndex}_of_${listViewPrayerRequestsRecordList.length}'),
                                 chosenPrayerRequestDoc:
                                     listViewPrayerRequestsRecord,
                                 chosenPrayerRequestRef:
                                     listViewPrayerRequestsRecord.reference,
-                              ),
-                            );
-                          },
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['listViewOnPageLoadAnimation']!),
+                              );
+                            },
+                          ).animateOnPageLoad(
+                              animationsMap['listViewOnPageLoadAnimation2']!);
+                        },
+                      ),
                     ),
                     Container(
                       width: double.infinity,

@@ -118,7 +118,7 @@ class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
                             padding: EdgeInsets.all(10.0),
                             child: FaIcon(
                               FontAwesomeIcons.poll,
-                              color: FlutterFlowTheme.of(context).systemGray,
+                              color: FlutterFlowTheme.of(context).secondary,
                               size: 35.0,
                             ),
                           ),

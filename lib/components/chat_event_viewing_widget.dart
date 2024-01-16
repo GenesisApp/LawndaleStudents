@@ -187,7 +187,6 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                             color: FlutterFlowTheme.of(context).tertiary,
                             fontSize: 18.0,
                             fontWeight: FontWeight.w500,
-                            useGoogleFonts: false,
                           ),
                     ),
                   ),

@@ -282,7 +282,6 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .lightSecondaryText,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

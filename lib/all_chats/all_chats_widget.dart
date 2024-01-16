@@ -315,7 +315,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .label,
-                                          useGoogleFonts: false,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                   ),
                                   FlutterFlowTimer(
@@ -366,7 +366,6 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                           fontFamily: 'Montserrat',
                                           color: Colors.transparent,
                                           fontSize: 12.0,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                   Container(
@@ -764,9 +763,13 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                               StreamBuilder<List<UsersRecord>>(
                                             stream: queryUsersRecord(
                                               queryBuilder: (usersRecord) =>
-                                                  usersRecord.orderBy(
-                                                      'lastLoggedIn',
-                                                      descending: true),
+                                                  usersRecord
+                                                      .where(
+                                                        'accountApproved',
+                                                        isEqualTo: true,
+                                                      )
+                                                      .orderBy('lastLoggedIn',
+                                                          descending: true),
                                             ),
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
@@ -1089,9 +1092,12 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                             0.0,
                                                                             0.85),
                                                                     child: Text(
-                                                                      listViewUsersRecord
-                                                                          .displayName
-                                                                          .maybeHandleOverflow(
+                                                                      valueOrDefault<
+                                                                          String>(
+                                                                        listViewUsersRecord
+                                                                            .displayName,
+                                                                        'Guest User',
+                                                                      ).maybeHandleOverflow(
                                                                         maxChars:
                                                                             10,
                                                                         replacement:
@@ -1156,6 +1162,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                             builder: (context) {
                                               final searchUserResults = _model
                                                   .simpleSearchResults
+                                                  .where(
+                                                      (e) => e.accountApproved)
                                                   .toList();
                                               return ListView.builder(
                                                 padding: EdgeInsets.zero,
@@ -1466,9 +1474,12 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                           0.0),
                                                                       child:
                                                                           Text(
-                                                                        searchUserResultsItem
-                                                                            .displayName
-                                                                            .maybeHandleOverflow(
+                                                                        valueOrDefault<
+                                                                            String>(
+                                                                          searchUserResultsItem
+                                                                              .displayName,
+                                                                          'Guest User',
+                                                                        ).maybeHandleOverflow(
                                                                           maxChars:
                                                                               12,
                                                                           replacement:
@@ -2045,73 +2056,65 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               15.0,
                                                                         ),
                                                                       ),
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            allChatsVarItem.lastMessageSentByName,
-                                                                            'Guest User',
-                                                                          ).maybeHandleOverflow(
-                                                                            maxChars:
-                                                                                20,
-                                                                            replacement:
-                                                                                '…',
-                                                                          ),
-                                                                          style:
-                                                                              GoogleFonts.getFont(
-                                                                            'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).placeholderText,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontSize:
-                                                                                12.0,
-                                                                          ),
-                                                                        ),
-                                                                        Text(
-                                                                          FFLocalizations.of(context)
-                                                                              .getText(
-                                                                            '6337hets' /*  : */,
-                                                                          ),
-                                                                          style:
-                                                                              GoogleFonts.getFont(
-                                                                            'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).placeholderText,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontSize:
-                                                                                12.0,
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              4.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            allChatsVarItem.lastMessage.maybeHandleOverflow(
-                                                                              maxChars: 20,
-                                                                              replacement: '…',
+                                                                    Flexible(
+                                                                      child:
+                                                                          Container(
+                                                                        width: MediaQuery.sizeOf(context).width *
+                                                                            0.55,
+                                                                        height:
+                                                                            18.0,
+                                                                        decoration:
+                                                                            BoxDecoration(),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            Text(
+                                                                              valueOrDefault<String>(
+                                                                                allChatsVarItem.lastMessageSentByName,
+                                                                                'Guest User',
+                                                                              ).maybeHandleOverflow(
+                                                                                maxChars: 20,
+                                                                                replacement: '…',
+                                                                              ),
+                                                                              style: GoogleFonts.getFont(
+                                                                                'Inter',
+                                                                                color: FlutterFlowTheme.of(context).placeholderText,
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontSize: 12.0,
+                                                                              ),
                                                                             ),
-                                                                            maxLines:
-                                                                                1,
-                                                                            style:
-                                                                                GoogleFonts.getFont(
-                                                                              'Inter',
-                                                                              color: FlutterFlowTheme.of(context).placeholderText,
-                                                                              fontWeight: FontWeight.normal,
-                                                                              fontSize: 12.0,
+                                                                            Text(
+                                                                              FFLocalizations.of(context).getText(
+                                                                                '6337hets' /* : */,
+                                                                              ),
+                                                                              style: GoogleFonts.getFont(
+                                                                                'Inter',
+                                                                                color: FlutterFlowTheme.of(context).placeholderText,
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontSize: 12.0,
+                                                                              ),
                                                                             ),
-                                                                          ),
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                              child: Text(
+                                                                                allChatsVarItem.lastMessage.maybeHandleOverflow(
+                                                                                  maxChars: 20,
+                                                                                  replacement: '…',
+                                                                                ),
+                                                                                maxLines: 1,
+                                                                                style: GoogleFonts.getFont(
+                                                                                  'Inter',
+                                                                                  color: FlutterFlowTheme.of(context).placeholderText,
+                                                                                  fontWeight: FontWeight.normal,
+                                                                                  fontSize: 12.0,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ],
                                                                         ),
-                                                                      ],
+                                                                      ),
                                                                     ),
                                                                   ],
                                                                 ),
@@ -2564,63 +2567,27 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               15.0,
                                                                         ),
                                                                       ),
-                                                                    Row(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            columnMessageChatsRecord.lastMessageSentByName,
-                                                                            'Guest User',
-                                                                          ).maybeHandleOverflow(
-                                                                            maxChars:
-                                                                                20,
-                                                                            replacement:
-                                                                                '…',
-                                                                          ),
-                                                                          style:
-                                                                              GoogleFonts.getFont(
-                                                                            'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).placeholderText,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontSize:
-                                                                                12.0,
-                                                                          ),
-                                                                        ),
-                                                                        Text(
-                                                                          FFLocalizations.of(context)
-                                                                              .getText(
-                                                                            'bvigxnty' /*  : */,
-                                                                          ),
-                                                                          style:
-                                                                              GoogleFonts.getFont(
-                                                                            'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).placeholderText,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontSize:
-                                                                                12.0,
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              4.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            columnMessageChatsRecord.lastMessage.maybeHandleOverflow(
+                                                                    Container(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.55,
+                                                                      height:
+                                                                          18.0,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              columnMessageChatsRecord.lastMessageSentByName,
+                                                                              'Guest User',
+                                                                            ).maybeHandleOverflow(
                                                                               maxChars: 20,
                                                                               replacement: '…',
                                                                             ),
-                                                                            maxLines:
-                                                                                1,
                                                                             style:
                                                                                 GoogleFonts.getFont(
                                                                               'Inter',
@@ -2629,8 +2596,41 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                               fontSize: 12.0,
                                                                             ),
                                                                           ),
-                                                                        ),
-                                                                      ],
+                                                                          Text(
+                                                                            FFLocalizations.of(context).getText(
+                                                                              'bvigxnty' /*  : */,
+                                                                            ),
+                                                                            style:
+                                                                                GoogleFonts.getFont(
+                                                                              'Inter',
+                                                                              color: FlutterFlowTheme.of(context).placeholderText,
+                                                                              fontWeight: FontWeight.normal,
+                                                                              fontSize: 12.0,
+                                                                            ),
+                                                                          ),
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                0.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                Text(
+                                                                              columnMessageChatsRecord.lastMessage.maybeHandleOverflow(
+                                                                                maxChars: 20,
+                                                                                replacement: '…',
+                                                                              ),
+                                                                              maxLines: 1,
+                                                                              style: GoogleFonts.getFont(
+                                                                                'Inter',
+                                                                                color: FlutterFlowTheme.of(context).placeholderText,
+                                                                                fontWeight: FontWeight.normal,
+                                                                                fontSize: 12.0,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
                                                                     ),
                                                                   ],
                                                                 ),

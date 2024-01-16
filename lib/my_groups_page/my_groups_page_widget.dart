@@ -345,7 +345,6 @@ class _MyGroupsPageWidgetState extends State<MyGroupsPageWidget>
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).label,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ],

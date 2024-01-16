@@ -215,7 +215,6 @@ class _AdminGroupsViewOpenWidgetState extends State<AdminGroupsViewOpenWidget>
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .label,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

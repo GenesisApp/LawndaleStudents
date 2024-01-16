@@ -1,7 +1,6 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'attendance_taken_widget.dart' show AttendanceTakenWidget;
+import 'account_denied_widget.dart' show AccountDeniedWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -9,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 
-class AttendanceTakenModel extends FlutterFlowModel<AttendanceTakenWidget> {
+class AccountDeniedModel extends FlutterFlowModel<AccountDeniedWidget> {
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}

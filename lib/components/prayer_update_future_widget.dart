@@ -500,6 +500,8 @@ class _PrayerUpdateFutureWidgetState extends State<PrayerUpdateFutureWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .lightSecondaryText,
                                   ),
+                          maxLines: 4,
+                          minLines: 1,
                           validator: _model.textController5Validator
                               .asValidator(context),
                         ),

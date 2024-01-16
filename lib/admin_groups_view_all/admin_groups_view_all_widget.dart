@@ -215,7 +215,6 @@ class _AdminGroupsViewAllWidgetState extends State<AdminGroupsViewAllWidget>
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .label,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

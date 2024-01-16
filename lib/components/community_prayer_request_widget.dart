@@ -435,41 +435,13 @@ class _CommunityPrayerRequestWidgetState
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
-                                                        child: StreamBuilder<
-                                                            List<UsersRecord>>(
-                                                          stream:
-                                                              queryUsersRecord(
-                                                            queryBuilder:
-                                                                (usersRecord) =>
-                                                                    usersRecord
-                                                                        .where(
-                                                              'prayedforRequests',
-                                                              arrayContains: widget
-                                                                  .chosenPrayerRequestRef,
-                                                            ),
-                                                            limit: 6,
-                                                          ),
-                                                          builder: (context,
-                                                              snapshot) {
-                                                            // Customize what your widget looks like when it's loading.
-                                                            if (!snapshot
-                                                                .hasData) {
-                                                              return Center(
-                                                                child: SizedBox(
-                                                                  width: 75.0,
-                                                                  height: 75.0,
-                                                                  child:
-                                                                      SpinKitRipple(
-                                                                    color: Color(
-                                                                        0xFF7F95AD),
-                                                                    size: 75.0,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            }
-                                                            List<UsersRecord>
-                                                                listViewUsersRecordList =
-                                                                snapshot.data!;
+                                                        child: Builder(
+                                                          builder: (context) {
+                                                            final containerQuery =
+                                                                containerUsersRecordList
+                                                                    .toList()
+                                                                    .take(6)
+                                                                    .toList();
                                                             return ListView
                                                                 .builder(
                                                               padding:
@@ -479,13 +451,13 @@ class _CommunityPrayerRequestWidgetState
                                                               scrollDirection:
                                                                   Axis.horizontal,
                                                               itemCount:
-                                                                  listViewUsersRecordList
+                                                                  containerQuery
                                                                       .length,
                                                               itemBuilder: (context,
-                                                                  listViewIndex) {
-                                                                final listViewUsersRecord =
-                                                                    listViewUsersRecordList[
-                                                                        listViewIndex];
+                                                                  containerQueryIndex) {
+                                                                final containerQueryItem =
+                                                                    containerQuery[
+                                                                        containerQueryIndex];
                                                                 return Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
@@ -514,7 +486,7 @@ class _CommunityPrayerRequestWidgetState
                                                                           image:
                                                                               CachedNetworkImageProvider(
                                                                             valueOrDefault<String>(
-                                                                              listViewUsersRecord.photoUrl,
+                                                                              containerQueryItem.photoUrl,
                                                                               'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
                                                                             ),
                                                                           ),
@@ -823,41 +795,13 @@ class _CommunityPrayerRequestWidgetState
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      child: StreamBuilder<
-                                                          List<UsersRecord>>(
-                                                        stream:
-                                                            queryUsersRecord(
-                                                          queryBuilder:
-                                                              (usersRecord) =>
-                                                                  usersRecord
-                                                                      .where(
-                                                            'prayedforRequests',
-                                                            arrayContains: widget
-                                                                .chosenPrayerRequestRef,
-                                                          ),
-                                                          limit: 6,
-                                                        ),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 75.0,
-                                                                height: 75.0,
-                                                                child:
-                                                                    SpinKitRipple(
-                                                                  color: Color(
-                                                                      0xFF7F95AD),
-                                                                  size: 75.0,
-                                                                ),
-                                                              ),
-                                                            );
-                                                          }
-                                                          List<UsersRecord>
-                                                              listViewUsersRecordList =
-                                                              snapshot.data!;
+                                                      child: Builder(
+                                                        builder: (context) {
+                                                          final containerQuery2 =
+                                                              containerUsersRecordList
+                                                                  .toList()
+                                                                  .take(6)
+                                                                  .toList();
                                                           return ListView
                                                               .builder(
                                                             padding:
@@ -866,13 +810,13 @@ class _CommunityPrayerRequestWidgetState
                                                             scrollDirection:
                                                                 Axis.horizontal,
                                                             itemCount:
-                                                                listViewUsersRecordList
+                                                                containerQuery2
                                                                     .length,
                                                             itemBuilder: (context,
-                                                                listViewIndex) {
-                                                              final listViewUsersRecord =
-                                                                  listViewUsersRecordList[
-                                                                      listViewIndex];
+                                                                containerQuery2Index) {
+                                                              final containerQuery2Item =
+                                                                  containerQuery2[
+                                                                      containerQuery2Index];
                                                               return Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
@@ -900,7 +844,7 @@ class _CommunityPrayerRequestWidgetState
                                                                             CachedNetworkImageProvider(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            listViewUsersRecord.photoUrl,
+                                                                            containerQuery2Item.photoUrl,
                                                                             'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
                                                                           ),
                                                                         ),

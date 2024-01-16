@@ -201,6 +201,13 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
     super.initState();
     _model = createModel(context, () => EditProfilePageAuthModel());
 
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      await currentUserReference!.update(createUsersRecordData(
+        accountWaiting: true,
+      ));
+    });
+
     _model.textController1 ??= TextEditingController(
         text: valueOrDefault(currentUserDocument?.firstName, ''));
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -1178,9 +1185,6 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                               'vfbrffht' /* College */,
                                             ),
                                             FFLocalizations.of(context).getText(
-                                              'fqlj0q3w' /* Young Adult */,
-                                            ),
-                                            FFLocalizations.of(context).getText(
                                               'obeuvu90' /* Adult */,
                                             )
                                           ],
@@ -1196,6 +1200,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
+                                                fontSize: 14.0,
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(
@@ -1239,6 +1244,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
+                                                fontSize: 14.0,
                                               ),
                                           hintText: FFLocalizations.of(context)
                                               .getText(

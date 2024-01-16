@@ -476,7 +476,7 @@ class _CustomPushNotificationWidgetState
                                           ? _model.uploadedFileUrl
                                           : null,
                                   userRefs: widget.userGroupChosen!.toList(),
-                                  initialPageName: 'HomePage',
+                                  initialPageName: 'MessageBoard',
                                   parameterData: {},
                                 );
                                 await showModalBottomSheet(
