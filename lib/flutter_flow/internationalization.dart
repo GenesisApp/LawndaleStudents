@@ -7555,6 +7555,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '¡Eso es todo! no tienes ninguno\nMás solicitudes de amistad.',
     },
   },
+  // AccountDeniedAdmin
+  {
+    '5zwkac9z': {
+      'en':
+          'Your account has been denied by an administrator. You can either make a new account, or contact your admin.',
+      'es':
+          'Esta persona ahora está bloqueada. No verá nada de su contenido y no podrán comunicarse con usted de ninguna manera.',
+    },
+    'iavpg71r': {
+      'en': 'Sign Out',
+      'es': 'Hecho',
+    },
+  },
   // Miscellaneous
   {
     '9on1ycgr': {
