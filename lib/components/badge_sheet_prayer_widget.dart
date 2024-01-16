@@ -182,11 +182,15 @@ class _BadgeSheetPrayerWidgetState extends State<BadgeSheetPrayerWidget> {
                           children: [
                             FutureBuilder<List<UsersRecord>>(
                               future: queryUsersRecordOnce(
-                                queryBuilder: (usersRecord) =>
-                                    usersRecord.where(
-                                  'notificationsON',
-                                  isNotEqualTo: false,
-                                ),
+                                queryBuilder: (usersRecord) => usersRecord
+                                    .where(
+                                      'notificationsON',
+                                      isNotEqualTo: false,
+                                    )
+                                    .where(
+                                      'accountApproved',
+                                      isEqualTo: true,
+                                    ),
                               ),
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
