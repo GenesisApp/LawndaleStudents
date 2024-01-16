@@ -47,7 +47,6 @@ void main() async {
   );
 }
 
-
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
   @override
@@ -102,7 +101,7 @@ class _MyAppState extends State<MyApp> {
       });
 
   @override
- Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Lawndale Students',
       localizationsDelegates: [

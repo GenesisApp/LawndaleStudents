@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/account_denied_admin_widget.dart';
 import '/components/account_waiting_widget.dart';
 import '/components/chat_tab_icon_unselected_widget.dart';
 import '/components/prayer_practice_b_s_widget.dart';
@@ -817,7 +818,26 @@ class _HomePageWidgetState extends State<HomePageWidget>
             ));
           },
         ).then((value) => safeSetState(() {}));
+      } else {
+        if (valueOrDefault<bool>(currentUserDocument?.accountDenied, false)) {
+          await showModalBottomSheet(
+            isScrollControlled: true,
+            backgroundColor: Colors.transparent,
+            barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
+            isDismissible: false,
+            enableDrag: false,
+            context: context,
+            builder: (context) {
+              return WebViewAware(
+                  child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: AccountDeniedAdminWidget(),
+              ));
+            },
+          ).then((value) => safeSetState(() {}));
+        }
       }
+
       _model.timerController.onStartTimer();
       _model.instantTimer = InstantTimer.periodic(
         duration: Duration(milliseconds: 6000),
