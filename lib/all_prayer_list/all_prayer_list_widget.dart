@@ -122,7 +122,6 @@ class _AllPrayerListWidgetState extends State<AllPrayerListWidget> {
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context).label,
                                       fontSize: 22.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               Padding(

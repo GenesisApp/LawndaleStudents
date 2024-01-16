@@ -157,11 +157,41 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
+          "fieldPath": "public",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "pinned",
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "messageRef",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "pinnedTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "prayer_requests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "public",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "pinned",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "messageRef",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "timeUploaded",
           "order": "DESCENDING"
         }
       ]
@@ -218,6 +248,20 @@
         },
         {
           "fieldPath": "timeCreated",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "accountApproved",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "lastLoggedIn",
           "order": "DESCENDING"
         }
       ]
@@ -753,6 +797,20 @@
         {
           "fieldPath": "questionNumber",
           "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "Guests",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "groupReference",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "guestName",
+          "order": "DESCENDING"
         }
       ]
     },

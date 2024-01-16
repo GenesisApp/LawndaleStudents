@@ -297,7 +297,6 @@ class _WorshipArchivesWidgetState extends State<WorshipArchivesWidget>
                                               .label,
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.w500,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

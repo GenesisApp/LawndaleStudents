@@ -413,7 +413,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Solicitud Pastoral',
     },
     '6337hets': {
-      'en': ' :',
+      'en': ':',
       'es': '',
     },
     'avh57c6x': {
@@ -493,6 +493,18 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '4e2w6j0i': {
       'en': 'Select who attended your group this week!',
       'es': '¡Selecciona quién asistió a tu grupo esta semana!',
+    },
+    'ca0vqc1g': {
+      'en': 'Group Guests',
+      'es': '',
+    },
+    'w08q8tj0': {
+      'en': '(To delete guest, tap and hold)',
+      'es': '',
+    },
+    'lcunxhqc': {
+      'en': 'Add Guest',
+      'es': '',
     },
     'hulfi4am': {
       'en': 'Home',
@@ -658,10 +670,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'beovmcre': {
       'en': 'College',
-      'es': '',
-    },
-    'cciatxd1': {
-      'en': 'Young Adult',
       'es': '',
     },
     '3petw9bq': {
@@ -973,10 +981,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'College',
       'es': '',
     },
-    'fqlj0q3w': {
-      'en': 'Young Adult',
-      'es': '',
-    },
     'obeuvu90': {
       'en': 'Adult',
       'es': '',
@@ -1123,7 +1127,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '¡Bienvenido a su Panel de administración!',
     },
     'qg8atf16': {
-      'en': 'Total Accounts:',
+      'en': 'Accounts Waiting:',
       'es': 'Cuentas totales:',
     },
     'vbff8mid': {
@@ -6783,13 +6787,33 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Sí',
     },
   },
-  // AttendanceTaken
+  // addGuest
   {
-    'u768id91': {
-      'en': 'Thank you for taking attendance!',
-      'es': '¡Gracias por asistir!',
+    'hfw6lb6m': {
+      'en': 'Guest\'s Name',
+      'es': 'Comentarios específicos',
     },
-    'n4o02qhf': {
+    '9mh88pzy': {
+      'en': '',
+      'es': 'escriba aquí...',
+    },
+    '1vsoapxm': {
+      'en': 'Guest\'s Phone Number',
+      'es': 'Comentarios específicos',
+    },
+    'yicqjhjn': {
+      'en': '',
+      'es': 'escriba aquí...',
+    },
+    'd9dkblx2': {
+      'en': 'Guest\'s Age',
+      'es': 'Comentarios específicos',
+    },
+    'brvno4ta': {
+      'en': '',
+      'es': 'escriba aquí...',
+    },
+    '4jz4h839': {
       'en': 'Done',
       'es': 'Hecho',
     },
@@ -7443,6 +7467,94 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hecho',
     },
   },
+  // deleteGuest
+  {
+    '13tuzspg': {
+      'en': 'Delete this user?',
+      'es': '¿Eliminar esta etiqueta?',
+    },
+    'd77kcpvz': {
+      'en': 'Cancel',
+      'es': 'Cancelar',
+    },
+    't8fiq8nb': {
+      'en': 'Delete',
+      'es': 'Borrar',
+    },
+  },
+  // EmptyStateGuest
+  {
+    'ju3va5e5': {
+      'en': 'No Guests Yet!',
+      'es': '¡Aún no hay etiquetas!',
+    },
+    'd1pgo7yt': {
+      'en': 'Create a guest through the \"Add Guest\" option below.',
+      'es':
+          'Cree una etiqueta a través de la opción \"Etiquetas de perfil\" en su Consola de administración.',
+    },
+  },
+  // AccountWaiting
+  {
+    'kgki7vcf': {
+      'en': 'Your account is waiting to be approved by an administrator. ',
+      'es':
+          'Esta persona ahora está bloqueada. No verá nada de su contenido y no podrán comunicarse con usted de ninguna manera.',
+    },
+  },
+  // AccountApproval
+  {
+    'r6mbi3yd': {
+      'en': 'Account Approval',
+      'es': 'Peticiones de amistad',
+    },
+    'pe0gry28': {
+      'en': 'Decline',
+      'es': 'Rechazar',
+    },
+    '5p6zvksg': {
+      'en': 'Select',
+      'es': 'Seleccionar',
+    },
+    '6hozewyp': {
+      'en': 'Accept',
+      'es': 'Aceptar',
+    },
+    '6w5xzo87': {
+      'en': 'Done',
+      'es': 'Hecho',
+    },
+  },
+  // AccountApproved
+  {
+    '1njaslwm': {
+      'en': 'Account accepted!',
+      'es': '¡Amigo aceptó!',
+    },
+    'xqupfafa': {
+      'en': 'Done',
+      'es': 'Hecho',
+    },
+  },
+  // AccountDenied
+  {
+    'x0ug283v': {
+      'en': 'Account denied.',
+      'es': 'Solicitud de amistad rechazada.',
+    },
+    'xjusxv27': {
+      'en': 'Done',
+      'es': 'Hecho',
+    },
+  },
+  // EmptyStateApproval
+  {
+    '9l0sb2er': {
+      'en':
+          'That\'s all! You don\'t have any \nmore accounts waiting approval.',
+      'es': '¡Eso es todo! no tienes ninguno\nMás solicitudes de amistad.',
+    },
+  },
   // Miscellaneous
   {
     '9on1ycgr': {
@@ -7454,6 +7566,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'xfdyz49j': {
+      'en': '',
+      'es': '',
+    },
+    'wln9qa12': {
       'en': '',
       'es': '',
     },
@@ -7490,6 +7606,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'qe7fx9zz': {
+      'en': '',
+      'es': '',
+    },
+    'b1ipgyw7': {
       'en': '',
       'es': '',
     },

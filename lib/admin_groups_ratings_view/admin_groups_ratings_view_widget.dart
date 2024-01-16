@@ -214,7 +214,6 @@ class _AdminGroupsRatingsViewWidgetState
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .label,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

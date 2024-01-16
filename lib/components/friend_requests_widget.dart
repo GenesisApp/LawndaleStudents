@@ -426,8 +426,6 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                                             'Montserrat',
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .label,
-                                                                        useGoogleFonts:
-                                                                            false,
                                                                       ),
                                                                 ).animateOnPageLoad(
                                                                     animationsMap[

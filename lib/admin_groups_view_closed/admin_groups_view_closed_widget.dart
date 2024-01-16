@@ -215,7 +215,6 @@ class _AdminGroupsViewClosedWidgetState
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .label,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

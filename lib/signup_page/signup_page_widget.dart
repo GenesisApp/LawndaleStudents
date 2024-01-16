@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
 import '/flutter_flow/custom_functions.dart' as functions;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -350,7 +351,6 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .pastorChatOutline,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),
@@ -944,6 +944,11 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                       if (user == null) {
                                         return;
                                       }
+
+                                      await currentUserReference!
+                                          .update(createUsersRecordData(
+                                        email: '',
+                                      ));
                                       if (valueOrDefault(
                                                   currentUserDocument
                                                       ?.backgroundPhotoURL,

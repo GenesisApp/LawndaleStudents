@@ -84,7 +84,7 @@ class _NotificationTextFieldWidgetState
                         FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).worshipRing,
-                              fontSize: 16.0,
+                              fontSize: 18.0,
                               fontWeight: FontWeight.w500,
                             ),
                     enabledBorder: OutlineInputBorder(
@@ -125,7 +125,7 @@ class _NotificationTextFieldWidgetState
                         color: FlutterFlowTheme.of(context).label,
                       ),
                   textAlign: TextAlign.center,
-                  maxLines: 3,
+                  maxLines: 6,
                   minLines: 1,
                   validator:
                       _model.textField1ControllerValidator.asValidator(context),

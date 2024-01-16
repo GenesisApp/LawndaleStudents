@@ -79,8 +79,8 @@ class _FriendRequestDeclinedWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.35,
+                          height: MediaQuery.sizeOf(context).width * 0.35,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondarySystemBackground,
@@ -113,7 +113,7 @@ class _FriendRequestDeclinedWidgetState
                                 CircularPercentIndicator(
                                   percent: 1.0,
                                   radius:
-                                      MediaQuery.sizeOf(context).width * 0.165,
+                                      MediaQuery.sizeOf(context).width * 0.175,
                                   lineWidth: 7.0,
                                   animation: true,
                                   animateFromLastPercent: true,

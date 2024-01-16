@@ -245,7 +245,6 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: FlutterFlowTheme.of(context).label,
-                                    useGoogleFonts: false,
                                   ),
                             ),
                             Expanded(

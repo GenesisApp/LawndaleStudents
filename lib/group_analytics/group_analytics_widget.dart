@@ -374,7 +374,6 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .label,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

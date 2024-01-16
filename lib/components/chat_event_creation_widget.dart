@@ -102,7 +102,7 @@ class _ChatEventCreationWidgetState extends State<ChatEventCreationWidget> {
                           padding: EdgeInsets.all(10.0),
                           child: Icon(
                             Icons.event_rounded,
-                            color: FlutterFlowTheme.of(context).systemGray,
+                            color: FlutterFlowTheme.of(context).secondary,
                             size: 35.0,
                           ),
                         ),

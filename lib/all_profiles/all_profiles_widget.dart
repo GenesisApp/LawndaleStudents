@@ -116,7 +116,6 @@ class _AllProfilesWidgetState extends State<AllProfilesWidget> {
                                         color:
                                             FlutterFlowTheme.of(context).label,
                                         fontSize: 22.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 Container(

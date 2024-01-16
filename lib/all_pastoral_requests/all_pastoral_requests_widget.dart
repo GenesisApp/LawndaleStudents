@@ -162,7 +162,6 @@ class _AllPastoralRequestsWidgetState extends State<AllPastoralRequestsWidget>
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).label,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           Expanded(

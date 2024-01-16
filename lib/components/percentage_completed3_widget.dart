@@ -240,6 +240,7 @@ class _PercentageCompleted3WidgetState
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              HapticFeedback.lightImpact();
                               Navigator.pop(context);
                             },
                             child: Container(

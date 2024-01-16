@@ -731,7 +731,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       fontSize: 20.0,
                                                       fontWeight:
                                                           FontWeight.w500,
-                                                      useGoogleFonts: false,
                                                     ),
                                               ).animateOnPageLoad(animationsMap[
                                                   'textOnPageLoadAnimation1']!),
@@ -813,84 +812,29 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         mainAxisSize:
                                                             MainAxisSize.min,
                                                         children: [
-                                                          if (dateTimeFormat(
-                                                                'yMMMd',
-                                                                currentUserDocument
-                                                                    ?.dateofCompletion,
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ) !=
-                                                              dateTimeFormat(
-                                                                'yMMMd',
-                                                                getCurrentTimestamp,
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ))
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(2.0),
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                                child:
-                                                                    SvgPicture
-                                                                        .asset(
-                                                                  Theme.of(context)
-                                                                              .brightness ==
-                                                                          Brightness
-                                                                              .dark
-                                                                      ? 'assets/images/feather-duotone_(darkmode).svg'
-                                                                      : 'assets/images/feather-duotone_(lightmode).svg',
-                                                                  width: 20.0,
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    2.0),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          8.0),
+                                                              child: SvgPicture
+                                                                  .asset(
+                                                                Theme.of(context)
+                                                                            .brightness ==
+                                                                        Brightness
+                                                                            .dark
+                                                                    ? 'assets/images/feather-duotone_(filled_-_darkmode).svg'
+                                                                    : 'assets/images/feather-duotone_(filled_-_lightmode).svg',
+                                                                width: 20.0,
+                                                                fit: BoxFit
+                                                                    .contain,
                                                               ),
                                                             ),
-                                                          if (dateTimeFormat(
-                                                                'yMMMd',
-                                                                currentUserDocument
-                                                                    ?.dateofCompletion,
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ) ==
-                                                              dateTimeFormat(
-                                                                'yMMMd',
-                                                                getCurrentTimestamp,
-                                                                locale: FFLocalizations.of(
-                                                                        context)
-                                                                    .languageCode,
-                                                              ))
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(2.0),
-                                                              child: ClipRRect(
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            8.0),
-                                                                child:
-                                                                    SvgPicture
-                                                                        .asset(
-                                                                  Theme.of(context)
-                                                                              .brightness ==
-                                                                          Brightness
-                                                                              .dark
-                                                                      ? 'assets/images/feather-duotone_(filled_-_darkmode).svg'
-                                                                      : 'assets/images/feather-duotone_(filled_-_lightmode).svg',
-                                                                  width: 20.0,
-                                                                  fit: BoxFit
-                                                                      .contain,
-                                                                ),
-                                                              ),
-                                                            ),
+                                                          ),
                                                           Padding(
                                                             padding:
                                                                 EdgeInsetsDirectional
@@ -1215,7 +1159,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           SvgPicture.asset(
                                             Theme.of(context).brightness ==
                                                     Brightness.dark
-                                                ? 'assets/images/Flame(fefdec).svg'
+                                                ? 'assets/images/flame-fill_darkmode.svg'
                                                 : 'assets/images/flame-fill_(4).svg',
                                             width: 28.0,
                                             height: 28.0,
@@ -1308,8 +1252,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             SvgPicture.asset(
                                               Theme.of(context).brightness ==
                                                       Brightness.dark
-                                                  ? 'assets/images/hands-clapping-fill_(8)_Dark_Mode.svg'
-                                                  : 'assets/images/hands-clapping-fill_(9)_Light_Mode.svg',
+                                                  ? 'assets/images/hands-clapping-fill_darkmode.svg'
+                                                  : 'assets/images/hands-clapping-fill_lightmode.svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -1388,7 +1332,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           SvgPicture.asset(
                                             Theme.of(context).brightness ==
                                                     Brightness.dark
-                                                ? 'assets/images/users-fill.svg'
+                                                ? 'assets/images/users-fill_darkmode.svg'
                                                 : 'assets/images/users-fill_(1).svg',
                                             width: 28.0,
                                             height: 28.0,

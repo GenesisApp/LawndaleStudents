@@ -377,7 +377,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .pastorChatOutline,
-                                                useGoogleFonts: false,
                                               ),
                                         ),
                                       ),
@@ -785,7 +784,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget>
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontWeight: FontWeight.w600,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

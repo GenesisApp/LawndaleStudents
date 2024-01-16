@@ -270,7 +270,6 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                               .override(
                                 fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).label,
-                                useGoogleFonts: false,
                               ),
                         ),
                         Expanded(

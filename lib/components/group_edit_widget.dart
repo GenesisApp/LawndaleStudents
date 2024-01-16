@@ -2037,7 +2037,6 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                         .systemGray,
                                                 fontSize: 14.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: false,
                                               ),
                                           selectedTextStyle:
                                               FlutterFlowTheme.of(context)
@@ -2047,7 +2046,6 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .label,
-                                                    useGoogleFonts: false,
                                                   ),
                                           buttonPosition:
                                               RadioButtonPosition.left,

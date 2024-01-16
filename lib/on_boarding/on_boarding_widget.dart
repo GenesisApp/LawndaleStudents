@@ -649,7 +649,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
-                                                useGoogleFonts: false,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation1']!),
@@ -811,7 +810,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
-                                                useGoogleFonts: false,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation2']!),
@@ -993,7 +991,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
-                                                useGoogleFonts: false,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation3']!),
@@ -1019,7 +1016,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
-                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation4']!),
@@ -1044,7 +1040,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
-                                                useGoogleFonts: false,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation5']!),
@@ -2227,7 +2222,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
-                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation6']!),
@@ -2252,7 +2246,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
-                                                useGoogleFonts: false,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation7']!),
@@ -3059,7 +3052,6 @@ Together... */
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
-                                              useGoogleFonts: false,
                                             ),
                                       ).animateOnPageLoad(animationsMap[
                                           'textOnPageLoadAnimation8']!),
@@ -3084,7 +3076,6 @@ Together... */
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .tertiary,
-                                                useGoogleFonts: false,
                                               ),
                                         ).animateOnPageLoad(animationsMap[
                                             'textOnPageLoadAnimation9']!),

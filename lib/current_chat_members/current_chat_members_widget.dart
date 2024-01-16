@@ -180,7 +180,6 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                         color:
                                             FlutterFlowTheme.of(context).label,
                                         fontSize: 22.0,
-                                        useGoogleFonts: false,
                                       ),
                                 ),
                                 Container(

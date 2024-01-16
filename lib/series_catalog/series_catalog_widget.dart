@@ -228,7 +228,6 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context).label,
                                       fontSize: 22.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               Container(

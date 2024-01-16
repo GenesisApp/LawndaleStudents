@@ -169,7 +169,6 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context).label,
                                       fontSize: 22.0,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                               Padding(

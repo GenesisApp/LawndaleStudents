@@ -556,7 +556,6 @@ for thi... */
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Montserrat',
                       color: Color(0x00FFFFFF),
-                      useGoogleFonts: false,
                     ),
               ),
             ],

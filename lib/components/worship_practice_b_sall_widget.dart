@@ -309,7 +309,6 @@ class _WorshipPracticeBSallWidgetState extends State<WorshipPracticeBSallWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .lightSecondaryText,
-                                              useGoogleFonts: false,
                                             ),
                                       ),
                                     ),

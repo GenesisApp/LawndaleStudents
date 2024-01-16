@@ -187,7 +187,6 @@ class _MessageBoardWidgetState extends State<MessageBoardWidget>
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).label,
-                                  useGoogleFonts: false,
                                 ),
                       ),
                     ),
@@ -238,6 +237,7 @@ class _MessageBoardWidgetState extends State<MessageBoardWidget>
                         queryBuilder: (notificationsRecord) =>
                             notificationsRecord.orderBy('createdTime',
                                 descending: true),
+                        limit: 30,
                       ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.

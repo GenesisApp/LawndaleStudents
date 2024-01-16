@@ -2369,8 +2369,6 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                       selectedTextStyle:
                                                           FlutterFlowTheme.of(
@@ -2382,8 +2380,6 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .label,
-                                                                useGoogleFonts:
-                                                                    false,
                                                               ),
                                                       buttonPosition:
                                                           RadioButtonPosition

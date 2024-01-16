@@ -112,7 +112,6 @@ class _PastoralCareWidgetState extends State<PastoralCareWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context).label,
-                                      useGoogleFonts: false,
                                     ),
                               ),
                             ),

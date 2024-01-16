@@ -426,6 +426,26 @@ class UsersRecord extends FirestoreRecord {
   DateTime? get lastAttendance => _lastAttendance;
   bool hasLastAttendance() => _lastAttendance != null;
 
+  // "dateCheckedinGroup" field.
+  DateTime? _dateCheckedinGroup;
+  DateTime? get dateCheckedinGroup => _dateCheckedinGroup;
+  bool hasDateCheckedinGroup() => _dateCheckedinGroup != null;
+
+  // "accountApproved" field.
+  bool? _accountApproved;
+  bool get accountApproved => _accountApproved ?? false;
+  bool hasAccountApproved() => _accountApproved != null;
+
+  // "accountDenied" field.
+  bool? _accountDenied;
+  bool get accountDenied => _accountDenied ?? false;
+  bool hasAccountDenied() => _accountDenied != null;
+
+  // "accountWaiting" field.
+  bool? _accountWaiting;
+  bool get accountWaiting => _accountWaiting ?? false;
+  bool hasAccountWaiting() => _accountWaiting != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -516,6 +536,10 @@ class UsersRecord extends FirestoreRecord {
     _datesAtChurch = getDataList(snapshotData['datesAtChurch']);
     _notificationCount = castToType<int>(snapshotData['notificationCount']);
     _lastAttendance = snapshotData['lastAttendance'] as DateTime?;
+    _dateCheckedinGroup = snapshotData['dateCheckedinGroup'] as DateTime?;
+    _accountApproved = snapshotData['accountApproved'] as bool?;
+    _accountDenied = snapshotData['accountDenied'] as bool?;
+    _accountWaiting = snapshotData['accountWaiting'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -616,6 +640,10 @@ Map<String, dynamic> createUsersRecordData({
   DateTime? dateNoticeSeen,
   int? notificationCount,
   DateTime? lastAttendance,
+  DateTime? dateCheckedinGroup,
+  bool? accountApproved,
+  bool? accountDenied,
+  bool? accountWaiting,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -683,6 +711,10 @@ Map<String, dynamic> createUsersRecordData({
       'dateNoticeSeen': dateNoticeSeen,
       'notificationCount': notificationCount,
       'lastAttendance': lastAttendance,
+      'dateCheckedinGroup': dateCheckedinGroup,
+      'accountApproved': accountApproved,
+      'accountDenied': accountDenied,
+      'accountWaiting': accountWaiting,
     }.withoutNulls,
   );
 
@@ -777,7 +809,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.dateNoticeSeen == e2?.dateNoticeSeen &&
         listEquality.equals(e1?.datesAtChurch, e2?.datesAtChurch) &&
         e1?.notificationCount == e2?.notificationCount &&
-        e1?.lastAttendance == e2?.lastAttendance;
+        e1?.lastAttendance == e2?.lastAttendance &&
+        e1?.dateCheckedinGroup == e2?.dateCheckedinGroup &&
+        e1?.accountApproved == e2?.accountApproved &&
+        e1?.accountDenied == e2?.accountDenied &&
+        e1?.accountWaiting == e2?.accountWaiting;
   }
 
   @override
@@ -862,7 +898,11 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.dateNoticeSeen,
         e?.datesAtChurch,
         e?.notificationCount,
-        e?.lastAttendance
+        e?.lastAttendance,
+        e?.dateCheckedinGroup,
+        e?.accountApproved,
+        e?.accountDenied,
+        e?.accountWaiting
       ]);
 
   @override

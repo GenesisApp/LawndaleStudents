@@ -124,7 +124,6 @@ class _FriendsListWidgetState extends State<FriendsListWidget> {
                                 .override(
                                   fontFamily: 'Montserrat',
                                   fontSize: 22.0,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                           Expanded(

@@ -262,85 +262,85 @@ class ThemeTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'Montserrat';
-  TextStyle get displayLarge => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get displayLarge => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
   String get displayMediumFamily => 'Montserrat';
-  TextStyle get displayMedium => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get displayMedium => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
   String get displaySmallFamily => 'Montserrat';
-  TextStyle get displaySmall => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get displaySmall => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.tertiary,
         fontWeight: FontWeight.w500,
         fontSize: 25.0,
       );
   String get headlineLargeFamily => 'Montserrat';
-  TextStyle get headlineLarge => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get headlineLarge => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'Montserrat';
-  TextStyle get headlineMedium => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get headlineMedium => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.tertiary,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get headlineSmallFamily => 'Montserrat';
-  TextStyle get headlineSmall => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get headlineSmall => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.tertiary,
         fontWeight: FontWeight.w500,
         fontSize: 20.0,
       );
   String get titleLargeFamily => 'Montserrat';
-  TextStyle get titleLarge => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get titleLarge => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'Montserrat';
-  TextStyle get titleMedium => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get titleMedium => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.tertiary,
         fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
   String get titleSmallFamily => 'Montserrat';
-  TextStyle get titleSmall => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get titleSmall => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.tertiary,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get labelLargeFamily => 'Montserrat';
-  TextStyle get labelLarge => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get labelLarge => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
   String get labelMediumFamily => 'Montserrat';
-  TextStyle get labelMedium => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get labelMedium => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
   String get labelSmallFamily => 'Montserrat';
-  TextStyle get labelSmall => TextStyle(
-        fontFamily: 'Montserrat',
+  TextStyle get labelSmall => GoogleFonts.getFont(
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 11.0,

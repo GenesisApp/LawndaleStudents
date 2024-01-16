@@ -1146,10 +1146,6 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                               ),
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'cciatxd1' /* Young Adult */,
-                                              ),
-                                              FFLocalizations.of(context)
-                                                  .getText(
                                                 '3petw9bq' /* Adult */,
                                               )
                                             ],

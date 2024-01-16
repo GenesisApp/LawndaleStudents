@@ -1,4 +1,4 @@
-# LawndaleStudents
+# Lawndale Students
 
 A new Flutter project.
 

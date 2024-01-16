@@ -122,7 +122,6 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                               .override(
                                 fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).label,
-                                useGoogleFonts: false,
                               ),
                         ),
                         Container(

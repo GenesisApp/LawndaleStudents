@@ -345,7 +345,6 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                           color: FlutterFlowTheme
                                                                   .of(context)
                                                               .lightSecondaryText,
-                                                          useGoogleFonts: false,
                                                         ),
                                               ),
                                             ),

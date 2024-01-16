@@ -282,7 +282,6 @@ class _ScripturePracticeBSallWidgetState
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .lightSecondaryText,
-                                          useGoogleFonts: false,
                                         ),
                                   ),
                                 ),

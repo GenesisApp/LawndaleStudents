@@ -343,7 +343,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                   onTap: () async {
                     currentUserLocationValue = await getCurrentUserLocation(
                         defaultLocation: LatLng(0.0, 0.0));
-                    _model.timer5Controller.onStartTimer();
                     if (soLSplashScreenCopyGroupsRecord != null
                         ? true
                         : false) {
@@ -358,6 +357,7 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                               containerChurchLocationsRecord?.campusLocation,
                               currentUserLocationValue),
                     ));
+                    _model.timer5Controller.onStartTimer();
 
                     context.goNamed(
                       'HomePage',
@@ -457,8 +457,8 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                                                 child: Text(
                                                   columnSeasonsRecord.verse,
                                                   textAlign: TextAlign.start,
-                                                  style: TextStyle(
-                                                    fontFamily: 'Montserrat',
+                                                  style: GoogleFonts.getFont(
+                                                    'Montserrat',
                                                     color: Color(0xFF46546C),
                                                     fontWeight: FontWeight.w500,
                                                     fontSize: 22.0,
@@ -481,8 +481,8 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                                                   columnSeasonsRecord
                                                       .verseReference,
                                                   textAlign: TextAlign.start,
-                                                  style: TextStyle(
-                                                    fontFamily: 'Montserrat',
+                                                  style: GoogleFonts.getFont(
+                                                    'Montserrat',
                                                     color: Color(0xFF46546C),
                                                     fontWeight:
                                                         FontWeight.normal,
@@ -548,7 +548,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                                                     color: Color(0xFF46546C),
                                                     fontSize: 22.0,
                                                     fontWeight: FontWeight.w500,
-                                                    useGoogleFonts: false,
                                                   ),
                                             ),
                                           ),
@@ -577,7 +576,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                                                     color: Color(0xFF46546C),
                                                     fontSize: 18.0,
                                                     fontWeight: FontWeight.w500,
-                                                    useGoogleFonts: false,
                                                   ),
                                             ),
                                           ],
@@ -624,7 +622,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                                           .override(
                                             fontFamily: 'Montserrat',
                                             color: Color(0xFF46546C),
-                                            useGoogleFonts: false,
                                           ),
                                     ).animateOnPageLoad(animationsMap[
                                         'textOnPageLoadAnimation2']!),
@@ -660,7 +657,6 @@ class _SoLSplashScreenCopyWidgetState extends State<SoLSplashScreenCopyWidget>
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.transparent,
-                                  useGoogleFonts: false,
                                 ),
                           ),
                         ),
