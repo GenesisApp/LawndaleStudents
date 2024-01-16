@@ -565,6 +565,20 @@
       ]
     },
     {
+      "collectionGroup": "users",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "accountApproved",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "notificationsON",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
       "collectionGroup": "personalJournals",
       "queryScope": "COLLECTION",
       "fields": [

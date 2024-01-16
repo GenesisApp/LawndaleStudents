@@ -337,7 +337,12 @@ class _CreatePrayerWidgetState extends State<CreatePrayerWidget> {
                       ),
                     ),
                     FutureBuilder<List<UsersRecord>>(
-                      future: queryUsersRecordOnce(),
+                      future: queryUsersRecordOnce(
+                        queryBuilder: (usersRecord) => usersRecord.where(
+                          'accountApproved',
+                          isEqualTo: true,
+                        ),
+                      ),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {

@@ -1126,8 +1126,12 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Welcome to your Admin Dashboard!',
       'es': '¡Bienvenido a su Panel de administración!',
     },
+    'afwyku3s': {
+      'en': 'Awaiting Approval:',
+      'es': 'Cuentas totales:',
+    },
     'qg8atf16': {
-      'en': 'Accounts Waiting:',
+      'en': 'Total Accounts: ',
       'es': 'Cuentas totales:',
     },
     'vbff8mid': {
