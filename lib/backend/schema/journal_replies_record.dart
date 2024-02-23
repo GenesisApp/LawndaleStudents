@@ -62,8 +62,8 @@ class JournalRepliesRecord extends FirestoreRecord {
           ? parent.collection('journalReplies')
           : FirebaseFirestore.instance.collectionGroup('journalReplies');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('journalReplies').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('journalReplies').doc(id);
 
   static Stream<JournalRepliesRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => JournalRepliesRecord.fromSnapshot(s));

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -10,10 +9,10 @@ import 'friend_request_sent_model.dart';
 export 'friend_request_sent_model.dart';
 
 class FriendRequestSentWidget extends StatefulWidget {
-  const FriendRequestSentWidget({Key? key}) : super(key: key);
+  const FriendRequestSentWidget({super.key});
 
   @override
-  _FriendRequestSentWidgetState createState() =>
+  State<FriendRequestSentWidget> createState() =>
       _FriendRequestSentWidgetState();
 }
 
@@ -104,7 +103,7 @@ class _FriendRequestSentWidgetState extends State<FriendRequestSentWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

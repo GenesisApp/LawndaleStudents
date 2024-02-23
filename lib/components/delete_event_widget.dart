@@ -12,14 +12,14 @@ export 'delete_event_model.dart';
 
 class DeleteEventWidget extends StatefulWidget {
   const DeleteEventWidget({
-    Key? key,
+    super.key,
     this.event,
-  }) : super(key: key);
+  });
 
   final DocumentReference? event;
 
   @override
-  _DeleteEventWidgetState createState() => _DeleteEventWidgetState();
+  State<DeleteEventWidget> createState() => _DeleteEventWidgetState();
 }
 
 class _DeleteEventWidgetState extends State<DeleteEventWidget> {
@@ -109,7 +109,7 @@ class _DeleteEventWidgetState extends State<DeleteEventWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

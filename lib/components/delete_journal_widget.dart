@@ -13,16 +13,16 @@ export 'delete_journal_model.dart';
 
 class DeleteJournalWidget extends StatefulWidget {
   const DeleteJournalWidget({
-    Key? key,
+    super.key,
     this.journalDoc,
     this.journalRef,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? journalDoc;
   final DocumentReference? journalRef;
 
   @override
-  _DeleteJournalWidgetState createState() => _DeleteJournalWidgetState();
+  State<DeleteJournalWidget> createState() => _DeleteJournalWidgetState();
 }
 
 class _DeleteJournalWidgetState extends State<DeleteJournalWidget> {
@@ -112,7 +112,7 @@ class _DeleteJournalWidgetState extends State<DeleteJournalWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

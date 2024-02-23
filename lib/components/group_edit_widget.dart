@@ -4,7 +4,6 @@ import '/backend/firebase_storage/storage.dart';
 import '/components/delete_group_widget.dart';
 import '/components/featured_notification_groups_widget.dart';
 import '/components/group_leaders_set_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -20,7 +19,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,84 +31,21 @@ export 'group_edit_model.dart';
 
 class GroupEditWidget extends StatefulWidget {
   const GroupEditWidget({
-    Key? key,
+    super.key,
     this.chosenGroup,
-  }) : super(key: key);
+  });
 
   final GroupsRecord? chosenGroup;
 
   @override
-  _GroupEditWidgetState createState() => _GroupEditWidgetState();
+  State<GroupEditWidget> createState() => _GroupEditWidgetState();
 }
 
-class _GroupEditWidgetState extends State<GroupEditWidget>
-    with TickerProviderStateMixin {
+class _GroupEditWidgetState extends State<GroupEditWidget> {
   late GroupEditModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -255,7 +190,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 0.0, 25.0),
@@ -267,7 +202,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).lightSecondaryText,
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+              ),
             ),
             Form(
               key: _model.formKey,
@@ -660,9 +595,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                                 ),
                                                               ),
                                                             ),
-                                                          ).animateOnPageLoad(
-                                                              animationsMap[
-                                                                  'containerOnPageLoadAnimation']!),
+                                                          ),
                                                         ),
                                                         Row(
                                                           mainAxisSize:
@@ -1164,7 +1097,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                         .toList(),
                                                 onChanged: (val) => setState(() =>
                                                     _model.categoryChipsAllValue =
-                                                        val?.first),
+                                                        val?.firstOrNull),
                                                 selectedChipStyle: ChipStyle(
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -1279,7 +1212,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                                         .toList(),
                                                 onChanged: (val) => setState(() =>
                                                     _model.categoryChipsNotAllValue =
-                                                        val?.first),
+                                                        val?.firstOrNull),
                                                 selectedChipStyle: ChipStyle(
                                                   backgroundColor:
                                                       FlutterFlowTheme.of(
@@ -1445,7 +1378,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                           ],
                                           onChanged: (val) => setState(() =>
                                               _model.dayoftheWeekChipsValue =
-                                                  val?.first),
+                                                  val?.firstOrNull),
                                           selectedChipStyle: ChipStyle(
                                             backgroundColor:
                                                 FlutterFlowTheme.of(context)
@@ -1587,7 +1520,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                           ],
                                           onChanged: (val) => setState(() =>
                                               _model.toDChipsValue =
-                                                  val?.first),
+                                                  val?.firstOrNull),
                                           selectedChipStyle: ChipStyle(
                                             backgroundColor:
                                                 FlutterFlowTheme.of(context)
@@ -1790,7 +1723,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                             ],
                                             onChanged: (val) => setState(() =>
                                                 _model.ageRangeChipsNotAllValue =
-                                                    val?.first),
+                                                    val?.firstOrNull),
                                             selectedChipStyle: ChipStyle(
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
@@ -1900,7 +1833,7 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                             ],
                                             onChanged: (val) => setState(() =>
                                                 _model.ageRangeChipsAllValue =
-                                                    val?.first),
+                                                    val?.firstOrNull),
                                             selectedChipStyle: ChipStyle(
                                               backgroundColor:
                                                   FlutterFlowTheme.of(context)
@@ -2197,13 +2130,15 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: DeleteGroupWidget(
-                                        group: widget.chosenGroup!.reference,
-                                        groupDoc: widget.chosenGroup!,
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: DeleteGroupWidget(
+                                          group: widget.chosenGroup!.reference,
+                                          groupDoc: widget.chosenGroup!,
+                                        ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -2263,12 +2198,13 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: FeaturedNotificationGroupsWidget(
-                                chosenResource: widget.chosenGroup!,
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: FeaturedNotificationGroupsWidget(
+                                  chosenResource: widget.chosenGroup!,
+                                ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       },
@@ -2513,12 +2449,14 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: GroupLeadersSetWidget(),
-                                              ));
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      GroupLeadersSetWidget(),
+                                                ),
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -2649,8 +2587,6 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                           _model.updatePage(() {
                                             FFAppState().groupLeaders = [];
                                           });
-                                          _model.timerSecondPageController
-                                              .onStartTimer();
                                           Navigator.pop(context);
                                         } else {
                                           await showModalBottomSheet(
@@ -2662,12 +2598,14 @@ class _GroupEditWidgetState extends State<GroupEditWidget>
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: GroupLeadersSetWidget(),
-                                              ));
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      GroupLeadersSetWidget(),
+                                                ),
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));

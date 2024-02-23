@@ -22,10 +22,10 @@ import 'community_prayer_page_model.dart';
 export 'community_prayer_page_model.dart';
 
 class CommunityPrayerPageWidget extends StatefulWidget {
-  const CommunityPrayerPageWidget({Key? key}) : super(key: key);
+  const CommunityPrayerPageWidget({super.key});
 
   @override
-  _CommunityPrayerPageWidgetState createState() =>
+  State<CommunityPrayerPageWidget> createState() =>
       _CommunityPrayerPageWidgetState();
 }
 
@@ -36,25 +36,13 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'listViewOnPageLoadAnimation1': AnimationInfo(
+    'stackOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'listViewOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
@@ -83,15 +71,6 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -157,15 +136,17 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.75,
-                                        child: CreatePrayerWidget(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.75,
+                                          child: CreatePrayerWidget(),
+                                        ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -378,8 +359,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                 ),
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['listViewOnPageLoadAnimation1']!);
+                          );
                         },
                       ),
                     ),
@@ -445,8 +425,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                     listViewPrayerRequestsRecord.reference,
                               );
                             },
-                          ).animateOnPageLoad(
-                              animationsMap['listViewOnPageLoadAnimation2']!);
+                          );
                         },
                       ),
                     ),
@@ -535,7 +514,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
                                             SvgPicture.asset(
-                                              'assets/images/house-fill_(1).svg',
+                                              'assets/images/house-fill_(dark_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -543,7 +522,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                           if (!(Theme.of(context).brightness ==
                                               Brightness.dark))
                                             SvgPicture.asset(
-                                              'assets/images/house-fill_(2).svg',
+                                              'assets/images/house-fill_(light_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -590,7 +569,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                         if (Theme.of(context).brightness ==
                                             Brightness.dark)
                                           SvgPicture.asset(
-                                            'assets/images/leaf-fill_(4).svg',
+                                            'assets/images/leaf-fill_(dark_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -598,7 +577,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                         if (!(Theme.of(context).brightness ==
                                             Brightness.dark))
                                           SvgPicture.asset(
-                                            'assets/images/leaf-fill_(5).svg',
+                                            'assets/images/leaf-fill_(light_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -659,7 +638,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
                                             SvgPicture.asset(
-                                              'assets/images/handsclapping(dark_mode).svg',
+                                              'assets/images/hands-clapping-fill_(chosen_dark_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -667,7 +646,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
                                           if (!(Theme.of(context).brightness ==
                                               Brightness.dark))
                                             SvgPicture.asset(
-                                              'assets/images/handsclapping(light_mode).svg',
+                                              'assets/images/hands-clapping-fill_(chosen_light_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -693,7 +672,7 @@ class _CommunityPrayerPageWidgetState extends State<CommunityPrayerPageWidget>
               ),
             ),
           ],
-        ),
+        ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
       ),
     );
   }

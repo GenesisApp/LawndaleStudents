@@ -2,15 +2,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/custom_push_notification_widget.dart';
 import '/components/delete_tag_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -20,81 +16,18 @@ import 'notifications_selection_model.dart';
 export 'notifications_selection_model.dart';
 
 class NotificationsSelectionWidget extends StatefulWidget {
-  const NotificationsSelectionWidget({Key? key}) : super(key: key);
+  const NotificationsSelectionWidget({super.key});
 
   @override
-  _NotificationsSelectionWidgetState createState() =>
+  State<NotificationsSelectionWidget> createState() =>
       _NotificationsSelectionWidgetState();
 }
 
 class _NotificationsSelectionWidgetState
-    extends State<NotificationsSelectionWidget> with TickerProviderStateMixin {
+    extends State<NotificationsSelectionWidget> {
   late NotificationsSelectionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'gridViewOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -114,15 +47,6 @@ class _NotificationsSelectionWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -218,8 +142,7 @@ class _NotificationsSelectionWidgetState
                           ),
                         ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation']!),
+                    ),
                   ),
                   Padding(
                     padding:
@@ -232,8 +155,7 @@ class _NotificationsSelectionWidgetState
                             fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).systemGray,
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
+                    ),
                   ),
                 ],
               ),
@@ -472,26 +394,28 @@ class _NotificationsSelectionWidgetState
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: CustomPushNotificationWidget(
-                                          userGroupChosen:
-                                              gridViewProfileTagsRecord
-                                                  .usersWithTag,
-                                          tagChosen: gridViewProfileTagsRecord
-                                              .reference,
-                                          tagChosenDoc:
-                                              gridViewProfileTagsRecord,
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: CustomPushNotificationWidget(
+                                            userGroupChosen:
+                                                gridViewProfileTagsRecord
+                                                    .usersWithTag,
+                                            tagChosen: gridViewProfileTagsRecord
+                                                .reference,
+                                            tagChosenDoc:
+                                                gridViewProfileTagsRecord,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -504,21 +428,24 @@ class _NotificationsSelectionWidgetState
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: DeleteTagWidget(
-                                          tagSelected: gridViewProfileTagsRecord
-                                              .reference,
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: DeleteTagWidget(
+                                            tagSelected:
+                                                gridViewProfileTagsRecord
+                                                    .reference,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -590,8 +517,7 @@ class _NotificationsSelectionWidgetState
                             ),
                           );
                         },
-                      ).animateOnPageLoad(
-                          animationsMap['gridViewOnPageLoadAnimation']!);
+                      );
                     },
                   ),
                 ),
@@ -636,24 +562,26 @@ class _NotificationsSelectionWidgetState
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: CustomPushNotificationWidget(
-                                          userGroupChosen:
-                                              searchResultsItem.usersWithTag,
-                                          tagChosen:
-                                              searchResultsItem.reference,
-                                          tagChosenDoc: searchResultsItem,
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: CustomPushNotificationWidget(
+                                            userGroupChosen:
+                                                searchResultsItem.usersWithTag,
+                                            tagChosen:
+                                                searchResultsItem.reference,
+                                            tagChosenDoc: searchResultsItem,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -665,21 +593,23 @@ class _NotificationsSelectionWidgetState
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: DeleteTagWidget(
-                                          tagSelected:
-                                              searchResultsItem.reference,
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: DeleteTagWidget(
+                                            tagSelected:
+                                                searchResultsItem.reference,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },

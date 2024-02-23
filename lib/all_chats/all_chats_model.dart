@@ -26,6 +26,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -52,6 +53,12 @@ class AllChatsModel extends FlutterFlowModel<AllChatsWidget> {
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   List<UsersRecord> simpleSearchResults = [];
+  // State field(s) for ListView widget.
+
+  PagingController<DocumentSnapshot?, UsersRecord>? listViewPagingController1;
+  Query? listViewPagingQuery1;
+  List<StreamSubscription?> listViewStreamSubscriptions1 = [];
+
   // Model for chatTabIcon component.
   late ChatTabIconModel chatTabIconModel;
   // Model for profileTabIconUnselected component.
@@ -59,17 +66,22 @@ class AllChatsModel extends FlutterFlowModel<AllChatsWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     chatTabIconModel = createModel(context, () => ChatTabIconModel());
     profileTabIconUnselectedModel =
         createModel(context, () => ProfileTabIconUnselectedModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     timerController.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
+
+    listViewStreamSubscriptions1.forEach((s) => s?.cancel());
+    listViewPagingController1?.dispose();
 
     chatTabIconModel.dispose();
     profileTabIconUnselectedModel.dispose();
@@ -78,4 +90,35 @@ class AllChatsModel extends FlutterFlowModel<AllChatsWidget> {
   /// Action blocks are added here.
 
   /// Additional helper methods are added here.
+
+  PagingController<DocumentSnapshot?, UsersRecord> setListViewController1(
+    Query query, {
+    DocumentReference<Object?>? parent,
+  }) {
+    listViewPagingController1 ??= _createListViewController1(query, parent);
+    if (listViewPagingQuery1 != query) {
+      listViewPagingQuery1 = query;
+      listViewPagingController1?.refresh();
+    }
+    return listViewPagingController1!;
+  }
+
+  PagingController<DocumentSnapshot?, UsersRecord> _createListViewController1(
+    Query query,
+    DocumentReference<Object?>? parent,
+  ) {
+    final controller =
+        PagingController<DocumentSnapshot?, UsersRecord>(firstPageKey: null);
+    return controller
+      ..addPageRequestListener(
+        (nextPageMarker) => queryUsersRecordPage(
+          queryBuilder: (_) => listViewPagingQuery1 ??= query,
+          nextPageMarker: nextPageMarker,
+          streamSubscriptions: listViewStreamSubscriptions1,
+          controller: controller,
+          pageSize: 6,
+          isStream: true,
+        ),
+      );
+  }
 }

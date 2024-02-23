@@ -1,16 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/read_scripture_copy_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,216 +18,16 @@ import 'catechism_model.dart';
 export 'catechism_model.dart';
 
 class CatechismWidget extends StatefulWidget {
-  const CatechismWidget({Key? key}) : super(key: key);
+  const CatechismWidget({super.key});
 
   @override
-  _CatechismWidgetState createState() => _CatechismWidgetState();
+  State<CatechismWidget> createState() => _CatechismWidgetState();
 }
 
-class _CatechismWidgetState extends State<CatechismWidget>
-    with TickerProviderStateMixin {
+class _CatechismWidgetState extends State<CatechismWidget> {
   late CatechismModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -247,15 +44,6 @@ class _CatechismWidgetState extends State<CatechismWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -352,7 +140,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 8.0),
@@ -364,7 +152,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).systemGray,
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(22.0, 20.0, 22.0, 20.0),
@@ -466,8 +254,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                           ),
                         ),
                     ],
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation1']!),
+                  ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -565,8 +352,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                           ),
                         ),
                     ],
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation2']!),
+                  ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -661,8 +447,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                           ),
                         ),
                     ],
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation3']!),
+                  ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -757,8 +542,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                           ),
                         ),
                     ],
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation4']!),
+                  ),
                 ],
               ),
             ),
@@ -932,20 +716,20 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
                                                                     child:
-                                                                        ReadScriptureCopyWidget(
-                                                                      catechismDoc:
-                                                                          flippableCardCatechismRecord,
-                                                                      catechismRef:
-                                                                          flippableCardCatechismRecord
-                                                                              .reference,
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          ReadScriptureCopyWidget(
+                                                                        catechismDoc:
+                                                                            flippableCardCatechismRecord,
+                                                                        catechismRef:
+                                                                            flippableCardCatechismRecord.reference,
+                                                                      ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -1261,8 +1045,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                               );
                             }),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation5']!);
+                        );
                       },
                     ),
                   ),
@@ -1439,20 +1222,20 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
                                                                     child:
-                                                                        ReadScriptureCopyWidget(
-                                                                      catechismDoc:
-                                                                          flippableCardCatechismRecord,
-                                                                      catechismRef:
-                                                                          flippableCardCatechismRecord
-                                                                              .reference,
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          ReadScriptureCopyWidget(
+                                                                        catechismDoc:
+                                                                            flippableCardCatechismRecord,
+                                                                        catechismRef:
+                                                                            flippableCardCatechismRecord.reference,
+                                                                      ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -1768,8 +1551,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                               );
                             }),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation6']!);
+                        );
                       },
                     ),
                   ),
@@ -1946,20 +1728,20 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
                                                                     child:
-                                                                        ReadScriptureCopyWidget(
-                                                                      catechismDoc:
-                                                                          flippableCardCatechismRecord,
-                                                                      catechismRef:
-                                                                          flippableCardCatechismRecord
-                                                                              .reference,
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          ReadScriptureCopyWidget(
+                                                                        catechismDoc:
+                                                                            flippableCardCatechismRecord,
+                                                                        catechismRef:
+                                                                            flippableCardCatechismRecord.reference,
+                                                                      ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -2275,8 +2057,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                               );
                             }),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation7']!);
+                        );
                       },
                     ),
                   ),
@@ -2456,20 +2237,20 @@ class _CatechismWidgetState extends State<CatechismWidget>
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
                                                                     child:
-                                                                        ReadScriptureCopyWidget(
-                                                                      catechismDoc:
-                                                                          flippableCardCatechismRecord,
-                                                                      catechismRef:
-                                                                          flippableCardCatechismRecord
-                                                                              .reference,
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          ReadScriptureCopyWidget(
+                                                                        catechismDoc:
+                                                                            flippableCardCatechismRecord,
+                                                                        catechismRef:
+                                                                            flippableCardCatechismRecord.reference,
+                                                                      ),
                                                                     ),
-                                                                  ));
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -2785,8 +2566,7 @@ class _CatechismWidgetState extends State<CatechismWidget>
                               );
                             }),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation8']!);
+                        );
                       },
                     ),
                   ),

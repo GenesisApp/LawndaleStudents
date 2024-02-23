@@ -16,8 +16,10 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class BlockConfirmationModel extends FlutterFlowModel<BlockConfirmationWidget> {
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

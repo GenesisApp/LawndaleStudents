@@ -15,14 +15,14 @@ export 'seasons_update_model.dart';
 
 class SeasonsUpdateWidget extends StatefulWidget {
   const SeasonsUpdateWidget({
-    Key? key,
+    super.key,
     this.userUpdating,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userUpdating;
 
   @override
-  _SeasonsUpdateWidgetState createState() => _SeasonsUpdateWidgetState();
+  State<SeasonsUpdateWidget> createState() => _SeasonsUpdateWidgetState();
 }
 
 class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
@@ -217,7 +217,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ));
                                         HapticFeedback.lightImpact();
 
-                                        context.goNamed('SoLSplashScreenCopy');
+                                        context.goNamed('SoLSplashScreen');
                                       },
                                       child: Container(
                                         width: 40.0,
@@ -404,7 +404,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ));
                                         HapticFeedback.lightImpact();
 
-                                        context.goNamed('SoLSplashScreenCopy');
+                                        context.goNamed('SoLSplashScreen');
                                       },
                                       child: Container(
                                         width: 40.0,
@@ -591,7 +591,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ));
                                         HapticFeedback.lightImpact();
 
-                                        context.goNamed('SoLSplashScreenCopy');
+                                        context.goNamed('SoLSplashScreen');
                                       },
                                       child: Container(
                                         width: 40.0,
@@ -780,7 +780,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                         ));
                                         HapticFeedback.lightImpact();
 
-                                        context.goNamed('SoLSplashScreenCopy');
+                                        context.goNamed('SoLSplashScreen');
                                       },
                                       child: Container(
                                         width: 40.0,
@@ -1014,8 +1014,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                               },
                                             );
 
-                                            context
-                                                .goNamed('SoLSplashScreenCopy');
+                                            context.goNamed('SoLSplashScreen');
                                           },
                                           child: Container(
                                             width: 40.0,
@@ -1318,8 +1317,7 @@ class _SeasonsUpdateWidgetState extends State<SeasonsUpdateWidget> {
                                           ));
                                           HapticFeedback.lightImpact();
 
-                                          context
-                                              .goNamed('SoLSplashScreenCopy');
+                                          context.goNamed('SoLSplashScreen');
                                         }
                                       },
                                       child: Container(

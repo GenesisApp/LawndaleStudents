@@ -69,8 +69,8 @@ class GroupRatingsRecord extends FirestoreRecord {
           ? parent.collection('groupRatings')
           : FirebaseFirestore.instance.collectionGroup('groupRatings');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('groupRatings').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('groupRatings').doc(id);
 
   static Stream<GroupRatingsRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => GroupRatingsRecord.fromSnapshot(s));

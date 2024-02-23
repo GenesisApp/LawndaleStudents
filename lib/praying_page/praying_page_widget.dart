@@ -26,18 +26,18 @@ export 'praying_page_model.dart';
 
 class PrayingPageWidget extends StatefulWidget {
   const PrayingPageWidget({
-    Key? key,
+    super.key,
     this.requestChosen,
     this.requestChosenDoc,
     this.requestUser,
-  }) : super(key: key);
+  });
 
   final DocumentReference? requestChosen;
   final PrayerRequestsRecord? requestChosenDoc;
   final UsersRecord? requestUser;
 
   @override
-  _PrayingPageWidgetState createState() => _PrayingPageWidgetState();
+  State<PrayingPageWidget> createState() => _PrayingPageWidgetState();
 }
 
 class _PrayingPageWidgetState extends State<PrayingPageWidget>
@@ -195,15 +195,6 @@ class _PrayingPageWidgetState extends State<PrayingPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -228,7 +219,7 @@ class _PrayingPageWidgetState extends State<PrayingPageWidget>
                     url:
                         valueOrDefault(currentUserDocument?.prayerVideoURL, ''),
                     height: 50.0,
-                    autoPlay: true,
+                    autoPlay: false,
                     looping: true,
                     mute: false,
                     showControls: false,

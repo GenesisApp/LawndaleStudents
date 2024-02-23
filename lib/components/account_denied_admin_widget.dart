@@ -11,10 +11,10 @@ import 'account_denied_admin_model.dart';
 export 'account_denied_admin_model.dart';
 
 class AccountDeniedAdminWidget extends StatefulWidget {
-  const AccountDeniedAdminWidget({Key? key}) : super(key: key);
+  const AccountDeniedAdminWidget({super.key});
 
   @override
-  _AccountDeniedAdminWidgetState createState() =>
+  State<AccountDeniedAdminWidget> createState() =>
       _AccountDeniedAdminWidgetState();
 }
 
@@ -69,8 +69,8 @@ class _AccountDeniedAdminWidgetState extends State<AccountDeniedAdminWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),

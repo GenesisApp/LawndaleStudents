@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/components/practice_preview_widget.dart';
 import '/components/prayer_ring_small_widget.dart';
 import '/components/worship_create_future_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,7 +10,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,241 +19,18 @@ import 'daily_practice_scheduling_model.dart';
 export 'daily_practice_scheduling_model.dart';
 
 class DailyPracticeSchedulingWidget extends StatefulWidget {
-  const DailyPracticeSchedulingWidget({Key? key}) : super(key: key);
+  const DailyPracticeSchedulingWidget({super.key});
 
   @override
-  _DailyPracticeSchedulingWidgetState createState() =>
+  State<DailyPracticeSchedulingWidget> createState() =>
       _DailyPracticeSchedulingWidgetState();
 }
 
 class _DailyPracticeSchedulingWidgetState
-    extends State<DailyPracticeSchedulingWidget> with TickerProviderStateMixin {
+    extends State<DailyPracticeSchedulingWidget> {
   late DailyPracticeSchedulingModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -281,15 +56,6 @@ class _DailyPracticeSchedulingWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -427,19 +193,21 @@ class _DailyPracticeSchedulingWidgetState
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: WorshipCreateFutureWidget(),
+                                        child: GestureDetector(
+                                          onTap: () => _model
+                                                  .unfocusNode.canRequestFocus
+                                              ? FocusScope.of(context)
+                                                  .requestFocus(
+                                                      _model.unfocusNode)
+                                              : FocusScope.of(context)
+                                                  .unfocus(),
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: WorshipCreateFutureWidget(),
+                                          ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },
@@ -464,27 +232,29 @@ class _DailyPracticeSchedulingWidgetState
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: GestureDetector(
-                                            onTap: () => _model
-                                                    .unfocusNode.canRequestFocus
-                                                ? FocusScope.of(context)
-                                                    .requestFocus(
-                                                        _model.unfocusNode)
-                                                : FocusScope.of(context)
-                                                    .unfocus(),
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.92,
-                                                child:
-                                                    WorshipCreateFutureWidget(),
+                                            child: GestureDetector(
+                                              onTap: () => _model.unfocusNode
+                                                      .canRequestFocus
+                                                  ? FocusScope.of(context)
+                                                      .requestFocus(
+                                                          _model.unfocusNode)
+                                                  : FocusScope.of(context)
+                                                      .unfocus(),
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: Container(
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.92,
+                                                  child:
+                                                      WorshipCreateFutureWidget(),
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -519,8 +289,7 @@ class _DailyPracticeSchedulingWidgetState
                               ),
                             ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['rowOnPageLoadAnimation']!),
+                        ),
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -535,8 +304,7 @@ class _DailyPracticeSchedulingWidgetState
                                 fontFamily: 'Inter',
                                 color: FlutterFlowTheme.of(context).systemGray,
                               ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation1']!),
+                        ),
                       ),
                     ],
                   ),
@@ -800,8 +568,7 @@ class _DailyPracticeSchedulingWidgetState
                               ),
                             ),
                         ],
-                      ).animateOnPageLoad(
-                          animationsMap['columnOnPageLoadAnimation1']!),
+                      ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1024,8 +791,7 @@ class _DailyPracticeSchedulingWidgetState
                               ),
                             ),
                         ],
-                      ).animateOnPageLoad(
-                          animationsMap['columnOnPageLoadAnimation2']!),
+                      ),
                       Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -1160,8 +926,7 @@ class _DailyPracticeSchedulingWidgetState
                               ),
                             ),
                         ],
-                      ).animateOnPageLoad(
-                          animationsMap['columnOnPageLoadAnimation3']!),
+                      ),
                     ],
                   ),
                 ),
@@ -1220,8 +985,7 @@ class _DailyPracticeSchedulingWidgetState
                                                                 .systemGray,
                                                         fontSize: 14.0,
                                                       ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation2']!),
+                                            ),
                                           ),
                                           Padding(
                                             padding:
@@ -1319,8 +1083,7 @@ class _DailyPracticeSchedulingWidgetState
                                                                     context)
                                                                 .systemGray,
                                                       ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation3']!),
+                                            ),
                                           ),
                                           StreamBuilder<
                                               List<DailyPracticeVideosRecord>>(
@@ -1427,8 +1190,7 @@ class _DailyPracticeSchedulingWidgetState
                                                                     context)
                                                                 .systemGray,
                                                       ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation4']!),
+                                            ),
                                           ),
                                           Padding(
                                             padding:
@@ -1526,8 +1288,7 @@ class _DailyPracticeSchedulingWidgetState
                                                                     context)
                                                                 .systemGray,
                                                       ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation5']!),
+                                            ),
                                           ),
                                           StreamBuilder<
                                               List<DailyPracticeVideosRecord>>(
@@ -1634,8 +1395,7 @@ class _DailyPracticeSchedulingWidgetState
                                                                     context)
                                                                 .systemGray,
                                                       ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation6']!),
+                                            ),
                                           ),
                                           Padding(
                                             padding:
@@ -1733,8 +1493,7 @@ class _DailyPracticeSchedulingWidgetState
                                                                     context)
                                                                 .systemGray,
                                                       ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation7']!),
+                                            ),
                                           ),
                                           StreamBuilder<
                                               List<DailyPracticeVideosRecord>>(

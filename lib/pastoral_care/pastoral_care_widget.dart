@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,10 +14,10 @@ import 'pastoral_care_model.dart';
 export 'pastoral_care_model.dart';
 
 class PastoralCareWidget extends StatefulWidget {
-  const PastoralCareWidget({Key? key}) : super(key: key);
+  const PastoralCareWidget({super.key});
 
   @override
-  _PastoralCareWidgetState createState() => _PastoralCareWidgetState();
+  State<PastoralCareWidget> createState() => _PastoralCareWidgetState();
 }
 
 class _PastoralCareWidgetState extends State<PastoralCareWidget> {
@@ -41,15 +40,6 @@ class _PastoralCareWidgetState extends State<PastoralCareWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(

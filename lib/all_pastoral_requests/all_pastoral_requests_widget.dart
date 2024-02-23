@@ -1,13 +1,9 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,59 +13,17 @@ import 'all_pastoral_requests_model.dart';
 export 'all_pastoral_requests_model.dart';
 
 class AllPastoralRequestsWidget extends StatefulWidget {
-  const AllPastoralRequestsWidget({Key? key}) : super(key: key);
+  const AllPastoralRequestsWidget({super.key});
 
   @override
-  _AllPastoralRequestsWidgetState createState() =>
+  State<AllPastoralRequestsWidget> createState() =>
       _AllPastoralRequestsWidgetState();
 }
 
-class _AllPastoralRequestsWidgetState extends State<AllPastoralRequestsWidget>
-    with TickerProviderStateMixin {
+class _AllPastoralRequestsWidgetState extends State<AllPastoralRequestsWidget> {
   late AllPastoralRequestsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -89,15 +43,6 @@ class _AllPastoralRequestsWidgetState extends State<AllPastoralRequestsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -819,8 +764,7 @@ class _AllPastoralRequestsWidgetState extends State<AllPastoralRequestsWidget>
                               );
                             }),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation1']!);
+                        );
                       },
                     ),
                   ),
@@ -1215,8 +1159,7 @@ class _AllPastoralRequestsWidgetState extends State<AllPastoralRequestsWidget>
                               );
                             }),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation2']!);
+                        );
                       },
                     ),
                   ),

@@ -12,10 +12,10 @@ import 'percentage_completed2_model.dart';
 export 'percentage_completed2_model.dart';
 
 class PercentageCompleted2Widget extends StatefulWidget {
-  const PercentageCompleted2Widget({Key? key}) : super(key: key);
+  const PercentageCompleted2Widget({super.key});
 
   @override
-  _PercentageCompleted2WidgetState createState() =>
+  State<PercentageCompleted2Widget> createState() =>
       _PercentageCompleted2WidgetState();
 }
 
@@ -105,7 +105,7 @@ class _PercentageCompleted2WidgetState
                                       .toDouble(),
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor: Color(0xFF6D6DAE),

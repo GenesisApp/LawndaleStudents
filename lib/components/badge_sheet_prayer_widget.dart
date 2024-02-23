@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -14,10 +13,10 @@ import 'badge_sheet_prayer_model.dart';
 export 'badge_sheet_prayer_model.dart';
 
 class BadgeSheetPrayerWidget extends StatefulWidget {
-  const BadgeSheetPrayerWidget({Key? key}) : super(key: key);
+  const BadgeSheetPrayerWidget({super.key});
 
   @override
-  _BadgeSheetPrayerWidgetState createState() => _BadgeSheetPrayerWidgetState();
+  State<BadgeSheetPrayerWidget> createState() => _BadgeSheetPrayerWidgetState();
 }
 
 class _BadgeSheetPrayerWidgetState extends State<BadgeSheetPrayerWidget> {

@@ -4,7 +4,6 @@ import '/components/prayer_practice_b_sall_widget.dart';
 import '/components/prayer_ring_small_widget.dart';
 import '/components/scripture_practice_b_sall_widget.dart';
 import '/components/worship_practice_b_sall_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'practice_journal_preview_widget.dart' show PracticeJournalPreviewWidget;
@@ -12,9 +11,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,10 +31,12 @@ class PracticeJournalPreviewModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     prayerRingSmallModel = createModel(context, () => PrayerRingSmallModel());
   }
 
+  @override
   void dispose() {
     expandableController.dispose();
     prayerRingSmallModel.dispose();

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -10,10 +9,10 @@ import 'added_to_series_model.dart';
 export 'added_to_series_model.dart';
 
 class AddedToSeriesWidget extends StatefulWidget {
-  const AddedToSeriesWidget({Key? key}) : super(key: key);
+  const AddedToSeriesWidget({super.key});
 
   @override
-  _AddedToSeriesWidgetState createState() => _AddedToSeriesWidgetState();
+  State<AddedToSeriesWidget> createState() => _AddedToSeriesWidgetState();
 }
 
 class _AddedToSeriesWidgetState extends State<AddedToSeriesWidget> {
@@ -67,8 +66,8 @@ class _AddedToSeriesWidgetState extends State<AddedToSeriesWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                             shape: BoxShape.circle,
@@ -103,7 +102,7 @@ class _AddedToSeriesWidgetState extends State<AddedToSeriesWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.165,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

@@ -2,14 +2,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/journal_preview_widget.dart';
 import '/components/prayer_ring_small_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,140 +14,16 @@ import 'prayer_archives_model.dart';
 export 'prayer_archives_model.dart';
 
 class PrayerArchivesWidget extends StatefulWidget {
-  const PrayerArchivesWidget({Key? key}) : super(key: key);
+  const PrayerArchivesWidget({super.key});
 
   @override
-  _PrayerArchivesWidgetState createState() => _PrayerArchivesWidgetState();
+  State<PrayerArchivesWidget> createState() => _PrayerArchivesWidgetState();
 }
 
-class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
-    with TickerProviderStateMixin {
+class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget> {
   late PrayerArchivesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -167,15 +40,6 @@ class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -280,8 +144,7 @@ class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
                             child: PrayerRingSmallWidget(),
                           ),
                         ],
-                      ).animateOnPageLoad(
-                          animationsMap['rowOnPageLoadAnimation']!),
+                      ),
                     ),
                     Padding(
                       padding:
@@ -294,8 +157,7 @@ class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).systemGray,
                             ),
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation']!),
+                      ),
                     ),
                   ],
                 ),
@@ -397,8 +259,7 @@ class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation1']!),
+                    ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -494,8 +355,7 @@ class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation2']!),
+                    ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -587,8 +447,7 @@ class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation3']!),
+                    ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -680,8 +539,7 @@ class _PrayerArchivesWidgetState extends State<PrayerArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation4']!),
+                    ),
                   ],
                 ),
               ),

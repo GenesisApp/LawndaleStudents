@@ -4,7 +4,6 @@ import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/edit_practice_response_copy_widget.dart';
 import '/components/language_report_widget.dart';
 import '/components/report_concern_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -17,8 +16,6 @@ import 'package:easy_debounce/easy_debounce.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -30,77 +27,22 @@ export 'journal_reply_page_model.dart';
 
 class JournalReplyPageWidget extends StatefulWidget {
   const JournalReplyPageWidget({
-    Key? key,
+    super.key,
     this.journalChosenDoc,
-  }) : super(key: key);
+  });
 
   final PersonalJournalsRecord? journalChosenDoc;
 
   @override
-  _JournalReplyPageWidgetState createState() => _JournalReplyPageWidgetState();
+  State<JournalReplyPageWidget> createState() => _JournalReplyPageWidgetState();
 }
 
-class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
-    with TickerProviderStateMixin {
+class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget> {
   late JournalReplyPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'youtubePlayerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -145,15 +87,6 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return YoutubeFullScreenWrapper(
@@ -198,8 +131,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                           mute: false,
                           showControls: true,
                           showFullScreen: true,
-                        ).animateOnPageLoad(
-                            animationsMap['youtubePlayerOnPageLoadAnimation']!),
+                        ),
                       ),
                       Container(
                         width: MediaQuery.sizeOf(context).width * 1.0,
@@ -579,9 +511,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ).animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'containerOnPageLoadAnimation1']!),
+                                                                ),
                                                                 Row(
                                                                   mainAxisSize:
                                                                       MainAxisSize
@@ -890,6 +820,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                                                     Container(
                                                                                       color: FlutterFlowTheme.of(context).primary,
                                                                                       child: ExpandableNotifier(
+                                                                                        initialExpanded: false,
                                                                                         child: ExpandablePanel(
                                                                                           header: Container(
                                                                                             width: 100.0,
@@ -961,7 +892,7 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                                                                       ),
                                                                                                     ),
                                                                                                   ),
-                                                                                                ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation2']!),
+                                                                                                ),
                                                                                                 Row(
                                                                                                   mainAxisSize: MainAxisSize.max,
                                                                                                   children: [
@@ -1241,16 +1172,17 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                                                                       context: context,
                                                                                                       builder: (context) {
                                                                                                         return WebViewAware(
-                                                                                                            child: GestureDetector(
-                                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                          child: Padding(
-                                                                                                            padding: MediaQuery.viewInsetsOf(context),
-                                                                                                            child: EditPracticeResponseCopyWidget(
-                                                                                                              usersReply: columnJournalRepliesRecord.reference,
-                                                                                                              usersReplyDoc: columnJournalRepliesRecord,
+                                                                                                          child: GestureDetector(
+                                                                                                            onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                            child: Padding(
+                                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                                              child: EditPracticeResponseCopyWidget(
+                                                                                                                usersReply: columnJournalRepliesRecord.reference,
+                                                                                                                usersReplyDoc: columnJournalRepliesRecord,
+                                                                                                              ),
                                                                                                             ),
                                                                                                           ),
-                                                                                                        ));
+                                                                                                        );
                                                                                                       },
                                                                                                     ).then((value) => safeSetState(() {}));
                                                                                                   },
@@ -1310,13 +1242,14 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                                                                     context: context,
                                                                                                     builder: (context) {
                                                                                                       return WebViewAware(
-                                                                                                          child: GestureDetector(
-                                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                                        child: Padding(
-                                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                                          child: ReportConcernWidget(),
+                                                                                                        child: GestureDetector(
+                                                                                                          onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                                          child: Padding(
+                                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                                            child: ReportConcernWidget(),
+                                                                                                          ),
                                                                                                         ),
-                                                                                                      ));
+                                                                                                      );
                                                                                                     },
                                                                                                   ).then((value) => safeSetState(() {}));
                                                                                                 },
@@ -1727,26 +1660,28 @@ class _JournalReplyPageWidgetState extends State<JournalReplyPageWidget>
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      LanguageReportWidget(),
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        LanguageReportWidget(),
+                                                                  ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(

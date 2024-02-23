@@ -10,7 +10,6 @@ import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -21,18 +20,18 @@ export 'group_chat_settings_model.dart';
 
 class GroupChatSettingsWidget extends StatefulWidget {
   const GroupChatSettingsWidget({
-    Key? key,
+    super.key,
     this.grouptoEdit,
     this.otherUser,
     this.chatUsers,
-  }) : super(key: key);
+  });
 
   final MessageChatsRecord? grouptoEdit;
   final UsersRecord? otherUser;
   final DocumentReference? chatUsers;
 
   @override
-  _GroupChatSettingsWidgetState createState() =>
+  State<GroupChatSettingsWidget> createState() =>
       _GroupChatSettingsWidgetState();
 }
 
@@ -930,19 +929,20 @@ class _GroupChatSettingsWidgetState extends State<GroupChatSettingsWidget> {
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: 107.0,
-                                              child: GroupNameEditWidget(
-                                                grouptoEdit: widget
-                                                    .grouptoEdit?.reference,
-                                                grouptoEditDoc:
-                                                    widget.grouptoEdit,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height: 107.0,
+                                                child: GroupNameEditWidget(
+                                                  grouptoEdit: widget
+                                                      .grouptoEdit?.reference,
+                                                  grouptoEditDoc:
+                                                      widget.grouptoEdit,
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -1031,13 +1031,14 @@ class _GroupChatSettingsWidgetState extends State<GroupChatSettingsWidget> {
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: DeleteChatWidget(
-                                chat: widget.grouptoEdit?.reference,
-                                otherUser: widget.otherUser?.reference,
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: DeleteChatWidget(
+                                  chat: widget.grouptoEdit?.reference,
+                                  otherUser: widget.otherUser?.reference,
+                                ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       },

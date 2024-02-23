@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,16 +12,16 @@ export 'p_d_f_message_notes_copy_model.dart';
 
 class PDFMessageNotesCopyWidget extends StatefulWidget {
   const PDFMessageNotesCopyWidget({
-    Key? key,
+    super.key,
     this.pdfImageSelected,
     this.pdfImageSelectedRef,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? pdfImageSelected;
   final DocumentReference? pdfImageSelectedRef;
 
   @override
-  _PDFMessageNotesCopyWidgetState createState() =>
+  State<PDFMessageNotesCopyWidget> createState() =>
       _PDFMessageNotesCopyWidgetState();
 }
 

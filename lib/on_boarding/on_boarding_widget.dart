@@ -10,7 +10,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,10 +21,10 @@ import 'on_boarding_model.dart';
 export 'on_boarding_model.dart';
 
 class OnBoardingWidget extends StatefulWidget {
-  const OnBoardingWidget({Key? key}) : super(key: key);
+  const OnBoardingWidget({super.key});
 
   @override
-  _OnBoardingWidgetState createState() => _OnBoardingWidgetState();
+  State<OnBoardingWidget> createState() => _OnBoardingWidgetState();
 }
 
 class _OnBoardingWidgetState extends State<OnBoardingWidget>
@@ -454,15 +453,6 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -952,7 +942,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                   .brightness ==
                                                               Brightness.dark)
                                                             SvgPicture.asset(
-                                                              'assets/images/hands-clapping-fill_(3).svg',
+                                                              'assets/images/hands-clapping-fill_(ring_dark_mode).svg',
                                                               width: 40.0,
                                                               height: 40.0,
                                                               fit: BoxFit.cover,
@@ -962,7 +952,7 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                                                   .brightness ==
                                                               Brightness.dark))
                                                             SvgPicture.asset(
-                                                              'assets/images/hands-clapping-fill.svg',
+                                                              'assets/images/hands-clapping-fill_(ring_light_mode).svg',
                                                               width: 40.0,
                                                               height: 40.0,
                                                               fit: BoxFit.cover,

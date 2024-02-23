@@ -2,16 +2,12 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/edit_prayer_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,51 +18,22 @@ export 'personal_prayer_request_model.dart';
 
 class PersonalPrayerRequestWidget extends StatefulWidget {
   const PersonalPrayerRequestWidget({
-    Key? key,
+    super.key,
     required this.chosenPrayerRequestDoc,
     required this.chosenPrayerRequestRef,
-  }) : super(key: key);
+  });
 
   final PrayerRequestsRecord? chosenPrayerRequestDoc;
   final DocumentReference? chosenPrayerRequestRef;
 
   @override
-  _PersonalPrayerRequestWidgetState createState() =>
+  State<PersonalPrayerRequestWidget> createState() =>
       _PersonalPrayerRequestWidgetState();
 }
 
 class _PersonalPrayerRequestWidgetState
-    extends State<PersonalPrayerRequestWidget> with TickerProviderStateMixin {
+    extends State<PersonalPrayerRequestWidget> {
   late PersonalPrayerRequestModel _model;
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -80,12 +47,6 @@ class _PersonalPrayerRequestWidgetState
     _model = createModel(context, () => PersonalPrayerRequestModel());
 
     _model.expandableController = ExpandableController(initialExpanded: false);
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -213,8 +174,7 @@ class _PersonalPrayerRequestWidgetState
                                 ),
                               ),
                             ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation1']!),
+                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 0.0, 0.0),
@@ -351,8 +311,8 @@ class _PersonalPrayerRequestWidgetState
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            StreamBuilder<List<UsersRecord>>(
-                                              stream: queryUsersRecord(
+                                            FutureBuilder<int>(
+                                              future: queryUsersRecordCount(
                                                 queryBuilder: (usersRecord) =>
                                                     usersRecord.where(
                                                   'prayedforRequests',
@@ -375,8 +335,7 @@ class _PersonalPrayerRequestWidgetState
                                                     ),
                                                   );
                                                 }
-                                                List<UsersRecord>
-                                                    containerUsersRecordList =
+                                                int containerCount =
                                                     snapshot.data!;
                                                 return Container(
                                                   height: 30.0,
@@ -537,8 +496,7 @@ class _PersonalPrayerRequestWidgetState
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
-                                                                if (containerUsersRecordList
-                                                                        .length >
+                                                                if (containerCount >
                                                                     6)
                                                                   Align(
                                                                     alignment:
@@ -562,8 +520,7 @@ class _PersonalPrayerRequestWidgetState
                                                                           ),
                                                                     ),
                                                                   ),
-                                                                if (containerUsersRecordList
-                                                                        .length >
+                                                                if (containerCount >
                                                                     6)
                                                                   Align(
                                                                     alignment:
@@ -573,7 +530,7 @@ class _PersonalPrayerRequestWidgetState
                                                                     child: Text(
                                                                       valueOrDefault<
                                                                           String>(
-                                                                        (containerUsersRecordList.length -
+                                                                        (containerCount -
                                                                                 6)
                                                                             .toString(),
                                                                         '0',
@@ -629,8 +586,7 @@ class _PersonalPrayerRequestWidgetState
                               ],
                             ),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation2']!),
+                        ),
                       ],
                     ),
                   ),
@@ -712,8 +668,8 @@ class _PersonalPrayerRequestWidgetState
                                       Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          StreamBuilder<List<UsersRecord>>(
-                                            stream: queryUsersRecord(
+                                          FutureBuilder<int>(
+                                            future: queryUsersRecordCount(
                                               queryBuilder: (usersRecord) =>
                                                   usersRecord.where(
                                                 'prayedforRequests',
@@ -735,8 +691,7 @@ class _PersonalPrayerRequestWidgetState
                                                   ),
                                                 );
                                               }
-                                              List<UsersRecord>
-                                                  containerUsersRecordList =
+                                              int containerCount =
                                                   snapshot.data!;
                                               return Container(
                                                 height: 30.0,
@@ -895,8 +850,7 @@ class _PersonalPrayerRequestWidgetState
                                                                 MainAxisSize
                                                                     .max,
                                                             children: [
-                                                              if (containerUsersRecordList
-                                                                      .length >
+                                                              if (containerCount >
                                                                   6)
                                                                 Align(
                                                                   alignment:
@@ -920,8 +874,7 @@ class _PersonalPrayerRequestWidgetState
                                                                         ),
                                                                   ),
                                                                 ),
-                                                              if (containerUsersRecordList
-                                                                      .length >
+                                                              if (containerCount >
                                                                   6)
                                                                 Align(
                                                                   alignment:
@@ -931,7 +884,7 @@ class _PersonalPrayerRequestWidgetState
                                                                   child: Text(
                                                                     valueOrDefault<
                                                                         String>(
-                                                                      (containerUsersRecordList.length -
+                                                                      (containerCount -
                                                                               6)
                                                                           .toString(),
                                                                       '0',
@@ -1354,25 +1307,27 @@ class _PersonalPrayerRequestWidgetState
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.75,
-                                                            child:
-                                                                EditPrayerWidget(
-                                                              usersPrayer: widget
-                                                                  .chosenPrayerRequestRef,
-                                                              usersPrayerDoc: widget
-                                                                  .chosenPrayerRequestDoc,
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  0.75,
+                                                              child:
+                                                                  EditPrayerWidget(
+                                                                usersPrayer: widget
+                                                                    .chosenPrayerRequestRef,
+                                                                usersPrayerDoc:
+                                                                    widget
+                                                                        .chosenPrayerRequestDoc,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));

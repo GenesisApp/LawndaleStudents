@@ -211,6 +211,8 @@ String? checkIfMorning() {
     return 'afternoon';
   } else if (now.hour >= 17 && now.hour < 20) {
     return 'evening';
+  } else if (now.hour >= 20 && now.hour < 5) {
+    return 'nighttime';
   } else {
     return 'nighttime';
   }

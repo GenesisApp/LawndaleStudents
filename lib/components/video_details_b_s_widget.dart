@@ -11,7 +11,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -24,16 +23,16 @@ export 'video_details_b_s_model.dart';
 
 class VideoDetailsBSWidget extends StatefulWidget {
   const VideoDetailsBSWidget({
-    Key? key,
+    super.key,
     required this.videoChosenRef,
     required this.videoChosenDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? videoChosenRef;
   final ResourceVideosRecord? videoChosenDoc;
 
   @override
-  _VideoDetailsBSWidgetState createState() => _VideoDetailsBSWidgetState();
+  State<VideoDetailsBSWidget> createState() => _VideoDetailsBSWidgetState();
 }
 
 class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
@@ -41,19 +40,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
   late VideoDetailsBSModel _model;
 
   final animationsMap = {
-    'stackOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
+    'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -62,63 +49,6 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
           duration: 2000.ms,
           begin: 0.0,
           end: 1.0,
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -220,7 +150,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                         ],
                       ),
                     ).animateOnPageLoad(
-                        animationsMap['containerOnPageLoadAnimation1']!),
+                        animationsMap['containerOnPageLoadAnimation']!),
                     Expanded(
                       child: Container(
                         width: double.infinity,
@@ -443,24 +373,25 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.92,
-                                                            child:
-                                                                VideoEditWidget(
-                                                              chosenResourceVideo:
-                                                                  widget
-                                                                      .videoChosenDoc,
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  0.92,
+                                                              child:
+                                                                  VideoEditWidget(
+                                                                chosenResourceVideo:
+                                                                    widget
+                                                                        .videoChosenDoc,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -536,8 +467,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                 fontSize: 20.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation']!),
+                                        ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -819,8 +749,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                   alignment:
                                                       AlignmentDirectional(
                                                           -0.8, 0.0),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation2']!),
+                                                ),
                                               );
                                             }),
                                           );
@@ -876,11 +805,14 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                   mainAxisSize:
                                                       MainAxisSize.max,
                                                   children: [
-                                                    if (widget
-                                                            .videoChosenDoc!
-                                                            .usersWatched
-                                                            .length >=
-                                                        4)
+                                                    if (valueOrDefault<bool>(
+                                                      widget
+                                                              .videoChosenDoc!
+                                                              .usersWatched
+                                                              .length >=
+                                                          4,
+                                                      false,
+                                                    ))
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
@@ -903,11 +835,14 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                               ),
                                                         ),
                                                       ),
-                                                    if (widget
-                                                            .videoChosenDoc
-                                                            ?.usersWatched
-                                                            ?.length ==
-                                                        0)
+                                                    if (valueOrDefault<bool>(
+                                                      widget
+                                                              .videoChosenDoc
+                                                              ?.usersWatched
+                                                              ?.length ==
+                                                          0,
+                                                      false,
+                                                    ))
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
@@ -932,15 +867,17 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                                       ),
                                                   ],
                                                 ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'containerOnPageLoadAnimation3']!);
+                                              );
                                             },
                                           ),
                                         ),
                                       ),
-                                      if (widget.videoChosenDoc!.usersWatched
-                                              .length >
-                                          4)
+                                      if (valueOrDefault<bool>(
+                                        widget.videoChosenDoc!.usersWatched
+                                                .length >
+                                            4,
+                                        false,
+                                      ))
                                         Align(
                                           alignment:
                                               AlignmentDirectional(0.0, 0.0),
@@ -1018,24 +955,26 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
                                               context: context,
                                               builder: (context) {
                                                 return WebViewAware(
-                                                    child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child: Container(
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
-                                                            .height *
-                                                        0.85,
-                                                    child:
-                                                        PDFMessageNotesWidget(
-                                                      pdfImageSelected:
-                                                          widget.videoChosenDoc,
-                                                      pdfImageSelectedRef:
-                                                          widget.videoChosenRef,
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: Container(
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          0.85,
+                                                      child:
+                                                          PDFMessageNotesWidget(
+                                                        pdfImageSelected: widget
+                                                            .videoChosenDoc,
+                                                        pdfImageSelectedRef:
+                                                            widget
+                                                                .videoChosenRef,
+                                                      ),
                                                     ),
                                                   ),
-                                                ));
+                                                );
                                               },
                                             ).then(
                                                 (value) => safeSetState(() {}));
@@ -1078,7 +1017,7 @@ class _VideoDetailsBSWidgetState extends State<VideoDetailsBSWidget>
             ),
           ],
         ),
-      ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
+      ),
     );
   }
 }

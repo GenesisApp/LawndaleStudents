@@ -1,15 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/heart_check_complete_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -20,61 +17,17 @@ import 'heart_check_model.dart';
 export 'heart_check_model.dart';
 
 class HeartCheckWidget extends StatefulWidget {
-  const HeartCheckWidget({Key? key}) : super(key: key);
+  const HeartCheckWidget({super.key});
 
   @override
-  _HeartCheckWidgetState createState() => _HeartCheckWidgetState();
+  State<HeartCheckWidget> createState() => _HeartCheckWidgetState();
 }
 
-class _HeartCheckWidgetState extends State<HeartCheckWidget>
-    with TickerProviderStateMixin {
+class _HeartCheckWidgetState extends State<HeartCheckWidget> {
   late HeartCheckModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -205,7 +158,7 @@ class _HeartCheckWidgetState extends State<HeartCheckWidget>
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 0.0, 25.0),
@@ -217,7 +170,7 @@ class _HeartCheckWidgetState extends State<HeartCheckWidget>
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).lightSecondaryText,
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
@@ -1091,11 +1044,14 @@ class _HeartCheckWidgetState extends State<HeartCheckWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: HeartCheckCompleteWidget(),
-                                            ));
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    HeartCheckCompleteWidget(),
+                                              ),
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },

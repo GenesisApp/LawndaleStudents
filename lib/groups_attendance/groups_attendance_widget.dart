@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/add_guest_widget.dart';
 import '/components/delete_guest_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -10,9 +9,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -22,143 +18,22 @@ export 'groups_attendance_model.dart';
 
 class GroupsAttendanceWidget extends StatefulWidget {
   const GroupsAttendanceWidget({
-    Key? key,
+    super.key,
     required this.groupChosen,
     this.groupUsers,
-  }) : super(key: key);
+  });
 
   final GroupsRecord? groupChosen;
   final List<DocumentReference>? groupUsers;
 
   @override
-  _GroupsAttendanceWidgetState createState() => _GroupsAttendanceWidgetState();
+  State<GroupsAttendanceWidget> createState() => _GroupsAttendanceWidgetState();
 }
 
-class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
-    with TickerProviderStateMixin {
+class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget> {
   late GroupsAttendanceModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'listViewOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'listViewOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -175,15 +50,6 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<List<GlobalGroupsDataRecord>>(
@@ -280,20 +146,22 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                             context: context,
                             builder: (context) {
                               return WebViewAware(
-                                  child: GestureDetector(
-                                onTap: () => _model.unfocusNode.canRequestFocus
-                                    ? FocusScope.of(context)
-                                        .requestFocus(_model.unfocusNode)
-                                    : FocusScope.of(context).unfocus(),
-                                child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: AddGuestWidget(
-                                    groupChosen: widget.groupChosen!,
-                                    groupChosenRef:
-                                        widget.groupChosen!.reference,
+                                child: GestureDetector(
+                                  onTap: () =>
+                                      _model.unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: AddGuestWidget(
+                                      groupChosen: widget.groupChosen!,
+                                      groupChosenRef:
+                                          widget.groupChosen!.reference,
+                                    ),
                                   ),
                                 ),
-                              ));
+                              );
                             },
                           ).then((value) => safeSetState(() {}));
                         },
@@ -458,8 +326,7 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                                 ),
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -482,8 +349,7 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                                             .lightSecondaryText,
                                         fontSize: 14.0,
                                       ),
-                                ).animateOnPageLoad(
-                                    animationsMap['textOnPageLoadAnimation1']!),
+                                ),
                               ),
                             ],
                           ),
@@ -846,8 +712,7 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                                     ),
                                   );
                                 },
-                              ).animateOnPageLoad(animationsMap[
-                                  'listViewOnPageLoadAnimation1']!);
+                              );
                             },
                           ),
                         ),
@@ -866,8 +731,7 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                                     color:
                                         FlutterFlowTheme.of(context).systemGray,
                                   ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation2']!),
+                            ),
                           ),
                         if (containerGuestsRecordList.length > 0)
                           Padding(
@@ -885,8 +749,7 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                                         FlutterFlowTheme.of(context).systemGray,
                                     fontSize: 12.0,
                                   ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation3']!),
+                            ),
                           ),
                         Flexible(
                           child: Padding(
@@ -924,27 +787,31 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: GestureDetector(
-                                                onTap: () => _model.unfocusNode
-                                                        .canRequestFocus
-                                                    ? FocusScope.of(context)
-                                                        .requestFocus(
-                                                            _model.unfocusNode)
-                                                    : FocusScope.of(context)
-                                                        .unfocus(),
-                                                child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child: DeleteGuestWidget(
-                                                    guestChosen:
-                                                        containerVarItem
-                                                            .reference,
-                                                    guestChosenRef:
-                                                        containerVarItem,
+                                                child: GestureDetector(
+                                                  onTap: () => _model
+                                                          .unfocusNode
+                                                          .canRequestFocus
+                                                      ? FocusScope.of(context)
+                                                          .requestFocus(_model
+                                                              .unfocusNode)
+                                                      : FocusScope.of(context)
+                                                          .unfocus(),
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child: DeleteGuestWidget(
+                                                      guestChosen:
+                                                          containerVarItem
+                                                              .reference,
+                                                      guestChosenRef:
+                                                          containerVarItem,
+                                                      groupChosen:
+                                                          widget.groupChosen!,
+                                                    ),
                                                   ),
                                                 ),
-                                              ));
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -1240,8 +1107,7 @@ class _GroupsAttendanceWidgetState extends State<GroupsAttendanceWidget>
                                       ),
                                     );
                                   },
-                                ).animateOnPageLoad(animationsMap[
-                                    'listViewOnPageLoadAnimation2']!);
+                                );
                               },
                             ),
                           ),

@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/group_filter_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,8 +10,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,80 +20,18 @@ import 'admin_groups_view_closed_model.dart';
 export 'admin_groups_view_closed_model.dart';
 
 class AdminGroupsViewClosedWidget extends StatefulWidget {
-  const AdminGroupsViewClosedWidget({Key? key}) : super(key: key);
+  const AdminGroupsViewClosedWidget({super.key});
 
   @override
-  _AdminGroupsViewClosedWidgetState createState() =>
+  State<AdminGroupsViewClosedWidget> createState() =>
       _AdminGroupsViewClosedWidgetState();
 }
 
 class _AdminGroupsViewClosedWidgetState
-    extends State<AdminGroupsViewClosedWidget> with TickerProviderStateMixin {
+    extends State<AdminGroupsViewClosedWidget> {
   late AdminGroupsViewClosedModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -121,15 +56,6 @@ class _AdminGroupsViewClosedWidgetState
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -231,8 +157,7 @@ class _AdminGroupsViewClosedWidgetState
                                 size: 24.0,
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -248,8 +173,7 @@ class _AdminGroupsViewClosedWidgetState
                                   color: FlutterFlowTheme.of(context)
                                       .lightSecondaryText,
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation1']!),
+                          ),
                         ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
@@ -276,8 +200,7 @@ class _AdminGroupsViewClosedWidgetState
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w500,
                                         ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation2']!),
+                                  ),
                                   if (!FFAppState().groupsFilterSet)
                                     InkWell(
                                       splashColor: Colors.transparent,
@@ -295,27 +218,28 @@ class _AdminGroupsViewClosedWidgetState
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: Container(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.88,
-                                                  child: GroupFilterWidget(),
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.88,
+                                                    child: GroupFilterWidget(),
+                                                  ),
                                                 ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },

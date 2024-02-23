@@ -4,16 +4,12 @@ import '/components/prayer_ring_small_widget.dart';
 import '/components/prayer_update_future_widget.dart';
 import '/components/scripture_update_future_widget.dart';
 import '/components/worship_update_future_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -25,160 +21,20 @@ export 'practice_preview_model.dart';
 
 class PracticePreviewWidget extends StatefulWidget {
   const PracticePreviewWidget({
-    Key? key,
+    super.key,
     required this.practiceChosenDoc,
     required this.practiceChosenRef,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? practiceChosenDoc;
   final DocumentReference? practiceChosenRef;
 
   @override
-  _PracticePreviewWidgetState createState() => _PracticePreviewWidgetState();
+  State<PracticePreviewWidget> createState() => _PracticePreviewWidgetState();
 }
 
-class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
-    with TickerProviderStateMixin {
+class _PracticePreviewWidgetState extends State<PracticePreviewWidget> {
   late PracticePreviewModel _model;
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 650.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 650.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 850.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 850.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 950.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 950.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 600.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 600.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 700.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 700.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 800.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 900.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 900.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -311,8 +167,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                         ],
                       ),
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation1']!),
+                  ),
                 if (widget.practiceChosenDoc?.prayerPractice ?? true)
                   wrapWithModel(
                     model: _model.prayerRingSmallModel,
@@ -377,8 +232,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                               : FlutterFlowTheme.of(context)
                                                   .textFieldColorSecondary,
                                           size: 3.0,
-                                        ).animateOnPageLoad(animationsMap[
-                                            'iconOnPageLoadAnimation1']!),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -396,8 +250,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                             : FlutterFlowTheme.of(context)
                                                 .textFieldColorSecondary,
                                         size: 3.0,
-                                      ).animateOnPageLoad(animationsMap[
-                                          'iconOnPageLoadAnimation2']!),
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -414,8 +267,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                             : FlutterFlowTheme.of(context)
                                                 .textFieldColorSecondary,
                                         size: 3.0,
-                                      ).animateOnPageLoad(animationsMap[
-                                          'iconOnPageLoadAnimation3']!),
+                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -432,8 +284,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                             : FlutterFlowTheme.of(context)
                                                 .textFieldColorSecondary,
                                         size: 3.0,
-                                      ).animateOnPageLoad(animationsMap[
-                                          'iconOnPageLoadAnimation4']!),
+                                      ),
                                     ),
                                   ),
                                   Align(
@@ -453,8 +304,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                               : FlutterFlowTheme.of(context)
                                                   .textFieldColorSecondary,
                                           size: 3.0,
-                                        ).animateOnPageLoad(animationsMap[
-                                            'iconOnPageLoadAnimation5']!),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -472,8 +322,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                             : FlutterFlowTheme.of(context)
                                                 .textFieldColorSecondary,
                                         size: 3.0,
-                                      ).animateOnPageLoad(animationsMap[
-                                          'iconOnPageLoadAnimation6']!),
+                                      ),
                                     ),
                                   ),
                                   AuthUserStreamWidget(
@@ -487,8 +336,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                           : FlutterFlowTheme.of(context)
                                               .textFieldColorSecondary,
                                       size: 3.0,
-                                    ).animateOnPageLoad(animationsMap[
-                                        'iconOnPageLoadAnimation7']!),
+                                    ),
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
@@ -504,8 +352,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                             : FlutterFlowTheme.of(context)
                                                 .textFieldColorSecondary,
                                         size: 3.0,
-                                      ).animateOnPageLoad(animationsMap[
-                                          'iconOnPageLoadAnimation8']!),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -958,8 +805,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                 ],
                               ),
                             ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation2']!),
+                          ),
                         ),
                       ],
                     ),
@@ -1955,23 +1801,24 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.85,
-                                                              child:
-                                                                  WorshipUpdateFutureWidget(
-                                                                worshipVideo: widget
-                                                                    .practiceChosenDoc,
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child: Container(
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    0.92,
+                                                                child:
+                                                                    WorshipUpdateFutureWidget(
+                                                                  worshipVideo:
+                                                                      widget
+                                                                          .practiceChosenDoc,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -1991,23 +1838,24 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.85,
-                                                              child:
-                                                                  ScriptureUpdateFutureWidget(
-                                                                worshipVideo: widget
-                                                                    .practiceChosenDoc,
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child: Container(
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    0.92,
+                                                                child:
+                                                                    ScriptureUpdateFutureWidget(
+                                                                  worshipVideo:
+                                                                      widget
+                                                                          .practiceChosenDoc,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -2027,23 +1875,24 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child: Container(
-                                                              height: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .height *
-                                                                  0.85,
-                                                              child:
-                                                                  PrayerUpdateFutureWidget(
-                                                                worshipVideo: widget
-                                                                    .practiceChosenDoc,
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child: Container(
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    0.92,
+                                                                child:
+                                                                    PrayerUpdateFutureWidget(
+                                                                  worshipVideo:
+                                                                      widget
+                                                                          .practiceChosenDoc,
+                                                                ),
                                                               ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));

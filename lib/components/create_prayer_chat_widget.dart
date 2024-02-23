@@ -14,14 +14,14 @@ export 'create_prayer_chat_model.dart';
 
 class CreatePrayerChatWidget extends StatefulWidget {
   const CreatePrayerChatWidget({
-    Key? key,
+    super.key,
     required this.chatReference,
-  }) : super(key: key);
+  });
 
   final DocumentReference? chatReference;
 
   @override
-  _CreatePrayerChatWidgetState createState() => _CreatePrayerChatWidgetState();
+  State<CreatePrayerChatWidget> createState() => _CreatePrayerChatWidgetState();
 }
 
 class _CreatePrayerChatWidgetState extends State<CreatePrayerChatWidget> {

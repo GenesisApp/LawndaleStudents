@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -9,10 +8,10 @@ import 'empty_state_guest_model.dart';
 export 'empty_state_guest_model.dart';
 
 class EmptyStateGuestWidget extends StatefulWidget {
-  const EmptyStateGuestWidget({Key? key}) : super(key: key);
+  const EmptyStateGuestWidget({super.key});
 
   @override
-  _EmptyStateGuestWidgetState createState() => _EmptyStateGuestWidgetState();
+  State<EmptyStateGuestWidget> createState() => _EmptyStateGuestWidgetState();
 }
 
 class _EmptyStateGuestWidgetState extends State<EmptyStateGuestWidget> {

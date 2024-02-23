@@ -46,6 +46,11 @@ class GuestsRecord extends FirestoreRecord {
   DateTime? get dateCheckedinGroup => _dateCheckedinGroup;
   bool hasDateCheckedinGroup() => _dateCheckedinGroup != null;
 
+  // "newGuest" field.
+  bool? _newGuest;
+  bool get newGuest => _newGuest ?? false;
+  bool hasNewGuest() => _newGuest != null;
+
   void _initializeFields() {
     _guestName = snapshotData['guestName'] as String?;
     _guestPhoneNumber = snapshotData['guestPhoneNumber'] as String?;
@@ -53,6 +58,7 @@ class GuestsRecord extends FirestoreRecord {
     _groupReference = snapshotData['groupReference'] as DocumentReference?;
     _lastAttendance = snapshotData['lastAttendance'] as DateTime?;
     _dateCheckedinGroup = snapshotData['dateCheckedinGroup'] as DateTime?;
+    _newGuest = snapshotData['newGuest'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -95,6 +101,7 @@ Map<String, dynamic> createGuestsRecordData({
   DocumentReference? groupReference,
   DateTime? lastAttendance,
   DateTime? dateCheckedinGroup,
+  bool? newGuest,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -104,6 +111,7 @@ Map<String, dynamic> createGuestsRecordData({
       'groupReference': groupReference,
       'lastAttendance': lastAttendance,
       'dateCheckedinGroup': dateCheckedinGroup,
+      'newGuest': newGuest,
     }.withoutNulls,
   );
 
@@ -120,7 +128,8 @@ class GuestsRecordDocumentEquality implements Equality<GuestsRecord> {
         e1?.guestAge == e2?.guestAge &&
         e1?.groupReference == e2?.groupReference &&
         e1?.lastAttendance == e2?.lastAttendance &&
-        e1?.dateCheckedinGroup == e2?.dateCheckedinGroup;
+        e1?.dateCheckedinGroup == e2?.dateCheckedinGroup &&
+        e1?.newGuest == e2?.newGuest;
   }
 
   @override
@@ -130,7 +139,8 @@ class GuestsRecordDocumentEquality implements Equality<GuestsRecord> {
         e?.guestAge,
         e?.groupReference,
         e?.lastAttendance,
-        e?.dateCheckedinGroup
+        e?.dateCheckedinGroup,
+        e?.newGuest
       ]);
 
   @override

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,10 +14,10 @@ import 'welcome_to_church_model.dart';
 export 'welcome_to_church_model.dart';
 
 class WelcomeToChurchWidget extends StatefulWidget {
-  const WelcomeToChurchWidget({Key? key}) : super(key: key);
+  const WelcomeToChurchWidget({super.key});
 
   @override
-  _WelcomeToChurchWidgetState createState() => _WelcomeToChurchWidgetState();
+  State<WelcomeToChurchWidget> createState() => _WelcomeToChurchWidgetState();
 }
 
 class _WelcomeToChurchWidgetState extends State<WelcomeToChurchWidget> {
@@ -72,8 +71,8 @@ class _WelcomeToChurchWidgetState extends State<WelcomeToChurchWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.35,
+                          height: MediaQuery.sizeOf(context).width * 0.35,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
@@ -105,8 +104,8 @@ class _WelcomeToChurchWidgetState extends State<WelcomeToChurchWidget> {
                                 CircularPercentIndicator(
                                   percent: 1.0,
                                   radius:
-                                      MediaQuery.sizeOf(context).width * 0.165,
-                                  lineWidth: 7.0,
+                                      MediaQuery.sizeOf(context).width * 0.175,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

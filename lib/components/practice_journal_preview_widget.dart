@@ -4,16 +4,12 @@ import '/components/prayer_practice_b_sall_widget.dart';
 import '/components/prayer_ring_small_widget.dart';
 import '/components/scripture_practice_b_sall_widget.dart';
 import '/components/worship_practice_b_sall_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,129 +22,22 @@ export 'practice_journal_preview_model.dart';
 
 class PracticeJournalPreviewWidget extends StatefulWidget {
   const PracticeJournalPreviewWidget({
-    Key? key,
+    super.key,
     required this.dailyVideoRef,
     required this.dailyVideoDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? dailyVideoRef;
   final DailyPracticeVideosRecord? dailyVideoDoc;
 
   @override
-  _PracticeJournalPreviewWidgetState createState() =>
+  State<PracticeJournalPreviewWidget> createState() =>
       _PracticeJournalPreviewWidgetState();
 }
 
 class _PracticeJournalPreviewWidgetState
-    extends State<PracticeJournalPreviewWidget> with TickerProviderStateMixin {
+    extends State<PracticeJournalPreviewWidget> {
   late PracticeJournalPreviewModel _model;
-
-  final animationsMap = {
-    'iconOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1050.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1050.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1150.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1150.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1350.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1350.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1100.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1100.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1200.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1200.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1300.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1300.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -382,8 +271,7 @@ class _PracticeJournalPreviewWidgetState
                                                 : FlutterFlowTheme.of(context)
                                                     .textFieldColorSecondary,
                                             size: 3.0,
-                                          ).animateOnPageLoad(animationsMap[
-                                              'iconOnPageLoadAnimation1']!),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -402,8 +290,7 @@ class _PracticeJournalPreviewWidgetState
                                               : FlutterFlowTheme.of(context)
                                                   .textFieldColorSecondary,
                                           size: 3.0,
-                                        ).animateOnPageLoad(animationsMap[
-                                            'iconOnPageLoadAnimation2']!),
+                                        ),
                                       ),
                                     ),
                                     Padding(
@@ -421,8 +308,7 @@ class _PracticeJournalPreviewWidgetState
                                               : FlutterFlowTheme.of(context)
                                                   .textFieldColorSecondary,
                                           size: 3.0,
-                                        ).animateOnPageLoad(animationsMap[
-                                            'iconOnPageLoadAnimation3']!),
+                                        ),
                                       ),
                                     ),
                                     Padding(
@@ -440,8 +326,7 @@ class _PracticeJournalPreviewWidgetState
                                               : FlutterFlowTheme.of(context)
                                                   .textFieldColorSecondary,
                                           size: 3.0,
-                                        ).animateOnPageLoad(animationsMap[
-                                            'iconOnPageLoadAnimation4']!),
+                                        ),
                                       ),
                                     ),
                                     Align(
@@ -461,8 +346,7 @@ class _PracticeJournalPreviewWidgetState
                                                 : FlutterFlowTheme.of(context)
                                                     .textFieldColorSecondary,
                                             size: 3.0,
-                                          ).animateOnPageLoad(animationsMap[
-                                              'iconOnPageLoadAnimation5']!),
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -481,8 +365,7 @@ class _PracticeJournalPreviewWidgetState
                                               : FlutterFlowTheme.of(context)
                                                   .textFieldColorSecondary,
                                           size: 3.0,
-                                        ).animateOnPageLoad(animationsMap[
-                                            'iconOnPageLoadAnimation6']!),
+                                        ),
                                       ),
                                     ),
                                     AuthUserStreamWidget(
@@ -496,8 +379,7 @@ class _PracticeJournalPreviewWidgetState
                                             : FlutterFlowTheme.of(context)
                                                 .textFieldColorSecondary,
                                         size: 3.0,
-                                      ).animateOnPageLoad(animationsMap[
-                                          'iconOnPageLoadAnimation7']!),
+                                      ),
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -514,8 +396,7 @@ class _PracticeJournalPreviewWidgetState
                                               : FlutterFlowTheme.of(context)
                                                   .textFieldColorSecondary,
                                           size: 3.0,
-                                        ).animateOnPageLoad(animationsMap[
-                                            'iconOnPageLoadAnimation8']!),
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -1570,23 +1451,25 @@ class _PracticeJournalPreviewWidgetState
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                1.0,
-                                                            child:
-                                                                WorshipPracticeBSallWidget(
-                                                              dailyPractice: widget
-                                                                  .dailyVideoDoc,
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  1.0,
+                                                              child:
+                                                                  WorshipPracticeBSallWidget(
+                                                                dailyPractice:
+                                                                    widget
+                                                                        .dailyVideoDoc,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -1600,23 +1483,25 @@ class _PracticeJournalPreviewWidgetState
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                1.0,
-                                                            child:
-                                                                ScripturePracticeBSallWidget(
-                                                              dailyPractice: widget
-                                                                  .dailyVideoDoc,
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  1.0,
+                                                              child:
+                                                                  ScripturePracticeBSallWidget(
+                                                                dailyPractice:
+                                                                    widget
+                                                                        .dailyVideoDoc,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -1630,23 +1515,25 @@ class _PracticeJournalPreviewWidgetState
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                1.0,
-                                                            child:
-                                                                PrayerPracticeBSallWidget(
-                                                              dailyPractice: widget
-                                                                  .dailyVideoDoc,
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  1.0,
+                                                              child:
+                                                                  PrayerPracticeBSallWidget(
+                                                                dailyPractice:
+                                                                    widget
+                                                                        .dailyVideoDoc,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));

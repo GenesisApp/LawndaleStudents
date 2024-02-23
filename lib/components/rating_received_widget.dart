@@ -11,10 +11,10 @@ import 'rating_received_model.dart';
 export 'rating_received_model.dart';
 
 class RatingReceivedWidget extends StatefulWidget {
-  const RatingReceivedWidget({Key? key}) : super(key: key);
+  const RatingReceivedWidget({super.key});
 
   @override
-  _RatingReceivedWidgetState createState() => _RatingReceivedWidgetState();
+  State<RatingReceivedWidget> createState() => _RatingReceivedWidgetState();
 }
 
 class _RatingReceivedWidgetState extends State<RatingReceivedWidget> {
@@ -94,8 +94,8 @@ class _RatingReceivedWidgetState extends State<RatingReceivedWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Container(
-                              width: 125.0,
-                              height: 125.0,
+                              width: MediaQuery.sizeOf(context).width * 0.33,
+                              height: MediaQuery.sizeOf(context).width * 0.33,
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context).primary,
                                 shape: BoxShape.circle,
@@ -131,7 +131,7 @@ class _RatingReceivedWidgetState extends State<RatingReceivedWidget> {
                                       percent: 1.0,
                                       radius: MediaQuery.sizeOf(context).width *
                                           0.165,
-                                      lineWidth: 7.0,
+                                      lineWidth: 5.0,
                                       animation: true,
                                       animateFromLastPercent: true,
                                       progressColor:

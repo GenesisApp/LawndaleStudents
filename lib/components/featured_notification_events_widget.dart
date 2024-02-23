@@ -13,14 +13,14 @@ export 'featured_notification_events_model.dart';
 
 class FeaturedNotificationEventsWidget extends StatefulWidget {
   const FeaturedNotificationEventsWidget({
-    Key? key,
+    super.key,
     required this.chosenResource,
-  }) : super(key: key);
+  });
 
   final EventsRecord? chosenResource;
 
   @override
-  _FeaturedNotificationEventsWidgetState createState() =>
+  State<FeaturedNotificationEventsWidget> createState() =>
       _FeaturedNotificationEventsWidgetState();
 }
 
@@ -140,7 +140,7 @@ class _FeaturedNotificationEventsWidgetState
                                       percent: 1.0,
                                       radius: MediaQuery.sizeOf(context).width *
                                           0.175,
-                                      lineWidth: 7.0,
+                                      lineWidth: 5.0,
                                       animation: true,
                                       animateFromLastPercent: true,
                                       progressColor:

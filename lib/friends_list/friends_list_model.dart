@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'friends_list_widget.dart' show FriendsListWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -25,8 +24,10 @@ class FriendsListModel extends FlutterFlowModel<FriendsListWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     textFieldFocusNode?.dispose();

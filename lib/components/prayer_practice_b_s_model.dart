@@ -37,8 +37,8 @@ class PrayerPracticeBSModel extends FlutterFlowModel<PrayerPracticeBSWidget> {
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
   // State field(s) for Timer widget.
-  int timerMilliseconds = 0;
-  String timerValue = StopWatchTimer.getDisplayTime(0, milliSecond: false);
+  int timerMilliseconds = 100;
+  String timerValue = StopWatchTimer.getDisplayTime(100, milliSecond: false);
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countDown));
 
@@ -55,8 +55,10 @@ class PrayerPracticeBSModel extends FlutterFlowModel<PrayerPracticeBSWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     textFieldFocusNode1?.dispose();
     textController1?.dispose();

@@ -47,8 +47,11 @@ class GrowPageModel extends FlutterFlowModel<GrowPageWidget> {
 
   final unfocusNode = FocusNode();
   // State field(s) for ChoiceChips widget.
-  String? choiceChipsValue;
   FormFieldController<List<String>>? choiceChipsValueController;
+  String? get choiceChipsValue =>
+      choiceChipsValueController?.value?.firstOrNull;
+  set choiceChipsValue(String? val) =>
+      choiceChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -85,6 +88,7 @@ class GrowPageModel extends FlutterFlowModel<GrowPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     chatTabIconUnselectedModel =
         createModel(context, () => ChatTabIconUnselectedModel());
@@ -92,6 +96,7 @@ class GrowPageModel extends FlutterFlowModel<GrowPageWidget> {
         createModel(context, () => ProfileTabIconUnselectedModel());
   }
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     textFieldPage1FocusNode?.dispose();

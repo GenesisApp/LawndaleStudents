@@ -6,9 +6,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'chat_event_creation_widget.dart' show ChatEventCreationWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -55,11 +54,13 @@ class ChatEventCreationModel extends FlutterFlowModel<ChatEventCreationWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
   }
 
+  @override
   void dispose() {
     textFieldFocusNode1?.dispose();
     textController1?.dispose();

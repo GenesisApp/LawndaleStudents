@@ -10,10 +10,10 @@ import 'account_approved_model.dart';
 export 'account_approved_model.dart';
 
 class AccountApprovedWidget extends StatefulWidget {
-  const AccountApprovedWidget({Key? key}) : super(key: key);
+  const AccountApprovedWidget({super.key});
 
   @override
-  _AccountApprovedWidgetState createState() => _AccountApprovedWidgetState();
+  State<AccountApprovedWidget> createState() => _AccountApprovedWidgetState();
 }
 
 class _AccountApprovedWidgetState extends State<AccountApprovedWidget> {
@@ -103,7 +103,7 @@ class _AccountApprovedWidgetState extends State<AccountApprovedWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

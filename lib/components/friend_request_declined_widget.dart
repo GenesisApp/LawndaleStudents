@@ -14,16 +14,16 @@ export 'friend_request_declined_model.dart';
 
 class FriendRequestDeclinedWidget extends StatefulWidget {
   const FriendRequestDeclinedWidget({
-    Key? key,
+    super.key,
     this.selectedUser,
     this.friendRequest,
-  }) : super(key: key);
+  });
 
   final DocumentReference? selectedUser;
   final DocumentReference? friendRequest;
 
   @override
-  _FriendRequestDeclinedWidgetState createState() =>
+  State<FriendRequestDeclinedWidget> createState() =>
       _FriendRequestDeclinedWidgetState();
 }
 
@@ -114,7 +114,7 @@ class _FriendRequestDeclinedWidgetState
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

@@ -5,7 +5,6 @@ import '/components/create_prayer_widget.dart';
 import '/components/empty_state_p_r_widget.dart';
 import '/components/personal_prayer_request_widget.dart';
 import '/components/profile_tab_icon_unselected_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -13,44 +12,26 @@ import '/custom_code/actions/index.dart' as actions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'personal_prayer_page_model.dart';
 export 'personal_prayer_page_model.dart';
 
 class PersonalPrayerPageWidget extends StatefulWidget {
-  const PersonalPrayerPageWidget({Key? key}) : super(key: key);
+  const PersonalPrayerPageWidget({super.key});
 
   @override
-  _PersonalPrayerPageWidgetState createState() =>
+  State<PersonalPrayerPageWidget> createState() =>
       _PersonalPrayerPageWidgetState();
 }
 
-class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
-    with TickerProviderStateMixin {
+class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget> {
   late PersonalPrayerPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'listViewOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -72,15 +53,6 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -145,15 +117,16 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                 context: context,
                                 builder: (context) {
                                   return WebViewAware(
-                                      child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: Container(
-                                      height:
-                                          MediaQuery.sizeOf(context).height *
-                                              0.75,
-                                      child: CreatePrayerWidget(),
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: Container(
+                                        height:
+                                            MediaQuery.sizeOf(context).height *
+                                                0.75,
+                                        child: CreatePrayerWidget(),
+                                      ),
                                     ),
-                                  ));
+                                  );
                                 },
                               ).then((value) => safeSetState(() {}));
                             },
@@ -306,62 +279,57 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
-                      child: PagedListView<DocumentSnapshot<Object?>?,
-                          PrayerRequestsRecord>(
-                        pagingController: _model.setListViewController(
-                          PrayerRequestsRecord.collection
-                              .where(
-                                'user',
-                                isEqualTo: currentUserReference,
-                              )
-                              .orderBy('timeUploaded', descending: true),
+                      child: StreamBuilder<List<PrayerRequestsRecord>>(
+                        stream: queryPrayerRequestsRecord(
+                          queryBuilder: (prayerRequestsRecord) =>
+                              prayerRequestsRecord
+                                  .where(
+                                    'user',
+                                    isEqualTo: currentUserReference,
+                                  )
+                                  .orderBy('timeUploaded', descending: true),
                         ),
-                        padding: EdgeInsets.zero,
-                        reverse: false,
-                        scrollDirection: Axis.vertical,
-                        builderDelegate:
-                            PagedChildBuilderDelegate<PrayerRequestsRecord>(
-                          // Customize what your widget looks like when it's loading the first page.
-                          firstPageProgressIndicatorBuilder: (_) => Center(
-                            child: SizedBox(
-                              width: 75.0,
-                              height: 75.0,
-                              child: SpinKitRipple(
-                                color: Color(0xFF7F95AD),
-                                size: 75.0,
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 75.0,
+                                height: 75.0,
+                                child: SpinKitRipple(
+                                  color: Color(0xFF7F95AD),
+                                  size: 75.0,
+                                ),
                               ),
-                            ),
-                          ),
-                          // Customize what your widget looks like when it's loading another page.
-                          newPageProgressIndicatorBuilder: (_) => Center(
-                            child: SizedBox(
-                              width: 75.0,
-                              height: 75.0,
-                              child: SpinKitRipple(
-                                color: Color(0xFF7F95AD),
-                                size: 75.0,
-                              ),
-                            ),
-                          ),
-                          noItemsFoundIndicatorBuilder: (_) => Center(
-                            child: EmptyStatePRWidget(),
-                          ),
-                          itemBuilder: (context, _, listViewIndex) {
-                            final listViewPrayerRequestsRecord = _model
-                                .listViewPagingController!
-                                .itemList![listViewIndex];
-                            return PersonalPrayerRequestWidget(
-                              key: Key(
-                                  'Key5qk_${listViewIndex}_of_${_model.listViewPagingController!.itemList!.length}'),
-                              chosenPrayerRequestDoc:
-                                  listViewPrayerRequestsRecord,
-                              chosenPrayerRequestRef:
-                                  listViewPrayerRequestsRecord.reference,
                             );
-                          },
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['listViewOnPageLoadAnimation']!),
+                          }
+                          List<PrayerRequestsRecord>
+                              listViewPrayerRequestsRecordList = snapshot.data!;
+                          if (listViewPrayerRequestsRecordList.isEmpty) {
+                            return Center(
+                              child: EmptyStatePRWidget(),
+                            );
+                          }
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewPrayerRequestsRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewPrayerRequestsRecord =
+                                  listViewPrayerRequestsRecordList[
+                                      listViewIndex];
+                              return PersonalPrayerRequestWidget(
+                                key: Key(
+                                    'Key5qk_${listViewIndex}_of_${listViewPrayerRequestsRecordList.length}'),
+                                chosenPrayerRequestDoc:
+                                    listViewPrayerRequestsRecord,
+                                chosenPrayerRequestRef:
+                                    listViewPrayerRequestsRecord.reference,
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ),
                   Container(
@@ -447,7 +415,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
                                             SvgPicture.asset(
-                                              'assets/images/house-fill_(1).svg',
+                                              'assets/images/house-fill_(dark_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -455,7 +423,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                           if (!(Theme.of(context).brightness ==
                                               Brightness.dark))
                                             SvgPicture.asset(
-                                              'assets/images/house-fill_(2).svg',
+                                              'assets/images/house-fill_(light_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -502,7 +470,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                         if (Theme.of(context).brightness ==
                                             Brightness.dark)
                                           SvgPicture.asset(
-                                            'assets/images/leaf-fill_(4).svg',
+                                            'assets/images/leaf-fill_(dark_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -510,7 +478,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                         if (!(Theme.of(context).brightness ==
                                             Brightness.dark))
                                           SvgPicture.asset(
-                                            'assets/images/leaf-fill_(5).svg',
+                                            'assets/images/leaf-fill_(light_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -569,7 +537,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
                                             SvgPicture.asset(
-                                              'assets/images/handsclapping(dark_mode).svg',
+                                              'assets/images/hands-clapping-fill_(chosen_dark_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -577,7 +545,7 @@ class _PersonalPrayerPageWidgetState extends State<PersonalPrayerPageWidget>
                                           if (!(Theme.of(context).brightness ==
                                               Brightness.dark))
                                             SvgPicture.asset(
-                                              'assets/images/handsclapping(light_mode).svg',
+                                              'assets/images/hands-clapping-fill_(chosen_light_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,

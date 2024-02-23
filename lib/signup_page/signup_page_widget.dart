@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/tc_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -12,7 +11,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,210 +20,16 @@ import 'signup_page_model.dart';
 export 'signup_page_model.dart';
 
 class SignupPageWidget extends StatefulWidget {
-  const SignupPageWidget({Key? key}) : super(key: key);
+  const SignupPageWidget({super.key});
 
   @override
-  _SignupPageWidgetState createState() => _SignupPageWidgetState();
+  State<SignupPageWidget> createState() => _SignupPageWidgetState();
 }
 
-class _SignupPageWidgetState extends State<SignupPageWidget>
-    with TickerProviderStateMixin {
+class _SignupPageWidgetState extends State<SignupPageWidget> {
   late SignupPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'imageOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1500.ms,
-          begin: Offset(0.0, -30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, -30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textFieldOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, -30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textFieldOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textFieldOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1500.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1600.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'buttonOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'stackOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 2000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 2000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -256,15 +60,6 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -294,15 +89,14 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                             Expanded(
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 85.0, 12.0, 50.0),
+                                    0.0, 50.0, 0.0, 12.0),
                                 child: Image.asset(
                                   Theme.of(context).brightness ==
                                           Brightness.dark
-                                      ? 'assets/images/LBC_Students_H_C.png'
-                                      : 'assets/images/LBC_Students_H_C.png',
+                                      ? 'assets/images/Banner_Graphics_for_Apps_(1).png'
+                                      : 'assets/images/Banner_Graphics_for_Apps_(1).png',
                                   fit: BoxFit.fill,
-                                ).animateOnPageLoad(
-                                    animationsMap['imageOnPageLoadAnimation']!),
+                                ),
                               ),
                             ),
                           ],
@@ -402,8 +196,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                 ],
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation1']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -494,8 +287,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                 validator: _model
                                     .emailAddressControllerValidator
                                     .asValidator(context),
-                              ).animateOnPageLoad(animationsMap[
-                                  'textFieldOnPageLoadAnimation1']!),
+                              ),
                             ),
                           ),
                         ),
@@ -602,8 +394,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                     ),
                                 validator: _model.passwordControllerValidator
                                     .asValidator(context),
-                              ).animateOnPageLoad(animationsMap[
-                                  'textFieldOnPageLoadAnimation2']!),
+                              ),
                             ),
                           ),
                         ),
@@ -711,8 +502,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                 validator: _model
                                     .confirmPasswordControllerValidator
                                     .asValidator(context),
-                              ).animateOnPageLoad(animationsMap[
-                                  'textFieldOnPageLoadAnimation3']!),
+                              ),
                             ),
                           ),
                         ),
@@ -787,8 +577,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                 ),
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation2']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -850,11 +639,12 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: TcWidget(),
-                                      ));
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: TcWidget(),
+                                        ),
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 }
@@ -883,8 +673,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                 ),
                               ),
                             ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -926,8 +715,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                 ),
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation3']!),
+                          ),
                         ),
                         isAndroid
                             ? Container()
@@ -977,11 +765,12 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: TcWidget(),
-                                          ));
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: TcWidget(),
+                                            ),
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     }
@@ -1015,8 +804,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                     ),
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'buttonOnPageLoadAnimation']!),
+                                ),
                               ),
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
@@ -1069,12 +857,13 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: TcWidget(),
-                                              ));
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: TcWidget(),
+                                                ),
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -1132,8 +921,7 @@ class _SignupPageWidgetState extends State<SignupPageWidget>
                                   ),
                                 ],
                               ),
-                            ).animateOnPageLoad(
-                                animationsMap['stackOnPageLoadAnimation']!),
+                            ),
                           ),
                         ),
                       ],

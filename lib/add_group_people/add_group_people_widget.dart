@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/people_added_group_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -10,10 +9,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -22,12 +20,12 @@ export 'add_group_people_model.dart';
 
 class AddGroupPeopleWidget extends StatefulWidget {
   const AddGroupPeopleWidget({
-    Key? key,
+    super.key,
     this.groupChosen,
     this.groupChosenRef,
     required this.sgChat,
     required this.sgChatDoc,
-  }) : super(key: key);
+  });
 
   final GroupsRecord? groupChosen;
   final DocumentReference? groupChosenRef;
@@ -35,57 +33,13 @@ class AddGroupPeopleWidget extends StatefulWidget {
   final MessageChatsRecord? sgChatDoc;
 
   @override
-  _AddGroupPeopleWidgetState createState() => _AddGroupPeopleWidgetState();
+  State<AddGroupPeopleWidget> createState() => _AddGroupPeopleWidgetState();
 }
 
-class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
-    with TickerProviderStateMixin {
+class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget> {
   late AddGroupPeopleModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'listViewOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'listViewOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -112,15 +66,6 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<List<GlobalGroupsDataRecord>>(
@@ -193,26 +138,27 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                       context: context,
                       builder: (context) {
                         return WebViewAware(
-                            child: GestureDetector(
-                          onTap: () => _model.unfocusNode.canRequestFocus
-                              ? FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode)
-                              : FocusScope.of(context).unfocus(),
-                          child: Padding(
-                            padding: MediaQuery.viewInsetsOf(context),
-                            child: PeopleAddedGroupWidget(
-                              groupChosen: widget.groupChosenRef,
-                              groupChosenDoc: widget.groupChosen,
+                          child: GestureDetector(
+                            onTap: () => _model.unfocusNode.canRequestFocus
+                                ? FocusScope.of(context)
+                                    .requestFocus(_model.unfocusNode)
+                                : FocusScope.of(context).unfocus(),
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: PeopleAddedGroupWidget(
+                                groupChosen: widget.groupChosenRef,
+                                groupChosenDoc: widget.groupChosen,
+                              ),
                             ),
                           ),
-                        ));
+                        );
                       },
                     ).then((value) => safeSetState(() {}));
                   },
                   child: Icon(
                     Icons.check_rounded,
                     color: FlutterFlowTheme.of(context).tertiary,
-                    size: 26.0,
+                    size: 28.0,
                   ),
                 ),
               ),
@@ -255,8 +201,9 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                           ],
                         ),
                         Expanded(
+                          flex: 4,
                           child: Container(
-                            width: 100.0,
+                            width: double.infinity,
                             height: 10.0,
                             decoration: BoxDecoration(),
                           ),
@@ -273,8 +220,9 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                               ),
                         ),
                         Expanded(
+                          flex: 5,
                           child: Container(
-                            width: 100.0,
+                            width: double.infinity,
                             height: 10.0,
                             decoration: BoxDecoration(),
                           ),
@@ -291,9 +239,9 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                       children: [
                         Expanded(
                           child: Container(
-                            height: 40.0,
+                            height: 45.0,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(20.0),
                             ),
                             child: Container(
                               width: 100.0,
@@ -301,7 +249,7 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondarySystemBackground,
-                                borderRadius: BorderRadius.circular(10.0),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -330,7 +278,9 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                                                                   .fromTerms(
                                                                       record, [
                                                             record.email!,
-                                                            record.displayName!
+                                                            record.displayName!,
+                                                            record.firstName!,
+                                                            record.lastName!
                                                           ]),
                                                         )
                                                         .toList(),
@@ -497,7 +447,7 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 16.0, 0.0, 0.0),
+                              20.0, 20.0, 0.0, 0.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'e2o7ezek' /* Search Results */,
@@ -517,457 +467,461 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                   ),
                   if (FFAppState().showFullList)
                     Expanded(
-                      child: StreamBuilder<List<UsersRecord>>(
-                        stream: queryUsersRecord(
-                          queryBuilder: (usersRecord) => usersRecord.where(
-                            'groups',
-                            arrayContains: widget.groupChosen?.reference,
-                          ),
+                      child: PagedListView<DocumentSnapshot<Object?>?,
+                          UsersRecord>(
+                        pagingController: _model.setListViewController1(
+                          UsersRecord.collection,
                         ),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 75.0,
-                                height: 75.0,
-                                child: SpinKitRipple(
-                                  color: Color(0xFF7F95AD),
-                                  size: 75.0,
-                                ),
+                        padding: EdgeInsets.zero,
+                        shrinkWrap: true,
+                        reverse: false,
+                        scrollDirection: Axis.vertical,
+                        builderDelegate: PagedChildBuilderDelegate<UsersRecord>(
+                          // Customize what your widget looks like when it's loading the first page.
+                          firstPageProgressIndicatorBuilder: (_) => Center(
+                            child: SizedBox(
+                              width: 75.0,
+                              height: 75.0,
+                              child: SpinKitRipple(
+                                color: Color(0xFF7F95AD),
+                                size: 75.0,
                               ),
-                            );
-                          }
-                          List<UsersRecord> listViewUsersRecordList =
-                              snapshot.data!;
-                          return ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: listViewUsersRecordList.length,
-                            itemBuilder: (context, listViewIndex) {
-                              final listViewUsersRecord =
-                                  listViewUsersRecordList[listViewIndex];
-                              return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    20.0, 16.0, 20.0, 0.0),
-                                child: Container(
-                                  width: MediaQuery.sizeOf(context).width * 0.9,
-                                  height:
-                                      MediaQuery.sizeOf(context).height * 0.08,
-                                  constraints: BoxConstraints(
-                                    maxWidth: double.infinity,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 2.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      height: 70.0,
-                                      decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondarySystemBackground,
-                                        borderRadius:
-                                            BorderRadius.circular(12.0),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Card(
-                                              clipBehavior:
-                                                  Clip.antiAliasWithSaveLayer,
-                                              color: Colors.transparent,
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(40.0),
-                                              ),
-                                              child: InkWell(
-                                                splashColor: Colors.transparent,
-                                                focusColor: Colors.transparent,
-                                                hoverColor: Colors.transparent,
-                                                highlightColor:
-                                                    Colors.transparent,
-                                                onTap: () async {
-                                                  context.pushNamed(
-                                                    'OtherUserProfile',
-                                                    queryParameters: {
-                                                      'selectedUser':
-                                                          serializeParam(
-                                                        listViewUsersRecord,
-                                                        ParamType.Document,
-                                                      ),
-                                                      'selectedUserRef':
-                                                          serializeParam(
-                                                        listViewUsersRecord
-                                                            .reference,
-                                                        ParamType
-                                                            .DocumentReference,
-                                                      ),
-                                                    }.withoutNulls,
-                                                    extra: <String, dynamic>{
-                                                      'selectedUser':
-                                                          listViewUsersRecord,
-                                                    },
-                                                  );
-                                                },
-                                                child: Container(
-                                                  width: 40.0,
-                                                  height: 40.0,
-                                                  clipBehavior: Clip.antiAlias,
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: CachedNetworkImage(
-                                                    fadeInDuration: Duration(
-                                                        milliseconds: 500),
-                                                    fadeOutDuration: Duration(
-                                                        milliseconds: 500),
-                                                    imageUrl:
-                                                        valueOrDefault<String>(
-                                                      listViewUsersRecord
-                                                          .photoUrl,
-                                                      'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
+                            ),
+                          ),
+                          // Customize what your widget looks like when it's loading another page.
+                          newPageProgressIndicatorBuilder: (_) => Center(
+                            child: SizedBox(
+                              width: 75.0,
+                              height: 75.0,
+                              child: SpinKitRipple(
+                                color: Color(0xFF7F95AD),
+                                size: 75.0,
+                              ),
+                            ),
+                          ),
+
+                          itemBuilder: (context, _, listViewIndex) {
+                            final listViewUsersRecord = _model
+                                .listViewPagingController1!
+                                .itemList![listViewIndex];
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 16.0, 20.0, 0.0),
+                              child: Container(
+                                width: MediaQuery.sizeOf(context).width * 0.9,
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.08,
+                                constraints: BoxConstraints(
+                                  maxWidth: double.infinity,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 0.0, 2.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 70.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondarySystemBackground,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          8.0, 0.0, 0.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Card(
+                                            clipBehavior:
+                                                Clip.antiAliasWithSaveLayer,
+                                            color: Colors.transparent,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(40.0),
+                                            ),
+                                            child: InkWell(
+                                              splashColor: Colors.transparent,
+                                              focusColor: Colors.transparent,
+                                              hoverColor: Colors.transparent,
+                                              highlightColor:
+                                                  Colors.transparent,
+                                              onTap: () async {
+                                                context.pushNamed(
+                                                  'OtherUserProfile',
+                                                  queryParameters: {
+                                                    'selectedUser':
+                                                        serializeParam(
+                                                      listViewUsersRecord,
+                                                      ParamType.Document,
                                                     ),
-                                                    fit: BoxFit.cover,
+                                                    'selectedUserRef':
+                                                        serializeParam(
+                                                      listViewUsersRecord
+                                                          .reference,
+                                                      ParamType
+                                                          .DocumentReference,
+                                                    ),
+                                                  }.withoutNulls,
+                                                  extra: <String, dynamic>{
+                                                    'selectedUser':
+                                                        listViewUsersRecord,
+                                                  },
+                                                );
+                                              },
+                                              child: Container(
+                                                width: 40.0,
+                                                height: 40.0,
+                                                clipBehavior: Clip.antiAlias,
+                                                decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: CachedNetworkImage(
+                                                  fadeInDuration: Duration(
+                                                      milliseconds: 500),
+                                                  fadeOutDuration: Duration(
+                                                      milliseconds: 500),
+                                                  imageUrl:
+                                                      valueOrDefault<String>(
+                                                    listViewUsersRecord
+                                                        .photoUrl,
+                                                    'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
                                                   ),
+                                                  fit: BoxFit.cover,
                                                 ),
                                               ),
                                             ),
-                                            Expanded(
-                                              child: Theme(
-                                                data: ThemeData(
-                                                  checkboxTheme:
-                                                      CheckboxThemeData(
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              25),
-                                                    ),
+                                          ),
+                                          Expanded(
+                                            child: Theme(
+                                              data: ThemeData(
+                                                checkboxTheme:
+                                                    CheckboxThemeData(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            25),
                                                   ),
-                                                  unselectedWidgetColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .tertiary,
                                                 ),
-                                                child: CheckboxListTile(
-                                                  value: _model
+                                                unselectedWidgetColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                              ),
+                                              child: CheckboxListTile(
+                                                value: _model
+                                                            .checkboxListTileValueMap1[
+                                                        listViewUsersRecord] ??=
+                                                    listViewUsersRecord.groups
+                                                            .contains(widget
+                                                                .groupChosenRef) ==
+                                                        true,
+                                                onChanged: (newValue) async {
+                                                  setState(() => _model
                                                               .checkboxListTileValueMap1[
-                                                          listViewUsersRecord] ??=
-                                                      listViewUsersRecord.groups
-                                                              .contains(widget
-                                                                  .groupChosenRef) ==
-                                                          true,
-                                                  onChanged: (newValue) async {
-                                                    setState(() => _model
-                                                                .checkboxListTileValueMap1[
-                                                            listViewUsersRecord] =
-                                                        newValue!);
-                                                    if (newValue!) {
-                                                      final firestoreBatch =
-                                                          FirebaseFirestore
-                                                              .instance
-                                                              .batch();
-                                                      try {
-                                                        firestoreBatch.update(
-                                                            listViewUsersRecord
-                                                                .reference,
-                                                            {
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'groups':
-                                                                      FieldValue
-                                                                          .arrayUnion([
-                                                                    widget
-                                                                        .groupChosenRef
-                                                                  ]),
-                                                                  'messageChats':
-                                                                      FieldValue
-                                                                          .arrayUnion([
-                                                                    widget
-                                                                        .sgChatDoc
-                                                                        ?.reference
-                                                                  ]),
-                                                                },
-                                                              ),
-                                                            });
+                                                          listViewUsersRecord] =
+                                                      newValue!);
+                                                  if (newValue!) {
+                                                    final firestoreBatch =
+                                                        FirebaseFirestore
+                                                            .instance
+                                                            .batch();
+                                                    try {
+                                                      firestoreBatch.update(
+                                                          listViewUsersRecord
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayUnion([
+                                                                  widget
+                                                                      .groupChosenRef
+                                                                ]),
+                                                                'messageChats':
+                                                                    FieldValue
+                                                                        .arrayUnion([
+                                                                  widget
+                                                                      .sgChatDoc
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
 
-                                                        firestoreBatch.update(
-                                                            widget.sgChatDoc!
-                                                                .reference,
-                                                            {
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'users':
-                                                                      FieldValue
-                                                                          .arrayUnion([
-                                                                    listViewUsersRecord
-                                                                        .reference
-                                                                  ]),
-                                                                },
-                                                              ),
-                                                            });
+                                                      firestoreBatch.update(
+                                                          widget.sgChatDoc!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'users': FieldValue
+                                                                    .arrayUnion([
+                                                                  listViewUsersRecord
+                                                                      .reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
 
+                                                      firestoreBatch.update(
+                                                          widget.groupChosen!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'members':
+                                                                    FieldValue
+                                                                        .arrayUnion([
+                                                                  listViewUsersRecord
+                                                                      .reference
+                                                                ]),
+                                                                'numberofMembers':
+                                                                    FieldValue
+                                                                        .increment(
+                                                                            1),
+                                                              },
+                                                            ),
+                                                          });
+                                                      if (functions.checkTodayDate(
+                                                          addGroupPeopleGlobalGroupsDataRecord
+                                                              ?.currentDay)!) {
                                                         firestoreBatch.update(
-                                                            widget.groupChosen!
+                                                            addGroupPeopleGlobalGroupsDataRecord!
                                                                 .reference,
                                                             {
                                                               ...mapToFirestore(
                                                                 {
-                                                                  'members':
-                                                                      FieldValue
-                                                                          .arrayUnion([
-                                                                    listViewUsersRecord
-                                                                        .reference
-                                                                  ]),
-                                                                  'numberofMembers':
+                                                                  'peopleAdded':
                                                                       FieldValue
                                                                           .increment(
                                                                               1),
                                                                 },
                                                               ),
                                                             });
-                                                        if (functions.checkTodayDate(
-                                                            addGroupPeopleGlobalGroupsDataRecord
-                                                                ?.currentDay)!) {
-                                                          firestoreBatch.update(
-                                                              addGroupPeopleGlobalGroupsDataRecord!
-                                                                  .reference,
-                                                              {
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'peopleAdded':
-                                                                        FieldValue
-                                                                            .increment(1),
-                                                                  },
-                                                                ),
-                                                              });
-                                                        } else {
-                                                          var globalGroupsDataRecordReference =
-                                                              GlobalGroupsDataRecord
-                                                                  .collection
-                                                                  .doc();
-                                                          firestoreBatch.set(
-                                                              globalGroupsDataRecordReference,
-                                                              createGlobalGroupsDataRecordData(
-                                                                dayInteger:
-                                                                    addGroupPeopleGlobalGroupsDataRecord
-                                                                        ?.dayInteger,
-                                                                currentDay:
-                                                                    functions
-                                                                        .getDayDate(),
-                                                              ));
-                                                          _model.newDate1 =
-                                                              GlobalGroupsDataRecord
-                                                                  .getDocumentFromData(
-                                                                      createGlobalGroupsDataRecordData(
-                                                                        dayInteger:
-                                                                            addGroupPeopleGlobalGroupsDataRecord?.dayInteger,
-                                                                        currentDay:
-                                                                            functions.getDayDate(),
-                                                                      ),
-                                                                      globalGroupsDataRecordReference);
+                                                      } else {
+                                                        var globalGroupsDataRecordReference =
+                                                            GlobalGroupsDataRecord
+                                                                .collection
+                                                                .doc();
+                                                        firestoreBatch.set(
+                                                            globalGroupsDataRecordReference,
+                                                            createGlobalGroupsDataRecordData(
+                                                              dayInteger:
+                                                                  addGroupPeopleGlobalGroupsDataRecord
+                                                                      ?.dayInteger,
+                                                              currentDay: functions
+                                                                  .getDayDate(),
+                                                            ));
+                                                        _model.newDate1 =
+                                                            GlobalGroupsDataRecord
+                                                                .getDocumentFromData(
+                                                                    createGlobalGroupsDataRecordData(
+                                                                      dayInteger:
+                                                                          addGroupPeopleGlobalGroupsDataRecord
+                                                                              ?.dayInteger,
+                                                                      currentDay:
+                                                                          functions
+                                                                              .getDayDate(),
+                                                                    ),
+                                                                    globalGroupsDataRecordReference);
 
-                                                          firestoreBatch.update(
-                                                              _model.newDate2!
-                                                                  .reference,
-                                                              {
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'dayInteger':
-                                                                        FieldValue
-                                                                            .increment(1),
-                                                                    'peopleAdded':
-                                                                        FieldValue
-                                                                            .increment(1),
-                                                                  },
-                                                                ),
-                                                              });
-                                                        }
-                                                      } finally {
-                                                        await firestoreBatch
-                                                            .commit();
-                                                      }
-
-                                                      setState(() {});
-                                                    } else {
-                                                      final firestoreBatch =
-                                                          FirebaseFirestore
-                                                              .instance
-                                                              .batch();
-                                                      try {
                                                         firestoreBatch.update(
-                                                            widget.sgChatDoc!
+                                                            _model.newDate2!
                                                                 .reference,
                                                             {
                                                               ...mapToFirestore(
                                                                 {
-                                                                  'users':
-                                                                      FieldValue
-                                                                          .arrayRemove([
-                                                                    listViewUsersRecord
-                                                                        .reference
-                                                                  ]),
-                                                                },
-                                                              ),
-                                                            });
-
-                                                        firestoreBatch.update(
-                                                            listViewUsersRecord
-                                                                .reference,
-                                                            {
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'groups':
-                                                                      FieldValue
-                                                                          .arrayRemove([
-                                                                    widget
-                                                                        .groupChosen
-                                                                        ?.reference
-                                                                  ]),
-                                                                  'messageChats':
-                                                                      FieldValue
-                                                                          .arrayRemove([
-                                                                    widget
-                                                                        .sgChatDoc
-                                                                        ?.reference
-                                                                  ]),
-                                                                },
-                                                              ),
-                                                            });
-
-                                                        firestoreBatch.update(
-                                                            widget.groupChosen!
-                                                                .reference,
-                                                            {
-                                                              ...mapToFirestore(
-                                                                {
-                                                                  'members':
-                                                                      FieldValue
-                                                                          .arrayRemove([
-                                                                    listViewUsersRecord
-                                                                        .reference
-                                                                  ]),
-                                                                  'numberofMembers':
+                                                                  'dayInteger':
                                                                       FieldValue
                                                                           .increment(
-                                                                              -(1)),
+                                                                              1),
+                                                                  'peopleAdded':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
                                                                 },
                                                               ),
                                                             });
-                                                        if (functions.checkTodayDate(
-                                                            addGroupPeopleGlobalGroupsDataRecord
-                                                                ?.currentDay)!) {
-                                                          firestoreBatch.update(
-                                                              addGroupPeopleGlobalGroupsDataRecord!
-                                                                  .reference,
-                                                              {
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'peopleRemoved':
-                                                                        FieldValue
-                                                                            .increment(1),
-                                                                  },
-                                                                ),
-                                                              });
-                                                        } else {
-                                                          var globalGroupsDataRecordReference =
-                                                              GlobalGroupsDataRecord
-                                                                  .collection
-                                                                  .doc();
-                                                          firestoreBatch.set(
-                                                              globalGroupsDataRecordReference,
-                                                              createGlobalGroupsDataRecordData(
-                                                                dayInteger:
-                                                                    addGroupPeopleGlobalGroupsDataRecord
-                                                                        ?.dayInteger,
-                                                                currentDay:
-                                                                    functions
-                                                                        .getDayDate(),
-                                                              ));
-                                                          _model.newDate2 =
-                                                              GlobalGroupsDataRecord
-                                                                  .getDocumentFromData(
-                                                                      createGlobalGroupsDataRecordData(
-                                                                        dayInteger:
-                                                                            addGroupPeopleGlobalGroupsDataRecord?.dayInteger,
-                                                                        currentDay:
-                                                                            functions.getDayDate(),
-                                                                      ),
-                                                                      globalGroupsDataRecordReference);
-
-                                                          firestoreBatch.update(
-                                                              _model.newDate2!
-                                                                  .reference,
-                                                              {
-                                                                ...mapToFirestore(
-                                                                  {
-                                                                    'dayInteger':
-                                                                        FieldValue
-                                                                            .increment(1),
-                                                                    'peopleRemoved':
-                                                                        FieldValue
-                                                                            .increment(1),
-                                                                  },
-                                                                ),
-                                                              });
-                                                        }
-                                                      } finally {
-                                                        await firestoreBatch
-                                                            .commit();
                                                       }
-
-                                                      setState(() {});
+                                                    } finally {
+                                                      await firestoreBatch
+                                                          .commit();
                                                     }
-                                                  },
-                                                  title: Text(
-                                                    listViewUsersRecord
-                                                        .displayName,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .tertiary,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                        ),
-                                                  ),
-                                                  tileColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                  activeColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .worshipRing,
-                                                  dense: false,
-                                                  controlAffinity:
-                                                      ListTileControlAffinity
-                                                          .trailing,
+
+                                                    setState(() {});
+                                                  } else {
+                                                    final firestoreBatch =
+                                                        FirebaseFirestore
+                                                            .instance
+                                                            .batch();
+                                                    try {
+                                                      firestoreBatch.update(
+                                                          widget.sgChatDoc!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'users': FieldValue
+                                                                    .arrayRemove([
+                                                                  listViewUsersRecord
+                                                                      .reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+
+                                                      firestoreBatch.update(
+                                                          listViewUsersRecord
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'groups': FieldValue
+                                                                    .arrayRemove([
+                                                                  widget
+                                                                      .groupChosen
+                                                                      ?.reference
+                                                                ]),
+                                                                'messageChats':
+                                                                    FieldValue
+                                                                        .arrayRemove([
+                                                                  widget
+                                                                      .sgChatDoc
+                                                                      ?.reference
+                                                                ]),
+                                                              },
+                                                            ),
+                                                          });
+
+                                                      firestoreBatch.update(
+                                                          widget.groupChosen!
+                                                              .reference,
+                                                          {
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'members':
+                                                                    FieldValue
+                                                                        .arrayRemove([
+                                                                  listViewUsersRecord
+                                                                      .reference
+                                                                ]),
+                                                                'numberofMembers':
+                                                                    FieldValue
+                                                                        .increment(
+                                                                            -(1)),
+                                                              },
+                                                            ),
+                                                          });
+                                                      if (functions.checkTodayDate(
+                                                          addGroupPeopleGlobalGroupsDataRecord
+                                                              ?.currentDay)!) {
+                                                        firestoreBatch.update(
+                                                            addGroupPeopleGlobalGroupsDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'peopleRemoved':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      } else {
+                                                        var globalGroupsDataRecordReference =
+                                                            GlobalGroupsDataRecord
+                                                                .collection
+                                                                .doc();
+                                                        firestoreBatch.set(
+                                                            globalGroupsDataRecordReference,
+                                                            createGlobalGroupsDataRecordData(
+                                                              dayInteger:
+                                                                  addGroupPeopleGlobalGroupsDataRecord
+                                                                      ?.dayInteger,
+                                                              currentDay: functions
+                                                                  .getDayDate(),
+                                                            ));
+                                                        _model.newDate2 =
+                                                            GlobalGroupsDataRecord
+                                                                .getDocumentFromData(
+                                                                    createGlobalGroupsDataRecordData(
+                                                                      dayInteger:
+                                                                          addGroupPeopleGlobalGroupsDataRecord
+                                                                              ?.dayInteger,
+                                                                      currentDay:
+                                                                          functions
+                                                                              .getDayDate(),
+                                                                    ),
+                                                                    globalGroupsDataRecordReference);
+
+                                                        firestoreBatch.update(
+                                                            _model.newDate2!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'dayInteger':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                  'peopleRemoved':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      }
+                                                    } finally {
+                                                      await firestoreBatch
+                                                          .commit();
+                                                    }
+
+                                                    setState(() {});
+                                                  }
+                                                },
+                                                title: Text(
+                                                  listViewUsersRecord
+                                                      .displayName,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
                                                 ),
+                                                tileColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                activeColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .worshipRing,
+                                                dense: false,
+                                                controlAffinity:
+                                                    ListTileControlAffinity
+                                                        .trailing,
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
                                 ),
-                              );
-                            },
-                          ).animateOnPageLoad(
-                              animationsMap['listViewOnPageLoadAnimation1']!);
-                        },
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   if (!FFAppState().showFullList)
@@ -1393,8 +1347,7 @@ class _AddGroupPeopleWidgetState extends State<AddGroupPeopleWidget>
                                 ),
                               );
                             },
-                          ).animateOnPageLoad(
-                              animationsMap['listViewOnPageLoadAnimation2']!);
+                          );
                         },
                       ),
                     ),

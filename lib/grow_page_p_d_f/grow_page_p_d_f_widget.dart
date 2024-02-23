@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,14 +17,14 @@ export 'grow_page_p_d_f_model.dart';
 
 class GrowPagePDFWidget extends StatefulWidget {
   const GrowPagePDFWidget({
-    Key? key,
+    super.key,
     this.chosenResourceGuide,
-  }) : super(key: key);
+  });
 
   final GuidesRecord? chosenResourceGuide;
 
   @override
-  _GrowPagePDFWidgetState createState() => _GrowPagePDFWidgetState();
+  State<GrowPagePDFWidget> createState() => _GrowPagePDFWidgetState();
 }
 
 class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
@@ -48,15 +47,6 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -182,18 +172,20 @@ class _GrowPagePDFWidgetState extends State<GrowPagePDFWidget> {
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.92,
-                                        child: GuidesEditWidget(
-                                          chosenGuide:
-                                              widget.chosenResourceGuide,
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.92,
+                                          child: GuidesEditWidget(
+                                            chosenGuide:
+                                                widget.chosenResourceGuide,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },

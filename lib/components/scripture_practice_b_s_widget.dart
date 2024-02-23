@@ -32,14 +32,14 @@ export 'scripture_practice_b_s_model.dart';
 
 class ScripturePracticeBSWidget extends StatefulWidget {
   const ScripturePracticeBSWidget({
-    Key? key,
+    super.key,
     this.dailyPractice,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? dailyPractice;
 
   @override
-  _ScripturePracticeBSWidgetState createState() =>
+  State<ScripturePracticeBSWidget> createState() =>
       _ScripturePracticeBSWidgetState();
 }
 
@@ -319,236 +319,241 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                       return Container(
                                         width: 100.0,
                                         decoration: BoxDecoration(),
-                                        child: FlutterFlowTimer(
-                                          initialTime: _model.timerMilliseconds,
-                                          getDisplayTime: (value) =>
-                                              StopWatchTimer.getDisplayTime(
-                                                  value,
-                                                  milliSecond: false),
-                                          controller: _model.timerController,
-                                          onChanged: (value, displayTime,
-                                              shouldUpdate) {
-                                            _model.timerMilliseconds = value;
-                                            _model.timerValue = displayTime;
-                                            if (shouldUpdate) setState(() {});
-                                          },
-                                          onEnded: () async {
-                                            var _shouldSetState = false;
-                                            final firestoreBatch =
-                                                FirebaseFirestore.instance
-                                                    .batch();
-                                            try {
-                                              if (FFAppState().timerStarted) {
-                                                _model.scanResults2 =
-                                                    await actions.scanLanguage(
-                                                  _model.textController2.text,
-                                                );
-                                                _shouldSetState = true;
-                                                if (_model.scanResults2!) {
-                                                  await showModalBottomSheet(
-                                                    isScrollControlled: true,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    barrierColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .opagueSeparator,
-                                                    context: context,
-                                                    builder: (context) {
-                                                      return WebViewAware(
-                                                          child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            LanguageReportWidget(),
-                                                      ));
-                                                    },
-                                                  ).then((value) =>
-                                                      safeSetState(() {}));
-                                                } else {
-                                                  var personalJournalsRecordReference =
-                                                      PersonalJournalsRecord
-                                                          .collection
-                                                          .doc();
-                                                  firestoreBatch.set(
-                                                      personalJournalsRecordReference,
-                                                      createPersonalJournalsRecordData(
-                                                        journalDate:
-                                                            getCurrentTimestamp,
-                                                        journalUser:
-                                                            currentUserReference,
-                                                        journalText: _model
-                                                            .textController2
-                                                            .text,
-                                                        journalTwo: true,
-                                                        journalResponseQuestion:
-                                                            widget.dailyPractice
-                                                                ?.practiceResponse,
-                                                        videoURL: widget
-                                                            .dailyPractice
-                                                            ?.dailyPracticeVideoURL,
-                                                        dailyPractice: widget
-                                                            .dailyPractice
-                                                            ?.reference,
-                                                        journalDayDate:
-                                                            functions
-                                                                .getDayDate(),
-                                                      ));
-                                                  _model.newJournal =
-                                                      PersonalJournalsRecord
-                                                          .getDocumentFromData(
-                                                              createPersonalJournalsRecordData(
-                                                                journalDate:
-                                                                    getCurrentTimestamp,
-                                                                journalUser:
-                                                                    currentUserReference,
-                                                                journalText: _model
-                                                                    .textController2
-                                                                    .text,
-                                                                journalTwo:
-                                                                    true,
-                                                                journalResponseQuestion: widget
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            FlutterFlowTimer(
+                                              initialTime:
+                                                  _model.timerMilliseconds,
+                                              getDisplayTime: (value) =>
+                                                  StopWatchTimer.getDisplayTime(
+                                                      value,
+                                                      milliSecond: false),
+                                              controller:
+                                                  _model.timerController,
+                                              onChanged: (value, displayTime,
+                                                  shouldUpdate) {
+                                                _model.timerMilliseconds =
+                                                    value;
+                                                _model.timerValue = displayTime;
+                                                if (shouldUpdate)
+                                                  setState(() {});
+                                              },
+                                              onEnded: () async {
+                                                var _shouldSetState = false;
+                                                final firestoreBatch =
+                                                    FirebaseFirestore.instance
+                                                        .batch();
+                                                try {
+                                                  if (FFAppState()
+                                                      .timerStarted) {
+                                                    _model.scanResults2 =
+                                                        await actions
+                                                            .scanLanguage(
+                                                      _model
+                                                          .textController2.text,
+                                                    );
+                                                    _shouldSetState = true;
+                                                    if (_model.scanResults2!) {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Colors.transparent,
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .opagueSeparator,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  LanguageReportWidget(),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    } else {
+                                                      var personalJournalsRecordReference =
+                                                          PersonalJournalsRecord
+                                                              .collection
+                                                              .doc();
+                                                      firestoreBatch.set(
+                                                          personalJournalsRecordReference,
+                                                          createPersonalJournalsRecordData(
+                                                            journalDate:
+                                                                getCurrentTimestamp,
+                                                            journalUser:
+                                                                currentUserReference,
+                                                            journalText: _model
+                                                                .textController2
+                                                                .text,
+                                                            journalTwo: true,
+                                                            journalResponseQuestion:
+                                                                widget
                                                                     .dailyPractice
                                                                     ?.practiceResponse,
-                                                                videoURL: widget
-                                                                    .dailyPractice
-                                                                    ?.dailyPracticeVideoURL,
-                                                                dailyPractice: widget
-                                                                    .dailyPractice
-                                                                    ?.reference,
-                                                                journalDayDate:
+                                                            videoURL: widget
+                                                                .dailyPractice
+                                                                ?.dailyPracticeVideoURL,
+                                                            dailyPractice: widget
+                                                                .dailyPractice
+                                                                ?.reference,
+                                                            journalDayDate:
+                                                                functions
+                                                                    .getDayDate(),
+                                                          ));
+                                                      _model.newJournal =
+                                                          PersonalJournalsRecord
+                                                              .getDocumentFromData(
+                                                                  createPersonalJournalsRecordData(
+                                                                    journalDate:
+                                                                        getCurrentTimestamp,
+                                                                    journalUser:
+                                                                        currentUserReference,
+                                                                    journalText:
+                                                                        _model
+                                                                            .textController2
+                                                                            .text,
+                                                                    journalTwo:
+                                                                        true,
+                                                                    journalResponseQuestion: widget
+                                                                        .dailyPractice
+                                                                        ?.practiceResponse,
+                                                                    videoURL: widget
+                                                                        .dailyPractice
+                                                                        ?.dailyPracticeVideoURL,
+                                                                    dailyPractice: widget
+                                                                        .dailyPractice
+                                                                        ?.reference,
+                                                                    journalDayDate:
+                                                                        functions
+                                                                            .getDayDate(),
+                                                                  ),
+                                                                  personalJournalsRecordReference);
+                                                      _shouldSetState = true;
+                                                      if (valueOrDefault<bool>(
+                                                              currentUserDocument
+                                                                  ?.completed1,
+                                                              false) &&
+                                                          valueOrDefault<bool>(
+                                                              currentUserDocument
+                                                                  ?.complete3,
+                                                              false)) {
+                                                        if (functions.checkYesterdayDate(
+                                                                currentUserDocument
+                                                                    ?.dateofCompletion)! ||
+                                                            functions.checkTodayDate(
+                                                                currentUserDocument
+                                                                    ?.dateofCompletion)!) {
+                                                          firestoreBatch.update(
+                                                              currentUserReference!,
+                                                              {
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'dailyStreak':
+                                                                        FieldValue
+                                                                            .increment(1),
+                                                                  },
+                                                                ),
+                                                              });
+                                                        } else {
+                                                          firestoreBatch.update(
+                                                              currentUserReference!,
+                                                              createUsersRecordData(
+                                                                dailyStreak: 1,
+                                                              ));
+                                                        }
+
+                                                        firestoreBatch.update(
+                                                            currentUserReference!,
+                                                            {
+                                                              ...createUsersRecordData(
+                                                                dateofCompletion:
                                                                     functions
                                                                         .getDayDate(),
                                                               ),
-                                                              personalJournalsRecordReference);
-                                                  _shouldSetState = true;
-                                                  if (valueOrDefault<bool>(
-                                                          currentUserDocument
-                                                              ?.completed1,
-                                                          false) &&
-                                                      valueOrDefault<bool>(
-                                                          currentUserDocument
-                                                              ?.complete3,
-                                                          false)) {
-                                                    if (functions.checkYesterdayDate(
-                                                            currentUserDocument
-                                                                ?.dateofCompletion)! ||
-                                                        functions.checkTodayDate(
-                                                            currentUserDocument
-                                                                ?.dateofCompletion)!) {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'completionNumber':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      }
+                                                      setState(() {
+                                                        _model.textController2
+                                                            ?.clear();
+                                                      });
+
                                                       firestoreBatch.update(
-                                                          currentUserReference!,
+                                                          widget.dailyPractice!
+                                                              .reference,
                                                           {
                                                             ...mapToFirestore(
                                                               {
-                                                                'dailyStreak':
+                                                                'personalJournalRef':
+                                                                    FieldValue
+                                                                        .arrayUnion([
+                                                                  _model
+                                                                      .newJournal
+                                                                      ?.reference
+                                                                ]),
+                                                                'personalJournalCount':
                                                                     FieldValue
                                                                         .increment(
                                                                             1),
                                                               },
                                                             ),
                                                           });
-                                                    } else {
+
                                                       firestoreBatch.update(
                                                           currentUserReference!,
-                                                          createUsersRecordData(
-                                                            dailyStreak: 1,
-                                                          ));
-                                                    }
-
-                                                    firestoreBatch.update(
-                                                        currentUserReference!, {
-                                                      ...createUsersRecordData(
-                                                        dateofCompletion:
-                                                            functions
-                                                                .getDayDate(),
-                                                      ),
-                                                      ...mapToFirestore(
-                                                        {
-                                                          'completionNumber':
-                                                              FieldValue
-                                                                  .increment(1),
-                                                        },
-                                                      ),
-                                                    });
-                                                  }
-                                                  setState(() {
-                                                    _model.textController2
-                                                        ?.clear();
-                                                  });
-
-                                                  firestoreBatch.update(
-                                                      widget.dailyPractice!
-                                                          .reference,
-                                                      {
-                                                        ...mapToFirestore(
                                                           {
-                                                            'personalJournalRef':
-                                                                FieldValue
-                                                                    .arrayUnion([
-                                                              _model.newJournal
-                                                                  ?.reference
-                                                            ]),
-                                                            'personalJournalCount':
-                                                                FieldValue
-                                                                    .increment(
-                                                                        1),
-                                                          },
-                                                        ),
-                                                      });
-
-                                                  firestoreBatch.update(
-                                                      currentUserReference!, {
-                                                    ...createUsersRecordData(
-                                                      completed2: true,
-                                                      percentageCompleted2: 1,
-                                                      completedtime2:
-                                                          getCurrentTimestamp,
-                                                    ),
-                                                    ...mapToFirestore(
-                                                      {
-                                                        'timesCompletedJournal':
-                                                            FieldValue
-                                                                .increment(1),
-                                                      },
-                                                    ),
-                                                  });
-                                                  if (dateTimeFormat(
-                                                        'yMMMd',
-                                                        getCurrentTimestamp,
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
+                                                            ...createUsersRecordData(
+                                                              completed2: true,
+                                                              percentageCompleted2:
+                                                                  1,
+                                                              completedtime2:
+                                                                  getCurrentTimestamp,
+                                                            ),
+                                                            ...mapToFirestore(
+                                                              {
+                                                                'timesCompletedJournal':
+                                                                    FieldValue
+                                                                        .increment(
+                                                                            1),
+                                                              },
+                                                            ),
+                                                          });
+                                                      if (dateTimeFormat(
+                                                            'yMMMd',
+                                                            getCurrentTimestamp,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
                                                                 .languageCode,
-                                                      ) !=
-                                                      dateTimeFormat(
-                                                        'yMMMd',
-                                                        containerAdminDataRecord
-                                                            ?.currentDay,
-                                                        locale:
-                                                            FFLocalizations.of(
-                                                                    context)
+                                                          ) !=
+                                                          dateTimeFormat(
+                                                            'yMMMd',
+                                                            containerAdminDataRecord
+                                                                ?.currentDay,
+                                                            locale: FFLocalizations
+                                                                    .of(context)
                                                                 .languageCode,
-                                                      )) {
-                                                    var adminDataRecordReference =
-                                                        AdminDataRecord
-                                                            .collection
-                                                            .doc();
-                                                    firestoreBatch.set(
-                                                        adminDataRecordReference,
-                                                        createAdminDataRecordData(
-                                                          day:
-                                                              containerAdminDataRecord
-                                                                  ?.day,
-                                                          currentDay:
-                                                              getCurrentTimestamp,
-                                                          times1Completed: 0,
-                                                          times2Completed: 1,
-                                                          times3Completed: 0,
-                                                        ));
-                                                    _model.newAdminData = AdminDataRecord
-                                                        .getDocumentFromData(
+                                                          )) {
+                                                        var adminDataRecordReference =
+                                                            AdminDataRecord
+                                                                .collection
+                                                                .doc();
+                                                        firestoreBatch.set(
+                                                            adminDataRecordReference,
                                                             createAdminDataRecordData(
                                                               day:
                                                                   containerAdminDataRecord
@@ -561,86 +566,107 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                                                   1,
                                                               times3Completed:
                                                                   0,
-                                                            ),
-                                                            adminDataRecordReference);
-                                                    _shouldSetState = true;
+                                                            ));
+                                                        _model.newAdminData =
+                                                            AdminDataRecord
+                                                                .getDocumentFromData(
+                                                                    createAdminDataRecordData(
+                                                                      day: containerAdminDataRecord
+                                                                          ?.day,
+                                                                      currentDay:
+                                                                          getCurrentTimestamp,
+                                                                      times1Completed:
+                                                                          0,
+                                                                      times2Completed:
+                                                                          1,
+                                                                      times3Completed:
+                                                                          0,
+                                                                    ),
+                                                                    adminDataRecordReference);
+                                                        _shouldSetState = true;
 
-                                                    firestoreBatch.update(
-                                                        _model.newAdminData!
-                                                            .reference,
-                                                        {
-                                                          ...mapToFirestore(
+                                                        firestoreBatch.update(
+                                                            _model.newAdminData!
+                                                                .reference,
                                                             {
-                                                              'day': FieldValue
-                                                                  .increment(1),
-                                                            },
-                                                          ),
-                                                        });
-                                                  } else {
-                                                    firestoreBatch.update(
-                                                        containerAdminDataRecord!
-                                                            .reference,
-                                                        {
-                                                          ...mapToFirestore(
-                                                            {
-                                                              'times_2Completed':
-                                                                  FieldValue
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'day': FieldValue
                                                                       .increment(
                                                                           1),
-                                                            },
+                                                                },
+                                                              ),
+                                                            });
+                                                      } else {
+                                                        firestoreBatch.update(
+                                                            containerAdminDataRecord!
+                                                                .reference,
+                                                            {
+                                                              ...mapToFirestore(
+                                                                {
+                                                                  'times_2Completed':
+                                                                      FieldValue
+                                                                          .increment(
+                                                                              1),
+                                                                },
+                                                              ),
+                                                            });
+                                                      }
+                                                    }
+
+                                                    setState(() {
+                                                      FFAppState()
+                                                          .timerStarted = false;
+                                                    });
+                                                    showModalBottomSheet(
+                                                      isScrollControlled: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      barrierColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .opagueSeparator,
+                                                      isDismissible: false,
+                                                      enableDrag: false,
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return WebViewAware(
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child:
+                                                                PercentageCompleted2Widget(),
                                                           ),
-                                                        });
+                                                        );
+                                                      },
+                                                    ).then((value) =>
+                                                        safeSetState(() {}));
+                                                  } else {
+                                                    if (_shouldSetState)
+                                                      setState(() {});
+                                                    return;
                                                   }
+                                                } finally {
+                                                  await firestoreBatch.commit();
                                                 }
 
-                                                setState(() {
-                                                  FFAppState().timerStarted =
-                                                      false;
-                                                });
-                                                showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  barrierColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .opagueSeparator,
-                                                  isDismissible: false,
-                                                  enableDrag: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return WebViewAware(
-                                                        child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          PercentageCompleted2Widget(),
-                                                    ));
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
-                                              } else {
                                                 if (_shouldSetState)
                                                   setState(() {});
-                                                return;
-                                              }
-                                            } finally {
-                                              await firestoreBatch.commit();
-                                            }
-
-                                            if (_shouldSetState)
-                                              setState(() {});
-                                          },
-                                          textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                              ),
+                                              },
+                                              textAlign: TextAlign.start,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                      ),
+                                            ),
+                                          ],
                                         ),
                                       );
                                     },
@@ -675,17 +701,19 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: ReadScriptureWidget(
-                                                  pdfImageSelected:
-                                                      widget.dailyPractice,
-                                                  pdfImageSelectedRef: widget
-                                                      .dailyPractice?.reference,
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: ReadScriptureWidget(
+                                                    pdfImageSelected:
+                                                        widget.dailyPractice,
+                                                    pdfImageSelectedRef: widget
+                                                        .dailyPractice
+                                                        ?.reference,
+                                                  ),
                                                 ),
-                                              ));
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -1385,6 +1413,8 @@ class _ScripturePracticeBSWidgetState extends State<ScripturePracticeBSWidget>
                                                                 .timerController
                                                                 .onStartTimer();
                                                           }
+                                                          await actions
+                                                              .dismissKeyboard();
                                                         },
                                                         child: Container(
                                                           width: 50.0,

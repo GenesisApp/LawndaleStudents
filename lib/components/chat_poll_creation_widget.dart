@@ -4,7 +4,7 @@ import '/components/add_date_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -17,14 +17,14 @@ export 'chat_poll_creation_model.dart';
 
 class ChatPollCreationWidget extends StatefulWidget {
   const ChatPollCreationWidget({
-    Key? key,
+    super.key,
     this.chatChosen,
-  }) : super(key: key);
+  });
 
   final DocumentReference? chatChosen;
 
   @override
-  _ChatPollCreationWidgetState createState() => _ChatPollCreationWidgetState();
+  State<ChatPollCreationWidget> createState() => _ChatPollCreationWidgetState();
 }
 
 class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
@@ -748,27 +748,22 @@ class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await showModalBottomSheet<bool>(
-                                  context: context,
-                                  builder: (context) {
-                                    return Container(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              3,
-                                      width: MediaQuery.of(context).size.width,
-                                      child: CupertinoDatePicker(
-                                        mode: CupertinoDatePickerMode.date,
-                                        minimumDate: getCurrentTimestamp,
-                                        initialDateTime: getCurrentTimestamp,
-                                        maximumDate: DateTime(2050),
-                                        use24hFormat: false,
-                                        onDateTimeChanged: (newDateTime) =>
-                                            safeSetState(() {
-                                          _model.datePicked = newDateTime;
-                                        }),
-                                      ),
-                                    );
-                                  });
+                              final _datePickedDate = await showDatePicker(
+                                context: context,
+                                initialDate: getCurrentTimestamp,
+                                firstDate: getCurrentTimestamp,
+                                lastDate: DateTime(2050),
+                              );
+
+                              if (_datePickedDate != null) {
+                                safeSetState(() {
+                                  _model.datePicked = DateTime(
+                                    _datePickedDate.year,
+                                    _datePickedDate.month,
+                                    _datePickedDate.day,
+                                  );
+                                });
+                              }
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.8,
@@ -1139,11 +1134,12 @@ class _ChatPollCreationWidgetState extends State<ChatPollCreationWidget> {
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: AddDateWidget(),
-                                      ));
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: AddDateWidget(),
+                                        ),
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 }

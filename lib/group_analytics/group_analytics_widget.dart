@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -9,7 +8,6 @@ import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,220 +16,16 @@ import 'group_analytics_model.dart';
 export 'group_analytics_model.dart';
 
 class GroupAnalyticsWidget extends StatefulWidget {
-  const GroupAnalyticsWidget({Key? key}) : super(key: key);
+  const GroupAnalyticsWidget({super.key});
 
   @override
-  _GroupAnalyticsWidgetState createState() => _GroupAnalyticsWidgetState();
+  State<GroupAnalyticsWidget> createState() => _GroupAnalyticsWidgetState();
 }
 
-class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
-    with TickerProviderStateMixin {
+class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget> {
   late GroupAnalyticsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -258,15 +52,6 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<List<GroupsRecord>>(
@@ -390,8 +175,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                 size: 24.0,
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation1']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -407,72 +191,82 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .lightSecondaryText,
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation1']!),
+                          ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              22.0, 0.0, 22.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Container(
-                                  height: 48.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondarySystemBackground,
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context
-                                              .pushNamed('adminGroupsViewAll');
-                                        },
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(8.0, 0.0, 0.0, 0.0),
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Icon(
-                                                    Icons.people_alt,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondary,
-                                                    size: 24.0,
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: SelectionArea(
-                                                        child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '5cjce3sj' /* Total Groups: */,
+                        Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  22.0, 0.0, 22.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Container(
+                                      height: 48.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondarySystemBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Padding(
+                                          padding: EdgeInsets.all(8.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed(
+                                                  'adminGroupsViewAll');
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          8.0, 0.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      Icon(
+                                                        Icons.people_alt,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        size: 24.0,
                                                       ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: SelectionArea(
+                                                            child: Text(
+                                                          FFLocalizations.of(
                                                                   context)
+                                                              .getText(
+                                                            '5cjce3sj' /* Total Groups: */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
@@ -482,22 +276,22 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                                                     .secondary,
                                                                 fontSize: 16.0,
                                                               ),
-                                                    )),
+                                                        )),
+                                                      ),
+                                                    ],
                                                   ),
-                                                ],
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      5.0, 0.0, 20.0, 0.0),
-                                              child: SelectionArea(
-                                                  child: Text(
-                                                groupAnalyticsGroupsRecordList
-                                                    .length
-                                                    .toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 20.0, 0.0),
+                                                  child: SelectionArea(
+                                                      child: Text(
+                                                    groupAnalyticsGroupsRecordList
+                                                        .length
+                                                        .toString(),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Inter',
@@ -506,17 +300,57 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                                               .tertiary,
                                                           fontSize: 16.0,
                                                         ),
-                                              )),
+                                                  )),
+                                                ),
+                                              ],
                                             ),
-                                          ],
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'cp9pmy1o' /* Avg. Group Size:  */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondary,
+                                          fontSize: 14.0,
+                                        ),
+                                  ),
+                                  Text(
+                                    functions
+                                        .avgMembers(
+                                            groupAnalyticsGroupsRecordList
+                                                .map((e) => e.members.length)
+                                                .toList())
+                                        .toString(),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Inter',
+                                          color: FlutterFlowTheme.of(context)
+                                              .tertiary,
+                                          fontSize: 14.0,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -533,8 +367,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                       .lightSecondaryText,
                                   fontSize: 16.0,
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation2']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -655,8 +488,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                       ),
                                     ),
                                 ],
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation1']!),
+                              ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -775,8 +607,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                       ),
                                     ),
                                 ],
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation2']!),
+                              ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -889,8 +720,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                       ),
                                     ),
                                 ],
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation3']!),
+                              ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
@@ -1003,8 +833,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                       ),
                                     ),
                                 ],
-                              ).animateOnPageLoad(
-                                  animationsMap['columnOnPageLoadAnimation4']!),
+                              ),
                             ],
                           ),
                         ),
@@ -1863,6 +1692,142 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               22.0, 20.0, 22.0, 0.0),
+                          child: FutureBuilder<int>(
+                            future: queryUsersRecordCount(
+                              queryBuilder: (usersRecord) => usersRecord
+                                  .where(
+                                    'inaGroup',
+                                    isEqualTo: true,
+                                  )
+                                  .where(
+                                    'lastAttendance',
+                                    isLessThanOrEqualTo:
+                                        functions.dateFromThirtyDaysAgo(),
+                                  ),
+                            ),
+                            builder: (context, snapshot) {
+                              // Customize what your widget looks like when it's loading.
+                              if (!snapshot.hasData) {
+                                return Center(
+                                  child: SizedBox(
+                                    width: 75.0,
+                                    height: 75.0,
+                                    child: SpinKitRipple(
+                                      color: Color(0xFF7F95AD),
+                                      size: 75.0,
+                                    ),
+                                  ),
+                                );
+                              }
+                              int menuItemCount = snapshot.data!;
+                              return Container(
+                                width: MediaQuery.sizeOf(context).width * 1.0,
+                                height: 50.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed('FollowupNeeded');
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondarySystemBackground,
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 2.0),
+                                                  child: FaIcon(
+                                                    FontAwesomeIcons
+                                                        .heartBroken,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 20.0,
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          12.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '8ymlngm2' /* Follow Up Needed: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    8.0, 0.0, 20.0, 0.0),
+                                            child: Text(
+                                              menuItemCount.toString(),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .tertiary,
+                                                        fontSize: 16.0,
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              22.0, 20.0, 22.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -2031,8 +1996,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                 ),
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation2']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -2230,8 +2194,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                 ),
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation3']!),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
@@ -2245,64 +2208,105 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondarySystemBackground,
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        18.0, 0.0, 0.0, 0.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '2gjh345t' /* Avg. Group Size */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .secondary,
-                                                      ),
-                                            ),
-                                          ],
-                                        ),
-                                        Text(
-                                          functions
-                                              .avgMembers(
-                                                  groupAnalyticsGroupsRecordList
-                                                      .map((e) =>
-                                                          e.members.length)
-                                                      .toList())
-                                              .toString(),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                                fontSize: 16.0,
-                                              ),
-                                        ),
-                                      ],
+                                child: FutureBuilder<int>(
+                                  future: queryUsersRecordCount(
+                                    queryBuilder: (usersRecord) =>
+                                        usersRecord.where(
+                                      'lastAttendance',
+                                      isGreaterThanOrEqualTo:
+                                          functions.dateFromThirtyDaysAgo(),
                                     ),
                                   ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 75.0,
+                                          height: 75.0,
+                                          child: SpinKitRipple(
+                                            color: Color(0xFF7F95AD),
+                                            size: 75.0,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    int containerCount = snapshot.data!;
+                                    return InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        context.pushNamed('recentCheckins');
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondarySystemBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  18.0, 0.0, 0.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '2gjh345t' /* Recent People */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondary,
+                                                        ),
+                                                  ),
+                                                  Icon(
+                                                    Icons.chevron_right_sharp,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 18.0,
+                                                  ),
+                                                ],
+                                              ),
+                                              Text(
+                                                valueOrDefault<String>(
+                                                  containerCount.toString(),
+                                                  '0',
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
+                                                          fontSize: 16.0,
+                                                        ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
                               Expanded(
@@ -2417,8 +2421,7 @@ class _GroupAnalyticsWidgetState extends State<GroupAnalyticsWidget>
                                 },
                               ),
                             ],
-                          ).animateOnPageLoad(
-                              animationsMap['rowOnPageLoadAnimation4']!),
+                          ),
                         ),
                         Container(
                           width: double.infinity,

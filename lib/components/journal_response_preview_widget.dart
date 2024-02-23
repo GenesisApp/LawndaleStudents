@@ -10,7 +10,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,16 +20,16 @@ export 'journal_response_preview_model.dart';
 
 class JournalResponsePreviewWidget extends StatefulWidget {
   const JournalResponsePreviewWidget({
-    Key? key,
+    super.key,
     required this.journalInListRef,
     required this.journalInListDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? journalInListRef;
   final PersonalJournalsRecord? journalInListDoc;
 
   @override
-  _JournalResponsePreviewWidgetState createState() =>
+  State<JournalResponsePreviewWidget> createState() =>
       _JournalResponsePreviewWidgetState();
 }
 
@@ -539,16 +538,19 @@ class _JournalResponsePreviewWidgetState
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: EditPracticeResponseWidget(
-                                                usersResponse:
-                                                    widget.journalInListRef,
-                                                usersResponseDoc:
-                                                    widget.journalInListDoc,
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    EditPracticeResponseWidget(
+                                                  usersResponse:
+                                                      widget.journalInListRef,
+                                                  usersResponseDoc:
+                                                      widget.journalInListDoc,
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }
@@ -560,17 +562,19 @@ class _JournalResponsePreviewWidgetState
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  EditPracticeResponse2Widget(
-                                                usersResponse:
-                                                    widget.journalInListRef,
-                                                usersResponseDoc:
-                                                    widget.journalInListDoc,
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    EditPracticeResponse2Widget(
+                                                  usersResponse:
+                                                      widget.journalInListRef,
+                                                  usersResponseDoc:
+                                                      widget.journalInListDoc,
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }
@@ -583,17 +587,19 @@ class _JournalResponsePreviewWidgetState
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  EditPracticeResponse3Widget(
-                                                usersResponse:
-                                                    widget.journalInListRef,
-                                                usersResponseDoc:
-                                                    widget.journalInListDoc,
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    EditPracticeResponse3Widget(
+                                                  usersResponse:
+                                                      widget.journalInListRef,
+                                                  usersResponseDoc:
+                                                      widget.journalInListDoc,
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }
@@ -662,16 +668,17 @@ class _JournalResponsePreviewWidgetState
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: EditPracticeResponseWidget(
-                                          usersResponse:
-                                              widget.journalInListRef,
-                                          usersResponseDoc:
-                                              widget.journalInListDoc,
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: EditPracticeResponseWidget(
+                                            usersResponse:
+                                                widget.journalInListRef,
+                                            usersResponseDoc:
+                                                widget.journalInListDoc,
+                                          ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },
@@ -696,11 +703,12 @@ class _JournalResponsePreviewWidgetState
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: ReportConcernWidget(),
-                                          ));
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: ReportConcernWidget(),
+                                            ),
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -881,16 +889,19 @@ class _JournalResponsePreviewWidgetState
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: EditPracticeResponseWidget(
-                                                usersResponse:
-                                                    widget.journalInListRef,
-                                                usersResponseDoc:
-                                                    widget.journalInListDoc,
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    EditPracticeResponseWidget(
+                                                  usersResponse:
+                                                      widget.journalInListRef,
+                                                  usersResponseDoc:
+                                                      widget.journalInListDoc,
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }
@@ -902,17 +913,19 @@ class _JournalResponsePreviewWidgetState
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  EditPracticeResponse2Widget(
-                                                usersResponse:
-                                                    widget.journalInListRef,
-                                                usersResponseDoc:
-                                                    widget.journalInListDoc,
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    EditPracticeResponse2Widget(
+                                                  usersResponse:
+                                                      widget.journalInListRef,
+                                                  usersResponseDoc:
+                                                      widget.journalInListDoc,
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }
@@ -925,17 +938,19 @@ class _JournalResponsePreviewWidgetState
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  EditPracticeResponse3Widget(
-                                                usersResponse:
-                                                    widget.journalInListRef,
-                                                usersResponseDoc:
-                                                    widget.journalInListDoc,
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    EditPracticeResponse3Widget(
+                                                  usersResponse:
+                                                      widget.journalInListRef,
+                                                  usersResponseDoc:
+                                                      widget.journalInListDoc,
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }
@@ -1004,16 +1019,17 @@ class _JournalResponsePreviewWidgetState
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: EditPracticeResponseWidget(
-                                          usersResponse:
-                                              widget.journalInListRef,
-                                          usersResponseDoc:
-                                              widget.journalInListDoc,
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: EditPracticeResponseWidget(
+                                            usersResponse:
+                                                widget.journalInListRef,
+                                            usersResponseDoc:
+                                                widget.journalInListDoc,
+                                          ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },
@@ -1038,11 +1054,12 @@ class _JournalResponsePreviewWidgetState
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: ReportConcernWidget(),
-                                          ));
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: ReportConcernWidget(),
+                                            ),
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },

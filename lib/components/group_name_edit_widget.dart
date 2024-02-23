@@ -6,7 +6,6 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,16 +16,16 @@ export 'group_name_edit_model.dart';
 
 class GroupNameEditWidget extends StatefulWidget {
   const GroupNameEditWidget({
-    Key? key,
+    super.key,
     this.grouptoEdit,
     this.grouptoEditDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? grouptoEdit;
   final MessageChatsRecord? grouptoEditDoc;
 
   @override
-  _GroupNameEditWidgetState createState() => _GroupNameEditWidgetState();
+  State<GroupNameEditWidget> createState() => _GroupNameEditWidgetState();
 }
 
 class _GroupNameEditWidgetState extends State<GroupNameEditWidget> {

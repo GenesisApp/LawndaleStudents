@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -12,14 +11,14 @@ export 'delete_tag_model.dart';
 
 class DeleteTagWidget extends StatefulWidget {
   const DeleteTagWidget({
-    Key? key,
+    super.key,
     this.tagSelected,
-  }) : super(key: key);
+  });
 
   final DocumentReference? tagSelected;
 
   @override
-  _DeleteTagWidgetState createState() => _DeleteTagWidgetState();
+  State<DeleteTagWidget> createState() => _DeleteTagWidgetState();
 }
 
 class _DeleteTagWidgetState extends State<DeleteTagWidget> {
@@ -73,8 +72,8 @@ class _DeleteTagWidgetState extends State<DeleteTagWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                             shape: BoxShape.circle,
@@ -109,7 +108,7 @@ class _DeleteTagWidgetState extends State<DeleteTagWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.165,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

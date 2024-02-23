@@ -6,7 +6,6 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,16 +16,16 @@ export 'edit_practice_response3_model.dart';
 
 class EditPracticeResponse3Widget extends StatefulWidget {
   const EditPracticeResponse3Widget({
-    Key? key,
+    super.key,
     this.usersResponse,
     this.usersResponseDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? usersResponse;
   final PersonalJournalsRecord? usersResponseDoc;
 
   @override
-  _EditPracticeResponse3WidgetState createState() =>
+  State<EditPracticeResponse3Widget> createState() =>
       _EditPracticeResponse3WidgetState();
 }
 

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,16 +14,16 @@ export 'journal_preview_model.dart';
 
 class JournalPreviewWidget extends StatefulWidget {
   const JournalPreviewWidget({
-    Key? key,
+    super.key,
     required this.chosenJournalRef,
     required this.chosenJournalDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? chosenJournalRef;
   final PersonalJournalsRecord? chosenJournalDoc;
 
   @override
-  _JournalPreviewWidgetState createState() => _JournalPreviewWidgetState();
+  State<JournalPreviewWidget> createState() => _JournalPreviewWidgetState();
 }
 
 class _JournalPreviewWidgetState extends State<JournalPreviewWidget> {

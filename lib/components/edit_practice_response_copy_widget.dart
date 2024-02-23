@@ -6,7 +6,6 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -17,16 +16,16 @@ export 'edit_practice_response_copy_model.dart';
 
 class EditPracticeResponseCopyWidget extends StatefulWidget {
   const EditPracticeResponseCopyWidget({
-    Key? key,
+    super.key,
     this.usersReply,
     this.usersReplyDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? usersReply;
   final JournalRepliesRecord? usersReplyDoc;
 
   @override
-  _EditPracticeResponseCopyWidgetState createState() =>
+  State<EditPracticeResponseCopyWidget> createState() =>
       _EditPracticeResponseCopyWidgetState();
 }
 
@@ -117,7 +116,8 @@ class _EditPracticeResponseCopyWidgetState
                       ),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).opagueSeparator,
+                          color: FlutterFlowTheme.of(context)
+                              .secondarySystemBackground,
                           borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Padding(

@@ -14,16 +14,16 @@ export 'chat_exists_model.dart';
 
 class ChatExistsWidget extends StatefulWidget {
   const ChatExistsWidget({
-    Key? key,
+    super.key,
     this.userChosen,
     this.userChosenDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userChosen;
   final UsersRecord? userChosenDoc;
 
   @override
-  _ChatExistsWidgetState createState() => _ChatExistsWidgetState();
+  State<ChatExistsWidget> createState() => _ChatExistsWidgetState();
 }
 
 class _ChatExistsWidgetState extends State<ChatExistsWidget> {
@@ -156,7 +156,7 @@ class _ChatExistsWidgetState extends State<ChatExistsWidget> {
                                       percent: 1.0,
                                       radius: MediaQuery.sizeOf(context).width *
                                           0.175,
-                                      lineWidth: 7.0,
+                                      lineWidth: 5.0,
                                       animation: true,
                                       animateFromLastPercent: true,
                                       progressColor:

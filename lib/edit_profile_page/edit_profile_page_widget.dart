@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/delete_account_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,11 +10,8 @@ import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,175 +21,16 @@ import 'edit_profile_page_model.dart';
 export 'edit_profile_page_model.dart';
 
 class EditProfilePageWidget extends StatefulWidget {
-  const EditProfilePageWidget({Key? key}) : super(key: key);
+  const EditProfilePageWidget({super.key});
 
   @override
-  _EditProfilePageWidgetState createState() => _EditProfilePageWidgetState();
+  State<EditProfilePageWidget> createState() => _EditProfilePageWidgetState();
 }
 
-class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
-    with TickerProviderStateMixin {
+class _EditProfilePageWidgetState extends State<EditProfilePageWidget> {
   late EditProfilePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1050.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1050.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1100.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1100.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -222,15 +59,6 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -608,8 +436,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .lightSecondaryText,
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation1']!),
+                          ),
                         ),
                         Container(
                           width: double.infinity,
@@ -854,8 +681,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                         ),
                                       ),
                                     ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation1']!),
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -968,8 +794,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                         ),
                                       ),
                                     ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation2']!),
+                                  ),
                                 ),
                                 InkWell(
                                   splashColor: Colors.transparent,
@@ -977,33 +802,23 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await showModalBottomSheet<bool>(
-                                        context: context,
-                                        builder: (context) {
-                                          return Container(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                3,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            child: CupertinoDatePicker(
-                                              mode:
-                                                  CupertinoDatePickerMode.date,
-                                              minimumDate: DateTime(1900),
-                                              initialDateTime:
-                                                  getCurrentTimestamp,
-                                              maximumDate: getCurrentTimestamp,
-                                              use24hFormat: false,
-                                              onDateTimeChanged:
-                                                  (newDateTime) =>
-                                                      safeSetState(() {
-                                                _model.datePicked = newDateTime;
-                                              }),
-                                            ),
-                                          );
-                                        });
+                                    final _datePickedDate =
+                                        await showDatePicker(
+                                      context: context,
+                                      initialDate: getCurrentTimestamp,
+                                      firstDate: DateTime(1900),
+                                      lastDate: getCurrentTimestamp,
+                                    );
+
+                                    if (_datePickedDate != null) {
+                                      safeSetState(() {
+                                        _model.datePicked = DateTime(
+                                          _datePickedDate.year,
+                                          _datePickedDate.month,
+                                          _datePickedDate.day,
+                                        );
+                                      });
+                                    }
                                   },
                                   child: Container(
                                     width:
@@ -1082,8 +897,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                       ],
                                     ),
                                   ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation']!),
+                                ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       35.0, 8.0, 35.0, 0.0),
@@ -1101,8 +915,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                           fontSize: 13.0,
                                           fontWeight: FontWeight.w300,
                                         ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation2']!),
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -1240,8 +1053,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                           ),
                                         ),
                                       ],
-                                    ).animateOnPageLoad(animationsMap[
-                                        'rowOnPageLoadAnimation3']!),
+                                    ),
                                   ),
                                 ),
                                 Align(
@@ -1264,24 +1076,25 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: DeleteAccountWidget(
-                                                  userReference:
-                                                      currentUserReference,
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: DeleteAccountWidget(
+                                                    userReference:
+                                                        currentUserReference,
+                                                  ),
                                                 ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -1317,8 +1130,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                           ),
                                         ],
                                       ),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'rowOnPageLoadAnimation4']!),
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -1469,8 +1281,7 @@ class _EditProfilePageWidgetState extends State<EditProfilePageWidget>
                                         ),
                                       ),
                                     ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation5']!),
+                                  ),
                                 ),
                               ],
                             ),

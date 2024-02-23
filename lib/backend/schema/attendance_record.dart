@@ -57,8 +57,8 @@ class AttendanceRecord extends FirestoreRecord {
           ? parent.collection('attendance')
           : FirebaseFirestore.instance.collectionGroup('attendance');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('attendance').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('attendance').doc(id);
 
   static Stream<AttendanceRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => AttendanceRecord.fromSnapshot(s));

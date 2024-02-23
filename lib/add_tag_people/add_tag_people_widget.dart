@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/people_added_tag_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,8 +8,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
@@ -22,66 +19,22 @@ export 'add_tag_people_model.dart';
 
 class AddTagPeopleWidget extends StatefulWidget {
   const AddTagPeopleWidget({
-    Key? key,
+    super.key,
     this.tagChosen,
     this.tagChosenRef,
-  }) : super(key: key);
+  });
 
   final ProfileTagsRecord? tagChosen;
   final DocumentReference? tagChosenRef;
 
   @override
-  _AddTagPeopleWidgetState createState() => _AddTagPeopleWidgetState();
+  State<AddTagPeopleWidget> createState() => _AddTagPeopleWidgetState();
 }
 
-class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
-    with TickerProviderStateMixin {
+class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget> {
   late AddTagPeopleModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'listViewOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'listViewOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -108,15 +61,6 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -137,18 +81,20 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
               context: context,
               builder: (context) {
                 return WebViewAware(
-                    child: GestureDetector(
-                  onTap: () => _model.unfocusNode.canRequestFocus
-                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                      : FocusScope.of(context).unfocus(),
-                  child: Padding(
-                    padding: MediaQuery.viewInsetsOf(context),
-                    child: PeopleAddedTagWidget(
-                      tagChosen: widget.tagChosenRef,
-                      groupChosenDoc: widget.tagChosen,
+                  child: GestureDetector(
+                    onTap: () => _model.unfocusNode.canRequestFocus
+                        ? FocusScope.of(context)
+                            .requestFocus(_model.unfocusNode)
+                        : FocusScope.of(context).unfocus(),
+                    child: Padding(
+                      padding: MediaQuery.viewInsetsOf(context),
+                      child: PeopleAddedTagWidget(
+                        tagChosen: widget.tagChosenRef,
+                        groupChosenDoc: widget.tagChosen,
+                      ),
                     ),
                   ),
-                ));
+                );
               },
             ).then((value) => safeSetState(() {}));
           },
@@ -164,7 +110,7 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
             child: Icon(
               Icons.check_rounded,
               color: FlutterFlowTheme.of(context).tertiary,
-              size: 26.0,
+              size: 28.0,
             ),
           ),
         ),
@@ -189,10 +135,10 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pop();
                             setState(() {
                               FFAppState().showFullList = true;
                             });
+                            context.pop();
                           },
                           child: Icon(
                             Icons.arrow_back_ios_rounded,
@@ -234,9 +180,9 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                 children: [
                   Expanded(
                     child: Container(
-                      height: 40.0,
+                      height: 45.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Container(
                         width: 100.0,
@@ -244,7 +190,7 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context)
                               .secondarySystemBackground,
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -270,7 +216,9 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                                                     (record) => TextSearchItem
                                                         .fromTerms(record, [
                                                       record.email!,
-                                                      record.displayName!
+                                                      record.displayName!,
+                                                      record.firstName!,
+                                                      record.lastName!
                                                     ]),
                                                   )
                                                   .toList(),
@@ -419,7 +367,7 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'havrmox0' /* Search Results */,
@@ -685,8 +633,7 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                       );
                     },
                   ),
-                ).animateOnPageLoad(
-                    animationsMap['listViewOnPageLoadAnimation1']!),
+                ),
               ),
             if (!FFAppState().showFullList)
               Expanded(
@@ -889,7 +836,7 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .titleMedium
                                                       .override(
-                                                        fontFamily: 'Poppins',
+                                                        fontFamily: 'Inter',
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -920,8 +867,7 @@ class _AddTagPeopleWidgetState extends State<AddTagPeopleWidget>
                           ),
                         );
                       },
-                    ).animateOnPageLoad(
-                        animationsMap['listViewOnPageLoadAnimation2']!);
+                    );
                   },
                 ),
               ),

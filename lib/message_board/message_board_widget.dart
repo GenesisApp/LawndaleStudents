@@ -1,14 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/notification_text_field_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,79 +12,16 @@ import 'message_board_model.dart';
 export 'message_board_model.dart';
 
 class MessageBoardWidget extends StatefulWidget {
-  const MessageBoardWidget({Key? key}) : super(key: key);
+  const MessageBoardWidget({super.key});
 
   @override
-  _MessageBoardWidgetState createState() => _MessageBoardWidgetState();
+  State<MessageBoardWidget> createState() => _MessageBoardWidgetState();
 }
 
-class _MessageBoardWidgetState extends State<MessageBoardWidget>
-    with TickerProviderStateMixin {
+class _MessageBoardWidgetState extends State<MessageBoardWidget> {
   late MessageBoardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -105,15 +38,6 @@ class _MessageBoardWidgetState extends State<MessageBoardWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -210,7 +134,7 @@ class _MessageBoardWidgetState extends State<MessageBoardWidget>
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 8.0),
@@ -222,7 +146,7 @@ class _MessageBoardWidgetState extends State<MessageBoardWidget>
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).systemGray,
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+              ),
             ),
             Row(
               mainAxisSize: MainAxisSize.max,
@@ -279,8 +203,7 @@ class _MessageBoardWidgetState extends State<MessageBoardWidget>
                               );
                             }),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation']!);
+                        );
                       },
                     ),
                   ),

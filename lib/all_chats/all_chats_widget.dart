@@ -25,6 +25,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
@@ -32,10 +33,10 @@ import 'all_chats_model.dart';
 export 'all_chats_model.dart';
 
 class AllChatsWidget extends StatefulWidget {
-  const AllChatsWidget({Key? key}) : super(key: key);
+  const AllChatsWidget({super.key});
 
   @override
-  _AllChatsWidgetState createState() => _AllChatsWidgetState();
+  State<AllChatsWidget> createState() => _AllChatsWidgetState();
 }
 
 class _AllChatsWidgetState extends State<AllChatsWidget>
@@ -47,10 +48,9 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
   bool _isKeyboardVisible = false;
 
   final animationsMap = {
-    'columnOnPageLoadAnimation1': AnimationInfo(
+    'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1.ms),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
@@ -60,79 +60,21 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
         ),
       ],
     ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
     'containerOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
+          delay: 200.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-15.0, 0.0),
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -184,15 +126,6 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<List<MessageChatsRecord>>(
@@ -250,7 +183,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).systemBackground,
             body: Container(
-              width: MediaQuery.sizeOf(context).width * 1.0,
+              width: double.infinity,
               height: MediaQuery.sizeOf(context).height * 1.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).systemBackground,
@@ -759,379 +692,386 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   8.0, 0.0, 0.0, 0.0),
-                                          child:
-                                              StreamBuilder<List<UsersRecord>>(
-                                            stream: queryUsersRecord(
-                                              queryBuilder: (usersRecord) =>
-                                                  usersRecord
-                                                      .where(
-                                                        'accountApproved',
-                                                        isEqualTo: true,
-                                                      )
-                                                      .orderBy('lastLoggedIn',
-                                                          descending: true),
+                                          child: PagedListView<
+                                              DocumentSnapshot<Object?>?,
+                                              UsersRecord>(
+                                            pagingController:
+                                                _model.setListViewController1(
+                                              UsersRecord.collection
+                                                  .where(
+                                                    'accountApproved',
+                                                    isEqualTo: true,
+                                                  )
+                                                  .orderBy('lastLoggedIn',
+                                                      descending: true),
                                             ),
-                                            builder: (context, snapshot) {
-                                              // Customize what your widget looks like when it's loading.
-                                              if (!snapshot.hasData) {
-                                                return Center(
-                                                  child: SizedBox(
-                                                    width: 75.0,
-                                                    height: 75.0,
-                                                    child: SpinKitRipple(
-                                                      color: Color(0xFF7F95AD),
-                                                      size: 75.0,
-                                                    ),
+                                            padding: EdgeInsets.zero,
+                                            shrinkWrap: true,
+                                            reverse: false,
+                                            scrollDirection: Axis.horizontal,
+                                            builderDelegate:
+                                                PagedChildBuilderDelegate<
+                                                    UsersRecord>(
+                                              // Customize what your widget looks like when it's loading the first page.
+                                              firstPageProgressIndicatorBuilder:
+                                                  (_) => Center(
+                                                child: SizedBox(
+                                                  width: 75.0,
+                                                  height: 75.0,
+                                                  child: SpinKitRipple(
+                                                    color: Color(0xFF7F95AD),
+                                                    size: 75.0,
                                                   ),
-                                                );
-                                              }
-                                              List<UsersRecord>
-                                                  listViewUsersRecordList =
-                                                  snapshot.data!
-                                                      .where((u) =>
-                                                          u.uid !=
-                                                          currentUserUid)
-                                                      .toList();
-                                              return ListView.builder(
-                                                padding: EdgeInsets.zero,
-                                                shrinkWrap: true,
-                                                scrollDirection:
-                                                    Axis.horizontal,
-                                                itemCount:
-                                                    listViewUsersRecordList
-                                                        .length,
-                                                itemBuilder:
-                                                    (context, listViewIndex) {
-                                                  final listViewUsersRecord =
-                                                      listViewUsersRecordList[
-                                                          listViewIndex];
-                                                  return Visibility(
-                                                    visible: !(currentUserDocument
-                                                                ?.blockedPeople
-                                                                ?.toList() ??
-                                                            [])
-                                                        .contains(
-                                                            listViewUsersRecord
-                                                                .reference),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0),
-                                                      child:
-                                                          AuthUserStreamWidget(
-                                                        builder: (context) =>
-                                                            Container(
-                                                          width: 90.0,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        12.0),
-                                                          ),
-                                                          child: Stack(
-                                                            children: [
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        -1.0),
-                                                                child:
-                                                                    Container(
-                                                                  width: 80.0,
-                                                                  height: 80.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: Colors
-                                                                        .transparent,
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                    border:
-                                                                        Border
-                                                                            .all(
-                                                                      color: valueOrDefault<
-                                                                          Color>(
-                                                                        listViewUsersRecord.heartCheckActive
-                                                                            ? FlutterFlowTheme.of(context).worshipRing
-                                                                            : Colors.transparent,
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .primary,
-                                                                      ),
-                                                                      width:
-                                                                          2.0,
+                                                ),
+                                              ),
+                                              // Customize what your widget looks like when it's loading another page.
+                                              newPageProgressIndicatorBuilder:
+                                                  (_) => Center(
+                                                child: SizedBox(
+                                                  width: 75.0,
+                                                  height: 75.0,
+                                                  child: SpinKitRipple(
+                                                    color: Color(0xFF7F95AD),
+                                                    size: 75.0,
+                                                  ),
+                                                ),
+                                              ),
+
+                                              itemBuilder:
+                                                  (context, _, listViewIndex) {
+                                                final listViewUsersRecord = _model
+                                                    .listViewPagingController1!
+                                                    .itemList![listViewIndex];
+                                                return Visibility(
+                                                  visible: !(currentUserDocument
+                                                                  ?.blockedPeople
+                                                                  ?.toList() ??
+                                                              [])
+                                                          .contains(
+                                                              listViewUsersRecord
+                                                                  .reference) &&
+                                                      (listViewUsersRecord
+                                                              .reference !=
+                                                          currentUserReference),
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 5.0,
+                                                                0.0, 5.0),
+                                                    child: AuthUserStreamWidget(
+                                                      builder: (context) =>
+                                                          Container(
+                                                        width: 100.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                        child: Stack(
+                                                          children: [
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0,
+                                                                      -1.0),
+                                                              child: Container(
+                                                                width: 85.0,
+                                                                height: 85.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .transparent,
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                  border: Border
+                                                                      .all(
+                                                                    color: valueOrDefault<
+                                                                        Color>(
+                                                                      listViewUsersRecord.heartCheckActive
+                                                                          ? FlutterFlowTheme.of(context)
+                                                                              .worshipRing
+                                                                          : Colors
+                                                                              .transparent,
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
                                                                     ),
+                                                                    width: 2.0,
                                                                   ),
+                                                                ),
+                                                                child: Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              1.0),
                                                                   child:
-                                                                      Padding(
-                                                                    padding:
-                                                                        EdgeInsets.all(
-                                                                            1.0),
-                                                                    child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onTap:
-                                                                          () async {
-                                                                        context
-                                                                            .pushNamed(
-                                                                          'OtherUserProfile',
-                                                                          queryParameters:
-                                                                              {
-                                                                            'selectedUser':
-                                                                                serializeParam(
-                                                                              listViewUsersRecord,
-                                                                              ParamType.Document,
-                                                                            ),
-                                                                            'selectedUserRef':
-                                                                                serializeParam(
-                                                                              listViewUsersRecord.reference,
-                                                                              ParamType.DocumentReference,
-                                                                            ),
-                                                                          }.withoutNulls,
-                                                                          extra: <String,
-                                                                              dynamic>{
-                                                                            'selectedUser':
-                                                                                listViewUsersRecord,
-                                                                          },
-                                                                        );
-                                                                      },
-                                                                      child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(100.0),
-                                                                        child:
-                                                                            CachedNetworkImage(
-                                                                          fadeInDuration:
-                                                                              Duration(milliseconds: 500),
-                                                                          fadeOutDuration:
-                                                                              Duration(milliseconds: 500),
-                                                                          imageUrl:
-                                                                              valueOrDefault<String>(
-                                                                            listViewUsersRecord.photoUrl,
-                                                                            'https://www.chocolatebayou.org/wp-content/uploads/No-Image-Person-2048x2048.jpeg',
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      context
+                                                                          .pushNamed(
+                                                                        'OtherUserProfile',
+                                                                        queryParameters:
+                                                                            {
+                                                                          'selectedUser':
+                                                                              serializeParam(
+                                                                            listViewUsersRecord,
+                                                                            ParamType.Document,
                                                                           ),
-                                                                          width:
-                                                                              70.0,
-                                                                          height:
-                                                                              70.0,
-                                                                          fit: BoxFit
-                                                                              .cover,
+                                                                          'selectedUserRef':
+                                                                              serializeParam(
+                                                                            listViewUsersRecord.reference,
+                                                                            ParamType.DocumentReference,
+                                                                          ),
+                                                                        }.withoutNulls,
+                                                                        extra: <String,
+                                                                            dynamic>{
+                                                                          'selectedUser':
+                                                                              listViewUsersRecord,
+                                                                        },
+                                                                      );
+                                                                    },
+                                                                    child:
+                                                                        ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              100.0),
+                                                                      child:
+                                                                          CachedNetworkImage(
+                                                                        fadeInDuration:
+                                                                            Duration(milliseconds: 500),
+                                                                        fadeOutDuration:
+                                                                            Duration(milliseconds: 500),
+                                                                        imageUrl:
+                                                                            valueOrDefault<String>(
+                                                                          listViewUsersRecord
+                                                                              .photoUrl,
+                                                                          'https://www.chocolatebayou.org/wp-content/uploads/No-Image-Person-2048x2048.jpeg',
                                                                         ),
+                                                                        width:
+                                                                            85.0,
+                                                                        height:
+                                                                            85.0,
+                                                                        fit: BoxFit
+                                                                            .cover,
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'containerOnPageLoadAnimation1']!),
+                                                                ),
                                                               ),
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.95,
-                                                                        0.35),
-                                                                child:
-                                                                    Container(
-                                                                  width: 25.0,
-                                                                  height: 25.0,
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    shape: BoxShape
-                                                                        .circle,
-                                                                  ),
-                                                                  child: Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .center,
-                                                                    children: [
-                                                                      if (!listViewUsersRecord
-                                                                          .userFriends
-                                                                          .contains(
-                                                                              currentUserReference))
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              InkWell(
-                                                                            splashColor:
-                                                                                Colors.transparent,
-                                                                            focusColor:
-                                                                                Colors.transparent,
-                                                                            hoverColor:
-                                                                                Colors.transparent,
-                                                                            highlightColor:
-                                                                                Colors.transparent,
-                                                                            onTap:
-                                                                                () async {
-                                                                              if ((currentUserDocument?.friendsthathaveReceivedRequest?.toList() ?? []).contains(listViewUsersRecord.reference)) {
-                                                                                await showModalBottomSheet(
-                                                                                  isScrollControlled: true,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
-                                                                                  enableDrag: false,
-                                                                                  context: context,
-                                                                                  builder: (context) {
-                                                                                    return WebViewAware(
-                                                                                        child: GestureDetector(
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.95,
+                                                                      0.35),
+                                                              child: Container(
+                                                                width: 25.0,
+                                                                height: 25.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  shape: BoxShape
+                                                                      .circle,
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    if (!listViewUsersRecord
+                                                                        .userFriends
+                                                                        .contains(
+                                                                            currentUserReference))
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            InkWell(
+                                                                          splashColor:
+                                                                              Colors.transparent,
+                                                                          focusColor:
+                                                                              Colors.transparent,
+                                                                          hoverColor:
+                                                                              Colors.transparent,
+                                                                          highlightColor:
+                                                                              Colors.transparent,
+                                                                          onTap:
+                                                                              () async {
+                                                                            if ((currentUserDocument?.friendsthathaveReceivedRequest?.toList() ?? []).contains(listViewUsersRecord.reference)) {
+                                                                              await showModalBottomSheet(
+                                                                                isScrollControlled: true,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
+                                                                                enableDrag: false,
+                                                                                context: context,
+                                                                                builder: (context) {
+                                                                                  return WebViewAware(
+                                                                                    child: GestureDetector(
                                                                                       onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: FriendRequestSentWidget(),
                                                                                       ),
-                                                                                    ));
-                                                                                  },
-                                                                                ).then((value) => safeSetState(() {}));
-                                                                              } else {
-                                                                                await FriendRequestsRecord.collection.doc().set(createFriendRequestsRecordData(
-                                                                                      timeofRequest: getCurrentTimestamp,
-                                                                                      requestSender: currentUserReference,
-                                                                                      requestReceiver: listViewUsersRecord.reference,
-                                                                                      requestAnswered: false,
-                                                                                      requestCreated: true,
-                                                                                    ));
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              ).then((value) => safeSetState(() {}));
+                                                                            } else {
+                                                                              await FriendRequestsRecord.collection.doc().set(createFriendRequestsRecordData(
+                                                                                    timeofRequest: getCurrentTimestamp,
+                                                                                    requestSender: currentUserReference,
+                                                                                    requestReceiver: listViewUsersRecord.reference,
+                                                                                    requestAnswered: false,
+                                                                                    requestCreated: true,
+                                                                                  ));
 
-                                                                                await currentUserReference!.update({
-                                                                                  ...mapToFirestore(
-                                                                                    {
-                                                                                      'friendsthathaveReceivedRequest': FieldValue.arrayUnion([
-                                                                                        listViewUsersRecord.reference
-                                                                                      ]),
-                                                                                    },
-                                                                                  ),
-                                                                                });
-                                                                                await showModalBottomSheet(
-                                                                                  isScrollControlled: true,
-                                                                                  backgroundColor: Colors.transparent,
-                                                                                  barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
-                                                                                  enableDrag: false,
-                                                                                  context: context,
-                                                                                  builder: (context) {
-                                                                                    return WebViewAware(
-                                                                                        child: GestureDetector(
+                                                                              await currentUserReference!.update({
+                                                                                ...mapToFirestore(
+                                                                                  {
+                                                                                    'friendsthathaveReceivedRequest': FieldValue.arrayUnion([
+                                                                                      listViewUsersRecord.reference
+                                                                                    ]),
+                                                                                  },
+                                                                                ),
+                                                                              });
+                                                                              await showModalBottomSheet(
+                                                                                isScrollControlled: true,
+                                                                                backgroundColor: Colors.transparent,
+                                                                                barrierColor: FlutterFlowTheme.of(context).opagueSeparator,
+                                                                                enableDrag: false,
+                                                                                context: context,
+                                                                                builder: (context) {
+                                                                                  return WebViewAware(
+                                                                                    child: GestureDetector(
                                                                                       onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
                                                                                       child: Padding(
                                                                                         padding: MediaQuery.viewInsetsOf(context),
                                                                                         child: FriendRequestSentWidget(),
                                                                                       ),
-                                                                                    ));
-                                                                                  },
-                                                                                ).then((value) => safeSetState(() {}));
+                                                                                    ),
+                                                                                  );
+                                                                                },
+                                                                              ).then((value) => safeSetState(() {}));
 
-                                                                                triggerPushNotification(
-                                                                                  notificationTitle: 'Friend Request',
-                                                                                  notificationText: '${currentUserDisplayName} has sent you a friend request!',
-                                                                                  notificationImageUrl: currentUserPhoto,
-                                                                                  userRefs: [
-                                                                                    listViewUsersRecord.reference
-                                                                                  ],
-                                                                                  initialPageName: 'ProfilePage',
-                                                                                  parameterData: {},
-                                                                                );
-                                                                              }
-                                                                            },
-                                                                            child:
-                                                                                Icon(
-                                                                              Icons.add_circle_outline_outlined,
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              size: 24.0,
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      if (listViewUsersRecord
-                                                                          .userFriends
-                                                                          .contains(
-                                                                              currentUserReference))
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              0.0,
-                                                                              0.0),
+                                                                              triggerPushNotification(
+                                                                                notificationTitle: 'Friend Request',
+                                                                                notificationText: '${currentUserDisplayName} has sent you a friend request!',
+                                                                                notificationImageUrl: currentUserPhoto,
+                                                                                userRefs: [
+                                                                                  listViewUsersRecord.reference
+                                                                                ],
+                                                                                initialPageName: 'ProfilePage',
+                                                                                parameterData: {},
+                                                                              );
+                                                                            }
+                                                                          },
                                                                           child:
                                                                               Icon(
-                                                                            Icons.check_circle_rounded,
+                                                                            Icons.add_circle_outline_outlined,
                                                                             color:
                                                                                 FlutterFlowTheme.of(context).secondary,
                                                                             size:
                                                                                 24.0,
                                                                           ),
                                                                         ),
-                                                                    ],
-                                                                  ),
+                                                                      ),
+                                                                    if (listViewUsersRecord
+                                                                        .userFriends
+                                                                        .contains(
+                                                                            currentUserReference))
+                                                                      Align(
+                                                                        alignment: AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                        child:
+                                                                            Icon(
+                                                                          Icons
+                                                                              .check_circle_rounded,
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                          size:
+                                                                              24.0,
+                                                                        ),
+                                                                      ),
+                                                                  ],
                                                                 ),
                                                               ),
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.85),
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        listViewUsersRecord
-                                                                            .displayName,
-                                                                        'Guest User',
-                                                                      ).maybeHandleOverflow(
-                                                                        maxChars:
-                                                                            10,
-                                                                        replacement:
-                                                                            '…',
-                                                                      ),
-                                                                      textAlign:
-                                                                          TextAlign
-                                                                              .start,
-                                                                      maxLines:
-                                                                          1,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                            fontSize:
-                                                                                12.0,
-                                                                          ),
+                                                            ),
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.85),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      listViewUsersRecord
+                                                                          .displayName,
+                                                                      'Guest User',
+                                                                    ).maybeHandleOverflow(
+                                                                      maxChars:
+                                                                          10,
+                                                                      replacement:
+                                                                          '…',
                                                                     ),
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .start,
+                                                                    maxLines: 1,
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                          fontSize:
+                                                                              12.0,
+                                                                        ),
                                                                   ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ],
                                                         ),
-                                                      ),
+                                                      ).animateOnPageLoad(
+                                                              animationsMap[
+                                                                  'containerOnPageLoadAnimation2']!),
                                                     ),
-                                                  );
-                                                },
-                                              );
-                                            },
+                                                  ),
+                                                );
+                                              },
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -1200,7 +1140,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                           AuthUserStreamWidget(
                                                         builder: (context) =>
                                                             Container(
-                                                          width: 90.0,
+                                                          width: 100.0,
                                                           decoration:
                                                               BoxDecoration(
                                                             borderRadius:
@@ -1217,8 +1157,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                         -1.0),
                                                                 child:
                                                                     Container(
-                                                                  width: 80.0,
-                                                                  height: 80.0,
+                                                                  width: 85.0,
+                                                                  height: 85.0,
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     color: Colors
@@ -1300,18 +1240,16 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                             'https://www.chocolatebayou.org/wp-content/uploads/No-Image-Person-2048x2048.jpeg',
                                                                           ),
                                                                           width:
-                                                                              68.0,
+                                                                              85.0,
                                                                           height:
-                                                                              68.0,
+                                                                              85.0,
                                                                           fit: BoxFit
                                                                               .cover,
                                                                         ),
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'containerOnPageLoadAnimation2']!),
+                                                                ),
                                                               ),
                                                               Align(
                                                                 alignment:
@@ -1367,13 +1305,14 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                                   context: context,
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
-                                                                                        child: GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: FriendRequestSentWidget(),
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: FriendRequestSentWidget(),
+                                                                                        ),
                                                                                       ),
-                                                                                    ));
+                                                                                    );
                                                                                   },
                                                                                 ).then((value) => safeSetState(() {}));
                                                                               } else {
@@ -1402,13 +1341,14 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                                                   context: context,
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
-                                                                                        child: GestureDetector(
-                                                                                      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
-                                                                                      child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: FriendRequestSentWidget(),
+                                                                                      child: GestureDetector(
+                                                                                        onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: FriendRequestSentWidget(),
+                                                                                        ),
                                                                                       ),
-                                                                                    ));
+                                                                                    );
                                                                                   },
                                                                                 ).then((value) => safeSetState(() {}));
 
@@ -1681,8 +1621,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                     ),
                                   ),
                                 ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation3']!),
+                              ),
                             ),
                             if (FFAppState().showFullList)
                               Padding(
@@ -2151,8 +2090,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                           ),
                                         );
                                       }),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'columnOnPageLoadAnimation2']!);
+                                    );
                                   },
                                 ),
                               ),
@@ -2667,8 +2605,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                           ),
                                         );
                                       }),
-                                    ).animateOnPageLoad(animationsMap[
-                                        'columnOnPageLoadAnimation3']!);
+                                    );
                                   },
                                 ),
                               ),
@@ -2679,8 +2616,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                             ),
                           ],
                         ),
-                      ).animateOnPageLoad(
-                          animationsMap['columnOnPageLoadAnimation1']!),
+                      ),
                     ),
                     if (!(isWeb
                         ? MediaQuery.viewInsetsOf(context).bottom > 0
@@ -2775,7 +2711,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                             .brightness ==
                                                         Brightness.dark)
                                                       SvgPicture.asset(
-                                                        'assets/images/house-fill_(1).svg',
+                                                        'assets/images/house-fill_(dark_mode).svg',
                                                         width: 28.0,
                                                         height: 28.0,
                                                         fit: BoxFit.cover,
@@ -2784,7 +2720,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                             .brightness ==
                                                         Brightness.dark))
                                                       SvgPicture.asset(
-                                                        'assets/images/house-fill_(2).svg',
+                                                        'assets/images/house-fill_(light_mode).svg',
                                                         width: 28.0,
                                                         height: 28.0,
                                                         fit: BoxFit.cover,
@@ -2847,8 +2783,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                     if (Theme.of(context)
                                                             .brightness ==
                                                         Brightness.dark)
-                                                      Image.asset(
-                                                        'assets/images/leaf-fill_(1).png',
+                                                      SvgPicture.asset(
+                                                        'assets/images/leaf-fill_(dark_mode).svg',
                                                         width: 28.0,
                                                         height: 28.0,
                                                         fit: BoxFit.cover,
@@ -2857,7 +2793,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                             .brightness ==
                                                         Brightness.dark))
                                                       SvgPicture.asset(
-                                                        'assets/images/leaf-fill_(5).svg',
+                                                        'assets/images/leaf-fill_(light_mode).svg',
                                                         width: 28.0,
                                                         height: 28.0,
                                                         fit: BoxFit.cover,
@@ -2927,7 +2863,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                             .brightness ==
                                                         Brightness.dark)
                                                       SvgPicture.asset(
-                                                        'assets/images/hands-clapping-fill_(8).svg',
+                                                        'assets/images/hands-clapping-fill_(dark_mode).svg',
                                                         width: 28.0,
                                                         height: 28.0,
                                                         fit: BoxFit.cover,
@@ -2936,7 +2872,7 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                                                             .brightness ==
                                                         Brightness.dark))
                                                       SvgPicture.asset(
-                                                        'assets/images/hands-clapping-fill_(7).svg',
+                                                        'assets/images/hands-clapping-fill_(light_mode).svg',
                                                         width: 28.0,
                                                         height: 28.0,
                                                         fit: BoxFit.cover,
@@ -2967,7 +2903,8 @@ class _AllChatsWidgetState extends State<AllChatsWidget>
                   ],
                 ),
               ),
-            ),
+            ).animateOnPageLoad(
+                animationsMap['containerOnPageLoadAnimation1']!),
           ),
         );
       },

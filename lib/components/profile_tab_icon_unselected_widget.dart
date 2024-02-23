@@ -10,10 +10,10 @@ import 'profile_tab_icon_unselected_model.dart';
 export 'profile_tab_icon_unselected_model.dart';
 
 class ProfileTabIconUnselectedWidget extends StatefulWidget {
-  const ProfileTabIconUnselectedWidget({Key? key}) : super(key: key);
+  const ProfileTabIconUnselectedWidget({super.key});
 
   @override
-  _ProfileTabIconUnselectedWidgetState createState() =>
+  State<ProfileTabIconUnselectedWidget> createState() =>
       _ProfileTabIconUnselectedWidgetState();
 }
 
@@ -82,15 +82,15 @@ class _ProfileTabIconUnselectedWidgetState
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (Theme.of(context).brightness == Brightness.dark)
-                Image.asset(
-                  'assets/images/user-fill.png',
+                SvgPicture.asset(
+                  'assets/images/user-fill_(dark_mode).svg',
                   width: 28.0,
                   height: 28.0,
                   fit: BoxFit.cover,
                 ),
               if (!(Theme.of(context).brightness == Brightness.dark))
                 SvgPicture.asset(
-                  'assets/images/user-fill.svg',
+                  'assets/images/user-fill_(light_mode).svg',
                   width: 28.0,
                   height: 28.0,
                   fit: BoxFit.cover,

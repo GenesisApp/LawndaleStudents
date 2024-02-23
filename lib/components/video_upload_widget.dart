@@ -5,7 +5,6 @@ import '/components/featured_notification_events_widget.dart';
 import '/components/featured_notification_groups_widget.dart';
 import '/components/featured_notification_videos_widget.dart';
 import '/components/group_leaders_set_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
@@ -25,7 +24,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -38,80 +36,17 @@ import 'video_upload_model.dart';
 export 'video_upload_model.dart';
 
 class VideoUploadWidget extends StatefulWidget {
-  const VideoUploadWidget({Key? key}) : super(key: key);
+  const VideoUploadWidget({super.key});
 
   @override
-  _VideoUploadWidgetState createState() => _VideoUploadWidgetState();
+  State<VideoUploadWidget> createState() => _VideoUploadWidgetState();
 }
 
-class _VideoUploadWidgetState extends State<VideoUploadWidget>
-    with TickerProviderStateMixin {
+class _VideoUploadWidgetState extends State<VideoUploadWidget> {
   late VideoUploadModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -185,16 +120,8 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
     _model.textController15 ??= TextEditingController();
     _model.textFieldFocusNode15 ??= FocusNode();
 
-    _model.textController16 ??= TextEditingController();
-    _model.textFieldFocusNode16 ??= FocusNode();
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController5?.text = dateTimeFormat(
-            'yMd',
-            getCurrentTimestamp,
-            locale: FFLocalizations.of(context).languageCode,
-          );
-          _model.textController13?.text = dateTimeFormat(
             'yMd',
             getCurrentTimestamp,
             locale: FFLocalizations.of(context).languageCode,
@@ -301,7 +228,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                   ),
                 ),
               ],
-            ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+            ),
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 20.0),
@@ -313,7 +240,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                     fontFamily: 'Inter',
                     color: FlutterFlowTheme.of(context).lightSecondaryText,
                   ),
-            ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+            ),
           ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
@@ -341,7 +268,8 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                         ))
                       ],
                       onChanged: (val) async {
-                        setState(() => _model.choiceChipsValue = val?.first);
+                        setState(
+                            () => _model.choiceChipsValue = val?.firstOrNull);
                         if (_model.choiceChipsValue == 'Videos') {
                           setState(() {
                             FFAppState().series = false;
@@ -2248,16 +2176,17 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child:
-                                                    FeaturedNotificationVideosWidget(
-                                                  chosenResource:
-                                                      _model.newResource!,
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      FeaturedNotificationVideosWidget(
+                                                    chosenResource:
+                                                        _model.newResource!,
+                                                  ),
                                                 ),
-                                              ));
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -3490,9 +3419,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ).animateOnPageLoad(
-                                                                  animationsMap[
-                                                                      'containerOnPageLoadAnimation']!),
+                                                              ),
                                                             ),
                                                             Row(
                                                               mainAxisSize:
@@ -4052,7 +3979,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                           onChanged: (val) =>
                                                               setState(() => _model
                                                                       .categoryChipsNotAllValue =
-                                                                  val?.first),
+                                                                  val?.firstOrNull),
                                                           selectedChipStyle:
                                                               ChipStyle(
                                                             backgroundColor:
@@ -4174,7 +4101,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                           onChanged: (val) =>
                                                               setState(() => _model
                                                                       .categoryChipsAllValue =
-                                                                  val?.first),
+                                                                  val?.firstOrNull),
                                                           selectedChipStyle:
                                                               ChipStyle(
                                                             backgroundColor:
@@ -4368,7 +4295,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                     onChanged: (val) =>
                                                         setState(() => _model
                                                                 .dayoftheWeekChipsValue =
-                                                            val?.first),
+                                                            val?.firstOrNull),
                                                     selectedChipStyle:
                                                         ChipStyle(
                                                       backgroundColor:
@@ -4540,7 +4467,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                     onChanged: (val) =>
                                                         setState(() => _model
                                                                 .toDChipsValue =
-                                                            val?.first),
+                                                            val?.firstOrNull),
                                                     selectedChipStyle:
                                                         ChipStyle(
                                                       backgroundColor:
@@ -4813,7 +4740,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                       onChanged: (val) =>
                                                           setState(() => _model
                                                                   .ageRangeChipsAllValue =
-                                                              val?.first),
+                                                              val?.firstOrNull),
                                                       selectedChipStyle:
                                                           ChipStyle(
                                                         backgroundColor:
@@ -4918,7 +4845,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                       onChanged: (val) =>
                                                           setState(() => _model
                                                                   .ageRangeChipsNotAllValue =
-                                                              val?.first),
+                                                              val?.firstOrNull),
                                                       selectedChipStyle:
                                                           ChipStyle(
                                                         backgroundColor:
@@ -5216,13 +5143,16 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: FeaturedNotificationGroupsWidget(
-                                          chosenResource: _model.newResource3!,
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child:
+                                              FeaturedNotificationGroupsWidget(
+                                            chosenResource:
+                                                _model.newResource3!,
+                                          ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },
@@ -5736,13 +5666,14 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                GroupLeadersSetWidget(),
-                                                          ));
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  GroupLeadersSetWidget(),
+                                                            ),
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -6132,13 +6063,14 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                GroupLeadersSetWidget(),
-                                                          ));
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  GroupLeadersSetWidget(),
+                                                            ),
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -6472,100 +6404,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                           controller: _model.textController13,
                                           focusNode:
                                               _model.textFieldFocusNode13,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            labelText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'cjcgud76' /* Date */,
-                                            ),
-                                            labelStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      fontFamily: 'Inter',
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondary,
-                                                    ),
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'm0qlg7h3' /* xx/xx/xxxx */,
-                                            ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .prayerRing,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                            ),
-                                            filled: true,
-                                            fillColor:
-                                                FlutterFlowTheme.of(context)
-                                                    .secondarySystemBackground,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .tertiary,
-                                              ),
-                                          keyboardType: TextInputType.datetime,
-                                          validator: _model
-                                              .textController13Validator
-                                              .asValidator(context),
-                                          inputFormatters: [
-                                            _model.textFieldMask13
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 20.0, 0.0, 0.0),
-                                      child: Container(
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          controller: _model.textController14,
-                                          focusNode:
-                                              _model.textFieldFocusNode14,
                                           onChanged: (_) =>
                                               EasyDebounce.debounce(
-                                            '_model.textController14',
+                                            '_model.textController13',
                                             Duration(milliseconds: 200),
                                             () => setState(() {}),
                                           ),
@@ -6642,7 +6483,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         .tertiary,
                                               ),
                                           validator: _model
-                                              .textController14Validator
+                                              .textController13Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -6677,15 +6518,17 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  FeaturedNotificationEventsWidget(
-                                                chosenResource:
-                                                    _model.newResource2!,
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    FeaturedNotificationEventsWidget(
+                                                  chosenResource:
+                                                      _model.newResource2!,
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -7100,13 +6943,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                           .uploadedFileUrl6,
                                                       featuredMessage: _model
                                                           .featuredEventValue,
-                                                      timeofRecording: _model
-                                                          .textController13
-                                                          .text,
                                                       timeEdited:
                                                           getCurrentTimestamp,
                                                       registrationLink: _model
-                                                          .textController14
+                                                          .textController13
                                                           .text,
                                                       group:
                                                           _model.choiceChipsValue ==
@@ -7142,15 +6982,11 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                               featuredMessage:
                                                                   _model
                                                                       .featuredEventValue,
-                                                              timeofRecording:
-                                                                  _model
-                                                                      .textController13
-                                                                      .text,
                                                               timeEdited:
                                                                   getCurrentTimestamp,
                                                               registrationLink:
                                                                   _model
-                                                                      .textController14
+                                                                      .textController13
                                                                       .text,
                                                               group:
                                                                   _model.choiceChipsValue ==
@@ -7218,13 +7054,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                           .uploadedFileUrl6,
                                                       featuredMessage: _model
                                                           .featuredEventValue,
-                                                      timeofRecording: _model
-                                                          .textController13
-                                                          .text,
                                                       timeEdited:
                                                           getCurrentTimestamp,
                                                       registrationLink: _model
-                                                          .textController14
+                                                          .textController13
                                                           .text,
                                                       group:
                                                           _model.choiceChipsValue ==
@@ -7260,15 +7093,11 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                               featuredMessage:
                                                                   _model
                                                                       .featuredEventValue,
-                                                              timeofRecording:
-                                                                  _model
-                                                                      .textController13
-                                                                      .text,
                                                               timeEdited:
                                                                   getCurrentTimestamp,
                                                               registrationLink:
                                                                   _model
-                                                                      .textController14
+                                                                      .textController13
                                                                       .text,
                                                               group:
                                                                   _model.choiceChipsValue ==
@@ -7630,9 +7459,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                       child: Container(
                                         width: double.infinity,
                                         child: TextFormField(
-                                          controller: _model.textController15,
+                                          controller: _model.textController14,
                                           focusNode:
-                                              _model.textFieldFocusNode15,
+                                              _model.textFieldFocusNode14,
                                           textCapitalization:
                                               TextCapitalization.sentences,
                                           obscureText: false,
@@ -7708,7 +7537,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         .tertiary,
                                               ),
                                           validator: _model
-                                              .textController15Validator
+                                              .textController14Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -7719,9 +7548,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                       child: Container(
                                         width: double.infinity,
                                         child: TextFormField(
-                                          controller: _model.textController16,
+                                          controller: _model.textController15,
                                           focusNode:
-                                              _model.textFieldFocusNode16,
+                                              _model.textFieldFocusNode15,
                                           textCapitalization:
                                               TextCapitalization.words,
                                           obscureText: false,
@@ -7797,7 +7626,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                         .tertiary,
                                               ),
                                           validator: _model
-                                              .textController16Validator
+                                              .textController15Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -7907,9 +7736,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                       .set(
                                                           createGuidesRecordData(
                                                     videoName: _model
-                                                        .textController15.text,
+                                                        .textController14.text,
                                                     speaker: _model
-                                                        .textController16.text,
+                                                        .textController15.text,
                                                     timeUploaded:
                                                         getCurrentTimestamp,
                                                     timeEdited:
@@ -7936,10 +7765,10 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget>
                                                       .getDocumentFromData(
                                                           createGuidesRecordData(
                                                             videoName: _model
-                                                                .textController15
+                                                                .textController14
                                                                 .text,
                                                             speaker: _model
-                                                                .textController16
+                                                                .textController15
                                                                 .text,
                                                             timeUploaded:
                                                                 getCurrentTimestamp,

@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/featured_notification_groups_widget.dart';
 import '/components/group_leaders_set_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -20,7 +19,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -86,23 +84,40 @@ class GroupUploadOnlyModel extends FlutterFlowModel<GroupUploadOnlyWidget> {
   }
 
   // State field(s) for CategoryChipsNotAll widget.
-  String? categoryChipsNotAllValue;
   FormFieldController<List<String>>? categoryChipsNotAllValueController;
+  String? get categoryChipsNotAllValue =>
+      categoryChipsNotAllValueController?.value?.firstOrNull;
+  set categoryChipsNotAllValue(String? val) =>
+      categoryChipsNotAllValueController?.value = val != null ? [val] : [];
   // State field(s) for CategoryChipsAll widget.
-  String? categoryChipsAllValue;
   FormFieldController<List<String>>? categoryChipsAllValueController;
+  String? get categoryChipsAllValue =>
+      categoryChipsAllValueController?.value?.firstOrNull;
+  set categoryChipsAllValue(String? val) =>
+      categoryChipsAllValueController?.value = val != null ? [val] : [];
   // State field(s) for DayoftheWeekChips widget.
-  String? dayoftheWeekChipsValue;
   FormFieldController<List<String>>? dayoftheWeekChipsValueController;
+  String? get dayoftheWeekChipsValue =>
+      dayoftheWeekChipsValueController?.value?.firstOrNull;
+  set dayoftheWeekChipsValue(String? val) =>
+      dayoftheWeekChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for ToDChips widget.
-  String? toDChipsValue;
   FormFieldController<List<String>>? toDChipsValueController;
+  String? get toDChipsValue => toDChipsValueController?.value?.firstOrNull;
+  set toDChipsValue(String? val) =>
+      toDChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for AgeRangeChipsAll widget.
-  String? ageRangeChipsAllValue;
   FormFieldController<List<String>>? ageRangeChipsAllValueController;
+  String? get ageRangeChipsAllValue =>
+      ageRangeChipsAllValueController?.value?.firstOrNull;
+  set ageRangeChipsAllValue(String? val) =>
+      ageRangeChipsAllValueController?.value = val != null ? [val] : [];
   // State field(s) for AgeRangeChipsNotAll widget.
-  String? ageRangeChipsNotAllValue;
   FormFieldController<List<String>>? ageRangeChipsNotAllValueController;
+  String? get ageRangeChipsNotAllValue =>
+      ageRangeChipsNotAllValueController?.value?.firstOrNull;
+  set ageRangeChipsNotAllValue(String? val) =>
+      ageRangeChipsNotAllValueController?.value = val != null ? [val] : [];
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
   // State field(s) for SwitchListTile widget.
@@ -121,11 +136,13 @@ class GroupUploadOnlyModel extends FlutterFlowModel<GroupUploadOnlyWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
   }
 
+  @override
   void dispose() {
     textFieldFocusNode1?.dispose();
     textController1?.dispose();

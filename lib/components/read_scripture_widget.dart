@@ -15,16 +15,16 @@ export 'read_scripture_model.dart';
 
 class ReadScriptureWidget extends StatefulWidget {
   const ReadScriptureWidget({
-    Key? key,
+    super.key,
     this.pdfImageSelected,
     this.pdfImageSelectedRef,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? pdfImageSelected;
   final DocumentReference? pdfImageSelectedRef;
 
   @override
-  _ReadScriptureWidgetState createState() => _ReadScriptureWidgetState();
+  State<ReadScriptureWidget> createState() => _ReadScriptureWidgetState();
 }
 
 class _ReadScriptureWidgetState extends State<ReadScriptureWidget> {
@@ -125,8 +125,8 @@ class _ReadScriptureWidgetState extends State<ReadScriptureWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 130.0,
-                          height: 130.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                             shape: BoxShape.circle,
@@ -146,8 +146,9 @@ class _ReadScriptureWidgetState extends State<ReadScriptureWidget> {
                               children: [
                                 CircularPercentIndicator(
                                   percent: 1.0,
-                                  radius: 65.0,
-                                  lineWidth: 7.0,
+                                  radius:
+                                      MediaQuery.sizeOf(context).width * 0.165,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor: Color(0xFF619B99),

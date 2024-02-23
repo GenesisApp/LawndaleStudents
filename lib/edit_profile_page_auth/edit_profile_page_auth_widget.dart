@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,190 +10,28 @@ import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:webviewx_plus/webviewx_plus.dart';
 import 'edit_profile_page_auth_model.dart';
 export 'edit_profile_page_auth_model.dart';
 
 class EditProfilePageAuthWidget extends StatefulWidget {
-  const EditProfilePageAuthWidget({Key? key}) : super(key: key);
+  const EditProfilePageAuthWidget({super.key});
 
   @override
-  _EditProfilePageAuthWidgetState createState() =>
+  State<EditProfilePageAuthWidget> createState() =>
       _EditProfilePageAuthWidgetState();
 }
 
-class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
-    with TickerProviderStateMixin {
+class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget> {
   late EditProfilePageAuthModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 850.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 850.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1050.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1050.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1100.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1100.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -229,15 +66,6 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -676,8 +504,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                   color: FlutterFlowTheme.of(context)
                                       .lightSecondaryText,
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation1']!),
+                          ),
                         ),
                         Container(
                           width: double.infinity,
@@ -907,8 +734,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                       ),
                                     ),
                                   ],
-                                ).animateOnPageLoad(
-                                    animationsMap['rowOnPageLoadAnimation1']!),
+                                ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       35.0, 8.0, 35.0, 20.0),
@@ -926,8 +752,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                           fontSize: 13.0,
                                           fontWeight: FontWeight.w300,
                                         ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation2']!),
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -1031,8 +856,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                         ),
                                       ),
                                     ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation2']!),
+                                  ),
                                 ),
                                 InkWell(
                                   splashColor: Colors.transparent,
@@ -1040,33 +864,23 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
-                                    await showModalBottomSheet<bool>(
-                                        context: context,
-                                        builder: (context) {
-                                          return Container(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height /
-                                                3,
-                                            width: MediaQuery.of(context)
-                                                .size
-                                                .width,
-                                            child: CupertinoDatePicker(
-                                              mode:
-                                                  CupertinoDatePickerMode.date,
-                                              minimumDate: DateTime(1900),
-                                              initialDateTime:
-                                                  getCurrentTimestamp,
-                                              maximumDate: getCurrentTimestamp,
-                                              use24hFormat: false,
-                                              onDateTimeChanged:
-                                                  (newDateTime) =>
-                                                      safeSetState(() {
-                                                _model.datePicked = newDateTime;
-                                              }),
-                                            ),
-                                          );
-                                        });
+                                    final _datePickedDate =
+                                        await showDatePicker(
+                                      context: context,
+                                      initialDate: getCurrentTimestamp,
+                                      firstDate: DateTime(1900),
+                                      lastDate: getCurrentTimestamp,
+                                    );
+
+                                    if (_datePickedDate != null) {
+                                      safeSetState(() {
+                                        _model.datePicked = DateTime(
+                                          _datePickedDate.year,
+                                          _datePickedDate.month,
+                                          _datePickedDate.day,
+                                        );
+                                      });
+                                    }
                                   },
                                   child: Container(
                                     width:
@@ -1133,8 +947,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                       ],
                                     ),
                                   ),
-                                ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation']!),
+                                ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       35.0, 8.0, 35.0, 0.0),
@@ -1152,8 +965,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                           fontSize: 13.0,
                                           fontWeight: FontWeight.w300,
                                         ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'textOnPageLoadAnimation3']!),
+                                  ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -1265,8 +1077,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                           isMultiSelect: false,
                                         ),
                                       ],
-                                    ).animateOnPageLoad(animationsMap[
-                                        'rowOnPageLoadAnimation3']!),
+                                    ),
                                   ),
                                 ),
                                 Padding(
@@ -1296,68 +1107,21 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                                     .validate()) {
                                               return;
                                             }
-                                            if (_model.uploadedFileUrl1 ==
-                                                    null ||
-                                                _model
-                                                    .uploadedFileUrl1.isEmpty) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Missing Data'),
-                                                    content: Text(
-                                                        'Please upload a background photo before submitting.'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              return;
-                                            }
-                                            if (_model.uploadedFileUrl2 ==
-                                                    null ||
-                                                _model
-                                                    .uploadedFileUrl2.isEmpty) {
-                                              await showDialog(
-                                                context: context,
-                                                builder: (alertDialogContext) {
-                                                  return WebViewAware(
-                                                      child: AlertDialog(
-                                                    title: Text('Missing Data'),
-                                                    content: Text(
-                                                        'Please upload a profile picture before submitting.'),
-                                                    actions: [
-                                                      TextButton(
-                                                        onPressed: () =>
-                                                            Navigator.pop(
-                                                                alertDialogContext),
-                                                        child: Text('Ok'),
-                                                      ),
-                                                    ],
-                                                  ));
-                                                },
-                                              );
-                                              return;
-                                            }
                                             if (_model.datePicked == null) {
                                               return;
                                             }
 
                                             await currentUserReference!
                                                 .update(createUsersRecordData(
-                                              photoUrl: _model.uploadedFileUrl2 !=
-                                                          null &&
-                                                      _model.uploadedFileUrl2 !=
-                                                          ''
-                                                  ? _model.uploadedFileUrl2
-                                                  : currentUserPhoto,
+                                              photoUrl: valueOrDefault<String>(
+                                                _model.uploadedFileUrl2 !=
+                                                            null &&
+                                                        _model.uploadedFileUrl2 !=
+                                                            ''
+                                                    ? _model.uploadedFileUrl2
+                                                    : currentUserPhoto,
+                                                'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
+                                              ),
                                               backgroundPhotoURL:
                                                   valueOrDefault<String>(
                                                 _model.uploadedFileUrl1 !=
@@ -1441,8 +1205,7 @@ class _EditProfilePageAuthWidgetState extends State<EditProfilePageAuthWidget>
                                         ),
                                       ),
                                     ],
-                                  ).animateOnPageLoad(animationsMap[
-                                      'rowOnPageLoadAnimation4']!),
+                                  ),
                                 ),
                               ],
                             ),

@@ -32,14 +32,14 @@ export 'worship_practice_b_sall_model.dart';
 
 class WorshipPracticeBSallWidget extends StatefulWidget {
   const WorshipPracticeBSallWidget({
-    Key? key,
+    super.key,
     this.dailyPractice,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? dailyPractice;
 
   @override
-  _WorshipPracticeBSallWidgetState createState() =>
+  State<WorshipPracticeBSallWidget> createState() =>
       _WorshipPracticeBSallWidgetState();
 }
 
@@ -353,13 +353,14 @@ class _WorshipPracticeBSallWidgetState extends State<WorshipPracticeBSallWidget>
                                                     context: context,
                                                     builder: (context) {
                                                       return WebViewAware(
-                                                          child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            LanguageReportWidget(),
-                                                      ));
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              LanguageReportWidget(),
+                                                        ),
+                                                      );
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));
@@ -607,13 +608,14 @@ class _WorshipPracticeBSallWidgetState extends State<WorshipPracticeBSallWidget>
                                                   context: context,
                                                   builder: (context) {
                                                     return WebViewAware(
-                                                        child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child:
-                                                          PercentageCompleted1Widget(),
-                                                    ));
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child:
+                                                            PercentageCompleted1Widget(),
+                                                      ),
+                                                    );
                                                   },
                                                 ).then((value) =>
                                                     safeSetState(() {}));
@@ -675,18 +677,20 @@ class _WorshipPracticeBSallWidgetState extends State<WorshipPracticeBSallWidget>
                                                 context: context,
                                                 builder: (context) {
                                                   return WebViewAware(
-                                                      child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: ReadScriptureWidget(
-                                                      pdfImageSelected:
-                                                          widget.dailyPractice,
-                                                      pdfImageSelectedRef:
-                                                          widget.dailyPractice
-                                                              ?.reference,
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child:
+                                                          ReadScriptureWidget(
+                                                        pdfImageSelected: widget
+                                                            .dailyPractice,
+                                                        pdfImageSelectedRef:
+                                                            widget.dailyPractice
+                                                                ?.reference,
+                                                      ),
                                                     ),
-                                                  ));
+                                                  );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));

@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/featured_notification_groups_widget.dart';
 import '/components/group_leaders_set_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -19,7 +18,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -31,80 +29,17 @@ import 'group_upload_only_model.dart';
 export 'group_upload_only_model.dart';
 
 class GroupUploadOnlyWidget extends StatefulWidget {
-  const GroupUploadOnlyWidget({Key? key}) : super(key: key);
+  const GroupUploadOnlyWidget({super.key});
 
   @override
-  _GroupUploadOnlyWidgetState createState() => _GroupUploadOnlyWidgetState();
+  State<GroupUploadOnlyWidget> createState() => _GroupUploadOnlyWidgetState();
 }
 
-class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
-    with TickerProviderStateMixin {
+class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget> {
   late GroupUploadOnlyModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -244,7 +179,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 8.0, 0.0, 20.0),
@@ -256,7 +191,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).lightSecondaryText,
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
@@ -709,9 +644,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                                       ),
                                                                     ),
                                                                   ),
-                                                                ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'containerOnPageLoadAnimation']!),
+                                                                ),
                                                               ),
                                                               Row(
                                                                 mainAxisSize:
@@ -1295,7 +1228,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                             onChanged: (val) =>
                                                                 setState(() => _model
                                                                         .categoryChipsNotAllValue =
-                                                                    val?.first),
+                                                                    val?.firstOrNull),
                                                             selectedChipStyle:
                                                                 ChipStyle(
                                                               backgroundColor:
@@ -1420,7 +1353,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                             onChanged: (val) =>
                                                                 setState(() => _model
                                                                         .categoryChipsAllValue =
-                                                                    val?.first),
+                                                                    val?.firstOrNull),
                                                             selectedChipStyle:
                                                                 ChipStyle(
                                                               backgroundColor:
@@ -1619,7 +1552,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                       onChanged: (val) =>
                                                           setState(() => _model
                                                                   .dayoftheWeekChipsValue =
-                                                              val?.first),
+                                                              val?.firstOrNull),
                                                       selectedChipStyle:
                                                           ChipStyle(
                                                         backgroundColor:
@@ -1798,7 +1731,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                       onChanged: (val) =>
                                                           setState(() => _model
                                                                   .toDChipsValue =
-                                                              val?.first),
+                                                              val?.firstOrNull),
                                                       selectedChipStyle:
                                                           ChipStyle(
                                                         backgroundColor:
@@ -2076,7 +2009,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                         onChanged: (val) =>
                                                             setState(() => _model
                                                                     .ageRangeChipsAllValue =
-                                                                val?.first),
+                                                                val?.firstOrNull),
                                                         selectedChipStyle:
                                                             ChipStyle(
                                                           backgroundColor:
@@ -2186,7 +2119,7 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                         onChanged: (val) =>
                                                             setState(() => _model
                                                                     .ageRangeChipsNotAllValue =
-                                                                val?.first),
+                                                                val?.firstOrNull),
                                                         selectedChipStyle:
                                                             ChipStyle(
                                                           backgroundColor:
@@ -2498,15 +2431,16 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child:
-                                                FeaturedNotificationGroupsWidget(
-                                              chosenResource:
-                                                  _model.newResource3!,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child:
+                                                  FeaturedNotificationGroupsWidget(
+                                                chosenResource:
+                                                    _model.newResource3!,
+                                              ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     } else {
@@ -2915,13 +2849,14 @@ class _GroupUploadOnlyWidgetState extends State<GroupUploadOnlyWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                GroupLeadersSetWidget(),
-                                                          ));
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  GroupLeadersSetWidget(),
+                                                            ),
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));

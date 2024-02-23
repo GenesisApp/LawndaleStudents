@@ -4,7 +4,6 @@ import '/components/added_to_series_widget.dart';
 import '/components/chat_tab_icon_unselected_widget.dart';
 import '/components/profile_tab_icon_unselected_widget.dart';
 import '/components/video_series_edit_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -14,7 +13,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -27,98 +25,24 @@ export 'series_catalog_model.dart';
 
 class SeriesCatalogWidget extends StatefulWidget {
   const SeriesCatalogWidget({
-    Key? key,
+    super.key,
     required this.videoChosen,
     required this.videoChosenDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? videoChosen;
   final ResourceVideosRecord? videoChosenDoc;
 
   @override
-  _SeriesCatalogWidgetState createState() => _SeriesCatalogWidgetState();
+  State<SeriesCatalogWidget> createState() => _SeriesCatalogWidgetState();
 }
 
-class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
-    with TickerProviderStateMixin {
+class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget> {
   late SeriesCatalogModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -155,15 +79,6 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -519,8 +434,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ).animateOnPageLoad(
-                              animationsMap['textOnPageLoadAnimation']!),
+                          ),
                         ),
                         Container(
                           width: double.infinity,
@@ -633,26 +547,28 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      AddedToSeriesWidget(),
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        AddedToSeriesWidget(),
+                                                                  ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -672,35 +588,37 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height: MediaQuery.sizeOf(context)
-                                                                            .height *
-                                                                        0.72,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        VideoSeriesEditWidget(
-                                                                      chosenSeries:
-                                                                          columnVideoSeriesRecord,
+                                                                        Container(
+                                                                      height: MediaQuery.sizeOf(context)
+                                                                              .height *
+                                                                          0.72,
+                                                                      child:
+                                                                          VideoSeriesEditWidget(
+                                                                        chosenSeries:
+                                                                            columnVideoSeriesRecord,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -792,8 +710,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                                     ),
                                                   ),
                                                 ],
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'columnOnPageLoadAnimation2']!),
+                                              ),
                                             );
                                           }),
                                         ),
@@ -887,26 +804,28 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      AddedToSeriesWidget(),
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        AddedToSeriesWidget(),
+                                                                  ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -998,8 +917,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                                                     ),
                                                   ),
                                                 ],
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'columnOnPageLoadAnimation3']!),
+                                              ),
                                             );
                                           }),
                                         ),
@@ -1012,8 +930,7 @@ class _SeriesCatalogWidgetState extends State<SeriesCatalogWidget>
                         ),
                       ],
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation1']!),
+                  ),
                 ),
                 if (!(isWeb
                     ? MediaQuery.viewInsetsOf(context).bottom > 0

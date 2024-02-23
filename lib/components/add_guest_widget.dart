@@ -15,16 +15,16 @@ export 'add_guest_model.dart';
 
 class AddGuestWidget extends StatefulWidget {
   const AddGuestWidget({
-    Key? key,
+    super.key,
     required this.groupChosen,
     required this.groupChosenRef,
-  }) : super(key: key);
+  });
 
   final GroupsRecord? groupChosen;
   final DocumentReference? groupChosenRef;
 
   @override
-  _AddGuestWidgetState createState() => _AddGuestWidgetState();
+  State<AddGuestWidget> createState() => _AddGuestWidgetState();
 }
 
 class _AddGuestWidgetState extends State<AddGuestWidget> {
@@ -86,8 +86,8 @@ class _AddGuestWidgetState extends State<AddGuestWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Container(
-                    width: 125.0,
-                    height: 125.0,
+                    width: MediaQuery.sizeOf(context).width * 0.28,
+                    height: MediaQuery.sizeOf(context).width * 0.28,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).primary,
                       shape: BoxShape.circle,
@@ -110,20 +110,16 @@ class _AddGuestWidgetState extends State<AddGuestWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    6.0, 6.0, 0.0, 0.0),
-                                child: Icon(
-                                  Icons.person_add_alt_rounded,
-                                  color: FlutterFlowTheme.of(context).tertiary,
-                                  size: 40.0,
-                                ),
+                              Icon(
+                                Icons.person_add_alt_rounded,
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 40.0,
                               ),
                             ],
                           ),
                           CircularPercentIndicator(
                             percent: 1.0,
-                            radius: MediaQuery.sizeOf(context).width * 0.165,
+                            radius: MediaQuery.sizeOf(context).width * 0.14,
                             lineWidth: 5.0,
                             animation: true,
                             animateFromLastPercent: true,
@@ -184,6 +180,8 @@ class _AddGuestWidgetState extends State<AddGuestWidget> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           filled: true,
+                          fillColor: FlutterFlowTheme.of(context)
+                              .secondarySystemBackground,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
@@ -244,6 +242,8 @@ class _AddGuestWidgetState extends State<AddGuestWidget> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           filled: true,
+                          fillColor: FlutterFlowTheme.of(context)
+                              .secondarySystemBackground,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
@@ -305,6 +305,8 @@ class _AddGuestWidgetState extends State<AddGuestWidget> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           filled: true,
+                          fillColor: FlutterFlowTheme.of(context)
+                              .secondarySystemBackground,
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
@@ -320,7 +322,7 @@ class _AddGuestWidgetState extends State<AddGuestWidget> {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 75.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -337,17 +339,32 @@ class _AddGuestWidgetState extends State<AddGuestWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        await GuestsRecord.collection
-                            .doc()
-                            .set(createGuestsRecordData(
-                              guestName: _model.textController1.text,
-                              guestPhoneNumber: _model.textController2.text,
-                              guestAge:
-                                  int.tryParse(_model.textController3.text),
-                              groupReference: widget.groupChosenRef,
-                            ));
-                        HapticFeedback.lightImpact();
-                        context.safePop();
+                        final firestoreBatch =
+                            FirebaseFirestore.instance.batch();
+                        try {
+                          firestoreBatch.set(
+                              GuestsRecord.collection.doc(),
+                              createGuestsRecordData(
+                                guestName: _model.textController1.text,
+                                guestPhoneNumber: _model.textController2.text,
+                                guestAge:
+                                    int.tryParse(_model.textController3.text),
+                                groupReference: widget.groupChosenRef,
+                                newGuest: true,
+                              ));
+
+                          firestoreBatch.update(widget.groupChosen!.reference, {
+                            ...mapToFirestore(
+                              {
+                                'numberofMembers': FieldValue.increment(1),
+                              },
+                            ),
+                          });
+                          HapticFeedback.lightImpact();
+                          context.safePop();
+                        } finally {
+                          await firestoreBatch.commit();
+                        }
                       },
                       child: Container(
                         width: 40.0,

@@ -1,15 +1,12 @@
 import '/backend/backend.dart';
 import '/components/delete_chat_poll_copy_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -19,84 +16,20 @@ export 'chat_event_viewing_model.dart';
 
 class ChatEventViewingWidget extends StatefulWidget {
   const ChatEventViewingWidget({
-    Key? key,
+    super.key,
     this.chatEvent,
     this.chatEventRef,
-  }) : super(key: key);
+  });
 
   final ChatEventRecord? chatEvent;
   final DocumentReference? chatEventRef;
 
   @override
-  _ChatEventViewingWidgetState createState() => _ChatEventViewingWidgetState();
+  State<ChatEventViewingWidget> createState() => _ChatEventViewingWidgetState();
 }
 
-class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
-    with TickerProviderStateMixin {
+class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget> {
   late ChatEventViewingModel _model;
-
-  final animationsMap = {
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -413,8 +346,7 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                           ),
                         ),
                     ],
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation1']!),
+                  ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -605,8 +537,7 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                           ),
                         ),
                     ],
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation2']!),
+                  ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -799,8 +730,7 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                           ),
                         ),
                     ],
-                  ).animateOnPageLoad(
-                      animationsMap['columnOnPageLoadAnimation3']!),
+                  ),
                 ],
               ),
             ),
@@ -1335,19 +1265,20 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                         context: context,
                         builder: (context) {
                           return WebViewAware(
-                              child: Padding(
-                            padding: MediaQuery.viewInsetsOf(context),
-                            child: DeleteChatPollCopyWidget(
-                              currentEvent: widget.chatEvent,
-                              eventReference: widget.chatEventRef,
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: DeleteChatPollCopyWidget(
+                                currentEvent: widget.chatEvent,
+                                eventReference: widget.chatEventRef,
+                              ),
                             ),
-                          ));
+                          );
                         },
                       ).then((value) => safeSetState(() {}));
                     },
                     child: Text(
                       FFLocalizations.of(context).getText(
-                        'bthe729e' /* Delete Event? */,
+                        'hm8j5bs0' /* Delete Event? */,
                       ),
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
@@ -1371,13 +1302,14 @@ class _ChatEventViewingWidgetState extends State<ChatEventViewingWidget>
                           context: context,
                           builder: (context) {
                             return WebViewAware(
-                                child: Padding(
-                              padding: MediaQuery.viewInsetsOf(context),
-                              child: DeleteChatPollCopyWidget(
-                                currentEvent: widget.chatEvent,
-                                eventReference: widget.chatEventRef,
+                              child: Padding(
+                                padding: MediaQuery.viewInsetsOf(context),
+                                child: DeleteChatPollCopyWidget(
+                                  currentEvent: widget.chatEvent,
+                                  eventReference: widget.chatEventRef,
+                                ),
                               ),
-                            ));
+                            );
                           },
                         ).then((value) => safeSetState(() {}));
                       },

@@ -18,14 +18,14 @@ export 'add_tag_model.dart';
 
 class AddTagWidget extends StatefulWidget {
   const AddTagWidget({
-    Key? key,
+    super.key,
     this.userSelected,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userSelected;
 
   @override
-  _AddTagWidgetState createState() => _AddTagWidgetState();
+  State<AddTagWidget> createState() => _AddTagWidgetState();
 }
 
 class _AddTagWidgetState extends State<AddTagWidget> {
@@ -117,7 +117,7 @@ class _AddTagWidgetState extends State<AddTagWidget> {
                           CircularPercentIndicator(
                             percent: 1.0,
                             radius: 65.0,
-                            lineWidth: 7.0,
+                            lineWidth: 5.0,
                             animation: true,
                             animateFromLastPercent: true,
                             progressColor: Color(0xFF619B99),

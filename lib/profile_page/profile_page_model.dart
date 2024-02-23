@@ -45,12 +45,14 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     chatTabIconUnselectedModel =
         createModel(context, () => ChatTabIconUnselectedModel());
     profileTabIconModel = createModel(context, () => ProfileTabIconModel());
   }
 
+  @override
   void dispose() {
     chatTabIconUnselectedModel.dispose();
     profileTabIconModel.dispose();

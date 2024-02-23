@@ -13,10 +13,10 @@ import 'report_concern_model.dart';
 export 'report_concern_model.dart';
 
 class ReportConcernWidget extends StatefulWidget {
-  const ReportConcernWidget({Key? key}) : super(key: key);
+  const ReportConcernWidget({super.key});
 
   @override
-  _ReportConcernWidgetState createState() => _ReportConcernWidgetState();
+  State<ReportConcernWidget> createState() => _ReportConcernWidgetState();
 }
 
 class _ReportConcernWidgetState extends State<ReportConcernWidget> {

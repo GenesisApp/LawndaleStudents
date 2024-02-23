@@ -1,7 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/group_rating_display_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,8 +10,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,123 +20,22 @@ export 'groups_ratings_model.dart';
 
 class GroupsRatingsWidget extends StatefulWidget {
   const GroupsRatingsWidget({
-    Key? key,
+    super.key,
     this.groupChosen,
     required this.groupChosenDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? groupChosen;
   final GroupsRecord? groupChosenDoc;
 
   @override
-  _GroupsRatingsWidgetState createState() => _GroupsRatingsWidgetState();
+  State<GroupsRatingsWidget> createState() => _GroupsRatingsWidgetState();
 }
 
-class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
-    with TickerProviderStateMixin {
+class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget> {
   late GroupsRatingsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -153,13 +49,6 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
         FFAppState().showFullList = true;
       });
     });
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -171,15 +60,6 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -321,8 +201,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                       ),
-                                ).animateOnPageLoad(
-                                    animationsMap['textOnPageLoadAnimation1']!),
+                                ),
                               ],
                             ),
                           ),
@@ -663,9 +542,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                                                     FontWeight
                                                                         .normal,
                                                               ),
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'textOnPageLoadAnimation2']!),
+                                                        ),
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -772,9 +649,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                                             ),
                                                           ],
                                                         ),
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'containerOnPageLoadAnimation']!),
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
@@ -785,8 +660,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                       ],
                                     ),
                                   ],
-                                ).animateOnPageLoad(animationsMap[
-                                    'columnOnPageLoadAnimation']!),
+                                ),
                               );
                             },
                           ),
@@ -810,8 +684,7 @@ class _GroupsRatingsWidgetState extends State<GroupsRatingsWidget>
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
                                       ),
-                                ).animateOnPageLoad(
-                                    animationsMap['textOnPageLoadAnimation3']!),
+                                ),
                               ],
                             ),
                           ),

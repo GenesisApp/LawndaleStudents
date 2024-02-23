@@ -1,9 +1,9 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -13,16 +13,18 @@ export 'delete_guest_model.dart';
 
 class DeleteGuestWidget extends StatefulWidget {
   const DeleteGuestWidget({
-    Key? key,
+    super.key,
     required this.guestChosen,
     required this.guestChosenRef,
-  }) : super(key: key);
+    required this.groupChosen,
+  });
 
   final DocumentReference? guestChosen;
   final GuestsRecord? guestChosenRef;
+  final GroupsRecord? groupChosen;
 
   @override
-  _DeleteGuestWidgetState createState() => _DeleteGuestWidgetState();
+  State<DeleteGuestWidget> createState() => _DeleteGuestWidgetState();
 }
 
 class _DeleteGuestWidgetState extends State<DeleteGuestWidget> {
@@ -110,8 +112,10 @@ class _DeleteGuestWidgetState extends State<DeleteGuestWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Container(
-                                    width: 125.0,
-                                    height: 125.0,
+                                    width:
+                                        MediaQuery.sizeOf(context).width * 0.33,
+                                    height:
+                                        MediaQuery.sizeOf(context).width * 0.33,
                                     decoration: BoxDecoration(
                                       color:
                                           FlutterFlowTheme.of(context).primary,
@@ -152,7 +156,7 @@ class _DeleteGuestWidgetState extends State<DeleteGuestWidget> {
                                             radius: MediaQuery.sizeOf(context)
                                                     .width *
                                                 0.165,
-                                            lineWidth: 7.0,
+                                            lineWidth: 5.0,
                                             animation: true,
                                             animateFromLastPercent: true,
                                             progressColor:
@@ -249,6 +253,16 @@ class _DeleteGuestWidgetState extends State<DeleteGuestWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {
                                         await widget.guestChosen!.delete();
+
+                                        await widget.groupChosen!.reference
+                                            .update({
+                                          ...mapToFirestore(
+                                            {
+                                              'numberofMembers':
+                                                  FieldValue.increment(-(1)),
+                                            },
+                                          ),
+                                        });
                                         Navigator.pop(context);
                                       },
                                       child: Container(
