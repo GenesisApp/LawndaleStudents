@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,14 +11,14 @@ export 'badge_sheet_model.dart';
 
 class BadgeSheetWidget extends StatefulWidget {
   const BadgeSheetWidget({
-    Key? key,
+    super.key,
     this.badgeSelected,
-  }) : super(key: key);
+  });
 
   final BadgesRecord? badgeSelected;
 
   @override
-  _BadgeSheetWidgetState createState() => _BadgeSheetWidgetState();
+  State<BadgeSheetWidget> createState() => _BadgeSheetWidgetState();
 }
 
 class _BadgeSheetWidgetState extends State<BadgeSheetWidget> {

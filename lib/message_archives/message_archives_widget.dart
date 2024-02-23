@@ -1,14 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/journal_preview_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,140 +14,16 @@ import 'message_archives_model.dart';
 export 'message_archives_model.dart';
 
 class MessageArchivesWidget extends StatefulWidget {
-  const MessageArchivesWidget({Key? key}) : super(key: key);
+  const MessageArchivesWidget({super.key});
 
   @override
-  _MessageArchivesWidgetState createState() => _MessageArchivesWidgetState();
+  State<MessageArchivesWidget> createState() => _MessageArchivesWidgetState();
 }
 
-class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
-    with TickerProviderStateMixin {
+class _MessageArchivesWidgetState extends State<MessageArchivesWidget> {
   late MessageArchivesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -167,15 +40,6 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -323,8 +187,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                             ),
                           ),
                         ],
-                      ).animateOnPageLoad(
-                          animationsMap['rowOnPageLoadAnimation']!),
+                      ),
                     ),
                     Padding(
                       padding:
@@ -337,8 +200,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                               fontFamily: 'Inter',
                               color: FlutterFlowTheme.of(context).systemGray,
                             ),
-                      ).animateOnPageLoad(
-                          animationsMap['textOnPageLoadAnimation']!),
+                      ),
                     ),
                   ],
                 ),
@@ -440,8 +302,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation1']!),
+                    ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -537,8 +398,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation2']!),
+                    ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -630,8 +490,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation3']!),
+                    ),
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -723,8 +582,7 @@ class _MessageArchivesWidgetState extends State<MessageArchivesWidget>
                             ),
                           ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['columnOnPageLoadAnimation4']!),
+                    ),
                   ],
                 ),
               ),

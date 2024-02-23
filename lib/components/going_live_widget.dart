@@ -12,10 +12,10 @@ import 'going_live_model.dart';
 export 'going_live_model.dart';
 
 class GoingLiveWidget extends StatefulWidget {
-  const GoingLiveWidget({Key? key}) : super(key: key);
+  const GoingLiveWidget({super.key});
 
   @override
-  _GoingLiveWidgetState createState() => _GoingLiveWidgetState();
+  State<GoingLiveWidget> createState() => _GoingLiveWidgetState();
 }
 
 class _GoingLiveWidgetState extends State<GoingLiveWidget> {
@@ -128,7 +128,7 @@ class _GoingLiveWidgetState extends State<GoingLiveWidget> {
                                       percent: 1.0,
                                       radius: MediaQuery.sizeOf(context).width *
                                           0.175,
-                                      lineWidth: 7.0,
+                                      lineWidth: 5.0,
                                       animation: true,
                                       animateFromLastPercent: true,
                                       progressColor:

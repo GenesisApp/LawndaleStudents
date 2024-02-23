@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/components/group_edit_widget.dart';
 import '/components/group_rating_widget.dart';
 import '/components/more_members_needed_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -11,9 +10,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,112 +21,25 @@ export 'group_details_model.dart';
 
 class GroupDetailsWidget extends StatefulWidget {
   const GroupDetailsWidget({
-    Key? key,
+    super.key,
     required this.chosenGroup,
-  }) : super(key: key);
+  });
 
   final GroupsRecord? chosenGroup;
 
   @override
-  _GroupDetailsWidgetState createState() => _GroupDetailsWidgetState();
+  State<GroupDetailsWidget> createState() => _GroupDetailsWidgetState();
 }
 
-class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
-    with TickerProviderStateMixin {
+class _GroupDetailsWidgetState extends State<GroupDetailsWidget> {
   late GroupDetailsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => GroupDetailsModel());
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -142,15 +51,6 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<UsersRecord>(
@@ -270,14 +170,15 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: GroupRatingWidget(
-                                            groupChosen:
-                                                widget.chosenGroup?.reference,
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: GroupRatingWidget(
+                                              groupChosen:
+                                                  widget.chosenGroup?.reference,
+                                            ),
                                           ),
-                                        ));
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
                                   },
@@ -304,7 +205,9 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                           if (widget.chosenGroup!.groupLeaders
                                   .contains(currentUserReference) ||
                               valueOrDefault<bool>(
-                                  currentUserDocument?.admin, false))
+                                  currentUserDocument?.admin, false) ||
+                              valueOrDefault<bool>(
+                                  currentUserDocument?.groupsLeader, false))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 8.0, 0.0),
@@ -476,18 +379,19 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.92,
-                                            child: GroupEditWidget(
-                                              chosenGroup: widget.chosenGroup,
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: Container(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.92,
+                                              child: GroupEditWidget(
+                                                chosenGroup: widget.chosenGroup,
+                                              ),
                                             ),
                                           ),
-                                        ));
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
                                   },
@@ -707,8 +611,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.w500,
                                     ),
-                              ).animateOnPageLoad(
-                                  animationsMap['textOnPageLoadAnimation1']!),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -960,8 +863,7 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                             width: 1.0,
                                           ),
                                         ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'containerOnPageLoadAnimation1']!),
+                                      ),
                                     ),
                                   );
                                 }),
@@ -1039,14 +941,12 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                                   FlutterFlowTheme.of(context)
                                                       .tertiary,
                                             ),
-                                      ).animateOnPageLoad(animationsMap[
-                                          'textOnPageLoadAnimation2']!),
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                            ).animateOnPageLoad(animationsMap[
-                                'containerOnPageLoadAnimation2']!),
+                            ),
                           ),
                         ],
                       ),
@@ -1202,11 +1102,14 @@ class _GroupDetailsWidgetState extends State<GroupDetailsWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: MoreMembersNeededWidget(),
-                                            ));
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    MoreMembersNeededWidget(),
+                                              ),
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       }

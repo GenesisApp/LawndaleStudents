@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/account_approval_widget.dart';
 import '/components/going_live_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_charts.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,7 +12,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,233 +22,16 @@ import 'admin_dashboard_model.dart';
 export 'admin_dashboard_model.dart';
 
 class AdminDashboardWidget extends StatefulWidget {
-  const AdminDashboardWidget({Key? key}) : super(key: key);
+  const AdminDashboardWidget({super.key});
 
   @override
-  _AdminDashboardWidgetState createState() => _AdminDashboardWidgetState();
+  State<AdminDashboardWidget> createState() => _AdminDashboardWidgetState();
 }
 
-class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
-    with TickerProviderStateMixin {
+class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
   late AdminDashboardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -278,19 +59,15 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return FutureBuilder<int>(
-      future: queryUsersRecordCount(),
+      future: queryUsersRecordCount(
+        queryBuilder: (usersRecord) => usersRecord.where(
+          'accountApproved',
+          isEqualTo: true,
+        ),
+      ),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -402,8 +179,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                           size: 24.0,
                         ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation1']!),
+                    ),
                   ),
                   Padding(
                     padding:
@@ -417,8 +193,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                             color:
                                 FlutterFlowTheme.of(context).lightSecondaryText,
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation1']!),
+                    ),
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
@@ -475,28 +250,29 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: Container(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.8,
-                                                  child:
-                                                      AccountApprovalWidget(),
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.8,
+                                                    child:
+                                                        AccountApprovalWidget(),
+                                                  ),
                                                 ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -512,7 +288,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceEvenly,
+                                                MainAxisAlignment.center,
                                             children: [
                                               Icon(
                                                 Icons.person,
@@ -521,46 +297,36 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                                         .secondary,
                                                 size: 24.0,
                                               ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 0.0, 0.0),
-                                                child: Row(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: SelectionArea(
-                                                          child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'afwyku3s' /* Awaiting Approval: */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                                  fontSize:
-                                                                      16.0,
-                                                                ),
-                                                      )),
-                                                    ),
-                                                  ],
-                                                ),
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(8.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: SelectionArea(
+                                                        child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'afwyku3s' /* Awaiting Approval: */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondary,
+                                                                fontSize: 16.0,
+                                                              ),
+                                                    )),
+                                                  ),
+                                                ],
                                               ),
                                               if (containerUsersRecordList
                                                       .length ==
@@ -568,7 +334,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          6.0, 0.0, 20.0, 0.0),
+                                                          12.0, 0.0, 20.0, 0.0),
                                                   child: SelectionArea(
                                                       child: Text(
                                                     containerUsersRecordList
@@ -622,59 +388,58 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 0.0, 0.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 0.0, 0.0, 0.0),
-                                    child: SelectionArea(
-                                        child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'qg8atf16' /* Total Accounts:  */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Inter',
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondary,
-                                            fontSize: 14.0,
-                                          ),
-                                    )),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 20.0, 0.0),
-                              child: SelectionArea(
-                                  child: Text(
-                                adminDashboardCount.toString(),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color:
-                                          FlutterFlowTheme.of(context).tertiary,
-                                      fontSize: 14.0,
-                                    ),
-                              )),
-                            ),
-                          ],
-                        ),
-                      ),
                     ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              8.0, 0.0, 0.0, 0.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: SelectionArea(
+                                    child: Text(
+                                  FFLocalizations.of(context).getText(
+                                    'qg8atf16' /* Total Accounts:  */,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondary,
+                                        fontSize: 14.0,
+                                      ),
+                                )),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 20.0, 0.0),
+                          child: SelectionArea(
+                              child: Text(
+                            adminDashboardCount.toString(),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                  fontSize: 14.0,
+                                ),
+                          )),
+                        ),
+                      ],
+                    ),
                   ),
                   Padding(
                     padding:
@@ -689,8 +454,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 FlutterFlowTheme.of(context).lightSecondaryText,
                             fontSize: 16.0,
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation2']!),
+                    ),
                   ),
                   Padding(
                     padding:
@@ -777,7 +541,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 percent: 1.0,
                                 radius:
                                     MediaQuery.sizeOf(context).width * 0.138,
-                                lineWidth: 7.0,
+                                lineWidth: 5.0,
                                 animation: true,
                                 animateFromLastPercent: true,
                                 progressColor:
@@ -867,7 +631,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 percent: 1.0,
                                 radius:
                                     MediaQuery.sizeOf(context).width * 0.138,
-                                lineWidth: 7.0,
+                                lineWidth: 5.0,
                                 animation: true,
                                 animateFromLastPercent: true,
                                 progressColor: Color(0xFF6D6DAE),
@@ -961,7 +725,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.138,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:
@@ -973,8 +737,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                           ),
                         ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation2']!),
+                    ),
                   ),
                   Padding(
                     padding:
@@ -1081,8 +844,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 ),
                               ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation1']!),
+                        ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1184,8 +946,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 ),
                               ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation2']!),
+                        ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1284,8 +1045,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 ),
                               ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation3']!),
+                        ),
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -1384,8 +1144,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 ),
                               ),
                           ],
-                        ).animateOnPageLoad(
-                            animationsMap['columnOnPageLoadAnimation4']!),
+                        ),
                       ],
                     ),
                   ),
@@ -2318,27 +2077,28 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  GoingLiveWidget(),
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    GoingLiveWidget(),
+                                                              ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -2593,8 +2353,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                           },
                         ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation3']!),
+                    ),
                   ),
                   Padding(
                     padding:
@@ -2603,7 +2362,12 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         FutureBuilder<int>(
-                          future: queryPersonalJournalsRecordCount(),
+                          future: queryGuestsRecordCount(
+                            queryBuilder: (guestsRecord) => guestsRecord.where(
+                              'newGuest',
+                              isEqualTo: true,
+                            ),
+                          ),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
@@ -2631,7 +2395,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  context.pushNamed('AllJournals');
+                                  context.pushNamed('NewGuests');
                                 },
                                 child: Container(
                                   decoration: BoxDecoration(
@@ -2655,7 +2419,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'gk084e26' /* Journals Created */,
+                                                'gk084e26' /* New Guests */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -2808,8 +2572,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                           },
                         ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation4']!),
+                    ),
                   ),
                   Padding(
                     padding:
@@ -2947,9 +2710,6 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  if (Navigator.of(context).canPop()) {
-                                    context.pop();
-                                  }
                                   context.pushNamed('groupAnalytics');
                                 },
                                 child: Container(
@@ -3017,8 +2777,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget>
                           },
                         ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation5']!),
+                    ),
                   ),
                   Container(
                     width: double.infinity,

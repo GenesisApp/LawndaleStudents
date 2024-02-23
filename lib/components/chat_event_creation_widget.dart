@@ -5,9 +5,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,14 +16,14 @@ export 'chat_event_creation_model.dart';
 
 class ChatEventCreationWidget extends StatefulWidget {
   const ChatEventCreationWidget({
-    Key? key,
+    super.key,
     this.chatChosen,
-  }) : super(key: key);
+  });
 
   final DocumentReference? chatChosen;
 
   @override
-  _ChatEventCreationWidgetState createState() =>
+  State<ChatEventCreationWidget> createState() =>
       _ChatEventCreationWidgetState();
 }
 
@@ -270,27 +269,22 @@ class _ChatEventCreationWidgetState extends State<ChatEventCreationWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await showModalBottomSheet<bool>(
-                                  context: context,
-                                  builder: (context) {
-                                    return Container(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              3,
-                                      width: MediaQuery.of(context).size.width,
-                                      child: CupertinoDatePicker(
-                                        mode: CupertinoDatePickerMode.date,
-                                        minimumDate: DateTime(1900),
-                                        initialDateTime: getCurrentTimestamp,
-                                        maximumDate: DateTime(2050),
-                                        use24hFormat: false,
-                                        onDateTimeChanged: (newDateTime) =>
-                                            safeSetState(() {
-                                          _model.datePicked1 = newDateTime;
-                                        }),
-                                      ),
-                                    );
-                                  });
+                              final _datePicked1Date = await showDatePicker(
+                                context: context,
+                                initialDate: getCurrentTimestamp,
+                                firstDate: DateTime(1900),
+                                lastDate: DateTime(2050),
+                              );
+
+                              if (_datePicked1Date != null) {
+                                safeSetState(() {
+                                  _model.datePicked1 = DateTime(
+                                    _datePicked1Date.year,
+                                    _datePicked1Date.month,
+                                    _datePicked1Date.day,
+                                  );
+                                });
+                              }
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.35,
@@ -358,27 +352,22 @@ class _ChatEventCreationWidgetState extends State<ChatEventCreationWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              await showModalBottomSheet<bool>(
-                                  context: context,
-                                  builder: (context) {
-                                    return Container(
-                                      height:
-                                          MediaQuery.of(context).size.height /
-                                              3,
-                                      width: MediaQuery.of(context).size.width,
-                                      child: CupertinoDatePicker(
-                                        mode: CupertinoDatePickerMode.date,
-                                        minimumDate: DateTime(1900),
-                                        initialDateTime: getCurrentTimestamp,
-                                        maximumDate: DateTime(2050),
-                                        use24hFormat: false,
-                                        onDateTimeChanged: (newDateTime) =>
-                                            safeSetState(() {
-                                          _model.datePicked2 = newDateTime;
-                                        }),
-                                      ),
-                                    );
-                                  });
+                              final _datePicked2Date = await showDatePicker(
+                                context: context,
+                                initialDate: getCurrentTimestamp,
+                                firstDate: DateTime(1900),
+                                lastDate: DateTime(2050),
+                              );
+
+                              if (_datePicked2Date != null) {
+                                safeSetState(() {
+                                  _model.datePicked2 = DateTime(
+                                    _datePicked2Date.year,
+                                    _datePicked2Date.month,
+                                    _datePicked2Date.day,
+                                  );
+                                });
+                              }
                             },
                             child: Container(
                               width: MediaQuery.sizeOf(context).width * 0.35,
@@ -602,11 +591,12 @@ class _ChatEventCreationWidgetState extends State<ChatEventCreationWidget> {
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: AddDateWidget(),
-                                      ));
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: AddDateWidget(),
+                                        ),
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 }

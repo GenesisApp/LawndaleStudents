@@ -5,7 +5,6 @@ import '/components/featured_notification_events_widget.dart';
 import '/components/featured_notification_groups_widget.dart';
 import '/components/featured_notification_videos_widget.dart';
 import '/components/group_leaders_set_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
@@ -26,7 +25,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -51,8 +49,11 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   final formKey3 = GlobalKey<FormState>();
   final formKey4 = GlobalKey<FormState>();
   // State field(s) for ChoiceChips widget.
-  String? choiceChipsValue;
   FormFieldController<List<String>>? choiceChipsValueController;
+  String? get choiceChipsValue =>
+      choiceChipsValueController?.value?.firstOrNull;
+  set choiceChipsValue(String? val) =>
+      choiceChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for PageView widget.
   PageController? pageViewController;
 
@@ -256,23 +257,40 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   }
 
   // State field(s) for CategoryChipsNotAll widget.
-  String? categoryChipsNotAllValue;
   FormFieldController<List<String>>? categoryChipsNotAllValueController;
+  String? get categoryChipsNotAllValue =>
+      categoryChipsNotAllValueController?.value?.firstOrNull;
+  set categoryChipsNotAllValue(String? val) =>
+      categoryChipsNotAllValueController?.value = val != null ? [val] : [];
   // State field(s) for CategoryChipsAll widget.
-  String? categoryChipsAllValue;
   FormFieldController<List<String>>? categoryChipsAllValueController;
+  String? get categoryChipsAllValue =>
+      categoryChipsAllValueController?.value?.firstOrNull;
+  set categoryChipsAllValue(String? val) =>
+      categoryChipsAllValueController?.value = val != null ? [val] : [];
   // State field(s) for DayoftheWeekChips widget.
-  String? dayoftheWeekChipsValue;
   FormFieldController<List<String>>? dayoftheWeekChipsValueController;
+  String? get dayoftheWeekChipsValue =>
+      dayoftheWeekChipsValueController?.value?.firstOrNull;
+  set dayoftheWeekChipsValue(String? val) =>
+      dayoftheWeekChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for ToDChips widget.
-  String? toDChipsValue;
   FormFieldController<List<String>>? toDChipsValueController;
+  String? get toDChipsValue => toDChipsValueController?.value?.firstOrNull;
+  set toDChipsValue(String? val) =>
+      toDChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for AgeRangeChipsAll widget.
-  String? ageRangeChipsAllValue;
   FormFieldController<List<String>>? ageRangeChipsAllValueController;
+  String? get ageRangeChipsAllValue =>
+      ageRangeChipsAllValueController?.value?.firstOrNull;
+  set ageRangeChipsAllValue(String? val) =>
+      ageRangeChipsAllValueController?.value = val != null ? [val] : [];
   // State field(s) for AgeRangeChipsNotAll widget.
-  String? ageRangeChipsNotAllValue;
   FormFieldController<List<String>>? ageRangeChipsNotAllValueController;
+  String? get ageRangeChipsNotAllValue =>
+      ageRangeChipsNotAllValueController?.value?.firstOrNull;
+  set ageRangeChipsNotAllValue(String? val) =>
+      ageRangeChipsNotAllValueController?.value = val != null ? [val] : [];
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
   // State field(s) for featuredGroup widget.
@@ -316,23 +334,8 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode13;
   TextEditingController? textController13;
-  final textFieldMask13 = MaskTextInputFormatter(mask: '##/##/####');
   String? Function(BuildContext, String?)? textController13Validator;
   String? _textController13Validator(BuildContext context, String? val) {
-    if (val == null || val.isEmpty) {
-      return FFLocalizations.of(context).getText(
-        'ez954kia' /* Field is required */,
-      );
-    }
-
-    return null;
-  }
-
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode14;
-  TextEditingController? textController14;
-  String? Function(BuildContext, String?)? textController14Validator;
-  String? _textController14Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'g8y7xbq9' /* Field is required */,
@@ -366,10 +369,10 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   String uploadedFileUrl7 = '';
 
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode15;
-  TextEditingController? textController15;
-  String? Function(BuildContext, String?)? textController15Validator;
-  String? _textController15Validator(BuildContext context, String? val) {
+  FocusNode? textFieldFocusNode14;
+  TextEditingController? textController14;
+  String? Function(BuildContext, String?)? textController14Validator;
+  String? _textController14Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'izbemqmo' /* Field is required */,
@@ -380,10 +383,10 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   }
 
   // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode16;
-  TextEditingController? textController16;
-  String? Function(BuildContext, String?)? textController16Validator;
-  String? _textController16Validator(BuildContext context, String? val) {
+  FocusNode? textFieldFocusNode15;
+  TextEditingController? textController15;
+  String? Function(BuildContext, String?)? textController15Validator;
+  String? _textController15Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'ysu2uepa' /* Field is required */,
@@ -398,6 +401,7 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
     textController2Validator = _textController2Validator;
@@ -413,9 +417,9 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
     textController13Validator = _textController13Validator;
     textController14Validator = _textController14Validator;
     textController15Validator = _textController15Validator;
-    textController16Validator = _textController16Validator;
   }
 
+  @override
   void dispose() {
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
@@ -458,15 +462,12 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
     textFieldFocusNode13?.dispose();
     textController13?.dispose();
 
+    timerSecondPageController2.dispose();
     textFieldFocusNode14?.dispose();
     textController14?.dispose();
 
-    timerSecondPageController2.dispose();
     textFieldFocusNode15?.dispose();
     textController15?.dispose();
-
-    textFieldFocusNode16?.dispose();
-    textController16?.dispose();
   }
 
   /// Action blocks are added here.

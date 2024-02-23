@@ -1,13 +1,9 @@
 import '/backend/backend.dart';
 import '/components/profile_quickview_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -17,45 +13,21 @@ export 'all_profiles_with_tag_model.dart';
 
 class AllProfilesWithTagWidget extends StatefulWidget {
   const AllProfilesWithTagWidget({
-    Key? key,
+    super.key,
     this.tagSelected,
-  }) : super(key: key);
+  });
 
   final ProfileTagsRecord? tagSelected;
 
   @override
-  _AllProfilesWithTagWidgetState createState() =>
+  State<AllProfilesWithTagWidget> createState() =>
       _AllProfilesWithTagWidgetState();
 }
 
-class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
-    with TickerProviderStateMixin {
+class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget> {
   late AllProfilesWithTagModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -75,15 +47,6 @@ class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -215,8 +178,7 @@ class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
                                 fontFamily: 'Inter',
                                 color: FlutterFlowTheme.of(context).systemGray,
                               ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation']!),
+                        ),
                       ),
                     ),
                   ],
@@ -226,9 +188,9 @@ class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                 child: Container(
                   width: MediaQuery.sizeOf(context).width * 0.89,
-                  height: 40.0,
+                  height: 45.0,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
+                    borderRadius: BorderRadius.circular(20.0),
                   ),
                   child: Container(
                     width: 100.0,
@@ -236,7 +198,7 @@ class _AllProfilesWithTagWidgetState extends State<AllProfilesWithTagWidget>
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context)
                           .secondarySystemBackground,
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,

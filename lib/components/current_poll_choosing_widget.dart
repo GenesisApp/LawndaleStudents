@@ -16,16 +16,16 @@ export 'current_poll_choosing_model.dart';
 
 class CurrentPollChoosingWidget extends StatefulWidget {
   const CurrentPollChoosingWidget({
-    Key? key,
+    super.key,
     this.currentPoll,
     this.pollReference,
-  }) : super(key: key);
+  });
 
   final ChatPollRecord? currentPoll;
   final DocumentReference? pollReference;
 
   @override
-  _CurrentPollChoosingWidgetState createState() =>
+  State<CurrentPollChoosingWidget> createState() =>
       _CurrentPollChoosingWidgetState();
 }
 
@@ -527,10 +527,11 @@ class _CurrentPollChoosingWidgetState extends State<CurrentPollChoosingWidget> {
                               context: context,
                               builder: (context) {
                                 return WebViewAware(
-                                    child: Padding(
-                                  padding: MediaQuery.viewInsetsOf(context),
-                                  child: AnswerNeededWidget(),
-                                ));
+                                  child: Padding(
+                                    padding: MediaQuery.viewInsetsOf(context),
+                                    child: AnswerNeededWidget(),
+                                  ),
+                                );
                               },
                             ).then((value) => safeSetState(() {}));
                           }

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -14,16 +13,16 @@ export 'edit_prayer_model.dart';
 
 class EditPrayerWidget extends StatefulWidget {
   const EditPrayerWidget({
-    Key? key,
+    super.key,
     this.usersPrayer,
     this.usersPrayerDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? usersPrayer;
   final PrayerRequestsRecord? usersPrayerDoc;
 
   @override
-  _EditPrayerWidgetState createState() => _EditPrayerWidgetState();
+  State<EditPrayerWidget> createState() => _EditPrayerWidgetState();
 }
 
 class _EditPrayerWidgetState extends State<EditPrayerWidget> {

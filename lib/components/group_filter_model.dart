@@ -21,30 +21,49 @@ class GroupFilterModel extends FlutterFlowModel<GroupFilterWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for CategoryChipsNotAll widget.
-  String? categoryChipsNotAllValue;
   FormFieldController<List<String>>? categoryChipsNotAllValueController;
+  String? get categoryChipsNotAllValue =>
+      categoryChipsNotAllValueController?.value?.firstOrNull;
+  set categoryChipsNotAllValue(String? val) =>
+      categoryChipsNotAllValueController?.value = val != null ? [val] : [];
   // State field(s) for CategoryChipsAll widget.
-  String? categoryChipsAllValue;
   FormFieldController<List<String>>? categoryChipsAllValueController;
+  String? get categoryChipsAllValue =>
+      categoryChipsAllValueController?.value?.firstOrNull;
+  set categoryChipsAllValue(String? val) =>
+      categoryChipsAllValueController?.value = val != null ? [val] : [];
   // State field(s) for DayoftheWeekChips widget.
-  String? dayoftheWeekChipsValue;
   FormFieldController<List<String>>? dayoftheWeekChipsValueController;
+  String? get dayoftheWeekChipsValue =>
+      dayoftheWeekChipsValueController?.value?.firstOrNull;
+  set dayoftheWeekChipsValue(String? val) =>
+      dayoftheWeekChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for ToDChips widget.
-  String? toDChipsValue;
   FormFieldController<List<String>>? toDChipsValueController;
+  String? get toDChipsValue => toDChipsValueController?.value?.firstOrNull;
+  set toDChipsValue(String? val) =>
+      toDChipsValueController?.value = val != null ? [val] : [];
   // State field(s) for AgeRangeChipsAll widget.
-  String? ageRangeChipsAllValue;
   FormFieldController<List<String>>? ageRangeChipsAllValueController;
+  String? get ageRangeChipsAllValue =>
+      ageRangeChipsAllValueController?.value?.firstOrNull;
+  set ageRangeChipsAllValue(String? val) =>
+      ageRangeChipsAllValueController?.value = val != null ? [val] : [];
   // State field(s) for AgeRangeChipsNotAll widget.
-  String? ageRangeChipsNotAllValue;
   FormFieldController<List<String>>? ageRangeChipsNotAllValueController;
+  String? get ageRangeChipsNotAllValue =>
+      ageRangeChipsNotAllValueController?.value?.firstOrNull;
+  set ageRangeChipsNotAllValue(String? val) =>
+      ageRangeChipsNotAllValueController?.value = val != null ? [val] : [];
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

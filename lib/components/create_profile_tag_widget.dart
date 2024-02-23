@@ -16,10 +16,10 @@ import 'create_profile_tag_model.dart';
 export 'create_profile_tag_model.dart';
 
 class CreateProfileTagWidget extends StatefulWidget {
-  const CreateProfileTagWidget({Key? key}) : super(key: key);
+  const CreateProfileTagWidget({super.key});
 
   @override
-  _CreateProfileTagWidgetState createState() => _CreateProfileTagWidgetState();
+  State<CreateProfileTagWidget> createState() => _CreateProfileTagWidgetState();
 }
 
 class _CreateProfileTagWidgetState extends State<CreateProfileTagWidget> {
@@ -128,7 +128,7 @@ class _CreateProfileTagWidgetState extends State<CreateProfileTagWidget> {
                             CircularPercentIndicator(
                               percent: 1.0,
                               radius: 65.0,
-                              lineWidth: 7.0,
+                              lineWidth: 5.0,
                               animation: true,
                               animateFromLastPercent: true,
                               progressColor: Color(0xFF619B99),

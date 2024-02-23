@@ -132,13 +132,13 @@ final parametersBuilderMap =
           'otherUserRef': getParameter<DocumentReference>(data, 'otherUserRef'),
         },
       ),
+  'CommunityPrayerPage': ParameterData.none(),
   'groupsAttendance': (data) async => ParameterData(
         allParams: {
           'groupChosen': await getDocumentParameter<GroupsRecord>(
               data, 'groupChosen', GroupsRecord.fromSnapshot),
         },
       ),
-  'CommunityPrayerPage': ParameterData.none(),
   'PersonalPrayerPage': ParameterData.none(),
   'ProfilePage': ParameterData.none(),
   'EditProfilePage': ParameterData.none(),
@@ -182,7 +182,6 @@ final parametersBuilderMap =
         },
       ),
   'WorshipArchives': ParameterData.none(),
-  'AdminDashboard': ParameterData.none(),
   'AllPracticesCompleted': ParameterData.none(),
   'CurrentChatMembers': (data) async => ParameterData(
         allParams: {
@@ -205,9 +204,8 @@ final parametersBuilderMap =
               data, 'tagSelected', ProfileTagsRecord.fromSnapshot),
         },
       ),
-  'SoLSplashScreenCopy': ParameterData.none(),
+  'SoLSplashScreen': ParameterData.none(),
   'onBoarding': ParameterData.none(),
-  'AllJournals': ParameterData.none(),
   'Catechism': ParameterData.none(),
   'GrowPagePDF': (data) async => ParameterData(
         allParams: {
@@ -223,8 +221,11 @@ final parametersBuilderMap =
           'tagChosenRef': getParameter<DocumentReference>(data, 'tagChosenRef'),
         },
       ),
+  'AdminDashboard': ParameterData.none(),
   'AllHeartChecks': ParameterData.none(),
   'groupAnalytics': ParameterData.none(),
+  'NewGuests': ParameterData.none(),
+  'FollowupNeeded': ParameterData.none(),
   'adminGroupsRatingsView': ParameterData.none(),
   'myGroupsPage': ParameterData.none(),
   'groupsRatings': (data) async => ParameterData(
@@ -276,6 +277,7 @@ final parametersBuilderMap =
         },
       ),
   'MessageBoard': ParameterData.none(),
+  'recentCheckins': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

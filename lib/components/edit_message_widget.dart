@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,18 +14,18 @@ export 'edit_message_model.dart';
 
 class EditMessageWidget extends StatefulWidget {
   const EditMessageWidget({
-    Key? key,
+    super.key,
     this.usersMessage,
     this.usersMessageDoc,
     this.messageChat,
-  }) : super(key: key);
+  });
 
   final DocumentReference? usersMessage;
   final MessagesRecord? usersMessageDoc;
   final DocumentReference? messageChat;
 
   @override
-  _EditMessageWidgetState createState() => _EditMessageWidgetState();
+  State<EditMessageWidget> createState() => _EditMessageWidgetState();
 }
 
 class _EditMessageWidgetState extends State<EditMessageWidget> {

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,10 +9,10 @@ import 'chat_tab_icon_model.dart';
 export 'chat_tab_icon_model.dart';
 
 class ChatTabIconWidget extends StatefulWidget {
-  const ChatTabIconWidget({Key? key}) : super(key: key);
+  const ChatTabIconWidget({super.key});
 
   @override
-  _ChatTabIconWidgetState createState() => _ChatTabIconWidgetState();
+  State<ChatTabIconWidget> createState() => _ChatTabIconWidgetState();
 }
 
 class _ChatTabIconWidgetState extends State<ChatTabIconWidget> {
@@ -60,14 +59,14 @@ class _ChatTabIconWidgetState extends State<ChatTabIconWidget> {
               children: [
                 if (Theme.of(context).brightness == Brightness.dark)
                   SvgPicture.asset(
-                    'assets/images/chat-circle-dots-fill.svg',
+                    'assets/images/chat-circle-dots-fill_(chosen_dark_mode).svg',
                     width: 28.0,
                     height: 28.0,
                     fit: BoxFit.cover,
                   ),
                 if (!(Theme.of(context).brightness == Brightness.dark))
                   SvgPicture.asset(
-                    'assets/images/chat-circle-dots-fill_(1).svg',
+                    'assets/images/chat-circle-dots-fill_(chosen_light_mode).svg',
                     width: 28.0,
                     height: 28.0,
                     fit: BoxFit.cover,

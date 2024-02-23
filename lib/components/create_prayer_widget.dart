@@ -15,14 +15,14 @@ export 'create_prayer_model.dart';
 
 class CreatePrayerWidget extends StatefulWidget {
   const CreatePrayerWidget({
-    Key? key,
+    super.key,
     this.usersPrayer,
-  }) : super(key: key);
+  });
 
   final DocumentReference? usersPrayer;
 
   @override
-  _CreatePrayerWidgetState createState() => _CreatePrayerWidgetState();
+  State<CreatePrayerWidget> createState() => _CreatePrayerWidgetState();
 }
 
 class _CreatePrayerWidgetState extends State<CreatePrayerWidget> {

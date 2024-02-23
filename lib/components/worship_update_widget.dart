@@ -15,14 +15,14 @@ export 'worship_update_model.dart';
 
 class WorshipUpdateWidget extends StatefulWidget {
   const WorshipUpdateWidget({
-    Key? key,
+    super.key,
     this.worshipVideo,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? worshipVideo;
 
   @override
-  _WorshipUpdateWidgetState createState() => _WorshipUpdateWidgetState();
+  State<WorshipUpdateWidget> createState() => _WorshipUpdateWidgetState();
 }
 
 class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
@@ -162,7 +162,7 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                       CircularPercentIndicator(
                                         percent: 1.0,
                                         radius: 65.0,
-                                        lineWidth: 7.0,
+                                        lineWidth: 5.0,
                                         animation: true,
                                         animateFromLastPercent: true,
                                         progressColor: Color(0xFF619B99),
@@ -270,13 +270,14 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController1Validator
                                   .asValidator(context),
@@ -335,13 +336,14 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController2Validator
                                   .asValidator(context),
@@ -400,13 +402,14 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController3Validator
                                   .asValidator(context),
@@ -465,13 +468,14 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController4Validator
                                   .asValidator(context),
@@ -531,13 +535,14 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               maxLines: 8,
                               minLines: 1,
@@ -604,13 +609,15 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondarySystemBackground,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .lightSecondaryText,
+                                        color:
+                                            FlutterFlowTheme.of(context).label,
                                       ),
                                   validator: _model.textController6Validator
                                       .asValidator(context),
@@ -675,13 +682,15 @@ class _WorshipUpdateWidgetState extends State<WorshipUpdateWidget> {
                                             BorderRadius.circular(20.0),
                                       ),
                                       filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondarySystemBackground,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
-                                              .lightSecondaryText,
+                                              .label,
                                         ),
                                     validator: _model.textController7Validator
                                         .asValidator(context),

@@ -2,14 +2,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/journal_preview_widget.dart';
 import '/components/prayer_ring_small_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -18,145 +15,21 @@ export 'prayer_journals_other_model.dart';
 
 class PrayerJournalsOtherWidget extends StatefulWidget {
   const PrayerJournalsOtherWidget({
-    Key? key,
+    super.key,
     this.selectedUser,
     this.selectedUserRef,
-  }) : super(key: key);
+  });
 
   final UsersRecord? selectedUser;
   final DocumentReference? selectedUserRef;
 
   @override
-  _PrayerJournalsOtherWidgetState createState() =>
+  State<PrayerJournalsOtherWidget> createState() =>
       _PrayerJournalsOtherWidgetState();
 }
 
-class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget>
-    with TickerProviderStateMixin {
+class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget> {
   late PrayerJournalsOtherModel _model;
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'columnOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1200.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -277,7 +150,7 @@ class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget>
                         child: PrayerRingSmallWidget(),
                       ),
                     ],
-                  ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+                  ),
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width * 0.8,
@@ -293,8 +166,7 @@ class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget>
                             color:
                                 FlutterFlowTheme.of(context).lightSecondaryText,
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
+                    ),
                   ),
                 ),
               ],
@@ -397,8 +269,7 @@ class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget>
                         ),
                       ),
                   ],
-                ).animateOnPageLoad(
-                    animationsMap['columnOnPageLoadAnimation1']!),
+                ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -493,8 +364,7 @@ class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget>
                         ),
                       ),
                   ],
-                ).animateOnPageLoad(
-                    animationsMap['columnOnPageLoadAnimation2']!),
+                ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -586,8 +456,7 @@ class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget>
                         ),
                       ),
                   ],
-                ).animateOnPageLoad(
-                    animationsMap['columnOnPageLoadAnimation3']!),
+                ),
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -679,8 +548,7 @@ class _PrayerJournalsOtherWidgetState extends State<PrayerJournalsOtherWidget>
                         ),
                       ),
                   ],
-                ).animateOnPageLoad(
-                    animationsMap['columnOnPageLoadAnimation4']!),
+                ),
               ],
             ),
           ),

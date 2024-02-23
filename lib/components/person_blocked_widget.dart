@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -10,10 +9,10 @@ import 'person_blocked_model.dart';
 export 'person_blocked_model.dart';
 
 class PersonBlockedWidget extends StatefulWidget {
-  const PersonBlockedWidget({Key? key}) : super(key: key);
+  const PersonBlockedWidget({super.key});
 
   @override
-  _PersonBlockedWidgetState createState() => _PersonBlockedWidgetState();
+  State<PersonBlockedWidget> createState() => _PersonBlockedWidgetState();
 }
 
 class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
@@ -67,8 +66,8 @@ class _PersonBlockedWidgetState extends State<PersonBlockedWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),

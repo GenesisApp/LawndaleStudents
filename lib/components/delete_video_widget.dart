@@ -12,14 +12,14 @@ export 'delete_video_model.dart';
 
 class DeleteVideoWidget extends StatefulWidget {
   const DeleteVideoWidget({
-    Key? key,
+    super.key,
     this.video,
-  }) : super(key: key);
+  });
 
   final DocumentReference? video;
 
   @override
-  _DeleteVideoWidgetState createState() => _DeleteVideoWidgetState();
+  State<DeleteVideoWidget> createState() => _DeleteVideoWidgetState();
 }
 
 class _DeleteVideoWidgetState extends State<DeleteVideoWidget> {
@@ -109,7 +109,7 @@ class _DeleteVideoWidgetState extends State<DeleteVideoWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

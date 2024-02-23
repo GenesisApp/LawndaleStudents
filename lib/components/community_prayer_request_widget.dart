@@ -4,7 +4,6 @@ import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/edit_prayer_widget.dart';
 import '/components/person_blocked_widget.dart';
 import '/components/under13_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -12,9 +11,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,51 +22,22 @@ export 'community_prayer_request_model.dart';
 
 class CommunityPrayerRequestWidget extends StatefulWidget {
   const CommunityPrayerRequestWidget({
-    Key? key,
+    super.key,
     required this.chosenPrayerRequestDoc,
     required this.chosenPrayerRequestRef,
-  }) : super(key: key);
+  });
 
   final PrayerRequestsRecord? chosenPrayerRequestDoc;
   final DocumentReference? chosenPrayerRequestRef;
 
   @override
-  _CommunityPrayerRequestWidgetState createState() =>
+  State<CommunityPrayerRequestWidget> createState() =>
       _CommunityPrayerRequestWidgetState();
 }
 
 class _CommunityPrayerRequestWidgetState
-    extends State<CommunityPrayerRequestWidget> with TickerProviderStateMixin {
+    extends State<CommunityPrayerRequestWidget> {
   late CommunityPrayerRequestModel _model;
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -84,12 +51,6 @@ class _CommunityPrayerRequestWidgetState
     _model = createModel(context, () => CommunityPrayerRequestModel());
 
     _model.expandableController = ExpandableController(initialExpanded: false);
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -221,8 +182,7 @@ class _CommunityPrayerRequestWidgetState
                                 ),
                               ),
                             ),
-                          ).animateOnPageLoad(
-                              animationsMap['containerOnPageLoadAnimation1']!),
+                          ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 0.0, 0.0),
@@ -385,8 +345,8 @@ class _CommunityPrayerRequestWidgetState
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            StreamBuilder<List<UsersRecord>>(
-                                              stream: queryUsersRecord(
+                                            FutureBuilder<int>(
+                                              future: queryUsersRecordCount(
                                                 queryBuilder: (usersRecord) =>
                                                     usersRecord.where(
                                                   'prayedforRequests',
@@ -409,8 +369,7 @@ class _CommunityPrayerRequestWidgetState
                                                     ),
                                                   );
                                                 }
-                                                List<UsersRecord>
-                                                    containerUsersRecordList =
+                                                int containerCount =
                                                     snapshot.data!;
                                                 return Container(
                                                   height: 30.0,
@@ -435,13 +394,41 @@ class _CommunityPrayerRequestWidgetState
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
-                                                        child: Builder(
-                                                          builder: (context) {
-                                                            final containerQuery =
-                                                                containerUsersRecordList
-                                                                    .toList()
-                                                                    .take(6)
-                                                                    .toList();
+                                                        child: StreamBuilder<
+                                                            List<UsersRecord>>(
+                                                          stream:
+                                                              queryUsersRecord(
+                                                            queryBuilder:
+                                                                (usersRecord) =>
+                                                                    usersRecord
+                                                                        .where(
+                                                              'prayedforRequests',
+                                                              arrayContains: widget
+                                                                  .chosenPrayerRequestRef,
+                                                            ),
+                                                            limit: 6,
+                                                          ),
+                                                          builder: (context,
+                                                              snapshot) {
+                                                            // Customize what your widget looks like when it's loading.
+                                                            if (!snapshot
+                                                                .hasData) {
+                                                              return Center(
+                                                                child: SizedBox(
+                                                                  width: 75.0,
+                                                                  height: 75.0,
+                                                                  child:
+                                                                      SpinKitRipple(
+                                                                    color: Color(
+                                                                        0xFF7F95AD),
+                                                                    size: 75.0,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            }
+                                                            List<UsersRecord>
+                                                                listViewUsersRecordList =
+                                                                snapshot.data!;
                                                             return ListView
                                                                 .builder(
                                                               padding:
@@ -451,13 +438,13 @@ class _CommunityPrayerRequestWidgetState
                                                               scrollDirection:
                                                                   Axis.horizontal,
                                                               itemCount:
-                                                                  containerQuery
+                                                                  listViewUsersRecordList
                                                                       .length,
                                                               itemBuilder: (context,
-                                                                  containerQueryIndex) {
-                                                                final containerQueryItem =
-                                                                    containerQuery[
-                                                                        containerQueryIndex];
+                                                                  listViewIndex) {
+                                                                final listViewUsersRecord =
+                                                                    listViewUsersRecordList[
+                                                                        listViewIndex];
                                                                 return Align(
                                                                   alignment:
                                                                       AlignmentDirectional(
@@ -486,7 +473,7 @@ class _CommunityPrayerRequestWidgetState
                                                                           image:
                                                                               CachedNetworkImageProvider(
                                                                             valueOrDefault<String>(
-                                                                              containerQueryItem.photoUrl,
+                                                                              listViewUsersRecord.photoUrl,
                                                                               'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
                                                                             ),
                                                                           ),
@@ -513,87 +500,70 @@ class _CommunityPrayerRequestWidgetState
                                                           },
                                                         ),
                                                       ),
-                                                      if (containerUsersRecordList
-                                                              .length >
-                                                          6)
-                                                        Align(
-                                                          alignment:
-                                                              AlignmentDirectional(
-                                                                  -0.5, 0.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        4.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              height: 30.0,
-                                                              decoration:
-                                                                  BoxDecoration(
-                                                                shape: BoxShape
-                                                                    .rectangle,
-                                                                border:
-                                                                    Border.all(
-                                                                  color: Colors
-                                                                      .transparent,
-                                                                  width: 1.0,
+                                                      if (containerCount > 6)
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      4.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    FFLocalizations.of(
+                                                                            context)
+                                                                        .getText(
+                                                                      'uw2rfvve' /* + */,
+                                                                    ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                        ),
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'uw2rfvve' /* + */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                          ),
+                                                                Align(
+                                                                  alignment:
+                                                                      AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Text(
+                                                                    valueOrDefault<
+                                                                        String>(
+                                                                      (containerCount -
+                                                                              6)
+                                                                          .toString(),
+                                                                      '0',
                                                                     ),
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              'Inter',
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).secondary,
+                                                                        ),
                                                                   ),
-                                                                  Align(
-                                                                    alignment:
-                                                                        AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        (containerUsersRecordList.length -
-                                                                                6)
-                                                                            .toString(),
-                                                                        '0',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
                                                         ),
@@ -632,8 +602,7 @@ class _CommunityPrayerRequestWidgetState
                               ],
                             ),
                           ),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation2']!),
+                        ),
                       ],
                     ),
                   ),
@@ -746,8 +715,8 @@ class _CommunityPrayerRequestWidgetState
                                       Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          StreamBuilder<List<UsersRecord>>(
-                                            stream: queryUsersRecord(
+                                          FutureBuilder<int>(
+                                            future: queryUsersRecordCount(
                                               queryBuilder: (usersRecord) =>
                                                   usersRecord.where(
                                                 'prayedforRequests',
@@ -769,8 +738,7 @@ class _CommunityPrayerRequestWidgetState
                                                   ),
                                                 );
                                               }
-                                              List<UsersRecord>
-                                                  containerUsersRecordList =
+                                              int containerCount =
                                                   snapshot.data!;
                                               return Container(
                                                 height: 30.0,
@@ -795,13 +763,41 @@ class _CommunityPrayerRequestWidgetState
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      child: Builder(
-                                                        builder: (context) {
-                                                          final containerQuery2 =
-                                                              containerUsersRecordList
-                                                                  .toList()
-                                                                  .take(6)
-                                                                  .toList();
+                                                      child: StreamBuilder<
+                                                          List<UsersRecord>>(
+                                                        stream:
+                                                            queryUsersRecord(
+                                                          queryBuilder:
+                                                              (usersRecord) =>
+                                                                  usersRecord
+                                                                      .where(
+                                                            'prayedforRequests',
+                                                            arrayContains: widget
+                                                                .chosenPrayerRequestRef,
+                                                          ),
+                                                          limit: 6,
+                                                        ),
+                                                        builder: (context,
+                                                            snapshot) {
+                                                          // Customize what your widget looks like when it's loading.
+                                                          if (!snapshot
+                                                              .hasData) {
+                                                            return Center(
+                                                              child: SizedBox(
+                                                                width: 75.0,
+                                                                height: 75.0,
+                                                                child:
+                                                                    SpinKitRipple(
+                                                                  color: Color(
+                                                                      0xFF7F95AD),
+                                                                  size: 75.0,
+                                                                ),
+                                                              ),
+                                                            );
+                                                          }
+                                                          List<UsersRecord>
+                                                              listViewUsersRecordList =
+                                                              snapshot.data!;
                                                           return ListView
                                                               .builder(
                                                             padding:
@@ -810,13 +806,13 @@ class _CommunityPrayerRequestWidgetState
                                                             scrollDirection:
                                                                 Axis.horizontal,
                                                             itemCount:
-                                                                containerQuery2
+                                                                listViewUsersRecordList
                                                                     .length,
                                                             itemBuilder: (context,
-                                                                containerQuery2Index) {
-                                                              final containerQuery2Item =
-                                                                  containerQuery2[
-                                                                      containerQuery2Index];
+                                                                listViewIndex) {
+                                                              final listViewUsersRecord =
+                                                                  listViewUsersRecordList[
+                                                                      listViewIndex];
                                                               return Align(
                                                                 alignment:
                                                                     AlignmentDirectional(
@@ -844,7 +840,7 @@ class _CommunityPrayerRequestWidgetState
                                                                             CachedNetworkImageProvider(
                                                                           valueOrDefault<
                                                                               String>(
-                                                                            containerQuery2Item.photoUrl,
+                                                                            listViewUsersRecord.photoUrl,
                                                                             'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
                                                                           ),
                                                                         ),
@@ -872,9 +868,7 @@ class _CommunityPrayerRequestWidgetState
                                                         },
                                                       ),
                                                     ),
-                                                    if (containerUsersRecordList
-                                                            .length >
-                                                        6)
+                                                    if (containerCount > 6)
                                                       Align(
                                                         alignment:
                                                             AlignmentDirectional(
@@ -935,7 +929,7 @@ class _CommunityPrayerRequestWidgetState
                                                                   child: Text(
                                                                     valueOrDefault<
                                                                         String>(
-                                                                      (containerUsersRecordList.length -
+                                                                      (containerCount -
                                                                               6)
                                                                           .toString(),
                                                                       '0',
@@ -1196,14 +1190,15 @@ class _CommunityPrayerRequestWidgetState
                                                                 builder:
                                                                     (context) {
                                                                   return WebViewAware(
-                                                                      child:
-                                                                          Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
                                                                     child:
-                                                                        PersonBlockedWidget(),
-                                                                  ));
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          PersonBlockedWidget(),
+                                                                    ),
+                                                                  );
                                                                 },
                                                               ).then((value) =>
                                                                   safeSetState(
@@ -1329,14 +1324,14 @@ class _CommunityPrayerRequestWidgetState
                                                                   builder:
                                                                       (context) {
                                                                     return WebViewAware(
-                                                                        child:
-                                                                            Padding(
-                                                                      padding: MediaQuery
-                                                                          .viewInsetsOf(
-                                                                              context),
                                                                       child:
-                                                                          Under13Widget(),
-                                                                    ));
+                                                                          Padding(
+                                                                        padding:
+                                                                            MediaQuery.viewInsetsOf(context),
+                                                                        child:
+                                                                            Under13Widget(),
+                                                                      ),
+                                                                    );
                                                                   },
                                                                 ).then((value) =>
                                                                     safeSetState(
@@ -2021,28 +2016,27 @@ class _CommunityPrayerRequestWidgetState
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      0.75,
-                                                                  child:
-                                                                      EditPrayerWidget(
-                                                                    usersPrayer:
-                                                                        widget
-                                                                            .chosenPrayerRequestRef,
-                                                                    usersPrayerDoc:
-                                                                        widget
-                                                                            .chosenPrayerRequestDoc,
+                                                                      Container(
+                                                                    height: MediaQuery.sizeOf(context)
+                                                                            .height *
+                                                                        0.75,
+                                                                    child:
+                                                                        EditPrayerWidget(
+                                                                      usersPrayer:
+                                                                          widget
+                                                                              .chosenPrayerRequestRef,
+                                                                      usersPrayerDoc:
+                                                                          widget
+                                                                              .chosenPrayerRequestDoc,
+                                                                    ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -14,14 +13,14 @@ export 'friend_removed_model.dart';
 
 class FriendRemovedWidget extends StatefulWidget {
   const FriendRemovedWidget({
-    Key? key,
+    super.key,
     this.selectedUser,
-  }) : super(key: key);
+  });
 
   final UsersRecord? selectedUser;
 
   @override
-  _FriendRemovedWidgetState createState() => _FriendRemovedWidgetState();
+  State<FriendRemovedWidget> createState() => _FriendRemovedWidgetState();
 }
 
 class _FriendRemovedWidgetState extends State<FriendRemovedWidget> {
@@ -112,7 +111,7 @@ class _FriendRemovedWidgetState extends State<FriendRemovedWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

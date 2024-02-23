@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -14,10 +13,10 @@ import 'badge_sheet7_model.dart';
 export 'badge_sheet7_model.dart';
 
 class BadgeSheet7Widget extends StatefulWidget {
-  const BadgeSheet7Widget({Key? key}) : super(key: key);
+  const BadgeSheet7Widget({super.key});
 
   @override
-  _BadgeSheet7WidgetState createState() => _BadgeSheet7WidgetState();
+  State<BadgeSheet7Widget> createState() => _BadgeSheet7WidgetState();
 }
 
 class _BadgeSheet7WidgetState extends State<BadgeSheet7Widget> {

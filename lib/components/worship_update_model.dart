@@ -86,6 +86,7 @@ class WorshipUpdateModel extends FlutterFlowModel<WorshipUpdateWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     textController1Validator = _textController1Validator;
     textController3Validator = _textController3Validator;
@@ -93,6 +94,7 @@ class WorshipUpdateModel extends FlutterFlowModel<WorshipUpdateWidget> {
     textController7Validator = _textController7Validator;
   }
 
+  @override
   void dispose() {
     textFieldFocusNode1?.dispose();
     textController1?.dispose();

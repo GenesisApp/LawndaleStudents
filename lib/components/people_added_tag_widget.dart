@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -13,16 +12,16 @@ export 'people_added_tag_model.dart';
 
 class PeopleAddedTagWidget extends StatefulWidget {
   const PeopleAddedTagWidget({
-    Key? key,
+    super.key,
     this.tagChosen,
     this.groupChosenDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? tagChosen;
   final ProfileTagsRecord? groupChosenDoc;
 
   @override
-  _PeopleAddedTagWidgetState createState() => _PeopleAddedTagWidgetState();
+  State<PeopleAddedTagWidget> createState() => _PeopleAddedTagWidgetState();
 }
 
 class _PeopleAddedTagWidgetState extends State<PeopleAddedTagWidget> {
@@ -76,8 +75,8 @@ class _PeopleAddedTagWidgetState extends State<PeopleAddedTagWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                             shape: BoxShape.circle,
@@ -112,7 +111,7 @@ class _PeopleAddedTagWidgetState extends State<PeopleAddedTagWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.165,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

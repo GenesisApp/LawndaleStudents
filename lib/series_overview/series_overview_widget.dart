@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/video_details_b_s_widget.dart';
 import '/components/video_series_edit_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -12,8 +11,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,43 +22,20 @@ export 'series_overview_model.dart';
 
 class SeriesOverviewWidget extends StatefulWidget {
   const SeriesOverviewWidget({
-    Key? key,
+    super.key,
     required this.chosenSeries,
-  }) : super(key: key);
+  });
 
   final DocumentReference? chosenSeries;
 
   @override
-  _SeriesOverviewWidgetState createState() => _SeriesOverviewWidgetState();
+  State<SeriesOverviewWidget> createState() => _SeriesOverviewWidgetState();
 }
 
-class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
-    with TickerProviderStateMixin {
+class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget> {
   late SeriesOverviewModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -72,13 +46,6 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       await actions.lockOrientation();
     });
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -90,15 +57,6 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<VideoSeriesRecord>(
@@ -297,22 +255,24 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                                 context: context,
                                                 builder: (context) {
                                                   return WebViewAware(
-                                                      child: Padding(
-                                                    padding:
-                                                        MediaQuery.viewInsetsOf(
-                                                            context),
-                                                    child: Container(
-                                                      height: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .height *
-                                                          0.72,
-                                                      child:
-                                                          VideoSeriesEditWidget(
-                                                        chosenSeries:
-                                                            seriesOverviewVideoSeriesRecord,
+                                                    child: Padding(
+                                                      padding: MediaQuery
+                                                          .viewInsetsOf(
+                                                              context),
+                                                      child: Container(
+                                                        height:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                0.72,
+                                                        child:
+                                                            VideoSeriesEditWidget(
+                                                          chosenSeries:
+                                                              seriesOverviewVideoSeriesRecord,
+                                                        ),
                                                       ),
                                                     ),
-                                                  ));
+                                                  );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));
@@ -386,8 +346,7 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                                 fontSize: 20.0,
                                                 fontWeight: FontWeight.normal,
                                               ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'textOnPageLoadAnimation']!),
+                                        ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -627,18 +586,19 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                                                     builder:
                                                                         (context) {
                                                                       return WebViewAware(
-                                                                          child:
-                                                                              Padding(
-                                                                        padding:
-                                                                            MediaQuery.viewInsetsOf(context),
                                                                         child:
-                                                                            VideoDetailsBSWidget(
-                                                                          videoChosenRef:
-                                                                              listViewResourceVideosRecord.reference,
-                                                                          videoChosenDoc:
-                                                                              listViewResourceVideosRecord,
+                                                                            Padding(
+                                                                          padding:
+                                                                              MediaQuery.viewInsetsOf(context),
+                                                                          child:
+                                                                              VideoDetailsBSWidget(
+                                                                            videoChosenRef:
+                                                                                listViewResourceVideosRecord.reference,
+                                                                            videoChosenDoc:
+                                                                                listViewResourceVideosRecord,
+                                                                          ),
                                                                         ),
-                                                                      ));
+                                                                      );
                                                                     },
                                                                   ).then((value) =>
                                                                       safeSetState(
@@ -729,18 +689,17 @@ class _SeriesOverviewWidgetState extends State<SeriesOverviewWidget>
                                                                       builder:
                                                                           (context) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                Padding(
-                                                                          padding:
-                                                                              MediaQuery.viewInsetsOf(context),
                                                                           child:
-                                                                              VideoDetailsBSWidget(
-                                                                            videoChosenRef:
-                                                                                listViewResourceVideosRecord.reference,
-                                                                            videoChosenDoc:
-                                                                                listViewResourceVideosRecord,
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
+                                                                            child:
+                                                                                VideoDetailsBSWidget(
+                                                                              videoChosenRef: listViewResourceVideosRecord.reference,
+                                                                              videoChosenDoc: listViewResourceVideosRecord,
+                                                                            ),
                                                                           ),
-                                                                        ));
+                                                                        );
                                                                       },
                                                                     ).then((value) =>
                                                                         safeSetState(

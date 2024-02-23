@@ -6,7 +6,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -15,10 +14,10 @@ import 'friends_list_model.dart';
 export 'friends_list_model.dart';
 
 class FriendsListWidget extends StatefulWidget {
-  const FriendsListWidget({Key? key}) : super(key: key);
+  const FriendsListWidget({super.key});
 
   @override
-  _FriendsListWidgetState createState() => _FriendsListWidgetState();
+  State<FriendsListWidget> createState() => _FriendsListWidgetState();
 }
 
 class _FriendsListWidgetState extends State<FriendsListWidget> {
@@ -51,15 +50,6 @@ class _FriendsListWidgetState extends State<FriendsListWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(

@@ -16,16 +16,16 @@ export 'block_confirmation_model.dart';
 
 class BlockConfirmationWidget extends StatefulWidget {
   const BlockConfirmationWidget({
-    Key? key,
+    super.key,
     this.usertoBlock,
     this.usertoBlockDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? usertoBlock;
   final UsersRecord? usertoBlockDoc;
 
   @override
-  _BlockConfirmationWidgetState createState() =>
+  State<BlockConfirmationWidget> createState() =>
       _BlockConfirmationWidgetState();
 }
 
@@ -116,7 +116,7 @@ class _BlockConfirmationWidgetState extends State<BlockConfirmationWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:
@@ -233,10 +233,11 @@ class _BlockConfirmationWidgetState extends State<BlockConfirmationWidget> {
                                 context: context,
                                 builder: (context) {
                                   return WebViewAware(
-                                      child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: PersonBlockedWidget(),
-                                  ));
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: PersonBlockedWidget(),
+                                    ),
+                                  );
                                 },
                               ).then((value) => safeSetState(() {}));
                             },

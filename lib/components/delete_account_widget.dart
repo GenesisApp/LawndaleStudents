@@ -14,14 +14,14 @@ export 'delete_account_model.dart';
 
 class DeleteAccountWidget extends StatefulWidget {
   const DeleteAccountWidget({
-    Key? key,
+    super.key,
     this.userReference,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userReference;
 
   @override
-  _DeleteAccountWidgetState createState() => _DeleteAccountWidgetState();
+  State<DeleteAccountWidget> createState() => _DeleteAccountWidgetState();
 }
 
 class _DeleteAccountWidgetState extends State<DeleteAccountWidget> {
@@ -111,7 +111,7 @@ class _DeleteAccountWidgetState extends State<DeleteAccountWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

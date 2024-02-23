@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -8,8 +7,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,59 +18,17 @@ import 'all_profilesin_groups_model.dart';
 export 'all_profilesin_groups_model.dart';
 
 class AllProfilesinGroupsWidget extends StatefulWidget {
-  const AllProfilesinGroupsWidget({Key? key}) : super(key: key);
+  const AllProfilesinGroupsWidget({super.key});
 
   @override
-  _AllProfilesinGroupsWidgetState createState() =>
+  State<AllProfilesinGroupsWidget> createState() =>
       _AllProfilesinGroupsWidgetState();
 }
 
-class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
-    with TickerProviderStateMixin {
+class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget> {
   late AllProfilesinGroupsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -89,13 +44,6 @@ class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -107,15 +55,6 @@ class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -423,6 +362,7 @@ class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
                                 child: Container(
                                   color: FlutterFlowTheme.of(context).primary,
                                   child: ExpandableNotifier(
+                                    initialExpanded: false,
                                     child: ExpandablePanel(
                                       header: InkWell(
                                         splashColor: Colors.transparent,
@@ -1257,9 +1197,7 @@ class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
                                                           ],
                                                         ),
                                                       ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation1']!),
+                                                    ),
                                                   ),
                                                 ],
                                               ),
@@ -2039,6 +1977,7 @@ class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
                                 child: Container(
                                   color: FlutterFlowTheme.of(context).primary,
                                   child: ExpandableNotifier(
+                                    initialExpanded: false,
                                     child: ExpandablePanel(
                                       header: InkWell(
                                         splashColor: Colors.transparent,
@@ -2883,9 +2822,7 @@ class _AllProfilesinGroupsWidgetState extends State<AllProfilesinGroupsWidget>
                                                           ],
                                                         ),
                                                       ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation2']!),
+                                                    ),
                                                   ),
                                                 ],
                                               ),

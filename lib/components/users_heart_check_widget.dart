@@ -1,14 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,67 +16,23 @@ export 'users_heart_check_model.dart';
 
 class UsersHeartCheckWidget extends StatefulWidget {
   const UsersHeartCheckWidget({
-    Key? key,
+    super.key,
     required this.chosenHC,
     required this.chosenHCdoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? chosenHC;
   final HeartCheckRecord? chosenHCdoc;
 
   @override
-  _UsersHeartCheckWidgetState createState() => _UsersHeartCheckWidgetState();
+  State<UsersHeartCheckWidget> createState() => _UsersHeartCheckWidgetState();
 }
 
-class _UsersHeartCheckWidgetState extends State<UsersHeartCheckWidget>
-    with TickerProviderStateMixin {
+class _UsersHeartCheckWidgetState extends State<UsersHeartCheckWidget> {
   late UsersHeartCheckModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -217,7 +170,7 @@ class _UsersHeartCheckWidgetState extends State<UsersHeartCheckWidget>
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 0.0, 25.0),
@@ -227,7 +180,7 @@ class _UsersHeartCheckWidgetState extends State<UsersHeartCheckWidget>
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).lightSecondaryText,
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),

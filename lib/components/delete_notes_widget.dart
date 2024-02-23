@@ -12,14 +12,14 @@ export 'delete_notes_model.dart';
 
 class DeleteNotesWidget extends StatefulWidget {
   const DeleteNotesWidget({
-    Key? key,
+    super.key,
     this.note,
-  }) : super(key: key);
+  });
 
   final DocumentReference? note;
 
   @override
-  _DeleteNotesWidgetState createState() => _DeleteNotesWidgetState();
+  State<DeleteNotesWidget> createState() => _DeleteNotesWidgetState();
 }
 
 class _DeleteNotesWidgetState extends State<DeleteNotesWidget> {
@@ -109,7 +109,7 @@ class _DeleteNotesWidgetState extends State<DeleteNotesWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

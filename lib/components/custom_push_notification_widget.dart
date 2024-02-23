@@ -19,18 +19,18 @@ export 'custom_push_notification_model.dart';
 
 class CustomPushNotificationWidget extends StatefulWidget {
   const CustomPushNotificationWidget({
-    Key? key,
+    super.key,
     required this.userGroupChosen,
     required this.tagChosen,
     required this.tagChosenDoc,
-  }) : super(key: key);
+  });
 
   final List<DocumentReference>? userGroupChosen;
   final DocumentReference? tagChosen;
   final ProfileTagsRecord? tagChosenDoc;
 
   @override
-  _CustomPushNotificationWidgetState createState() =>
+  State<CustomPushNotificationWidget> createState() =>
       _CustomPushNotificationWidgetState();
 }
 
@@ -488,10 +488,12 @@ class _CustomPushNotificationWidgetState
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: NotificationSentWidget(),
-                                    ));
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: NotificationSentWidget(),
+                                      ),
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
 

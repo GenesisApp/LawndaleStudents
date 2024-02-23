@@ -16,14 +16,14 @@ export 'scripture_update_future_model.dart';
 
 class ScriptureUpdateFutureWidget extends StatefulWidget {
   const ScriptureUpdateFutureWidget({
-    Key? key,
+    super.key,
     this.worshipVideo,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? worshipVideo;
 
   @override
-  _ScriptureUpdateFutureWidgetState createState() =>
+  State<ScriptureUpdateFutureWidget> createState() =>
       _ScriptureUpdateFutureWidgetState();
 }
 
@@ -149,7 +149,7 @@ class _ScriptureUpdateFutureWidgetState
                         CircularPercentIndicator(
                           percent: 1.0,
                           radius: 65.0,
-                          lineWidth: 7.0,
+                          lineWidth: 5.0,
                           animation: true,
                           animateFromLastPercent: true,
                           progressColor:
@@ -243,8 +243,7 @@ class _ScriptureUpdateFutureWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController1Validator
                               .asValidator(context),
@@ -307,8 +306,7 @@ class _ScriptureUpdateFutureWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController2Validator
                               .asValidator(context),
@@ -371,8 +369,7 @@ class _ScriptureUpdateFutureWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController3Validator
                               .asValidator(context),
@@ -435,8 +432,7 @@ class _ScriptureUpdateFutureWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController4Validator
                               .asValidator(context),
@@ -500,8 +496,7 @@ class _ScriptureUpdateFutureWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           maxLines: 4,
                           minLines: 1,
@@ -571,8 +566,7 @@ class _ScriptureUpdateFutureWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController6Validator
                                   .asValidator(context),
@@ -639,8 +633,7 @@ class _ScriptureUpdateFutureWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .lightSecondaryText,
+                                      color: FlutterFlowTheme.of(context).label,
                                     ),
                                 validator: _model.textController7Validator
                                     .asValidator(context),

@@ -13,16 +13,16 @@ export 'delete_chat_poll_copy_model.dart';
 
 class DeleteChatPollCopyWidget extends StatefulWidget {
   const DeleteChatPollCopyWidget({
-    Key? key,
+    super.key,
     this.currentEvent,
     this.eventReference,
-  }) : super(key: key);
+  });
 
   final ChatEventRecord? currentEvent;
   final DocumentReference? eventReference;
 
   @override
-  _DeleteChatPollCopyWidgetState createState() =>
+  State<DeleteChatPollCopyWidget> createState() =>
       _DeleteChatPollCopyWidgetState();
 }
 
@@ -113,7 +113,7 @@ class _DeleteChatPollCopyWidgetState extends State<DeleteChatPollCopyWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

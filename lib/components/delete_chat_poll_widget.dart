@@ -13,16 +13,16 @@ export 'delete_chat_poll_model.dart';
 
 class DeleteChatPollWidget extends StatefulWidget {
   const DeleteChatPollWidget({
-    Key? key,
+    super.key,
     this.currentPoll,
     this.pollReference,
-  }) : super(key: key);
+  });
 
   final ChatPollRecord? currentPoll;
   final DocumentReference? pollReference;
 
   @override
-  _DeleteChatPollWidgetState createState() => _DeleteChatPollWidgetState();
+  State<DeleteChatPollWidget> createState() => _DeleteChatPollWidgetState();
 }
 
 class _DeleteChatPollWidgetState extends State<DeleteChatPollWidget> {
@@ -112,7 +112,7 @@ class _DeleteChatPollWidgetState extends State<DeleteChatPollWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

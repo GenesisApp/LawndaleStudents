@@ -3,15 +3,12 @@ import '/backend/backend.dart';
 import '/components/create_profile_tag_widget.dart';
 import '/components/delete_tag_widget.dart';
 import '/components/worship_create_future_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,80 +19,16 @@ import 'profile_tags_model.dart';
 export 'profile_tags_model.dart';
 
 class ProfileTagsWidget extends StatefulWidget {
-  const ProfileTagsWidget({Key? key}) : super(key: key);
+  const ProfileTagsWidget({super.key});
 
   @override
-  _ProfileTagsWidgetState createState() => _ProfileTagsWidgetState();
+  State<ProfileTagsWidget> createState() => _ProfileTagsWidgetState();
 }
 
-class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
-    with TickerProviderStateMixin {
+class _ProfileTagsWidgetState extends State<ProfileTagsWidget> {
   late ProfileTagsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'gridViewOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -115,15 +48,6 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -239,22 +163,24 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                 context: context,
                                 builder: (context) {
                                   return WebViewAware(
-                                      child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.7,
-                                        child: WorshipCreateFutureWidget(),
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.7,
+                                          child: WorshipCreateFutureWidget(),
+                                        ),
                                       ),
                                     ),
-                                  ));
+                                  );
                                 },
                               ).then((value) => safeSetState(() {}));
                             },
@@ -278,24 +204,26 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: GestureDetector(
-                                        onTap: () => _model
-                                                .unfocusNode.canRequestFocus
-                                            ? FocusScope.of(context)
-                                                .requestFocus(
-                                                    _model.unfocusNode)
-                                            : FocusScope.of(context).unfocus(),
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.65,
-                                            child: CreateProfileTagWidget(),
+                                        child: GestureDetector(
+                                          onTap: () => _model
+                                                  .unfocusNode.canRequestFocus
+                                              ? FocusScope.of(context)
+                                                  .requestFocus(
+                                                      _model.unfocusNode)
+                                              : FocusScope.of(context)
+                                                  .unfocus(),
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: Container(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.65,
+                                              child: CreateProfileTagWidget(),
+                                            ),
                                           ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },
@@ -329,8 +257,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                           ),
                         ),
                       ],
-                    ).animateOnPageLoad(
-                        animationsMap['rowOnPageLoadAnimation']!),
+                    ),
                   ),
                   Padding(
                     padding:
@@ -343,8 +270,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                             fontFamily: 'Inter',
                             color: FlutterFlowTheme.of(context).systemGray,
                           ),
-                    ).animateOnPageLoad(
-                        animationsMap['textOnPageLoadAnimation']!),
+                    ),
                   ),
                 ],
               ),
@@ -597,21 +523,24 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: DeleteTagWidget(
-                                          tagSelected: gridViewProfileTagsRecord
-                                              .reference,
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: DeleteTagWidget(
+                                            tagSelected:
+                                                gridViewProfileTagsRecord
+                                                    .reference,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -686,8 +615,7 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                             ),
                           );
                         },
-                      ).animateOnPageLoad(
-                          animationsMap['gridViewOnPageLoadAnimation']!);
+                      );
                     },
                   ),
                 ),
@@ -745,21 +673,23 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget>
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: GestureDetector(
-                                      onTap: () => _model
-                                              .unfocusNode.canRequestFocus
-                                          ? FocusScope.of(context)
-                                              .requestFocus(_model.unfocusNode)
-                                          : FocusScope.of(context).unfocus(),
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: DeleteTagWidget(
-                                          tagSelected:
-                                              searchResultsItem.reference,
+                                      child: GestureDetector(
+                                        onTap: () => _model
+                                                .unfocusNode.canRequestFocus
+                                            ? FocusScope.of(context)
+                                                .requestFocus(
+                                                    _model.unfocusNode)
+                                            : FocusScope.of(context).unfocus(),
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: DeleteTagWidget(
+                                            tagSelected:
+                                                searchResultsItem.reference,
+                                          ),
                                         ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },

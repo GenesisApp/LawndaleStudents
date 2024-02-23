@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -10,10 +9,10 @@ import 'add_date_model.dart';
 export 'add_date_model.dart';
 
 class AddDateWidget extends StatefulWidget {
-  const AddDateWidget({Key? key}) : super(key: key);
+  const AddDateWidget({super.key});
 
   @override
-  _AddDateWidgetState createState() => _AddDateWidgetState();
+  State<AddDateWidget> createState() => _AddDateWidgetState();
 }
 
 class _AddDateWidgetState extends State<AddDateWidget> {
@@ -67,8 +66,8 @@ class _AddDateWidgetState extends State<AddDateWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                             shape: BoxShape.circle,
@@ -103,7 +102,7 @@ class _AddDateWidgetState extends State<AddDateWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.165,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

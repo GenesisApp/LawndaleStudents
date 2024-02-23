@@ -13,14 +13,14 @@ export 'featured_notification_videos_model.dart';
 
 class FeaturedNotificationVideosWidget extends StatefulWidget {
   const FeaturedNotificationVideosWidget({
-    Key? key,
+    super.key,
     required this.chosenResource,
-  }) : super(key: key);
+  });
 
   final ResourceVideosRecord? chosenResource;
 
   @override
-  _FeaturedNotificationVideosWidgetState createState() =>
+  State<FeaturedNotificationVideosWidget> createState() =>
       _FeaturedNotificationVideosWidgetState();
 }
 
@@ -140,7 +140,7 @@ class _FeaturedNotificationVideosWidgetState
                                       percent: 1.0,
                                       radius: MediaQuery.sizeOf(context).width *
                                           0.175,
-                                      lineWidth: 7.0,
+                                      lineWidth: 5.0,
                                       animation: true,
                                       animateFromLastPercent: true,
                                       progressColor:

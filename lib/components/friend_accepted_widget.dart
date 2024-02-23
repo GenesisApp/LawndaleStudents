@@ -14,16 +14,16 @@ export 'friend_accepted_model.dart';
 
 class FriendAcceptedWidget extends StatefulWidget {
   const FriendAcceptedWidget({
-    Key? key,
+    super.key,
     this.selectedUser,
     this.friendRequest,
-  }) : super(key: key);
+  });
 
   final DocumentReference? selectedUser;
   final DocumentReference? friendRequest;
 
   @override
-  _FriendAcceptedWidgetState createState() => _FriendAcceptedWidgetState();
+  State<FriendAcceptedWidget> createState() => _FriendAcceptedWidgetState();
 }
 
 class _FriendAcceptedWidgetState extends State<FriendAcceptedWidget> {
@@ -113,7 +113,7 @@ class _FriendAcceptedWidgetState extends State<FriendAcceptedWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

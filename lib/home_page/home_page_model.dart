@@ -92,6 +92,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     prayerRingSmallModel = createModel(context, () => PrayerRingSmallModel());
     chatTabIconUnselectedModel =
@@ -100,6 +101,7 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
         createModel(context, () => ProfileTabIconUnselectedModel());
   }
 
+  @override
   void dispose() {
     instantTimer?.cancel();
     timerController.dispose();

@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -10,10 +9,10 @@ import 'more_members_needed_model.dart';
 export 'more_members_needed_model.dart';
 
 class MoreMembersNeededWidget extends StatefulWidget {
-  const MoreMembersNeededWidget({Key? key}) : super(key: key);
+  const MoreMembersNeededWidget({super.key});
 
   @override
-  _MoreMembersNeededWidgetState createState() =>
+  State<MoreMembersNeededWidget> createState() =>
       _MoreMembersNeededWidgetState();
 }
 
@@ -68,8 +67,8 @@ class _MoreMembersNeededWidgetState extends State<MoreMembersNeededWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
@@ -103,7 +102,7 @@ class _MoreMembersNeededWidgetState extends State<MoreMembersNeededWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.165,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

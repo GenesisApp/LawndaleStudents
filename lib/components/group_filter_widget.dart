@@ -13,10 +13,10 @@ import 'group_filter_model.dart';
 export 'group_filter_model.dart';
 
 class GroupFilterWidget extends StatefulWidget {
-  const GroupFilterWidget({Key? key}) : super(key: key);
+  const GroupFilterWidget({super.key});
 
   @override
-  _GroupFilterWidgetState createState() => _GroupFilterWidgetState();
+  State<GroupFilterWidget> createState() => _GroupFilterWidgetState();
 }
 
 class _GroupFilterWidgetState extends State<GroupFilterWidget> {
@@ -268,8 +268,9 @@ class _GroupFilterWidgetState extends State<GroupFilterWidget> {
                                             .toList()
                                             .map((label) => ChipData(label))
                                             .toList(),
-                                    onChanged: (val) => setState(() => _model
-                                        .categoryChipsNotAllValue = val?.first),
+                                    onChanged: (val) => setState(() =>
+                                        _model.categoryChipsNotAllValue =
+                                            val?.firstOrNull),
                                     selectedChipStyle: ChipStyle(
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
@@ -352,8 +353,9 @@ class _GroupFilterWidgetState extends State<GroupFilterWidget> {
                                             .toList()
                                             .map((label) => ChipData(label))
                                             .toList(),
-                                    onChanged: (val) => setState(() => _model
-                                        .categoryChipsAllValue = val?.first),
+                                    onChanged: (val) => setState(() =>
+                                        _model.categoryChipsAllValue =
+                                            val?.firstOrNull),
                                     selectedChipStyle: ChipStyle(
                                       backgroundColor:
                                           FlutterFlowTheme.of(context)
@@ -477,8 +479,8 @@ class _GroupFilterWidgetState extends State<GroupFilterWidget> {
                                 't6f06zvb' /* Sunday */,
                               ))
                             ],
-                            onChanged: (val) => setState(() =>
-                                _model.dayoftheWeekChipsValue = val?.first),
+                            onChanged: (val) => setState(() => _model
+                                .dayoftheWeekChipsValue = val?.firstOrNull),
                             selectedChipStyle: ChipStyle(
                               backgroundColor:
                                   FlutterFlowTheme.of(context).systemGray3,
@@ -590,8 +592,8 @@ class _GroupFilterWidgetState extends State<GroupFilterWidget> {
                                   'zzvkkd1x' /* Evening */,
                                 ))
                               ],
-                              onChanged: (val) => setState(
-                                  () => _model.toDChipsValue = val?.first),
+                              onChanged: (val) => setState(() =>
+                                  _model.toDChipsValue = val?.firstOrNull),
                               selectedChipStyle: ChipStyle(
                                 backgroundColor:
                                     FlutterFlowTheme.of(context).systemGray3,
@@ -766,8 +768,8 @@ class _GroupFilterWidgetState extends State<GroupFilterWidget> {
                                     'xfs6gin5' /* Seniors (60+) */,
                                   ))
                                 ],
-                                onChanged: (val) => setState(() =>
-                                    _model.ageRangeChipsAllValue = val?.first),
+                                onChanged: (val) => setState(() => _model
+                                    .ageRangeChipsAllValue = val?.firstOrNull),
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).systemGray3,
@@ -831,8 +833,9 @@ class _GroupFilterWidgetState extends State<GroupFilterWidget> {
                                     'dxn2n639' /* Adult (30-60) */,
                                   ))
                                 ],
-                                onChanged: (val) => setState(() => _model
-                                    .ageRangeChipsNotAllValue = val?.first),
+                                onChanged: (val) => setState(() =>
+                                    _model.ageRangeChipsNotAllValue =
+                                        val?.firstOrNull),
                                 selectedChipStyle: ChipStyle(
                                   backgroundColor:
                                       FlutterFlowTheme.of(context).systemGray3,

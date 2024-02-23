@@ -1,14 +1,10 @@
 import '/backend/backend.dart';
 import '/components/users_heart_check_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,58 +15,16 @@ import 'all_heart_checks_model.dart';
 export 'all_heart_checks_model.dart';
 
 class AllHeartChecksWidget extends StatefulWidget {
-  const AllHeartChecksWidget({Key? key}) : super(key: key);
+  const AllHeartChecksWidget({super.key});
 
   @override
-  _AllHeartChecksWidgetState createState() => _AllHeartChecksWidgetState();
+  State<AllHeartChecksWidget> createState() => _AllHeartChecksWidgetState();
 }
 
-class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
-    with TickerProviderStateMixin {
+class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget> {
   late AllHeartChecksModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-25.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -79,13 +33,6 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -97,15 +44,6 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -462,6 +400,7 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: ExpandableNotifier(
+                                              initialExpanded: false,
                                               child: ExpandablePanel(
                                                 header: Container(
                                                   width: 100.0,
@@ -590,9 +529,7 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
                                                               ),
                                                             ),
                                                           ),
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'containerOnPageLoadAnimation1']!),
+                                                        ),
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -712,26 +649,26 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
                                                               builder:
                                                                   (context) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
                                                                   child:
-                                                                      Container(
-                                                                    height: MediaQuery.sizeOf(context)
-                                                                            .height *
-                                                                        0.92,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        UsersHeartCheckWidget(
-                                                                      chosenHC:
-                                                                          columnHeartCheckRecord
-                                                                              .reference,
-                                                                      chosenHCdoc:
-                                                                          columnHeartCheckRecord,
+                                                                        Container(
+                                                                      height: MediaQuery.sizeOf(context)
+                                                                              .height *
+                                                                          0.92,
+                                                                      child:
+                                                                          UsersHeartCheckWidget(
+                                                                        chosenHC:
+                                                                            columnHeartCheckRecord.reference,
+                                                                        chosenHCdoc:
+                                                                            columnHeartCheckRecord,
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                ));
+                                                                );
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(
@@ -932,6 +869,7 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: ExpandableNotifier(
+                                              initialExpanded: false,
                                               child: ExpandablePanel(
                                                 header: Container(
                                                   width: 100.0,
@@ -1060,9 +998,7 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
                                                               ),
                                                             ),
                                                           ),
-                                                        ).animateOnPageLoad(
-                                                            animationsMap[
-                                                                'containerOnPageLoadAnimation2']!),
+                                                        ),
                                                         Padding(
                                                           padding:
                                                               EdgeInsetsDirectional
@@ -1182,26 +1118,26 @@ class _AllHeartChecksWidgetState extends State<AllHeartChecksWidget>
                                                               builder:
                                                                   (context) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
                                                                   child:
-                                                                      Container(
-                                                                    height: MediaQuery.sizeOf(context)
-                                                                            .height *
-                                                                        0.92,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        UsersHeartCheckWidget(
-                                                                      chosenHC:
-                                                                          searchResultsItem
-                                                                              .reference,
-                                                                      chosenHCdoc:
-                                                                          searchResultsItem,
+                                                                        Container(
+                                                                      height: MediaQuery.sizeOf(context)
+                                                                              .height *
+                                                                          0.92,
+                                                                      child:
+                                                                          UsersHeartCheckWidget(
+                                                                        chosenHC:
+                                                                            searchResultsItem.reference,
+                                                                        chosenHCdoc:
+                                                                            searchResultsItem,
+                                                                      ),
                                                                     ),
                                                                   ),
-                                                                ));
+                                                                );
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(

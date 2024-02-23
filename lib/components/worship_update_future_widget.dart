@@ -16,14 +16,14 @@ export 'worship_update_future_model.dart';
 
 class WorshipUpdateFutureWidget extends StatefulWidget {
   const WorshipUpdateFutureWidget({
-    Key? key,
+    super.key,
     this.worshipVideo,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? worshipVideo;
 
   @override
-  _WorshipUpdateFutureWidgetState createState() =>
+  State<WorshipUpdateFutureWidget> createState() =>
       _WorshipUpdateFutureWidgetState();
 }
 
@@ -94,12 +94,12 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
         ),
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
                   width: 130.0,
@@ -124,7 +124,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                         CircularPercentIndicator(
                           percent: 1.0,
                           radius: 65.0,
-                          lineWidth: 7.0,
+                          lineWidth: 5.0,
                           animation: true,
                           animateFromLastPercent: true,
                           progressColor: Color(0xFF619B99),
@@ -181,7 +181,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
               padding: EdgeInsetsDirectional.fromSTEB(4.0, 8.0, 4.0, 8.0),
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -241,8 +241,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController1Validator
                               .asValidator(context),
@@ -305,8 +304,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController2Validator
                               .asValidator(context),
@@ -369,8 +367,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController3Validator
                               .asValidator(context),
@@ -433,8 +430,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           validator: _model.textController4Validator
                               .asValidator(context),
@@ -498,8 +494,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                           maxLines: 4,
                           minLines: 1,
@@ -571,8 +566,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController6Validator
                                   .asValidator(context),
@@ -639,8 +633,7 @@ class _WorshipUpdateFutureWidgetState extends State<WorshipUpdateFutureWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .lightSecondaryText,
+                                      color: FlutterFlowTheme.of(context).label,
                                     ),
                                 validator: _model.textController7Validator
                                     .asValidator(context),

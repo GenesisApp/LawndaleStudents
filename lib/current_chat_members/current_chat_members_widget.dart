@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -8,9 +7,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -23,65 +19,23 @@ export 'current_chat_members_model.dart';
 
 class CurrentChatMembersWidget extends StatefulWidget {
   const CurrentChatMembersWidget({
-    Key? key,
+    super.key,
     this.chatChosen,
     this.chatUsers,
-  }) : super(key: key);
+  });
 
   final MessageChatsRecord? chatChosen;
   final DocumentReference? chatUsers;
 
   @override
-  _CurrentChatMembersWidgetState createState() =>
+  State<CurrentChatMembersWidget> createState() =>
       _CurrentChatMembersWidgetState();
 }
 
-class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
-    with TickerProviderStateMixin {
+class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget> {
   late CurrentChatMembersModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -90,13 +44,6 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
 
     _model.textController ??= TextEditingController();
     _model.textFieldFocusNode ??= FocusNode();
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -108,15 +55,6 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -201,9 +139,9 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 30.0),
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 0.89,
-                    height: 40.0,
+                    height: 45.0,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
                     child: Container(
                       width: 100.0,
@@ -211,7 +149,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context)
                             .secondarySystemBackground,
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -422,6 +360,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                   child: Container(
                                     color: FlutterFlowTheme.of(context).primary,
                                     child: ExpandableNotifier(
+                                      initialExpanded: false,
                                       child: ExpandablePanel(
                                         header: InkWell(
                                           splashColor: Colors.transparent,
@@ -1250,9 +1189,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                             ],
                                                           ),
                                                         ),
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'containerOnPageLoadAnimation1']!),
+                                                      ),
                                                     ),
                                                   ],
                                                 ),
@@ -2029,6 +1966,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                 child: Container(
                                   color: FlutterFlowTheme.of(context).primary,
                                   child: ExpandableNotifier(
+                                    initialExpanded: false,
                                     child: ExpandablePanel(
                                       header: InkWell(
                                         splashColor: Colors.transparent,
@@ -2873,9 +2811,7 @@ class _CurrentChatMembersWidgetState extends State<CurrentChatMembersWidget>
                                                           ],
                                                         ),
                                                       ),
-                                                    ).animateOnPageLoad(
-                                                        animationsMap[
-                                                            'containerOnPageLoadAnimation2']!),
+                                                    ),
                                                   ),
                                                 ],
                                               ),

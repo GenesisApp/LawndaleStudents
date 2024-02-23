@@ -82,14 +82,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? SoLSplashScreenCopyWidget()
+          ? SoLSplashScreenWidget()
           : OnBoardingWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? SoLSplashScreenCopyWidget()
+              ? SoLSplashScreenWidget()
               : OnBoardingWidget(),
           routes: [
             FFRoute(
@@ -149,6 +149,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
+              name: 'CommunityPrayerPage',
+              path: 'communityPrayerPage',
+              requireAuth: true,
+              builder: (context, params) => CommunityPrayerPageWidget(),
+            ),
+            FFRoute(
               name: 'groupsAttendance',
               path: 'groupsAttendance',
               requireAuth: true,
@@ -160,12 +166,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 groupUsers: params.getParam<DocumentReference>(
                     'groupUsers', ParamType.DocumentReference, true, ['users']),
               ),
-            ),
-            FFRoute(
-              name: 'CommunityPrayerPage',
-              path: 'communityPrayerPage',
-              requireAuth: true,
-              builder: (context, params) => CommunityPrayerPageWidget(),
             ),
             FFRoute(
               name: 'PersonalPrayerPage',
@@ -280,12 +280,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => WorshipArchivesWidget(),
             ),
             FFRoute(
-              name: 'AdminDashboard',
-              path: 'adminDashboard',
-              requireAuth: true,
-              builder: (context, params) => AdminDashboardWidget(),
-            ),
-            FFRoute(
               name: 'AllPracticesCompleted',
               path: 'allPracticesCompleted',
               requireAuth: true,
@@ -366,21 +360,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'SoLSplashScreenCopy',
-              path: 'soLSplashScreenCopy',
+              name: 'SoLSplashScreen',
+              path: 'soLSplashScreen',
               requireAuth: true,
-              builder: (context, params) => SoLSplashScreenCopyWidget(),
+              builder: (context, params) => SoLSplashScreenWidget(),
             ),
             FFRoute(
               name: 'onBoarding',
               path: 'onBoarding',
               builder: (context, params) => OnBoardingWidget(),
-            ),
-            FFRoute(
-              name: 'AllJournals',
-              path: 'allJournals',
-              requireAuth: true,
-              builder: (context, params) => AllJournalsWidget(),
             ),
             FFRoute(
               name: 'Catechism',
@@ -422,6 +410,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
+              name: 'AdminDashboard',
+              path: 'adminDashboard',
+              requireAuth: true,
+              builder: (context, params) => AdminDashboardWidget(),
+            ),
+            FFRoute(
               name: 'AllHeartChecks',
               path: 'allHeartChecks',
               requireAuth: true,
@@ -432,6 +426,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'groupAnalytics',
               requireAuth: true,
               builder: (context, params) => GroupAnalyticsWidget(),
+            ),
+            FFRoute(
+              name: 'NewGuests',
+              path: 'newGuests',
+              requireAuth: true,
+              builder: (context, params) => NewGuestsWidget(),
+            ),
+            FFRoute(
+              name: 'FollowupNeeded',
+              path: 'followupNeeded',
+              requireAuth: true,
+              builder: (context, params) => FollowupNeededWidget(),
             ),
             FFRoute(
               name: 'adminGroupsRatingsView',
@@ -560,6 +566,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'messageBoard',
               requireAuth: true,
               builder: (context, params) => MessageBoardWidget(),
+            ),
+            FFRoute(
+              name: 'recentCheckins',
+              path: 'recentCheckins',
+              requireAuth: true,
+              builder: (context, params) => RecentCheckinsWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -734,6 +746,7 @@ class FFRoute {
           return null;
         },
         pageBuilder: (context, state) {
+          fixStatusBarOniOS16AndBelow(context);
           final ffParams = FFParameters(state, asyncParams);
           final page = ffParams.hasFutures
               ? FutureBuilder(

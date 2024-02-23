@@ -10,10 +10,10 @@ import 'answer_needed_model.dart';
 export 'answer_needed_model.dart';
 
 class AnswerNeededWidget extends StatefulWidget {
-  const AnswerNeededWidget({Key? key}) : super(key: key);
+  const AnswerNeededWidget({super.key});
 
   @override
-  _AnswerNeededWidgetState createState() => _AnswerNeededWidgetState();
+  State<AnswerNeededWidget> createState() => _AnswerNeededWidgetState();
 }
 
 class _AnswerNeededWidgetState extends State<AnswerNeededWidget> {
@@ -103,7 +103,7 @@ class _AnswerNeededWidgetState extends State<AnswerNeededWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -14,10 +13,10 @@ import 'badge_sheet200_model.dart';
 export 'badge_sheet200_model.dart';
 
 class BadgeSheet200Widget extends StatefulWidget {
-  const BadgeSheet200Widget({Key? key}) : super(key: key);
+  const BadgeSheet200Widget({super.key});
 
   @override
-  _BadgeSheet200WidgetState createState() => _BadgeSheet200WidgetState();
+  State<BadgeSheet200Widget> createState() => _BadgeSheet200WidgetState();
 }
 
 class _BadgeSheet200WidgetState extends State<BadgeSheet200Widget> {

@@ -11,10 +11,10 @@ import 'chat_exists_copy_copy_model.dart';
 export 'chat_exists_copy_copy_model.dart';
 
 class ChatExistsCopyCopyWidget extends StatefulWidget {
-  const ChatExistsCopyCopyWidget({Key? key}) : super(key: key);
+  const ChatExistsCopyCopyWidget({super.key});
 
   @override
-  _ChatExistsCopyCopyWidgetState createState() =>
+  State<ChatExistsCopyCopyWidget> createState() =>
       _ChatExistsCopyCopyWidgetState();
 }
 
@@ -104,7 +104,7 @@ class _ChatExistsCopyCopyWidgetState extends State<ChatExistsCopyCopyWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

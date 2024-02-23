@@ -10,10 +10,10 @@ import 'account_denied_model.dart';
 export 'account_denied_model.dart';
 
 class AccountDeniedWidget extends StatefulWidget {
-  const AccountDeniedWidget({Key? key}) : super(key: key);
+  const AccountDeniedWidget({super.key});
 
   @override
-  _AccountDeniedWidgetState createState() => _AccountDeniedWidgetState();
+  State<AccountDeniedWidget> createState() => _AccountDeniedWidgetState();
 }
 
 class _AccountDeniedWidgetState extends State<AccountDeniedWidget> {
@@ -102,7 +102,7 @@ class _AccountDeniedWidgetState extends State<AccountDeniedWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

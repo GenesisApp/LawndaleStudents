@@ -3,16 +3,12 @@ import '/backend/backend.dart';
 import '/components/emptystate_f_r_widget.dart';
 import '/components/friend_accepted_widget.dart';
 import '/components/friend_request_declined_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,56 +19,14 @@ import 'friend_requests_model.dart';
 export 'friend_requests_model.dart';
 
 class FriendRequestsWidget extends StatefulWidget {
-  const FriendRequestsWidget({Key? key}) : super(key: key);
+  const FriendRequestsWidget({super.key});
 
   @override
-  _FriendRequestsWidgetState createState() => _FriendRequestsWidgetState();
+  State<FriendRequestsWidget> createState() => _FriendRequestsWidgetState();
 }
 
-class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
-    with TickerProviderStateMixin {
+class _FriendRequestsWidgetState extends State<FriendRequestsWidget> {
   late FriendRequestsModel _model;
-
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 15.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 25.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -84,13 +38,6 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => FriendRequestsModel());
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -427,9 +374,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .label,
                                                                       ),
-                                                                ).animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'textOnPageLoadAnimation1']!),
+                                                                ),
                                                               ],
                                                             ),
                                                             Row(
@@ -469,9 +414,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                                           fontWeight:
                                                                               FontWeight.normal,
                                                                         ),
-                                                                  ).animateOnPageLoad(
-                                                                      animationsMap[
-                                                                          'textOnPageLoadAnimation2']!),
+                                                                  ),
                                                                 ),
                                                               ],
                                                             ),
@@ -540,20 +483,21 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                FriendRequestDeclinedWidget(
-                                                              selectedUser:
-                                                                  columnFriendRequestsRecord
-                                                                      .requestSender,
-                                                              friendRequest:
-                                                                  columnFriendRequestsRecord
-                                                                      .reference,
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  FriendRequestDeclinedWidget(
+                                                                selectedUser:
+                                                                    columnFriendRequestsRecord
+                                                                        .requestSender,
+                                                                friendRequest:
+                                                                    columnFriendRequestsRecord
+                                                                        .reference,
+                                                              ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -733,20 +677,21 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget>
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                FriendAcceptedWidget(
-                                                              selectedUser:
-                                                                  columnFriendRequestsRecord
-                                                                      .requestSender,
-                                                              friendRequest:
-                                                                  columnFriendRequestsRecord
-                                                                      .reference,
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  FriendAcceptedWidget(
+                                                                selectedUser:
+                                                                    columnFriendRequestsRecord
+                                                                        .requestSender,
+                                                                friendRequest:
+                                                                    columnFriendRequestsRecord
+                                                                        .reference,
+                                                              ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));

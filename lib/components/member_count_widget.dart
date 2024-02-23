@@ -1,13 +1,9 @@
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -16,81 +12,20 @@ export 'member_count_model.dart';
 
 class MemberCountWidget extends StatefulWidget {
   const MemberCountWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     this.parameter2,
-  }) : super(key: key);
+  });
 
   final DocumentReference? parameter1;
   final int? parameter2;
 
   @override
-  _MemberCountWidgetState createState() => _MemberCountWidgetState();
+  State<MemberCountWidget> createState() => _MemberCountWidgetState();
 }
 
-class _MemberCountWidgetState extends State<MemberCountWidget>
-    with TickerProviderStateMixin {
+class _MemberCountWidgetState extends State<MemberCountWidget> {
   late MemberCountModel _model;
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1400.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -102,13 +37,6 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => MemberCountModel());
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -181,8 +109,7 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                             ),
                           ),
                           alignment: AlignmentDirectional(-0.8, 0.0),
-                        ).animateOnPageLoad(
-                            animationsMap['containerOnPageLoadAnimation1']!),
+                        ),
                       );
                     }),
                   );
@@ -292,14 +219,12 @@ class _MemberCountWidgetState extends State<MemberCountWidget>
                                     color:
                                         FlutterFlowTheme.of(context).tertiary,
                                   ),
-                            ).animateOnPageLoad(
-                                animationsMap['textOnPageLoadAnimation']!),
+                            ),
                           ),
                         ),
                     ],
                   ),
-                ).animateOnPageLoad(
-                    animationsMap['containerOnPageLoadAnimation2']!);
+                );
               },
             ),
           ),

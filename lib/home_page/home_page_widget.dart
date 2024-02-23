@@ -50,14 +50,14 @@ export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
   const HomePageWidget({
-    Key? key,
+    super.key,
     this.loggedinUser,
-  }) : super(key: key);
+  });
 
   final DocumentReference? loggedinUser;
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  State<HomePageWidget> createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget>
@@ -67,63 +67,73 @@ class _HomePageWidgetState extends State<HomePageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
+    'stackOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'richTextOnPageLoadAnimation': AnimationInfo(
-      loop: true,
-      reverse: true,
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.3,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 200.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 200.ms,
-          duration: 800.ms,
-          begin: Offset(-30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 600.ms,
           begin: 0.0,
           end: 1.0,
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 400.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'rowOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'textOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 600.ms,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -132,17 +142,17 @@ class _HomePageWidgetState extends State<HomePageWidget>
       effects: [
         VisibilityEffect(duration: 1.ms),
         FadeEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 600.ms,
+          duration: 400.ms,
           begin: 0.0,
           end: 1.0,
         ),
         MoveEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(-15.0, 0.0),
+          duration: 400.ms,
+          begin: Offset(0.0, 50.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -150,39 +160,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
     'containerOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1.ms),
         FadeEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 1400.ms,
+          duration: 500.ms,
           begin: 0.0,
           end: 1.0,
         ),
         MoveEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 1400.ms,
-          begin: Offset(-15.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1800.ms,
-          begin: Offset(-15.0, 0.0),
+          duration: 500.ms,
+          begin: Offset(0.0, 50.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -191,134 +180,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 900.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
         MoveEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 900.ms,
-          begin: Offset(0.0, 100.0),
+          duration: 600.ms,
+          begin: Offset(0.0, 50.0),
           end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 650.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 650.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 750.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 850.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 850.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 950.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 950.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 600.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 600.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 700.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 700.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 800.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 800.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 900.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 900.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
         ),
       ],
     ),
     'containerOnPageLoadAnimation5': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 700.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         MoveEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
+          duration: 700.ms,
+          begin: Offset(0.0, 50.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -327,364 +218,41 @@ class _HomePageWidgetState extends State<HomePageWidget>
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 900.ms,
+          duration: 800.ms,
           begin: 0.0,
           end: 1.0,
         ),
-      ],
-    ),
-    'iconOnPageLoadAnimation9': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1050.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1050.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation10': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1150.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1150.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation11': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1250.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1250.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation12': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1350.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1350.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation13': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1000.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1000.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation14': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1100.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1100.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation15': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1200.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1200.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation16': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1300.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1300.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
+        MoveEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: Offset(0.0, 50.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'containerOnPageLoadAnimation7': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeIn,
+          delay: 0.ms,
+          duration: 900.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         MoveEffect(
           curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
+          duration: 900.ms,
+          begin: Offset(0.0, 50.0),
           end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation17': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1450.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1450.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation18': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1550.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1550.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation19': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1650.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1650.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation20': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1750.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1750.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation21': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1400.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1400.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation22': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1500.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1500.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation23': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1600.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1600.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'iconOnPageLoadAnimation24': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1700.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 1700.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
         ),
       ],
     ),
     'containerOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation9': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation10': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation11': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation12': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 700.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 700.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation13': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation14': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation15': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
@@ -734,10 +302,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: WelcomeToChurchWidget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: WelcomeToChurchWidget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       }
@@ -812,10 +381,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: AccountWaitingWidget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: AccountWaitingWidget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       } else {
@@ -829,10 +399,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
             context: context,
             builder: (context) {
               return WebViewAware(
-                  child: Padding(
-                padding: MediaQuery.viewInsetsOf(context),
-                child: AccountDeniedAdminWidget(),
-              ));
+                child: Padding(
+                  padding: MediaQuery.viewInsetsOf(context),
+                  child: AccountDeniedAdminWidget(),
+                ),
+              );
             },
           ).then((value) => safeSetState(() {}));
         }
@@ -875,15 +446,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return StreamBuilder<List<MessageChatsRecord>>(
@@ -934,378 +496,311 @@ class _HomePageWidgetState extends State<HomePageWidget>
           backgroundColor: FlutterFlowTheme.of(context).systemBackground,
           endDrawer: Container(
             width: double.infinity,
-            child: WebViewAware(
-                child: Drawer(
+            child: Drawer(
               elevation: 16.0,
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Expanded(
-                    child: Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 1.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primary,
-                      ),
+              child: WebViewAware(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
                       child: Container(
-                        width: 100.0,
-                        height: 100.0,
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: MediaQuery.sizeOf(context).height * 1.0,
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context).primary,
                         ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 0.0, 20.0, 0.0),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 60.0, 0.0, 0.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              '91hxo5di' /* Settings */,
+                        child: Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primary,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 20.0, 0.0),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 60.0, 0.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '91hxo5di' /* Settings */,
+                                              ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Roboto',
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .tertiary,
+                                                    fontSize: 25.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Roboto',
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary,
-                                                  fontSize: 25.0,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
                                           ),
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                          ),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              if (Theme.of(context)
-                                                      .brightness ==
-                                                  Brightness.dark)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 4.0, 0.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    6.0,
-                                                                    6.0,
-                                                                    6.0),
-                                                        child: SvgPicture.asset(
-                                                          'assets/images/moon-fill_(1).svg',
-                                                          width: 25.0,
-                                                          height: 25.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                      SelectionArea(
-                                                          child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          'i151cczt' /* Dark Mode */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary,
-                                                                ),
-                                                      )),
-                                                    ],
-                                                  ),
-                                                ),
-                                              if (Theme.of(context)
-                                                      .brightness ==
-                                                  Brightness.light)
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 4.0, 0.0, 0.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.max,
-                                                    children: [
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    6.0,
-                                                                    6.0,
-                                                                    6.0),
-                                                        child: SvgPicture.asset(
-                                                          'assets/images/sun-dim-fill_(1).svg',
-                                                          width: 28.0,
-                                                          height: 28.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                      SelectionArea(
-                                                          child: Text(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '7as0kl2f' /* Light Mode */,
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .tertiary,
-                                                                ),
-                                                      )),
-                                                    ],
-                                                  ),
-                                                ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Expanded(
-                                      child: Container(
-                                        width: 100.0,
-                                        height: 150.0,
-                                        decoration: BoxDecoration(),
-                                      ),
-                                    ),
-                                    Stack(
-                                      alignment: AlignmentDirectional(
-                                          0.1, 0.44999999999999996),
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 60.0, 0.0, 0.0),
-                                          child: Container(
-                                            width: 85.0,
-                                            height: 85.0,
+                                          Container(
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              shape: BoxShape.circle,
+                                                      .primary,
                                             ),
-                                            child: Padding(
-                                              padding: EdgeInsets.all(2.0),
-                                              child: AuthUserStreamWidget(
-                                                builder: (context) => ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100.0),
-                                                  child: CachedNetworkImage(
-                                                    fadeInDuration: Duration(
-                                                        milliseconds: 500),
-                                                    fadeOutDuration: Duration(
-                                                        milliseconds: 500),
-                                                    imageUrl:
-                                                        valueOrDefault<String>(
-                                                      currentUserPhoto,
-                                                      'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                if (Theme.of(context)
+                                                        .brightness ==
+                                                    Brightness.dark)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      6.0,
+                                                                      6.0,
+                                                                      6.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/moon-fill_(1).svg',
+                                                            width: 25.0,
+                                                            height: 25.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                        SelectionArea(
+                                                            child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'i151cczt' /* Dark Mode */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                              ),
+                                                        )),
+                                                      ],
                                                     ),
-                                                    width: 100.0,
-                                                    height: 100.0,
-                                                    fit: BoxFit.cover,
+                                                  ),
+                                                if (Theme.of(context)
+                                                        .brightness ==
+                                                    Brightness.light)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      6.0,
+                                                                      6.0,
+                                                                      6.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            'assets/images/sun-dim-fill_(1).svg',
+                                                            width: 28.0,
+                                                            height: 28.0,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        ),
+                                                        SelectionArea(
+                                                            child: Text(
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            '7as0kl2f' /* Light Mode */,
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .tertiary,
+                                                              ),
+                                                        )),
+                                                      ],
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Expanded(
+                                        child: Container(
+                                          width: 100.0,
+                                          height: 150.0,
+                                          decoration: BoxDecoration(),
+                                        ),
+                                      ),
+                                      Stack(
+                                        alignment: AlignmentDirectional(
+                                            0.1, 0.44999999999999996),
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 60.0, 0.0, 0.0),
+                                            child: Container(
+                                              width: 85.0,
+                                              height: 85.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(2.0),
+                                                child: AuthUserStreamWidget(
+                                                  builder: (context) =>
+                                                      ClipRRect(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100.0),
+                                                    child: CachedNetworkImage(
+                                                      fadeInDuration: Duration(
+                                                          milliseconds: 500),
+                                                      fadeOutDuration: Duration(
+                                                          milliseconds: 500),
+                                                      imageUrl: valueOrDefault<
+                                                          String>(
+                                                        currentUserPhoto,
+                                                        'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
+                                                      ),
+                                                      width: 100.0,
+                                                      height: 100.0,
+                                                      fit: BoxFit.cover,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 25.0, 5.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await showModalBottomSheet(
-                                          isScrollControlled: true,
-                                          backgroundColor: Colors.transparent,
-                                          barrierColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .opagueSeparator,
-                                          context: context,
-                                          builder: (context) {
-                                            return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: SeasonsUpdateWidget(
-                                                userUpdating:
-                                                    currentUserReference,
-                                              ),
-                                            ));
-                                          },
-                                        ).then((value) => safeSetState(() {}));
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                3.0,
-                                        height: 50.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondarySystemBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 20.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 20.0, 0.0),
-                                                child: Icon(
-                                                  Icons.bookmarks_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 18.0,
-                                                ),
-                                              ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'k6js125n' /* Edit Loading Screen */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 16.0,
-                                                        ),
-                                              ),
-                                              Expanded(
-                                                child: Container(
-                                                  width: 100.0,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(),
-                                                ),
-                                              ),
-                                              FaIcon(
-                                                FontAwesomeIcons.chevronRight,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                size: 18.0,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
+                                        ],
                                       ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation9']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 20.0, 5.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 25.0, 5.0, 0.0),
                                     child: Container(
                                       width: MediaQuery.sizeOf(context).width *
-                                          3.0,
+                                          1.0,
                                       height: 50.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondarySystemBackground,
                                         borderRadius:
                                             BorderRadius.circular(12.0),
                                       ),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      20.0, 0.0, 20.0, 0.0),
-                                              child: FaIcon(
-                                                FontAwesomeIcons.solidBell,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            backgroundColor: Colors.transparent,
+                                            barrierColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .opagueSeparator,
+                                            context: context,
+                                            builder: (context) {
+                                              return WebViewAware(
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: SeasonsUpdateWidget(
+                                                    userUpdating:
+                                                        currentUserReference,
+                                                  ),
+                                                ),
+                                              );
+                                            },
+                                          ).then(
+                                              (value) => safeSetState(() {}));
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  3.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondarySystemBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 20.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 20.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.bookmarks_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .secondary,
-                                                size: 18.0,
-                                              ),
-                                            ),
-                                            Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '7ds4mw68' /* General Notifications */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
+                                                    size: 18.0,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'k6js125n' /* Edit Loading Screen */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Inter',
@@ -1315,166 +810,40 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 .secondary,
                                                         fontSize: 16.0,
                                                       ),
-                                            ),
-                                            Expanded(
-                                              child: Container(
-                                                width: 100.0,
-                                                height: 100.0,
-                                                decoration: BoxDecoration(),
-                                              ),
-                                            ),
-                                            AuthUserStreamWidget(
-                                              builder: (context) => Switch(
-                                                value: _model.switchValue ??=
-                                                    valueOrDefault<bool>(
-                                                        currentUserDocument
-                                                            ?.notificationsON,
-                                                        false),
-                                                onChanged: (newValue) async {
-                                                  setState(() => _model
-                                                      .switchValue = newValue!);
-                                                  if (newValue!) {
-                                                    await currentUserReference!
-                                                        .update(
-                                                            createUsersRecordData(
-                                                      notificationsON: true,
-                                                    ));
-                                                  } else {
-                                                    await currentUserReference!
-                                                        .update(
-                                                            createUsersRecordData(
-                                                      notificationsON: false,
-                                                    ));
-                                                  }
-                                                },
-                                                activeColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .worshipRing,
-                                                activeTrackColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .label,
-                                                inactiveTrackColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .lightSecondaryText,
-                                                inactiveThumbColor:
-                                                    Colors.white,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation10']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 20.0, 5.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await launchURL(
-                                            'https://app.termly.io/document/privacy-policy/96aceb9d-0f48-466e-9523-de70d2ac3465');
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                3.0,
-                                        height: 50.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondarySystemBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 20.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 20.0, 0.0),
-                                                child: Icon(
-                                                  Icons.privacy_tip_outlined,
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    width: 100.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(),
+                                                  ),
+                                                ),
+                                                FaIcon(
+                                                  FontAwesomeIcons.chevronRight,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondary,
                                                   size: 18.0,
                                                 ),
-                                              ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '4ia0f4zr' /* Privacy Policy */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 16.0,
-                                                        ),
-                                              ),
-                                              Expanded(
-                                                child: Container(
-                                                  width: 10.0,
-                                                  height: 20.0,
-                                                  decoration: BoxDecoration(),
-                                                ),
-                                              ),
-                                              FaIcon(
-                                                FontAwesomeIcons.chevronRight,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                size: 18.0,
-                                              ),
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation11']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 20.0, 5.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await launchURL(
-                                            'https://app.termly.io/document/terms-of-use-for-saas/5034d5f0-b88e-4e23-aa62-fb7cda327fdc');
-                                      },
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation2']!),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
                                       child: Container(
                                         width:
                                             MediaQuery.sizeOf(context).width *
@@ -1489,185 +858,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                         child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 20.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 20.0, 0.0),
-                                                child: Icon(
-                                                  Icons.qr_code_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 18.0,
-                                                ),
-                                              ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'qi9xx8kl' /* Terms of Service */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 16.0,
-                                                        ),
-                                              ),
-                                              Expanded(
-                                                child: Container(
-                                                  width: 100.0,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(),
-                                                ),
-                                              ),
-                                              FaIcon(
-                                                FontAwesomeIcons.chevronRight,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                size: 18.0,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation12']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 20.0, 5.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await launchURL(
-                                            'https://app.termly.io/document/acceptable-use-policy/aa25a736-caf9-47c0-b452-a6791e7df437');
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                3.0,
-                                        height: 50.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondarySystemBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 20.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        20.0, 0.0, 20.0, 0.0),
-                                                child: Icon(
-                                                  Icons.rule_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 18.0,
-                                                ),
-                                              ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'upxhvh0j' /* Community Guidelines */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 16.0,
-                                                        ),
-                                              ),
-                                              Expanded(
-                                                child: Container(
-                                                  width: 100.0,
-                                                  height: 100.0,
-                                                  decoration: BoxDecoration(),
-                                                ),
-                                              ),
-                                              FaIcon(
-                                                FontAwesomeIcons.chevronRight,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                size: 18.0,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation13']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 20.0, 5.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
-                                    child: InkWell(
-                                      splashColor: Colors.transparent,
-                                      focusColor: Colors.transparent,
-                                      hoverColor: Colors.transparent,
-                                      highlightColor: Colors.transparent,
-                                      onTap: () async {
-                                        await launchURL(
-                                            'mailto:support@genesisapp.church');
-                                      },
-                                      child: Container(
-                                        width:
-                                            MediaQuery.sizeOf(context).width *
-                                                3.0,
-                                        height: 50.0,
-                                        decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondarySystemBackground,
-                                          borderRadius:
-                                              BorderRadius.circular(12.0),
-                                        ),
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 20.0, 0.0),
+                                                  0.0, 0.0, 10.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
                                             mainAxisAlignment:
@@ -1678,8 +869,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     .fromSTEB(
                                                         20.0, 0.0, 20.0, 0.0),
                                                 child: FaIcon(
-                                                  FontAwesomeIcons
-                                                      .questionCircle,
+                                                  FontAwesomeIcons.solidBell,
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .secondary,
@@ -1689,7 +879,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'dvhahgzx' /* Support */,
+                                                  '7ds4mw68' /* General Notifications */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -1709,217 +899,618 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                   decoration: BoxDecoration(),
                                                 ),
                                               ),
-                                              FaIcon(
-                                                FontAwesomeIcons.chevronRight,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                size: 18.0,
+                                              AuthUserStreamWidget(
+                                                builder: (context) => Switch(
+                                                  value: _model.switchValue ??=
+                                                      valueOrDefault<bool>(
+                                                          currentUserDocument
+                                                              ?.notificationsON,
+                                                          false),
+                                                  onChanged: (newValue) async {
+                                                    setState(() =>
+                                                        _model.switchValue =
+                                                            newValue!);
+                                                    if (newValue!) {
+                                                      await currentUserReference!
+                                                          .update(
+                                                              createUsersRecordData(
+                                                        notificationsON: true,
+                                                      ));
+                                                    } else {
+                                                      await currentUserReference!
+                                                          .update(
+                                                              createUsersRecordData(
+                                                        notificationsON: false,
+                                                      ));
+                                                    }
+                                                  },
+                                                  activeColor: Colors.white,
+                                                  activeTrackColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .worshipRing,
+                                                  inactiveTrackColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .lightSecondaryText,
+                                                  inactiveThumbColor:
+                                                      Colors.white,
+                                                ),
                                               ),
                                             ],
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation14']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 20.0, 5.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(12.0),
-                                    ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation3']!),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
                                     child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 50.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
-                                            .secondarySystemBackground,
                                         borderRadius:
                                             BorderRadius.circular(12.0),
-                                        border: Border.all(
-                                          color: Colors.transparent,
-                                        ),
                                       ),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: FlutterFlowLanguageSelector(
-                                              width: double.infinity,
-                                              backgroundColor: FlutterFlowTheme
-                                                      .of(context)
-                                                  .secondarySystemBackground,
-                                              borderColor: FlutterFlowTheme.of(
-                                                      context)
-                                                  .secondarySystemBackground,
-                                              dropdownColor: FlutterFlowTheme
-                                                      .of(context)
-                                                  .secondarySystemBackground,
-                                              dropdownIconColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondary,
-                                              borderRadius: 8.0,
-                                              textStyle: GoogleFonts.getFont(
-                                                'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await launchURL(
+                                              'https://app.termly.io/document/privacy-policy/96aceb9d-0f48-466e-9523-de70d2ac3465');
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  3.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondarySystemBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 20.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 20.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.privacy_tip_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
                                                         .secondary,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: 16.0,
-                                              ),
-                                              hideFlags: false,
-                                              flagTextGap: 12.0,
-                                              currentLanguage:
+                                                    size: 18.0,
+                                                  ),
+                                                ),
+                                                Text(
                                                   FFLocalizations.of(context)
-                                                      .languageCode,
-                                              languages:
-                                                  FFLocalizations.languages(),
-                                              onChanged: (lang) =>
-                                                  setAppLanguage(context, lang),
+                                                      .getText(
+                                                    '4ia0f4zr' /* Privacy Policy */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    width: 10.0,
+                                                    height: 20.0,
+                                                    decoration: BoxDecoration(),
+                                                  ),
+                                                ),
+                                                FaIcon(
+                                                  FontAwesomeIcons.chevronRight,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  size: 18.0,
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                        ],
-                                      ),
-                                    ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation15']!),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 0.0, 5.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        width: 100.0,
-                                        height: 60.0,
-                                        decoration: BoxDecoration(),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 10.0, 0.0),
-                                                child: Icon(
-                                                  Icons
-                                                      .subdirectory_arrow_left_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 24.0,
-                                                ),
-                                              ),
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '3lg9simt' /* Back */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 18.0,
-                                                        ),
-                                              ),
-                                            ],
-                                          ),
                                         ),
                                       ),
-                                      Expanded(
-                                        child: Container(
-                                          width: 100.0,
-                                          height: 100.0,
-                                          decoration: BoxDecoration(),
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 100.0,
-                                        height: 60.0,
-                                        decoration: BoxDecoration(),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            GoRouter.of(context)
-                                                .prepareAuthEvent();
-                                            await authManager.signOut();
-                                            GoRouter.of(context)
-                                                .clearRedirectLocation();
-
-                                            context.goNamedAuth(
-                                                'onBoarding', context.mounted);
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'kb2dps6g' /* Log Out */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Inter',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondary,
-                                                          fontSize: 18.0,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: Icon(
-                                                  Icons.login_outlined,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondary,
-                                                  size: 24.0,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation4']!),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await launchURL(
+                                              'https://app.termly.io/document/terms-of-use-for-saas/5034d5f0-b88e-4e23-aa62-fb7cda327fdc');
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  3.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondarySystemBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 20.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 20.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.qr_code_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 18.0,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'qi9xx8kl' /* Terms of Service */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    width: 100.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(),
+                                                  ),
+                                                ),
+                                                FaIcon(
+                                                  FontAwesomeIcons.chevronRight,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  size: 18.0,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation5']!),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await launchURL(
+                                              'https://app.termly.io/document/acceptable-use-policy/aa25a736-caf9-47c0-b452-a6791e7df437');
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  3.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondarySystemBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 20.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 20.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.rule_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 18.0,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'upxhvh0j' /* Community Guidelines */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    width: 100.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(),
+                                                  ),
+                                                ),
+                                                FaIcon(
+                                                  FontAwesomeIcons.chevronRight,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  size: 18.0,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation6']!),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          await launchURL(
+                                              'mailto:support@genesisapp.church');
+                                        },
+                                        child: Container(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  3.0,
+                                          height: 50.0,
+                                          decoration: BoxDecoration(
+                                            color: FlutterFlowTheme.of(context)
+                                                .secondarySystemBackground,
+                                            borderRadius:
+                                                BorderRadius.circular(12.0),
+                                          ),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 20.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          20.0, 0.0, 20.0, 0.0),
+                                                  child: FaIcon(
+                                                    FontAwesomeIcons
+                                                        .questionCircle,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 18.0,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'dvhahgzx' /* Support */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
+                                                Expanded(
+                                                  child: Container(
+                                                    width: 100.0,
+                                                    height: 100.0,
+                                                    decoration: BoxDecoration(),
+                                                  ),
+                                                ),
+                                                FaIcon(
+                                                  FontAwesomeIcons.chevronRight,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  size: 18.0,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation7']!),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 20.0, 5.0, 0.0),
+                                    child: Container(
+                                      width: MediaQuery.sizeOf(context).width *
+                                          1.0,
+                                      height: 50.0,
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(12.0),
+                                      ),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondarySystemBackground,
+                                          borderRadius:
+                                              BorderRadius.circular(12.0),
+                                          border: Border.all(
+                                            color: Colors.transparent,
+                                          ),
+                                        ),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Expanded(
+                                              child:
+                                                  FlutterFlowLanguageSelector(
+                                                width: double.infinity,
+                                                backgroundColor: FlutterFlowTheme
+                                                        .of(context)
+                                                    .secondarySystemBackground,
+                                                borderColor: FlutterFlowTheme
+                                                        .of(context)
+                                                    .secondarySystemBackground,
+                                                dropdownColor: FlutterFlowTheme
+                                                        .of(context)
+                                                    .secondarySystemBackground,
+                                                dropdownIconColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondary,
+                                                borderRadius: 8.0,
+                                                textStyle: GoogleFonts.getFont(
+                                                  'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondary,
+                                                  fontWeight: FontWeight.normal,
+                                                  fontSize: 16.0,
+                                                ),
+                                                hideFlags: false,
+                                                flagTextGap: 12.0,
+                                                currentLanguage:
+                                                    FFLocalizations.of(context)
+                                                        .languageCode,
+                                                languages:
+                                                    FFLocalizations.languages(),
+                                                onChanged: (lang) =>
+                                                    setAppLanguage(
+                                                        context, lang),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ).animateOnPageLoad(animationsMap[
+                                        'containerOnPageLoadAnimation8']!),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 0.0, 5.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          width: 100.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 10.0, 0.0),
+                                                  child: Icon(
+                                                    Icons
+                                                        .subdirectory_arrow_left_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 24.0,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '3lg9simt' /* Back */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        fontSize: 18.0,
+                                                      ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            width: 100.0,
+                                            height: 100.0,
+                                            decoration: BoxDecoration(),
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 100.0,
+                                          height: 60.0,
+                                          decoration: BoxDecoration(),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              GoRouter.of(context)
+                                                  .prepareAuthEvent();
+                                              await authManager.signOut();
+                                              GoRouter.of(context)
+                                                  .clearRedirectLocation();
+
+                                              context.goNamedAuth('onBoarding',
+                                                  context.mounted);
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'kb2dps6g' /* Log Out */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        fontSize: 18.0,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Icon(
+                                                    Icons.login_outlined,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondary,
+                                                    size: 24.0,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            )),
+            ),
           ),
           body: Stack(
             children: [
@@ -2091,7 +1682,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     context, ThemeMode.light);
                                               },
                                               child: SvgPicture.asset(
-                                                'assets/images/sun-dim-fill_(systemBackgroundB).svg',
+                                                'assets/images/sun-dim-fill_(final_black).svg',
                                                 width: 35.0,
                                                 height: 35.0,
                                                 fit: BoxFit.cover,
@@ -2110,7 +1701,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     context, ThemeMode.dark);
                                               },
                                               child: SvgPicture.asset(
-                                                'assets/images/moon-fill_(systemBackgroundW).svg',
+                                                'assets/images/moon-fill.svg',
                                                 width: 30.0,
                                                 height: 30.0,
                                                 fit: BoxFit.cover,
@@ -2402,9 +1993,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   .of(context)
                                                               .bodyMedium,
                                                         ),
-                                                      ).animateOnPageLoad(
-                                                          animationsMap[
-                                                              'richTextOnPageLoadAnimation']!),
+                                                      ),
                                                     ],
                                                   ),
                                                 ),
@@ -2441,7 +2030,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
                                             SvgPicture.asset(
-                                              'assets/images/user-circle-gear-fill_(systemBackgroundB).svg',
+                                              'assets/images/user-circle-gear-fill_(1).svg',
                                               width: 35.0,
                                               height: 35.0,
                                               fit: BoxFit.cover,
@@ -2449,7 +2038,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           if (Theme.of(context).brightness ==
                                               Brightness.light)
                                             SvgPicture.asset(
-                                              'assets/images/user-circle-gear-fill_(systemBackgroundW).svg',
+                                              'assets/images/user-circle-gear-fill.svg',
                                               width: 35.0,
                                               height: 35.0,
                                               fit: BoxFit.cover,
@@ -2547,6 +2136,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                       } else if (functions.checkIfMorning() ==
                                           'evening') {
                                         return 'Good evening,';
+                                      } else if (functions.checkIfMorning() ==
+                                          'nighttime') {
+                                        return 'Good night,';
                                       } else {
                                         return 'Hello,';
                                       }
@@ -2585,8 +2177,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ).animateOnPageLoad(
-                                animationsMap['rowOnPageLoadAnimation1']!),
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -2698,7 +2289,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               .brightness ==
                                                           Brightness.dark)
                                                         SvgPicture.asset(
-                                                          'assets/images/flame-fill_(3).svg',
+                                                          'assets/images/flame-fill_(ring_dark_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
@@ -2707,7 +2298,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               .brightness ==
                                                           Brightness.dark))
                                                         SvgPicture.asset(
-                                                          'assets/images/flame-fill_(1).svg',
+                                                          'assets/images/flame-fill_(ring_light_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
@@ -2738,18 +2329,18 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     children: [
                                                       if (Theme.of(context)
                                                               .brightness ==
-                                                          Brightness.light)
+                                                          Brightness.dark)
                                                         SvgPicture.asset(
-                                                          'assets/images/flame-fill_(4).svg',
+                                                          'assets/images/flame-fill_(ring_not_filled_dark_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
                                                         ),
                                                       if (Theme.of(context)
                                                               .brightness ==
-                                                          Brightness.dark)
+                                                          Brightness.light)
                                                         SvgPicture.asset(
-                                                          'assets/images/flame-fill_(5).svg',
+                                                          'assets/images/flame-fill_(ring_light_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
@@ -2905,7 +2496,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               .brightness ==
                                                           Brightness.dark)
                                                         SvgPicture.asset(
-                                                          'assets/images/bookmarks-simple-fill_(1).svg',
+                                                          'assets/images/bookmarks-simple-fill_(ring_dark_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
@@ -2914,7 +2505,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               .brightness ==
                                                           Brightness.dark))
                                                         SvgPicture.asset(
-                                                          'assets/images/bookmarks-simple-fill.svg',
+                                                          'assets/images/bookmarks-simple-fill_(ring_light_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
@@ -2947,7 +2538,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               .brightness ==
                                                           Brightness.light)
                                                         SvgPicture.asset(
-                                                          'assets/images/bookmarks-simple-fill_(5).svg',
+                                                          'assets/images/bookmarks-simple-fill_(ring_light_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
@@ -2956,7 +2547,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               .brightness ==
                                                           Brightness.dark)
                                                         SvgPicture.asset(
-                                                          'assets/images/bookmarks-simple-fill_(6).svg',
+                                                          'assets/images/bookmarks-simple-fill_(ring_not_filled_dark_mode).svg',
                                                           width: 40.0,
                                                           height: 40.0,
                                                           fit: BoxFit.cover,
@@ -3095,7 +2686,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 .brightness ==
                                                             Brightness.dark)
                                                           SvgPicture.asset(
-                                                            'assets/images/hands-clapping-fill_(3).svg',
+                                                            'assets/images/hands-clapping-fill_(ring_dark_mode).svg',
                                                             width: 40.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -3104,7 +2695,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 .brightness ==
                                                             Brightness.dark))
                                                           SvgPicture.asset(
-                                                            'assets/images/hands-clapping-fill_(7).svg',
+                                                            'assets/images/hands-clapping-fill_(ring_light_mode).svg',
                                                             width: 40.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -3139,7 +2730,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 .brightness ==
                                                             Brightness.light)
                                                           SvgPicture.asset(
-                                                            'assets/images/hands-clapping-fill_(7).svg',
+                                                            'assets/images/hands-clapping-fill_(ring_light_mode).svg',
                                                             width: 40.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -3148,7 +2739,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 .brightness ==
                                                             Brightness.dark)
                                                           SvgPicture.asset(
-                                                            'assets/images/hands-clapping-fill_(8).svg',
+                                                            'assets/images/hands-clapping-fill_(light_mode).svg',
                                                             width: 40.0,
                                                             height: 40.0,
                                                             fit: BoxFit.cover,
@@ -3165,8 +2756,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ),
                                 ),
                               ],
-                            ).animateOnPageLoad(
-                                animationsMap['rowOnPageLoadAnimation2']!),
+                            ),
                           ),
                           Container(
                             decoration: BoxDecoration(
@@ -3249,7 +2839,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               alignment: AlignmentDirectional(
                                                   -0.8, 0.0),
                                             ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation2']!),
+                                                'containerOnPageLoadAnimation1']!),
                                           );
                                         }),
                                       );
@@ -3392,9 +2982,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                     ),
                                                   ),
                                               ],
-                                            ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'containerOnPageLoadAnimation3']!);
+                                            ).animateOnPageLoad(animationsMap[
+                                                'rowOnPageLoadAnimation']!),
+                                          );
                                         },
                                       ),
                                     ),
@@ -4045,20 +3635,21 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                               builder:
                                                                   (context) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
                                                                   child:
-                                                                      VideoDetailsBSWidget(
-                                                                    videoChosenRef:
-                                                                        containerResourceVideosRecord!
-                                                                            .reference,
-                                                                    videoChosenDoc:
-                                                                        containerResourceVideosRecord!,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
+                                                                    child:
+                                                                        VideoDetailsBSWidget(
+                                                                      videoChosenRef:
+                                                                          containerResourceVideosRecord!
+                                                                              .reference,
+                                                                      videoChosenDoc:
+                                                                          containerResourceVideosRecord!,
+                                                                    ),
                                                                   ),
-                                                                ));
+                                                                );
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(
@@ -4721,8 +4312,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       ],
                                                     ),
                                                   ),
-                                                ).animateOnPageLoad(animationsMap[
-                                                    'containerOnPageLoadAnimation4']!),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -4794,8 +4384,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             60.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.completed1,
@@ -4804,8 +4395,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation1']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -4818,8 +4408,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           20.0),
                                                                   child:
                                                                       AuthUserStreamWidget(
-                                                                    builder: (context) =>
-                                                                        FaIcon(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FaIcon(
                                                                       FontAwesomeIcons
                                                                           .solidCircle,
                                                                       color: valueOrDefault<bool>(
@@ -4831,8 +4422,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textFieldColorSecondary,
                                                                       size: 3.0,
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['iconOnPageLoadAnimation2']!),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Padding(
@@ -4844,8 +4434,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           0.0),
                                                                   child:
                                                                       AuthUserStreamWidget(
-                                                                    builder: (context) =>
-                                                                        FaIcon(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FaIcon(
                                                                       FontAwesomeIcons
                                                                           .solidCircle,
                                                                       color: valueOrDefault<bool>(
@@ -4857,8 +4448,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textFieldColorSecondary,
                                                                       size: 3.0,
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['iconOnPageLoadAnimation3']!),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Padding(
@@ -4870,8 +4460,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           0.0),
                                                                   child:
                                                                       AuthUserStreamWidget(
-                                                                    builder: (context) =>
-                                                                        FaIcon(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FaIcon(
                                                                       FontAwesomeIcons
                                                                           .solidCircle,
                                                                       color: valueOrDefault<bool>(
@@ -4883,8 +4474,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textFieldColorSecondary,
                                                                       size: 3.0,
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['iconOnPageLoadAnimation4']!),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 Align(
@@ -4902,8 +4492,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             80.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.completed1,
@@ -4912,8 +4503,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation5']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
@@ -4926,8 +4516,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           40.0),
                                                                   child:
                                                                       AuthUserStreamWidget(
-                                                                    builder: (context) =>
-                                                                        FaIcon(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FaIcon(
                                                                       FontAwesomeIcons
                                                                           .solidCircle,
                                                                       color: valueOrDefault<bool>(
@@ -4939,13 +4530,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textFieldColorSecondary,
                                                                       size: 3.0,
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['iconOnPageLoadAnimation6']!),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                                 AuthUserStreamWidget(
-                                                                  builder: (context) =>
-                                                                      FaIcon(
+                                                                  builder:
+                                                                      (context) =>
+                                                                          FaIcon(
                                                                     FontAwesomeIcons
                                                                         .solidCircle,
                                                                     color: valueOrDefault<bool>(
@@ -4957,9 +4548,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         : FlutterFlowTheme.of(context)
                                                                             .textFieldColorSecondary,
                                                                     size: 3.0,
-                                                                  ).animateOnPageLoad(
-                                                                          animationsMap[
-                                                                              'iconOnPageLoadAnimation7']!),
+                                                                  ),
                                                                 ),
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
@@ -4970,8 +4559,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           0.0),
                                                                   child:
                                                                       AuthUserStreamWidget(
-                                                                    builder: (context) =>
-                                                                        FaIcon(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FaIcon(
                                                                       FontAwesomeIcons
                                                                           .solidCircle,
                                                                       color: valueOrDefault<bool>(
@@ -4983,8 +4573,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textFieldColorSecondary,
                                                                       size: 3.0,
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['iconOnPageLoadAnimation8']!),
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ],
@@ -5208,9 +4797,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                 ],
                                                               ),
                                                             ),
-                                                          ).animateOnPageLoad(
-                                                              animationsMap[
-                                                                  'containerOnPageLoadAnimation5']!),
+                                                          ),
                                                         ),
                                                       ),
                                                     ],
@@ -6085,15 +5672,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                   context: context,
                                                                                   builder: (context) {
                                                                                     return WebViewAware(
-                                                                                        child: Padding(
-                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                      child: Container(
-                                                                                        height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                        child: WorshipPracticeBSWidget(
-                                                                                          dailyPractice: expandableDailyPracticeVideosRecord,
+                                                                                      child: Padding(
+                                                                                        padding: MediaQuery.viewInsetsOf(context),
+                                                                                        child: Container(
+                                                                                          height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                          child: WorshipPracticeBSWidget(
+                                                                                            dailyPractice: expandableDailyPracticeVideosRecord,
+                                                                                          ),
                                                                                         ),
                                                                                       ),
-                                                                                    ));
+                                                                                    );
                                                                                   },
                                                                                 ).then((value) => safeSetState(() {}));
                                                                               },
@@ -6198,15 +5786,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                       context: context,
                                                                                       builder: (context) {
                                                                                         return WebViewAware(
-                                                                                            child: Padding(
-                                                                                          padding: MediaQuery.viewInsetsOf(context),
-                                                                                          child: Container(
-                                                                                            height: MediaQuery.sizeOf(context).height * 0.92,
-                                                                                            child: WorshipUpdateWidget(
-                                                                                              worshipVideo: expandableDailyPracticeVideosRecord,
+                                                                                          child: Padding(
+                                                                                            padding: MediaQuery.viewInsetsOf(context),
+                                                                                            child: Container(
+                                                                                              height: MediaQuery.sizeOf(context).height * 0.92,
+                                                                                              child: WorshipUpdateWidget(
+                                                                                                worshipVideo: expandableDailyPracticeVideosRecord,
+                                                                                              ),
                                                                                             ),
                                                                                           ),
-                                                                                        ));
+                                                                                        );
                                                                                       },
                                                                                     ).then((value) => safeSetState(() {}));
                                                                                   },
@@ -6390,8 +5979,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                         ],
                                                       ),
                                                     ),
-                                                  ).animateOnPageLoad(animationsMap[
-                                                      'containerOnPageLoadAnimation6']!),
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -6479,7 +6067,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                           size:
                                                                               3.0,
-                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation9']!),
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -6492,8 +6080,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             20.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.completed2,
@@ -6502,8 +6091,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation10']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Padding(
@@ -6515,8 +6103,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             0.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.completed2,
@@ -6525,8 +6114,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation11']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Padding(
@@ -6538,8 +6126,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             0.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.completed2,
@@ -6548,8 +6137,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation12']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Align(
@@ -6576,7 +6164,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                           size:
                                                                               3.0,
-                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation13']!),
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -6589,8 +6177,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             40.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.completed2,
@@ -6599,13 +6188,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation14']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   AuthUserStreamWidget(
-                                                                    builder: (context) =>
-                                                                        FaIcon(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FaIcon(
                                                                       FontAwesomeIcons
                                                                           .solidCircle,
                                                                       color: valueOrDefault<bool>(
@@ -6617,8 +6206,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textFieldColorSecondary,
                                                                       size: 3.0,
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['iconOnPageLoadAnimation15']!),
+                                                                    ),
                                                                   ),
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -6629,8 +6217,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             0.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.completed2,
@@ -6639,8 +6228,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation16']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ],
@@ -6857,9 +6445,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   ],
                                                                 ),
                                                               ),
-                                                            ).animateOnPageLoad(
-                                                                animationsMap[
-                                                                    'containerOnPageLoadAnimation7']!),
+                                                            ),
                                                           ),
                                                         ),
                                                       ],
@@ -7694,15 +7280,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                     context: context,
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
-                                                                                          child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: Container(
-                                                                                          height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                          child: ScripturePracticeBSWidget(
-                                                                                            dailyPractice: expandableDailyPracticeVideosRecord,
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: Container(
+                                                                                            height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                            child: ScripturePracticeBSWidget(
+                                                                                              dailyPractice: expandableDailyPracticeVideosRecord,
+                                                                                            ),
                                                                                           ),
                                                                                         ),
-                                                                                      ));
+                                                                                      );
                                                                                     },
                                                                                   ).then((value) => safeSetState(() {}));
                                                                                 },
@@ -7805,15 +7392,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                         context: context,
                                                                                         builder: (context) {
                                                                                           return WebViewAware(
-                                                                                              child: Padding(
-                                                                                            padding: MediaQuery.viewInsetsOf(context),
-                                                                                            child: Container(
-                                                                                              height: MediaQuery.sizeOf(context).height * 0.92,
-                                                                                              child: ScriptureUpdateWidget(
-                                                                                                scriptureVideo: expandableDailyPracticeVideosRecord,
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: Container(
+                                                                                                height: MediaQuery.sizeOf(context).height * 0.92,
+                                                                                                child: ScriptureUpdateWidget(
+                                                                                                  scriptureVideo: expandableDailyPracticeVideosRecord,
+                                                                                                ),
                                                                                               ),
                                                                                             ),
-                                                                                          ));
+                                                                                          );
                                                                                         },
                                                                                       ).then((value) => safeSetState(() {}));
                                                                                     },
@@ -8001,7 +7589,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                           children: [
                                                             Container(
                                                               width: 30.0,
-                                                              height: 90.0,
+                                                              height: 82.0,
                                                               child: Stack(
                                                                 alignment:
                                                                     AlignmentDirectional(
@@ -8032,7 +7620,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                           size:
                                                                               3.0,
-                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation17']!),
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -8045,8 +7633,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             20.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.complete3,
@@ -8055,8 +7644,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation18']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Padding(
@@ -8068,8 +7656,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             0.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.complete3,
@@ -8078,8 +7667,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation19']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Padding(
@@ -8091,8 +7679,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             0.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.complete3,
@@ -8101,8 +7690,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation20']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   Align(
@@ -8129,7 +7717,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                           size:
                                                                               3.0,
-                                                                        ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation21']!),
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -8142,8 +7730,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             40.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.complete3,
@@ -8152,13 +7741,13 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation22']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   AuthUserStreamWidget(
-                                                                    builder: (context) =>
-                                                                        FaIcon(
+                                                                    builder:
+                                                                        (context) =>
+                                                                            FaIcon(
                                                                       FontAwesomeIcons
                                                                           .solidCircle,
                                                                       color: valueOrDefault<bool>(
@@ -8170,8 +7759,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                           : FlutterFlowTheme.of(context)
                                                                               .textFieldColorSecondary,
                                                                       size: 3.0,
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['iconOnPageLoadAnimation23']!),
+                                                                    ),
                                                                   ),
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
@@ -8182,8 +7770,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             0.0),
                                                                     child:
                                                                         AuthUserStreamWidget(
-                                                                      builder: (context) =>
-                                                                          FaIcon(
+                                                                      builder:
+                                                                          (context) =>
+                                                                              FaIcon(
                                                                         FontAwesomeIcons
                                                                             .solidCircle,
                                                                         color: valueOrDefault<bool>(currentUserDocument?.complete3,
@@ -8192,8 +7781,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                             : FlutterFlowTheme.of(context).textFieldColorSecondary,
                                                                         size:
                                                                             3.0,
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['iconOnPageLoadAnimation24']!),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ],
@@ -8408,9 +7996,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                   ],
                                                                 ),
                                                               ),
-                                                            ).animateOnPageLoad(
-                                                                animationsMap[
-                                                                    'containerOnPageLoadAnimation8']!),
+                                                            ),
                                                           ),
                                                         ),
                                                       ],
@@ -8717,7 +8303,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                     (context) =>
                                                                         Container(
                                                                   width: 30.0,
-                                                                  height: 150.0,
+                                                                  height: 142.0,
                                                                   child: Stack(
                                                                     alignment:
                                                                         AlignmentDirectional(
@@ -9249,15 +8835,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                     context: context,
                                                                                     builder: (context) {
                                                                                       return WebViewAware(
-                                                                                          child: Padding(
-                                                                                        padding: MediaQuery.viewInsetsOf(context),
-                                                                                        child: Container(
-                                                                                          height: MediaQuery.sizeOf(context).height * 1.0,
-                                                                                          child: PrayerPracticeBSWidget(
-                                                                                            dailyPractice: expandableDailyPracticeVideosRecord,
+                                                                                        child: Padding(
+                                                                                          padding: MediaQuery.viewInsetsOf(context),
+                                                                                          child: Container(
+                                                                                            height: MediaQuery.sizeOf(context).height * 1.0,
+                                                                                            child: PrayerPracticeBSWidget(
+                                                                                              dailyPractice: expandableDailyPracticeVideosRecord,
+                                                                                            ),
                                                                                           ),
                                                                                         ),
-                                                                                      ));
+                                                                                      );
                                                                                     },
                                                                                   ).then((value) => safeSetState(() {}));
                                                                                 },
@@ -9360,15 +8947,16 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                         context: context,
                                                                                         builder: (context) {
                                                                                           return WebViewAware(
-                                                                                              child: Padding(
-                                                                                            padding: MediaQuery.viewInsetsOf(context),
-                                                                                            child: Container(
-                                                                                              height: MediaQuery.sizeOf(context).height * 0.92,
-                                                                                              child: PrayerUpdateWidget(
-                                                                                                prayerVideo: expandableDailyPracticeVideosRecord,
+                                                                                            child: Padding(
+                                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                                              child: Container(
+                                                                                                height: MediaQuery.sizeOf(context).height * 0.92,
+                                                                                                child: PrayerUpdateWidget(
+                                                                                                  prayerVideo: expandableDailyPracticeVideosRecord,
+                                                                                                ),
                                                                                               ),
                                                                                             ),
-                                                                                          ));
+                                                                                          );
                                                                                         },
                                                                                       ).then((value) => safeSetState(() {}));
                                                                                     },
@@ -9441,8 +9029,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ],
                       ),
                     ),
-                  ).animateOnPageLoad(
-                      animationsMap['containerOnPageLoadAnimation1']!),
+                  ),
                 ],
               ),
               Align(
@@ -9497,7 +9084,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           if (Theme.of(context).brightness ==
                                               Brightness.dark)
                                             SvgPicture.asset(
-                                              'assets/images/house-fill_(3).svg',
+                                              'assets/images/house-fill_(chosen_dark_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -9505,7 +9092,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                           if (!(Theme.of(context).brightness ==
                                               Brightness.dark))
                                             SvgPicture.asset(
-                                              'assets/images/house-fill_(5).svg',
+                                              'assets/images/house-fill_(chosen_light_mode).svg',
                                               width: 28.0,
                                               height: 28.0,
                                               fit: BoxFit.cover,
@@ -9559,8 +9146,8 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               if (Theme.of(context)
                                                       .brightness ==
                                                   Brightness.dark)
-                                                Image.asset(
-                                                  'assets/images/leaf-fill_(1).png',
+                                                SvgPicture.asset(
+                                                  'assets/images/leaf-fill_(dark_mode).svg',
                                                   width: 28.0,
                                                   height: 28.0,
                                                   fit: BoxFit.cover,
@@ -9569,7 +9156,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .brightness ==
                                                   Brightness.dark))
                                                 SvgPicture.asset(
-                                                  'assets/images/leaf-fill_(5).svg',
+                                                  'assets/images/leaf-fill_(light_mode).svg',
                                                   width: 28.0,
                                                   height: 28.0,
                                                   fit: BoxFit.cover,
@@ -9629,7 +9216,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .brightness ==
                                                   Brightness.dark)
                                                 SvgPicture.asset(
-                                                  'assets/images/hands-clapping-fill_(8).svg',
+                                                  'assets/images/hands-clapping-fill_(dark_mode).svg',
                                                   width: 28.0,
                                                   height: 28.0,
                                                   fit: BoxFit.cover,
@@ -9638,7 +9225,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       .brightness ==
                                                   Brightness.dark))
                                                 SvgPicture.asset(
-                                                  'assets/images/hands-clapping-fill_(7).svg',
+                                                  'assets/images/hands-clapping-fill_(light_mode).svg',
                                                   width: 28.0,
                                                   height: 28.0,
                                                   fit: BoxFit.cover,
@@ -9666,7 +9253,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                 ),
               ),
             ],
-          ),
+          ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
         );
       },
     );

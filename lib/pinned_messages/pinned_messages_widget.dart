@@ -4,7 +4,6 @@ import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/community_prayer_request_chat_widget.dart';
 import '/components/edit_message_widget.dart';
 import '/components/p_d_f_viewer_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -14,9 +13,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -29,12 +26,12 @@ export 'pinned_messages_model.dart';
 
 class PinnedMessagesWidget extends StatefulWidget {
   const PinnedMessagesWidget({
-    Key? key,
+    super.key,
     this.chatChosen,
     this.chatUsers,
     this.otherUserDoc,
     this.otherUserRef,
-  }) : super(key: key);
+  });
 
   final MessageChatsRecord? chatChosen;
   final DocumentReference? chatUsers;
@@ -42,95 +39,13 @@ class PinnedMessagesWidget extends StatefulWidget {
   final DocumentReference? otherUserRef;
 
   @override
-  _PinnedMessagesWidgetState createState() => _PinnedMessagesWidgetState();
+  State<PinnedMessagesWidget> createState() => _PinnedMessagesWidgetState();
 }
 
-class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
-    with TickerProviderStateMixin {
+class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget> {
   late PinnedMessagesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(-10.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(-40.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(40.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(10.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -147,15 +62,6 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -799,40 +705,39 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                           context: context,
                                                           builder: (context) {
                                                             return WebViewAware(
-                                                                child:
-                                                                    GestureDetector(
-                                                              onTap: () => _model
-                                                                      .unfocusNode
-                                                                      .canRequestFocus
-                                                                  ? FocusScope.of(
-                                                                          context)
-                                                                      .requestFocus(
-                                                                          _model
-                                                                              .unfocusNode)
-                                                                  : FocusScope.of(
-                                                                          context)
-                                                                      .unfocus(),
-                                                              child: Padding(
-                                                                padding: MediaQuery
-                                                                    .viewInsetsOf(
-                                                                        context),
-                                                                child:
-                                                                    Container(
-                                                                  height: MediaQuery.sizeOf(
-                                                                              context)
-                                                                          .height *
-                                                                      1.0,
+                                                              child:
+                                                                  GestureDetector(
+                                                                onTap: () => _model
+                                                                        .unfocusNode
+                                                                        .canRequestFocus
+                                                                    ? FocusScope.of(
+                                                                            context)
+                                                                        .requestFocus(_model
+                                                                            .unfocusNode)
+                                                                    : FocusScope.of(
+                                                                            context)
+                                                                        .unfocus(),
+                                                                child: Padding(
+                                                                  padding: MediaQuery
+                                                                      .viewInsetsOf(
+                                                                          context),
                                                                   child:
-                                                                      PDFViewerWidget(
-                                                                    pdfImageSelected:
-                                                                        columnMessagesRecord,
-                                                                    pdfImageSelectedRef:
-                                                                        columnMessagesRecord
-                                                                            .reference,
+                                                                      Container(
+                                                                    height:
+                                                                        MediaQuery.sizeOf(context).height *
+                                                                            1.0,
+                                                                    child:
+                                                                        PDFViewerWidget(
+                                                                      pdfImageSelected:
+                                                                          columnMessagesRecord,
+                                                                      pdfImageSelectedRef:
+                                                                          columnMessagesRecord
+                                                                              .reference,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            ));
+                                                            );
                                                           },
                                                         ).then((value) =>
                                                             safeSetState(
@@ -1585,8 +1490,21 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                 .primary,
                                                             borderRadius:
                                                                 BorderRadius
-                                                                    .circular(
-                                                                        12.0),
+                                                                    .only(
+                                                              bottomLeft: Radius
+                                                                  .circular(
+                                                                      14.0),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          14.0),
+                                                              topLeft: Radius
+                                                                  .circular(
+                                                                      14.0),
+                                                              topRight: Radius
+                                                                  .circular(
+                                                                      14.0),
+                                                            ),
                                                             border: Border.all(
                                                               color: FlutterFlowTheme
                                                                       .of(context)
@@ -1764,7 +1682,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                                 ),
                                                                             ],
                                                                           ),
-                                                                        ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation1']!),
+                                                                        ),
                                                                       ),
                                                                     ),
                                                                     Padding(
@@ -1904,8 +1822,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               ),
                                                                           ],
                                                                         ),
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['containerOnPageLoadAnimation2']!),
+                                                                      ),
                                                                     ),
                                                                     Container(
                                                                       decoration:
@@ -2041,9 +1958,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                             ),
                                                                         ],
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'containerOnPageLoadAnimation3']!),
+                                                                    ),
                                                                   ],
                                                                 ),
                                                               ),
@@ -2511,38 +2426,39 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                             context: context,
                                                             builder: (context) {
                                                               return WebViewAware(
+                                                                child:
+                                                                    GestureDetector(
+                                                                  onTap: () => _model
+                                                                          .unfocusNode
+                                                                          .canRequestFocus
+                                                                      ? FocusScope.of(
+                                                                              context)
+                                                                          .requestFocus(_model
+                                                                              .unfocusNode)
+                                                                      : FocusScope.of(
+                                                                              context)
+                                                                          .unfocus(),
                                                                   child:
-                                                                      GestureDetector(
-                                                                onTap: () => _model
-                                                                        .unfocusNode
-                                                                        .canRequestFocus
-                                                                    ? FocusScope.of(
-                                                                            context)
-                                                                        .requestFocus(_model
-                                                                            .unfocusNode)
-                                                                    : FocusScope.of(
-                                                                            context)
-                                                                        .unfocus(),
-                                                                child: Padding(
-                                                                  padding: MediaQuery
-                                                                      .viewInsetsOf(
-                                                                          context),
-                                                                  child:
-                                                                      Container(
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            1.0,
+                                                                      Padding(
+                                                                    padding: MediaQuery
+                                                                        .viewInsetsOf(
+                                                                            context),
                                                                     child:
-                                                                        PDFViewerWidget(
-                                                                      pdfImageSelected:
-                                                                          columnMessagesRecord,
-                                                                      pdfImageSelectedRef:
-                                                                          columnMessagesRecord
-                                                                              .reference,
+                                                                        Container(
+                                                                      height:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              1.0,
+                                                                      child:
+                                                                          PDFViewerWidget(
+                                                                        pdfImageSelected:
+                                                                            columnMessagesRecord,
+                                                                        pdfImageSelectedRef:
+                                                                            columnMessagesRecord.reference,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
+                                                              );
                                                             },
                                                           ).then((value) =>
                                                               safeSetState(
@@ -2790,23 +2706,22 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                       builder:
                                                                           (context) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                GestureDetector(
-                                                                          onTap: () => _model.unfocusNode.canRequestFocus
-                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                              : FocusScope.of(context).unfocus(),
                                                                           child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                MediaQuery.viewInsetsOf(context),
+                                                                              GestureDetector(
+                                                                            onTap: () => _model.unfocusNode.canRequestFocus
+                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                                : FocusScope.of(context).unfocus(),
                                                                             child:
-                                                                                EditMessageWidget(
-                                                                              usersMessage: columnMessagesRecord.reference,
-                                                                              usersMessageDoc: columnMessagesRecord,
-                                                                              messageChat: widget.chatChosen?.reference,
+                                                                                Padding(
+                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                              child: EditMessageWidget(
+                                                                                usersMessage: columnMessagesRecord.reference,
+                                                                                usersMessageDoc: columnMessagesRecord,
+                                                                                messageChat: widget.chatChosen?.reference,
+                                                                              ),
                                                                             ),
                                                                           ),
-                                                                        ));
+                                                                        );
                                                                       },
                                                                     ).then((value) =>
                                                                         safeSetState(
@@ -3117,23 +3032,22 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                       builder:
                                                                           (context) {
                                                                         return WebViewAware(
-                                                                            child:
-                                                                                GestureDetector(
-                                                                          onTap: () => _model.unfocusNode.canRequestFocus
-                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                              : FocusScope.of(context).unfocus(),
                                                                           child:
-                                                                              Padding(
-                                                                            padding:
-                                                                                MediaQuery.viewInsetsOf(context),
+                                                                              GestureDetector(
+                                                                            onTap: () => _model.unfocusNode.canRequestFocus
+                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                                : FocusScope.of(context).unfocus(),
                                                                             child:
-                                                                                EditMessageWidget(
-                                                                              usersMessage: columnMessagesRecord.reference,
-                                                                              usersMessageDoc: columnMessagesRecord,
-                                                                              messageChat: widget.chatChosen?.reference,
+                                                                                Padding(
+                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                              child: EditMessageWidget(
+                                                                                usersMessage: columnMessagesRecord.reference,
+                                                                                usersMessageDoc: columnMessagesRecord,
+                                                                                messageChat: widget.chatChosen?.reference,
+                                                                              ),
                                                                             ),
                                                                           ),
-                                                                        ));
+                                                                        );
                                                                       },
                                                                     ).then((value) =>
                                                                         safeSetState(
@@ -3487,8 +3401,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               ),
                                                                           ],
                                                                         ),
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['containerOnPageLoadAnimation4']!),
+                                                                      ),
                                                                     ),
                                                                     Padding(
                                                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -3622,8 +3535,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                               ),
                                                                           ],
                                                                         ),
-                                                                      ).animateOnPageLoad(
-                                                                              animationsMap['containerOnPageLoadAnimation5']!),
+                                                                      ),
                                                                     ),
                                                                     Container(
                                                                       width:
@@ -3754,9 +3666,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget>
                                                                             ),
                                                                         ],
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                        animationsMap[
-                                                                            'containerOnPageLoadAnimation6']!),
+                                                                    ),
                                                                   ],
                                                                 ),
                                                               ),

@@ -269,6 +269,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'watched so far!',
       'es': '',
     },
+    '8tzrh7zf': {
+      'en': 'Use the search bar above to \ndiscover more videos.',
+      'es': '',
+    },
     'scsykgbu': {
       'en': 'Featured',
       'es': 'Presentado',
@@ -296,6 +300,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '5wicson1': {
       'en': 'Reset Filter',
       'es': 'Restablecer filtro',
+    },
+    '7gxxu112': {
+      'en': 'Use the filters above to \ndiscover more groups.',
+      'es': '',
     },
     'n8usumdj': {
       'en': 'Search...',
@@ -325,6 +333,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '-',
       'es': '',
     },
+    'ecy30wjo': {
+      'en': 'Use the search bar above to \ndiscover more videos.',
+      'es': '',
+    },
     'j53v2ein': {
       'en': 'Search...',
       'es': 'Buscar...',
@@ -336,6 +348,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'n2y8cq8v': {
       'en': 'Results',
       'es': 'Resultados',
+    },
+    '2yu4sxca': {
+      'en': 'Use the search bar above to \ndiscover more files.',
+      'es': '',
     },
     'ngrcsik5': {
       'en': 'Home',
@@ -484,6 +500,25 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hogar',
     },
   },
+  // CommunityPrayerPage
+  {
+    'y2o9gkwv': {
+      'en': 'Prayer Requests',
+      'es': 'Peticiones de oración',
+    },
+    '7sjd78cu': {
+      'en': 'Community',
+      'es': 'Comunidad',
+    },
+    'wwx9qtrv': {
+      'en': 'Personal',
+      'es': 'Personal',
+    },
+    'qcvhfz7z': {
+      'en': 'Home',
+      'es': 'Hogar',
+    },
+  },
   // groupsAttendance
   {
     '3vi8r0du': {
@@ -507,25 +542,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'hulfi4am': {
-      'en': 'Home',
-      'es': 'Hogar',
-    },
-  },
-  // CommunityPrayerPage
-  {
-    'y2o9gkwv': {
-      'en': 'Prayer Requests',
-      'es': 'Peticiones de oración',
-    },
-    '7sjd78cu': {
-      'en': 'Community',
-      'es': 'Comunidad',
-    },
-    'wwx9qtrv': {
-      'en': 'Personal',
-      'es': 'Personal',
-    },
-    'qcvhfz7z': {
       'en': 'Home',
       'es': 'Hogar',
     },
@@ -1116,141 +1132,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hogar',
     },
   },
-  // AdminDashboard
-  {
-    '2vxxm33q': {
-      'en': 'Hello,',
-      'es': 'Hola,',
-    },
-    '8r1n8krs': {
-      'en': 'Welcome to your Admin Dashboard!',
-      'es': '¡Bienvenido a su Panel de administración!',
-    },
-    'afwyku3s': {
-      'en': 'Awaiting Approval:',
-      'es': 'Cuentas totales:',
-    },
-    'qg8atf16': {
-      'en': 'Total Accounts: ',
-      'es': 'Cuentas totales:',
-    },
-    'vbff8mid': {
-      'en': 'Total Journal Completions',
-      'es': 'Completaciones totales de diarios',
-    },
-    'dw65iofe': {
-      'en': '1 Week',
-      'es': '1 semana',
-    },
-    '456iur5a': {
-      'en': '1 Week',
-      'es': '1 semana',
-    },
-    'kiz5xrq7': {
-      'en': '1 Month',
-      'es': '1 mes',
-    },
-    'xmjlm5c5': {
-      'en': '1 Month',
-      'es': '1 mes',
-    },
-    'jg2tngps': {
-      'en': '6 Months',
-      'es': '6 meses',
-    },
-    'cryy3o83': {
-      'en': '6 Months',
-      'es': '6 meses',
-    },
-    'lxv2xbqb': {
-      'en': '1 Year',
-      'es': '1 año',
-    },
-    '12fwitnt': {
-      'en': '1 Year',
-      'es': '1 año',
-    },
-    'dlcs3mks': {
-      'en': 'Recent Journals',
-      'es': 'Días',
-    },
-    'adnftese': {
-      'en': 'Completions',
-      'es': 'Terminaciones',
-    },
-    'q4rhq8iy': {
-      'en': 'Recent Journals',
-      'es': 'Días',
-    },
-    'x38ioc7s': {
-      'en': 'Completions',
-      'es': 'Terminaciones',
-    },
-    'rugygg2g': {
-      'en': 'Recent Journals',
-      'es': 'Días',
-    },
-    '87w9av74': {
-      'en': 'Completions',
-      'es': 'Terminaciones',
-    },
-    'j66i1qvx': {
-      'en': 'Recent Journals',
-      'es': 'Días',
-    },
-    'g3u7i0k5': {
-      'en': 'Completions',
-      'es': 'Terminaciones',
-    },
-    'q3i0cpqv': {
-      'en': 'Schedule Helper:',
-      'es': 'Ayudante de programación:',
-    },
-    'yopnlwca': {
-      'en': 'Daily Practices',
-      'es': 'Prácticas Diarias',
-    },
-    '5dqr6mu9': {
-      'en': 'Notifications:',
-      'es': 'Notificaciones:',
-    },
-    'gnpb5mgr': {
-      'en': 'Send Push Notifications',
-      'es': 'Enviar notificaciones automáticas',
-    },
-    'mltascn3': {
-      'en': 'Live Stream Banner',
-      'es': 'Banner de transmisión en vivo',
-    },
-    '26kj8mjs': {
-      'en': 'Pastoral Requests',
-      'es': 'Solicitudes pastorales',
-    },
-    '852skxwr': {
-      'en': 'Profile Tags',
-      'es': 'Etiquetas de perfil',
-    },
-    'gk084e26': {
-      'en': 'Journals Created',
-      'es': 'Revistas creadas',
-    },
-    'iae6f6bz': {
-      'en': 'Prayer Requests',
-      'es': 'Peticiones de oración',
-    },
-    '45xqz0nt': {
-      'en': 'Heart Checks',
-      'es': 'Controles del corazón',
-    },
-    'atu4z587': {
-      'en': 'Group Stats',
-      'es': 'Estadísticas del grupo',
-    },
-    'i1x02lt8': {
-      'en': 'Home',
-      'es': 'Hogar',
-    },
-  },
   // AllPracticesCompleted
   {
     'wddq1hy9': {
@@ -1576,7 +1457,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hogar',
     },
   },
-  // SoLSplashScreenCopy
+  // SoLSplashScreen
   {
     '1lo8ihxf': {
       'en':
@@ -1588,8 +1469,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Isaiah 41:10',
       'es': 'Isaías 41:10',
     },
-    '4hudf74v': {
-      'en': 'Hello,',
+    'k2j7zy2p': {
+      'en': 'from',
       'es': 'Hola,',
     },
     'sxvmp9yw': {
@@ -1752,54 +1633,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Explora ahora',
     },
   },
-  // AllJournals
-  {
-    'cw0780z5': {
-      'en': 'Hello,',
-      'es': 'Hola,',
-    },
-    '03oywy9c': {
-      'en': 'Here\'s the overview of your daily practice responses!',
-      'es':
-          '¡Aquí está la descripción general de las respuestas de su práctica diaria!',
-    },
-    'gs9dhllc': {
-      'en': 'Newest',
-      'es': 'El más nuevo',
-    },
-    'egm7o3xq': {
-      'en': 'Newest',
-      'es': 'El más nuevo',
-    },
-    'p0dpe2ci': {
-      'en': 'Oldest',
-      'es': 'Más antiguo',
-    },
-    'z2ybt1nz': {
-      'en': 'Oldest',
-      'es': 'Más antiguo',
-    },
-    'pj8ah44u': {
-      'en': 'Most\nResponses',
-      'es': 'Mayoría\nRespuestas',
-    },
-    '97z1tmyt': {
-      'en': 'Most\nResponses',
-      'es': 'Mayoría\nRespuestas',
-    },
-    'pe5xwqwf': {
-      'en': 'Least\nResponses',
-      'es': 'El menos\nRespuestas',
-    },
-    '7uak5bw9': {
-      'en': 'Least\nResponses',
-      'es': 'El menos\nRespuestas',
-    },
-    '54de1xa1': {
-      'en': 'Home',
-      'es': 'Hogar',
-    },
-  },
   // Catechism
   {
     'mgu3gizf': {
@@ -1929,6 +1762,141 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hogar',
     },
   },
+  // AdminDashboard
+  {
+    '2vxxm33q': {
+      'en': 'Hello,',
+      'es': 'Hola,',
+    },
+    '8r1n8krs': {
+      'en': 'Welcome to your Admin Dashboard!',
+      'es': '¡Bienvenido a su Panel de administración!',
+    },
+    'afwyku3s': {
+      'en': 'Awaiting Approval:',
+      'es': 'Cuentas totales:',
+    },
+    'qg8atf16': {
+      'en': 'Total Accounts: ',
+      'es': 'Cuentas totales:',
+    },
+    'vbff8mid': {
+      'en': 'Total Journal Completions',
+      'es': 'Completaciones totales de diarios',
+    },
+    'dw65iofe': {
+      'en': '1 Week',
+      'es': '1 semana',
+    },
+    '456iur5a': {
+      'en': '1 Week',
+      'es': '1 semana',
+    },
+    'kiz5xrq7': {
+      'en': '1 Month',
+      'es': '1 mes',
+    },
+    'xmjlm5c5': {
+      'en': '1 Month',
+      'es': '1 mes',
+    },
+    'jg2tngps': {
+      'en': '6 Months',
+      'es': '6 meses',
+    },
+    'cryy3o83': {
+      'en': '6 Months',
+      'es': '6 meses',
+    },
+    'lxv2xbqb': {
+      'en': '1 Year',
+      'es': '1 año',
+    },
+    '12fwitnt': {
+      'en': '1 Year',
+      'es': '1 año',
+    },
+    'dlcs3mks': {
+      'en': 'Recent Journals',
+      'es': 'Días',
+    },
+    'adnftese': {
+      'en': 'Completions',
+      'es': 'Terminaciones',
+    },
+    'q4rhq8iy': {
+      'en': 'Recent Journals',
+      'es': 'Días',
+    },
+    'x38ioc7s': {
+      'en': 'Completions',
+      'es': 'Terminaciones',
+    },
+    'rugygg2g': {
+      'en': 'Recent Journals',
+      'es': 'Días',
+    },
+    '87w9av74': {
+      'en': 'Completions',
+      'es': 'Terminaciones',
+    },
+    'j66i1qvx': {
+      'en': 'Recent Journals',
+      'es': 'Días',
+    },
+    'g3u7i0k5': {
+      'en': 'Completions',
+      'es': 'Terminaciones',
+    },
+    'q3i0cpqv': {
+      'en': 'Schedule Helper:',
+      'es': 'Ayudante de programación:',
+    },
+    'yopnlwca': {
+      'en': 'Daily Practices',
+      'es': 'Prácticas Diarias',
+    },
+    '5dqr6mu9': {
+      'en': 'Notifications:',
+      'es': 'Notificaciones:',
+    },
+    'gnpb5mgr': {
+      'en': 'Send Push Notifications',
+      'es': 'Enviar notificaciones automáticas',
+    },
+    'mltascn3': {
+      'en': 'Live Stream Banner',
+      'es': 'Banner de transmisión en vivo',
+    },
+    '26kj8mjs': {
+      'en': 'Pastoral Requests',
+      'es': 'Solicitudes pastorales',
+    },
+    '852skxwr': {
+      'en': 'Profile Tags',
+      'es': 'Etiquetas de perfil',
+    },
+    'gk084e26': {
+      'en': 'New Guests',
+      'es': 'Revistas creadas',
+    },
+    'iae6f6bz': {
+      'en': 'Prayer Requests',
+      'es': 'Peticiones de oración',
+    },
+    '45xqz0nt': {
+      'en': 'Heart Checks',
+      'es': 'Controles del corazón',
+    },
+    'atu4z587': {
+      'en': 'Group Stats',
+      'es': 'Estadísticas del grupo',
+    },
+    'i1x02lt8': {
+      'en': 'Home',
+      'es': 'Hogar',
+    },
+  },
   // AllHeartChecks
   {
     'r8ptlgza': {
@@ -1965,6 +1933,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     '5cjce3sj': {
       'en': 'Total Groups:',
       'es': 'Total de grupos:',
+    },
+    'cp9pmy1o': {
+      'en': 'Avg. Group Size: ',
+      'es': 'Promedio Tamaño del grupo',
     },
     'g084se4v': {
       'en': 'Total Groups Stats',
@@ -2082,6 +2054,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'People Removed',
       'es': 'Personas eliminadas',
     },
+    '8ymlngm2': {
+      'en': 'Follow Up Needed:',
+      'es': 'Notificaciones:',
+    },
     'ahhjr45m': {
       'en': 'Open Groups',
       'es': 'Grupos abiertos',
@@ -2099,7 +2075,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Puntuación media',
     },
     '2gjh345t': {
-      'en': 'Avg. Group Size',
+      'en': 'Recent People',
       'es': 'Promedio Tamaño del grupo',
     },
     '6rhhujoc': {
@@ -2107,6 +2083,46 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Personas en grupos',
     },
     'kcmbfqt8': {
+      'en': 'Home',
+      'es': 'Hogar',
+    },
+  },
+  // NewGuests
+  {
+    'f2eubmch': {
+      'en': 'New Guests',
+      'es': '',
+    },
+    'vqtfz4ul': {
+      'en':
+          'Here\'s a list of guests that have been \nadded within the past 30 days.',
+      'es': '',
+    },
+    'wfwalgc6': {
+      'en': 'Search by Name or Email...',
+      'es': 'Buscar por nombre o correo electrónico...',
+    },
+    '5kqy71wi': {
+      'en': 'Home',
+      'es': 'Hogar',
+    },
+  },
+  // FollowupNeeded
+  {
+    'dmprvw95': {
+      'en': 'Follow Up Needed',
+      'es': '',
+    },
+    '1sf43u8p': {
+      'en':
+          'Here\'s a list of group members that have not \nattended in the past 30 days.',
+      'es': '',
+    },
+    '4hpuvbs7': {
+      'en': 'Search by Name or Email...',
+      'es': 'Buscar por nombre o correo electrónico...',
+    },
+    '3cs4r10v': {
       'en': 'Home',
       'es': 'Hogar',
     },
@@ -2613,6 +2629,29 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hogar',
     },
   },
+  // recentCheckins
+  {
+    'z2xd0fs0': {
+      'en': 'Recent People',
+      'es': 'Todos los perfiles',
+    },
+    'u6ihxsgy': {
+      'en': 'Search by Name or Email...',
+      'es': 'Buscar por nombre o correo electrónico...',
+    },
+    '6hepspzw': {
+      'en': 'Most Recent Attendance:',
+      'es': '',
+    },
+    'og7lco3m': {
+      'en': 'Most Recent Attendance:',
+      'es': '',
+    },
+    'gv7i2k70': {
+      'en': 'Home',
+      'es': 'Hogar',
+    },
+  },
   // PercentageCompleted1
   {
     '5414svn0': {
@@ -2639,17 +2678,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hecho',
     },
   },
-  // PercentageCompleted3
+  // EditPrayer
   {
-    'afhmcwkt': {
-      'en':
-          'Congratulations! You\'ve completed one of your daily practices! Great job!',
-      'es':
-          '¡Felicidades! ¡Has completado una de tus prácticas diarias! ¡Gran trabajo!',
+    '8u3ljmxe': {
+      'en': 'Edit Prayer Request',
+      'es': 'Editar solicitud de oración',
     },
-    'tvkd38jg': {
-      'en': 'Done',
-      'es': 'Hecho',
+    't58hua5o': {
+      'en': 'Make this prayer public?',
+      'es': '¿Hacer pública esta oración?',
+    },
+    'f2efzx0d': {
+      'en': 'Delete',
+      'es': 'Borrar',
+    },
+    'hkqzvkmy': {
+      'en': 'Update',
+      'es': 'Actualizar',
     },
   },
   // CreatePrayer
@@ -2675,23 +2720,17 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Entregar',
     },
   },
-  // EditPrayer
+  // PercentageCompleted3
   {
-    '8u3ljmxe': {
-      'en': 'Edit Prayer Request',
-      'es': 'Editar solicitud de oración',
+    'afhmcwkt': {
+      'en':
+          'Congratulations! You\'ve completed one of your daily practices! Great job!',
+      'es':
+          '¡Felicidades! ¡Has completado una de tus prácticas diarias! ¡Gran trabajo!',
     },
-    't58hua5o': {
-      'en': 'Make this prayer public?',
-      'es': '¿Hacer pública esta oración?',
-    },
-    'f2efzx0d': {
-      'en': 'Delete',
-      'es': 'Borrar',
-    },
-    'hkqzvkmy': {
-      'en': 'Update',
-      'es': 'Actualizar',
+    'tvkd38jg': {
+      'en': 'Done',
+      'es': 'Hecho',
     },
   },
   // ScriptureUpdate
@@ -3534,14 +3573,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'type here...',
       'es': 'escriba aquí...',
     },
-    'cjcgud76': {
-      'en': 'Date',
-      'es': 'Fecha',
-    },
-    'm0qlg7h3': {
-      'en': 'xx/xx/xxxx',
-      'es': 'xx/xx/xxxx',
-    },
     'tmz0kykv': {
       'en': 'Website Link',
       'es': 'Enlace de página web',
@@ -4010,7 +4041,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // PDFViewer
   {
-    '6ao81n8v': {
+    'qig6imlr': {
       'en': 'PDF Viewer',
       'es': 'Visor de PDF',
     },
@@ -4022,7 +4053,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Notas del mensaje',
     },
     '8h00v86s': {
-      'en': 'No mesaage notes have been \nuploaded for this video.',
+      'en': 'No message notes have been \nuploaded for this video.',
       'es': '',
     },
   },
@@ -4780,19 +4811,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Hecho',
     },
   },
-  // ChatExistsCopy
-  {
-    'goyrtx0g': {
-      'en':
-          'Hang tight! This feature is not yet available. It will be released soon!',
-      'es':
-          '¡Aguanta! Esta función no está disponible todavía. ¡Sera lanzado pronto!',
-    },
-    'gl34umh3': {
-      'en': 'Done',
-      'es': 'Hecho',
-    },
-  },
   // CurrentPollChoosing
   {
     'y8oet0m7': {
@@ -4930,6 +4948,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // CurrentPollViewing
   {
     'k772vh9o': {
+      'en': 'Reset Poll Answers',
+      'es': '¿Finalizar encuesta?',
+    },
+    'pa276cs2': {
       'en': 'End Poll?',
       'es': '¿Finalizar encuesta?',
     },
@@ -5123,7 +5145,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': '?',
       'es': '?',
     },
-    'bthe729e': {
+    'hm8j5bs0': {
       'en': 'Delete Event?',
       'es': '¿Eliminar evento?',
     },
@@ -7505,6 +7527,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es':
           'Esta persona ahora está bloqueada. No verá nada de su contenido y no podrán comunicarse con usted de ninguna manera.',
     },
+    'w3ng9kc1': {
+      'en': 'Sign Out',
+      'es': 'Hecho',
+    },
   },
   // AccountApproval
   {
@@ -7570,6 +7596,62 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'iavpg71r': {
       'en': 'Sign Out',
       'es': 'Hecho',
+    },
+  },
+  // followupNeeded2
+  {
+    '72tmwmfu': {
+      'en': 'Refresh Attendance',
+      'es': 'Confirmar',
+    },
+    'hd42t2xh': {
+      'en': 'X',
+      'es': 'X',
+    },
+    'u8bxf8f3': {
+      'en': 'Remove from Group',
+      'es': 'Rechazar',
+    },
+  },
+  // newGuestFollowUp
+  {
+    'dn60ckm3': {
+      'en': 'Reach Out',
+      'es': 'Confirmar',
+    },
+    'dn71yowv': {
+      'en': 'X',
+      'es': 'X',
+    },
+    'o6ptn6p2': {
+      'en': 'Remove',
+      'es': 'Rechazar',
+    },
+  },
+  // phoneMissing
+  {
+    '1isdjt3c': {
+      'en': 'There is no phone number set for this guest.',
+      'es':
+          'Esta persona ahora está bloqueada. No verá nada de su contenido y no podrán comunicarse con usted de ninguna manera.',
+    },
+    '3pji4mw4': {
+      'en': 'Done',
+      'es': 'Hecho',
+    },
+  },
+  // userReactions
+  {
+    'snojgvk7': {
+      'en': 'Reactions',
+      'es': 'configuraciones de chat',
+    },
+  },
+  // attendanceCalendar
+  {
+    'uwwez5du': {
+      'en': 'Hello,',
+      'es': 'Hola,',
     },
   },
   // Miscellaneous

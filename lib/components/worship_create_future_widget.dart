@@ -19,10 +19,10 @@ import 'worship_create_future_model.dart';
 export 'worship_create_future_model.dart';
 
 class WorshipCreateFutureWidget extends StatefulWidget {
-  const WorshipCreateFutureWidget({Key? key}) : super(key: key);
+  const WorshipCreateFutureWidget({super.key});
 
   @override
-  _WorshipCreateFutureWidgetState createState() =>
+  State<WorshipCreateFutureWidget> createState() =>
       _WorshipCreateFutureWidgetState();
 }
 
@@ -122,7 +122,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                           CircularPercentIndicator(
                             percent: 1.0,
                             radius: 65.0,
-                            lineWidth: 7.0,
+                            lineWidth: 5.0,
                             animation: true,
                             animateFromLastPercent: true,
                             progressColor: Color(0xFF619B99),
@@ -204,7 +204,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                           CircularPercentIndicator(
                             percent: 1.0,
                             radius: 65.0,
-                            lineWidth: 7.0,
+                            lineWidth: 5.0,
                             animation: true,
                             animateFromLastPercent: true,
                             progressColor:
@@ -239,7 +239,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                           CircularPercentIndicator(
                             percent: 1.0,
                             radius: 65.0,
-                            lineWidth: 7.0,
+                            lineWidth: 5.0,
                             animation: true,
                             animateFromLastPercent: true,
                             progressColor:
@@ -356,8 +356,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .lightSecondaryText,
+                                  color: FlutterFlowTheme.of(context).label,
                                 ),
                             validator: _model.textController1Validator
                                 .asValidator(context),
@@ -415,8 +414,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .lightSecondaryText,
+                                  color: FlutterFlowTheme.of(context).label,
                                 ),
                             keyboardType: TextInputType.url,
                             validator: _model.textController2Validator
@@ -476,8 +474,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .lightSecondaryText,
+                                  color: FlutterFlowTheme.of(context).label,
                                 ),
                             validator: _model.textController3Validator
                                 .asValidator(context),
@@ -537,8 +534,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .lightSecondaryText,
+                                  color: FlutterFlowTheme.of(context).label,
                                 ),
                             maxLines: 8,
                             minLines: 1,
@@ -599,8 +595,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Inter',
-                                  color: FlutterFlowTheme.of(context)
-                                      .lightSecondaryText,
+                                  color: FlutterFlowTheme.of(context).label,
                                 ),
                             validator: _model.textController5Validator
                                 .asValidator(context),
@@ -626,13 +621,6 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                       FFLocalizations.of(context).getText(
                                     'fqsdhp7b' /* Time Required */,
                                   ),
-                                  labelStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .lightSecondaryText,
-                                      ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
                                       color: Color(0x00000000),
@@ -671,8 +659,7 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .lightSecondaryText,
+                                      color: FlutterFlowTheme.of(context).label,
                                     ),
                                 validator: _model.textController6Validator
                                     .asValidator(context),
@@ -732,8 +719,8 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .lightSecondaryText,
+                                        color:
+                                            FlutterFlowTheme.of(context).label,
                                       ),
                                   validator: _model.textController7Validator
                                       .asValidator(context),
@@ -981,18 +968,19 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          title: Text('Missing Data'),
-                                          content: Text(
-                                              'You need to select a video type before submitting.'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            title: Text('Missing Data'),
+                                            content: Text(
+                                                'You need to select a video type before submitting.'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -1002,18 +990,19 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                       context: context,
                                       builder: (alertDialogContext) {
                                         return WebViewAware(
-                                            child: AlertDialog(
-                                          title: Text('Missing Data'),
-                                          content:
-                                              Text('Please select a date.'),
-                                          actions: [
-                                            TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  alertDialogContext),
-                                              child: Text('Ok'),
-                                            ),
-                                          ],
-                                        ));
+                                          child: AlertDialog(
+                                            title: Text('Missing Data'),
+                                            content:
+                                                Text('Please select a date.'),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    alertDialogContext),
+                                                child: Text('Ok'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
                                       },
                                     );
                                     return;
@@ -1075,11 +1064,12 @@ class _WorshipCreateFutureWidgetState extends State<WorshipCreateFutureWidget> {
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: AddDateWidget(),
-                                        ));
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: AddDateWidget(),
+                                          ),
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
                                   }

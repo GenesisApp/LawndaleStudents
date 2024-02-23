@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,12 +11,12 @@ export 'notification_text_field_model.dart';
 
 class NotificationTextFieldWidget extends StatefulWidget {
   const NotificationTextFieldWidget({
-    Key? key,
+    super.key,
     required this.parameter1,
     required this.parameter2,
     required this.parameter3,
     required this.parameter4,
-  }) : super(key: key);
+  });
 
   final String? parameter1;
   final String? parameter2;
@@ -25,7 +24,7 @@ class NotificationTextFieldWidget extends StatefulWidget {
   final DocumentReference? parameter4;
 
   @override
-  _NotificationTextFieldWidgetState createState() =>
+  State<NotificationTextFieldWidget> createState() =>
       _NotificationTextFieldWidgetState();
 }
 

@@ -13,16 +13,16 @@ export 'delete_chat_model.dart';
 
 class DeleteChatWidget extends StatefulWidget {
   const DeleteChatWidget({
-    Key? key,
+    super.key,
     this.chat,
     this.otherUser,
-  }) : super(key: key);
+  });
 
   final DocumentReference? chat;
   final DocumentReference? otherUser;
 
   @override
-  _DeleteChatWidgetState createState() => _DeleteChatWidgetState();
+  State<DeleteChatWidget> createState() => _DeleteChatWidgetState();
 }
 
 class _DeleteChatWidgetState extends State<DeleteChatWidget> {
@@ -135,7 +135,7 @@ class _DeleteChatWidgetState extends State<DeleteChatWidget> {
                                       percent: 1.0,
                                       radius: MediaQuery.sizeOf(context).width *
                                           0.175,
-                                      lineWidth: 7.0,
+                                      lineWidth: 5.0,
                                       animation: true,
                                       animateFromLastPercent: true,
                                       progressColor:

@@ -53,8 +53,10 @@ class PrayingPageModel extends FlutterFlowModel<PrayingPageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
     timerController.dispose();

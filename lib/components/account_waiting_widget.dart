@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +11,10 @@ import 'account_waiting_model.dart';
 export 'account_waiting_model.dart';
 
 class AccountWaitingWidget extends StatefulWidget {
-  const AccountWaitingWidget({Key? key}) : super(key: key);
+  const AccountWaitingWidget({super.key});
 
   @override
-  _AccountWaitingWidgetState createState() => _AccountWaitingWidgetState();
+  State<AccountWaitingWidget> createState() => _AccountWaitingWidgetState();
 }
 
 class _AccountWaitingWidgetState extends State<AccountWaitingWidget> {
@@ -67,8 +68,8 @@ class _AccountWaitingWidgetState extends State<AccountWaitingWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                           ),
@@ -115,7 +116,7 @@ class _AccountWaitingWidgetState extends State<AccountWaitingWidget> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              20.0, 20.0, 20.0, 35.0),
+                              20.0, 20.0, 20.0, 20.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
                               'kgki7vcf' /* Your account is waiting to be ... */,
@@ -127,6 +128,73 @@ class _AccountWaitingWidgetState extends State<AccountWaitingWidget> {
                                   fontFamily: 'Inter',
                                   color: FlutterFlowTheme.of(context).tertiary,
                                 ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 20.0),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: 100.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    HapticFeedback.lightImpact();
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
+
+                                    context.goNamedAuth(
+                                        'onBoarding', context.mounted);
+                                  },
+                                  child: Container(
+                                    width: 40.0,
+                                    height: 40.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondarySystemBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'w3ng9kc1' /* Sign Out */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .label,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],

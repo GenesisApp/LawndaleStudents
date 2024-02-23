@@ -12,8 +12,10 @@ import 'package:provider/provider.dart';
 class DeleteNotesModel extends FlutterFlowModel<DeleteNotesWidget> {
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

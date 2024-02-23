@@ -10,10 +10,10 @@ import 'chat_tab_icon_unselected_model.dart';
 export 'chat_tab_icon_unselected_model.dart';
 
 class ChatTabIconUnselectedWidget extends StatefulWidget {
-  const ChatTabIconUnselectedWidget({Key? key}) : super(key: key);
+  const ChatTabIconUnselectedWidget({super.key});
 
   @override
-  _ChatTabIconUnselectedWidgetState createState() =>
+  State<ChatTabIconUnselectedWidget> createState() =>
       _ChatTabIconUnselectedWidgetState();
 }
 
@@ -86,7 +86,7 @@ class _ChatTabIconUnselectedWidgetState
                   children: [
                     if (Theme.of(context).brightness == Brightness.dark)
                       SvgPicture.asset(
-                        'assets/images/chat-circle-dots-fill_(3).svg',
+                        'assets/images/chat-circle-dots-fill_(dark_mode).svg',
                         width: 28.0,
                         height: 28.0,
                         fit: BoxFit.cover,
@@ -96,7 +96,7 @@ class _ChatTabIconUnselectedWidgetState
                         padding: EdgeInsetsDirectional.fromSTEB(
                             10.0, 8.0, 10.0, 10.0),
                         child: SvgPicture.asset(
-                          'assets/images/chat-circle-dots-fill_(2).svg',
+                          'assets/images/chat-circle-dots-fill_(light_mode).svg',
                           width: 28.0,
                           height: 28.0,
                           fit: BoxFit.cover,

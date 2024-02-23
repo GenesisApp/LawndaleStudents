@@ -15,14 +15,14 @@ export 'prayer_update_model.dart';
 
 class PrayerUpdateWidget extends StatefulWidget {
   const PrayerUpdateWidget({
-    Key? key,
+    super.key,
     this.prayerVideo,
-  }) : super(key: key);
+  });
 
   final DailyPracticeVideosRecord? prayerVideo;
 
   @override
-  _PrayerUpdateWidgetState createState() => _PrayerUpdateWidgetState();
+  State<PrayerUpdateWidget> createState() => _PrayerUpdateWidgetState();
 }
 
 class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
@@ -162,7 +162,7 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                       CircularPercentIndicator(
                                         percent: 1.0,
                                         radius: 65.0,
-                                        lineWidth: 7.0,
+                                        lineWidth: 5.0,
                                         animation: true,
                                         animateFromLastPercent: true,
                                         progressColor:
@@ -272,13 +272,14 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController1Validator
                                   .asValidator(context),
@@ -337,13 +338,14 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController2Validator
                                   .asValidator(context),
@@ -402,13 +404,14 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController3Validator
                                   .asValidator(context),
@@ -467,13 +470,14 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               validator: _model.textController4Validator
                                   .asValidator(context),
@@ -533,13 +537,14 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                   borderRadius: BorderRadius.circular(20.0),
                                 ),
                                 filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondarySystemBackground,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
-                                    color: FlutterFlowTheme.of(context)
-                                        .lightSecondaryText,
+                                    color: FlutterFlowTheme.of(context).label,
                                   ),
                               maxLines: 8,
                               minLines: 1,
@@ -606,13 +611,15 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                       borderRadius: BorderRadius.circular(20.0),
                                     ),
                                     filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .secondarySystemBackground,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: FlutterFlowTheme.of(context)
-                                            .lightSecondaryText,
+                                        color:
+                                            FlutterFlowTheme.of(context).label,
                                       ),
                                   validator: _model.textController6Validator
                                       .asValidator(context),
@@ -677,13 +684,15 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                             BorderRadius.circular(20.0),
                                       ),
                                       filled: true,
+                                      fillColor: FlutterFlowTheme.of(context)
+                                          .secondarySystemBackground,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Inter',
                                           color: FlutterFlowTheme.of(context)
-                                              .lightSecondaryText,
+                                              .label,
                                         ),
                                     validator: _model.textController7Validator
                                         .asValidator(context),

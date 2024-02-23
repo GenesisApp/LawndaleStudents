@@ -14,6 +14,7 @@ import '/components/edit_message_widget.dart';
 import '/components/group_chat_settings_widget.dart';
 import '/components/language_report_widget.dart';
 import '/components/p_d_f_viewer_widget.dart';
+import '/components/user_reactions_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
@@ -22,6 +23,7 @@ import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'dart:ui';
 import '/custom_code/actions/index.dart' as actions;
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
@@ -47,12 +49,12 @@ export 'chat_page_model.dart';
 
 class ChatPageWidget extends StatefulWidget {
   const ChatPageWidget({
-    Key? key,
+    super.key,
     this.chatChosen,
     this.chatUsers,
     this.otherUserDoc,
     this.otherUserRef,
-  }) : super(key: key);
+  });
 
   final MessageChatsRecord? chatChosen;
   final DocumentReference? chatUsers;
@@ -60,7 +62,7 @@ class ChatPageWidget extends StatefulWidget {
   final DocumentReference? otherUserRef;
 
   @override
-  _ChatPageWidgetState createState() => _ChatPageWidgetState();
+  State<ChatPageWidget> createState() => _ChatPageWidgetState();
 }
 
 class _ChatPageWidgetState extends State<ChatPageWidget>
@@ -70,84 +72,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(-10.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(-20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(-40.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(40.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 250.ms,
-          begin: Offset(10.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
     'textOnPageLoadAnimation1': AnimationInfo(
       loop: true,
       reverse: true,
@@ -156,8 +80,8 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.5,
+          duration: 600.ms,
+          begin: 0.0,
           end: 1.0,
         ),
       ],
@@ -170,132 +94,104 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.5,
-          end: 1.0,
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 200.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 200.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
       ],
     ),
-    'containerOnPageLoadAnimation8': AnimationInfo(
+    'containerOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 300.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 300.ms,
+          duration: 400.ms,
           begin: 0.0,
           end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 400.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+    'containerOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 500.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 500.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'stackOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 400.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
-      ],
-    ),
-    'progressBarOnPageLoadAnimation1': AnimationInfo(
-      loop: true,
-      reverse: true,
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
+        MoveEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.3,
-          end: 1.0,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'stackOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 500.ms,
+          duration: 700.ms,
           begin: 0.0,
           end: 1.0,
         ),
-      ],
-    ),
-    'progressBarOnPageLoadAnimation2': AnimationInfo(
-      loop: true,
-      reverse: true,
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
+        MoveEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.3,
-          end: 1.0,
+          duration: 700.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
     'stackOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(30.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 600.ms,
+          duration: 800.ms,
           begin: 0.0,
           end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 800.ms,
+          begin: Offset(25.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -361,15 +257,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -378,14 +265,13 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primary,
+        backgroundColor: FlutterFlowTheme.of(context).systemBackground,
         body: SafeArea(
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: MediaQuery.sizeOf(context).width * 1.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).primary,
                 ),
@@ -393,7 +279,6 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Container(
-                      width: double.infinity,
                       decoration: BoxDecoration(),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
@@ -514,7 +399,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                     ),
                     Padding(
                       padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -522,14 +407,23 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                         children: [
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 10.0, 0.0),
+                                0.0, 0.0, 10.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pop();
+                                context.pushNamed(
+                                  'AllChats',
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
+                                );
 
                                 await widget.chatChosen!.reference.update({
                                   ...mapToFirestore(
@@ -541,10 +435,23 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                   ),
                                 });
                               },
-                              child: Icon(
-                                Icons.arrow_back_ios_rounded,
-                                color: FlutterFlowTheme.of(context).tertiary,
-                                size: 22.0,
+                              child: Container(
+                                width: 40.0,
+                                height: 40.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondarySystemBackground,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Icon(
+                                    Icons.arrow_back_ios_rounded,
+                                    color:
+                                        FlutterFlowTheme.of(context).tertiary,
+                                    size: 22.0,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -562,26 +469,28 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                 context: context,
                                 builder: (context) {
                                   return WebViewAware(
-                                      child: GestureDetector(
-                                    onTap: () => _model
-                                            .unfocusNode.canRequestFocus
-                                        ? FocusScope.of(context)
-                                            .requestFocus(_model.unfocusNode)
-                                        : FocusScope.of(context).unfocus(),
-                                    child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height *
-                                                0.92,
-                                        child: GroupChatSettingsWidget(
-                                          grouptoEdit: widget.chatChosen,
-                                          otherUser: widget.otherUserDoc,
-                                          chatUsers: widget.chatUsers,
+                                    child: GestureDetector(
+                                      onTap: () => _model
+                                              .unfocusNode.canRequestFocus
+                                          ? FocusScope.of(context)
+                                              .requestFocus(_model.unfocusNode)
+                                          : FocusScope.of(context).unfocus(),
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: Container(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.92,
+                                          child: GroupChatSettingsWidget(
+                                            grouptoEdit: widget.chatChosen,
+                                            otherUser: widget.otherUserDoc,
+                                            chatUsers: widget.chatUsers,
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ));
+                                  );
                                 },
                               ).then((value) => safeSetState(() {}));
                             },
@@ -750,45 +659,53 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                               ],
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 0.0, 20.0, 0.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'PinnedMessages',
-                                  queryParameters: {
-                                    'chatChosen': serializeParam(
-                                      widget.chatChosen,
-                                      ParamType.Document,
-                                    ),
-                                    'chatUsers': serializeParam(
-                                      widget.chatUsers,
-                                      ParamType.DocumentReference,
-                                    ),
-                                    'otherUserDoc': serializeParam(
-                                      widget.otherUserDoc,
-                                      ParamType.Document,
-                                    ),
-                                    'otherUserRef': serializeParam(
-                                      widget.otherUserRef,
-                                      ParamType.DocumentReference,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    'chatChosen': widget.chatChosen,
-                                    'otherUserDoc': widget.otherUserDoc,
-                                  },
-                                );
-                              },
-                              child: FaIcon(
-                                FontAwesomeIcons.ellipsisH,
-                                color: FlutterFlowTheme.of(context).tertiary,
-                                size: 22.0,
+                          Container(
+                            width: 40.0,
+                            height: 40.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondarySystemBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'PinnedMessages',
+                                    queryParameters: {
+                                      'chatChosen': serializeParam(
+                                        widget.chatChosen,
+                                        ParamType.Document,
+                                      ),
+                                      'chatUsers': serializeParam(
+                                        widget.chatUsers,
+                                        ParamType.DocumentReference,
+                                      ),
+                                      'otherUserDoc': serializeParam(
+                                        widget.otherUserDoc,
+                                        ParamType.Document,
+                                      ),
+                                      'otherUserRef': serializeParam(
+                                        widget.otherUserRef,
+                                        ParamType.DocumentReference,
+                                      ),
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      'chatChosen': widget.chatChosen,
+                                      'otherUserDoc': widget.otherUserDoc,
+                                    },
+                                  );
+                                },
+                                child: FaIcon(
+                                  FontAwesomeIcons.ellipsisH,
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                  size: 22.0,
+                                ),
                               ),
                             ),
                           ),
@@ -805,445 +722,732 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                   ],
                 ),
               ),
-              Expanded(
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
-                  child: Container(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: double.infinity,
-                    decoration: BoxDecoration(),
-                    child: StreamBuilder<List<MessagesRecord>>(
-                      stream: queryMessagesRecord(
-                        queryBuilder: (messagesRecord) => messagesRecord
-                            .where(
-                              'chatReference',
-                              isEqualTo: widget.chatChosen?.reference,
-                            )
-                            .where(
-                              'timeSent',
-                              isGreaterThanOrEqualTo:
-                                  functions.dateFromThirtyDaysAgo(),
-                            )
-                            .orderBy('timeSent'),
-                      ),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 75.0,
-                              height: 75.0,
-                              child: SpinKitRipple(
-                                color: Color(0xFF7F95AD),
-                                size: 75.0,
-                              ),
+              Flexible(
+                child: Container(
+                  decoration: BoxDecoration(),
+                  child: StreamBuilder<List<MessagesRecord>>(
+                    stream: queryMessagesRecord(
+                      queryBuilder: (messagesRecord) => messagesRecord
+                          .where(
+                            'chatReference',
+                            isEqualTo: widget.chatChosen?.reference,
+                          )
+                          .where(
+                            'timeSent',
+                            isGreaterThanOrEqualTo:
+                                functions.dateFromThirtyDaysAgo(),
+                          )
+                          .orderBy('timeSent', descending: true),
+                    ),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 75.0,
+                            height: 75.0,
+                            child: SpinKitRipple(
+                              color: Color(0xFF7F95AD),
+                              size: 75.0,
                             ),
-                          );
-                        }
-                        List<MessagesRecord> columnMessagesRecordList =
-                            snapshot.data!;
-                        return SingleChildScrollView(
-                          reverse: true,
-                          physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-                          child: Column(
+                          ),
+                        );
+                      }
+                      List<MessagesRecord> listViewMessagesRecordList =
+                          snapshot.data!;
+                      return ListView.builder(
+                        padding: EdgeInsets.zero,
+                        reverse: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: listViewMessagesRecordList.length,
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewMessagesRecord =
+                              listViewMessagesRecordList[listViewIndex];
+                          return Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.end,
-                            children: List.generate(
-                                columnMessagesRecordList.length, (columnIndex) {
-                              final columnMessagesRecord =
-                                  columnMessagesRecordList[columnIndex];
-                              return Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  if (columnMessagesRecord.dateResetMessage)
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 16.0, 0.0, 8.0),
-                                      child: RichText(
-                                        textScaleFactor: MediaQuery.of(context)
-                                            .textScaleFactor,
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: dateTimeFormat(
-                                                'relative',
-                                                columnMessagesRecord.timeSent!,
-                                                locale: FFLocalizations.of(
-                                                            context)
-                                                        .languageShortCode ??
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              ),
-                                              style: GoogleFonts.getFont(
-                                                'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .lightSecondaryText,
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 11.0,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: FFLocalizations.of(context)
-                                                  .getText(
-                                                '5solkni7' /*  at  */,
-                                              ),
-                                              style: GoogleFonts.getFont(
-                                                'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .lightSecondaryText,
-                                                fontWeight: FontWeight.w300,
-                                                fontSize: 11.0,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: dateTimeFormat(
-                                                'jm',
-                                                columnMessagesRecord.timeSent!,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              ),
-                                              style: GoogleFonts.getFont(
-                                                'Inter',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .lightSecondaryText,
-                                                fontWeight: FontWeight.normal,
-                                                fontSize: 11.0,
-                                              ),
-                                            )
-                                          ],
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ),
-                                    ),
-                                  if (columnMessagesRecord.user !=
-                                      currentUserReference)
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 8.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          decoration: BoxDecoration(
-                                            color: Colors.transparent,
+                            children: [
+                              if (listViewMessagesRecord.dateResetMessage)
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 16.0, 0.0, 8.0),
+                                  child: RichText(
+                                    textScaleFactor:
+                                        MediaQuery.of(context).textScaleFactor,
+                                    text: TextSpan(
+                                      children: [
+                                        TextSpan(
+                                          text: dateTimeFormat(
+                                            'relative',
+                                            listViewMessagesRecord.timeSent!,
+                                            locale: FFLocalizations.of(context)
+                                                    .languageShortCode ??
+                                                FFLocalizations.of(context)
+                                                    .languageCode,
                                           ),
-                                          child: Row(
+                                          style: GoogleFonts.getFont(
+                                            'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .lightSecondaryText,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 11.0,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            '5solkni7' /*  at  */,
+                                          ),
+                                          style: GoogleFonts.getFont(
+                                            'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .lightSecondaryText,
+                                            fontWeight: FontWeight.w300,
+                                            fontSize: 11.0,
+                                          ),
+                                        ),
+                                        TextSpan(
+                                          text: dateTimeFormat(
+                                            'jm',
+                                            listViewMessagesRecord.timeSent!,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          style: GoogleFonts.getFont(
+                                            'Inter',
+                                            color: FlutterFlowTheme.of(context)
+                                                .lightSecondaryText,
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 11.0,
+                                          ),
+                                        )
+                                      ],
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                ),
+                              if (listViewMessagesRecord.user !=
+                                  currentUserReference)
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 8.0),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 0.0, 0.0, 0.0),
+                                            child: FutureBuilder<UsersRecord>(
+                                              future:
+                                                  UsersRecord.getDocumentOnce(
+                                                      listViewMessagesRecord
+                                                          .user!),
+                                              builder: (context, snapshot) {
+                                                // Customize what your widget looks like when it's loading.
+                                                if (!snapshot.hasData) {
+                                                  return Center(
+                                                    child: SizedBox(
+                                                      width: 75.0,
+                                                      height: 75.0,
+                                                      child: SpinKitRipple(
+                                                        color:
+                                                            Color(0xFF7F95AD),
+                                                        size: 75.0,
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                final circleImageUsersRecord =
+                                                    snapshot.data!;
+                                                return InkWell(
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  focusColor:
+                                                      Colors.transparent,
+                                                  hoverColor:
+                                                      Colors.transparent,
+                                                  highlightColor:
+                                                      Colors.transparent,
+                                                  onTap: () async {
+                                                    context.pushNamed(
+                                                      'OtherUserProfile',
+                                                      queryParameters: {
+                                                        'selectedUser':
+                                                            serializeParam(
+                                                          circleImageUsersRecord,
+                                                          ParamType.Document,
+                                                        ),
+                                                        'selectedUserRef':
+                                                            serializeParam(
+                                                          circleImageUsersRecord
+                                                              .reference,
+                                                          ParamType
+                                                              .DocumentReference,
+                                                        ),
+                                                      }.withoutNulls,
+                                                      extra: <String, dynamic>{
+                                                        'selectedUser':
+                                                            circleImageUsersRecord,
+                                                      },
+                                                    );
+                                                  },
+                                                  child: Container(
+                                                    width: 35.0,
+                                                    height: 35.0,
+                                                    clipBehavior:
+                                                        Clip.antiAlias,
+                                                    decoration: BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                    child: CachedNetworkImage(
+                                                      fadeInDuration: Duration(
+                                                          milliseconds: 500),
+                                                      fadeOutDuration: Duration(
+                                                          milliseconds: 500),
+                                                      imageUrl: valueOrDefault<
+                                                          String>(
+                                                        circleImageUsersRecord
+                                                            .photoUrl,
+                                                        'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
+                                                      ),
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            ),
+                                          ),
+                                          Column(
                                             mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.end,
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 0.0, 0.0, 0.0),
-                                                child:
-                                                    FutureBuilder<UsersRecord>(
-                                                  future: UsersRecord
-                                                      .getDocumentOnce(
-                                                          columnMessagesRecord
-                                                              .user!),
-                                                  builder: (context, snapshot) {
-                                                    // Customize what your widget looks like when it's loading.
-                                                    if (!snapshot.hasData) {
-                                                      return Center(
-                                                        child: SizedBox(
-                                                          width: 75.0,
-                                                          height: 75.0,
-                                                          child: SpinKitRipple(
-                                                            color: Color(
-                                                                0xFF7F95AD),
-                                                            size: 75.0,
+                                              if (widget.chatChosen!.users
+                                                      .length >
+                                                  2)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 6.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      listViewMessagesRecord
+                                                          .userName,
+                                                      'Guest User',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .lightSecondaryText,
+                                                          fontSize: 11.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              if (listViewMessagesRecord
+                                                  .hasReply)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 8.0),
+                                                  child: FutureBuilder<
+                                                      MessagesRecord>(
+                                                    future: MessagesRecord
+                                                        .getDocumentOnce(
+                                                            listViewMessagesRecord
+                                                                .messageReplyingto!),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 75.0,
+                                                            height: 75.0,
+                                                            child:
+                                                                SpinKitRipple(
+                                                              color: Color(
+                                                                  0xFF7F95AD),
+                                                              size: 75.0,
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      final containerMessagesRecord =
+                                                          snapshot.data!;
+                                                      return Container(
+                                                        constraints:
+                                                            BoxConstraints(
+                                                          maxWidth:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width *
+                                                                  0.75,
+                                                        ),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondarySystemBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      8.0,
+                                                                      5.0,
+                                                                      8.0,
+                                                                      5.0),
+                                                          child: Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            children: [
+                                                              SvgPicture.asset(
+                                                                'assets/images/arrow-bend-up-right.svg',
+                                                                width: 30.0,
+                                                                height: 30.0,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                              Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      containerMessagesRecord
+                                                                          .userName,
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).secondary,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            5.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child: Text(
+                                                                      containerMessagesRecord
+                                                                          .messageText
+                                                                          .maybeHandleOverflow(
+                                                                        maxChars:
+                                                                            30,
+                                                                        replacement:
+                                                                            '…',
+                                                                      ),
+                                                                      style: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .override(
+                                                                            fontFamily:
+                                                                                'Inter',
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                            fontSize:
+                                                                                12.0,
+                                                                          ),
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
                                                       );
-                                                    }
-                                                    final circleImageUsersRecord =
-                                                        snapshot.data!;
-                                                    return InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        context.pushNamed(
-                                                          'OtherUserProfile',
-                                                          queryParameters: {
-                                                            'selectedUser':
-                                                                serializeParam(
-                                                              circleImageUsersRecord,
-                                                              ParamType
-                                                                  .Document,
-                                                            ),
-                                                            'selectedUserRef':
-                                                                serializeParam(
-                                                              circleImageUsersRecord
-                                                                  .reference,
-                                                              ParamType
-                                                                  .DocumentReference,
-                                                            ),
-                                                          }.withoutNulls,
-                                                          extra: <String,
-                                                              dynamic>{
-                                                            'selectedUser':
-                                                                circleImageUsersRecord,
-                                                          },
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        width: 35.0,
-                                                        height: 35.0,
-                                                        clipBehavior:
-                                                            Clip.antiAlias,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          shape:
-                                                              BoxShape.circle,
-                                                        ),
-                                                        child:
-                                                            CachedNetworkImage(
-                                                          fadeInDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          fadeOutDuration:
-                                                              Duration(
-                                                                  milliseconds:
-                                                                      500),
-                                                          imageUrl:
-                                                              valueOrDefault<
-                                                                  String>(
-                                                            circleImageUsersRecord
-                                                                .photoUrl,
-                                                            'https://icon-library.com/images/default-user-icon/default-user-icon-13.jpg',
-                                                          ),
-                                                          fit: BoxFit.cover,
-                                                        ),
-                                                      ),
-                                                    );
-                                                  },
+                                                    },
+                                                  ),
                                                 ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  if (widget.chatChosen!.users
-                                                          .length >
-                                                      2)
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  6.0),
-                                                      child: Text(
-                                                        valueOrDefault<String>(
-                                                          columnMessagesRecord
-                                                              .userName,
-                                                          'Guest User',
-                                                        ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .lightSecondaryText,
-                                                                  fontSize:
-                                                                      11.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  if (columnMessagesRecord
-                                                      .hasReply)
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  8.0),
-                                                      child: FutureBuilder<
-                                                          MessagesRecord>(
-                                                        future: MessagesRecord
-                                                            .getDocumentOnce(
-                                                                columnMessagesRecord
-                                                                    .messageReplyingto!),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 75.0,
-                                                                height: 75.0,
+                                              if (listViewMessagesRecord
+                                                          .textImagePath !=
+                                                      null &&
+                                                  listViewMessagesRecord
+                                                          .textImagePath !=
+                                                      '')
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 0.0, 8.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    10.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            await Navigator
+                                                                .push(
+                                                              context,
+                                                              PageTransition(
+                                                                type:
+                                                                    PageTransitionType
+                                                                        .fade,
                                                                 child:
-                                                                    SpinKitRipple(
-                                                                  color: Color(
-                                                                      0xFF7F95AD),
-                                                                  size: 75.0,
+                                                                    FlutterFlowExpandedImageView(
+                                                                  image:
+                                                                      CachedNetworkImage(
+                                                                    fadeInDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                500),
+                                                                    fadeOutDuration:
+                                                                        Duration(
+                                                                            milliseconds:
+                                                                                500),
+                                                                    imageUrl:
+                                                                        listViewMessagesRecord
+                                                                            .textImagePath,
+                                                                    fit: BoxFit
+                                                                        .contain,
+                                                                  ),
+                                                                  allowRotation:
+                                                                      false,
+                                                                  tag: listViewMessagesRecord
+                                                                      .textImagePath,
+                                                                  useHeroAnimation:
+                                                                      true,
                                                                 ),
                                                               ),
                                                             );
-                                                          }
-                                                          final containerMessagesRecord =
-                                                              snapshot.data!;
-                                                          return Container(
+                                                          },
+                                                          child: Hero(
+                                                            tag: listViewMessagesRecord
+                                                                .textImagePath,
+                                                            transitionOnUserGestures:
+                                                                true,
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                              child:
+                                                                  CachedNetworkImage(
+                                                                fadeInDuration:
+                                                                    Duration(
+                                                                        milliseconds:
+                                                                            500),
+                                                                fadeOutDuration:
+                                                                    Duration(
+                                                                        milliseconds:
+                                                                            500),
+                                                                imageUrl:
+                                                                    listViewMessagesRecord
+                                                                        .textImagePath,
+                                                                width: 200.0,
+                                                                height: 175.0,
+                                                                fit: BoxFit
+                                                                    .cover,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              if (listViewMessagesRecord.link !=
+                                                      null &&
+                                                  listViewMessagesRecord.link !=
+                                                      '')
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 8.0),
+                                                  child: custom_widgets
+                                                      .LinkPreviewWidget(
+                                                    width: 250.0,
+                                                    height: 250.0,
+                                                    link: listViewMessagesRecord
+                                                        .link,
+                                                  ),
+                                                ),
+                                              if (listViewMessagesRecord
+                                                          .pdfImage !=
+                                                      null &&
+                                                  listViewMessagesRecord
+                                                          .pdfImage !=
+                                                      '')
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 8.0),
+                                                  child: InkWell(
+                                                    splashColor:
+                                                        Colors.transparent,
+                                                    focusColor:
+                                                        Colors.transparent,
+                                                    hoverColor:
+                                                        Colors.transparent,
+                                                    highlightColor:
+                                                        Colors.transparent,
+                                                    onTap: () async {
+                                                      await showModalBottomSheet(
+                                                        isScrollControlled:
+                                                            true,
+                                                        backgroundColor:
+                                                            Color(0xFFB8B8B8),
+                                                        barrierColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .systemBackground,
+                                                        useSafeArea: true,
+                                                        context: context,
+                                                        builder: (context) {
+                                                          return WebViewAware(
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    Container(
+                                                                  height: MediaQuery.sizeOf(
+                                                                              context)
+                                                                          .height *
+                                                                      1.0,
+                                                                  child:
+                                                                      PDFViewerWidget(
+                                                                    pdfImageSelected:
+                                                                        listViewMessagesRecord,
+                                                                    pdfImageSelectedRef:
+                                                                        listViewMessagesRecord
+                                                                            .reference,
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
+                                                      ).then((value) =>
+                                                          safeSetState(() {}));
+                                                    },
+                                                    child: Container(
+                                                      width: 135.0,
+                                                      decoration: BoxDecoration(
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondarySystemBackground,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                      ),
+                                                      child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  '4try126l' /* PDF File */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .label,
+                                                                      fontSize:
+                                                                          16.0,
+                                                                    ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        4.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceEvenly,
+                                                              children: [
+                                                                Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    '96rfr7ye' /* Click to View */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                        fontSize:
+                                                                            12.0,
+                                                                      ),
+                                                                ),
+                                                                Icon(
+                                                                  Icons
+                                                                      .open_in_new_rounded,
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  size: 18.0,
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              if (!listViewMessagesRecord
+                                                      .personReactingList
+                                                      .contains(
+                                                          currentUserReference) &&
+                                                  (listViewMessagesRecord
+                                                              .messageText !=
+                                                          null &&
+                                                      listViewMessagesRecord
+                                                              .messageText !=
+                                                          ''))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Container(
                                                             constraints:
                                                                 BoxConstraints(
                                                               maxWidth: MediaQuery
                                                                           .sizeOf(
                                                                               context)
                                                                       .width *
-                                                                  0.75,
+                                                                  0.7,
+                                                              maxHeight: double
+                                                                  .infinity,
                                                             ),
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondarySystemBackground,
                                                               borderRadius:
                                                                   BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                            ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          5.0,
-                                                                          8.0,
-                                                                          5.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .min,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  SvgPicture
-                                                                      .asset(
-                                                                    'assets/images/arrow-bend-up-right.svg',
-                                                                    width: 30.0,
-                                                                    height:
-                                                                        30.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  ),
-                                                                  Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          containerMessagesRecord
-                                                                              .userName,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Inter',
-                                                                                color: FlutterFlowTheme.of(context).secondary,
-                                                                                fontSize: 12.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            5.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          containerMessagesRecord
-                                                                              .messageText
-                                                                              .maybeHandleOverflow(
-                                                                            maxChars:
-                                                                                30,
-                                                                            replacement:
-                                                                                '…',
-                                                                          ),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: 'Inter',
-                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                fontSize: 12.0,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ],
+                                                                      .only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        12.0),
                                                               ),
                                                             ),
-                                                          );
-                                                        },
-                                                      ),
-                                                    ),
-                                                  if (columnMessagesRecord
-                                                              .textImagePath !=
-                                                          null &&
-                                                      columnMessagesRecord
-                                                              .textImagePath !=
-                                                          '')
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  8.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        0.0,
-                                                                        0.0),
                                                             child: InkWell(
                                                               splashColor: Colors
                                                                   .transparent,
@@ -1255,135 +1459,1620 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                   Colors
                                                                       .transparent,
                                                               onTap: () async {
-                                                                await Navigator
-                                                                    .push(
-                                                                  context,
-                                                                  PageTransition(
-                                                                    type: PageTransitionType
-                                                                        .fade,
-                                                                    child:
-                                                                        FlutterFlowExpandedImageView(
-                                                                      image:
-                                                                          CachedNetworkImage(
-                                                                        fadeInDuration:
-                                                                            Duration(milliseconds: 500),
-                                                                        fadeOutDuration:
-                                                                            Duration(milliseconds: 500),
-                                                                        imageUrl:
-                                                                            columnMessagesRecord.textImagePath,
-                                                                        fit: BoxFit
-                                                                            .contain,
-                                                                      ),
-                                                                      allowRotation:
-                                                                          false,
-                                                                      tag: columnMessagesRecord
-                                                                          .textImagePath,
-                                                                      useHeroAnimation:
-                                                                          true,
-                                                                    ),
+                                                                await listViewMessagesRecord
+                                                                    .reference
+                                                                    .update({
+                                                                  ...mapToFirestore(
+                                                                    {
+                                                                      'personReactingList':
+                                                                          FieldValue
+                                                                              .arrayUnion([
+                                                                        currentUserReference
+                                                                      ]),
+                                                                    },
                                                                   ),
-                                                                );
+                                                                });
                                                               },
-                                                              child: Hero(
-                                                                tag: columnMessagesRecord
-                                                                    .textImagePath,
-                                                                transitionOnUserGestures:
-                                                                    true,
-                                                                child:
-                                                                    ClipRRect(
+                                                              onLongPress:
+                                                                  () async {
+                                                                await currentUserReference!
+                                                                    .update(
+                                                                        createUsersRecordData(
+                                                                  messageReplyingTo:
+                                                                      listViewMessagesRecord
+                                                                          .reference,
+                                                                ));
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                          .replying =
+                                                                      true;
+                                                                });
+                                                              },
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondarySystemBackground,
                                                                   borderRadius:
                                                                       BorderRadius
-                                                                          .circular(
-                                                                              12.0),
-                                                                  child:
-                                                                      CachedNetworkImage(
-                                                                    fadeInDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                500),
-                                                                    fadeOutDuration:
-                                                                        Duration(
-                                                                            milliseconds:
-                                                                                500),
-                                                                    imageUrl:
-                                                                        columnMessagesRecord
-                                                                            .textImagePath,
-                                                                    width: MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.5,
-                                                                    height:
-                                                                        MediaQuery.sizeOf(context).height *
-                                                                            0.2,
-                                                                    fit: BoxFit
-                                                                        .cover,
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            12.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            12.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            12.0),
+                                                                  ),
+                                                                ),
+                                                                child: Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              10.0),
+                                                                  child: Text(
+                                                                    listViewMessagesRecord
+                                                                        .messageText,
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .start,
+                                                                    style: GoogleFonts
+                                                                        .getFont(
+                                                                      'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .label,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      fontSize:
+                                                                          15.5,
+                                                                      height:
+                                                                          1.35,
+                                                                    ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
                                                           ),
+                                                          if (listViewMessagesRecord
+                                                              .edited)
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'knnuox95' /* (edited) */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                      fontSize:
+                                                                          10.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
+                                                              (listViewMessagesRecord
+                                                                      .messageCriedBy
+                                                                      .length >
+                                                                  0) ||
+                                                              (listViewMessagesRecord
+                                                                      .messageLikedBy
+                                                                      .length >
+                                                                  0))
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          6.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Container(
+                                                                height: 25.0,
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .transparent,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                ),
+                                                                child: InkWell(
+                                                                  splashColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  focusColor: Colors
+                                                                      .transparent,
+                                                                  hoverColor: Colors
+                                                                      .transparent,
+                                                                  highlightColor:
+                                                                      Colors
+                                                                          .transparent,
+                                                                  onTap:
+                                                                      () async {
+                                                                    await showModalBottomSheet(
+                                                                      isScrollControlled:
+                                                                          true,
+                                                                      backgroundColor:
+                                                                          Colors
+                                                                              .transparent,
+                                                                      barrierColor:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .opagueSeparator,
+                                                                      context:
+                                                                          context,
+                                                                      builder:
+                                                                          (context) {
+                                                                        return WebViewAware(
+                                                                          child:
+                                                                              GestureDetector(
+                                                                            onTap: () => _model.unfocusNode.canRequestFocus
+                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                                : FocusScope.of(context).unfocus(),
+                                                                            child:
+                                                                                Padding(
+                                                                              padding: MediaQuery.viewInsetsOf(context),
+                                                                              child: Container(
+                                                                                height: MediaQuery.sizeOf(context).height * 0.6,
+                                                                                child: UserReactionsWidget(
+                                                                                  grouptoEdit: widget.chatChosen,
+                                                                                  chosenMessage: listViewMessagesRecord.reference,
+                                                                                  chosenMessageDoc: listViewMessagesRecord,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        );
+                                                                      },
+                                                                    ).then((value) =>
+                                                                        safeSetState(
+                                                                            () {}));
+                                                                  },
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .center,
+                                                                    children: [
+                                                                      if (listViewMessagesRecord
+                                                                              .messageLikedBy
+                                                                              .length >
+                                                                          0)
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              4.0,
+                                                                              0.0,
+                                                                              4.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidHeart,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).worshipRing,
+                                                                            size:
+                                                                                18.0,
+                                                                          ),
+                                                                        ),
+                                                                      if (listViewMessagesRecord
+                                                                              .messageCriedBy
+                                                                              .length >
+                                                                          0)
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              4.0,
+                                                                              0.0,
+                                                                              4.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidSadCry,
+                                                                            color:
+                                                                                Color(0xFF6D6DAE),
+                                                                            size:
+                                                                                18.0,
+                                                                          ),
+                                                                        ),
+                                                                      if (listViewMessagesRecord
+                                                                              .messageLaughedBy
+                                                                              .length >
+                                                                          0)
+                                                                        Padding(
+                                                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                                                              4.0,
+                                                                              0.0,
+                                                                              4.0,
+                                                                              0.0),
+                                                                          child:
+                                                                              FaIcon(
+                                                                            FontAwesomeIcons.solidLaughSquint,
+                                                                            color:
+                                                                                FlutterFlowTheme.of(context).worshipRing,
+                                                                            size:
+                                                                                18.0,
+                                                                          ),
+                                                                        ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
                                                         ],
                                                       ),
-                                                    ),
-                                                  if (columnMessagesRecord
-                                                              .link !=
-                                                          null &&
-                                                      columnMessagesRecord
-                                                              .link !=
-                                                          '')
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  8.0),
-                                                      child: custom_widgets
-                                                          .LinkPreviewWidget(
-                                                        width: 250.0,
-                                                        height: 250.0,
-                                                        link:
-                                                            columnMessagesRecord
-                                                                .link,
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              if (listViewMessagesRecord
+                                                                  .pin)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .thumbtack,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    size: 18.0,
+                                                                  ),
+                                                                ),
+                                                            ],
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ),
-                                                  if (columnMessagesRecord
-                                                              .pdfImage !=
+                                                    ],
+                                                  ),
+                                                ),
+                                              if (listViewMessagesRecord
+                                                      .personReactingList
+                                                      .contains(
+                                                          currentUserReference) &&
+                                                  (listViewMessagesRecord
+                                                              .messageText !=
                                                           null &&
-                                                      columnMessagesRecord
-                                                              .pdfImage !=
-                                                          '')
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  8.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          await showModalBottomSheet(
-                                                            isScrollControlled:
-                                                                true,
-                                                            backgroundColor:
-                                                                Color(
-                                                                    0xFFB8B8B8),
-                                                            barrierColor: Color(
-                                                                0x00000000),
-                                                            context: context,
-                                                            builder: (context) {
-                                                              return WebViewAware(
+                                                      listViewMessagesRecord
+                                                              .messageText !=
+                                                          ''))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Container(
+                                                            constraints:
+                                                                BoxConstraints(
+                                                              maxWidth: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width *
+                                                                  0.7,
+                                                              maxHeight: double
+                                                                  .infinity,
+                                                            ),
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .only(
+                                                                bottomLeft: Radius
+                                                                    .circular(
+                                                                        0.0),
+                                                                bottomRight: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                                topLeft: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                                topRight: Radius
+                                                                    .circular(
+                                                                        12.0),
+                                                              ),
+                                                            ),
+                                                            child: InkWell(
+                                                              splashColor: Colors
+                                                                  .transparent,
+                                                              focusColor: Colors
+                                                                  .transparent,
+                                                              hoverColor: Colors
+                                                                  .transparent,
+                                                              highlightColor:
+                                                                  Colors
+                                                                      .transparent,
+                                                              onTap: () async {
+                                                                await listViewMessagesRecord
+                                                                    .reference
+                                                                    .update({
+                                                                  ...mapToFirestore(
+                                                                    {
+                                                                      'personReactingList':
+                                                                          FieldValue
+                                                                              .arrayRemove([
+                                                                        currentUserReference
+                                                                      ]),
+                                                                    },
+                                                                  ),
+                                                                });
+                                                              },
+                                                              onLongPress:
+                                                                  () async {
+                                                                await currentUserReference!
+                                                                    .update(
+                                                                        createUsersRecordData(
+                                                                  messageReplyingTo:
+                                                                      listViewMessagesRecord
+                                                                          .reference,
+                                                                ));
+                                                                setState(() {
+                                                                  FFAppState()
+                                                                          .replying =
+                                                                      true;
+                                                                });
+                                                              },
+                                                              child: Container(
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondarySystemBackground,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .only(
+                                                                    bottomLeft:
+                                                                        Radius.circular(
+                                                                            0.0),
+                                                                    bottomRight:
+                                                                        Radius.circular(
+                                                                            12.0),
+                                                                    topLeft: Radius
+                                                                        .circular(
+                                                                            12.0),
+                                                                    topRight: Radius
+                                                                        .circular(
+                                                                            12.0),
+                                                                  ),
+                                                                ),
+                                                                child: Padding(
+                                                                  padding:
+                                                                      EdgeInsets
+                                                                          .all(
+                                                                              10.0),
+                                                                  child: Text(
+                                                                    listViewMessagesRecord
+                                                                        .messageText,
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .start,
+                                                                    style: GoogleFonts
+                                                                        .getFont(
+                                                                      'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .label,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .normal,
+                                                                      fontSize:
+                                                                          15.5,
+                                                                      height:
+                                                                          1.35,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          if (listViewMessagesRecord
+                                                              .edited)
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          4.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                              child: Text(
+                                                                FFLocalizations.of(
+                                                                        context)
+                                                                    .getText(
+                                                                  'pvm8f1af' /* (edited) */,
+                                                                ),
+                                                                style: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Inter',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                      fontSize:
+                                                                          10.0,
+                                                                    ),
+                                                              ),
+                                                            ),
+                                                          if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
+                                                              (listViewMessagesRecord
+                                                                      .messageCriedBy
+                                                                      .length >
+                                                                  0) ||
+                                                              (listViewMessagesRecord
+                                                                      .messageLikedBy
+                                                                      .length >
+                                                                  0))
+                                                            Align(
+                                                              alignment:
+                                                                  AlignmentDirectional(
+                                                                      0.0, 0.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child:
+                                                                    Container(
+                                                                  height: 25.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
                                                                   child:
-                                                                      GestureDetector(
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await showModalBottomSheet(
+                                                                        isScrollControlled:
+                                                                            true,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        barrierColor:
+                                                                            FlutterFlowTheme.of(context).opagueSeparator,
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (context) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                GestureDetector(
+                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                child: Container(
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.6,
+                                                                                  child: UserReactionsWidget(
+                                                                                    grouptoEdit: widget.chatChosen,
+                                                                                    chosenMessage: listViewMessagesRecord.reference,
+                                                                                    chosenMessageDoc: listViewMessagesRecord,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          safeSetState(
+                                                                              () {}));
+                                                                    },
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        if (listViewMessagesRecord.messageLikedBy.length >
+                                                                            0)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                4.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidHeart,
+                                                                              color: FlutterFlowTheme.of(context).worshipRing,
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                        if (listViewMessagesRecord.messageCriedBy.length >
+                                                                            0)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                4.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidSadCry,
+                                                                              color: Color(0xFF6D6DAE),
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                        if (listViewMessagesRecord.messageLaughedBy.length >
+                                                                            0)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                4.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidLaughSquint,
+                                                                              color: FlutterFlowTheme.of(context).worshipRing,
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                        ],
+                                                      ),
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        children: [
+                                                          Row(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .max,
+                                                            children: [
+                                                              if (listViewMessagesRecord
+                                                                  .pin)
+                                                                Padding(
+                                                                  padding: EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: FaIcon(
+                                                                    FontAwesomeIcons
+                                                                        .thumbtack,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    size: 18.0,
+                                                                  ),
+                                                                ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              if (listViewMessagesRecord
+                                                  .personReactingList
+                                                  .contains(
+                                                      currentUserReference))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Container(
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    14.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    14.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    14.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    14.0),
+                                                          ),
+                                                          border: Border.all(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primary,
+                                                          ),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  2.0),
+                                                          child: Container(
+                                                            decoration:
+                                                                BoxDecoration(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          12.0),
+                                                            ),
+                                                            child: Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          8.0,
+                                                                          2.0,
+                                                                          8.0,
+                                                                          2.0),
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  Align(
+                                                                    alignment:
+                                                                        AlignmentDirectional(
+                                                                            0.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          6.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Container(
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(8.0),
+                                                                        ),
+                                                                        child:
+                                                                            Row(
+                                                                          mainAxisSize:
+                                                                              MainAxisSize.max,
+                                                                          children: [
+                                                                            if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference))
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                child: InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    HapticFeedback.lightImpact();
+                                                                                    if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                      await listViewMessagesRecord.reference.update({
+                                                                                        ...mapToFirestore(
+                                                                                          {
+                                                                                            'messageLikedBy': FieldValue.arrayRemove([
+                                                                                              currentUserReference
+                                                                                            ]),
+                                                                                            'personReactingList': FieldValue.arrayRemove([
+                                                                                              currentUserReference
+                                                                                            ]),
+                                                                                          },
+                                                                                        ),
+                                                                                      });
+                                                                                    }
+                                                                                  },
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    children: [
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.solidHeart,
+                                                                                        color: FlutterFlowTheme.of(context).worshipRing,
+                                                                                        size: 22.0,
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            if (!listViewMessagesRecord.messageLikedBy.contains(currentUserReference))
+                                                                              Padding(
+                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                                child: InkWell(
+                                                                                  splashColor: Colors.transparent,
+                                                                                  focusColor: Colors.transparent,
+                                                                                  hoverColor: Colors.transparent,
+                                                                                  highlightColor: Colors.transparent,
+                                                                                  onTap: () async {
+                                                                                    HapticFeedback.lightImpact();
+                                                                                    if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                      return;
+                                                                                    }
+
+                                                                                    await listViewMessagesRecord.reference.update({
+                                                                                      ...mapToFirestore(
+                                                                                        {
+                                                                                          'messageLikedBy': FieldValue.arrayUnion([
+                                                                                            currentUserReference
+                                                                                          ]),
+                                                                                          'personReactingList': FieldValue.arrayRemove([
+                                                                                            currentUserReference
+                                                                                          ]),
+                                                                                        },
+                                                                                      ),
+                                                                                    });
+                                                                                    triggerPushNotification(
+                                                                                      notificationTitle: 'New Message',
+                                                                                      notificationText: '${currentUserDisplayName} loved \"${listViewMessagesRecord.messageText}\"',
+                                                                                      notificationImageUrl: currentUserPhoto,
+                                                                                      userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                      initialPageName: 'ChatPage',
+                                                                                      parameterData: {
+                                                                                        'chatChosen': widget.chatChosen,
+                                                                                        'chatUsers': widget.chatUsers,
+                                                                                        'otherUserDoc': widget.otherUserDoc,
+                                                                                        'otherUserRef': widget.otherUserRef,
+                                                                                      },
+                                                                                    );
+
+                                                                                    await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                      lastMessage: '${currentUserDisplayName} loved \"${listViewMessagesRecord.messageText}\"',
+                                                                                      lastMessageTime: getCurrentTimestamp,
+                                                                                      lastMessageSentBy: currentUserReference,
+                                                                                    ));
+                                                                                  },
+                                                                                  child: Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    mainAxisAlignment: MainAxisAlignment.center,
+                                                                                    children: [
+                                                                                      FaIcon(
+                                                                                        FontAwesomeIcons.heart,
+                                                                                        color: FlutterFlowTheme.of(context).worshipRing,
+                                                                                        size: 22.0,
+                                                                                      ),
+                                                                                      Padding(
+                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                fontFamily: 'Inter',
+                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                          ],
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Container(
+                                                                      decoration:
+                                                                          BoxDecoration(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(8.0),
+                                                                      ),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          if (listViewMessagesRecord
+                                                                              .messageCriedBy
+                                                                              .contains(currentUserReference))
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  HapticFeedback.lightImpact();
+                                                                                  if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                    await listViewMessagesRecord.reference.update({
+                                                                                      ...mapToFirestore(
+                                                                                        {
+                                                                                          'messageCriedBy': FieldValue.arrayRemove([
+                                                                                            currentUserReference
+                                                                                          ]),
+                                                                                          'personReactingList': FieldValue.arrayRemove([
+                                                                                            currentUserReference
+                                                                                          ]),
+                                                                                        },
+                                                                                      ),
+                                                                                    });
+                                                                                  }
+                                                                                },
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                                  children: [
+                                                                                    FaIcon(
+                                                                                      FontAwesomeIcons.solidSadCry,
+                                                                                      color: Color(0xFF6D6DAE),
+                                                                                      size: 22.0,
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Inter',
+                                                                                              color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          if (!listViewMessagesRecord
+                                                                              .messageCriedBy
+                                                                              .contains(currentUserReference))
+                                                                            Padding(
+                                                                              padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
+                                                                              child: InkWell(
+                                                                                splashColor: Colors.transparent,
+                                                                                focusColor: Colors.transparent,
+                                                                                hoverColor: Colors.transparent,
+                                                                                highlightColor: Colors.transparent,
+                                                                                onTap: () async {
+                                                                                  HapticFeedback.lightImpact();
+                                                                                  if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                    return;
+                                                                                  }
+
+                                                                                  await listViewMessagesRecord.reference.update({
+                                                                                    ...mapToFirestore(
+                                                                                      {
+                                                                                        'messageCriedBy': FieldValue.arrayUnion([
+                                                                                          currentUserReference
+                                                                                        ]),
+                                                                                        'personReactingList': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
+                                                                                      },
+                                                                                    ),
+                                                                                  });
+                                                                                  triggerPushNotification(
+                                                                                    notificationTitle: 'New Message',
+                                                                                    notificationText: '${currentUserDisplayName} cried at \"${listViewMessagesRecord.messageText}\"',
+                                                                                    notificationImageUrl: currentUserPhoto,
+                                                                                    userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                    initialPageName: 'ChatPage',
+                                                                                    parameterData: {
+                                                                                      'chatChosen': widget.chatChosen,
+                                                                                      'chatUsers': widget.chatUsers,
+                                                                                      'otherUserDoc': widget.otherUserDoc,
+                                                                                      'otherUserRef': widget.otherUserRef,
+                                                                                    },
+                                                                                  );
+
+                                                                                  await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                    lastMessage: '${currentUserDisplayName} cried at \"${listViewMessagesRecord.messageText}\"',
+                                                                                    lastMessageTime: getCurrentTimestamp,
+                                                                                    lastMessageSentBy: currentUserReference,
+                                                                                  ));
+                                                                                },
+                                                                                child: Row(
+                                                                                  mainAxisSize: MainAxisSize.max,
+                                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                                  children: [
+                                                                                    FaIcon(
+                                                                                      FontAwesomeIcons.sadCry,
+                                                                                      color: Color(0xFF6D6DAE),
+                                                                                      size: 22.0,
+                                                                                    ),
+                                                                                    Padding(
+                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                      child: Text(
+                                                                                        listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                              fontFamily: 'Inter',
+                                                                                              color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                            ),
+                                                                                      ),
+                                                                                    ),
+                                                                                  ],
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              8.0),
+                                                                    ),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        if (listViewMessagesRecord
+                                                                            .messageLaughedBy
+                                                                            .contains(currentUserReference))
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                2.0,
+                                                                                0.0,
+                                                                                2.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.lightImpact();
+                                                                                if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                  await listViewMessagesRecord.reference.update({
+                                                                                    ...mapToFirestore(
+                                                                                      {
+                                                                                        'messageLaughedBy': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
+                                                                                        'personReactingList': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
+                                                                                      },
+                                                                                    ),
+                                                                                  });
+                                                                                }
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.solidLaughSquint,
+                                                                                    color: FlutterFlowTheme.of(context).worshipRing,
+                                                                                    size: 22.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        if (!listViewMessagesRecord
+                                                                            .messageLaughedBy
+                                                                            .contains(currentUserReference))
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                2.0,
+                                                                                0.0,
+                                                                                2.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.lightImpact();
+                                                                                if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                  return;
+                                                                                }
+
+                                                                                await listViewMessagesRecord.reference.update({
+                                                                                  ...mapToFirestore(
+                                                                                    {
+                                                                                      'messageLaughedBy': FieldValue.arrayUnion([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                      'personReactingList': FieldValue.arrayRemove([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                    },
+                                                                                  ),
+                                                                                });
+                                                                                triggerPushNotification(
+                                                                                  notificationTitle: 'New Message',
+                                                                                  notificationText: '${currentUserDisplayName} laughed at \"${listViewMessagesRecord.messageText}\"',
+                                                                                  notificationImageUrl: currentUserPhoto,
+                                                                                  userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                  initialPageName: 'ChatPage',
+                                                                                  parameterData: {
+                                                                                    'chatChosen': widget.chatChosen,
+                                                                                    'chatUsers': widget.chatUsers,
+                                                                                    'otherUserDoc': widget.otherUserDoc,
+                                                                                    'otherUserRef': widget.otherUserRef,
+                                                                                  },
+                                                                                );
+
+                                                                                await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                  lastMessage: '${currentUserDisplayName} laughed at \"${listViewMessagesRecord.messageText}\"',
+                                                                                  lastMessageTime: getCurrentTimestamp,
+                                                                                  lastMessageSentBy: currentUserReference,
+                                                                                ));
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.center,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.laughSquint,
+                                                                                    color: FlutterFlowTheme.of(context).worshipRing,
+                                                                                    size: 22.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              if (listViewMessagesRecord
+                                                  .personReactingList
+                                                  .contains(
+                                                      currentUserReference))
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 6.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    dateTimeFormat(
+                                                      'relative',
+                                                      listViewMessagesRecord
+                                                          .timeSent!,
+                                                      locale:
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .languageCode,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .lightSecondaryText,
+                                                          fontSize: 10.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                              if (listViewMessagesRecord
+                                                      .prayerRequest !=
+                                                  null)
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 40.0, 0.0),
+                                                  child: StreamBuilder<
+                                                      PrayerRequestsRecord>(
+                                                    stream: PrayerRequestsRecord
+                                                        .getDocument(
+                                                            listViewMessagesRecord
+                                                                .prayerRequest!),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 75.0,
+                                                            height: 75.0,
+                                                            child:
+                                                                SpinKitRipple(
+                                                              color: Color(
+                                                                  0xFF7F95AD),
+                                                              size: 75.0,
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }
+                                                      final containerPrayerRequestsRecord =
+                                                          snapshot.data!;
+                                                      return Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                0.8,
+                                                        decoration:
+                                                            BoxDecoration(),
+                                                        child:
+                                                            CommunityPrayerRequestChatWidget(
+                                                          key: Key(
+                                                              'Key89a_${listViewIndex}_of_${listViewMessagesRecordList.length}'),
+                                                          chosenPrayerRequestDoc:
+                                                              containerPrayerRequestsRecord,
+                                                          chosenPrayerRequestRef:
+                                                              listViewMessagesRecord
+                                                                  .prayerRequest!,
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              if (listViewMessagesRecord.user ==
+                                  currentUserReference)
+                                Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 8.0),
+                                    child: Container(
+                                      constraints: BoxConstraints(
+                                        maxWidth:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: Colors.transparent,
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.end,
+                                              children: [
+                                                if (widget.chatChosen!.users
+                                                        .length >
+                                                    2)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 6.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        listViewMessagesRecord
+                                                            .userName,
+                                                        'Guest User',
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Inter',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .lightSecondaryText,
+                                                                fontSize: 11.0,
+                                                              ),
+                                                    ),
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                    .hasReply)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 8.0),
+                                                    child: FutureBuilder<
+                                                        MessagesRecord>(
+                                                      future: MessagesRecord
+                                                          .getDocumentOnce(
+                                                              listViewMessagesRecord
+                                                                  .messageReplyingto!),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 75.0,
+                                                              height: 75.0,
+                                                              child:
+                                                                  SpinKitRipple(
+                                                                color: Color(
+                                                                    0xFF7F95AD),
+                                                                size: 75.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        final containerMessagesRecord =
+                                                            snapshot.data!;
+                                                        return Container(
+                                                          constraints:
+                                                              BoxConstraints(
+                                                            maxWidth: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.75,
+                                                          ),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .secondarySystemBackground,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16.0),
+                                                          ),
+                                                          child: Padding(
+                                                            padding:
+                                                                EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        8.0,
+                                                                        5.0,
+                                                                        8.0,
+                                                                        5.0),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .start,
+                                                              children: [
+                                                                SvgPicture
+                                                                    .asset(
+                                                                  'assets/images/arrow-bend-up-right.svg',
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                                Column(
+                                                                  mainAxisSize:
+                                                                      MainAxisSize
+                                                                          .max,
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        containerMessagesRecord
+                                                                            .userName,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).secondary,
+                                                                              fontSize: 12.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                    Padding(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                                                          5.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0),
+                                                                      child:
+                                                                          Text(
+                                                                        containerMessagesRecord
+                                                                            .messageText
+                                                                            .maybeHandleOverflow(
+                                                                          maxChars:
+                                                                              30,
+                                                                          replacement:
+                                                                              '…',
+                                                                        ),
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              fontFamily: 'Inter',
+                                                                              color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                              fontSize: 12.0,
+                                                                            ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                            .textImagePath !=
+                                                        null &&
+                                                    listViewMessagesRecord
+                                                            .textImagePath !=
+                                                        '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                0.0, 8.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      10.0,
+                                                                      0.0),
+                                                          child: InkWell(
+                                                            splashColor: Colors
+                                                                .transparent,
+                                                            focusColor: Colors
+                                                                .transparent,
+                                                            hoverColor: Colors
+                                                                .transparent,
+                                                            highlightColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            onTap: () async {
+                                                              await Navigator
+                                                                  .push(
+                                                                context,
+                                                                PageTransition(
+                                                                  type:
+                                                                      PageTransitionType
+                                                                          .fade,
+                                                                  child:
+                                                                      FlutterFlowExpandedImageView(
+                                                                    image:
+                                                                        CachedNetworkImage(
+                                                                      fadeInDuration:
+                                                                          Duration(
+                                                                              milliseconds: 500),
+                                                                      fadeOutDuration:
+                                                                          Duration(
+                                                                              milliseconds: 500),
+                                                                      imageUrl:
+                                                                          listViewMessagesRecord
+                                                                              .textImagePath,
+                                                                      fit: BoxFit
+                                                                          .contain,
+                                                                    ),
+                                                                    allowRotation:
+                                                                        false,
+                                                                    tag: listViewMessagesRecord
+                                                                        .textImagePath,
+                                                                    useHeroAnimation:
+                                                                        true,
+                                                                  ),
+                                                                ),
+                                                              );
+                                                            },
+                                                            child: Hero(
+                                                              tag: listViewMessagesRecord
+                                                                  .textImagePath,
+                                                              transitionOnUserGestures:
+                                                                  true,
+                                                              child: ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            12.0),
+                                                                child:
+                                                                    CachedNetworkImage(
+                                                                  fadeInDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  fadeOutDuration:
+                                                                      Duration(
+                                                                          milliseconds:
+                                                                              500),
+                                                                  imageUrl:
+                                                                      listViewMessagesRecord
+                                                                          .textImagePath,
+                                                                  width: 200.0,
+                                                                  height: 175.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                            .link !=
+                                                        null &&
+                                                    listViewMessagesRecord
+                                                            .link !=
+                                                        '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 8.0),
+                                                    child: custom_widgets
+                                                        .LinkPreviewWidget(
+                                                      width: 250.0,
+                                                      height: 250.0,
+                                                      link:
+                                                          listViewMessagesRecord
+                                                              .link,
+                                                    ),
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                            .pdfImage !=
+                                                        null &&
+                                                    listViewMessagesRecord
+                                                            .pdfImage !=
+                                                        '')
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(10.0, 0.0,
+                                                                10.0, 8.0),
+                                                    child: InkWell(
+                                                      splashColor:
+                                                          Colors.transparent,
+                                                      focusColor:
+                                                          Colors.transparent,
+                                                      hoverColor:
+                                                          Colors.transparent,
+                                                      highlightColor:
+                                                          Colors.transparent,
+                                                      onTap: () async {
+                                                        await showModalBottomSheet(
+                                                          isScrollControlled:
+                                                              true,
+                                                          backgroundColor:
+                                                              Color(0xFFB8B8B8),
+                                                          barrierColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .systemBackground,
+                                                          useSafeArea: true,
+                                                          context: context,
+                                                          builder: (context) {
+                                                            return WebViewAware(
+                                                              child:
+                                                                  GestureDetector(
                                                                 onTap: () => _model
                                                                         .unfocusNode
                                                                         .canRequestFocus
@@ -1406,288 +3095,88 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                     child:
                                                                         PDFViewerWidget(
                                                                       pdfImageSelected:
-                                                                          columnMessagesRecord,
+                                                                          listViewMessagesRecord,
                                                                       pdfImageSelectedRef:
-                                                                          columnMessagesRecord
+                                                                          listViewMessagesRecord
                                                                               .reference,
                                                                     ),
                                                                   ),
                                                                 ),
-                                                              ));
-                                                            },
-                                                          ).then((value) =>
-                                                              safeSetState(
-                                                                  () {}));
-                                                        },
-                                                        child: Container(
-                                                          width:
-                                                              MediaQuery.sizeOf(
+                                                              ),
+                                                            );
+                                                          },
+                                                        ).then((value) =>
+                                                            safeSetState(
+                                                                () {}));
+                                                      },
+                                                      child: Container(
+                                                        width: 135.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondarySystemBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                Text(
+                                                                  FFLocalizations.of(
                                                                           context)
-                                                                      .width *
-                                                                  0.35,
-                                                          decoration:
-                                                              BoxDecoration(
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondarySystemBackground,
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        8.0),
-                                                          ),
-                                                          child: Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            children: [
-                                                              Row(
+                                                                      .getText(
+                                                                    '2refz5p7' /* PDF File */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .label,
+                                                                        fontSize:
+                                                                            16.0,
+                                                                      ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          0.0,
+                                                                          4.0),
+                                                              child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
                                                                 mainAxisAlignment:
                                                                     MainAxisAlignment
-                                                                        .center,
+                                                                        .spaceEvenly,
                                                                 children: [
                                                                   Text(
                                                                     FFLocalizations.of(
                                                                             context)
                                                                         .getText(
-                                                                      '4try126l' /* PDF File */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).label,
-                                                                          fontSize:
-                                                                              16.0,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            4.0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .spaceEvenly,
-                                                                  children: [
-                                                                    Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        '96rfr7ye' /* Click to View */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize:
-                                                                                12.0,
-                                                                          ),
-                                                                    ),
-                                                                    Icon(
-                                                                      Icons
-                                                                          .open_in_new_rounded,
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondary,
-                                                                      size:
-                                                                          18.0,
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  if (!columnMessagesRecord
-                                                          .personReactingList
-                                                          .contains(
-                                                              currentUserReference) &&
-                                                      (columnMessagesRecord
-                                                                  .messageText !=
-                                                              null &&
-                                                          columnMessagesRecord
-                                                                  .messageText !=
-                                                              ''))
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                constraints:
-                                                                    BoxConstraints(
-                                                                  maxWidth:
-                                                                      MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.7,
-                                                                  maxHeight: double
-                                                                      .infinity,
-                                                                ),
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            0.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                  ),
-                                                                ),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await columnMessagesRecord
-                                                                        .reference
-                                                                        .update({
-                                                                      ...mapToFirestore(
-                                                                        {
-                                                                          'personReactingList':
-                                                                              FieldValue.arrayUnion([
-                                                                            currentUserReference
-                                                                          ]),
-                                                                        },
-                                                                      ),
-                                                                    });
-                                                                  },
-                                                                  onLongPress:
-                                                                      () async {
-                                                                    await currentUserReference!
-                                                                        .update(
-                                                                            createUsersRecordData(
-                                                                      messageReplyingTo:
-                                                                          columnMessagesRecord
-                                                                              .reference,
-                                                                    ));
-                                                                    setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .replying =
-                                                                          true;
-                                                                    });
-                                                                  },
-                                                                  child:
-                                                                      Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondarySystemBackground,
-                                                                      borderRadius:
-                                                                          BorderRadius
-                                                                              .only(
-                                                                        bottomLeft:
-                                                                            Radius.circular(0.0),
-                                                                        bottomRight:
-                                                                            Radius.circular(12.0),
-                                                                        topLeft:
-                                                                            Radius.circular(12.0),
-                                                                        topRight:
-                                                                            Radius.circular(12.0),
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding:
-                                                                          EdgeInsets.all(
-                                                                              10.0),
-                                                                      child:
-                                                                          Text(
-                                                                        columnMessagesRecord
-                                                                            .messageText,
-                                                                        textAlign:
-                                                                            TextAlign.start,
-                                                                        style: GoogleFonts
-                                                                            .getFont(
-                                                                          'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).label,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontSize:
-                                                                              15.5,
-                                                                          height:
-                                                                              1.35,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              if (columnMessagesRecord
-                                                                  .edited)
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'knnuox95' /* (edited) */,
+                                                                      'mrya0cif' /* Click to View */,
                                                                     ),
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
@@ -1698,38 +3187,340 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                           color:
                                                                               FlutterFlowTheme.of(context).secondary,
                                                                           fontSize:
-                                                                              10.0,
+                                                                              12.0,
                                                                         ),
                                                                   ),
-                                                                ),
-                                                              if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                  (columnMessagesRecord
-                                                                          .messageCriedBy
-                                                                          .length >
-                                                                      0) ||
-                                                                  (columnMessagesRecord
-                                                                          .messageLikedBy
-                                                                          .length >
-                                                                      0))
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          6.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Container(
-                                                                    height:
-                                                                        25.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: Colors
-                                                                          .transparent,
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
+                                                                  Icon(
+                                                                    Icons
+                                                                        .open_in_new_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondary,
+                                                                    size: 18.0,
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                if (!listViewMessagesRecord
+                                                        .personReactingList
+                                                        .contains(
+                                                            currentUserReference) &&
+                                                    (listViewMessagesRecord
+                                                                .messageText !=
+                                                            null &&
+                                                        listViewMessagesRecord
+                                                                .messageText !=
+                                                            ''))
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                if (listViewMessagesRecord
+                                                                    .pin)
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            8.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .thumbtack,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                      size:
+                                                                          18.0,
                                                                     ),
+                                                                  ),
+                                                              ],
+                                                            ),
+                                                          ],
+                                                        ),
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            Container(
+                                                              constraints:
+                                                                  BoxConstraints(
+                                                                maxWidth: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    0.75,
+                                                                maxHeight: double
+                                                                    .infinity,
+                                                              ),
+                                                              decoration:
+                                                                  BoxDecoration(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                ),
+                                                              ),
+                                                              child: InkWell(
+                                                                splashColor: Colors
+                                                                    .transparent,
+                                                                focusColor: Colors
+                                                                    .transparent,
+                                                                hoverColor: Colors
+                                                                    .transparent,
+                                                                highlightColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                onTap:
+                                                                    () async {
+                                                                  await listViewMessagesRecord
+                                                                      .reference
+                                                                      .update({
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'personReactingList':
+                                                                            FieldValue.arrayUnion([
+                                                                          currentUserReference
+                                                                        ]),
+                                                                      },
+                                                                    ),
+                                                                  });
+                                                                },
+                                                                onLongPress:
+                                                                    () async {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    barrierColor:
+                                                                        Color(
+                                                                            0x80000000),
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            GestureDetector(
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
+                                                                            child:
+                                                                                EditMessageWidget(
+                                                                              usersMessage: listViewMessagesRecord.reference,
+                                                                              usersMessageDoc: listViewMessagesRecord,
+                                                                              messageChat: widget.chatChosen?.reference,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondarySystemBackground,
+                                                                    borderRadius:
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              0.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            10.0),
+                                                                    child: Text(
+                                                                      listViewMessagesRecord
+                                                                          .messageText,
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      style: GoogleFonts
+                                                                          .getFont(
+                                                                        'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .label,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontSize:
+                                                                            15.5,
+                                                                        height:
+                                                                            1.35,
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            if (listViewMessagesRecord
+                                                                .edited)
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'hrg4821r' /* (edited) */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                        fontSize:
+                                                                            10.0,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
+                                                                (listViewMessagesRecord
+                                                                        .messageCriedBy
+                                                                        .length >
+                                                                    0) ||
+                                                                (listViewMessagesRecord
+                                                                        .messageLikedBy
+                                                                        .length >
+                                                                    0))
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child:
+                                                                    Container(
+                                                                  height: 25.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await showModalBottomSheet(
+                                                                        isScrollControlled:
+                                                                            true,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        barrierColor:
+                                                                            FlutterFlowTheme.of(context).opagueSeparator,
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (context) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                GestureDetector(
+                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                child: Container(
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.6,
+                                                                                  child: UserReactionsWidget(
+                                                                                    grouptoEdit: widget.chatChosen,
+                                                                                    chosenMessage: listViewMessagesRecord.reference,
+                                                                                    chosenMessageDoc: listViewMessagesRecord,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          safeSetState(
+                                                                              () {}));
+                                                                    },
                                                                     child: Row(
                                                                       mainAxisSize:
                                                                           MainAxisSize
@@ -1738,7 +3529,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                           MainAxisAlignment
                                                                               .center,
                                                                       children: [
-                                                                        if (columnMessagesRecord.messageLikedBy.length >
+                                                                        if (listViewMessagesRecord.messageLikedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1753,7 +3544,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (columnMessagesRecord.messageCriedBy.length >
+                                                                        if (listViewMessagesRecord.messageCriedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1768,7 +3559,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                               size: 18.0,
                                                                             ),
                                                                           ),
-                                                                        if (columnMessagesRecord.messageLaughedBy.length >
+                                                                        if (listViewMessagesRecord.messageLaughedBy.length >
                                                                             0)
                                                                           Padding(
                                                                             padding: EdgeInsetsDirectional.fromSTEB(
@@ -1787,1150 +3578,105 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                     ),
                                                                   ),
                                                                 ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  if (columnMessagesRecord
-                                                                      .pin)
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          FaIcon(
-                                                                        FontAwesomeIcons
-                                                                            .thumbtack,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                        size:
-                                                                            18.0,
-                                                                      ),
-                                                                    ),
-                                                                ],
                                                               ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
+                                                          ],
+                                                        ),
+                                                      ],
                                                     ),
-                                                  if (columnMessagesRecord
-                                                          .personReactingList
-                                                          .contains(
-                                                              currentUserReference) &&
-                                                      (columnMessagesRecord
-                                                                  .messageText !=
-                                                              null &&
-                                                          columnMessagesRecord
-                                                                  .messageText !=
-                                                              ''))
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                constraints:
-                                                                    BoxConstraints(
-                                                                  maxWidth:
-                                                                      MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.7,
-                                                                  maxHeight: double
-                                                                      .infinity,
-                                                                ),
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .only(
-                                                                    bottomLeft:
-                                                                        Radius.circular(
-                                                                            0.0),
-                                                                    bottomRight:
-                                                                        Radius.circular(
-                                                                            12.0),
-                                                                    topLeft: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                    topRight: Radius
-                                                                        .circular(
-                                                                            12.0),
-                                                                  ),
-                                                                ),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onTap:
-                                                                      () async {
-                                                                    await columnMessagesRecord
-                                                                        .reference
-                                                                        .update({
-                                                                      ...mapToFirestore(
-                                                                        {
-                                                                          'personReactingList':
-                                                                              FieldValue.arrayRemove([
-                                                                            currentUserReference
-                                                                          ]),
-                                                                        },
-                                                                      ),
-                                                                    });
-                                                                  },
-                                                                  onLongPress:
-                                                                      () async {
-                                                                    await currentUserReference!
-                                                                        .update(
-                                                                            createUsersRecordData(
-                                                                      messageReplyingTo:
-                                                                          columnMessagesRecord
-                                                                              .reference,
-                                                                    ));
-                                                                    setState(
-                                                                        () {
-                                                                      FFAppState()
-                                                                              .replying =
-                                                                          true;
-                                                                    });
-                                                                  },
-                                                                  child:
-                                                                      Container(
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .secondarySystemBackground,
-                                                                      borderRadius:
-                                                                          BorderRadius
-                                                                              .only(
-                                                                        bottomLeft:
-                                                                            Radius.circular(0.0),
-                                                                        bottomRight:
-                                                                            Radius.circular(12.0),
-                                                                        topLeft:
-                                                                            Radius.circular(12.0),
-                                                                        topRight:
-                                                                            Radius.circular(12.0),
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding:
-                                                                          EdgeInsets.all(
-                                                                              10.0),
-                                                                      child:
-                                                                          Text(
-                                                                        columnMessagesRecord
-                                                                            .messageText,
-                                                                        textAlign:
-                                                                            TextAlign.start,
-                                                                        style: GoogleFonts
-                                                                            .getFont(
-                                                                          'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).label,
-                                                                          fontWeight:
-                                                                              FontWeight.normal,
-                                                                          fontSize:
-                                                                              15.5,
-                                                                          height:
-                                                                              1.35,
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              if (columnMessagesRecord
-                                                                  .edited)
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child: Text(
-                                                                    FFLocalizations.of(
-                                                                            context)
-                                                                        .getText(
-                                                                      'pvm8f1af' /* (edited) */,
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Inter',
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondary,
-                                                                          fontSize:
-                                                                              10.0,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                  (columnMessagesRecord
-                                                                          .messageCriedBy
-                                                                          .length >
-                                                                      0) ||
-                                                                  (columnMessagesRecord
-                                                                          .messageLikedBy
-                                                                          .length >
-                                                                      0))
-                                                                Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          0.0,
-                                                                          0.0),
-                                                                  child:
-                                                                      Padding(
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                        .personReactingList
+                                                        .contains(
+                                                            currentUserReference) &&
+                                                    (listViewMessagesRecord
+                                                                .messageText !=
+                                                            null &&
+                                                        listViewMessagesRecord
+                                                                .messageText !=
+                                                            ''))
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                if (listViewMessagesRecord
+                                                                    .pin)
+                                                                  Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
-                                                                            6.0,
                                                                             0.0,
+                                                                            8.0,
                                                                             0.0),
                                                                     child:
-                                                                        Container(
-                                                                      height:
-                                                                          25.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .transparent,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(8.0),
-                                                                      ),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children: [
-                                                                          if (columnMessagesRecord.messageLikedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidHeart,
-                                                                                color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                          if (columnMessagesRecord.messageCriedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidSadCry,
-                                                                                color: Color(0xFF6D6DAE),
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                          if (columnMessagesRecord.messageLaughedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidLaughSquint,
-                                                                                color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                        ],
-                                                                      ),
+                                                                        FaIcon(
+                                                                      FontAwesomeIcons
+                                                                          .thumbtack,
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .secondary,
+                                                                      size:
+                                                                          18.0,
                                                                     ),
                                                                   ),
-                                                                ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  if (columnMessagesRecord
-                                                                      .pin)
-                                                                    Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          8.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          FaIcon(
-                                                                        FontAwesomeIcons
-                                                                            .thumbtack,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                        size:
-                                                                            18.0,
-                                                                      ),
-                                                                    ),
-                                                                ],
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  if (columnMessagesRecord
-                                                      .personReactingList
-                                                      .contains(
-                                                          currentUserReference))
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  0.0,
-                                                                  4.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Container(
-                                                            decoration:
-                                                                BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .primary,
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          12.0),
-                                                              border:
-                                                                  Border.all(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                              ),
+                                                              ],
                                                             ),
-                                                            child: Padding(
-                                                              padding:
-                                                                  EdgeInsets
-                                                                      .all(2.0),
-                                                              child: Container(
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              12.0),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          8.0,
-                                                                          2.0,
-                                                                          8.0,
-                                                                          2.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .min,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceEvenly,
-                                                                    children: [
-                                                                      Align(
-                                                                        alignment: AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              0.0,
-                                                                              0.0,
-                                                                              6.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Container(
-                                                                            decoration:
-                                                                                BoxDecoration(
-                                                                              borderRadius: BorderRadius.circular(8.0),
-                                                                            ),
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              children: [
-                                                                                if (columnMessagesRecord.messageLikedBy.contains(currentUserReference))
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                    child: InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        HapticFeedback.lightImpact();
-                                                                                        if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
-                                                                                          await columnMessagesRecord.reference.update({
-                                                                                            ...mapToFirestore(
-                                                                                              {
-                                                                                                'messageLikedBy': FieldValue.arrayRemove([
-                                                                                                  currentUserReference
-                                                                                                ]),
-                                                                                                'personReactingList': FieldValue.arrayRemove([
-                                                                                                  currentUserReference
-                                                                                                ]),
-                                                                                              },
-                                                                                            ),
-                                                                                          });
-                                                                                        }
-                                                                                      },
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                        children: [
-                                                                                          FaIcon(
-                                                                                            FontAwesomeIcons.solidHeart,
-                                                                                            color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                            size: 22.0,
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                            child: Text(
-                                                                                              columnMessagesRecord.messageLikedBy.length.toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                if (!columnMessagesRecord.messageLikedBy.contains(currentUserReference))
-                                                                                  Padding(
-                                                                                    padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                    child: InkWell(
-                                                                                      splashColor: Colors.transparent,
-                                                                                      focusColor: Colors.transparent,
-                                                                                      hoverColor: Colors.transparent,
-                                                                                      highlightColor: Colors.transparent,
-                                                                                      onTap: () async {
-                                                                                        HapticFeedback.lightImpact();
-                                                                                        if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
-                                                                                          return;
-                                                                                        }
-
-                                                                                        await columnMessagesRecord.reference.update({
-                                                                                          ...mapToFirestore(
-                                                                                            {
-                                                                                              'messageLikedBy': FieldValue.arrayUnion([
-                                                                                                currentUserReference
-                                                                                              ]),
-                                                                                              'personReactingList': FieldValue.arrayRemove([
-                                                                                                currentUserReference
-                                                                                              ]),
-                                                                                            },
-                                                                                          ),
-                                                                                        });
-                                                                                        triggerPushNotification(
-                                                                                          notificationTitle: 'New Message',
-                                                                                          notificationText: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
-                                                                                          notificationImageUrl: currentUserPhoto,
-                                                                                          userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
-                                                                                          initialPageName: 'ChatPage',
-                                                                                          parameterData: {
-                                                                                            'chatChosen': widget.chatChosen,
-                                                                                            'chatUsers': widget.chatUsers,
-                                                                                            'otherUserDoc': widget.otherUserDoc,
-                                                                                            'otherUserRef': widget.otherUserRef,
-                                                                                          },
-                                                                                        );
-
-                                                                                        await widget.chatChosen!.reference.update(createMessageChatsRecordData(
-                                                                                          lastMessage: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
-                                                                                          lastMessageTime: getCurrentTimestamp,
-                                                                                          lastMessageSentBy: currentUserReference,
-                                                                                        ));
-                                                                                      },
-                                                                                      child: Row(
-                                                                                        mainAxisSize: MainAxisSize.max,
-                                                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                        children: [
-                                                                                          FaIcon(
-                                                                                            FontAwesomeIcons.heart,
-                                                                                            color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                            size: 22.0,
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                            child: Text(
-                                                                                              columnMessagesRecord.messageLikedBy.length.toString(),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                    fontFamily: 'Inter',
-                                                                                                    color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                              ],
-                                                                            ),
-                                                                          ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation1']!),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          decoration:
-                                                                              BoxDecoration(
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(8.0),
-                                                                          ),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              if (columnMessagesRecord.messageCriedBy.contains(currentUserReference))
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                  child: InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      HapticFeedback.lightImpact();
-                                                                                      if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
-                                                                                        await columnMessagesRecord.reference.update({
-                                                                                          ...mapToFirestore(
-                                                                                            {
-                                                                                              'messageCriedBy': FieldValue.arrayRemove([
-                                                                                                currentUserReference
-                                                                                              ]),
-                                                                                              'personReactingList': FieldValue.arrayRemove([
-                                                                                                currentUserReference
-                                                                                              ]),
-                                                                                            },
-                                                                                          ),
-                                                                                        });
-                                                                                      }
-                                                                                    },
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.solidSadCry,
-                                                                                          color: Color(0xFF6D6DAE),
-                                                                                          size: 22.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                          child: Text(
-                                                                                            columnMessagesRecord.messageCriedBy.length.toString(),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                              if (!columnMessagesRecord.messageCriedBy.contains(currentUserReference))
-                                                                                Padding(
-                                                                                  padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                  child: InkWell(
-                                                                                    splashColor: Colors.transparent,
-                                                                                    focusColor: Colors.transparent,
-                                                                                    hoverColor: Colors.transparent,
-                                                                                    highlightColor: Colors.transparent,
-                                                                                    onTap: () async {
-                                                                                      HapticFeedback.lightImpact();
-                                                                                      if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
-                                                                                        return;
-                                                                                      }
-
-                                                                                      await columnMessagesRecord.reference.update({
-                                                                                        ...mapToFirestore(
-                                                                                          {
-                                                                                            'messageCriedBy': FieldValue.arrayUnion([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                            'personReactingList': FieldValue.arrayRemove([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                          },
-                                                                                        ),
-                                                                                      });
-                                                                                      triggerPushNotification(
-                                                                                        notificationTitle: 'New Message',
-                                                                                        notificationText: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
-                                                                                        notificationImageUrl: currentUserPhoto,
-                                                                                        userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
-                                                                                        initialPageName: 'ChatPage',
-                                                                                        parameterData: {
-                                                                                          'chatChosen': widget.chatChosen,
-                                                                                          'chatUsers': widget.chatUsers,
-                                                                                          'otherUserDoc': widget.otherUserDoc,
-                                                                                          'otherUserRef': widget.otherUserRef,
-                                                                                        },
-                                                                                      );
-
-                                                                                      await widget.chatChosen!.reference.update(createMessageChatsRecordData(
-                                                                                        lastMessage: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
-                                                                                        lastMessageTime: getCurrentTimestamp,
-                                                                                        lastMessageSentBy: currentUserReference,
-                                                                                      ));
-                                                                                    },
-                                                                                    child: Row(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        FaIcon(
-                                                                                          FontAwesomeIcons.sadCry,
-                                                                                          color: Color(0xFF6D6DAE),
-                                                                                          size: 22.0,
-                                                                                        ),
-                                                                                        Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                          child: Text(
-                                                                                            columnMessagesRecord.messageCriedBy.length.toString(),
-                                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                  fontFamily: 'Inter',
-                                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                                ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                            ],
-                                                                          ),
-                                                                        ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation2']!),
-                                                                      ),
-                                                                      Container(
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                        ),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference))
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    HapticFeedback.lightImpact();
-                                                                                    if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
-                                                                                      await columnMessagesRecord.reference.update({
-                                                                                        ...mapToFirestore(
-                                                                                          {
-                                                                                            'messageLaughedBy': FieldValue.arrayRemove([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                            'personReactingList': FieldValue.arrayRemove([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                          },
-                                                                                        ),
-                                                                                      });
-                                                                                    }
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                    children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.solidLaughSquint,
-                                                                                        color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                        size: 22.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          columnMessagesRecord.messageLaughedBy.length.toString(),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
-                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                            if (!columnMessagesRecord.messageLaughedBy.contains(currentUserReference))
-                                                                              Padding(
-                                                                                padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 2.0, 0.0),
-                                                                                child: InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    HapticFeedback.lightImpact();
-                                                                                    if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
-                                                                                      return;
-                                                                                    }
-
-                                                                                    await columnMessagesRecord.reference.update({
-                                                                                      ...mapToFirestore(
-                                                                                        {
-                                                                                          'messageLaughedBy': FieldValue.arrayUnion([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                          'personReactingList': FieldValue.arrayRemove([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                        },
-                                                                                      ),
-                                                                                    });
-                                                                                    triggerPushNotification(
-                                                                                      notificationTitle: 'New Message',
-                                                                                      notificationText: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
-                                                                                      notificationImageUrl: currentUserPhoto,
-                                                                                      userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
-                                                                                      initialPageName: 'ChatPage',
-                                                                                      parameterData: {
-                                                                                        'chatChosen': widget.chatChosen,
-                                                                                        'chatUsers': widget.chatUsers,
-                                                                                        'otherUserDoc': widget.otherUserDoc,
-                                                                                        'otherUserRef': widget.otherUserRef,
-                                                                                      },
-                                                                                    );
-
-                                                                                    await widget.chatChosen!.reference.update(createMessageChatsRecordData(
-                                                                                      lastMessage: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
-                                                                                      lastMessageTime: getCurrentTimestamp,
-                                                                                      lastMessageSentBy: currentUserReference,
-                                                                                    ));
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                                                    children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.laughSquint,
-                                                                                        color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                        size: 22.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          columnMessagesRecord.messageLaughedBy.length.toString(),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
-                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                          ],
-                                                                        ),
-                                                                      ).animateOnPageLoad(
-                                                                          animationsMap[
-                                                                              'containerOnPageLoadAnimation3']!),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  if (columnMessagesRecord
-                                                      .personReactingList
-                                                      .contains(
-                                                          currentUserReference))
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  6.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        dateTimeFormat(
-                                                          'relative',
-                                                          columnMessagesRecord
-                                                              .timeSent!,
-                                                          locale:
-                                                              FFLocalizations.of(
-                                                                      context)
-                                                                  .languageCode,
+                                                          ],
                                                         ),
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Inter',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .lightSecondaryText,
-                                                                  fontSize:
-                                                                      10.0,
-                                                                ),
-                                                      ),
-                                                    ),
-                                                  if (columnMessagesRecord
-                                                          .prayerRequest !=
-                                                      null)
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  10.0,
-                                                                  0.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: StreamBuilder<
-                                                          PrayerRequestsRecord>(
-                                                        stream: PrayerRequestsRecord
-                                                            .getDocument(
-                                                                columnMessagesRecord
-                                                                    .prayerRequest!),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 75.0,
-                                                                height: 75.0,
-                                                                child:
-                                                                    SpinKitRipple(
-                                                                  color: Color(
-                                                                      0xFF7F95AD),
-                                                                  size: 75.0,
-                                                                ),
-                                                              ),
-                                                            );
-                                                          }
-                                                          final containerPrayerRequestsRecord =
-                                                              snapshot.data!;
-                                                          return Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                0.8,
-                                                            decoration:
-                                                                BoxDecoration(),
-                                                            child:
-                                                                CommunityPrayerRequestChatWidget(
-                                                              key: Key(
-                                                                  'Key89a_${columnIndex}_of_${columnMessagesRecordList.length}'),
-                                                              chosenPrayerRequestDoc:
-                                                                  containerPrayerRequestsRecord,
-                                                              chosenPrayerRequestRef:
-                                                                  columnMessagesRecord
-                                                                      .prayerRequest!,
-                                                            ),
-                                                          );
-                                                        },
-                                                      ),
-                                                    ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  if (columnMessagesRecord.user ==
-                                      currentUserReference)
-                                    Align(
-                                      alignment: AlignmentDirectional(0.0, 0.0),
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 8.0),
-                                        child: Container(
-                                          width:
-                                              MediaQuery.sizeOf(context).width *
-                                                  1.0,
-                                          constraints: BoxConstraints(
-                                            maxWidth: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                1.0,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: Colors.transparent,
-                                          ),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 0.0, 10.0, 0.0),
-                                                child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.end,
-                                                  children: [
-                                                    if (widget.chatChosen!.users
-                                                            .length >
-                                                        2)
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    6.0),
-                                                        child: Text(
-                                                          valueOrDefault<
-                                                              String>(
-                                                            columnMessagesRecord
-                                                                .userName,
-                                                            'Guest User',
-                                                          ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Inter',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .lightSecondaryText,
-                                                                fontSize: 11.0,
-                                                              ),
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                        .hasReply)
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    8.0),
-                                                        child: FutureBuilder<
-                                                            MessagesRecord>(
-                                                          future: MessagesRecord
-                                                              .getDocumentOnce(
-                                                                  columnMessagesRecord
-                                                                      .messageReplyingto!),
-                                                          builder: (context,
-                                                              snapshot) {
-                                                            // Customize what your widget looks like when it's loading.
-                                                            if (!snapshot
-                                                                .hasData) {
-                                                              return Center(
-                                                                child: SizedBox(
-                                                                  width: 75.0,
-                                                                  height: 75.0,
-                                                                  child:
-                                                                      SpinKitRipple(
-                                                                    color: Color(
-                                                                        0xFF7F95AD),
-                                                                    size: 75.0,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            }
-                                                            final containerMessagesRecord =
-                                                                snapshot.data!;
-                                                            return Container(
+                                                        Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .end,
+                                                          children: [
+                                                            Container(
                                                               constraints:
                                                                   BoxConstraints(
                                                                 maxWidth: MediaQuery.sizeOf(
                                                                             context)
                                                                         .width *
                                                                     0.75,
+                                                                maxHeight: double
+                                                                    .infinity,
                                                               ),
                                                               decoration:
                                                                   BoxDecoration(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondarySystemBackground,
                                                                 borderRadius:
                                                                     BorderRadius
-                                                                        .circular(
-                                                                            16.0),
-                                                              ),
-                                                              child: Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            8.0,
-                                                                            5.0,
-                                                                            8.0,
-                                                                            5.0),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .min,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .start,
-                                                                  children: [
-                                                                    SvgPicture
-                                                                        .asset(
-                                                                      'assets/images/arrow-bend-up-right.svg',
-                                                                      width:
-                                                                          30.0,
-                                                                      height:
-                                                                          30.0,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                    ),
-                                                                    Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            containerMessagesRecord.userName,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Inter',
-                                                                                  color: FlutterFlowTheme.of(context).secondary,
-                                                                                  fontSize: 12.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                        Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              5.0,
-                                                                              0.0,
-                                                                              0.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Text(
-                                                                            containerMessagesRecord.messageText.maybeHandleOverflow(
-                                                                              maxChars: 30,
-                                                                              replacement: '…',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Inter',
-                                                                                  color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                  fontSize: 12.0,
-                                                                                ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ],
+                                                                        .only(
+                                                                  bottomLeft: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                  bottomRight: Radius
+                                                                      .circular(
+                                                                          0.0),
+                                                                  topLeft: Radius
+                                                                      .circular(
+                                                                          12.0),
+                                                                  topRight: Radius
+                                                                      .circular(
+                                                                          12.0),
                                                                 ),
                                                               ),
-                                                            );
-                                                          },
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                                .textImagePath !=
-                                                            null &&
-                                                        columnMessagesRecord
-                                                                .textImagePath !=
-                                                            '')
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    8.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          0.0),
                                                               child: InkWell(
                                                                 splashColor: Colors
                                                                     .transparent,
@@ -2943,1219 +3689,360 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                         .transparent,
                                                                 onTap:
                                                                     () async {
-                                                                  await Navigator
-                                                                      .push(
-                                                                    context,
-                                                                    PageTransition(
-                                                                      type: PageTransitionType
-                                                                          .fade,
-                                                                      child:
-                                                                          FlutterFlowExpandedImageView(
-                                                                        image:
-                                                                            CachedNetworkImage(
-                                                                          fadeInDuration:
-                                                                              Duration(milliseconds: 500),
-                                                                          fadeOutDuration:
-                                                                              Duration(milliseconds: 500),
-                                                                          imageUrl:
-                                                                              columnMessagesRecord.textImagePath,
-                                                                          fit: BoxFit
-                                                                              .contain,
-                                                                        ),
-                                                                        allowRotation:
-                                                                            false,
-                                                                        tag: columnMessagesRecord
-                                                                            .textImagePath,
-                                                                        useHeroAnimation:
-                                                                            true,
-                                                                      ),
+                                                                  await listViewMessagesRecord
+                                                                      .reference
+                                                                      .update({
+                                                                    ...mapToFirestore(
+                                                                      {
+                                                                        'personReactingList':
+                                                                            FieldValue.arrayRemove([
+                                                                          currentUserReference
+                                                                        ]),
+                                                                      },
                                                                     ),
-                                                                  );
+                                                                  });
                                                                 },
-                                                                child: Hero(
-                                                                  tag: columnMessagesRecord
-                                                                      .textImagePath,
-                                                                  transitionOnUserGestures:
-                                                                      true,
-                                                                  child:
-                                                                      ClipRRect(
+                                                                onLongPress:
+                                                                    () async {
+                                                                  await showModalBottomSheet(
+                                                                    isScrollControlled:
+                                                                        true,
+                                                                    backgroundColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    barrierColor:
+                                                                        Color(
+                                                                            0x80000000),
+                                                                    context:
+                                                                        context,
+                                                                    builder:
+                                                                        (context) {
+                                                                      return WebViewAware(
+                                                                        child:
+                                                                            GestureDetector(
+                                                                          onTap: () => _model.unfocusNode.canRequestFocus
+                                                                              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+                                                                              : FocusScope.of(context).unfocus(),
+                                                                          child:
+                                                                              Padding(
+                                                                            padding:
+                                                                                MediaQuery.viewInsetsOf(context),
+                                                                            child:
+                                                                                EditMessageWidget(
+                                                                              usersMessage: listViewMessagesRecord.reference,
+                                                                              usersMessageDoc: listViewMessagesRecord,
+                                                                              messageChat: widget.chatChosen?.reference,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                  ).then((value) =>
+                                                                      safeSetState(
+                                                                          () {}));
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .secondarySystemBackground,
                                                                     borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            12.0),
-                                                                    child:
-                                                                        CachedNetworkImage(
-                                                                      fadeInDuration:
-                                                                          Duration(
-                                                                              milliseconds: 500),
-                                                                      fadeOutDuration:
-                                                                          Duration(
-                                                                              milliseconds: 500),
-                                                                      imageUrl:
-                                                                          columnMessagesRecord
-                                                                              .textImagePath,
-                                                                      width: MediaQuery.sizeOf(context)
-                                                                              .width *
-                                                                          0.5,
-                                                                      height:
-                                                                          MediaQuery.sizeOf(context).height *
-                                                                              0.2,
-                                                                      fit: BoxFit
-                                                                          .cover,
+                                                                        BorderRadius
+                                                                            .only(
+                                                                      bottomLeft:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                      bottomRight:
+                                                                          Radius.circular(
+                                                                              0.0),
+                                                                      topLeft: Radius
+                                                                          .circular(
+                                                                              12.0),
+                                                                      topRight:
+                                                                          Radius.circular(
+                                                                              12.0),
+                                                                    ),
+                                                                  ),
+                                                                  child:
+                                                                      Padding(
+                                                                    padding:
+                                                                        EdgeInsets.all(
+                                                                            10.0),
+                                                                    child: Text(
+                                                                      listViewMessagesRecord
+                                                                          .messageText,
+                                                                      textAlign:
+                                                                          TextAlign
+                                                                              .start,
+                                                                      style: GoogleFonts
+                                                                          .getFont(
+                                                                        'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .label,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                        fontSize:
+                                                                            15.5,
+                                                                        height:
+                                                                            1.35,
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                                .link !=
-                                                            null &&
-                                                        columnMessagesRecord
-                                                                .link !=
-                                                            '')
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    8.0),
-                                                        child: custom_widgets
-                                                            .LinkPreviewWidget(
-                                                          width: 250.0,
-                                                          height: 250.0,
-                                                          link:
-                                                              columnMessagesRecord
-                                                                  .link,
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                                .pdfImage !=
-                                                            null &&
-                                                        columnMessagesRecord
-                                                                .pdfImage !=
-                                                            '')
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    10.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    8.0),
-                                                        child: InkWell(
-                                                          splashColor: Colors
-                                                              .transparent,
-                                                          focusColor: Colors
-                                                              .transparent,
-                                                          hoverColor: Colors
-                                                              .transparent,
-                                                          highlightColor: Colors
-                                                              .transparent,
-                                                          onTap: () async {
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Color(
-                                                                      0xFFB8B8B8),
-                                                              barrierColor: Color(
-                                                                  0x00000000),
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return WebViewAware(
-                                                                    child:
-                                                                        GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
-                                                                    child:
-                                                                        Container(
-                                                                      height:
-                                                                          MediaQuery.sizeOf(context).height *
-                                                                              1.0,
-                                                                      child:
-                                                                          PDFViewerWidget(
-                                                                        pdfImageSelected:
-                                                                            columnMessagesRecord,
-                                                                        pdfImageSelectedRef:
-                                                                            columnMessagesRecord.reference,
+                                                            if (listViewMessagesRecord
+                                                                .edited)
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            4.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  FFLocalizations.of(
+                                                                          context)
+                                                                      .getText(
+                                                                    'fvy8lszl' /* (edited) */,
+                                                                  ),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Inter',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondary,
+                                                                        fontSize:
+                                                                            10.0,
                                                                       ),
+                                                                ),
+                                                              ),
+                                                            if ((listViewMessagesRecord.messageLaughedBy.length > 0) ||
+                                                                (listViewMessagesRecord
+                                                                        .messageCriedBy
+                                                                        .length >
+                                                                    0) ||
+                                                                (listViewMessagesRecord
+                                                                        .messageLikedBy
+                                                                        .length >
+                                                                    0))
+                                                              Padding(
+                                                                padding:
+                                                                    EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child:
+                                                                    Container(
+                                                                  height: 25.0,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: Colors
+                                                                        .transparent,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                  ),
+                                                                  child:
+                                                                      InkWell(
+                                                                    splashColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    focusColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    hoverColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    highlightColor:
+                                                                        Colors
+                                                                            .transparent,
+                                                                    onTap:
+                                                                        () async {
+                                                                      await showModalBottomSheet(
+                                                                        isScrollControlled:
+                                                                            true,
+                                                                        backgroundColor:
+                                                                            Colors.transparent,
+                                                                        barrierColor:
+                                                                            FlutterFlowTheme.of(context).opagueSeparator,
+                                                                        context:
+                                                                            context,
+                                                                        builder:
+                                                                            (context) {
+                                                                          return WebViewAware(
+                                                                            child:
+                                                                                GestureDetector(
+                                                                              onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+                                                                              child: Padding(
+                                                                                padding: MediaQuery.viewInsetsOf(context),
+                                                                                child: Container(
+                                                                                  height: MediaQuery.sizeOf(context).height * 0.6,
+                                                                                  child: UserReactionsWidget(
+                                                                                    grouptoEdit: widget.chatChosen,
+                                                                                    chosenMessage: listViewMessagesRecord.reference,
+                                                                                    chosenMessageDoc: listViewMessagesRecord,
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        },
+                                                                      ).then((value) =>
+                                                                          safeSetState(
+                                                                              () {}));
+                                                                    },
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        if (listViewMessagesRecord.messageLikedBy.length >
+                                                                            0)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                4.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidHeart,
+                                                                              color: FlutterFlowTheme.of(context).worshipRing,
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                        if (listViewMessagesRecord.messageCriedBy.length >
+                                                                            0)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                4.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidSadCry,
+                                                                              color: Color(0xFF6D6DAE),
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                        if (listViewMessagesRecord.messageLaughedBy.length >
+                                                                            0)
+                                                                          Padding(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
+                                                                                4.0,
+                                                                                0.0,
+                                                                                4.0,
+                                                                                0.0),
+                                                                            child:
+                                                                                FaIcon(
+                                                                              FontAwesomeIcons.solidLaughSquint,
+                                                                              color: FlutterFlowTheme.of(context).worshipRing,
+                                                                              size: 18.0,
+                                                                            ),
+                                                                          ),
+                                                                      ],
                                                                     ),
                                                                   ),
-                                                                ));
-                                                              },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
-                                                          },
+                                                                ),
+                                                              ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                    .personReactingList
+                                                    .contains(
+                                                        currentUserReference))
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 4.0,
+                                                                0.0, 0.0),
+                                                    child: Row(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      crossAxisAlignment:
+                                                          CrossAxisAlignment
+                                                              .start,
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  2.0),
                                                           child: Container(
-                                                            width: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .width *
-                                                                0.35,
                                                             decoration:
                                                                 BoxDecoration(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondarySystemBackground,
                                                               borderRadius:
                                                                   BorderRadius
                                                                       .circular(
-                                                                          8.0),
+                                                                          12.0),
                                                             ),
-                                                            child: Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .center,
-                                                                  children: [
-                                                                    Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        '2refz5p7' /* PDF File */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).label,
-                                                                            fontSize:
-                                                                                16.0,
-                                                                          ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          4.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceEvenly,
-                                                                    children: [
-                                                                      Text(
-                                                                        FFLocalizations.of(context)
-                                                                            .getText(
-                                                                          'mrya0cif' /* Click to View */,
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Inter',
-                                                                              color: FlutterFlowTheme.of(context).secondary,
-                                                                              fontSize: 12.0,
-                                                                            ),
-                                                                      ),
-                                                                      Icon(
-                                                                        Icons
-                                                                            .open_in_new_rounded,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                        size:
-                                                                            18.0,
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    if (!columnMessagesRecord
-                                                            .personReactingList
-                                                            .contains(
-                                                                currentUserReference) &&
-                                                        (columnMessagesRecord
-                                                                    .messageText !=
-                                                                null &&
-                                                            columnMessagesRecord
-                                                                    .messageText !=
-                                                                ''))
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    if (columnMessagesRecord
-                                                                        .pin)
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .thumbtack,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondary,
-                                                                          size:
-                                                                              18.0,
-                                                                        ),
-                                                                      ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .end,
-                                                              children: [
-                                                                Container(
-                                                                  constraints:
-                                                                      BoxConstraints(
-                                                                    maxWidth:
-                                                                        MediaQuery.sizeOf(context).width *
-                                                                            0.75,
-                                                                    maxHeight:
-                                                                        double
-                                                                            .infinity,
-                                                                  ),
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              12.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              12.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              12.0),
-                                                                    ),
-                                                                  ),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      await columnMessagesRecord
-                                                                          .reference
-                                                                          .update({
-                                                                        ...mapToFirestore(
-                                                                          {
-                                                                            'personReactingList':
-                                                                                FieldValue.arrayUnion([
-                                                                              currentUserReference
-                                                                            ]),
-                                                                          },
-                                                                        ),
-                                                                      });
-                                                                    },
-                                                                    onLongPress:
-                                                                        () async {
-                                                                      await showModalBottomSheet(
-                                                                        isScrollControlled:
-                                                                            true,
-                                                                        backgroundColor:
-                                                                            Colors.transparent,
-                                                                        barrierColor:
-                                                                            Color(0x80000000),
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (context) {
-                                                                          return WebViewAware(
-                                                                              child: GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                              child: EditMessageWidget(
-                                                                                usersMessage: columnMessagesRecord.reference,
-                                                                                usersMessageDoc: columnMessagesRecord,
-                                                                                messageChat: widget.chatChosen?.reference,
-                                                                              ),
-                                                                            ),
-                                                                          ));
-                                                                        },
-                                                                      ).then((value) =>
-                                                                          safeSetState(
-                                                                              () {}));
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondarySystemBackground,
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(12.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(0.0),
-                                                                          topLeft:
-                                                                              Radius.circular(12.0),
-                                                                          topRight:
-                                                                              Radius.circular(12.0),
-                                                                        ),
-                                                                      ),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            EdgeInsets.all(10.0),
-                                                                        child:
-                                                                            Text(
-                                                                          columnMessagesRecord
-                                                                              .messageText,
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          style:
-                                                                              GoogleFonts.getFont(
-                                                                            'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).label,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontSize:
-                                                                                15.5,
-                                                                            height:
-                                                                                1.35,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                if (columnMessagesRecord
-                                                                    .edited)
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'hrg4821r' /* (edited) */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize:
-                                                                                10.0,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                    (columnMessagesRecord
-                                                                            .messageCriedBy
-                                                                            .length >
-                                                                        0) ||
-                                                                    (columnMessagesRecord
-                                                                            .messageLikedBy
-                                                                            .length >
-                                                                        0))
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Container(
-                                                                      height:
-                                                                          25.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .transparent,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(8.0),
-                                                                      ),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children: [
-                                                                          if (columnMessagesRecord.messageLikedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidHeart,
-                                                                                color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                          if (columnMessagesRecord.messageCriedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidSadCry,
-                                                                                color: Color(0xFF6D6DAE),
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                          if (columnMessagesRecord.messageLaughedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidLaughSquint,
-                                                                                color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                            .personReactingList
-                                                            .contains(
-                                                                currentUserReference) &&
-                                                        (columnMessagesRecord
-                                                                    .messageText !=
-                                                                null &&
-                                                            columnMessagesRecord
-                                                                    .messageText !=
-                                                                ''))
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    if (columnMessagesRecord
-                                                                        .pin)
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            8.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            FaIcon(
-                                                                          FontAwesomeIcons
-                                                                              .thumbtack,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).secondary,
-                                                                          size:
-                                                                              18.0,
-                                                                        ),
-                                                                      ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Column(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              crossAxisAlignment:
-                                                                  CrossAxisAlignment
-                                                                      .end,
-                                                              children: [
-                                                                Container(
-                                                                  constraints:
-                                                                      BoxConstraints(
-                                                                    maxWidth:
-                                                                        MediaQuery.sizeOf(context).width *
-                                                                            0.75,
-                                                                    maxHeight:
-                                                                        double
-                                                                            .infinity,
-                                                                  ),
-                                                                  decoration:
-                                                                      BoxDecoration(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .only(
-                                                                      bottomLeft:
-                                                                          Radius.circular(
-                                                                              12.0),
-                                                                      bottomRight:
-                                                                          Radius.circular(
-                                                                              0.0),
-                                                                      topLeft: Radius
-                                                                          .circular(
-                                                                              12.0),
-                                                                      topRight:
-                                                                          Radius.circular(
-                                                                              12.0),
-                                                                    ),
-                                                                  ),
-                                                                  child:
-                                                                      InkWell(
-                                                                    splashColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    focusColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    hoverColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    highlightColor:
-                                                                        Colors
-                                                                            .transparent,
-                                                                    onTap:
-                                                                        () async {
-                                                                      await columnMessagesRecord
-                                                                          .reference
-                                                                          .update({
-                                                                        ...mapToFirestore(
-                                                                          {
-                                                                            'personReactingList':
-                                                                                FieldValue.arrayRemove([
-                                                                              currentUserReference
-                                                                            ]),
-                                                                          },
-                                                                        ),
-                                                                      });
-                                                                    },
-                                                                    onLongPress:
-                                                                        () async {
-                                                                      await showModalBottomSheet(
-                                                                        isScrollControlled:
-                                                                            true,
-                                                                        backgroundColor:
-                                                                            Colors.transparent,
-                                                                        barrierColor:
-                                                                            Color(0x80000000),
-                                                                        context:
-                                                                            context,
-                                                                        builder:
-                                                                            (context) {
-                                                                          return WebViewAware(
-                                                                              child: GestureDetector(
-                                                                            onTap: () => _model.unfocusNode.canRequestFocus
-                                                                                ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                                                                                : FocusScope.of(context).unfocus(),
-                                                                            child:
-                                                                                Padding(
-                                                                              padding: MediaQuery.viewInsetsOf(context),
-                                                                              child: EditMessageWidget(
-                                                                                usersMessage: columnMessagesRecord.reference,
-                                                                                usersMessageDoc: columnMessagesRecord,
-                                                                                messageChat: widget.chatChosen?.reference,
-                                                                              ),
-                                                                            ),
-                                                                          ));
-                                                                        },
-                                                                      ).then((value) =>
-                                                                          safeSetState(
-                                                                              () {}));
-                                                                    },
-                                                                    child:
-                                                                        Container(
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondarySystemBackground,
-                                                                        borderRadius:
-                                                                            BorderRadius.only(
-                                                                          bottomLeft:
-                                                                              Radius.circular(12.0),
-                                                                          bottomRight:
-                                                                              Radius.circular(0.0),
-                                                                          topLeft:
-                                                                              Radius.circular(12.0),
-                                                                          topRight:
-                                                                              Radius.circular(12.0),
-                                                                        ),
-                                                                      ),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding:
-                                                                            EdgeInsets.all(10.0),
-                                                                        child:
-                                                                            Text(
-                                                                          columnMessagesRecord
-                                                                              .messageText,
-                                                                          textAlign:
-                                                                              TextAlign.start,
-                                                                          style:
-                                                                              GoogleFonts.getFont(
-                                                                            'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).label,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                            fontSize:
-                                                                                15.5,
-                                                                            height:
-                                                                                1.35,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                if (columnMessagesRecord
-                                                                    .edited)
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      FFLocalizations.of(
-                                                                              context)
-                                                                          .getText(
-                                                                        'fvy8lszl' /* (edited) */,
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Inter',
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).secondary,
-                                                                            fontSize:
-                                                                                10.0,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                if ((columnMessagesRecord.messageLaughedBy.length > 0) ||
-                                                                    (columnMessagesRecord
-                                                                            .messageCriedBy
-                                                                            .length >
-                                                                        0) ||
-                                                                    (columnMessagesRecord
-                                                                            .messageLikedBy
-                                                                            .length >
-                                                                        0))
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Container(
-                                                                      height:
-                                                                          25.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: Colors
-                                                                            .transparent,
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(8.0),
-                                                                      ),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.center,
-                                                                        children: [
-                                                                          if (columnMessagesRecord.messageLikedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidHeart,
-                                                                                color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                          if (columnMessagesRecord.messageCriedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidSadCry,
-                                                                                color: Color(0xFF6D6DAE),
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                          if (columnMessagesRecord.messageLaughedBy.length >
-                                                                              0)
-                                                                            Padding(
-                                                                              padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 4.0, 0.0),
-                                                                              child: FaIcon(
-                                                                                FontAwesomeIcons.solidLaughSquint,
-                                                                                color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                size: 18.0,
-                                                                              ),
-                                                                            ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                              ],
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                        .personReactingList
-                                                        .contains(
-                                                            currentUserReference))
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    4.0,
-                                                                    0.0,
-                                                                    0.0),
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .end,
-                                                          crossAxisAlignment:
-                                                              CrossAxisAlignment
-                                                                  .start,
-                                                          children: [
-                                                            Padding(
+                                                            child: Padding(
                                                               padding:
-                                                                  EdgeInsets
-                                                                      .all(2.0),
-                                                              child: Container(
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              12.0),
-                                                                ),
-                                                                child: Padding(
-                                                                  padding: EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           8.0,
                                                                           2.0,
                                                                           8.0,
                                                                           2.0),
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .min,
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceEvenly,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                                              child: Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceEvenly,
+                                                                children: [
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
                                                                             0.0,
                                                                             0.0,
                                                                             6.0,
                                                                             0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              40.0,
-                                                                          height:
-                                                                              20.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              if (columnMessagesRecord.messageLikedBy.contains(currentUserReference))
-                                                                                InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    HapticFeedback.lightImpact();
-                                                                                    if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
-                                                                                      await columnMessagesRecord.reference.update({
-                                                                                        ...mapToFirestore(
-                                                                                          {
-                                                                                            'messageLikedBy': FieldValue.arrayRemove([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                            'personReactingList': FieldValue.arrayRemove([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                          },
-                                                                                        ),
-                                                                                      });
-                                                                                    }
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                                    children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.solidHeart,
-                                                                                        color: Color(0xFF619B99),
-                                                                                        size: 22.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          columnMessagesRecord.messageLikedBy.length.toString(),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
-                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              if (!columnMessagesRecord.messageLikedBy.contains(currentUserReference))
-                                                                                InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    HapticFeedback.lightImpact();
-                                                                                    if (columnMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
-                                                                                      return;
-                                                                                    }
-
-                                                                                    await columnMessagesRecord.reference.update({
-                                                                                      ...mapToFirestore(
-                                                                                        {
-                                                                                          'messageLikedBy': FieldValue.arrayUnion([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                          'personReactingList': FieldValue.arrayRemove([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                        },
-                                                                                      ),
-                                                                                    });
-                                                                                    triggerPushNotification(
-                                                                                      notificationTitle: 'New Message',
-                                                                                      notificationText: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
-                                                                                      notificationImageUrl: currentUserPhoto,
-                                                                                      userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
-                                                                                      initialPageName: 'ChatPage',
-                                                                                      parameterData: {
-                                                                                        'chatChosen': widget.chatChosen,
-                                                                                        'chatUsers': widget.chatUsers,
-                                                                                        'otherUserDoc': widget.otherUserDoc,
-                                                                                        'otherUserRef': widget.otherUserRef,
-                                                                                      },
-                                                                                    );
-
-                                                                                    await widget.chatChosen!.reference.update(createMessageChatsRecordData(
-                                                                                      lastMessage: '${currentUserDisplayName} loved \"${columnMessagesRecord.messageText}\"',
-                                                                                      lastMessageTime: getCurrentTimestamp,
-                                                                                      lastMessageSentBy: currentUserReference,
-                                                                                    ));
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                                    children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.heart,
-                                                                                        color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                        size: 22.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          columnMessagesRecord.messageLikedBy.length.toString(),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
-                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                            ],
-                                                                          ),
-                                                                        ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation4']!),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            0.0,
-                                                                            0.0,
-                                                                            6.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Container(
-                                                                          width:
-                                                                              40.0,
-                                                                          height:
-                                                                              20.0,
-                                                                          decoration:
-                                                                              BoxDecoration(),
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisSize:
-                                                                                MainAxisSize.max,
-                                                                            children: [
-                                                                              if (!columnMessagesRecord.messageCriedBy.contains(currentUserReference))
-                                                                                InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    HapticFeedback.lightImpact();
-                                                                                    if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
-                                                                                      return;
-                                                                                    }
-
-                                                                                    await columnMessagesRecord.reference.update({
-                                                                                      ...mapToFirestore(
-                                                                                        {
-                                                                                          'messageCriedBy': FieldValue.arrayUnion([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                          'personReactingList': FieldValue.arrayRemove([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                        },
-                                                                                      ),
-                                                                                    });
-                                                                                    triggerPushNotification(
-                                                                                      notificationTitle: 'New Message',
-                                                                                      notificationText: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
-                                                                                      notificationImageUrl: currentUserPhoto,
-                                                                                      userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
-                                                                                      initialPageName: 'ChatPage',
-                                                                                      parameterData: {
-                                                                                        'chatChosen': widget.chatChosen,
-                                                                                        'chatUsers': widget.chatUsers,
-                                                                                        'otherUserDoc': widget.otherUserDoc,
-                                                                                        'otherUserRef': widget.otherUserRef,
-                                                                                      },
-                                                                                    );
-
-                                                                                    await widget.chatChosen!.reference.update(createMessageChatsRecordData(
-                                                                                      lastMessage: '${currentUserDisplayName} cried at \"${columnMessagesRecord.messageText}\"',
-                                                                                      lastMessageTime: getCurrentTimestamp,
-                                                                                      lastMessageSentBy: currentUserReference,
-                                                                                    ));
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                                    children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.sadCry,
-                                                                                        color: Color(0xFF6D6DAE),
-                                                                                        size: 22.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          columnMessagesRecord.messageCriedBy.length.toString(),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
-                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                              if (columnMessagesRecord.messageCriedBy.contains(currentUserReference))
-                                                                                InkWell(
-                                                                                  splashColor: Colors.transparent,
-                                                                                  focusColor: Colors.transparent,
-                                                                                  hoverColor: Colors.transparent,
-                                                                                  highlightColor: Colors.transparent,
-                                                                                  onTap: () async {
-                                                                                    HapticFeedback.lightImpact();
-                                                                                    if (columnMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
-                                                                                      await columnMessagesRecord.reference.update({
-                                                                                        ...mapToFirestore(
-                                                                                          {
-                                                                                            'messageCriedBy': FieldValue.arrayRemove([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                            'personReactingList': FieldValue.arrayRemove([
-                                                                                              currentUserReference
-                                                                                            ]),
-                                                                                          },
-                                                                                        ),
-                                                                                      });
-                                                                                    }
-                                                                                  },
-                                                                                  child: Row(
-                                                                                    mainAxisSize: MainAxisSize.max,
-                                                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                                    children: [
-                                                                                      FaIcon(
-                                                                                        FontAwesomeIcons.solidSadCry,
-                                                                                        color: Color(0xFF6D6DAE),
-                                                                                        size: 22.0,
-                                                                                      ),
-                                                                                      Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                        child: Text(
-                                                                                          columnMessagesRecord.messageCriedBy.length.toString(),
-                                                                                          style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                                fontFamily: 'Inter',
-                                                                                                color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ],
-                                                                                  ),
-                                                                                ),
-                                                                            ],
-                                                                          ),
-                                                                        ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation5']!),
-                                                                      ),
-                                                                      Container(
-                                                                        width:
-                                                                            40.0,
-                                                                        height:
-                                                                            20.0,
-                                                                        decoration:
-                                                                            BoxDecoration(),
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            if (!columnMessagesRecord.messageLaughedBy.contains(currentUserReference))
-                                                                              InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  HapticFeedback.lightImpact();
-                                                                                  if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
-                                                                                    return;
-                                                                                  }
-
-                                                                                  await columnMessagesRecord.reference.update({
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          40.0,
+                                                                      height:
+                                                                          20.0,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          if (listViewMessagesRecord
+                                                                              .messageLikedBy
+                                                                              .contains(currentUserReference))
+                                                                            InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.lightImpact();
+                                                                                if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                  await listViewMessagesRecord.reference.update({
                                                                                     ...mapToFirestore(
                                                                                       {
-                                                                                        'messageLaughedBy': FieldValue.arrayUnion([
+                                                                                        'messageLikedBy': FieldValue.arrayRemove([
                                                                                           currentUserReference
                                                                                         ]),
                                                                                         'personReactingList': FieldValue.arrayRemove([
@@ -4164,129 +4051,412 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                                       },
                                                                                     ),
                                                                                   });
-                                                                                  triggerPushNotification(
-                                                                                    notificationTitle: 'New Message',
-                                                                                    notificationText: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
-                                                                                    notificationImageUrl: currentUserPhoto,
-                                                                                    userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
-                                                                                    initialPageName: 'ChatPage',
-                                                                                    parameterData: {
-                                                                                      'chatChosen': widget.chatChosen,
-                                                                                      'chatUsers': widget.chatUsers,
-                                                                                      'otherUserDoc': widget.otherUserDoc,
-                                                                                      'otherUserRef': widget.otherUserRef,
-                                                                                    },
-                                                                                  );
+                                                                                }
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.solidHeart,
+                                                                                    color: Color(0xFF619B99),
+                                                                                    size: 22.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          if (!listViewMessagesRecord
+                                                                              .messageLikedBy
+                                                                              .contains(currentUserReference))
+                                                                            InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.lightImpact();
+                                                                                if (listViewMessagesRecord.messageLikedBy.contains(currentUserReference) == true) {
+                                                                                  return;
+                                                                                }
 
-                                                                                  await widget.chatChosen!.reference.update(createMessageChatsRecordData(
-                                                                                    lastMessage: '${currentUserDisplayName} laughed at \"${columnMessagesRecord.messageText}\"',
-                                                                                    lastMessageTime: getCurrentTimestamp,
-                                                                                    lastMessageSentBy: currentUserReference,
-                                                                                  ));
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                                  children: [
-                                                                                    FaIcon(
-                                                                                      FontAwesomeIcons.laughSquint,
-                                                                                      color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                      size: 22.0,
+                                                                                await listViewMessagesRecord.reference.update({
+                                                                                  ...mapToFirestore(
+                                                                                    {
+                                                                                      'messageLikedBy': FieldValue.arrayUnion([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                      'personReactingList': FieldValue.arrayRemove([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                    },
+                                                                                  ),
+                                                                                });
+                                                                                triggerPushNotification(
+                                                                                  notificationTitle: 'New Message',
+                                                                                  notificationText: '${currentUserDisplayName} loved \"${listViewMessagesRecord.messageText}\"',
+                                                                                  notificationImageUrl: currentUserPhoto,
+                                                                                  userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                  initialPageName: 'ChatPage',
+                                                                                  parameterData: {
+                                                                                    'chatChosen': widget.chatChosen,
+                                                                                    'chatUsers': widget.chatUsers,
+                                                                                    'otherUserDoc': widget.otherUserDoc,
+                                                                                    'otherUserRef': widget.otherUserRef,
+                                                                                  },
+                                                                                );
+
+                                                                                await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                  lastMessage: '${currentUserDisplayName} loved \"${listViewMessagesRecord.messageText}\"',
+                                                                                  lastMessageTime: getCurrentTimestamp,
+                                                                                  lastMessageSentBy: currentUserReference,
+                                                                                ));
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.heart,
+                                                                                    color: FlutterFlowTheme.of(context).worshipRing,
+                                                                                    size: 22.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      listViewMessagesRecord.messageLikedBy.length.toString(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                          ),
                                                                                     ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        columnMessagesRecord.messageLaughedBy.length.toString(),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
+                                                                                  ),
+                                                                                ],
                                                                               ),
-                                                                            if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference))
-                                                                              InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  HapticFeedback.lightImpact();
-                                                                                  if (columnMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
-                                                                                    await columnMessagesRecord.reference.update({
-                                                                                      ...mapToFirestore(
-                                                                                        {
-                                                                                          'messageLaughedBy': FieldValue.arrayRemove([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                          'personReactingList': FieldValue.arrayRemove([
-                                                                                            currentUserReference
-                                                                                          ]),
-                                                                                        },
-                                                                                      ),
-                                                                                    });
-                                                                                  }
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                                  children: [
-                                                                                    FaIcon(
-                                                                                      FontAwesomeIcons.solidLaughSquint,
-                                                                                      color: FlutterFlowTheme.of(context).worshipRing,
-                                                                                      size: 22.0,
-                                                                                    ),
-                                                                                    Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
-                                                                                      child: Text(
-                                                                                        columnMessagesRecord.messageLaughedBy.length.toString(),
-                                                                                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                              fontFamily: 'Inter',
-                                                                                              color: FlutterFlowTheme.of(context).lightSecondaryText,
-                                                                                            ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ),
-                                                                          ],
-                                                                        ),
-                                                                      ).animateOnPageLoad(
-                                                                          animationsMap[
-                                                                              'containerOnPageLoadAnimation6']!),
-                                                                    ],
+                                                                            ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
                                                                   ),
-                                                                ),
+                                                                  Padding(
+                                                                    padding: EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            6.0,
+                                                                            0.0),
+                                                                    child:
+                                                                        Container(
+                                                                      width:
+                                                                          40.0,
+                                                                      height:
+                                                                          20.0,
+                                                                      decoration:
+                                                                          BoxDecoration(),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          if (!listViewMessagesRecord
+                                                                              .messageCriedBy
+                                                                              .contains(currentUserReference))
+                                                                            InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.lightImpact();
+                                                                                if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                  return;
+                                                                                }
+
+                                                                                await listViewMessagesRecord.reference.update({
+                                                                                  ...mapToFirestore(
+                                                                                    {
+                                                                                      'messageCriedBy': FieldValue.arrayUnion([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                      'personReactingList': FieldValue.arrayRemove([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                    },
+                                                                                  ),
+                                                                                });
+                                                                                triggerPushNotification(
+                                                                                  notificationTitle: 'New Message',
+                                                                                  notificationText: '${currentUserDisplayName} cried at \"${listViewMessagesRecord.messageText}\"',
+                                                                                  notificationImageUrl: currentUserPhoto,
+                                                                                  userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                  initialPageName: 'ChatPage',
+                                                                                  parameterData: {
+                                                                                    'chatChosen': widget.chatChosen,
+                                                                                    'chatUsers': widget.chatUsers,
+                                                                                    'otherUserDoc': widget.otherUserDoc,
+                                                                                    'otherUserRef': widget.otherUserRef,
+                                                                                  },
+                                                                                );
+
+                                                                                await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                  lastMessage: '${currentUserDisplayName} cried at \"${listViewMessagesRecord.messageText}\"',
+                                                                                  lastMessageTime: getCurrentTimestamp,
+                                                                                  lastMessageSentBy: currentUserReference,
+                                                                                ));
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.sadCry,
+                                                                                    color: Color(0xFF6D6DAE),
+                                                                                    size: 22.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                          if (listViewMessagesRecord
+                                                                              .messageCriedBy
+                                                                              .contains(currentUserReference))
+                                                                            InkWell(
+                                                                              splashColor: Colors.transparent,
+                                                                              focusColor: Colors.transparent,
+                                                                              hoverColor: Colors.transparent,
+                                                                              highlightColor: Colors.transparent,
+                                                                              onTap: () async {
+                                                                                HapticFeedback.lightImpact();
+                                                                                if (listViewMessagesRecord.messageCriedBy.contains(currentUserReference) == true) {
+                                                                                  await listViewMessagesRecord.reference.update({
+                                                                                    ...mapToFirestore(
+                                                                                      {
+                                                                                        'messageCriedBy': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
+                                                                                        'personReactingList': FieldValue.arrayRemove([
+                                                                                          currentUserReference
+                                                                                        ]),
+                                                                                      },
+                                                                                    ),
+                                                                                  });
+                                                                                }
+                                                                              },
+                                                                              child: Row(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                                children: [
+                                                                                  FaIcon(
+                                                                                    FontAwesomeIcons.solidSadCry,
+                                                                                    color: Color(0xFF6D6DAE),
+                                                                                    size: 22.0,
+                                                                                  ),
+                                                                                  Padding(
+                                                                                    padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                    child: Text(
+                                                                                      listViewMessagesRecord.messageCriedBy.length.toString(),
+                                                                                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                            fontFamily: 'Inter',
+                                                                                            color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                          ),
+                                                                                    ),
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                  Container(
+                                                                    width: 40.0,
+                                                                    height:
+                                                                        20.0,
+                                                                    decoration:
+                                                                        BoxDecoration(),
+                                                                    child: Row(
+                                                                      mainAxisSize:
+                                                                          MainAxisSize
+                                                                              .max,
+                                                                      children: [
+                                                                        if (!listViewMessagesRecord
+                                                                            .messageLaughedBy
+                                                                            .contains(currentUserReference))
+                                                                          InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              HapticFeedback.lightImpact();
+                                                                              if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                return;
+                                                                              }
+
+                                                                              await listViewMessagesRecord.reference.update({
+                                                                                ...mapToFirestore(
+                                                                                  {
+                                                                                    'messageLaughedBy': FieldValue.arrayUnion([
+                                                                                      currentUserReference
+                                                                                    ]),
+                                                                                    'personReactingList': FieldValue.arrayRemove([
+                                                                                      currentUserReference
+                                                                                    ]),
+                                                                                  },
+                                                                                ),
+                                                                              });
+                                                                              triggerPushNotification(
+                                                                                notificationTitle: 'New Message',
+                                                                                notificationText: '${currentUserDisplayName} laughed at \"${listViewMessagesRecord.messageText}\"',
+                                                                                notificationImageUrl: currentUserPhoto,
+                                                                                userRefs: widget.chatChosen!.users.where((e) => e != currentUserReference).toList(),
+                                                                                initialPageName: 'ChatPage',
+                                                                                parameterData: {
+                                                                                  'chatChosen': widget.chatChosen,
+                                                                                  'chatUsers': widget.chatUsers,
+                                                                                  'otherUserDoc': widget.otherUserDoc,
+                                                                                  'otherUserRef': widget.otherUserRef,
+                                                                                },
+                                                                              );
+
+                                                                              await widget.chatChosen!.reference.update(createMessageChatsRecordData(
+                                                                                lastMessage: '${currentUserDisplayName} laughed at \"${listViewMessagesRecord.messageText}\"',
+                                                                                lastMessageTime: getCurrentTimestamp,
+                                                                                lastMessageSentBy: currentUserReference,
+                                                                              ));
+                                                                            },
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                              children: [
+                                                                                FaIcon(
+                                                                                  FontAwesomeIcons.laughSquint,
+                                                                                  color: FlutterFlowTheme.of(context).worshipRing,
+                                                                                  size: 22.0,
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Inter',
+                                                                                          color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                        if (listViewMessagesRecord
+                                                                            .messageLaughedBy
+                                                                            .contains(currentUserReference))
+                                                                          InkWell(
+                                                                            splashColor:
+                                                                                Colors.transparent,
+                                                                            focusColor:
+                                                                                Colors.transparent,
+                                                                            hoverColor:
+                                                                                Colors.transparent,
+                                                                            highlightColor:
+                                                                                Colors.transparent,
+                                                                            onTap:
+                                                                                () async {
+                                                                              HapticFeedback.lightImpact();
+                                                                              if (listViewMessagesRecord.messageLaughedBy.contains(currentUserReference) == true) {
+                                                                                await listViewMessagesRecord.reference.update({
+                                                                                  ...mapToFirestore(
+                                                                                    {
+                                                                                      'messageLaughedBy': FieldValue.arrayRemove([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                      'personReactingList': FieldValue.arrayRemove([
+                                                                                        currentUserReference
+                                                                                      ]),
+                                                                                    },
+                                                                                  ),
+                                                                                });
+                                                                              }
+                                                                            },
+                                                                            child:
+                                                                                Row(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                              children: [
+                                                                                FaIcon(
+                                                                                  FontAwesomeIcons.solidLaughSquint,
+                                                                                  color: FlutterFlowTheme.of(context).worshipRing,
+                                                                                  size: 22.0,
+                                                                                ),
+                                                                                Padding(
+                                                                                  padding: EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                                                                                  child: Text(
+                                                                                    listViewMessagesRecord.messageLaughedBy.length.toString(),
+                                                                                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                          fontFamily: 'Inter',
+                                                                                          color: FlutterFlowTheme.of(context).lightSecondaryText,
+                                                                                        ),
+                                                                                  ),
+                                                                                ),
+                                                                              ],
+                                                                            ),
+                                                                          ),
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                ],
                                                               ),
                                                             ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                        .personReactingList
-                                                        .contains(
-                                                            currentUserReference))
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    6.0,
-                                                                    10.0,
-                                                                    0.0),
-                                                        child: Text(
-                                                          dateTimeFormat(
-                                                            'relative',
-                                                            columnMessagesRecord
-                                                                .timeSent!,
-                                                            locale: FFLocalizations
-                                                                    .of(context)
-                                                                .languageCode,
                                                           ),
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                    .personReactingList
+                                                    .contains(
+                                                        currentUserReference))
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 6.0,
+                                                                10.0, 0.0),
+                                                    child: Text(
+                                                      dateTimeFormat(
+                                                        'relative',
+                                                        listViewMessagesRecord
+                                                            .timeSent!,
+                                                        locale:
+                                                            FFLocalizations.of(
+                                                                    context)
+                                                                .languageCode,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
@@ -4296,278 +4466,263 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                     .lightSecondaryText,
                                                                 fontSize: 10.0,
                                                               ),
-                                                        ),
-                                                      ),
-                                                    if (columnMessagesRecord
-                                                            .prayerRequest !=
-                                                        null)
-                                                      Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    10.0,
-                                                                    0.0),
-                                                        child: StreamBuilder<
-                                                            PrayerRequestsRecord>(
-                                                          stream: PrayerRequestsRecord
-                                                              .getDocument(
-                                                                  columnMessagesRecord
-                                                                      .prayerRequest!),
-                                                          builder: (context,
-                                                              snapshot) {
-                                                            // Customize what your widget looks like when it's loading.
-                                                            if (!snapshot
-                                                                .hasData) {
-                                                              return Center(
-                                                                child: SizedBox(
-                                                                  width: 75.0,
-                                                                  height: 75.0,
-                                                                  child:
-                                                                      SpinKitRipple(
-                                                                    color: Color(
-                                                                        0xFF7F95AD),
-                                                                    size: 75.0,
-                                                                  ),
-                                                                ),
-                                                              );
-                                                            }
-                                                            final containerPrayerRequestsRecord =
-                                                                snapshot.data!;
-                                                            return Container(
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
+                                                    ),
+                                                  ),
+                                                if (listViewMessagesRecord
+                                                        .prayerRequest !=
+                                                    null)
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: StreamBuilder<
+                                                        PrayerRequestsRecord>(
+                                                      stream: PrayerRequestsRecord
+                                                          .getDocument(
+                                                              listViewMessagesRecord
+                                                                  .prayerRequest!),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 75.0,
+                                                              height: 75.0,
+                                                              child:
+                                                                  SpinKitRipple(
+                                                                color: Color(
+                                                                    0xFF7F95AD),
+                                                                size: 75.0,
+                                                              ),
+                                                            ),
+                                                          );
+                                                        }
+                                                        final containerPrayerRequestsRecord =
+                                                            snapshot.data!;
+                                                        return Container(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
                                                                       .width *
                                                                   0.8,
-                                                              decoration:
-                                                                  BoxDecoration(),
-                                                              child:
-                                                                  CommunityPrayerRequestChatWidget(
-                                                                key: Key(
-                                                                    'Keymtj_${columnIndex}_of_${columnMessagesRecordList.length}'),
-                                                                chosenPrayerRequestDoc:
-                                                                    containerPrayerRequestsRecord,
-                                                                chosenPrayerRequestRef:
-                                                                    columnMessagesRecord
-                                                                        .prayerRequest!,
-                                                              ),
-                                                            );
-                                                          },
-                                                        ),
-                                                      ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
+                                                          decoration:
+                                                              BoxDecoration(),
+                                                          child:
+                                                              CommunityPrayerRequestChatWidget(
+                                                            key: Key(
+                                                                'Keymtj_${listViewIndex}_of_${listViewMessagesRecordList.length}'),
+                                                            chosenPrayerRequestDoc:
+                                                                containerPrayerRequestsRecord,
+                                                            chosenPrayerRequestRef:
+                                                                listViewMessagesRecord
+                                                                    .prayerRequest!,
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
                                     ),
-                                ],
-                              );
-                            }),
-                          ),
-                        );
-                      },
-                    ),
+                                  ),
+                                ),
+                            ],
+                          );
+                        },
+                      );
+                    },
                   ),
                 ),
               ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 1.0),
-                child: Container(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: MediaQuery.sizeOf(context).width * 1.0,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                        ),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  20.0, 0.0, 0.0, 6.0),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  StreamBuilder<List<ChatPollRecord>>(
-                                    stream: queryChatPollRecord(
-                                      queryBuilder: (chatPollRecord) =>
-                                          chatPollRecord
-                                              .where(
-                                                'chatReference',
-                                                isEqualTo: widget
-                                                    .chatChosen?.reference,
-                                              )
-                                              .orderBy('timeCreated',
-                                                  descending: true),
-                                      singleRecord: true,
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 40.0,
-                                            height: 40.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(0.0),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(
+                      sigmaX: 2.0,
+                      sigmaY: 2.0,
+                    ),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                20.0, 0.0, 0.0, 6.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                StreamBuilder<List<ChatPollRecord>>(
+                                  stream: queryChatPollRecord(
+                                    queryBuilder: (chatPollRecord) =>
+                                        chatPollRecord
+                                            .where(
+                                              'chatReference',
+                                              isEqualTo:
+                                                  widget.chatChosen?.reference,
+                                            )
+                                            .orderBy('timeCreated',
+                                                descending: true),
+                                    singleRecord: true,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
                                             ),
-                                          ),
-                                        );
-                                      }
-                                      List<ChatPollRecord>
-                                          containerChatPollRecordList =
-                                          snapshot.data!;
-                                      // Return an empty Container when the item does not exist.
-                                      if (snapshot.data!.isEmpty) {
-                                        return Container();
-                                      }
-                                      final containerChatPollRecord =
-                                          containerChatPollRecordList.isNotEmpty
-                                              ? containerChatPollRecordList
-                                                  .first
-                                              : null;
-                                      return Container(
-                                        decoration: BoxDecoration(),
-                                        child: Visibility(
-                                          visible: !containerChatPollRecord!
-                                                  .usersVoted
-                                                  .contains(
-                                                      currentUserReference) &&
-                                              !FFAppState()
-                                                  .messageOptionsVisible,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 4.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '9wdkqszi' /* New Poll! */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .worshipRing,
-                                                      ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation1']!),
                                           ),
                                         ),
                                       );
-                                    },
-                                  ),
-                                  StreamBuilder<List<ChatEventRecord>>(
-                                    stream: queryChatEventRecord(
-                                      queryBuilder: (chatEventRecord) =>
-                                          chatEventRecord
-                                              .where(
-                                                'chatReference',
-                                                isEqualTo: widget
-                                                    .chatChosen?.reference,
-                                              )
-                                              .orderBy('timeCreated',
-                                                  descending: true),
-                                      singleRecord: true,
-                                    ),
-                                    builder: (context, snapshot) {
-                                      // Customize what your widget looks like when it's loading.
-                                      if (!snapshot.hasData) {
-                                        return Center(
-                                          child: SizedBox(
-                                            width: 40.0,
-                                            height: 40.0,
-                                            child: CircularProgressIndicator(
-                                              valueColor:
-                                                  AlwaysStoppedAnimation<Color>(
-                                                FlutterFlowTheme.of(context)
-                                                    .primary,
-                                              ),
+                                    }
+                                    List<ChatPollRecord>
+                                        containerChatPollRecordList =
+                                        snapshot.data!;
+                                    // Return an empty Container when the item does not exist.
+                                    if (snapshot.data!.isEmpty) {
+                                      return Container();
+                                    }
+                                    final containerChatPollRecord =
+                                        containerChatPollRecordList.isNotEmpty
+                                            ? containerChatPollRecordList.first
+                                            : null;
+                                    return Container(
+                                      decoration: BoxDecoration(),
+                                      child: Visibility(
+                                        visible: !containerChatPollRecord!
+                                                .usersVoted
+                                                .contains(
+                                                    currentUserReference) &&
+                                            !FFAppState().messageOptionsVisible,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 4.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              '9wdkqszi' /* New Poll! */,
                                             ),
-                                          ),
-                                        );
-                                      }
-                                      List<ChatEventRecord>
-                                          containerChatEventRecordList =
-                                          snapshot.data!;
-                                      // Return an empty Container when the item does not exist.
-                                      if (snapshot.data!.isEmpty) {
-                                        return Container();
-                                      }
-                                      final containerChatEventRecord =
-                                          containerChatEventRecordList
-                                                  .isNotEmpty
-                                              ? containerChatEventRecordList
-                                                  .first
-                                              : null;
-                                      return Container(
-                                        decoration: BoxDecoration(),
-                                        child: Visibility(
-                                          visible: !containerChatEventRecord!
-                                                  .peopleVoted
-                                                  .contains(
-                                                      currentUserReference) &&
-                                              !FFAppState()
-                                                  .messageOptionsVisible,
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    6.0, 4.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'lr900nd7' /* New Event! */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Inter',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .worshipRing,
-                                                      ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation2']!),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .worshipRing,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation1']!),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                                StreamBuilder<List<ChatEventRecord>>(
+                                  stream: queryChatEventRecord(
+                                    queryBuilder: (chatEventRecord) =>
+                                        chatEventRecord
+                                            .where(
+                                              'chatReference',
+                                              isEqualTo:
+                                                  widget.chatChosen?.reference,
+                                            )
+                                            .orderBy('timeCreated',
+                                                descending: true),
+                                    singleRecord: true,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 40.0,
+                                          height: 40.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
                                           ),
                                         ),
                                       );
-                                    },
-                                  ),
-                                ],
-                              ),
+                                    }
+                                    List<ChatEventRecord>
+                                        containerChatEventRecordList =
+                                        snapshot.data!;
+                                    // Return an empty Container when the item does not exist.
+                                    if (snapshot.data!.isEmpty) {
+                                      return Container();
+                                    }
+                                    final containerChatEventRecord =
+                                        containerChatEventRecordList.isNotEmpty
+                                            ? containerChatEventRecordList.first
+                                            : null;
+                                    return Container(
+                                      decoration: BoxDecoration(),
+                                      child: Visibility(
+                                        visible: !containerChatEventRecord!
+                                                .peopleVoted
+                                                .contains(
+                                                    currentUserReference) &&
+                                            !FFAppState().messageOptionsVisible,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  6.0, 4.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'lr900nd7' /* New Event! */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Inter',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .worshipRing,
+                                                ),
+                                          ).animateOnPageLoad(animationsMap[
+                                              'textOnPageLoadAnimation2']!),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
                             ),
-                            Container(
-                              width: MediaQuery.sizeOf(context).width * 0.95,
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                8.0, 0.0, 8.0, 0.0),
+                            child: Container(
+                              width: double.infinity,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Container(
-                                width: MediaQuery.sizeOf(context).width * 0.95,
+                                width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondarySystemBackground,
@@ -5469,27 +5624,25 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                               builder:
                                                                   (context) {
                                                                 return WebViewAware(
-                                                                    child:
-                                                                        GestureDetector(
-                                                                  onTap: () => _model
-                                                                          .unfocusNode
-                                                                          .canRequestFocus
-                                                                      ? FocusScope.of(
-                                                                              context)
-                                                                          .requestFocus(_model
-                                                                              .unfocusNode)
-                                                                      : FocusScope.of(
-                                                                              context)
-                                                                          .unfocus(),
                                                                   child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
+                                                                      GestureDetector(
+                                                                    onTap: () => _model
+                                                                            .unfocusNode
+                                                                            .canRequestFocus
+                                                                        ? FocusScope.of(context).requestFocus(_model
+                                                                            .unfocusNode)
+                                                                        : FocusScope.of(context)
+                                                                            .unfocus(),
                                                                     child:
-                                                                        LanguageReportWidget(),
+                                                                        Padding(
+                                                                      padding: MediaQuery
+                                                                          .viewInsetsOf(
+                                                                              context),
+                                                                      child:
+                                                                          LanguageReportWidget(),
+                                                                    ),
                                                                   ),
-                                                                ));
+                                                                );
                                                               },
                                                             ).then((value) =>
                                                                 safeSetState(
@@ -6310,10 +6463,10 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                 ),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -6321,6 +6474,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).systemBackground,
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: Column(
@@ -6553,7 +6707,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                     ),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation7']!),
+                                    'containerOnPageLoadAnimation1']!),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(10.0),
@@ -6737,7 +6891,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                     ),
                                   ),
                                 ).animateOnPageLoad(animationsMap[
-                                    'containerOnPageLoadAnimation8']!),
+                                    'containerOnPageLoadAnimation2']!),
                               ),
                               Stack(
                                 children: [
@@ -6758,31 +6912,33 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: Container(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.7,
-                                                  child:
-                                                      ChatEventCreationWidget(
-                                                    chatChosen: widget
-                                                        .chatChosen?.reference,
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.7,
+                                                    child:
+                                                        ChatEventCreationWidget(
+                                                      chatChosen: widget
+                                                          .chatChosen
+                                                          ?.reference,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -6941,33 +7097,34 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                ChatEventViewingWidget(
-                                                              chatEvent:
-                                                                  progressBarChatEventRecord,
-                                                              chatEventRef:
-                                                                  progressBarChatEventRecord
-                                                                      ?.reference,
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  ChatEventViewingWidget(
+                                                                chatEvent:
+                                                                    progressBarChatEventRecord,
+                                                                chatEventRef:
+                                                                    progressBarChatEventRecord
+                                                                        ?.reference,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -6983,33 +7140,34 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                ChatEventChoosingWidget(
-                                                              chatEvent:
-                                                                  progressBarChatEventRecord,
-                                                              chatEventRef:
-                                                                  progressBarChatEventRecord
-                                                                      ?.reference,
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  ChatEventChoosingWidget(
+                                                                chatEvent:
+                                                                    progressBarChatEventRecord,
+                                                                chatEventRef:
+                                                                    progressBarChatEventRecord
+                                                                        ?.reference,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -7028,8 +7186,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                   backgroundColor:
                                                       Colors.transparent,
                                                 ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'progressBarOnPageLoadAnimation1']!);
+                                              );
                                             },
                                           ),
                                         ),
@@ -7058,30 +7215,33 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: Container(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.9,
-                                                  child: ChatPollCreationWidget(
-                                                    chatChosen: widget
-                                                        .chatChosen?.reference,
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.9,
+                                                    child:
+                                                        ChatPollCreationWidget(
+                                                      chatChosen: widget
+                                                          .chatChosen
+                                                          ?.reference,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -7244,33 +7404,37 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                CurrentPollViewingWidget(
-                                                              currentPoll:
-                                                                  progressBarChatPollRecord,
-                                                              pollReference:
-                                                                  progressBarChatPollRecord
-                                                                      ?.reference,
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  CurrentPollViewingWidget(
+                                                                currentPoll:
+                                                                    progressBarChatPollRecord,
+                                                                pollReference:
+                                                                    progressBarChatPollRecord
+                                                                        ?.reference,
+                                                                chatChosen: widget
+                                                                    .chatChosen!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -7286,33 +7450,34 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                       context: context,
                                                       builder: (context) {
                                                         return WebViewAware(
-                                                            child:
-                                                                GestureDetector(
-                                                          onTap: () => _model
-                                                                  .unfocusNode
-                                                                  .canRequestFocus
-                                                              ? FocusScope.of(
-                                                                      context)
-                                                                  .requestFocus(
-                                                                      _model
-                                                                          .unfocusNode)
-                                                              : FocusScope.of(
-                                                                      context)
-                                                                  .unfocus(),
-                                                          child: Padding(
-                                                            padding: MediaQuery
-                                                                .viewInsetsOf(
-                                                                    context),
-                                                            child:
-                                                                CurrentPollChoosingWidget(
-                                                              currentPoll:
-                                                                  progressBarChatPollRecord,
-                                                              pollReference:
-                                                                  progressBarChatPollRecord
-                                                                      ?.reference,
+                                                          child:
+                                                              GestureDetector(
+                                                            onTap: () => _model
+                                                                    .unfocusNode
+                                                                    .canRequestFocus
+                                                                ? FocusScope.of(
+                                                                        context)
+                                                                    .requestFocus(
+                                                                        _model
+                                                                            .unfocusNode)
+                                                                : FocusScope.of(
+                                                                        context)
+                                                                    .unfocus(),
+                                                            child: Padding(
+                                                              padding: MediaQuery
+                                                                  .viewInsetsOf(
+                                                                      context),
+                                                              child:
+                                                                  CurrentPollChoosingWidget(
+                                                                currentPoll:
+                                                                    progressBarChatPollRecord,
+                                                                pollReference:
+                                                                    progressBarChatPollRecord
+                                                                        ?.reference,
+                                                              ),
                                                             ),
                                                           ),
-                                                        ));
+                                                        );
                                                       },
                                                     ).then((value) =>
                                                         safeSetState(() {}));
@@ -7331,8 +7496,7 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                   backgroundColor:
                                                       Colors.transparent,
                                                 ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'progressBarOnPageLoadAnimation2']!);
+                                              );
                                             },
                                           ),
                                         ),
@@ -7361,30 +7525,33 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: GestureDetector(
-                                              onTap: () => _model.unfocusNode
-                                                      .canRequestFocus
-                                                  ? FocusScope.of(context)
-                                                      .requestFocus(
-                                                          _model.unfocusNode)
-                                                  : FocusScope.of(context)
-                                                      .unfocus(),
-                                              child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: Container(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.9,
-                                                  child: ChatPollCreationWidget(
-                                                    chatChosen: widget
-                                                        .chatChosen?.reference,
+                                              child: GestureDetector(
+                                                onTap: () => _model.unfocusNode
+                                                        .canRequestFocus
+                                                    ? FocusScope.of(context)
+                                                        .requestFocus(
+                                                            _model.unfocusNode)
+                                                    : FocusScope.of(context)
+                                                        .unfocus(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.9,
+                                                    child:
+                                                        ChatPollCreationWidget(
+                                                      chatChosen: widget
+                                                          .chatChosen
+                                                          ?.reference,
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -7433,37 +7600,38 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                     context: context,
                                                     builder: (context) {
                                                       return WebViewAware(
-                                                          child:
-                                                              GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
-                                                        child: Padding(
-                                                          padding: MediaQuery
-                                                              .viewInsetsOf(
-                                                                  context),
-                                                          child: Container(
-                                                            height: MediaQuery
-                                                                        .sizeOf(
-                                                                            context)
-                                                                    .height *
-                                                                0.75,
-                                                            child:
-                                                                CreatePrayerChatWidget(
-                                                              chatReference: widget
-                                                                  .chatChosen!
-                                                                  .reference,
+                                                        child: GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: Padding(
+                                                            padding: MediaQuery
+                                                                .viewInsetsOf(
+                                                                    context),
+                                                            child: Container(
+                                                              height: MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .height *
+                                                                  0.75,
+                                                              child:
+                                                                  CreatePrayerChatWidget(
+                                                                chatReference: widget
+                                                                    .chatChosen!
+                                                                    .reference,
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ));
+                                                      );
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));
@@ -7523,8 +7691,10 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                 ),
               Container(
                 width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.02,
-                decoration: BoxDecoration(),
+                height: 12.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).systemBackground,
+                ),
               ),
             ],
           ),

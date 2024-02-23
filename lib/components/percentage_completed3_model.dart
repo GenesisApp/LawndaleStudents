@@ -14,8 +14,10 @@ class PercentageCompleted3Model
     extends FlutterFlowModel<PercentageCompleted3Widget> {
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

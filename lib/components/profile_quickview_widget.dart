@@ -1,15 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,43 +17,20 @@ export 'profile_quickview_model.dart';
 
 class ProfileQuickviewWidget extends StatefulWidget {
   const ProfileQuickviewWidget({
-    Key? key,
+    super.key,
     required this.userInListRef,
     required this.userInListDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? userInListRef;
   final UsersRecord? userInListDoc;
 
   @override
-  _ProfileQuickviewWidgetState createState() => _ProfileQuickviewWidgetState();
+  State<ProfileQuickviewWidget> createState() => _ProfileQuickviewWidgetState();
 }
 
-class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
-    with TickerProviderStateMixin {
+class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget> {
   late ProfileQuickviewModel _model;
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(-50.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -71,12 +44,6 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
     _model = createModel(context, () => ProfileQuickviewModel());
 
     _model.expandableController = ExpandableController(initialExpanded: false);
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -916,8 +883,7 @@ class _ProfileQuickviewWidgetState extends State<ProfileQuickviewWidget>
                                   ],
                                 ),
                               ),
-                            ).animateOnPageLoad(
-                                animationsMap['containerOnPageLoadAnimation']!),
+                            ),
                           ),
                         ],
                       ),

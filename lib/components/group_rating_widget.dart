@@ -17,14 +17,14 @@ export 'group_rating_model.dart';
 
 class GroupRatingWidget extends StatefulWidget {
   const GroupRatingWidget({
-    Key? key,
+    super.key,
     this.groupChosen,
-  }) : super(key: key);
+  });
 
   final DocumentReference? groupChosen;
 
   @override
-  _GroupRatingWidgetState createState() => _GroupRatingWidgetState();
+  State<GroupRatingWidget> createState() => _GroupRatingWidgetState();
 }
 
 class _GroupRatingWidgetState extends State<GroupRatingWidget> {
@@ -252,11 +252,12 @@ class _GroupRatingWidgetState extends State<GroupRatingWidget> {
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: RatingReceivedWidget(),
-                                      ));
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: RatingReceivedWidget(),
+                                        ),
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 } else {
@@ -268,11 +269,12 @@ class _GroupRatingWidgetState extends State<GroupRatingWidget> {
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: AnswerNeededWidget(),
-                                      ));
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: AnswerNeededWidget(),
+                                        ),
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 }

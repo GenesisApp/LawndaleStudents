@@ -14,16 +14,16 @@ export 'delete_group_model.dart';
 
 class DeleteGroupWidget extends StatefulWidget {
   const DeleteGroupWidget({
-    Key? key,
+    super.key,
     required this.group,
     required this.groupDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? group;
   final GroupsRecord? groupDoc;
 
   @override
-  _DeleteGroupWidgetState createState() => _DeleteGroupWidgetState();
+  State<DeleteGroupWidget> createState() => _DeleteGroupWidgetState();
 }
 
 class _DeleteGroupWidgetState extends State<DeleteGroupWidget> {
@@ -113,7 +113,7 @@ class _DeleteGroupWidgetState extends State<DeleteGroupWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.175,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:

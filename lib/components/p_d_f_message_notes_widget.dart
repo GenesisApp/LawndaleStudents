@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -13,16 +12,16 @@ export 'p_d_f_message_notes_model.dart';
 
 class PDFMessageNotesWidget extends StatefulWidget {
   const PDFMessageNotesWidget({
-    Key? key,
+    super.key,
     this.pdfImageSelected,
     this.pdfImageSelectedRef,
-  }) : super(key: key);
+  });
 
   final ResourceVideosRecord? pdfImageSelected;
   final DocumentReference? pdfImageSelectedRef;
 
   @override
-  _PDFMessageNotesWidgetState createState() => _PDFMessageNotesWidgetState();
+  State<PDFMessageNotesWidget> createState() => _PDFMessageNotesWidgetState();
 }
 
 class _PDFMessageNotesWidgetState extends State<PDFMessageNotesWidget> {
@@ -131,7 +130,7 @@ class _PDFMessageNotesWidgetState extends State<PDFMessageNotesWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                   child: Text(
                     FFLocalizations.of(context).getText(
-                      '8h00v86s' /* No mesaage notes have been 
+                      '8h00v86s' /* No message notes have been 
 up... */
                       ,
                     ),

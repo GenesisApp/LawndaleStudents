@@ -15,16 +15,16 @@ export 'read_scripture_copy_model.dart';
 
 class ReadScriptureCopyWidget extends StatefulWidget {
   const ReadScriptureCopyWidget({
-    Key? key,
+    super.key,
     this.catechismDoc,
     this.catechismRef,
-  }) : super(key: key);
+  });
 
   final CatechismRecord? catechismDoc;
   final DocumentReference? catechismRef;
 
   @override
-  _ReadScriptureCopyWidgetState createState() =>
+  State<ReadScriptureCopyWidget> createState() =>
       _ReadScriptureCopyWidgetState();
 }
 
@@ -126,8 +126,8 @@ class _ReadScriptureCopyWidgetState extends State<ReadScriptureCopyWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 130.0,
-                          height: 130.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                             shape: BoxShape.circle,
@@ -147,8 +147,9 @@ class _ReadScriptureCopyWidgetState extends State<ReadScriptureCopyWidget> {
                               children: [
                                 CircularPercentIndicator(
                                   percent: 1.0,
-                                  radius: 65.0,
-                                  lineWidth: 7.0,
+                                  radius:
+                                      MediaQuery.sizeOf(context).width * 0.165,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor: Color(0xFF619B99),

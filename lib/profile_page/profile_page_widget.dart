@@ -37,10 +37,10 @@ import 'profile_page_model.dart';
 export 'profile_page_model.dart';
 
 class ProfilePageWidget extends StatefulWidget {
-  const ProfilePageWidget({Key? key}) : super(key: key);
+  const ProfilePageWidget({super.key});
 
   @override
-  _ProfilePageWidgetState createState() => _ProfilePageWidgetState();
+  State<ProfilePageWidget> createState() => _ProfilePageWidgetState();
 }
 
 class _ProfilePageWidgetState extends State<ProfilePageWidget>
@@ -50,66 +50,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 25.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation1': AnimationInfo(
+    'stackOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         FadeEffect(
           curve: Curves.easeInOut,
           delay: 0.ms,
-          duration: 1300.ms,
+          duration: 600.ms,
           begin: 0.0,
           end: 1.0,
         ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1300.ms,
-          begin: Offset(0.0, 15.0),
-          end: Offset(0.0, 0.0),
-        ),
       ],
     ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1500.ms,
-          begin: Offset(0.0, 15.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
+    'containerOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         MoveEffect(
@@ -145,11 +98,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     'columnOnPageLoadAnimation1': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 100.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 100.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
+          delay: 100.ms,
           duration: 600.ms,
-          begin: Offset(20.0, 0.0),
+          begin: Offset(25.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -157,11 +118,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     'columnOnPageLoadAnimation2': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 200.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 700.ms,
-          begin: Offset(20.0, 0.0),
+          delay: 200.ms,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -169,11 +138,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     'columnOnPageLoadAnimation3': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 300.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(20.0, 0.0),
+          delay: 300.ms,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -181,11 +158,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     'columnOnPageLoadAnimation4': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 400.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: Offset(20.0, 0.0),
+          delay: 400.ms,
+          duration: 600.ms,
+          begin: Offset(25.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -193,131 +178,19 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
     'columnOnPageLoadAnimation5': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
       effects: [
+        VisibilityEffect(duration: 500.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 500.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
         MoveEffect(
           curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(20.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation3': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation4': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 500.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation5': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
+          delay: 500.ms,
           duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation6': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 700.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 700.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation7': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 50.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation8': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 900.ms,
-          begin: Offset(0.0, 50.0),
+          begin: Offset(25.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -342,10 +215,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: BadgeSheetPrayerWidget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: BadgeSheetPrayerWidget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       }
@@ -359,10 +233,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: BadgeSheet7Widget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: BadgeSheet7Widget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       }
@@ -376,10 +251,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: BadgeSheet30Widget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: BadgeSheet30Widget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       }
@@ -393,10 +269,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: BadgeSheet100Widget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: BadgeSheet100Widget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       }
@@ -410,10 +287,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: BadgeSheet200Widget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: BadgeSheet200Widget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       }
@@ -427,10 +305,11 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
           context: context,
           builder: (context) {
             return WebViewAware(
-                child: Padding(
-              padding: MediaQuery.viewInsetsOf(context),
-              child: BadgeSheet365Widget(),
-            ));
+              child: Padding(
+                padding: MediaQuery.viewInsetsOf(context),
+                child: BadgeSheet365Widget(),
+              ),
+            );
           },
         ).then((value) => safeSetState(() {}));
       }
@@ -446,15 +325,6 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -732,8 +602,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                       fontWeight:
                                                           FontWeight.w500,
                                                     ),
-                                              ).animateOnPageLoad(animationsMap[
-                                                  'textOnPageLoadAnimation1']!),
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -895,8 +764,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                 ),
                                               ],
                                             ),
-                                          ).animateOnPageLoad(animationsMap[
-                                              'containerOnPageLoadAnimation1']!),
+                                          ),
                                         ),
                                       ),
                                       Row(
@@ -922,8 +790,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                         fontWeight:
                                                             FontWeight.normal,
                                                       ),
-                                            ).animateOnPageLoad(animationsMap[
-                                                'textOnPageLoadAnimation2']!),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -994,18 +861,20 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: Container(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.8,
-                                                  child: FriendRequestsWidget(),
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: Container(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.8,
+                                                    child:
+                                                        FriendRequestsWidget(),
+                                                  ),
                                                 ),
-                                              ));
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -1037,7 +906,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           ),
                                         ),
                                       ).animateOnPageLoad(animationsMap[
-                                          'containerOnPageLoadAnimation2']!),
+                                          'containerOnPageLoadAnimation']!),
                                   ],
                                 ),
                               );
@@ -1143,11 +1012,13 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: JournalArchiveBSWidget(),
-                                            ));
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: JournalArchiveBSWidget(),
+                                              ),
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -1468,19 +1339,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              child: BadgeSheetWidget(
-                                                badgeSelected:
-                                                    columnBadgesRecord,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child: BadgeSheetWidget(
+                                                  badgeSelected:
+                                                      columnBadgesRecord,
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -1665,19 +1538,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              child: BadgeSheetWidget(
-                                                badgeSelected:
-                                                    columnBadgesRecord,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child: BadgeSheetWidget(
+                                                  badgeSelected:
+                                                      columnBadgesRecord,
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -1860,19 +1735,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              child: BadgeSheetWidget(
-                                                badgeSelected:
-                                                    columnBadgesRecord,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child: BadgeSheetWidget(
+                                                  badgeSelected:
+                                                      columnBadgesRecord,
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -2065,19 +1942,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              child: BadgeSheetWidget(
-                                                badgeSelected:
-                                                    columnBadgesRecord,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child: BadgeSheetWidget(
+                                                  badgeSelected:
+                                                      columnBadgesRecord,
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -2270,19 +2149,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              child: BadgeSheetWidget(
-                                                badgeSelected:
-                                                    columnBadgesRecord,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child: BadgeSheetWidget(
+                                                  badgeSelected:
+                                                      columnBadgesRecord,
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -2475,19 +2356,21 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         context: context,
                                         builder: (context) {
                                           return WebViewAware(
-                                              child: Padding(
-                                            padding: MediaQuery.viewInsetsOf(
-                                                context),
-                                            child: Container(
-                                              height: MediaQuery.sizeOf(context)
-                                                      .height *
-                                                  1.0,
-                                              child: BadgeSheetWidget(
-                                                badgeSelected:
-                                                    columnBadgesRecord,
+                                            child: Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        1.0,
+                                                child: BadgeSheetWidget(
+                                                  badgeSelected:
+                                                      columnBadgesRecord,
+                                                ),
                                               ),
                                             ),
-                                          ));
+                                          );
                                         },
                                       ).then((value) => safeSetState(() {}));
                                     },
@@ -2745,8 +2628,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         ),
                                       ),
                                     ),
-                                  ).animateOnPageLoad(animationsMap[
-                                      'containerOnPageLoadAnimation3']!),
+                                  ),
                                 ),
                               ),
                             Padding(
@@ -2848,8 +2730,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     ),
                                   ),
                                 ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation4']!),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -2892,7 +2773,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               border: Border.all(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .prayerRing,
+                                                        .worshipRing,
                                               ),
                                             ),
                                             child: Align(
@@ -2906,7 +2787,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   FontAwesomeIcons.question,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .prayerRing,
+                                                      .worshipRing,
                                                   size: 18.0,
                                                 ),
                                               ),
@@ -2954,8 +2835,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     ),
                                   ),
                                 ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation5']!),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -2998,7 +2878,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                               border: Border.all(
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .scriptureRing,
+                                                        .worshipRing,
                                               ),
                                             ),
                                             child: Align(
@@ -3012,7 +2892,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                                   FontAwesomeIcons.users,
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .scriptureRing,
+                                                      .worshipRing,
                                                   size: 15.0,
                                                 ),
                                               ),
@@ -3060,8 +2940,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     ),
                                   ),
                                 ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation6']!),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -3087,16 +2966,17 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: Container(
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.92,
-                                            child: HeartCheckWidget(),
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child: Container(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.92,
+                                              child: HeartCheckWidget(),
+                                            ),
                                           ),
-                                        ));
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
                                   },
@@ -3186,8 +3066,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     ),
                                   ),
                                 ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation7']!),
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -3346,8 +3225,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                     );
                                   },
                                 ),
-                              ).animateOnPageLoad(animationsMap[
-                                  'containerOnPageLoadAnimation8']!),
+                              ),
                             ),
                           ],
                         ),
@@ -3429,7 +3307,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         if (Theme.of(context).brightness ==
                                             Brightness.dark)
                                           SvgPicture.asset(
-                                            'assets/images/house-fill_(1).svg',
+                                            'assets/images/house-fill_(dark_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -3437,7 +3315,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         if (!(Theme.of(context).brightness ==
                                             Brightness.dark))
                                           SvgPicture.asset(
-                                            'assets/images/house-fill_(2).svg',
+                                            'assets/images/house-fill_(light_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -3489,8 +3367,8 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                       children: [
                                         if (Theme.of(context).brightness ==
                                             Brightness.dark)
-                                          Image.asset(
-                                            'assets/images/leaf-fill_(1).png',
+                                          SvgPicture.asset(
+                                            'assets/images/leaf-fill_(dark_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -3498,7 +3376,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         if (!(Theme.of(context).brightness ==
                                             Brightness.dark))
                                           SvgPicture.asset(
-                                            'assets/images/leaf-fill_(5).svg',
+                                            'assets/images/leaf-fill_(light_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -3556,7 +3434,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         if (Theme.of(context).brightness ==
                                             Brightness.dark)
                                           SvgPicture.asset(
-                                            'assets/images/hands-clapping-fill_(8).svg',
+                                            'assets/images/hands-clapping-fill_(dark_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -3564,7 +3442,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
                                         if (!(Theme.of(context).brightness ==
                                             Brightness.dark))
                                           SvgPicture.asset(
-                                            'assets/images/hands-clapping-fill_(7).svg',
+                                            'assets/images/hands-clapping-fill_(light_mode).svg',
                                             width: 28.0,
                                             height: 28.0,
                                             fit: BoxFit.cover,
@@ -3590,7 +3468,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget>
             ),
           ],
         ),
-      ),
+      ).animateOnPageLoad(animationsMap['stackOnPageLoadAnimation']!),
     );
   }
 }

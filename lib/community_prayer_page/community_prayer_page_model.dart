@@ -33,6 +33,7 @@ class CommunityPrayerPageModel
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     communityPrayerRequestModel1 =
         createModel(context, () => CommunityPrayerRequestModel());
@@ -42,6 +43,7 @@ class CommunityPrayerPageModel
         createModel(context, () => ProfileTabIconUnselectedModel());
   }
 
+  @override
   void dispose() {
     communityPrayerRequestModel1.dispose();
     chatTabIconUnselectedModel.dispose();

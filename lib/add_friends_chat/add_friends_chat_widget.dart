@@ -10,7 +10,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -21,16 +20,16 @@ export 'add_friends_chat_model.dart';
 
 class AddFriendsChatWidget extends StatefulWidget {
   const AddFriendsChatWidget({
-    Key? key,
+    super.key,
     this.chatChosen,
     this.chatUsers,
-  }) : super(key: key);
+  });
 
   final MessageChatsRecord? chatChosen;
   final DocumentReference? chatUsers;
 
   @override
-  _AddFriendsChatWidgetState createState() => _AddFriendsChatWidgetState();
+  State<AddFriendsChatWidget> createState() => _AddFriendsChatWidgetState();
 }
 
 class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
@@ -63,15 +62,6 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -121,18 +111,20 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
               context: context,
               builder: (context) {
                 return WebViewAware(
-                    child: GestureDetector(
-                  onTap: () => _model.unfocusNode.canRequestFocus
-                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                      : FocusScope.of(context).unfocus(),
-                  child: Padding(
-                    padding: MediaQuery.viewInsetsOf(context),
-                    child: PeopleAddedWidget(
-                      chatChosen: widget.chatChosen?.reference,
-                      chatChosenDoc: widget.chatChosen,
+                  child: GestureDetector(
+                    onTap: () => _model.unfocusNode.canRequestFocus
+                        ? FocusScope.of(context)
+                            .requestFocus(_model.unfocusNode)
+                        : FocusScope.of(context).unfocus(),
+                    child: Padding(
+                      padding: MediaQuery.viewInsetsOf(context),
+                      child: PeopleAddedWidget(
+                        chatChosen: widget.chatChosen?.reference,
+                        chatChosenDoc: widget.chatChosen,
+                      ),
                     ),
                   ),
-                ));
+                );
               },
             ).then((value) => safeSetState(() {}));
 
@@ -148,9 +140,9 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
               shape: BoxShape.circle,
             ),
             child: Icon(
-              Icons.mark_chat_read_rounded,
+              Icons.check_rounded,
               color: FlutterFlowTheme.of(context).tertiary,
-              size: 26.0,
+              size: 28.0,
             ),
           ),
         ),
@@ -217,9 +209,9 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                 children: [
                   Expanded(
                     child: Container(
-                      height: 40.0,
+                      height: 45.0,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       child: Container(
                         width: 100.0,
@@ -227,7 +219,7 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                         decoration: BoxDecoration(
                           color: FlutterFlowTheme.of(context)
                               .secondarySystemBackground,
-                          borderRadius: BorderRadius.circular(10.0),
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
@@ -253,7 +245,9 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                                                     (record) => TextSearchItem
                                                         .fromTerms(record, [
                                                       record.email!,
-                                                      record.displayName!
+                                                      record.displayName!,
+                                                      record.firstName!,
+                                                      record.lastName!
                                                     ]),
                                                   )
                                                   .toList(),
@@ -262,6 +256,7 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                                                             .textController
                                                             .text)
                                                         .map((r) => r.object)
+                                                        .take(50)
                                                         .toList(),
                                           )
                                           .onError((_, __) =>
@@ -275,7 +270,6 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                                         });
                                       }
                                     },
-                                    autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
                                       isDense: true,
@@ -403,7 +397,7 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 0.0, 0.0),
                     child: Text(
                       FFLocalizations.of(context).getText(
                         'v8hh8lh2' /* Search Results */,
@@ -422,10 +416,7 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
             if (FFAppState().showFullList)
               Expanded(
                 child: FutureBuilder<List<UsersRecord>>(
-                  future: queryUsersRecordOnce(
-                    queryBuilder: (usersRecord) =>
-                        usersRecord.orderBy('display_name'),
-                  ),
+                  future: queryUsersRecordOnce(),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -837,27 +828,28 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  AgeMissingWidget(),
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    AgeMissingWidget(),
+                                                              ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));
@@ -886,27 +878,28 @@ class _AddFriendsChatWidgetState extends State<AddFriendsChatWidget> {
                                                         context: context,
                                                         builder: (context) {
                                                           return WebViewAware(
-                                                              child:
-                                                                  GestureDetector(
-                                                            onTap: () => _model
-                                                                    .unfocusNode
-                                                                    .canRequestFocus
-                                                                ? FocusScope.of(
-                                                                        context)
-                                                                    .requestFocus(
-                                                                        _model
-                                                                            .unfocusNode)
-                                                                : FocusScope.of(
-                                                                        context)
-                                                                    .unfocus(),
-                                                            child: Padding(
-                                                              padding: MediaQuery
-                                                                  .viewInsetsOf(
-                                                                      context),
-                                                              child:
-                                                                  PersonBlockedWidget(),
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () => _model
+                                                                      .unfocusNode
+                                                                      .canRequestFocus
+                                                                  ? FocusScope.of(
+                                                                          context)
+                                                                      .requestFocus(
+                                                                          _model
+                                                                              .unfocusNode)
+                                                                  : FocusScope.of(
+                                                                          context)
+                                                                      .unfocus(),
+                                                              child: Padding(
+                                                                padding: MediaQuery
+                                                                    .viewInsetsOf(
+                                                                        context),
+                                                                child:
+                                                                    PersonBlockedWidget(),
+                                                              ),
                                                             ),
-                                                          ));
+                                                          );
                                                         },
                                                       ).then((value) =>
                                                           safeSetState(() {}));

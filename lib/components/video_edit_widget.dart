@@ -3,7 +3,6 @@ import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/components/delete_video_widget.dart';
 import '/components/featured_notification_videos_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_timer.dart';
@@ -15,9 +14,7 @@ import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -30,65 +27,21 @@ export 'video_edit_model.dart';
 
 class VideoEditWidget extends StatefulWidget {
   const VideoEditWidget({
-    Key? key,
+    super.key,
     this.chosenResourceVideo,
-  }) : super(key: key);
+  });
 
   final ResourceVideosRecord? chosenResourceVideo;
 
   @override
-  _VideoEditWidgetState createState() => _VideoEditWidgetState();
+  State<VideoEditWidget> createState() => _VideoEditWidgetState();
 }
 
-class _VideoEditWidgetState extends State<VideoEditWidget>
-    with TickerProviderStateMixin {
+class _VideoEditWidgetState extends State<VideoEditWidget> {
   late VideoEditModel _model;
 
   late StreamSubscription<bool> _keyboardVisibilitySubscription;
   bool _isKeyboardVisible = false;
-
-  final animationsMap = {
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 800.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -243,7 +196,7 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(22.0, 8.0, 0.0, 25.0),
@@ -255,7 +208,7 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                       fontFamily: 'Inter',
                       color: FlutterFlowTheme.of(context).lightSecondaryText,
                     ),
-              ).animateOnPageLoad(animationsMap['textOnPageLoadAnimation']!),
+              ),
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 0.0),
@@ -1190,13 +1143,15 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: DeleteVideoWidget(
-                                        video: widget
-                                            .chosenResourceVideo?.reference,
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: DeleteVideoWidget(
+                                          video: widget
+                                              .chosenResourceVideo?.reference,
+                                        ),
                                       ),
-                                    ));
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -1252,13 +1207,14 @@ class _VideoEditWidgetState extends State<VideoEditWidget>
                                 context: context,
                                 builder: (context) {
                                   return WebViewAware(
-                                      child: Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: FeaturedNotificationVideosWidget(
-                                      chosenResource:
-                                          widget.chosenResourceVideo!,
+                                    child: Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: FeaturedNotificationVideosWidget(
+                                        chosenResource:
+                                            widget.chosenResourceVideo!,
+                                      ),
                                     ),
-                                  ));
+                                  );
                                 },
                               ).then((value) => safeSetState(() {}));
                             },

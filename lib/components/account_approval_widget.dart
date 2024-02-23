@@ -3,16 +3,12 @@ import '/backend/backend.dart';
 import '/components/account_approved_widget.dart';
 import '/components/account_denied_widget.dart';
 import '/components/empty_state_approval_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,56 +19,14 @@ import 'account_approval_model.dart';
 export 'account_approval_model.dart';
 
 class AccountApprovalWidget extends StatefulWidget {
-  const AccountApprovalWidget({Key? key}) : super(key: key);
+  const AccountApprovalWidget({super.key});
 
   @override
-  _AccountApprovalWidgetState createState() => _AccountApprovalWidgetState();
+  State<AccountApprovalWidget> createState() => _AccountApprovalWidgetState();
 }
 
-class _AccountApprovalWidgetState extends State<AccountApprovalWidget>
-    with TickerProviderStateMixin {
+class _AccountApprovalWidgetState extends State<AccountApprovalWidget> {
   late AccountApprovalModel _model;
-
-  final animationsMap = {
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 15.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 1000.ms,
-          begin: Offset(0.0, 25.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void setState(VoidCallback callback) {
@@ -84,13 +38,6 @@ class _AccountApprovalWidgetState extends State<AccountApprovalWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => AccountApprovalModel());
-
-    setupAnimations(
-      animationsMap.values.where((anim) =>
-          anim.trigger == AnimationTrigger.onActionTrigger ||
-          !anim.applyInitialState),
-      this,
-    );
   }
 
   @override
@@ -379,9 +326,7 @@ class _AccountApprovalWidgetState extends State<AccountApprovalWidget>
                                                                             context)
                                                                         .label,
                                                                   ),
-                                                            ).animateOnPageLoad(
-                                                                animationsMap[
-                                                                    'textOnPageLoadAnimation1']!),
+                                                            ),
                                                           ],
                                                         ),
                                                         Row(
@@ -426,9 +371,7 @@ class _AccountApprovalWidgetState extends State<AccountApprovalWidget>
                                                                           FontWeight
                                                                               .normal,
                                                                     ),
-                                                              ).animateOnPageLoad(
-                                                                  animationsMap[
-                                                                      'textOnPageLoadAnimation2']!),
+                                                              ),
                                                             ),
                                                           ],
                                                         ),
@@ -483,13 +426,14 @@ class _AccountApprovalWidgetState extends State<AccountApprovalWidget>
                                                     context: context,
                                                     builder: (context) {
                                                       return WebViewAware(
-                                                          child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            AccountDeniedWidget(),
-                                                      ));
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              AccountDeniedWidget(),
+                                                        ),
+                                                      );
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));
@@ -653,13 +597,14 @@ class _AccountApprovalWidgetState extends State<AccountApprovalWidget>
                                                     context: context,
                                                     builder: (context) {
                                                       return WebViewAware(
-                                                          child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child:
-                                                            AccountApprovedWidget(),
-                                                      ));
+                                                        child: Padding(
+                                                          padding: MediaQuery
+                                                              .viewInsetsOf(
+                                                                  context),
+                                                          child:
+                                                              AccountApprovedWidget(),
+                                                        ),
+                                                      );
                                                     },
                                                   ).then((value) =>
                                                       safeSetState(() {}));

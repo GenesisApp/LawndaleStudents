@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -13,16 +12,16 @@ export 'people_added_group_model.dart';
 
 class PeopleAddedGroupWidget extends StatefulWidget {
   const PeopleAddedGroupWidget({
-    Key? key,
+    super.key,
     this.groupChosen,
     this.groupChosenDoc,
-  }) : super(key: key);
+  });
 
   final DocumentReference? groupChosen;
   final GroupsRecord? groupChosenDoc;
 
   @override
-  _PeopleAddedGroupWidgetState createState() => _PeopleAddedGroupWidgetState();
+  State<PeopleAddedGroupWidget> createState() => _PeopleAddedGroupWidgetState();
 }
 
 class _PeopleAddedGroupWidgetState extends State<PeopleAddedGroupWidget> {
@@ -76,8 +75,8 @@ class _PeopleAddedGroupWidgetState extends State<PeopleAddedGroupWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Container(
-                          width: 125.0,
-                          height: 125.0,
+                          width: MediaQuery.sizeOf(context).width * 0.33,
+                          height: MediaQuery.sizeOf(context).width * 0.33,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context).primary,
                             shape: BoxShape.circle,
@@ -112,7 +111,7 @@ class _PeopleAddedGroupWidgetState extends State<PeopleAddedGroupWidget> {
                                   percent: 1.0,
                                   radius:
                                       MediaQuery.sizeOf(context).width * 0.165,
-                                  lineWidth: 7.0,
+                                  lineWidth: 5.0,
                                   animation: true,
                                   animateFromLastPercent: true,
                                   progressColor:
