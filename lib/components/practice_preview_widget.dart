@@ -596,34 +596,24 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget> {
                                                           MainAxisAlignment
                                                               .center,
                                                       children: [
-                                                        if (Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark)
-                                                          SvgPicture.asset(
-                                                            'assets/images/handsclapping(dark_mode).svg',
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            Theme.of(context)
+                                                                        .brightness ==
+                                                                    Brightness
+                                                                        .dark
+                                                                ? 'assets/images/hands-clapping-fill_(chosen_dark_mode).svg'
+                                                                : 'assets/images/hands-clapping-fill_(chosen_light_mode).svg',
                                                             width: 22.0,
-                                                            height: 22.0,
+                                                            height: 25.0,
                                                             fit: BoxFit.cover,
                                                           ),
-                                                        if (!(Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark))
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        0.0,
-                                                                        15.0,
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'assets/images/handsclapping(light_mode).svg',
-                                                              width: 22.0,
-                                                              height: 25.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                                        ),
                                                       ],
                                                     ),
                                                   ),
@@ -1578,34 +1568,24 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget> {
                                                           MainAxisAlignment
                                                               .center,
                                                       children: [
-                                                        if (Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark)
-                                                          SvgPicture.asset(
-                                                            'assets/images/handsclapping(dark_mode).svg',
+                                                        ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child:
+                                                              SvgPicture.asset(
+                                                            Theme.of(context)
+                                                                        .brightness ==
+                                                                    Brightness
+                                                                        .dark
+                                                                ? 'assets/images/hands-clapping-fill_(chosen_dark_mode).svg'
+                                                                : 'assets/images/hands-clapping-fill_(chosen_light_mode).svg',
                                                             width: 22.0,
-                                                            height: 22.0,
+                                                            height: 25.0,
                                                             fit: BoxFit.cover,
                                                           ),
-                                                        if (!(Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark))
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        15.0,
-                                                                        0.0,
-                                                                        15.0,
-                                                                        0.0),
-                                                            child: SvgPicture
-                                                                .asset(
-                                                              'assets/images/handsclapping(light_mode).svg',
-                                                              width: 22.0,
-                                                              height: 25.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          ),
+                                                        ),
                                                       ],
                                                     ),
                                                   ),

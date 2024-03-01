@@ -1010,7 +1010,7 @@ class _CommunityPrayerRequestWidgetState
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .tertiarySystemBackground,
+                                                        .secondarySystemGroupedBackground,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8.0),
@@ -1146,7 +1146,7 @@ class _CommunityPrayerRequestWidgetState
                                                             BoxDecoration(
                                                           color: FlutterFlowTheme
                                                                   .of(context)
-                                                              .tertiarySystemBackground,
+                                                              .secondarySystemGroupedBackground,
                                                           borderRadius:
                                                               BorderRadius
                                                                   .circular(
@@ -1487,7 +1487,7 @@ class _CommunityPrayerRequestWidgetState
                                                     decoration: BoxDecoration(
                                                       color: FlutterFlowTheme
                                                               .of(context)
-                                                          .tertiarySystemBackground,
+                                                          .secondarySystemGroupedBackground,
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               8.0),
@@ -1726,7 +1726,7 @@ class _CommunityPrayerRequestWidgetState
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
-                                                            .tertiarySystemBackground,
+                                                            .secondarySystemGroupedBackground,
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),
@@ -1815,7 +1815,7 @@ class _CommunityPrayerRequestWidgetState
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
-                                                            .tertiarySystemBackground,
+                                                            .secondarySystemGroupedBackground,
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),
@@ -1902,7 +1902,7 @@ class _CommunityPrayerRequestWidgetState
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
-                                                            .tertiarySystemBackground,
+                                                            .secondarySystemGroupedBackground,
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),
@@ -1988,7 +1988,7 @@ class _CommunityPrayerRequestWidgetState
                                                       decoration: BoxDecoration(
                                                         color: FlutterFlowTheme
                                                                 .of(context)
-                                                            .tertiarySystemBackground,
+                                                            .secondarySystemGroupedBackground,
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(8.0),

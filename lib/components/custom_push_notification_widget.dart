@@ -2,12 +2,14 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
+import '/components/notification_scheduled_widget.dart';
 import '/components/notification_sent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
 import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -373,6 +375,98 @@ class _CustomPushNotificationWidgetState
                       ),
                     ),
                   ),
+                  InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      final _datePickedDate = await showDatePicker(
+                        context: context,
+                        initialDate: getCurrentTimestamp,
+                        firstDate: getCurrentTimestamp,
+                        lastDate: DateTime(2050),
+                      );
+
+                      TimeOfDay? _datePickedTime;
+                      if (_datePickedDate != null) {
+                        _datePickedTime = await showTimePicker(
+                          context: context,
+                          initialTime:
+                              TimeOfDay.fromDateTime(getCurrentTimestamp),
+                        );
+                      }
+
+                      if (_datePickedDate != null && _datePickedTime != null) {
+                        safeSetState(() {
+                          _model.datePicked = DateTime(
+                            _datePickedDate.year,
+                            _datePickedDate.month,
+                            _datePickedDate.day,
+                            _datePickedTime!.hour,
+                            _datePickedTime.minute,
+                          );
+                        });
+                      }
+                    },
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width * 0.8,
+                      height: 50.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context)
+                            .secondarySystemBackground,
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                FFLocalizations.of(context).getText(
+                                  '98qzqfkq' /* Schedule for Later (optional) */,
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color:
+                                          FlutterFlowTheme.of(context).tertiary,
+                                    ),
+                              ),
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 4.0, 0.0, 0.0),
+                                child: Text(
+                                  valueOrDefault<String>(
+                                    _model.datePicked != null
+                                        ? dateTimeFormat(
+                                            'M/d h:mm a',
+                                            _model.datePicked,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          )
+                                        : 'Click here',
+                                    'Click here',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        color: FlutterFlowTheme.of(context)
+                                            .worshipRing,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -466,36 +560,72 @@ class _CustomPushNotificationWidgetState
                                       createdTime: getCurrentTimestamp,
                                       tagName: widget.tagChosenDoc?.tagName,
                                     ));
-                                triggerPushNotification(
-                                  notificationTitle:
-                                      _model.textController1.text,
-                                  notificationText: _model.textController2.text,
-                                  notificationImageUrl:
-                                      _model.uploadedFileUrl != null &&
-                                              _model.uploadedFileUrl != ''
-                                          ? _model.uploadedFileUrl
-                                          : null,
-                                  userRefs: widget.userGroupChosen!.toList(),
-                                  initialPageName: 'MessageBoard',
-                                  parameterData: {},
-                                );
-                                await showModalBottomSheet(
-                                  isScrollControlled: true,
-                                  backgroundColor: Colors.transparent,
-                                  barrierColor: FlutterFlowTheme.of(context)
-                                      .opagueSeparator,
-                                  enableDrag: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return WebViewAware(
-                                      child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: NotificationSentWidget(),
-                                      ),
-                                    );
-                                  },
-                                ).then((value) => safeSetState(() {}));
+                                if (_model.datePicked != null) {
+                                  triggerPushNotification(
+                                    notificationTitle:
+                                        _model.textController1.text,
+                                    notificationText:
+                                        _model.textController2.text,
+                                    notificationImageUrl:
+                                        _model.uploadedFileUrl != null &&
+                                                _model.uploadedFileUrl != ''
+                                            ? _model.uploadedFileUrl
+                                            : null,
+                                    scheduledTime: _model.datePicked!,
+                                    userRefs: widget.userGroupChosen!.toList(),
+                                    initialPageName: 'MessageBoard',
+                                    parameterData: {},
+                                  );
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: FlutterFlowTheme.of(context)
+                                        .opagueSeparator,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return WebViewAware(
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: NotificationScheduledWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                } else {
+                                  triggerPushNotification(
+                                    notificationTitle:
+                                        _model.textController1.text,
+                                    notificationText:
+                                        _model.textController2.text,
+                                    notificationImageUrl:
+                                        _model.uploadedFileUrl != null &&
+                                                _model.uploadedFileUrl != ''
+                                            ? _model.uploadedFileUrl
+                                            : null,
+                                    userRefs: widget.userGroupChosen!.toList(),
+                                    initialPageName: 'MessageBoard',
+                                    parameterData: {},
+                                  );
+                                  await showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    barrierColor: FlutterFlowTheme.of(context)
+                                        .opagueSeparator,
+                                    enableDrag: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return WebViewAware(
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: NotificationSentWidget(),
+                                        ),
+                                      );
+                                    },
+                                  ).then((value) => safeSetState(() {}));
+                                }
 
                                 Navigator.pop(context);
                               },

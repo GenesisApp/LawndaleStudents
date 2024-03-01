@@ -4767,7 +4767,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               child: Container(
                                                                                 width: 100.0,
                                                                                 decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                  color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                   borderRadius: BorderRadius.circular(12.0),
                                                                                 ),
                                                                                 child: Align(
@@ -5571,7 +5571,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               width: 100.0,
                                                                               height: 50.0,
                                                                               decoration: BoxDecoration(
-                                                                                color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                 borderRadius: BorderRadius.circular(12.0),
                                                                               ),
                                                                               child: Padding(
@@ -5655,7 +5655,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 38.0,
                                                                             decoration:
                                                                                 BoxDecoration(
-                                                                              color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                              color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                               borderRadius: BorderRadius.circular(8.0),
                                                                             ),
                                                                             child:
@@ -5719,7 +5719,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 width: 120.0,
                                                                                 height: 38.0,
                                                                                 decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                  color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                   borderRadius: BorderRadius.circular(8.0),
                                                                                 ),
                                                                                 child: Builder(
@@ -5770,7 +5770,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 width: 120.0,
                                                                                 height: 38.0,
                                                                                 decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                  color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                   borderRadius: BorderRadius.circular(8.0),
                                                                                 ),
                                                                                 child: InkWell(
@@ -6416,7 +6416,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 width: 100.0,
                                                                                 height: 50.0,
                                                                                 decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                  color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                   borderRadius: BorderRadius.circular(12.0),
                                                                                 ),
                                                                                 child: Align(
@@ -7185,7 +7185,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 width: 100.0,
                                                                                 height: 50.0,
                                                                                 decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                  color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                   borderRadius: BorderRadius.circular(12.0),
                                                                                 ),
                                                                                 child: Padding(
@@ -7265,7 +7265,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               width: 120.0,
                                                                               height: 38.0,
                                                                               decoration: BoxDecoration(
-                                                                                color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                 borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: InkWell(
@@ -7326,7 +7326,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                   width: 120.0,
                                                                                   height: 38.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                    color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                     borderRadius: BorderRadius.circular(8.0),
                                                                                   ),
                                                                                   child: Builder(
@@ -7376,7 +7376,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                   width: 120.0,
                                                                                   height: 38.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                    color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                     borderRadius: BorderRadius.circular(8.0),
                                                                                   ),
                                                                                   child: InkWell(
@@ -7967,7 +7967,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 width: 100.0,
                                                                                 height: 50.0,
                                                                                 decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                  color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                   borderRadius: BorderRadius.circular(12.0),
                                                                                 ),
                                                                                 child: Align(
@@ -8740,7 +8740,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                 width: 100.0,
                                                                                 height: 50.0,
                                                                                 decoration: BoxDecoration(
-                                                                                  color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                  color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                   borderRadius: BorderRadius.circular(12.0),
                                                                                 ),
                                                                                 child: Padding(
@@ -8761,7 +8761,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                       children: [
                                                                                         if (Theme.of(context).brightness == Brightness.dark)
                                                                                           SvgPicture.asset(
-                                                                                            'assets/images/handsclapping(dark_mode).svg',
+                                                                                            'assets/images/hands-clapping-fill_(chosen_dark_mode).svg',
                                                                                             width: 22.0,
                                                                                             height: 22.0,
                                                                                             fit: BoxFit.cover,
@@ -8770,7 +8770,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                           Padding(
                                                                                             padding: EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 0.0),
                                                                                             child: SvgPicture.asset(
-                                                                                              'assets/images/handsclapping(light_mode).svg',
+                                                                                              'assets/images/hands-clapping-fill_(chosen_light_mode).svg',
                                                                                               width: 22.0,
                                                                                               height: 25.0,
                                                                                               fit: BoxFit.cover,
@@ -8820,7 +8820,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               width: 120.0,
                                                                               height: 38.0,
                                                                               decoration: BoxDecoration(
-                                                                                color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                 borderRadius: BorderRadius.circular(8.0),
                                                                               ),
                                                                               child: InkWell(
@@ -8881,7 +8881,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                   width: 120.0,
                                                                                   height: 38.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                    color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                     borderRadius: BorderRadius.circular(8.0),
                                                                                   ),
                                                                                   child: Builder(
@@ -8931,7 +8931,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                                   width: 120.0,
                                                                                   height: 38.0,
                                                                                   decoration: BoxDecoration(
-                                                                                    color: FlutterFlowTheme.of(context).tertiarySystemBackground,
+                                                                                    color: FlutterFlowTheme.of(context).secondarySystemGroupedBackground,
                                                                                     borderRadius: BorderRadius.circular(8.0),
                                                                                   ),
                                                                                   child: InkWell(

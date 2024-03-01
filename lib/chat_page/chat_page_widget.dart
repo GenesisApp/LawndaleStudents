@@ -1025,12 +1025,20 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                 CrossAxisAlignment
                                                                     .start,
                                                             children: [
-                                                              SvgPicture.asset(
-                                                                'assets/images/arrow-bend-up-right.svg',
-                                                                width: 30.0,
-                                                                height: 30.0,
-                                                                fit: BoxFit
-                                                                    .cover,
+                                                              ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child:
+                                                                    SvgPicture
+                                                                        .asset(
+                                                                  'assets/images/arrow_right.svg',
+                                                                  width: 30.0,
+                                                                  height: 30.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
                                                               ),
                                                               Column(
                                                                 mainAxisSize:
@@ -2846,13 +2854,21 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                   CrossAxisAlignment
                                                                       .start,
                                                               children: [
-                                                                SvgPicture
-                                                                    .asset(
-                                                                  'assets/images/arrow-bend-up-right.svg',
-                                                                  width: 30.0,
-                                                                  height: 30.0,
-                                                                  fit: BoxFit
-                                                                      .cover,
+                                                                ClipRRect(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              8.0),
+                                                                  child:
+                                                                      SvgPicture
+                                                                          .asset(
+                                                                    'assets/images/arrow_right.svg',
+                                                                    width: 30.0,
+                                                                    height:
+                                                                        30.0,
+                                                                    fit: BoxFit
+                                                                        .cover,
+                                                                  ),
                                                                 ),
                                                                 Column(
                                                                   mainAxisSize:
@@ -5058,14 +5074,20 @@ class _ChatPageWidgetState extends State<ChatPageWidget>
                                                                     CrossAxisAlignment
                                                                         .start,
                                                                 children: [
-                                                                  SvgPicture
-                                                                      .asset(
-                                                                    'assets/images/arrow-bend-up-right.svg',
-                                                                    width: 30.0,
-                                                                    height:
-                                                                        30.0,
-                                                                    fit: BoxFit
-                                                                        .cover,
+                                                                  ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: SvgPicture
+                                                                        .asset(
+                                                                      'assets/images/arrow_right.svg',
+                                                                      width:
+                                                                          30.0,
+                                                                      height:
+                                                                          30.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                    ),
                                                                   ),
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional

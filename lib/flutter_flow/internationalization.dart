@@ -345,9 +345,21 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'All Notes',
       'es': 'Todas las notas',
     },
-    'n2y8cq8v': {
-      'en': 'Results',
-      'es': 'Resultados',
+    '0cyfyvys': {
+      'en': 'Click below to open this file.',
+      'es': '',
+    },
+    'zbumw754': {
+      'en': 'Open Link',
+      'es': '',
+    },
+    '2h64ht5z': {
+      'en': 'Click below to open this file.',
+      'es': '',
+    },
+    'piinnkhz': {
+      'en': 'Open Link',
+      'es': '',
     },
     '2yu4sxca': {
       'en': 'Use the search bar above to \ndiscover more files.',
@@ -1881,7 +1893,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Revistas creadas',
     },
     'iae6f6bz': {
-      'en': 'Prayer Requests',
+      'en': 'Prayer Stats',
       'es': 'Peticiones de oración',
     },
     '45xqz0nt': {
@@ -2650,6 +2662,541 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'gv7i2k70': {
       'en': 'Home',
       'es': 'Hogar',
+    },
+  },
+  // dashboardHomePage
+  {
+    'tioweuqq': {
+      'en': 'Navigation',
+      'es': '',
+    },
+    '8j1er686': {
+      'en': 'Home',
+      'es': '',
+    },
+    'pn5t61oo': {
+      'en': 'Resources',
+      'es': '',
+    },
+    '8lt09pdq': {
+      'en': 'Prayer Requests',
+      'es': '',
+    },
+    '31sli4yp': {
+      'en': 'Prayer Requests',
+      'es': '',
+    },
+    'djm5bhpv': {
+      'en': 'Settings',
+      'es': '',
+    },
+    '8dgvwp2m': {
+      'en': 'Notifications',
+      'es': '',
+    },
+    'd18fm6wi': {
+      'en': 'Terms and Conditions',
+      'es': '',
+    },
+    'cd8ztyaq': {
+      'en': 'Explore',
+      'es': '',
+    },
+    'nwrt9xc1': {
+      'en': 'Light Mode',
+      'es': '',
+    },
+    'h8mobsv0': {
+      'en': 'Dark Mode',
+      'es': '',
+    },
+    'g82ysk5u': {
+      'en': 'Dashboard',
+      'es': '',
+    },
+    'r6o8ce7t': {
+      'en': 'Below is a overview of your account activity.',
+      'es': '',
+    },
+    'ehz5wld2': {
+      'en': 'Journal Streak',
+      'es': 'Racha de diario',
+    },
+    '806gfiq4': {
+      'en': 'We\'re ',
+      'es': 'Eran',
+    },
+    'ogkxa4pn': {
+      'en': 'live! ',
+      'es': '¡vivir!',
+    },
+    'ksnjpqo3': {
+      'en': 'Click here to join.',
+      'es': 'Haga clic aquí para unirse.',
+    },
+    'jzyqqiot': {
+      'en': 'Worship Journal',
+      'es': '',
+    },
+    'pv3659us': {
+      'en': 'You’re using 80% of available requests.',
+      'es': '',
+    },
+    'epd077aq': {
+      'en': 'You’ve almost reached your limit',
+      'es': '',
+    },
+    '20oefski': {
+      'en':
+          'You have used 80% of your available requests. Upgrade plan to make more network requests.',
+      'es': '',
+    },
+    'd9yg3ws9': {
+      'en': 'Scripture Journal',
+      'es': '',
+    },
+    'a70lf0nq': {
+      'en': 'You’re using 80% of available requests.',
+      'es': '',
+    },
+    'rdtr0tw7': {
+      'en': 'You’ve almost reached your limit',
+      'es': '',
+    },
+    'phv67kz9': {
+      'en':
+          'You have used 80% of your available requests. Upgrade plan to make more network requests.',
+      'es': '',
+    },
+    'cy0gqa6y': {
+      'en': 'Prayer Journal',
+      'es': '',
+    },
+    'mxhwzsgz': {
+      'en': 'You’re using 80% of available requests.',
+      'es': '',
+    },
+    'ernain35': {
+      'en': 'You’ve almost reached your limit',
+      'es': '',
+    },
+    '5l985ayq': {
+      'en':
+          'You have used 80% of your available requests. Upgrade plan to make more network requests.',
+      'es': '',
+    },
+    'by2wco5l': {
+      'en': 'Income this Month',
+      'es': '',
+    },
+    'e0vvx1y0': {
+      'en': '\$567,402',
+      'es': '',
+    },
+    'ir1jjm8f': {
+      'en': 'Total Orders',
+      'es': '',
+    },
+    '17jxkuxh': {
+      'en': '2,208',
+      'es': '',
+    },
+    'dc6uy6oc': {
+      'en': 'Total Orders',
+      'es': '',
+    },
+    'nx65txc0': {
+      'en': '2,208',
+      'es': '',
+    },
+    'nojwspnw': {
+      'en': 'Total Orders',
+      'es': '',
+    },
+    'jqdycrc2': {
+      'en': '2,208',
+      'es': '',
+    },
+    '9x012uxw': {
+      'en': 'Outstanding Balance',
+      'es': '',
+    },
+    '95jliue2': {
+      'en': '\$529,204',
+      'es': '',
+    },
+    'mccea7nn': {
+      'en': '55%',
+      'es': '',
+    },
+    'jguxpe72': {
+      'en': 'Network Requests',
+      'es': '',
+    },
+    'g73f2ihm': {
+      'en': 'You’re using 80% of available requests.',
+      'es': '',
+    },
+    'm5zof5so': {
+      'en': '562k',
+      'es': '',
+    },
+    'pbor82ey': {
+      'en': 'You’ve almost reached your limit',
+      'es': '',
+    },
+    'ciiogoal': {
+      'en':
+          'You have used 80% of your available requests. Upgrade plan to make more network requests.',
+      'es': '',
+    },
+    'e0gchyia': {
+      'en': 'Card Header',
+      'es': '',
+    },
+    '3yaocrbc': {
+      'en': 'Create tables and ui elements that work below.',
+      'es': '',
+    },
+    'jsd6e5v8': {
+      'en': 'Add New',
+      'es': '',
+    },
+    'r2eld97m': {
+      'en': 'Work Type',
+      'es': '',
+    },
+    'xsi7clro': {
+      'en': 'Assigned User',
+      'es': '',
+    },
+    'pt1hl46i': {
+      'en': 'Contract Amount',
+      'es': '',
+    },
+    'twtvkir4': {
+      'en': 'Status',
+      'es': '',
+    },
+    '1cku2ecb': {
+      'en': 'Actions',
+      'es': '',
+    },
+    'zt6rw6cy': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'lhs55h2s': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'dq0bwplc': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'vk1r1yl3': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'op5q27ks': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'c8bcsu3s': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    '9wbr9rys': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'zvzbpudk': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'wfa51u0z': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'sdev5dn8': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'stl7jvui': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'wpabljvf': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'p57khjqp': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'b4m19cwk': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'sbjyrjvb': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'eanf3nlb': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'k0igijgg': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'h4b250ne': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'q4gtuz41': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'efe91whe': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'nwjl806a': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    '2yvhpz3h': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    '0j5ek6jq': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'gtb5fbtq': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    '0a928kbv': {
+      'en': 'Pending',
+      'es': '',
+    },
+    '3ppn2wiq': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'hicj49ev': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    '3ebxwrp6': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'kbgbd6vr': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    '33j898w5': {
+      'en': 'Pending',
+      'es': '',
+    },
+    'gd7h36c9': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    '7h0kcxox': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'afjpr21x': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'sgtkb8yc': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'ljp6r2ku': {
+      'en': 'Pending',
+      'es': '',
+    },
+    'smq95aq3': {
+      'en': 'Card Header',
+      'es': '',
+    },
+    'r93jz5x0': {
+      'en': 'Create tables and ui elements that work below.',
+      'es': '',
+    },
+    '7i8z3z79': {
+      'en': 'Add New',
+      'es': '',
+    },
+    'h9ust13b': {
+      'en': 'Work Type',
+      'es': '',
+    },
+    '82ahklde': {
+      'en': 'Assigned User',
+      'es': '',
+    },
+    '170jfhcb': {
+      'en': 'Contract Amount',
+      'es': '',
+    },
+    'f4a1xr4y': {
+      'en': 'Status',
+      'es': '',
+    },
+    '8vpc48hj': {
+      'en': 'Actions',
+      'es': '',
+    },
+    'fpo7bhd4': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'trbnuhpz': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    '23kyi4kw': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    '5srnjxzf': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'yjo67nou': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'qj0r108q': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'lw801ahz': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'wz46552h': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    '51smnro7': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    '9injr8xm': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'drwn8q0m': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'h6s8ea25': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'ihqtf905': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'konty3s2': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'qs1vsvdi': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'a60xfvtd': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    '6yu33f5d': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    '61hc47ie': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'zxk9uhfb': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'qsgacowv': {
+      'en': 'Paid',
+      'es': '',
+    },
+    'pox0771n': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'xr2br420': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'ok2uqb5h': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'wdkrz2dc': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'bivbvblh': {
+      'en': 'Pending',
+      'es': '',
+    },
+    'as5cceg7': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    '8vdeqlec': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'r2ognkr7': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    '5oxxx7p4': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    'e68wnfig': {
+      'en': 'Pending',
+      'es': '',
+    },
+    'o6v961yj': {
+      'en': 'Design Work',
+      'es': '',
+    },
+    'rwz909hb': {
+      'en': 'Randy Peterson',
+      'es': '',
+    },
+    'xf99bodp': {
+      'en': 'Business Name',
+      'es': '',
+    },
+    'x27qtm86': {
+      'en': '\$2,100',
+      'es': '',
+    },
+    '32eo8l9d': {
+      'en': 'Pending',
+      'es': '',
+    },
+    'xk2jfthk': {
+      'en': 'Home',
+      'es': '',
     },
   },
   // PercentageCompleted1
@@ -3630,7 +4177,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Vista previa de PDF...',
     },
     'zd47upak': {
-      'en': 'PDF Document',
+      'en': 'PDF Document (optional)',
       'es': 'Documento PDF',
     },
     'mp0r096m': {
@@ -3646,6 +4193,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'Título',
     },
     'mcftlrcw': {
+      'en': 'type here...',
+      'es': 'escriba aquí...',
+    },
+    '0ocfp1hf': {
+      'en': 'File URL / Website',
+      'es': 'Título',
+    },
+    'c5r3asf3': {
       'en': 'type here...',
       'es': 'escriba aquí...',
     },
@@ -3673,27 +4228,19 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Please choose an option from the dropdown',
       'es': 'Por favor elija una opción del menú desplegable',
     },
-    'tki8bzka': {
+    'bqyyhihy': {
       'en': 'Field is required',
-      'es': 'Se requiere campo',
+      'es': '',
     },
-    'bw85c2zb': {
+    'auekrin5': {
       'en': 'Please choose an option from the dropdown',
-      'es': 'Por favor elija una opción del menú desplegable',
+      'es': '',
     },
     'ysu2uepa': {
       'en': 'Field is required',
       'es': 'Se requiere campo',
     },
     'wazr44t1': {
-      'en': 'Please choose an option from the dropdown',
-      'es': 'Por favor elija una opción del menú desplegable',
-    },
-    'pjaeokjj': {
-      'en': 'Field is required',
-      'es': 'Se requiere campo',
-    },
-    'chg7n611': {
       'en': 'Please choose an option from the dropdown',
       'es': 'Por favor elija una opción del menú desplegable',
     },
@@ -4549,6 +5096,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Launch Date',
       'es': 'Fecha de lanzamiento',
     },
+    'kcj04glm': {
+      'en': 'Delete Journal',
+      'es': 'Eliminar vídeo',
+    },
     'ofjbchb6': {
       'en': 'Cancel',
       'es': 'Cancelar',
@@ -4596,6 +5147,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'en': 'Launch Date',
       'es': 'Fecha de lanzamiento',
     },
+    'hbfj0ppp': {
+      'en': 'Delete Journal',
+      'es': 'Eliminar vídeo',
+    },
     'zz2hz7lx': {
       'en': 'Cancel',
       'es': 'Cancelar',
@@ -4642,6 +5197,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'u1yna1ub': {
       'en': 'Launch Date',
       'es': 'Fecha de lanzamiento',
+    },
+    'dce0akdb': {
+      'en': 'Delete Journal',
+      'es': 'Eliminar vídeo',
     },
     'u2fdv7qj': {
       'en': 'Cancel',
@@ -5615,6 +6174,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     'qcxj0hon': {
       'en': 'Notification Text...',
       'es': 'Texto de notificación...',
+    },
+    '98qzqfkq': {
+      'en': 'Schedule for Later (optional)',
+      'es': 'Cumpleaños',
     },
     'sm43d16p': {
       'en': 'Field is required',
@@ -7647,21 +8210,51 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': 'configuraciones de chat',
     },
   },
-  // attendanceCalendar
+  // prayerStatsArchive
   {
-    'uwwez5du': {
+    'i0gvik7b': {
       'en': 'Hello,',
       'es': 'Hola,',
+    },
+    'nkksxs8r': {
+      'en': 'Choose an option below to view your journal archives!',
+      'es':
+          '¡Elija una de las siguientes opciones para ver los archivos de su revista!',
+    },
+    '5j1kqwnk': {
+      'en': 'Prayers Answered',
+      'es': 'Diarios de adoración',
+    },
+    '9fv9sezw': {
+      'en': 'Scripture Journals',
+      'es': 'Diarios de las Escrituras',
+    },
+    'pnnfps3v': {
+      'en': 'Prayer Journals',
+      'es': 'Diarios de oración',
+    },
+  },
+  // NotificationScheduled
+  {
+    '65c6jgtc': {
+      'en': 'Notification scheduled!',
+      'es': '¡Notificación enviada!',
+    },
+    'pbzdjwv6': {
+      'en': 'Done',
+      'es': 'Hecho',
     },
   },
   // Miscellaneous
   {
     '9on1ycgr': {
-      'en': '',
+      'en':
+          'In order to upload background and profile photos, this app requires access to the camera.',
       'es': '',
     },
     'te724s3i': {
-      'en': '',
+      'en':
+          'In order to upload background and profile photos, this app requires access to the photo library.',
       'es': '',
     },
     'xfdyz49j': {
@@ -7669,7 +8262,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'wln9qa12': {
-      'en': '',
+      'en':
+          'In order to see if the user is close to the church, this app requires permission to the location.',
       'es': '',
     },
     'gait77qy': {
@@ -7709,6 +8303,10 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'es': '',
     },
     'b1ipgyw7': {
+      'en': '',
+      'es': '',
+    },
+    '3z6cugzg': {
       'en': '',
       'es': '',
     },

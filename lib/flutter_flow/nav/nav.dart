@@ -572,6 +572,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               path: 'recentCheckins',
               requireAuth: true,
               builder: (context, params) => RecentCheckinsWidget(),
+            ),
+            FFRoute(
+              name: 'dashboardHomePage',
+              path: 'dashboardHomePage',
+              requireAuth: true,
+              builder: (context, params) => DashboardHomePageWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

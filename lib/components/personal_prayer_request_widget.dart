@@ -957,7 +957,7 @@ class _PersonalPrayerRequestWidgetState
                                               decoration: BoxDecoration(
                                                 color: FlutterFlowTheme.of(
                                                         context)
-                                                    .tertiarySystemBackground,
+                                                    .secondarySystemGroupedBackground,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                               ),
@@ -1055,7 +1055,7 @@ class _PersonalPrayerRequestWidgetState
                                               decoration: BoxDecoration(
                                                 color: FlutterFlowTheme.of(
                                                         context)
-                                                    .tertiarySystemBackground,
+                                                    .secondarySystemGroupedBackground,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                               ),
@@ -1278,7 +1278,7 @@ class _PersonalPrayerRequestWidgetState
                                               decoration: BoxDecoration(
                                                 color: FlutterFlowTheme.of(
                                                         context)
-                                                    .tertiarySystemBackground,
+                                                    .secondarySystemGroupedBackground,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                               ),

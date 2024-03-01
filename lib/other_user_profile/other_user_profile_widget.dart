@@ -1043,8 +1043,8 @@ class _OtherUserProfileWidgetState extends State<OtherUserProfileWidget> {
                                       SvgPicture.asset(
                                         Theme.of(context).brightness ==
                                                 Brightness.dark
-                                            ? 'assets/images/users-fill_darkmode.svg'
-                                            : 'assets/images/users-fill_(1).svg',
+                                            ? 'assets/images/users-fill_(dark_mode).svg'
+                                            : 'assets/images/users-fill_(light_mode).svg',
                                         width: 28.0,
                                         height: 28.0,
                                         fit: BoxFit.cover,

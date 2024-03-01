@@ -495,7 +495,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget> {
                                                               children: [
                                                                 SvgPicture
                                                                     .asset(
-                                                                  'assets/images/arrow-bend-up-right.svg',
+                                                                  'assets/images/arrow_right.svg',
                                                                   width: 30.0,
                                                                   height: 30.0,
                                                                   fit: BoxFit
@@ -2203,7 +2203,7 @@ class _PinnedMessagesWidgetState extends State<PinnedMessagesWidget> {
                                                                 children: [
                                                                   SvgPicture
                                                                       .asset(
-                                                                    'assets/images/arrow-bend-up-right.svg',
+                                                                    'assets/images/arrow_right.svg',
                                                                     width: 30.0,
                                                                     height:
                                                                         30.0,

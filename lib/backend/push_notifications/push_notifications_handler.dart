@@ -278,6 +278,7 @@ final parametersBuilderMap =
       ),
   'MessageBoard': ParameterData.none(),
   'recentCheckins': ParameterData.none(),
+  'dashboardHomePage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

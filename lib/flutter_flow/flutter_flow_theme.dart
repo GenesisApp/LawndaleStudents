@@ -413,10 +413,10 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color secondaryGrey12 = Color(0x1FFFFFFF);
   late Color secondaryGrey8 = Color(0x15FFFFFF);
   late Color systemBackground = Color(0xFF000000);
-  late Color secondarySystemBackground = Color(0xFF121212);
+  late Color secondarySystemBackground = Color(0xFF1C1C1E);
   late Color tertiarySystemBackground = Color(0xFF1B1B1B);
   late Color systemGroupedBackground = Color(0xFF000000);
-  late Color secondarySystemGroupedBackground = Color(0xFF1C1C1E);
+  late Color secondarySystemGroupedBackground = Color(0xFF2C2C2E);
   late Color tertiarySystemGroupedBackground = Color(0xFF2C2C2E);
   late Color label = Color(0xFFFFFFFF);
   late Color secondaryLabel = Color(0xFFEBEBF5);

@@ -7,6 +7,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -2467,14 +2468,8 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                             decoration: BoxDecoration(),
                           ),
                         ),
-                        FutureBuilder<int>(
-                          future: queryPrayerRequestsRecordCount(
-                            queryBuilder: (prayerRequestsRecord) =>
-                                prayerRequestsRecord.where(
-                              'public',
-                              isEqualTo: true,
-                            ),
-                          ),
+                        FutureBuilder<List<PrayerRequestsRecord>>(
+                          future: queryPrayerRequestsRecordOnce(),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
@@ -2489,7 +2484,9 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                 ),
                               );
                             }
-                            int containerCount = snapshot.data!;
+                            List<PrayerRequestsRecord>
+                                containerPrayerRequestsRecordList =
+                                snapshot.data!;
                             return Container(
                               width: MediaQuery.sizeOf(context).width * 0.42,
                               height: 75.0,
@@ -2529,7 +2526,7 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'iae6f6bz' /* Prayer Requests */,
+                                                'iae6f6bz' /* Prayer Stats */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -2552,7 +2549,10 @@ class _AdminDashboardWidgetState extends State<AdminDashboardWidget> {
                                           ],
                                         ),
                                         Text(
-                                          containerCount.toString(),
+                                          valueOrDefault<String>(
+                                            '${functions.sumOfNumbers(containerPrayerRequestsRecordList.map((e) => e.prayedforByUsers.length).toList()).toString()} prayers prayed',
+                                            '0 prayers prayed',
+                                          ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(

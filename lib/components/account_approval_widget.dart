@@ -485,12 +485,20 @@ class _AccountApprovalWidgetState extends State<AccountApprovalWidget> {
                                                                 MainAxisAlignment
                                                                     .center,
                                                             children: [
-                                                              SvgPicture.asset(
-                                                                'assets/images/arrow-bend-up-left.svg',
-                                                                width: 25.0,
-                                                                height: 25.0,
-                                                                fit: BoxFit
-                                                                    .cover,
+                                                              ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
+                                                                child:
+                                                                    SvgPicture
+                                                                        .asset(
+                                                                  'assets/images/arrow_left.svg',
+                                                                  width: 25.0,
+                                                                  height: 25.0,
+                                                                  fit: BoxFit
+                                                                      .cover,
+                                                                ),
                                                               ),
                                                             ],
                                                           ),
@@ -656,15 +664,15 @@ class _AccountApprovalWidgetState extends State<AccountApprovalWidget> {
                                                                 MainAxisAlignment
                                                                     .center,
                                                             children: [
-                                                              Align(
-                                                                alignment:
-                                                                    AlignmentDirectional(
-                                                                        0.0,
-                                                                        0.0),
+                                                              ClipRRect(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            8.0),
                                                                 child:
                                                                     SvgPicture
                                                                         .asset(
-                                                                  'assets/images/arrow-bend-up-right.svg',
+                                                                  'assets/images/arrow_right.svg',
                                                                   width: 25.0,
                                                                   height: 25.0,
                                                                   fit: BoxFit

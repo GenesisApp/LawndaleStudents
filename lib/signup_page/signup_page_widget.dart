@@ -93,8 +93,8 @@ class _SignupPageWidgetState extends State<SignupPageWidget> {
                                 child: Image.asset(
                                   Theme.of(context).brightness ==
                                           Brightness.dark
-                                      ? 'assets/images/Banner_Graphics_for_Apps_(1).png'
-                                      : 'assets/images/Banner_Graphics_for_Apps_(1).png',
+                                      ? 'assets/images/k7eg7_8.png'
+                                      : 'assets/images/k7eg7_8.png',
                                   fit: BoxFit.fill,
                                 ),
                               ),

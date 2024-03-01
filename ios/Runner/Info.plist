@@ -59,11 +59,11 @@
 	<true/>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
-    <string>In order to search nearby, this app requires access to your current location.</string>
+    <string>In order to see if the user is close to the church, this app requires permission to the location.</string>
 	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>In order to upload background and profile photos, this app requires access to the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
+    <string>In order to upload background and profile photos, this app requires access to the photo library.</string>
 
     <key>UIBackgroundModes</key>
     <array>

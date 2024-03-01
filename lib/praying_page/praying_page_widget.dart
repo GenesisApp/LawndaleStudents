@@ -241,7 +241,7 @@ class _PrayingPageWidgetState extends State<PrayingPageWidget>
                   ),
                 ),
                 child: Lottie.asset(
-                  'assets/lottie_animations/ULoE0u6Blr.json',
+                  'assets/lottie_animations/D1wwW7Go6W.json',
                   width: 150.0,
                   height: 130.0,
                   fit: BoxFit.cover,
@@ -265,7 +265,7 @@ for thi... */
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Inter',
-                            color: Color(0xFFFEFDEC),
+                            color: FlutterFlowTheme.of(context).label,
                             fontSize: 16.0,
                           ),
                     ).animateOnPageLoad(
@@ -283,7 +283,7 @@ for thi... */
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Inter',
-                              color: Color(0xFFFEFDEC),
+                              color: FlutterFlowTheme.of(context).label,
                               fontSize: 16.0,
                             ),
                       ).animateOnPageLoad(
@@ -317,10 +317,9 @@ for thi... */
                         width: 100.0,
                         height: 100.0,
                         decoration: BoxDecoration(
-                          color: Color(0x3F000000),
                           shape: BoxShape.circle,
                           border: Border.all(
-                            color: Colors.transparent,
+                            color: FlutterFlowTheme.of(context).label,
                           ),
                         ),
                         child: InkWell(
@@ -365,7 +364,7 @@ for thi... */
                           },
                           child: Icon(
                             Icons.check_rounded,
-                            color: Color(0xFFFEFDEC),
+                            color: FlutterFlowTheme.of(context).label,
                             size: 40.0,
                           ),
                         ),

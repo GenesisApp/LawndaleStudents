@@ -612,18 +612,22 @@ class _SoLSplashScreenWidgetState extends State<SoLSplashScreenWidget>
                           ),
                           Container(
                             decoration: BoxDecoration(),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: SvgPicture.asset(
-                                Theme.of(context).brightness == Brightness.dark
-                                    ? 'assets/images/hand-tap_(dark_mode).svg'
-                                    : 'assets/images/hand-tap_(light_mode).svg',
-                                width: 50.0,
-                                height: 50.0,
-                                fit: BoxFit.cover,
-                              ),
-                            ).animateOnPageLoad(
-                                animationsMap['imageOnPageLoadAnimation']!),
+                            child: Padding(
+                              padding: EdgeInsets.all(12.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: SvgPicture.asset(
+                                  Theme.of(context).brightness ==
+                                          Brightness.dark
+                                      ? 'assets/images/hand-tap_(dark_mode).svg'
+                                      : 'assets/images/hand-tap_(light_mode).svg',
+                                  width: 50.0,
+                                  height: 50.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ).animateOnPageLoad(
+                                  animationsMap['imageOnPageLoadAnimation']!),
+                            ),
                           ).animateOnPageLoad(
                               animationsMap['containerOnPageLoadAnimation']!),
                           FlutterFlowTimer(
