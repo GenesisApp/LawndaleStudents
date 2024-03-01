@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -492,138 +491,96 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      StreamBuilder<
-                                          List<DailyPracticeVideosRecord>>(
-                                        stream: queryDailyPracticeVideosRecord(
-                                          queryBuilder:
-                                              (dailyPracticeVideosRecord) =>
-                                                  dailyPracticeVideosRecord
-                                                      .where(
-                                            'worshipPractice',
-                                            isEqualTo: true,
-                                          ),
-                                          singleRecord: true,
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 75.0,
-                                                height: 75.0,
-                                                child: SpinKitRipple(
-                                                  color: Color(0xFF7F95AD),
-                                                  size: 75.0,
-                                                ),
+                                      Stack(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.28,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.28,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryGrey8,
+                                                shape: BoxShape.circle,
                                               ),
-                                            );
-                                          }
-                                          List<DailyPracticeVideosRecord>
-                                              stackDailyPracticeVideosRecordList =
-                                              snapshot.data!;
-                                          final stackDailyPracticeVideosRecord =
-                                              stackDailyPracticeVideosRecordList
-                                                      .isNotEmpty
-                                                  ? stackDailyPracticeVideosRecordList
-                                                      .first
-                                                  : null;
-                                          return Stack(
-                                            alignment:
-                                                AlignmentDirectional(0.0, 0.0),
+                                            ),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
                                               Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
-                                                        0.28,
+                                                        0.11,
                                                 height:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.28,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryGrey8,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.11,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
                                                             .height *
                                                         0.05,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.transparent,
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      children: [
-                                                        if (Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark)
-                                                          SvgPicture.asset(
-                                                            'assets/images/flame-fill_(3).svg',
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        if (!(Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark))
-                                                          SvgPicture.asset(
-                                                            'assets/images/flame-fill_(1).svg',
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: CircularPercentIndicator(
-                                                  percent: 1.0,
-                                                  radius:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.14,
-                                                  lineWidth: 5.0,
-                                                  animation: true,
-                                                  animateFromLastPercent: true,
-                                                  progressColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .worshipRing,
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.transparent,
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    if (Theme.of(context)
+                                                            .brightness ==
+                                                        Brightness.dark)
+                                                      SvgPicture.asset(
+                                                        'assets/images/flame-fill_(3).svg',
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    if (!(Theme.of(context)
+                                                            .brightness ==
+                                                        Brightness.dark))
+                                                      SvgPicture.asset(
+                                                        'assets/images/flame-fill_(1).svg',
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                  ],
                                                 ),
                                               ),
                                             ],
-                                          );
-                                        },
+                                          ),
+                                          Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: CircularPercentIndicator(
+                                              percent: 1.0,
+                                              radius: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.14,
+                                              lineWidth: 5.0,
+                                              animation: true,
+                                              animateFromLastPercent: true,
+                                              progressColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .worshipRing,
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -654,137 +611,94 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      StreamBuilder<
-                                          List<DailyPracticeVideosRecord>>(
-                                        stream: queryDailyPracticeVideosRecord(
-                                          queryBuilder:
-                                              (dailyPracticeVideosRecord) =>
-                                                  dailyPracticeVideosRecord
-                                                      .where(
-                                            'scripturePractice',
-                                            isEqualTo: true,
-                                          ),
-                                          singleRecord: true,
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 75.0,
-                                                height: 75.0,
-                                                child: SpinKitRipple(
-                                                  color: Color(0xFF7F95AD),
-                                                  size: 75.0,
-                                                ),
+                                      Stack(
+                                        alignment:
+                                            AlignmentDirectional(0.0, 0.0),
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.28,
+                                            height: MediaQuery.sizeOf(context)
+                                                    .width *
+                                                0.28,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryGrey8,
+                                                shape: BoxShape.circle,
                                               ),
-                                            );
-                                          }
-                                          List<DailyPracticeVideosRecord>
-                                              stackDailyPracticeVideosRecordList =
-                                              snapshot.data!;
-                                          final stackDailyPracticeVideosRecord =
-                                              stackDailyPracticeVideosRecordList
-                                                      .isNotEmpty
-                                                  ? stackDailyPracticeVideosRecordList
-                                                      .first
-                                                  : null;
-                                          return Stack(
+                                            ),
+                                          ),
+                                          Align(
                                             alignment:
                                                 AlignmentDirectional(0.0, 0.0),
+                                            child: CircularPercentIndicator(
+                                              percent: 1.0,
+                                              radius: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.14,
+                                              lineWidth: 5.0,
+                                              animation: true,
+                                              animateFromLastPercent: true,
+                                              progressColor: Color(0xFF6D6DAE),
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                            ),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
                                             children: [
                                               Container(
                                                 width:
                                                     MediaQuery.sizeOf(context)
                                                             .width *
-                                                        0.28,
+                                                        0.11,
                                                 height:
                                                     MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.28,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primary,
-                                                  shape: BoxShape.circle,
-                                                ),
-                                                child: Container(
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryGrey8,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                              ),
-                                              Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: CircularPercentIndicator(
-                                                  percent: 1.0,
-                                                  radius:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.14,
-                                                  lineWidth: 5.0,
-                                                  animation: true,
-                                                  animateFromLastPercent: true,
-                                                  progressColor:
-                                                      Color(0xFF6D6DAE),
-                                                  backgroundColor:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                ),
-                                              ),
-                                              Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                children: [
-                                                  Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.11,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
                                                             .height *
                                                         0.05,
-                                                    decoration: BoxDecoration(
-                                                      color: Colors.transparent,
-                                                    ),
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        if (Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark)
-                                                          SvgPicture.asset(
-                                                            'assets/images/bookmarks-simple-fill_(1).svg',
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        if (!(Theme.of(context)
-                                                                .brightness ==
-                                                            Brightness.dark))
-                                                          SvgPicture.asset(
-                                                            'assets/images/bookmarks-simple-fill.svg',
-                                                            width: 40.0,
-                                                            height: 40.0,
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
+                                                decoration: BoxDecoration(
+                                                  color: Colors.transparent,
+                                                ),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    if (Theme.of(context)
+                                                            .brightness ==
+                                                        Brightness.dark)
+                                                      SvgPicture.asset(
+                                                        'assets/images/bookmarks-simple-fill_(1).svg',
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                    if (!(Theme.of(context)
+                                                            .brightness ==
+                                                        Brightness.dark))
+                                                      SvgPicture.asset(
+                                                        'assets/images/bookmarks-simple-fill.svg',
+                                                        width: 40.0,
+                                                        height: 40.0,
+                                                        fit: BoxFit.cover,
+                                                      ),
+                                                  ],
+                                                ),
                                               ),
                                             ],
-                                          );
-                                        },
+                                          ),
+                                        ],
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -818,153 +732,103 @@ class _OnBoardingWidgetState extends State<OnBoardingWidget>
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 2.0, 0.0),
-                                        child: StreamBuilder<
-                                            List<DailyPracticeVideosRecord>>(
-                                          stream:
-                                              queryDailyPracticeVideosRecord(
-                                            queryBuilder:
-                                                (dailyPracticeVideosRecord) =>
-                                                    dailyPracticeVideosRecord
-                                                        .where(
-                                              'prayerPractice',
-                                              isEqualTo: true,
-                                            ),
-                                            singleRecord: true,
-                                          ),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 75.0,
-                                                  height: 75.0,
-                                                  child: SpinKitRipple(
-                                                    color: Color(0xFF7F95AD),
-                                                    size: 75.0,
+                                        child: Stack(
+                                          alignment:
+                                              AlignmentDirectional(0.0, 0.0),
+                                          children: [
+                                            Container(
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.28,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.28,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryGrey8,
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primary,
                                                   ),
                                                 ),
-                                              );
-                                            }
-                                            List<DailyPracticeVideosRecord>
-                                                stackDailyPracticeVideosRecordList =
-                                                snapshot.data!;
-                                            final stackDailyPracticeVideosRecord =
-                                                stackDailyPracticeVideosRecordList
-                                                        .isNotEmpty
-                                                    ? stackDailyPracticeVideosRecordList
-                                                        .first
-                                                    : null;
-                                            return Stack(
+                                              ),
+                                            ),
+                                            Align(
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
+                                              child: CircularPercentIndicator(
+                                                percent: 1.0,
+                                                radius:
+                                                    MediaQuery.sizeOf(context)
+                                                            .width *
+                                                        0.14,
+                                                lineWidth: 5.0,
+                                                animation: true,
+                                                animateFromLastPercent: true,
+                                                progressColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .prayerRing,
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                              ),
+                                            ),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Container(
                                                   width:
                                                       MediaQuery.sizeOf(context)
                                                               .width *
-                                                          0.28,
+                                                          0.11,
                                                   height:
                                                       MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.28,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryGrey8,
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child:
-                                                      CircularPercentIndicator(
-                                                    percent: 1.0,
-                                                    radius: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.14,
-                                                    lineWidth: 5.0,
-                                                    animation: true,
-                                                    animateFromLastPercent:
-                                                        true,
-                                                    progressColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .prayerRing,
-                                                    backgroundColor:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .primary,
-                                                  ),
-                                                ),
-                                                Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.max,
-                                                  children: [
-                                                    Container(
-                                                      width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          0.11,
-                                                      height: MediaQuery.sizeOf(
-                                                                  context)
                                                               .height *
                                                           0.05,
-                                                      decoration: BoxDecoration(
-                                                        color:
-                                                            Colors.transparent,
-                                                      ),
-                                                      child: Column(
-                                                        mainAxisSize:
-                                                            MainAxisSize.min,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          if (Theme.of(context)
-                                                                  .brightness ==
-                                                              Brightness.dark)
-                                                            SvgPicture.asset(
-                                                              'assets/images/hands-clapping-fill_(ring_dark_mode).svg',
-                                                              width: 40.0,
-                                                              height: 40.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          if (!(Theme.of(
-                                                                      context)
-                                                                  .brightness ==
-                                                              Brightness.dark))
-                                                            SvgPicture.asset(
-                                                              'assets/images/hands-clapping-fill_(ring_light_mode).svg',
-                                                              width: 40.0,
-                                                              height: 40.0,
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.transparent,
+                                                  ),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      if (Theme.of(context)
+                                                              .brightness ==
+                                                          Brightness.dark)
+                                                        SvgPicture.asset(
+                                                          'assets/images/hands-clapping-fill_(ring_dark_mode).svg',
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                      if (!(Theme.of(context)
+                                                              .brightness ==
+                                                          Brightness.dark))
+                                                        SvgPicture.asset(
+                                                          'assets/images/hands-clapping-fill_(ring_light_mode).svg',
+                                                          width: 40.0,
+                                                          height: 40.0,
+                                                          fit: BoxFit.cover,
+                                                        ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ],
-                                            );
-                                          },
+                                            ),
+                                          ],
                                         ),
                                       ),
                                       Padding(

@@ -386,7 +386,11 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
   FocusNode? textFieldFocusNode15;
   TextEditingController? textController15;
   String? Function(BuildContext, String?)? textController15Validator;
-  String? _textController15Validator(BuildContext context, String? val) {
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode16;
+  TextEditingController? textController16;
+  String? Function(BuildContext, String?)? textController16Validator;
+  String? _textController16Validator(BuildContext context, String? val) {
     if (val == null || val.isEmpty) {
       return FFLocalizations.of(context).getText(
         'ysu2uepa' /* Field is required */,
@@ -416,7 +420,7 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
     textController12Validator = _textController12Validator;
     textController13Validator = _textController13Validator;
     textController14Validator = _textController14Validator;
-    textController15Validator = _textController15Validator;
+    textController16Validator = _textController16Validator;
   }
 
   @override
@@ -468,6 +472,9 @@ class VideoUploadModel extends FlutterFlowModel<VideoUploadWidget> {
 
     textFieldFocusNode15?.dispose();
     textController15?.dispose();
+
+    textFieldFocusNode16?.dispose();
+    textController16?.dispose();
   }
 
   /// Action blocks are added here.

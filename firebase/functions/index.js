@@ -5,6 +5,7 @@ admin.initializeApp();
 const kFcmTokensCollection = "fcm_tokens";
 const kPushNotificationsCollection = "ff_push_notifications";
 const kUserPushNotificationsCollection = "ff_user_push_notifications";
+const kSchedulerIntervalMinutes = 1;
 const firestore = admin.firestore();
 
 const kPushNotificationRuntimeOpts = {
@@ -94,6 +95,56 @@ exports.sendUserPushNotificationsTrigger = functions
     } catch (e) {
       console.log(`Error: ${e}`);
       await snapshot.ref.update({ status: "failed", error: `${e}` });
+    }
+  });
+
+exports.sendScheduledPushNotifications = functions.pubsub
+  .schedule(`every ${kSchedulerIntervalMinutes} minutes synchronized`)
+  .onRun(async (_) => {
+    const minutesToMilliseconds = (minutes) => minutes * 60 * 1000;
+    function currentTimeDownToNearestMinute() {
+      // Add a second to the current time to avoid minute boundary issues.
+      const currentTime = new Date(new Date().getTime() + 1000);
+      // Remove seconds and milliseconds to get the time down to the minute.
+      currentTime.setSeconds(0, 0);
+      return currentTime;
+    }
+
+    // Determine the cutoff times for this round of push notifications.
+    const intervalMs = minutesToMilliseconds(kSchedulerIntervalMinutes);
+    const upperCutoffTime = currentTimeDownToNearestMinute();
+    const lowerCutoffTime = new Date(upperCutoffTime.getTime() - intervalMs);
+    // Send push notifications that we've scheduled.
+    const scheduledNotifications = await firestore
+      .collection(kPushNotificationsCollection)
+      .where("scheduled_time", ">", lowerCutoffTime)
+      .where("scheduled_time", "<=", upperCutoffTime)
+      .get();
+    for (var snapshot of scheduledNotifications.docs) {
+      try {
+        await sendPushNotifications(snapshot);
+      } catch (e) {
+        console.log(`Error: ${e}`);
+        await snapshot.ref.update({ status: "failed", error: `${e}` });
+      }
+    }
+    // Send push notifications that users have scheduled.
+    const scheduledUserNotifications = await firestore
+      .collection(kUserPushNotificationsCollection)
+      .where("scheduled_time", ">", lowerCutoffTime)
+      .where("scheduled_time", "<=", upperCutoffTime)
+      .get();
+    for (var snapshot of scheduledUserNotifications.docs) {
+      try {
+        // Don't let user-triggered notifications to be sent to all users.
+        const userRefsStr = snapshot.data().user_refs || "";
+        if (userRefsStr) {
+          await sendPushNotifications(snapshot);
+        }
+      } catch (e) {
+        console.log(`Error: ${e}`);
+        await snapshot.ref.update({ status: "failed", error: `${e}` });
+      }
     }
   });
 

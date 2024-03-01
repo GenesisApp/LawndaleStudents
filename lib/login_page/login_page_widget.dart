@@ -60,7 +60,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primary,
+      backgroundColor: FlutterFlowTheme.of(context).systemBackground,
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -89,8 +89,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 child: Image.asset(
                                   Theme.of(context).brightness ==
                                           Brightness.dark
-                                      ? 'assets/images/Banner_Graphics_for_Apps_(1).png'
-                                      : 'assets/images/Banner_Graphics_for_Apps_(1).png',
+                                      ? 'assets/images/k7eg7_8.png'
+                                      : 'assets/images/k7eg7_8.png',
                                   fit: BoxFit.contain,
                                 ),
                               ),
@@ -283,6 +283,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               BorderRadius.circular(20.0),
                                         ),
                                         filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondarySystemBackground,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 24.0, 20.0, 24.0),
@@ -381,6 +383,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               BorderRadius.circular(20.0),
                                         ),
                                         filled: true,
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .secondarySystemBackground,
                                         contentPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 24.0, 20.0, 24.0),

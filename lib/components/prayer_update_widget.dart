@@ -176,23 +176,19 @@ class _PrayerUpdateWidgetState extends State<PrayerUpdateWidget> {
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            if (Theme.of(context).brightness ==
-                                                Brightness.dark)
-                                              SvgPicture.asset(
-                                                'assets/images/hands-clapping-fill_(3).svg',
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.0),
+                                              child: SvgPicture.asset(
+                                                Theme.of(context).brightness ==
+                                                        Brightness.dark
+                                                    ? 'assets/images/hands-clapping-fill_(ring_dark_mode).svg'
+                                                    : 'assets/images/hands-clapping-fill_(ring_light_mode).svg',
                                                 width: 50.0,
                                                 height: 50.0,
                                                 fit: BoxFit.cover,
                                               ),
-                                            if (!(Theme.of(context)
-                                                    .brightness ==
-                                                Brightness.dark))
-                                              SvgPicture.asset(
-                                                'assets/images/hands-clapping-fill.svg',
-                                                width: 50.0,
-                                                height: 50.0,
-                                                fit: BoxFit.cover,
-                                              ),
+                                            ),
                                           ],
                                         ),
                                       ),

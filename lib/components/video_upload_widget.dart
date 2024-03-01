@@ -120,6 +120,9 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
     _model.textController15 ??= TextEditingController();
     _model.textFieldFocusNode15 ??= FocusNode();
 
+    _model.textController16 ??= TextEditingController();
+    _model.textFieldFocusNode16 ??= FocusNode();
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
           _model.textController5?.text = dateTimeFormat(
             'yMd',
@@ -7355,7 +7358,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                                           FFLocalizations.of(
                                                                   context)
                                                               .getText(
-                                                            'zd47upak' /* PDF Document */,
+                                                            'zd47upak' /* PDF Document (optional) */,
                                                           ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -7552,6 +7555,95 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                           focusNode:
                                               _model.textFieldFocusNode15,
                                           textCapitalization:
+                                              TextCapitalization.sentences,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            labelText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              '0ocfp1hf' /* File URL / Website */,
+                                            ),
+                                            labelStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Inter',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .secondary,
+                                                    ),
+                                            hintText:
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                              'c5r3asf3' /* type here... */,
+                                            ),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Color(0x00000000),
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                            errorBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .prayerRing,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                            focusedErrorBorder:
+                                                OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .prayerRing,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                            ),
+                                            filled: true,
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondarySystemBackground,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Inter',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiary,
+                                              ),
+                                          validator: _model
+                                              .textController15Validator
+                                              .asValidator(context),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 20.0, 0.0, 0.0),
+                                      child: Container(
+                                        width: double.infinity,
+                                        child: TextFormField(
+                                          controller: _model.textController16,
+                                          focusNode:
+                                              _model.textFieldFocusNode16,
+                                          textCapitalization:
                                               TextCapitalization.words,
                                           obscureText: false,
                                           decoration: InputDecoration(
@@ -7626,7 +7718,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                                         .tertiary,
                                               ),
                                           validator: _model
-                                              .textController15Validator
+                                              .textController16Validator
                                               .asValidator(context),
                                         ),
                                       ),
@@ -7722,12 +7814,6 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                                           .validate()) {
                                                     return;
                                                   }
-                                                  if (_model.uploadedFileUrl7 ==
-                                                          null ||
-                                                      _model.uploadedFileUrl7
-                                                          .isEmpty) {
-                                                    return;
-                                                  }
 
                                                   var guidesRecordReference =
                                                       GuidesRecord.collection
@@ -7738,7 +7824,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                                     videoName: _model
                                                         .textController14.text,
                                                     speaker: _model
-                                                        .textController15.text,
+                                                        .textController16.text,
                                                     timeUploaded:
                                                         getCurrentTimestamp,
                                                     timeEdited:
@@ -7760,6 +7846,8 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                                             : false,
                                                     messageNotes:
                                                         _model.uploadedFileUrl7,
+                                                    registrationLink: _model
+                                                        .textController15.text,
                                                   ));
                                                   _model.newResource11 = GuidesRecord
                                                       .getDocumentFromData(
@@ -7768,7 +7856,7 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                                                 .textController14
                                                                 .text,
                                                             speaker: _model
-                                                                .textController15
+                                                                .textController16
                                                                 .text,
                                                             timeUploaded:
                                                                 getCurrentTimestamp,
@@ -7791,11 +7879,12 @@ class _VideoUploadWidgetState extends State<VideoUploadWidget> {
                                                                     : false,
                                                             messageNotes: _model
                                                                 .uploadedFileUrl7,
+                                                            registrationLink: _model
+                                                                .textController15
+                                                                .text,
                                                           ),
                                                           guidesRecordReference);
-                                                  await actions.hapticFeedback(
-                                                    1,
-                                                  );
+                                                  HapticFeedback.lightImpact();
                                                   Navigator.pop(context);
 
                                                   setState(() {});

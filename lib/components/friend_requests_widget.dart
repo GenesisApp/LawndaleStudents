@@ -551,7 +551,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget> {
                                                                 children: [
                                                                   SvgPicture
                                                                       .asset(
-                                                                    'assets/images/arrow-bend-up-left.svg',
+                                                                    'assets/images/arrow_left.svg',
                                                                     width: 25.0,
                                                                     height:
                                                                         25.0,
@@ -750,7 +750,7 @@ class _FriendRequestsWidgetState extends State<FriendRequestsWidget> {
                                                                             0.0),
                                                                     child: SvgPicture
                                                                         .asset(
-                                                                      'assets/images/arrow-bend-up-right.svg',
+                                                                      'assets/images/arrow_right.svg',
                                                                       width:
                                                                           25.0,
                                                                       height:

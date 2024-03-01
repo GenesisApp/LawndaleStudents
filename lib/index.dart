@@ -82,3 +82,5 @@ export '/journal_reply_page/journal_reply_page_widget.dart'
 export '/series_catalog/series_catalog_widget.dart' show SeriesCatalogWidget;
 export '/message_board/message_board_widget.dart' show MessageBoardWidget;
 export '/recent_checkins/recent_checkins_widget.dart' show RecentCheckinsWidget;
+export '/dashboard_home_page/dashboard_home_page_widget.dart'
+    show DashboardHomePageWidget;

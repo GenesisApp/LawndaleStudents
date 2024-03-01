@@ -795,7 +795,7 @@ class _CommunityPrayerRequestChatWidgetState
                                           height: 30.0,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
-                                                .tertiarySystemBackground,
+                                                .secondarySystemGroupedBackground,
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                           ),
@@ -905,7 +905,7 @@ class _CommunityPrayerRequestChatWidgetState
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiarySystemBackground,
+                                                      .secondarySystemGroupedBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
@@ -1222,7 +1222,7 @@ class _CommunityPrayerRequestChatWidgetState
                                               decoration: BoxDecoration(
                                                 color: FlutterFlowTheme.of(
                                                         context)
-                                                    .tertiarySystemBackground,
+                                                    .secondarySystemGroupedBackground,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                               ),
@@ -1297,9 +1297,9 @@ class _CommunityPrayerRequestChatWidgetState
                                           Container(
                                             height: 30.0,
                                             decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiarySystemBackground,
+                                              color: FlutterFlowTheme.of(
+                                                      context)
+                                                  .secondarySystemGroupedBackground,
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                             ),
@@ -1520,7 +1520,7 @@ class _CommunityPrayerRequestChatWidgetState
                                               decoration: BoxDecoration(
                                                 color: FlutterFlowTheme.of(
                                                         context)
-                                                    .tertiarySystemBackground,
+                                                    .secondarySystemGroupedBackground,
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
                                               ),
