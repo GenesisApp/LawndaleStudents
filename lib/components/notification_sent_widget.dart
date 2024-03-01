@@ -121,7 +121,7 @@ class _NotificationSentWidgetState extends State<NotificationSentWidget> {
                               50.0, 20.0, 50.0, 10.0),
                           child: Text(
                             FFLocalizations.of(context).getText(
-                              'q28sgz2j' /* Notification sent! */,
+                              'q28sgz2j' /* Notification created! */,
                             ),
                             textAlign: TextAlign.center,
                             style: FlutterFlowTheme.of(context)

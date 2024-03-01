@@ -2,7 +2,6 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
-import '/components/notification_scheduled_widget.dart';
 import '/components/notification_sent_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -588,11 +587,13 @@ class _CustomPushNotificationWidgetState
                                         child: Padding(
                                           padding:
                                               MediaQuery.viewInsetsOf(context),
-                                          child: NotificationScheduledWidget(),
+                                          child: NotificationSentWidget(),
                                         ),
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));
+
+                                  Navigator.pop(context);
                                 } else {
                                   triggerPushNotification(
                                     notificationTitle:
@@ -625,9 +626,9 @@ class _CustomPushNotificationWidgetState
                                       );
                                     },
                                   ).then((value) => safeSetState(() {}));
-                                }
 
-                                Navigator.pop(context);
+                                  Navigator.pop(context);
+                                }
                               },
                               child: Container(
                                 width: 40.0,

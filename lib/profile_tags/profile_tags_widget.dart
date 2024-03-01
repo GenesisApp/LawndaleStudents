@@ -275,136 +275,69 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget> {
                 ],
               ),
             ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+            Container(
+              width: MediaQuery.sizeOf(context).width * 0.89,
+              height: 45.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
               child: Container(
-                width: MediaQuery.sizeOf(context).width * 0.89,
-                height: 40.0,
+                width: 100.0,
+                height: 100.0,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
+                  color: FlutterFlowTheme.of(context).secondarySystemBackground,
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
-                child: Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    color:
-                        FlutterFlowTheme.of(context).secondarySystemBackground,
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          width: 100.0,
-                          height: 100.0,
-                          decoration: BoxDecoration(),
-                          child: Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.textController,
-                              focusNode: _model.textFieldFocusNode,
-                              onFieldSubmitted: (_) async {
-                                await queryProfileTagsRecordOnce()
-                                    .then(
-                                      (records) => _model
-                                          .simpleSearchResults = TextSearch(
-                                        records
-                                            .map(
-                                              (record) =>
-                                                  TextSearchItem.fromTerms(
-                                                      record,
-                                                      [record.tagName!]),
-                                            )
-                                            .toList(),
-                                      )
-                                          .search(_model.textController.text)
-                                          .map((r) => r.object)
-                                          .take(50)
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.0, 0.0),
+                          child: TextFormField(
+                            controller: _model.textController,
+                            focusNode: _model.textFieldFocusNode,
+                            onFieldSubmitted: (_) async {
+                              await queryProfileTagsRecordOnce()
+                                  .then(
+                                    (records) => _model.simpleSearchResults =
+                                        TextSearch(
+                                      records
+                                          .map(
+                                            (record) =>
+                                                TextSearchItem.fromTerms(
+                                                    record, [record.tagName!]),
+                                          )
                                           .toList(),
                                     )
-                                    .onError((_, __) =>
-                                        _model.simpleSearchResults = [])
-                                    .whenComplete(() => setState(() {}));
+                                            .search(_model.textController.text)
+                                            .map((r) => r.object)
+                                            .take(50)
+                                            .toList(),
+                                  )
+                                  .onError((_, __) =>
+                                      _model.simpleSearchResults = [])
+                                  .whenComplete(() => setState(() {}));
 
-                                if (_model.textController.text != null &&
-                                    _model.textController.text != '') {
-                                  FFAppState().update(() {
-                                    FFAppState().showFullList = false;
-                                  });
-                                }
-                              },
-                              textCapitalization: TextCapitalization.words,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                isDense: true,
-                                labelText: FFLocalizations.of(context).getText(
-                                  'qni19s4j' /* Search Tags... */,
-                                ),
-                                labelStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .lightSecondaryText,
-                                      fontSize: 16.0,
-                                    ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Inter',
-                                      color: FlutterFlowTheme.of(context)
-                                          .lightSecondaryText,
-                                      fontSize: 16.0,
-                                    ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                prefixIcon: Icon(
-                                  Icons.search,
-                                  color: FlutterFlowTheme.of(context)
-                                      .lightSecondaryText,
-                                  size: 18.0,
-                                ),
+                              if (_model.textController.text != null &&
+                                  _model.textController.text != '') {
+                                FFAppState().update(() {
+                                  FFAppState().showFullList = false;
+                                });
+                              }
+                            },
+                            textCapitalization: TextCapitalization.words,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              isDense: true,
+                              labelText: FFLocalizations.of(context).getText(
+                                'qni19s4j' /* Search Tags... */,
                               ),
-                              style: FlutterFlowTheme.of(context)
+                              labelStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Inter',
@@ -412,42 +345,104 @@ class _ProfileTagsWidgetState extends State<ProfileTagsWidget> {
                                         .lightSecondaryText,
                                     fontSize: 16.0,
                                   ),
-                              validator: _model.textControllerValidator
-                                  .asValidator(context),
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    color: FlutterFlowTheme.of(context)
+                                        .lightSecondaryText,
+                                    fontSize: 16.0,
+                                  ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              errorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedErrorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              prefixIcon: Icon(
+                                Icons.search,
+                                color: FlutterFlowTheme.of(context)
+                                    .lightSecondaryText,
+                                size: 18.0,
+                              ),
                             ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Inter',
+                                  color: FlutterFlowTheme.of(context)
+                                      .lightSecondaryText,
+                                  fontSize: 16.0,
+                                ),
+                            validator: _model.textControllerValidator
+                                .asValidator(context),
                           ),
                         ),
                       ),
-                      Container(
-                        width: 40.0,
-                        height: double.infinity,
-                        decoration: BoxDecoration(),
-                        child: Visibility(
-                          visible: !FFAppState().showFullList,
-                          child: InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              FFAppState().update(() {
-                                FFAppState().showFullList = true;
-                              });
-                              setState(() {
-                                _model.textController?.clear();
-                              });
-                            },
-                            child: Icon(
-                              Icons.clear_rounded,
-                              color: FlutterFlowTheme.of(context)
-                                  .lightSecondaryText,
-                              size: 20.0,
-                            ),
+                    ),
+                    Container(
+                      width: 40.0,
+                      height: double.infinity,
+                      decoration: BoxDecoration(),
+                      child: Visibility(
+                        visible: !FFAppState().showFullList,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            FFAppState().update(() {
+                              FFAppState().showFullList = true;
+                            });
+                            setState(() {
+                              _model.textController?.clear();
+                            });
+                          },
+                          child: Icon(
+                            Icons.clear_rounded,
+                            color:
+                                FlutterFlowTheme.of(context).lightSecondaryText,
+                            size: 20.0,
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),

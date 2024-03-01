@@ -7510,7 +7510,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // NotificationSent
   {
     'q28sgz2j': {
-      'en': 'Notification sent!',
+      'en': 'Notification created!',
       'es': '¡Notificación enviada!',
     },
     'rvh7sxeo': {

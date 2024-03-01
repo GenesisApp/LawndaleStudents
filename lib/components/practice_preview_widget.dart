@@ -1622,9 +1622,9 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget> {
                                                     .height *
                                                 0.048,
                                             decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .tertiarySystemBackground,
+                                              color: FlutterFlowTheme.of(
+                                                      context)
+                                                  .secondarySystemGroupedBackground,
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                             ),
@@ -1751,7 +1751,7 @@ class _PracticePreviewWidgetState extends State<PracticePreviewWidget> {
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .tertiarySystemBackground,
+                                                      .secondarySystemGroupedBackground,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           8.0),
