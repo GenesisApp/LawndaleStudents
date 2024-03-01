@@ -241,7 +241,7 @@ class _PrayingPageWidgetState extends State<PrayingPageWidget>
                   ),
                 ),
                 child: Lottie.asset(
-                  'assets/lottie_animations/D1wwW7Go6W_(1).json',
+                  'assets/lottie_animations/D1wwW7Go6W.json',
                   width: 150.0,
                   height: 130.0,
                   fit: BoxFit.cover,
